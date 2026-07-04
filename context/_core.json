@@ -1,0 +1,1345 @@
+{
+    "generated_at": "2026-07-04T09:48:34+02:00",
+    "tables": [
+        {
+            "name": "changelogs",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "version",
+                    "type": "varchar(20)",
+                    "nullable": false,
+                    "comment": "Semver es. 1.2.0"
+                },
+                {
+                    "name": "title",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "notes",
+                    "type": "text",
+                    "nullable": false
+                },
+                {
+                    "name": "release_date",
+                    "type": "date",
+                    "nullable": false
+                },
+                {
+                    "name": "is_published",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "created_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "fk_changelogs_user",
+                    "columns": [
+                        "created_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_is_published",
+                    "columns": [
+                        "is_published"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_release_date",
+                    "columns": [
+                        "release_date"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "version",
+                    "columns": [
+                        "version"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_changelogs_user",
+                    "column": "created_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "changelog_translations",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "changelog_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "locale",
+                    "type": "varchar(10)",
+                    "nullable": false
+                },
+                {
+                    "name": "title",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "notes",
+                    "type": "text",
+                    "nullable": false
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "uq_changelog_translations",
+                    "columns": [
+                        "changelog_id",
+                        "locale"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_changelog_translations",
+                    "column": "changelog_id",
+                    "references": "changelogs.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "data_retention_policies",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "entity",
+                    "type": "varchar(100)",
+                    "nullable": false,
+                    "comment": "Human-readable entity name"
+                },
+                {
+                    "name": "description",
+                    "type": "varchar(255)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "table_name",
+                    "type": "varchar(100)",
+                    "nullable": false,
+                    "comment": "DB table to clean"
+                },
+                {
+                    "name": "date_column",
+                    "type": "varchar(100)",
+                    "nullable": false,
+                    "default": "'created_at'",
+                    "comment": "Date column for age check"
+                },
+                {
+                    "name": "retention_days",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "default": "90"
+                },
+                {
+                    "name": "action",
+                    "type": "enum('delete','anonymize')",
+                    "nullable": false,
+                    "default": "'delete'"
+                },
+                {
+                    "name": "anonymize_fields",
+                    "type": "longtext",
+                    "nullable": true,
+                    "default": "NULL",
+                    "comment": "Fields to replace with [RIMOSSO] when action=anonymize"
+                },
+                {
+                    "name": "enabled",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "1"
+                },
+                {
+                    "name": "last_run_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_retention_entity",
+                    "columns": [
+                        "entity"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": []
+        },
+        {
+            "name": "migrations",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "filename",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "module",
+                    "type": "varchar(100)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "batch",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "default": "1"
+                },
+                {
+                    "name": "executed_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "uq_migrations",
+                    "columns": [
+                        "filename",
+                        "module"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": []
+        },
+        {
+            "name": "module_databases",
+            "columns": [
+                {
+                    "name": "module_name",
+                    "type": "varchar(100)",
+                    "nullable": false
+                },
+                {
+                    "name": "mode",
+                    "type": "enum('shared','independent')",
+                    "nullable": false,
+                    "default": "'shared'"
+                },
+                {
+                    "name": "database_name",
+                    "type": "varchar(64)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "host",
+                    "type": "varchar(255)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "port",
+                    "type": "smallint(5) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "provisioning_status",
+                    "type": "enum('pending','ready','manual','error','removed')",
+                    "nullable": false,
+                    "default": "'pending'"
+                },
+                {
+                    "name": "last_error",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "last_error_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "provisioned_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "fk_module_databases_user",
+                    "columns": [
+                        "created_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_module_databases_status",
+                    "columns": [
+                        "provisioning_status"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "module_name"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_module_databases_user",
+                    "column": "created_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "module_states",
+            "columns": [
+                {
+                    "name": "name",
+                    "type": "varchar(50)",
+                    "nullable": false
+                },
+                {
+                    "name": "enabled",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "1"
+                },
+                {
+                    "name": "testing",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "updated_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "name"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "updated_by",
+                    "columns": [
+                        "updated_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "module_states_ibfk_1",
+                    "column": "updated_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "password_history",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "password_hash",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_pw_history_created",
+                    "columns": [
+                        "created_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_pw_history_user",
+                    "columns": [
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "password_history_ibfk_1",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "php_sessions",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "varchar(128)",
+                    "nullable": false
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "ip_address",
+                    "type": "varchar(45)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "user_agent",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "payload",
+                    "type": "longtext",
+                    "nullable": false
+                },
+                {
+                    "name": "last_activity",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_php_sessions_last_activity",
+                    "columns": [
+                        "last_activity"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_php_sessions_user_id",
+                    "columns": [
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_php_sessions_user",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "rate_limits",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "bigint(20) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "rate_key",
+                    "type": "varchar(128)",
+                    "nullable": false,
+                    "comment": "user:ID or ip:ADDRESS"
+                },
+                {
+                    "name": "endpoint",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "ip_address",
+                    "type": "varchar(45)",
+                    "nullable": false
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_rate_limits_created",
+                    "columns": [
+                        "created_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_rate_limits_key_endpoint_created",
+                    "columns": [
+                        "rate_key",
+                        "endpoint",
+                        "created_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": []
+        },
+        {
+            "name": "role_constraints",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "role_id_1",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "role_id_2",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "reason",
+                    "type": "varchar(500)",
+                    "nullable": false,
+                    "default": "''"
+                },
+                {
+                    "name": "enabled",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "1"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_rc_enabled",
+                    "columns": [
+                        "enabled"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_rc_pair",
+                    "columns": [
+                        "role_id_1",
+                        "role_id_2"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "role_id_2",
+                    "columns": [
+                        "role_id_2"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "role_constraints_ibfk_1",
+                    "column": "role_id_1",
+                    "references": "roles.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "role_constraints_ibfk_2",
+                    "column": "role_id_2",
+                    "references": "roles.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "security_incidents",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "type",
+                    "type": "varchar(50)",
+                    "nullable": false,
+                    "comment": "brute_force, csrf_violation, access_denied, etc."
+                },
+                {
+                    "name": "severity",
+                    "type": "enum('low','medium','high','critical')",
+                    "nullable": false,
+                    "default": "'medium'"
+                },
+                {
+                    "name": "details",
+                    "type": "longtext",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "ip",
+                    "type": "varchar(45)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "resolved_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "resolved_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "notes",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_si_created",
+                    "columns": [
+                        "created_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_si_ip",
+                    "columns": [
+                        "ip"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_si_severity",
+                    "columns": [
+                        "severity"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_si_type",
+                    "columns": [
+                        "type"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_si_type_created",
+                    "columns": [
+                        "type",
+                        "created_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "resolved_by",
+                    "columns": [
+                        "resolved_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "user_id",
+                    "columns": [
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "security_incidents_ibfk_1",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "security_incidents_ibfk_2",
+                    "column": "resolved_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "sessions",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "token_hash",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "ip",
+                    "type": "varchar(45)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "user_agent",
+                    "type": "varchar(500)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "last_activity",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                },
+                {
+                    "name": "expires_at",
+                    "type": "datetime",
+                    "nullable": false
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_sessions_expires",
+                    "columns": [
+                        "expires_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_sessions_token",
+                    "columns": [
+                        "token_hash"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_sessions_user",
+                    "columns": [
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "sessions_ibfk_1",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "user_totp_backup_codes",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "code_hash",
+                    "type": "varchar(255)",
+                    "nullable": false,
+                    "comment": "bcrypt hash of backup code"
+                },
+                {
+                    "name": "used_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_utbc_user",
+                    "columns": [
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "user_totp_backup_codes_ibfk_1",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "user_totp_secrets",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "secret",
+                    "type": "varchar(512)",
+                    "nullable": false,
+                    "comment": "Encrypted TOTP secret (AES-256-GCM via EncryptionService)"
+                },
+                {
+                    "name": "algorithm",
+                    "type": "varchar(10)",
+                    "nullable": false,
+                    "default": "'sha1'"
+                },
+                {
+                    "name": "digits",
+                    "type": "tinyint(3) unsigned",
+                    "nullable": false,
+                    "default": "6"
+                },
+                {
+                    "name": "period",
+                    "type": "tinyint(3) unsigned",
+                    "nullable": false,
+                    "default": "30"
+                },
+                {
+                    "name": "enabled",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "verified_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL",
+                    "comment": "When user first verified the code"
+                },
+                {
+                    "name": "last_used_timestep",
+                    "type": "bigint(20) unsigned",
+                    "nullable": true,
+                    "default": "NULL",
+                    "comment": "Ultimo timestep TOTP consumato (counter RFC 6238) - anti-replay"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_uts_user",
+                    "columns": [
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "user_totp_secrets_ibfk_1",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "user_weather_preferences",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "name",
+                    "type": "varchar(150)",
+                    "nullable": false
+                },
+                {
+                    "name": "admin1",
+                    "type": "varchar(150)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "country",
+                    "type": "varchar(150)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "country_code",
+                    "type": "varchar(10)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "latitude",
+                    "type": "decimal(10,6)",
+                    "nullable": false
+                },
+                {
+                    "name": "longitude",
+                    "type": "decimal(10,6)",
+                    "nullable": false
+                },
+                {
+                    "name": "timezone",
+                    "type": "varchar(64)",
+                    "nullable": false
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_user_weather_preferences_lookup",
+                    "columns": [
+                        "user_id",
+                        "name"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "uq_user_weather_preferences_user",
+                    "columns": [
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_user_weather_preferences_user",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        }
+    ],
+    "services": [
+        "App\\Services\\AuditService",
+        "App\\Services\\AuthService",
+        "App\\Services\\CsvExportService",
+        "App\\Services\\DataRetentionService",
+        "App\\Services\\DatabaseSessionHandler",
+        "App\\Services\\EncryptionService",
+        "App\\Services\\FileUploadService",
+        "App\\Services\\GlobalSearchService",
+        "App\\Services\\KeyRotationService",
+        "App\\Services\\LocaleResolver",
+        "App\\Services\\LogRotationService",
+        "App\\Services\\MailService",
+        "App\\Services\\MailerService",
+        "App\\Services\\ModuleDatabaseResolver",
+        "App\\Services\\ModulePdoFactory",
+        "App\\Services\\NavigationRegistry",
+        "App\\Services\\NonceService",
+        "App\\Services\\PasswordPolicyService",
+        "App\\Services\\PermissionSyncService",
+        "App\\Services\\ProfileService",
+        "App\\Services\\ProviderDiscovery",
+        "App\\Services\\RoleConstraintService",
+        "App\\Services\\RoleResolver",
+        "App\\Services\\SecurityIncidentService",
+        "App\\Services\\SessionLimiterService",
+        "App\\Services\\SessionManager",
+        "App\\Services\\SettingsService",
+        "App\\Services\\TotpService",
+        "App\\Services\\Translator",
+        "App\\Services\\UserService"
+    ],
+    "routes": []
+}

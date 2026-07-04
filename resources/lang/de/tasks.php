@@ -1,0 +1,196 @@
+<?php
+
+/**
+ * Tasks module — German.
+ */
+return [
+    'title'         => 'Aufgaben',
+    'subtitle'      => 'Operative Planung auf einem Kanban-Board',
+    'list_title'    => 'Aufgaben — Liste',
+    'list_subtitle' => 'Listenansicht mit Filtern und Sortierung',
+    'new_page_title'  => 'Neue Aufgabe',
+    'edit_page_title' => 'Aufgabe bearbeiten',
+    'breadcrumb_list' => 'Liste',
+    'breadcrumb_new'  => 'Neu',
+    'breadcrumb_edit' => 'Bearbeiten',
+
+    'status' => [
+        'backlog'     => 'Backlog',
+        'todo'        => 'Zu erledigen',
+        'in_progress' => 'In Bearbeitung',
+        'review'      => 'In Prüfung',
+        'done'        => 'Erledigt',
+    ],
+    'priority' => [
+        'low'    => 'Niedrig',
+        'medium' => 'Mittel',
+        'high'   => 'Hoch',
+        'urgent' => 'Dringend',
+    ],
+
+    'stats' => [
+        'overdue' => 'Überfällig',
+        'total'   => 'Gesamt',
+        'active'  => 'Aktiv',
+        'done'    => 'Erledigt',
+    ],
+
+    'actions' => [
+        'kanban'      => 'Kanban',
+        'list'        => 'Liste',
+        'new'         => 'Neue Aufgabe',
+        'in_calendar' => 'Im Kalender',
+        'detail'      => 'Detail',
+        'calendar'    => 'Kalender',
+    ],
+    'tooltip' => [
+        'list_view'    => 'Listenansicht',
+        'kanban_view'  => 'Kanban-Ansicht',
+        'new'          => 'Neue Aufgabe',
+        'linked_tasks' => 'Mit dem Kalender verknüpfte Aufgaben',
+        'open_event'   => 'Verknüpftes Kalenderereignis öffnen',
+        'add_in'       => 'Hinzufügen in :status',
+        'add_task_in'  => 'Aufgabe hinzufügen in :status',
+    ],
+
+    'fields' => [
+        'title'       => 'Titel',
+        'description' => 'Beschreibung',
+        'status'      => 'Status',
+        'priority'    => 'Priorität',
+        'due_date'    => 'Fällig am',
+        'due_time'    => 'Uhrzeit',
+        'color'       => 'Farbe',
+        'tags'        => 'Tags',
+    ],
+    'form' => [
+        'title_placeholder'       => 'Was musst du tun?',
+        'description_placeholder' => 'Details...',
+        'title_hint'              => 'Geben Sie einen Titel ein.',
+        'description_invalid'     => 'Ungültige Beschreibung.',
+        'fix_errors'              => 'Korrigieren Sie die Fehler.',
+        'new_heading'             => 'Neu',
+        'edit_heading'            => 'Bearbeiten',
+        'all_priorities'          => 'Alle Prioritäten',
+    ],
+
+    'checklist' => [
+        'label'         => 'Checkliste',
+        'add_placeholder' => 'Eintrag hinzufügen...',
+        'empty'         => 'Keine Einträge in der Checkliste.',
+        'remove_item'   => 'Diesen Eintrag entfernen?',
+        'item_added'    => 'Checklisten-Eintrag hinzugefügt.',
+        'item_removed'  => 'Checklisten-Eintrag entfernt.',
+        'updated'       => 'Checkliste aktualisiert.',
+        'meta'          => ':done von :total erledigt',
+    ],
+
+    'detail' => [
+        'created'         => 'Erstellt',
+        'completed'       => 'Abgeschlossen',
+        'no_link_warning' => 'Diese Aufgabe hat ein Fälligkeitsdatum, ist aber nicht mit einem Kalenderereignis verknüpft.',
+        'delete_confirm'  => 'Diese Aufgabe löschen?',
+        'delete_confirm_calendar' => 'Diese Aufgabe löschen und auch das verknüpfte Kalenderereignis entfernen?',
+    ],
+
+    'list' => [
+        'filter_status'      => 'Nach Status filtern',
+        'all'                => 'Alle',
+        'results'            => ':count Ergebnisse',
+        'search_placeholder' => 'Nach Titel oder Beschreibung suchen…',
+        'reset_tooltip'      => 'Alle Filter entfernen',
+        'clear_search'       => 'Suche löschen',
+        'overdue_tooltip'    => 'Überfällige, nicht erledigte Aufgaben',
+        'scope_all'          => 'Alles',
+        'scope_today'        => 'Heute',
+        'scope_week'         => '7 Tage',
+        'scope_linked'       => 'Im Kalender',
+        'scope_overdue'      => 'Überfällig',
+        'page_info'          => 'Seite :page von :pages',
+    ],
+
+    'table' => [
+        'col_task'      => 'Aufgabe',
+        'col_checklist' => 'Checkliste',
+        'empty_title'   => 'Keine Aufgaben gefunden',
+        'empty_hint'    => 'Ändern Sie die Filter oder erstellen Sie eine neue Aufgabe.',
+        'checklist_done' => ':done von :total erledigt',
+        'open_calendar' => 'Im Kalender öffnen',
+        'open_calendar_link' => 'Verknüpftes Kalenderereignis öffnen',
+        'delete_confirm'         => 'Aufgabe löschen?',
+        'delete_confirm_calendar' => 'Aufgabe löschen und auch das verknüpfte Kalenderereignis entfernen?',
+    ],
+
+    'search' => [
+        'no_results'     => 'Keine Ergebnisse für „:q".',
+        'type_to_search' => 'Zum Suchen tippen.',
+    ],
+
+    'flash' => [
+        'created'   => 'Aufgabe erstellt.',
+        'updated'   => 'Aufgabe aktualisiert.',
+        'deleted'   => 'Aufgabe gelöscht.',
+        'not_found' => 'Aufgabe nicht gefunden.',
+    ],
+
+    'validation' => [
+        'title_required'  => 'Der Titel ist erforderlich.',
+        'title_max'       => 'Der Titel darf 255 Zeichen nicht überschreiten.',
+        'status_invalid'  => 'Ungültiger Status.',
+        'priority_invalid' => 'Ungültige Priorität.',
+        'due_date_invalid' => 'Ungültiges Datumsformat.',
+        'due_time_invalid' => 'Ungültiges Zeitformat.',
+        'color_invalid'   => 'Ungültige Farbe.',
+        'create_error'    => 'Fehler beim Erstellen der Aufgabe.',
+        'update_error'    => 'Fehler beim Aktualisieren der Aufgabe.',
+        'move_status_invalid' => 'Ungültiger Status',
+        'tag_name_invalid' => 'Ungültiger Tag-Name (max. 50 Zeichen)',
+        'tag_exists'      => 'Tag existiert bereits',
+        'checklist_text_required' => 'Text erforderlich.',
+        'checklist_text_max' => 'Der Checklisten-Text darf 500 Zeichen nicht überschreiten.',
+        'checklist_save_error' => 'Fehler beim Speichern der Checkliste.',
+        'checklist_update_error' => 'Fehler beim Aktualisieren der Checkliste.',
+        'checklist_remove_error' => 'Fehler beim Entfernen des Checklisten-Eintrags.',
+    ],
+
+    'form_page' => [
+        'subtitle_new'                 => 'Füllen Sie die Felder aus, um eine neue Aufgabe zu erfassen',
+        'back_to_list'                 => 'Zurück zur Liste',
+        'some_invalid'                 => 'Einige Felder sind ungültig',
+        'section_details'              => 'Aufgabendetails',
+        'section_planning'             => 'Planung',
+        'title_required_hint'          => 'Titel erforderlich (max. 255 Zeichen).',
+        'description_placeholder_full' => 'Details, Notizen, Links...',
+        'value_invalid'                => 'Ungültiger Wert.',
+        'color_aria'                   => 'Aufgabenfarbe',
+    ],
+
+    'detail_page' => [
+        'subtitle'         => 'Aufgabendetail #:id',
+        'at'               => 'um',
+        'linked_event'     => 'Verknüpftes Ereignis',
+        'no_linked_event'  => 'Kein verknüpftes Ereignis',
+        'not_applicable'   => 'Nicht vorgesehen',
+        'created_at'       => 'Erstellt am',
+        'completed_at'     => 'Abgeschlossen am',
+        'back_kanban'      => 'Zurück zum Kanban',
+        'back_list'        => 'Zurück zur Liste',
+        'open_event'       => 'Verknüpftes Ereignis öffnen',
+        'no_description'   => 'Keine Beschreibung.',
+        'no_link_warning2' => 'Diese Aufgabe hat ein Fälligkeitsdatum, ist aber derzeit nicht mit einem Kalenderereignis verknüpft.',
+    ],
+
+    'widget' => [
+        'active_label'     => 'Aktive Aufgaben',
+        'upcoming_label'   => 'Nächste Fälligkeiten',
+        'trend_label'      => 'Wöchentliche Abschlüsse',
+        'overdue_sub'      => ':count überfällig',
+        'duesoon_sub'      => ':count fällig (7 Tage)',
+        'col_task'         => 'Aufgabe',
+        'col_priority'     => 'Priorität',
+        'col_due'          => 'Fälligkeit',
+        'due_prefix'       => 'Fällig',
+        'upcoming_empty'   => 'Keine bevorstehenden Fälligkeiten. Alles unter Kontrolle!',
+        'series_completed' => 'Erledigt',
+    ],
+];

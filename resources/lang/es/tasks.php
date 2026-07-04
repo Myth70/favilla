@@ -1,0 +1,196 @@
+<?php
+
+/**
+ * Tasks module — Spanish.
+ */
+return [
+    'title'         => 'Tareas',
+    'subtitle'      => 'Planificación operativa en un tablero Kanban',
+    'list_title'    => 'Tareas — Lista',
+    'list_subtitle' => 'Vista de lista con filtros y ordenación',
+    'new_page_title'  => 'Nueva tarea',
+    'edit_page_title' => 'Editar tarea',
+    'breadcrumb_list' => 'Lista',
+    'breadcrumb_new'  => 'Nueva',
+    'breadcrumb_edit' => 'Editar',
+
+    'status' => [
+        'backlog'     => 'Backlog',
+        'todo'        => 'Por hacer',
+        'in_progress' => 'En curso',
+        'review'      => 'En revisión',
+        'done'        => 'Completado',
+    ],
+    'priority' => [
+        'low'    => 'Baja',
+        'medium' => 'Media',
+        'high'   => 'Alta',
+        'urgent' => 'Urgente',
+    ],
+
+    'stats' => [
+        'overdue' => 'Vencidas',
+        'total'   => 'Totales',
+        'active'  => 'Activas',
+        'done'    => 'Completadas',
+    ],
+
+    'actions' => [
+        'kanban'      => 'Kanban',
+        'list'        => 'Lista',
+        'new'         => 'Nueva tarea',
+        'in_calendar' => 'En el calendario',
+        'detail'      => 'Detalle',
+        'calendar'    => 'Calendario',
+    ],
+    'tooltip' => [
+        'list_view'    => 'Vista de lista',
+        'kanban_view'  => 'Vista Kanban',
+        'new'          => 'Nueva tarea',
+        'linked_tasks' => 'Tareas vinculadas al calendario',
+        'open_event'   => 'Abrir evento vinculado en el calendario',
+        'add_in'       => 'Añadir en :status',
+        'add_task_in'  => 'Añadir tarea en :status',
+    ],
+
+    'fields' => [
+        'title'       => 'Título',
+        'description' => 'Descripción',
+        'status'      => 'Estado',
+        'priority'    => 'Prioridad',
+        'due_date'    => 'Vencimiento',
+        'due_time'    => 'Hora',
+        'color'       => 'Color',
+        'tags'        => 'Etiquetas',
+    ],
+    'form' => [
+        'title_placeholder'       => '¿Qué tienes que hacer?',
+        'description_placeholder' => 'Detalles...',
+        'title_hint'              => 'Introduce un título.',
+        'description_invalid'     => 'Descripción no válida.',
+        'fix_errors'              => 'Corrige los errores.',
+        'new_heading'             => 'Nueva',
+        'edit_heading'            => 'Editar',
+        'all_priorities'          => 'Todas las prioridades',
+    ],
+
+    'checklist' => [
+        'label'         => 'Lista de control',
+        'add_placeholder' => 'Añadir elemento...',
+        'empty'         => 'No hay elementos en la lista de control.',
+        'remove_item'   => '¿Eliminar este elemento?',
+        'item_added'    => 'Elemento de la lista añadido.',
+        'item_removed'  => 'Elemento de la lista eliminado.',
+        'updated'       => 'Lista de control actualizada.',
+        'meta'          => ':done de :total completados',
+    ],
+
+    'detail' => [
+        'created'         => 'Creada',
+        'completed'       => 'Completada',
+        'no_link_warning' => 'Esta tarea tiene un vencimiento pero no está vinculada a un evento del calendario.',
+        'delete_confirm'  => '¿Eliminar esta tarea?',
+        'delete_confirm_calendar' => '¿Eliminar esta tarea y también el evento vinculado del calendario?',
+    ],
+
+    'list' => [
+        'filter_status'      => 'Filtrar por estado',
+        'all'                => 'Todas',
+        'results'            => ':count resultados',
+        'search_placeholder' => 'Buscar por título o descripción…',
+        'reset_tooltip'      => 'Quitar todos los filtros',
+        'clear_search'       => 'Borrar búsqueda',
+        'overdue_tooltip'    => 'Tareas vencidas no completadas',
+        'scope_all'          => 'Todo',
+        'scope_today'        => 'Hoy',
+        'scope_week'         => '7 días',
+        'scope_linked'       => 'En el calendario',
+        'scope_overdue'      => 'Vencidas',
+        'page_info'          => 'página :page de :pages',
+    ],
+
+    'table' => [
+        'col_task'      => 'Tarea',
+        'col_checklist' => 'Lista de control',
+        'empty_title'   => 'No se han encontrado tareas',
+        'empty_hint'    => 'Prueba a cambiar los filtros o crea una nueva tarea.',
+        'checklist_done' => ':done de :total completados',
+        'open_calendar' => 'Abrir en el calendario',
+        'open_calendar_link' => 'Abrir el evento vinculado en el calendario',
+        'delete_confirm'         => '¿Eliminar la tarea?',
+        'delete_confirm_calendar' => '¿Eliminar la tarea y también el evento vinculado del calendario?',
+    ],
+
+    'search' => [
+        'no_results'     => 'Sin resultados para «:q».',
+        'type_to_search' => 'Escribe para buscar.',
+    ],
+
+    'flash' => [
+        'created'   => 'Tarea creada.',
+        'updated'   => 'Tarea actualizada.',
+        'deleted'   => 'Tarea eliminada.',
+        'not_found' => 'Tarea no encontrada.',
+    ],
+
+    'validation' => [
+        'title_required'  => 'El título es obligatorio.',
+        'title_max'       => 'El título no puede superar los 255 caracteres.',
+        'status_invalid'  => 'Estado no válido.',
+        'priority_invalid' => 'Prioridad no válida.',
+        'due_date_invalid' => 'Formato de fecha no válido.',
+        'due_time_invalid' => 'Formato de hora no válido.',
+        'color_invalid'   => 'Color no válido.',
+        'create_error'    => 'Error al crear la tarea.',
+        'update_error'    => 'Error al actualizar la tarea.',
+        'move_status_invalid' => 'Estado no válido',
+        'tag_name_invalid' => 'Nombre de etiqueta no válido (máx. 50 caracteres)',
+        'tag_exists'      => 'La etiqueta ya existe',
+        'checklist_text_required' => 'Texto obligatorio.',
+        'checklist_text_max' => 'El texto de la lista no puede superar los 500 caracteres.',
+        'checklist_save_error' => 'Error al guardar la lista de control.',
+        'checklist_update_error' => 'Error al actualizar la lista de control.',
+        'checklist_remove_error' => 'Error al eliminar el elemento de la lista.',
+    ],
+
+    'form_page' => [
+        'subtitle_new'                 => 'Rellena los campos para registrar una nueva tarea',
+        'back_to_list'                 => 'Volver a la lista',
+        'some_invalid'                 => 'Algunos campos no son válidos',
+        'section_details'              => 'Detalles de la tarea',
+        'section_planning'             => 'Planificación',
+        'title_required_hint'          => 'Título obligatorio (máx. 255 caracteres).',
+        'description_placeholder_full' => 'Detalles, notas, enlaces...',
+        'value_invalid'                => 'Valor no válido.',
+        'color_aria'                   => 'Color de la tarea',
+    ],
+
+    'detail_page' => [
+        'subtitle'         => 'Detalle de la tarea n.º :id',
+        'at'               => 'a las',
+        'linked_event'     => 'Evento vinculado',
+        'no_linked_event'  => 'Ningún evento vinculado',
+        'not_applicable'   => 'No previsto',
+        'created_at'       => 'Creada el',
+        'completed_at'     => 'Completada el',
+        'back_kanban'      => 'Volver al Kanban',
+        'back_list'        => 'Volver a la lista',
+        'open_event'       => 'Abrir evento vinculado',
+        'no_description'   => 'Sin descripción.',
+        'no_link_warning2' => 'Esta tarea tiene un vencimiento pero actualmente no está vinculada a un evento del calendario.',
+    ],
+
+    'widget' => [
+        'active_label'     => 'Tareas activas',
+        'upcoming_label'   => 'Próximos vencimientos',
+        'trend_label'      => 'Finalizaciones semanales',
+        'overdue_sub'      => ':count atrasadas',
+        'duesoon_sub'      => ':count por vencer (7 días)',
+        'col_task'         => 'Tarea',
+        'col_priority'     => 'Prioridad',
+        'col_due'          => 'Vencimiento',
+        'due_prefix'       => 'Vence',
+        'upcoming_empty'   => 'Ningún vencimiento inminente. ¡Todo bajo control!',
+        'series_completed' => 'Completadas',
+    ],
+];

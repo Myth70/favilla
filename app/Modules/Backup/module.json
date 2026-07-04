@@ -1,0 +1,52 @@
+{
+    "name": "Backup",
+    "icon": "fa-solid fa-database",
+    "version": "2.0.0",
+    "changelog": {
+        "1.0.0": "Versione iniziale"
+    },
+    "description": "Backup database SQL in PHP puro, compresso gzip, con rotazione automatica e download sicuro.",
+    "author": "Favilla",
+    "database": "shared",
+    "tables": [
+        "backup_history"
+    ],
+    "notification_events": [
+        {
+            "slug": "backup.completed",
+            "name": "Backup completato",
+            "description": "Inviata quando un backup termina con successo",
+            "default_level": "success",
+            "icon": "fa-solid fa-database",
+            "context_variables": {
+                "filename": "Nome file backup",
+                "size": "Dimensione backup",
+                "size_mb": "Dimensione in MB",
+                "table_count": "Numero tabelle incluse"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Backup completato",
+                    "body": "Backup {{filename}} completato con successo"
+                },
+                "email": {
+                    "subject": "Backup completato",
+                    "body": "<h2>Backup completato</h2><p>File: {{filename}}</p><p>Dimensione: {{size_mb}} MB</p><p><a href=\"{{link}}\">Apri dettagli</a></p>"
+                },
+                "telegram": {
+                    "body": "✅ Backup completato: {{filename}}\nDimensione: {{size_mb}} MB\n{{link}}"
+                }
+            }
+        }
+    ],
+    "dependencies": ["Notifications"],
+    "menu": [
+        {
+            "label": "Backup",
+            "icon": "fa-database",
+            "route": "backup.index",
+            "permission": "backup.manage",
+            "order": 89
+        }
+    ]
+}

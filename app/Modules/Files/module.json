@@ -1,0 +1,76 @@
+{
+    "name": "Files",
+    "icon": "fa-solid fa-folder-open",
+    "version": "2.0.0",
+    "changelog": {
+        "1.0.0": "Versione iniziale — gestione file con upload, cartelle virtuali, cestino, admin dashboard"
+    },
+    "description": "Gestione file aziendale: upload drag-and-drop, cartelle virtuali, visibilità privata/condivisa, cestino con ripristino, dashboard amministrativa.",
+    "author": "Favilla",
+    "database": "shared",
+    "tables": [
+        "files",
+        "user_folders",
+        "file_versions",
+        "file_shares"
+    ],
+    "dependencies": [],
+    "dashboard_provider": "App\\Modules\\Files\\Providers\\FilesDashboardProvider",
+    "search_provider": "App\\Modules\\Files\\Providers\\FilesSearchProvider",
+    "export_provider": "App\\Modules\\Files\\Providers\\FilesExportProvider",
+    "menu": [
+        {
+            "label": "File",
+            "icon": "fa-folder-open",
+            "route": "files.index",
+            "permission": "files.access",
+            "order": 30
+        }
+    ],
+    "navigation": [
+        {
+            "id": "files.index",
+            "label": "File",
+            "icon": "fa-folder-open",
+            "route": "files.index",
+            "permission": "files.access",
+            "order": 30,
+            "surfaces": ["user_menu", "radial", "quick_access"]
+        }
+    ],
+    "admin_panel": {
+        "section": "Pannelli admin dei moduli",
+        "eyebrow": "Moduli attivi",
+        "groups": [
+            {
+                "title": "Files",
+                "description": "Gestione amministrativa file, cestino e operazioni massive.",
+                "icon": "fa-solid fa-folder-open",
+                "flows": [
+                    "Export file",
+                    "Bulk delete",
+                    "Bulk purge",
+                    "Ripristino file"
+                ],
+                "links": [
+                    {
+                        "label": "Pannello file",
+                        "route": "files.admin.index",
+                        "permission": "files.admin",
+                        "description": "Dashboard amministrativa dei file condivisi.",
+                        "icon": "fa-solid fa-folder-open",
+                        "keywords": "files admin pannello"
+                    },
+                    {
+                        "label": "Cestino file",
+                        "route": "files.admin.trash",
+                        "permission": "files.admin",
+                        "description": "Ripristino e purge degli elementi nel cestino.",
+                        "icon": "fa-solid fa-recycle",
+                        "keywords": "trash cestino file restore"
+                    }
+                ]
+            }
+        ]
+    }
+}

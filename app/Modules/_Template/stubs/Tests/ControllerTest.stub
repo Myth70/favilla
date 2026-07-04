@@ -1,0 +1,64 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ModuleNamespace}}\Tests\Unit;
+
+use Tests\ControllerTestCase;
+use {{ModuleNamespace}}\Controllers\{{ModuleName}}Controller;
+
+/**
+ * Test del Controller tramite l'harness HTTP (ControllerTestCase):
+ * actingAs() autentica, withPost()/withGet() preparano la richiesta,
+ * dispatch() invoca l'action e cattura redirect/JSON/render.
+ */
+class {{ModuleName}}ControllerTest extends ControllerTestCase
+{
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->migrate("
+            CREATE TABLE {{TableName}} (
+                id          INTEGER PRIMARY KEY AUTOINCREMENT,
+                name        TEXT NOT NULL,
+                description TEXT DEFAULT NULL,
+                status      TEXT NOT NULL DEFAULT 'active',
+                created_by  INTEGER DEFAULT NULL,
+                created_at  TEXT DEFAULT (datetime('now')),
+                updated_at  TEXT DEFAULT (datetime('now')),
+                deleted_at  TEXT DEFAULT NULL
+            )
+        ");
+    }
+
+    public function test_index_renders_for_authenticated_user(): void
+    {
+        $this->actingAs(1, ['{{module_name}}.view']);
+
+        $result = $this->dispatch({{ModuleName}}Controller::class, 'index');
+
+        $this->assertTrue($result->didRender());
+    }
+
+    public function test_store_rejects_missing_name_and_redirects(): void
+    {
+        $this->actingAs(1, ['{{module_name}}.create']);
+
+        $result = $this->withPost(['name' => '', 'status' => 'active'])
+                       ->dispatch({{ModuleName}}Controller::class, 'store');
+
+        $this->assertTrue($result->isRedirect());
+        $this->assertArrayHasKey('name', $_SESSION['_errors'] ?? []);
+    }
+
+    public function test_store_creates_record_and_redirects(): void
+    {
+        $this->actingAs(1, ['{{module_name}}.create']);
+
+        $result = $this->withPost(['name' => 'Valido', 'description' => 'x', 'status' => 'active'])
+                       ->dispatch({{ModuleName}}Controller::class, 'store');
+
+        $this->assertTrue($result->isRedirect());
+        $this->assertNotNull($this->flashOf('success'));
+    }
+}

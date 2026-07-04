@@ -1,0 +1,711 @@
+/* ============================================================
+   CONTATTI MODULE — prefix .ct-
+   ============================================================ */
+
+/* ── Avatar ─────────────────────────────────────────────────── */
+.ct-avatar {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 1rem; color: #fff;
+  flex-shrink: 0; overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,.12);
+  user-select: none;
+}
+.ct-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+.ct-avatar-sm { width: 32px; height: 32px; font-size: .75rem; }
+.ct-avatar-lg { width: 72px; height: 72px; font-size: 1.6rem; box-shadow: 0 4px 16px rgba(0,0,0,.15); }
+.ct-avatar-xl { width: 96px; height: 96px; font-size: 2.2rem; box-shadow: 0 6px 24px rgba(0,0,0,.18); }
+
+/* ── Hero (scheda contatto show) ─────────────────────────────
+   Caso speciale: show.php ha bisogno di avatar grande, social quick-links
+   e banner categoria che non rientrano nei 3 partial hero canonici.
+   Re-skin con design tokens per coerenza visiva. */
+.ct-hero-section {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--section-gap);
+  transition: background-color var(--theme-transition) ease,
+              border-color var(--theme-transition) ease;
+}
+.ct-hero-banner {
+  position: relative;
+  height: 110px;
+  background:
+    radial-gradient(120% 120% at 100% 0%, color-mix(in srgb, var(--accent-color) 55%, transparent) 0%, transparent 60%),
+    linear-gradient(135deg, color-mix(in srgb, var(--accent-color) 72%, var(--bg-surface, #fff)) 0%, color-mix(in srgb, var(--accent-color) 38%, var(--bg-surface, #fff)) 100%);
+  isolation: isolate;
+  overflow: hidden;
+}
+.ct-hero-banner::before,
+.ct-hero-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+.ct-hero-cat-badge {
+  position: absolute;
+  top: .75rem;
+  right: 1rem;
+  display: inline-block;
+  padding: .28em .8em;
+  border-radius: 50rem;
+  border: 1.5px solid color-mix(in srgb, var(--ct-cat-color, #6c757d) 80%, #fff);
+  color: #fff;
+  background: transparent;
+  font-size: .72rem;
+  font-weight: 600;
+  letter-spacing: .03em;
+  line-height: 1.5;
+  text-shadow: 0 1px 3px rgba(0,0,0,.25);
+}
+.ct-hero-content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 0 1.75rem 1.25rem;
+  margin-top: 0;
+}
+.ct-avatar-hero {
+  width: 120px; height: 120px;
+  font-size: 2.8rem;
+  border: 4px solid var(--bs-body-bg, #fff);
+  box-shadow: 0 4px 20px rgba(0,0,0,.20);
+  flex-shrink: 0;
+  margin-top: -68px;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 2;
+}
+.ct-hero-body { flex: 1; min-width: 0; padding-top: .6rem; }
+.ct-hero-name {
+  font-size: 1.45rem; font-weight: 700; line-height: 1.2;
+  margin: 0 0 .2rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.ct-hero-sub { color: var(--bs-secondary-color); font-size: .9rem; margin-bottom: .5rem; }
+.ct-hero-actions { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .6rem; }
+.ct-hero-side { flex-shrink: 0; align-self: flex-end; padding-bottom: .15rem; }
+
+/* ── Star button ─────────────────────────────────────────────── */
+.ct-star-btn {
+  background: none; border: none; padding: .2rem .3rem;
+  font-size: 1.05rem; line-height: 1; cursor: pointer;
+  color: var(--bs-secondary-color); transition: color .15s, transform .15s;
+}
+.ct-star-btn:hover, .ct-star-btn.active { color: #f59e0b; transform: scale(1.15); }
+
+/* ── Card contatto (griglia index) ──────────────────────────── */
+.ct-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: 1.1rem;
+  display: flex; flex-direction: column; gap: .6rem;
+  position: relative;
+  transition: box-shadow var(--transition-speed) ease,
+              transform var(--transition-speed) ease,
+              border-color var(--transition-speed) ease,
+              background-color var(--theme-transition) ease;
+  height: 100%; cursor: pointer;
+}
+.ct-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: var(--accent-color);
+}
+.ct-card-header { display: flex; align-items: center; gap: .75rem; }
+.ct-card .ct-avatar { border: 2px solid var(--bs-border-color); }
+.ct-card-main { min-width: 0; flex: 1; }
+.ct-card-name { font-weight: 600; font-size: .95rem; line-height: 1.3; }
+.ct-card-name a { color: inherit; text-decoration: none; }
+.ct-card-sub  { font-size: .8rem; color: var(--bs-secondary-color); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ct-card-meta { font-size: .78rem; color: var(--bs-secondary-color); display: flex; align-items: center; gap: .3rem; }
+.ct-card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: .5rem; border-top: 1px solid var(--bs-border-color); }
+.ct-card-footer-top { position: relative; z-index: 1; }
+.ct-card-actions { display: flex; gap: .3rem; opacity: 0; transition: opacity .18s; }
+.ct-card:hover .ct-card-actions { opacity: 1; }
+
+.ct-star-indicator {
+  color: #f59e0b;
+  font-size: .8rem;
+  flex-shrink: 0;
+}
+
+.ct-meta-icon {
+  width: 12px;
+  text-align: center;
+  opacity: .85;
+}
+
+.ct-category-badge {
+  --ct-cat-color: #6c757d;
+  font-size: .7rem;
+  background-color: color-mix(in srgb, var(--ct-cat-color) 14%, var(--bs-body-bg));
+  color: var(--ct-cat-color);
+  border: 1px solid color-mix(in srgb, var(--ct-cat-color) 35%, transparent);
+}
+
+.ct-rec-badge {
+  font-size: .68rem;
+  background-color: var(--bs-secondary-bg);
+  color: var(--bs-body-color);
+  border: 1px solid var(--bs-border-color);
+}
+
+.ct-card-action-btn {
+  padding: .15rem .4rem;
+  font-size: .75rem;
+}
+
+/* ── Griglia responsive ─────────────────────────────────────── */
+.ct-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+@media (max-width: 575px) { .ct-grid { grid-template-columns: 1fr 1fr; gap: .75rem; } }
+@media (max-width: 400px)  { .ct-grid { grid-template-columns: 1fr; } }
+
+/* ── Filtri / pills categoria ───────────────────────────────── */
+.ct-filter-bar { display: flex; flex-wrap: wrap; gap: .45rem; align-items: center; }
+.ct-cat-pill {
+  padding: .28rem .75rem;
+  border-radius: 2rem; font-size: .8rem; font-weight: 500;
+  border: 1.5px solid transparent; cursor: pointer;
+  transition: all .15s; white-space: nowrap;
+  background: var(--bs-secondary-bg);
+  color: var(--bs-body-color);
+}
+.ct-cat-pill:hover      { border-color: currentColor; opacity: .85; }
+.ct-cat-pill.active     { color: #fff !important; border-color: transparent !important; background: var(--accent); }
+.ct-cat-pill-dot {
+  display: inline-block; width: 8px; height: 8px;
+  border-radius: 50%; margin-right: .35rem; vertical-align: middle;
+  background: currentColor;
+}
+
+.ct-cat-pill-custom {
+  --ct-pill-color: var(--accent, #3b82f6);
+  color: var(--ct-pill-color);
+  border-color: color-mix(in srgb, var(--ct-pill-color) 85%, transparent);
+}
+
+.ct-cat-pill-custom .ct-cat-pill-dot {
+  background: var(--ct-pill-color);
+}
+
+.ct-cat-pill-custom.active {
+  background: var(--ct-pill-color);
+}
+
+.ct-cat-pill-star {
+  --ct-pill-color: #f59e0b;
+}
+
+.ct-pill-count {
+  opacity: .7;
+}
+
+/* ── Banner prossime ricorrenze ─────────────────────────────── */
+.ct-upcoming-bar {
+  display: flex; gap: .6rem; overflow-x: auto; padding-bottom: .4rem;
+  scrollbar-width: thin;
+}
+.ct-upcoming-bar:empty { display: none; }
+.ct-upcoming-chip {
+  flex-shrink: 0; display: flex; align-items: center; gap: .5rem;
+  padding: .45rem .85rem; border-radius: 2rem;
+  background: var(--bs-secondary-bg);
+  border: 1.5px solid var(--bs-border-color);
+  font-size: .82rem; text-decoration: none; color: var(--bs-body-color);
+  transition: box-shadow .15s;
+  white-space: nowrap;
+}
+.ct-upcoming-chip:hover { box-shadow: 0 2px 10px rgba(0,0,0,.1); color: var(--bs-body-color); }
+.ct-upcoming-chip .ct-uc-badge {
+  font-size: .7rem; font-weight: 700; padding: .15rem .45rem;
+  border-radius: 1rem;
+}
+.ct-upcoming-name { line-height: 1.2; }
+.ct-upcoming-title { font-size: .73rem; color: var(--bs-secondary-color); }
+.ct-badge-oggi    { background: #22c55e; color: #fff; }
+.ct-badge-urgente { background: #ef4444; color: #fff; }
+.ct-badge-prossimo{ background: #f59e0b; color: #fff; }
+.ct-badge-lontano { background: #e2e8f0; color: #475569; }
+
+/* ── Recurrence card ────────────────────────────────────────── */
+.ct-ric-card {
+  border: 1px solid var(--bs-border-color);
+  border-left: 4px solid #e2e8f0;
+  border-radius: var(--bs-border-radius, .375rem);
+  padding: .85rem 1rem;
+  display: flex; align-items: flex-start; gap: .75rem;
+  background: var(--bs-card-bg, #fff);
+  transition: box-shadow .15s;
+}
+.ct-ric-card:hover { box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+.ct-ric-card.urgenza-oggi    { border-left-color: #22c55e; }
+.ct-ric-card.urgenza-urgente { border-left-color: #ef4444; }
+.ct-ric-card.urgenza-prossimo{ border-left-color: #f59e0b; }
+.ct-ric-card.urgenza-lontano { border-left-color: #93c5fd; }
+.ct-ric-card.urgenza-passato { border-left-color: #9ca3af; opacity: .65; }
+
+.ct-ric-icon {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; flex-shrink: 0;
+  background: var(--bs-secondary-bg);
+}
+.ct-ric-title { font-weight: 600; font-size: .92rem; line-height: 1.3; }
+.ct-ric-meta  { font-size: .78rem; color: var(--bs-secondary-color); display: flex; flex-wrap: wrap; gap: .4rem; align-items: center; margin-top: .2rem; }
+.ct-ric-body  { flex: 1; min-width: 0; }
+.ct-ric-actions { display: flex; gap: .3rem; flex-shrink: 0; align-self: flex-start; margin-top: .1rem; }
+.ct-ric-reminder-icons { display: flex; gap: .3rem; flex-wrap: wrap; }
+.ct-ric-reminder-icons .badge { font-size: .7rem; }
+
+/* ── Contatore giorni ───────────────────────────────────────── */
+.ct-days-badge {
+  display: inline-flex; align-items: center; gap: .25rem;
+  font-size: .7rem; font-weight: 700; padding: .15rem .5rem;
+  border-radius: 1rem; white-space: nowrap;
+}
+
+/* ── Quick contact links ────────────────────────────────────── */
+.ct-contact-link {
+  display: inline-flex; align-items: center; gap: .4rem;
+  font-size: .88rem; color: var(--bs-body-color);
+  text-decoration: none; padding: .3rem 0;
+  transition: color .12s;
+}
+.ct-contact-link:hover { color: var(--accent, #3b82f6); }
+.ct-contact-link i { width: 16px; text-align: center; color: var(--bs-secondary-color); }
+.ct-contact-link-static { cursor: default; }
+.ct-contact-link-address { align-items: flex-start; }
+.ct-contact-link-icon-top { margin-top: .15rem; }
+
+/* ── Tag chips ──────────────────────────────────────────────── */
+.ct-tags { display: flex; flex-wrap: wrap; gap: .3rem; }
+.ct-tag  {
+  font-size: .74rem; padding: .15rem .55rem; border-radius: 1rem;
+  background: var(--bs-secondary-bg); color: var(--bs-secondary-color);
+  border: 1px solid var(--bs-border-color);
+  cursor: pointer; text-decoration: none;
+  transition: background .12s;
+}
+.ct-tag:hover { background: var(--accent, #3b82f6); color: #fff; border-color: transparent; }
+
+/* ── Form sezioni (espandibili, re-skin con design tokens) ──── */
+.ct-form-section {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--card-gap);
+  overflow: hidden;
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--theme-transition) ease,
+              background-color var(--theme-transition) ease;
+}
+.ct-form-section-header {
+  padding: 0.85rem var(--card-padding);
+  background: color-mix(in srgb, var(--accent-color) 4%, var(--bg-surface));
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  user-select: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-speed) ease,
+              background-color var(--transition-speed) ease;
+}
+.ct-form-section-header:hover {
+  background: color-mix(in srgb, var(--accent-color) 8%, var(--bg-surface));
+}
+.ct-form-section-header.open {
+  border-bottom-color: var(--border-color);
+}
+.ct-form-section-header > i:first-child {
+  color: var(--accent-color);
+  font-size: var(--icon-sm);
+}
+.ct-form-section-body {
+  padding: var(--card-padding);
+}
+.ct-form-section-header .ct-chevron {
+  margin-left: auto;
+  font-size: var(--icon-xs);
+  color: var(--text-muted);
+  transition: transform var(--transition-speed) ease;
+}
+.ct-form-section-header.open .ct-chevron {
+  transform: rotate(180deg);
+  color: var(--accent-color);
+}
+
+/* ── Avatar upload preview ──────────────────────────────────── */
+.ct-avatar-upload { position: relative; display: inline-block; cursor: pointer; }
+.ct-avatar-upload input[type=file] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.ct-avatar-upload-overlay {
+  position: absolute; inset: 0; border-radius: 50%;
+  background: rgba(0,0,0,.4); display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: .75rem; opacity: 0; transition: opacity .2s;
+}
+.ct-avatar-upload:hover .ct-avatar-upload-overlay { opacity: 1; }
+.ct-avatar-dynamic { background: var(--ct-avatar-bg, #6c757d); }
+.ct-camera-icon { font-size: .9rem; }
+
+/* ── Empty state ────────────────────────────────────────────── */
+.ct-empty {
+  text-align: center; padding: 3.5rem 2rem;
+  color: var(--bs-secondary-color);
+}
+.ct-empty-icon {
+  font-size: 3rem; margin-bottom: 1rem; opacity: .25;
+  display: block;
+}
+
+/* ── Stat boxes (index header) ──────────────────────────────── */
+.ct-stat {
+  display: flex; align-items: center; gap: .5rem;
+  font-size: .82rem; color: var(--bs-secondary-color);
+}
+.ct-stat strong { color: var(--bs-body-color); font-size: .95rem; }
+
+/* ── Social dock (show.php) ─────────────────────────────────── */
+.ct-social-dock {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  align-items: center;
+  justify-content: flex-start;
+}
+.ct-social-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 42px; height: 42px; border-radius: 50%;
+  font-size: 1.05rem; line-height: 1; text-decoration: none;
+  border: 1.5px solid var(--border-color);
+  background: var(--bg-surface);
+  color: var(--text-muted);
+  transition: transform .15s ease,
+              box-shadow .15s ease,
+              background-color .15s ease,
+              border-color .15s ease,
+              color .15s ease;
+}
+.ct-social-btn--active {
+  color: var(--accent-color);
+  border-color: color-mix(in srgb, var(--accent-color) 55%, transparent);
+  background: color-mix(in srgb, var(--accent-color) 8%, var(--bg-surface));
+}
+.ct-social-btn--active:hover,
+.ct-social-btn--active:focus-visible {
+  color: #fff;
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+  outline: none;
+}
+.ct-social-btn--inactive {
+  opacity: .45;
+  cursor: not-allowed;
+}
+.ct-social-btn--inactive:hover { opacity: .6; }
+
+[data-bs-theme="dark"] .ct-social-btn {
+  background: var(--bs-body-bg, #212529);
+}
+[data-bs-theme="dark"] .ct-social-btn--active {
+  background: color-mix(in srgb, var(--accent-color) 16%, var(--bs-body-bg, #212529));
+}
+
+.ct-accent-icon { color: var(--accent); }
+
+/* ----------------------------------------------------------
+   Hero stats (Contatti) — allineamento highlight a Profilo
+   ---------------------------------------------------------- */
+.ct-hero-card {
+  --ct-accent-resolved: var(--accent-color, var(--accent, #3b82f6));
+}
+
+.ct-hero-card .pf-hero-stats {
+  background:
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--ct-accent-resolved) 6%, var(--bg-surface)) 0%,
+      color-mix(in srgb, var(--ct-accent-resolved) 3%, var(--bg-surface)) 100%);
+}
+
+.ct-hero-card .pf-hero-stat {
+  transition: background-color 0.15s ease;
+}
+
+.ct-hero-card .pf-hero-stat:hover {
+  background-color: color-mix(in srgb, var(--ct-accent-resolved) 8%, transparent);
+}
+
+.ct-text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ct-note-prewrap { white-space: pre-wrap; }
+
+.ct-btn-xs {
+  font-size: .78rem;
+  padding: .2rem .6rem;
+}
+
+.ct-btn-xxs {
+  padding: .15rem .4rem;
+  font-size: .72rem;
+}
+
+.ct-flex-noshrink { flex-shrink: 0; }
+
+.ct-form-text-xs { font-size: .7rem; }
+
+.ct-cat-swatch { background: var(--ct-cat-color, #6c757d); }
+.ct-cat-name-input { max-width: 180px; }
+
+.ct-badge-xs { font-size: .7rem; }
+
+.ct-category-badge-lg { font-size: .75rem; }
+
+[data-bs-theme="dark"] .ct-cat-pill {
+  background: var(--bs-tertiary-bg);
+}
+[data-bs-theme="dark"] .ct-cat-pill-custom {
+  border-color: color-mix(in srgb, var(--ct-pill-color) 60%, transparent);
+  color: color-mix(in srgb, var(--ct-pill-color) 88%, #ffffff);
+}
+[data-bs-theme="dark"] .ct-cat-pill-custom.active {
+  color: #fff !important;
+}
+
+/* ── Inline form (add ricorrenza) ───────────────────────────── */
+.ct-ric-form-wrap {
+  border: 1.5px dashed var(--bs-border-color);
+  border-radius: var(--bs-border-radius-lg, .5rem);
+  padding: 1.1rem; margin-bottom: 1rem;
+  background: var(--bs-tertiary-bg, rgba(0,0,0,.015));
+  animation: ct-slide-in .18s ease;
+}
+@keyframes ct-slide-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Dark mode tweaks ───────────────────────────────────────── */
+[data-bs-theme="dark"] .ct-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,.35); }
+[data-bs-theme="dark"] .ct-card { background: var(--bg-surface, var(--bs-body-bg)); }
+[data-bs-theme="dark"] .ct-hero-section { background: var(--bs-body-bg, #212529); border-color: var(--bs-border-color); }
+[data-bs-theme="dark"] .ct-hero-banner {
+  background:
+    radial-gradient(120% 120% at 100% 0%, color-mix(in srgb, var(--accent-color) 40%, transparent) 0%, transparent 60%),
+    linear-gradient(135deg, color-mix(in srgb, var(--accent-color) 55%, #000) 0%, color-mix(in srgb, var(--accent-color) 28%, #000) 100%);
+}
+[data-bs-theme="dark"] .ct-avatar-hero { border-color: var(--bs-body-bg, #212529); }
+[data-bs-theme="dark"] .ct-ric-card   { background: var(--bs-card-bg); }
+[data-bs-theme="dark"] .ct-badge-lontano { background: #334155; color: #94a3b8; }
+[data-bs-theme="dark"] .ct-category-badge {
+  background-color: color-mix(in srgb, var(--ct-cat-color) 20%, var(--bs-body-bg));
+  color: color-mix(in srgb, var(--ct-cat-color) 82%, #ffffff);
+  border-color: color-mix(in srgb, var(--ct-cat-color) 45%, transparent);
+}
+[data-bs-theme="dark"] .ct-rec-badge {
+  background-color: color-mix(in srgb, var(--bs-secondary) 26%, var(--bs-body-bg));
+  border-color: color-mix(in srgb, var(--bs-secondary) 45%, transparent);
+}
+
+/* ── Categorie gestione ─────────────────────────────────────── */
+.ct-cat-row {
+  display: flex; align-items: center; gap: .6rem;
+  padding: .6rem 0; border-bottom: 1px solid var(--bs-border-color);
+}
+.ct-cat-row:last-child { border-bottom: none; }
+.ct-cat-swatch { width: 20px; height: 20px; border-radius: 4px; flex-shrink: 0; }
+.ct-cat-color-picker { display: flex; align-items: center; }
+.ct-cat-swatches { display: flex; gap: 5px; flex-wrap: wrap; }
+.ct-cat-swatch-btn {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  padding: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform .12s, outline-color .12s;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+.ct-cat-swatch-btn:hover { transform: scale(1.2); }
+.ct-cat-swatch-btn.active {
+  outline-color: var(--bs-secondary-color, #6c757d);
+  transform: scale(1.12);
+}
+
+/* ── Scroll thin ────────────────────────────────────────────── */
+.ct-upcoming-bar::-webkit-scrollbar { height: 4px; }
+.ct-upcoming-bar::-webkit-scrollbar-track  { background: transparent; }
+.ct-upcoming-bar::-webkit-scrollbar-thumb  { background: var(--bs-border-color); border-radius: 2px; }
+
+/* ── Card indice (ricorrenze + filtri) — compattezza coerente col profilo ─ */
+@media (min-width: 992px) {
+  .ct-index-card .card-body {
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+  }
+}
+
+/* ── OpenStreetMap integration ─────────────────────────────── */
+.ct-osm-panel {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.75rem;
+  background: color-mix(in srgb, var(--accent-color) 2.5%, var(--bg-surface));
+}
+
+.ct-osm-results {
+  max-height: 220px;
+  overflow: auto;
+  border-radius: var(--radius-sm);
+}
+
+.ct-osm-result-item {
+  cursor: pointer;
+}
+
+.ct-osm-preview {
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  min-height: 240px;
+  overflow: hidden;
+  background: var(--bg-surface);
+}
+
+.ct-osm-preview iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+  border: 0;
+  display: block;
+}
+
+.ct-osm-preview-wrap .ct-osm-preview {
+  min-height: 200px;
+}
+
+.ct-osm-preview-wrap .ct-osm-preview {
+  min-height: 220px;
+}
+.ct-osm-preview-wrap .ct-osm-preview iframe {
+  min-height: 220px;
+}
+.ct-osm-preview-lg,
+.ct-osm-preview-wrap .ct-osm-preview-lg {
+  min-height: 280px;
+}
+.ct-osm-preview-lg iframe,
+.ct-osm-preview-wrap .ct-osm-preview-lg iframe {
+  min-height: 280px;
+}
+
+[data-bs-theme="dark"] .ct-osm-panel {
+  background: color-mix(in srgb, var(--accent-color) 6%, var(--bg-surface));
+}
+
+/* ── Scheda show: polish di rilievo ─────────────────────────── */
+.ct-address-text {
+  font-size: .92rem;
+  line-height: 1.45;
+  color: var(--text-primary);
+}
+
+/* Riepilogo contatti: singola riga canale con icona + valore */
+.ct-channel-row {
+  padding: .45rem .6rem;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  transition: border-color .15s ease, background-color .15s ease;
+  min-width: 0;
+}
+.ct-channel-row:hover {
+  border-color: var(--border-color-strong);
+  background: color-mix(in srgb, var(--accent-color) 5%, var(--bg-surface));
+}
+.ct-channel-icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--text-muted, var(--text-secondary)) 10%, transparent);
+  flex-shrink: 0;
+}
+.ct-channel-icon > i {
+  font-size: .85rem;
+}
+.ct-channel-row a {
+  color: var(--text-primary);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.ct-channel-row a:hover {
+  color: var(--accent-color);
+}
+
+/* Ricorrenze: sezione primaria — evidenza se c'e' una ricorrenza urgente */
+.ct-ric-section {
+  transition: box-shadow .18s ease, border-color .18s ease;
+}
+.ct-ric-section-urgent {
+  border-color: color-mix(in srgb, var(--bs-danger, #ef4444) 45%, var(--border-color));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--bs-danger, #ef4444) 10%, transparent),
+              var(--shadow-sm);
+}
+.ct-ric-section-urgent > .card-header {
+  background: color-mix(in srgb, var(--bs-danger, #ef4444) 7%, var(--bg-surface));
+  border-bottom-color: color-mix(in srgb, var(--bs-danger, #ef4444) 22%, var(--border-color));
+}
+
+/* Stat "prossima ricorrenza" urgente */
+.pf-hero-stat.ct-stat-urgent .pf-hero-stat-value {
+  color: var(--bs-danger, #ef4444);
+  font-weight: 700;
+}
+
+/* Meta footer strip (creato/aggiornato) */
+.ct-meta-footer {
+  padding-top: .75rem;
+  border-top: 1px dashed var(--border-color);
+  opacity: .85;
+}
+.ct-meta-footer small {
+  font-size: .78rem;
+}
+
+/* Social dock card: rimuovi padding card-body ridondante in fondo */
+.ct-social-dock-card .card-body {
+  padding-top: .85rem;
+  padding-bottom: .85rem;
+}
+
+[data-bs-theme="dark"] .ct-ric-section-urgent {
+  border-color: color-mix(in srgb, var(--bs-danger, #ef4444) 55%, var(--border-color));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--bs-danger, #ef4444) 16%, transparent),
+              0 4px 12px rgba(0,0,0,.35);
+}
+[data-bs-theme="dark"] .ct-ric-section-urgent > .card-header {
+  background: color-mix(in srgb, var(--bs-danger, #ef4444) 14%, var(--bs-body-bg, #212529));
+}

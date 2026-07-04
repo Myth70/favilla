@@ -1,0 +1,37 @@
+{
+    "name": "Home",
+    "icon": "fa-solid fa-house",
+    "version": "2.0.0",
+    "description": "Dashboard principale, ricerca globale e preferenze utente (tema, sidebar, colore)",
+    "database": "shared",
+    "tables": [
+        "user_preferences",
+        "user_widget_preferences"
+    ],
+    "dependencies": [],
+    "optional_dependencies": ["Notifications", "Calendar", "Contacts"],
+    "changelog": {
+        "1.0.0": "Versione iniziale"
+    },
+    "menu": [],
+    "navigation": [
+        {
+            "id": "home.index",
+            "label": "Home",
+            "icon": "fa-house",
+            "route": "home.index",
+            "permission": null,
+            "order": 1,
+            "surfaces": ["sidebar", "radial", "quick_access"]
+        },
+        {
+            "id": "home.today",
+            "label": "Oggi",
+            "icon": "fa-bolt",
+            "route": "home.today",
+            "permission": null,
+            "order": 2,
+            "surfaces": ["radial", "quick_access"]
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+<?php
+/**
+ * PARTIAL RICERCA LIVE — restituito via HTMX per la ricerca rapida.
+ *
+ * Variabili: $results, $q
+ *
+ * i18n: ogni stringa user-facing passa da e(t('{{module_name}}.<chiave>')).
+ */
+?>
+<?php if (empty($results)): ?>
+    <div class="text-muted text-center py-3">
+        <?php if (($q ?? '') !== ''): ?>
+            <?= t('{{module_name}}.search.no_results', ['q' => '<strong>' . e($q) . '</strong>']) ?>
+        <?php else: ?>
+            <?= e(t('{{module_name}}.search.type_to_search')) ?>
+        <?php endif; ?>
+    </div>
+<?php else: ?>
+    <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+            <thead>
+                <tr>
+                    <th><?= e(t('{{module_name}}.list.col_name')) ?></th>
+                    <th><?= e(t('{{module_name}}.list.col_status')) ?></th>
+                    <th class="text-end"><?= e(t('common.label.actions')) ?></th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php foreach ($results as $item):
+                $statusColors = ['active' => 'success', 'inactive' => 'secondary', 'archived' => 'warning'];
+                $statusKey    = (string) ($item['status'] ?? 'active');
+                $color        = $statusColors[$statusKey] ?? 'secondary';
+            ?>
+                <tr>
+                    <td><?= e($item['name']) ?></td>
+                    <td><span class="badge bg-<?= e($color) ?>"><?= e(t('{{module_name}}.status.' . $statusKey)) ?></span></td>
+                    <td class="text-end">
+                        <a href="<?= e(route('{{module_name}}.show', ['id' => $item['id']])) ?>"
+                           class="btn btn-sm btn-outline-primary" data-bs-toggle="tooltip" title="<?= e(t('{{module_name}}.actions.detail')) ?>">
+                            <i class="fa-solid fa-eye"></i>
+                        </a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+    <small class="text-muted"><?= e(t('{{module_name}}.list.results', ['count' => count($results), 'page' => 1, 'pages' => 1])) ?></small>
+<?php endif; ?>

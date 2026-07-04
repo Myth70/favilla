@@ -1,0 +1,35 @@
+{
+    "name": "Reports",
+    "icon": "fa-solid fa-chart-bar",
+    "version": "2.0.0",
+    "changelog": {
+        "1.0.0": "Versione iniziale",
+        "1.1.0": "Document Templates: generazione PDF da singolo record",
+        "2.0.0": "Riscrittura completa: modulo core, designer WYSIWYG riscritto, motore export unificato"
+    },
+    "description": "Sistema completo di esportazione dati e report con designer WYSIWYG, export CSV/Excel/PDF e document templates",
+    "author": "Favilla",
+    "database": "shared",
+    "tables": [
+        "report_style_presets",
+        "report_templates",
+        "report_history",
+        "document_bindings"
+    ],
+    "dependencies": [],
+    "search_provider": "App\\Modules\\Reports\\Providers\\ReportsSearchProvider",
+    "services": [
+        "FileUploadService"
+    ],
+    "assets": {
+        "css": [
+            "reports.css",
+            "reports-grapesjs.css"
+        ],
+        "js": [
+            "reports.js",
+            "reports-grapesjs.js"
+        ]
+    },
+    "uploads_directory": "reports"
+}

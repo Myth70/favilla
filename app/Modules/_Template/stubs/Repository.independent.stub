@@ -1,0 +1,129 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ModuleNamespace}}\Repositories;
+
+use App\Repositories\BaseRepository;
+use App\Services\ModuleDatabaseResolver;
+
+class {{ModuleName}}Repository extends BaseRepository
+{
+    protected string $table = '{{TableName}}';
+
+    // Mass-assignment: SOLO queste colonne passano in create/update
+    protected array $fillable = ['name', 'description', 'status', 'created_by'];
+
+    // Timestamps automatici (created_at + updated_at)
+    protected bool $timestamps = true;
+
+    // Soft delete: delete() imposta deleted_at invece di rimuovere la riga.
+    // Richiede la colonna deleted_at (vedi migrations/).
+    protected bool $softDelete = true;
+
+    // Audit automatico su create/update/delete.
+    // NOTA: la riga audit_log resta nel DB principale; entity_id e' valido
+    // solo nel DB del modulo. Non e' presunta alcuna FK cross-DB.
+    protected bool $auditable = true;
+
+    public function __construct()
+    {
+        // Modulo a database dedicato: il PDO viene risolto via resolver,
+        // sovrascrivendo quello del BaseRepository (DB principale).
+        parent::__construct();
+        $this->pdo = app(ModuleDatabaseResolver::class)->pdoFor('{{ModuleName}}');
+    }
+
+    /**
+     * Trova un record visibile all'utente (owner-scoping di default).
+     *
+     * NOTA VISIBILITÀ: il default è "ogni utente vede solo i propri record"
+     * (created_by). Se il modulo deve avere dati condivisi tra tutti gli
+     * utenti con il permesso, rimuovi il filtro created_by QUI e nei metodi
+     * listPaginated/countByStatus — ma fallo come scelta esplicita.
+     */
+    public function findForUser(int $id, int $userId): ?array
+    {
+        $stmt = $this->pdo->prepare(
+            "SELECT * FROM {$this->table} WHERE id = ? AND created_by = ? AND deleted_at IS NULL"
+        );
+        $stmt->execute([$id, $userId]);
+        $row = $stmt->fetch();
+        return $row ?: null;
+    }
+
+    /**
+     * Lista paginata con filtri, ricerca e ordinamento (owner-scoped).
+     * La paginazione è gestita internamente: $filters['page'] (default 1).
+     * Restituisce: ['data' => [...], 'total' => N, 'lastPage' => N, 'page' => N]
+     */
+    public function listPaginated(array $filters, int $userId): array
+    {
+        $page    = max(1, (int) ($filters['page'] ?? 1));
+        $perPage = 20;
+        $offset  = ($page - 1) * $perPage;
+
+        $where  = ['t.created_by = ?', 't.deleted_at IS NULL'];
+        $params = [$userId];
+
+        if (!empty($filters['q'])) {
+            $where[]  = 't.name LIKE ?';
+            $params[] = '%' . $filters['q'] . '%';
+        }
+
+        if (!empty($filters['status'])) {
+            $where[]  = 't.status = ?';
+            $params[] = $filters['status'];
+        }
+
+        $whereSql = 'WHERE ' . implode(' AND ', $where);
+
+        // Ordinamento con whitelist (obbligatorio per sicurezza SQL)
+        $allowedSorts = ['name', 'status', 'created_at'];
+        $sort = in_array($filters['sort'] ?? '', $allowedSorts, true)
+            ? $filters['sort']
+            : 'created_at';
+        $dir = (strtolower($filters['dir'] ?? '') === 'asc') ? 'ASC' : 'DESC';
+
+        // Count totale
+        $stmt = $this->pdo->prepare(
+            "SELECT COUNT(*) FROM {$this->table} t {$whereSql}"
+        );
+        $stmt->execute($params);
+        $total = (int) $stmt->fetchColumn();
+
+        // Query paginata
+        $stmt = $this->pdo->prepare(
+            "SELECT t.* FROM {$this->table} t
+             {$whereSql}
+             ORDER BY t.{$sort} {$dir}
+             {$this->limitClause($perPage, $offset)}"
+        );
+        $stmt->execute($params);
+
+        return [
+            'data'  => $stmt->fetchAll(),
+            'total' => $total,
+            'lastPage' => (int) ceil($total / max($perPage, 1)),
+            'page'  => $page,
+        ];
+    }
+
+    /**
+     * Conteggio per status (per badge header lista), owner-scoped.
+     */
+    public function countByStatus(int $userId): array
+    {
+        $stmt = $this->pdo->prepare(
+            "SELECT status, COUNT(*) as total FROM {$this->table}
+             WHERE created_by = ? AND deleted_at IS NULL GROUP BY status"
+        );
+        $stmt->execute([$userId]);
+
+        $result = [];
+        foreach ($stmt->fetchAll() as $row) {
+            $result[$row['status']] = (int) $row['total'];
+        }
+        return $result;
+    }
+}

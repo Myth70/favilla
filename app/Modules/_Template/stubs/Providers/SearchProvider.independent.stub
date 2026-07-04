@@ -1,0 +1,57 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ModuleNamespace}}\Providers;
+
+use App\Contracts\SearchableModule;
+use App\Services\ModuleDatabaseResolver;
+
+class {{ModuleName}}SearchProvider implements SearchableModule
+{
+    public function search(string $query, int $userId, int $limit = 5): array
+    {
+        if (!has_permission('{{module_name}}.view')) {
+            return [];
+        }
+
+        // Modulo a database dedicato: PDO risolto via resolver.
+        $pdo  = app(ModuleDatabaseResolver::class)->pdoFor('{{ModuleName}}');
+        $like = '%' . $query . '%';
+
+        // Owner-scoped: ogni utente cerca SOLO tra i propri record (no leak cross-utente).
+        // LIMIT interpolato come intero: MariaDB non accetta LIMIT come parametro bindato
+        // con i prepared statement nativi (vedi BaseRepository::limitClause()).
+        $stmt = $pdo->prepare(
+            "SELECT id, name, created_at
+             FROM {{TableName}}
+             WHERE created_by = ? AND name LIKE ? AND deleted_at IS NULL
+             ORDER BY name ASC
+             LIMIT " . max(1, $limit)
+        );
+        $stmt->execute([$userId, $like]);
+
+        $results = [];
+        foreach ($stmt->fetchAll() as $row) {
+            $results[] = [
+                'title'    => $row['name'],
+                'subtitle' => t('{{module_name}}.title'),
+                'url'      => route('{{module_name}}.show', ['id' => $row['id']]),
+                'icon'     => 'fa-circle',
+                'badge'    => null,
+            ];
+        }
+
+        return $results;
+    }
+
+    public function getSearchLabel(): string
+    {
+        return t('{{module_name}}.title');
+    }
+
+    public function getSearchIcon(): string
+    {
+        return 'fa-circle';
+    }
+}

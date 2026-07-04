@@ -1,0 +1,352 @@
+{
+    "name": "Documenti",
+    "icon": "fa-solid fa-file-contract",
+    "version": "1.0.0",
+    "changelog": {
+        "1.0.0": "Versione iniziale — ciclo di vita completo documentazione aziendale: versionamento immutabile, workflow tri-step, reminder scadenze multi-stadio, categorie gerarchiche, collegamenti tipizzati, admin v1."
+    },
+    "description": "Gestione documentazione aziendale con versionamento immutabile, workflow approvazione tri-step, scadenze e categorie gerarchiche.",
+    "author": "Prometeo",
+    "framework_min": "1.0",
+    "database": "shared",
+    "tables": [
+        "documenti_categorie",
+        "documenti",
+        "documenti_versioni",
+        "documenti_approvazioni",
+        "documenti_collegamenti",
+        "documenti_files",
+        "documenti_protocollo_sequenze"
+    ],
+    "scheduled_jobs": [
+        { "slug": "documenti-expiry-reminders", "name": "Documenti — reminder scadenze", "command": "documenti:send-expiry-reminders", "interval_minutes": 1440, "enabled_by_default": false },
+        { "slug": "documenti-expire-published", "name": "Documenti — scadenza pubblicati", "command": "documenti:expire-published", "interval_minutes": 1440, "enabled_by_default": false },
+        { "slug": "documenti-verify-integrity", "name": "Documenti — verifica integrità SHA-256", "command": "documenti:verify-integrity", "interval_minutes": 1440, "enabled_by_default": false },
+        { "slug": "documenti-cleanup-orphans", "name": "Documenti — pulizia file orfani", "command": "documenti:cleanup-orphans", "interval_minutes": 1440, "enabled_by_default": false }
+    ],
+    "dependencies": ["Notifications"],
+    "dashboard_provider": "App\\Modules\\Documenti\\Providers\\DocumentiDashboardProvider",
+    "search_provider": "App\\Modules\\Documenti\\Providers\\DocumentiSearchProvider",
+    "export_provider": "App\\Modules\\Documenti\\Providers\\DocumentiExportProvider",
+    "services": ["AuditService", "NotificationService"],
+    "assets": {
+        "css": ["documenti.css"],
+        "js": ["documenti.js"]
+    },
+    "navigation": [
+        {
+            "id": "documenti.index",
+            "label": "Documenti",
+            "icon": "fa-file-contract",
+            "route": "documenti.index",
+            "permission": "documenti.access",
+            "order": 4,
+            "surfaces": ["sidebar", "quick_access"]
+        }
+    ],
+    "notification_events": [
+        {
+            "slug": "documenti.inviato",
+            "name": "Documento inviato al controllo",
+            "description": "Inviata agli utenti con permesso documenti.controllo quando un documento viene inviato",
+            "default_level": "info",
+            "icon": "fa-solid fa-paper-plane",
+            "context_variables": {
+                "documento_id": "ID documento",
+                "documento_titolo": "Titolo documento",
+                "protocollo": "Numero protocollo"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Documento da controllare: {{documento_titolo}}",
+                    "body": "Un documento è in attesa di controllo"
+                },
+                "email": {
+                    "subject": "Documento da controllare: {{documento_titolo}}",
+                    "body": "<h2>Documento in attesa di controllo</h2><p><a href=\"{{link}}\">Apri documento</a></p>"
+                }
+            }
+        },
+        {
+            "slug": "documenti.approvazione_richiesta",
+            "name": "Approvazione documento richiesta",
+            "description": "Inviata agli utenti con permesso documenti.approvazione",
+            "default_level": "warning",
+            "icon": "fa-solid fa-clock",
+            "context_variables": {
+                "documento_id": "ID documento",
+                "documento_titolo": "Titolo documento",
+                "protocollo": "Numero protocollo"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Documento da approvare: {{documento_titolo}}",
+                    "body": "Un documento è in attesa di approvazione"
+                },
+                "email": {
+                    "subject": "Documento da approvare: {{documento_titolo}}",
+                    "body": "<h2>Documento in attesa di approvazione</h2><p><a href=\"{{link}}\">Apri documento</a></p>"
+                }
+            }
+        },
+        {
+            "slug": "documenti.approvato",
+            "name": "Documento approvato",
+            "description": "Inviata all'owner quando il documento viene approvato",
+            "default_level": "success",
+            "icon": "fa-solid fa-circle-check",
+            "context_variables": {
+                "documento_id": "ID documento",
+                "documento_titolo": "Titolo documento",
+                "protocollo": "Numero protocollo"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Documento approvato: {{documento_titolo}}",
+                    "body": "Il tuo documento è stato approvato e pubblicato"
+                },
+                "email": {
+                    "subject": "Documento approvato: {{documento_titolo}}",
+                    "body": "<h2>Documento approvato</h2><p><a href=\"{{link}}\">Visualizza documento</a></p>"
+                }
+            }
+        },
+        {
+            "slug": "documenti.rifiutato",
+            "name": "Documento rifiutato",
+            "description": "Inviata all'owner quando il documento viene rifiutato",
+            "default_level": "danger",
+            "icon": "fa-solid fa-circle-xmark",
+            "context_variables": {
+                "documento_id": "ID documento",
+                "documento_titolo": "Titolo documento",
+                "note": "Note sul rifiuto"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Documento rifiutato: {{documento_titolo}}",
+                    "body": "Il tuo documento è stato rifiutato"
+                },
+                "email": {
+                    "subject": "Documento rifiutato: {{documento_titolo}}",
+                    "body": "<h2>Documento rifiutato</h2><p>Note: {{note}}</p><p><a href=\"{{link}}\">Apri documento</a></p>"
+                }
+            }
+        },
+        {
+            "slug": "documenti.in_scadenza",
+            "name": "Documento in scadenza",
+            "description": "Inviata all'owner e ai destinatari extra quando si avvicina la scadenza",
+            "default_level": "warning",
+            "icon": "fa-solid fa-triangle-exclamation",
+            "context_variables": {
+                "documento_id": "ID documento",
+                "documento_titolo": "Titolo documento",
+                "scade_il": "Data scadenza",
+                "giorni_alla_scadenza": "Giorni mancanti alla scadenza"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Documento in scadenza: {{documento_titolo}}",
+                    "body": "Il documento scade tra {{giorni_alla_scadenza}} giorni"
+                },
+                "email": {
+                    "subject": "Documento in scadenza: {{documento_titolo}}",
+                    "body": "<h2>Documento in scadenza</h2><p>Scade il: {{scade_il}}</p><p><a href=\"{{link}}\">Apri documento</a></p>"
+                }
+            }
+        },
+        {
+            "slug": "documenti.scaduto",
+            "name": "Documento scaduto",
+            "description": "Inviata all'owner e agli admin quando il documento scade",
+            "default_level": "danger",
+            "icon": "fa-solid fa-calendar-xmark",
+            "context_variables": {
+                "documento_id": "ID documento",
+                "documento_titolo": "Titolo documento"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Documento scaduto: {{documento_titolo}}",
+                    "body": "Il documento è scaduto e non è più valido"
+                },
+                "email": {
+                    "subject": "Documento scaduto: {{documento_titolo}}",
+                    "body": "<h2>Documento scaduto</h2><p><a href=\"{{link}}\">Apri documento</a></p>"
+                }
+            }
+        },
+        {
+            "slug": "documenti.nuova_versione",
+            "name": "Nuova versione documento",
+            "description": "Inviata agli utenti controllo/approvazione quando viene caricata una nuova versione",
+            "default_level": "info",
+            "icon": "fa-solid fa-code-branch",
+            "context_variables": {
+                "documento_id": "ID documento",
+                "documento_titolo": "Titolo documento",
+                "versione_no": "Numero versione"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Nuova versione: {{documento_titolo}}",
+                    "body": "È disponibile la versione {{versione_no}} del documento"
+                }
+            }
+        },
+        {
+            "slug": "documenti.preso_in_carico",
+            "name": "Documento preso in carico",
+            "description": "Inviata all'owner quando il controllo prende in carico il documento",
+            "default_level": "info",
+            "icon": "fa-solid fa-hand",
+            "context_variables": {
+                "documento_id": "ID documento",
+                "documento_titolo": "Titolo documento",
+                "protocollo": "Numero protocollo"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Documento preso in carico: {{documento_titolo}}",
+                    "body": "Il tuo documento è in fase di controllo"
+                },
+                "email": {
+                    "subject": "Documento preso in carico: {{documento_titolo}}",
+                    "body": "<h2>Documento preso in carico</h2><p>Il controllo ha iniziato la revisione.</p><p><a href=\"{{link}}\">Apri documento</a></p>"
+                }
+            }
+        },
+        {
+            "slug": "documenti.pronto_pubblicazione",
+            "name": "Documento pronto per la pubblicazione",
+            "description": "Inviata agli admin quando un documento è approvato e attende la pubblicazione",
+            "default_level": "warning",
+            "icon": "fa-solid fa-rocket",
+            "context_variables": {
+                "documento_id": "ID documento",
+                "documento_titolo": "Titolo documento",
+                "protocollo": "Numero protocollo"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Pronto da pubblicare: {{documento_titolo}}",
+                    "body": "Un documento è approvato e attende la pubblicazione"
+                },
+                "email": {
+                    "subject": "Pronto da pubblicare: {{documento_titolo}}",
+                    "body": "<h2>Documento pronto per la pubblicazione</h2><p><a href=\"{{link}}\">Pubblica il documento</a></p>"
+                }
+            }
+        },
+        {
+            "slug": "documenti.restituito",
+            "name": "Documento restituito",
+            "description": "Inviata al gruppo di controllo quando un documento viene restituito per ulteriore revisione",
+            "default_level": "info",
+            "icon": "fa-solid fa-rotate-left",
+            "context_variables": {
+                "documento_id": "ID documento",
+                "documento_titolo": "Titolo documento",
+                "note": "Note sulla restituzione"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Documento restituito: {{documento_titolo}}",
+                    "body": "Un documento è stato restituito per ulteriore controllo"
+                },
+                "email": {
+                    "subject": "Documento restituito: {{documento_titolo}}",
+                    "body": "<h2>Documento restituito</h2><p>Note: {{note}}</p><p><a href=\"{{link}}\">Apri documento</a></p>"
+                }
+            }
+        }
+    ],
+    "admin_panel": {
+        "section": "Pannelli admin dei moduli",
+        "eyebrow": "Moduli attivi",
+        "groups": [
+            {
+                "title": "Documenti",
+                "description": "Gestione amministrativa documenti, workflow, categorie, audit e configurazione.",
+                "icon": "fa-solid fa-file-contract",
+                "flows": [
+                    "Dashboard KPI",
+                    "Elenco completo",
+                    "Gestione categorie",
+                    "Cestino e purge",
+                    "Audit trail",
+                    "Sequenze protocollo",
+                    "Health check",
+                    "Gestione MIME"
+                ],
+                "links": [
+                    {
+                        "label": "Dashboard Documenti",
+                        "route": "documenti.admin.dashboard",
+                        "permission": "documenti.admin",
+                        "description": "KPI documenti, scadenze, ultime attività.",
+                        "icon": "fa-solid fa-gauge",
+                        "keywords": "documenti admin dashboard"
+                    },
+                    {
+                        "label": "Elenco documenti",
+                        "route": "documenti.admin.elenco",
+                        "permission": "documenti.admin",
+                        "description": "Tutti i documenti con bypass visibility.",
+                        "icon": "fa-solid fa-list",
+                        "keywords": "documenti elenco admin"
+                    },
+                    {
+                        "label": "Categorie documenti",
+                        "route": "documenti.admin.categorie",
+                        "permission": "documenti.admin",
+                        "description": "Albero categorie con codici protocollo.",
+                        "icon": "fa-solid fa-folder-tree",
+                        "keywords": "documenti categorie admin"
+                    },
+                    {
+                        "label": "Cestino documenti",
+                        "route": "documenti.admin.trash",
+                        "permission": "documenti.admin",
+                        "description": "Ripristino e purge definitivo.",
+                        "icon": "fa-solid fa-trash-can",
+                        "keywords": "documenti cestino trash"
+                    },
+                    {
+                        "label": "Audit documenti",
+                        "route": "documenti.admin.audit",
+                        "permission": "documenti.admin",
+                        "description": "Traccia completa di tutte le operazioni.",
+                        "icon": "fa-solid fa-shield-halved",
+                        "keywords": "documenti audit log"
+                    },
+                    {
+                        "label": "Sequenze protocollo",
+                        "route": "documenti.admin.sequenze",
+                        "permission": "documenti.admin",
+                        "description": "Stato e reset sequenze numerazione.",
+                        "icon": "fa-solid fa-hashtag",
+                        "keywords": "documenti sequenze protocollo"
+                    },
+                    {
+                        "label": "Health check",
+                        "route": "documenti.admin.health",
+                        "permission": "documenti.admin",
+                        "description": "Stato storage, file orfani e integrità checksum.",
+                        "icon": "fa-solid fa-heart-pulse",
+                        "keywords": "documenti health storage integrita"
+                    },
+                    {
+                        "label": "Tipi file MIME",
+                        "route": "documenti.admin.mime",
+                        "permission": "documenti.admin",
+                        "description": "Whitelist formati file accettati.",
+                        "icon": "fa-solid fa-file-circle-check",
+                        "keywords": "documenti mime formati"
+                    }
+                ]
+            }
+        ]
+    }
+}

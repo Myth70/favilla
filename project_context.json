@@ -1,0 +1,1519 @@
+{
+    "generated_at": "2026-07-04T09:48:34+02:00",
+    "layout": {
+        "index": "project_context.json",
+        "detail_dir": "context/",
+        "core_detail": "context/_core.json",
+        "module_detail": "context/<Module>.json",
+        "note": "Carica sempre questo indice. Apri context/<Module>.json solo quando lavori su quel modulo: route complete, schema tabelle (colonne/indici/FK), label permessi e FQCN di service/controller stanno nei file di dettaglio."
+    },
+    "framework": {
+        "name": "Favilla",
+        "version": "2.0.2",
+        "php_required": ">=8.2",
+        "php_running": "8.2.12",
+        "stack": [
+            "PHP 8.2",
+            "MariaDB 10.4",
+            "Bootstrap 5.3.3",
+            "HTMX 2.0.4",
+            "Font Awesome 6.7.2"
+        ],
+        "dependencies": [
+            "cerdic/css-tidy:^2.2",
+            "dompdf/dompdf:^2.0",
+            "ezyang/htmlpurifier:^4.18",
+            "monolog/monolog:^3.0",
+            "phpmailer/phpmailer:^7.0",
+            "phpoffice/phpspreadsheet:^5.6.1",
+            "vlucas/phpdotenv:^5.6"
+        ]
+    },
+    "config": {
+        "app": {
+            "name": "Favilla",
+            "env": "development",
+            "url": "http://localhost",
+            "base_path": "/favilla/public",
+            "maintenance": "false",
+            "session_lifetime": "480"
+        },
+        "database": {
+            "host": "localhost",
+            "port": "3306",
+            "name": "favilla",
+            "charset": "utf8mb4"
+        }
+    },
+    "assets": {
+        "css": [
+            "admin.css",
+            "app.css",
+            "auth.css",
+            "avatar-cropper.css",
+            "blog.css",
+            "bootstrap.min.css",
+            "calendar.css",
+            "contacts.css",
+            "cropper.min.css",
+            "dashboard-widgets.css",
+            "documenti.css",
+            "errors.css",
+            "feedback.css",
+            "files.css",
+            "fontawesome.min.css",
+            "fonts.css",
+            "healthcheck.css",
+            "helponline.css",
+            "home-changelog.css",
+            "home-today.css",
+            "jkanban.min.css",
+            "meteo.css",
+            "nt-admin-settings.css",
+            "nt-notifications.css",
+            "nt-send.css",
+            "nt-settings.css",
+            "profile.css",
+            "progetti.css",
+            "reports-grapesjs.css",
+            "reports-wizard.css",
+            "reports.css",
+            "scheduler.css",
+            "setup.css",
+            "tasks.css",
+            "teams.css"
+        ],
+        "js": [
+            "admin.js",
+            "apexcharts.min.js",
+            "app.js",
+            "avatar-cropper.js",
+            "blog.js",
+            "bootstrap.bundle.min.js",
+            "bulk-select.js",
+            "calendar.js",
+            "contacts-osm.js",
+            "contacts.js",
+            "dashboard-widgets.js",
+            "documenti.js",
+            "feedback.js",
+            "file-dropzone.js",
+            "file-picker.js",
+            "files.js",
+            "helponline.js",
+            "home-today.js",
+            "htmx.min.js",
+            "jkanban.min.js",
+            "meteo.js",
+            "nt-admin-settings.js",
+            "nt-icon-picker.js",
+            "nt-notifications.js",
+            "nt-send.js",
+            "profile.js",
+            "progetti-report.js",
+            "progetti.js",
+            "qrcode-min.js",
+            "reports-grapesjs.js",
+            "reports-wizard.js",
+            "reports.js",
+            "scheduler.js",
+            "tasks.js",
+            "teams.js"
+        ]
+    },
+    "permissions": [
+        {
+            "slug": "admin.changelog.manage",
+            "name": "Gestisci changelog versioni",
+            "module": "Admin"
+        },
+        {
+            "slug": "admin.dev.simulator",
+            "name": "Simulatore pagine (dev)",
+            "module": "Admin"
+        },
+        {
+            "slug": "admin.logs.purge",
+            "name": "Elimina log (pulizia)",
+            "module": "Admin"
+        },
+        {
+            "slug": "admin.logs.view",
+            "name": "Visualizza log",
+            "module": "Admin"
+        },
+        {
+            "slug": "admin.mail.log",
+            "name": "Visualizza log email",
+            "module": "Admin"
+        },
+        {
+            "slug": "admin.mail.manage",
+            "name": "Gestisci configurazione email",
+            "module": "Admin"
+        },
+        {
+            "slug": "admin.modules.manage",
+            "name": "Gestisci moduli",
+            "module": "Admin"
+        },
+        {
+            "slug": "admin.retention.manage",
+            "name": "Gestisci data retention",
+            "module": "Admin"
+        },
+        {
+            "slug": "admin.roles.manage",
+            "name": "Gestisci ruoli e permessi",
+            "module": "Admin"
+        },
+        {
+            "slug": "admin.security.assets",
+            "name": "Visualizza inventario asset",
+            "module": "Admin"
+        },
+        {
+            "slug": "admin.security.logs",
+            "name": "Gestisci log di sicurezza",
+            "module": "Admin"
+        },
+        {
+            "slug": "admin.security.manage",
+            "name": "Gestisci area sicurezza",
+            "module": "Admin"
+        },
+        {
+            "slug": "admin.security.policy",
+            "name": "Gestisci policy sicurezza",
+            "module": "Admin"
+        },
+        {
+            "slug": "admin.security.view",
+            "name": "Visualizza area sicurezza",
+            "module": "Admin"
+        },
+        {
+            "slug": "admin.settings.manage",
+            "name": "Gestisci impostazioni applicazione",
+            "module": "Admin"
+        },
+        {
+            "slug": "admin.users.create",
+            "name": "Crea utenti",
+            "module": "Admin"
+        },
+        {
+            "slug": "admin.users.delete",
+            "name": "Elimina utenti",
+            "module": "Admin"
+        },
+        {
+            "slug": "admin.users.edit",
+            "name": "Modifica utenti",
+            "module": "Admin"
+        },
+        {
+            "slug": "admin.users.impersonate",
+            "name": "Accedi come utente",
+            "module": "Admin"
+        },
+        {
+            "slug": "admin.users.view",
+            "name": "Visualizza utenti",
+            "module": "Admin"
+        },
+        {
+            "slug": "backup.download",
+            "name": "Scarica backup",
+            "module": "Backup"
+        },
+        {
+            "slug": "backup.manage",
+            "name": "Gestisci backup",
+            "module": "Backup"
+        },
+        {
+            "slug": "backup.restore",
+            "name": "Ripristina backup",
+            "module": "Backup"
+        },
+        {
+            "slug": "blog.admin",
+            "name": "Amministra Blog",
+            "module": "Blog"
+        },
+        {
+            "slug": "blog.comment",
+            "name": "Commenta articoli Blog",
+            "module": "Blog"
+        },
+        {
+            "slug": "blog.comment.moderate",
+            "name": "Modera commenti Blog",
+            "module": "Blog"
+        },
+        {
+            "slug": "blog.view",
+            "name": "Visualizza Blog",
+            "module": "Blog"
+        },
+        {
+            "slug": "blog.write",
+            "name": "Scrivi articoli Blog",
+            "module": "Blog"
+        },
+        {
+            "slug": "calendar.create",
+            "name": "Crea Eventi",
+            "module": "Calendar"
+        },
+        {
+            "slug": "calendar.delete",
+            "name": "Elimina Eventi",
+            "module": "Calendar"
+        },
+        {
+            "slug": "calendar.edit",
+            "name": "Modifica Eventi",
+            "module": "Calendar"
+        },
+        {
+            "slug": "calendar.view",
+            "name": "Visualizza Calendario",
+            "module": "Calendar"
+        },
+        {
+            "slug": "contacts.create",
+            "name": "Crea Contatti",
+            "module": "Contacts"
+        },
+        {
+            "slug": "contacts.delete",
+            "name": "Elimina Contatti",
+            "module": "Contacts"
+        },
+        {
+            "slug": "contacts.edit",
+            "name": "Modifica Contatti",
+            "module": "Contacts"
+        },
+        {
+            "slug": "contacts.import",
+            "name": "Importa Contatti",
+            "module": "Contacts"
+        },
+        {
+            "slug": "contacts.share",
+            "name": "Condividi i propri Contatti per ruolo",
+            "module": "Contacts"
+        },
+        {
+            "slug": "contacts.view",
+            "name": "Visualizza Contatti",
+            "module": "Contacts"
+        },
+        {
+            "slug": "documenti.access",
+            "name": "Accesso modulo Documenti",
+            "module": "Documenti"
+        },
+        {
+            "slug": "documenti.admin",
+            "name": "Amministra tutti i documenti",
+            "module": "Documenti"
+        },
+        {
+            "slug": "documenti.approvazione",
+            "name": "Approvazione documenti (step 3 workflow)",
+            "module": "Documenti"
+        },
+        {
+            "slug": "documenti.controllo",
+            "name": "Controllo documenti (step 2 workflow)",
+            "module": "Documenti"
+        },
+        {
+            "slug": "documenti.create",
+            "name": "Crea documenti",
+            "module": "Documenti"
+        },
+        {
+            "slug": "documenti.delete",
+            "name": "Elimina propri documenti",
+            "module": "Documenti"
+        },
+        {
+            "slug": "documenti.export",
+            "name": "Esporta elenchi documenti",
+            "module": "Documenti"
+        },
+        {
+            "slug": "documenti.inbox",
+            "name": "Inbox documenti (workflow in entrata)",
+            "module": "Documenti"
+        },
+        {
+            "slug": "documenti.manage_categorie",
+            "name": "Gestisci categorie documenti",
+            "module": "Documenti"
+        },
+        {
+            "slug": "documenti.manage_collegamenti",
+            "name": "Gestisci collegamenti documenti",
+            "module": "Documenti"
+        },
+        {
+            "slug": "documenti.redazione",
+            "name": "Redazione documenti (modifica bozze, carica versioni)",
+            "module": "Documenti"
+        },
+        {
+            "slug": "documenti.view",
+            "name": "Visualizza documenti",
+            "module": "Documenti"
+        },
+        {
+            "slug": "feedback.manage",
+            "name": "Gestisci segnalazioni (triage)",
+            "module": "Feedback"
+        },
+        {
+            "slug": "feedback.view",
+            "name": "Visualizza segnalazioni",
+            "module": "Feedback"
+        },
+        {
+            "slug": "files.access",
+            "name": "Accesso modulo File",
+            "module": "Files"
+        },
+        {
+            "slug": "files.admin",
+            "name": "Amministra tutti i file",
+            "module": "Files"
+        },
+        {
+            "slug": "files.create",
+            "name": "Carica file",
+            "module": "Files"
+        },
+        {
+            "slug": "files.delete",
+            "name": "Elimina propri file",
+            "module": "Files"
+        },
+        {
+            "slug": "files.edit",
+            "name": "Modifica metadati file",
+            "module": "Files"
+        },
+        {
+            "slug": "files.share",
+            "name": "Condividi file",
+            "module": "Files"
+        },
+        {
+            "slug": "files.view",
+            "name": "Visualizza file",
+            "module": "Files"
+        },
+        {
+            "slug": "healthcheck.export",
+            "name": "Esporta Health Check",
+            "module": "HealthCheck"
+        },
+        {
+            "slug": "healthcheck.history",
+            "name": "Storico Health Check",
+            "module": "HealthCheck"
+        },
+        {
+            "slug": "healthcheck.view",
+            "name": "Visualizza Health Check",
+            "module": "HealthCheck"
+        },
+        {
+            "slug": "helponline.admin",
+            "name": "Gestione Help Online",
+            "module": "HelpOnline"
+        },
+        {
+            "slug": "notifications.admin.bots",
+            "name": "Gestisci bot Telegram",
+            "module": "Notifications"
+        },
+        {
+            "slug": "notifications.admin.deliveries",
+            "name": "Visualizza code e delivery notifiche",
+            "module": "Notifications"
+        },
+        {
+            "slug": "notifications.admin.manage",
+            "name": "Gestisci dispatcher notifiche",
+            "module": "Notifications"
+        },
+        {
+            "slug": "notifications.admin.send",
+            "name": "Invia notifiche agli utenti (admin)",
+            "module": "Notifications"
+        },
+        {
+            "slug": "notifications.admin.templates",
+            "name": "Gestisci template notifiche",
+            "module": "Notifications"
+        },
+        {
+            "slug": "progetti.create",
+            "name": "Crea Progetti",
+            "module": "Progetti"
+        },
+        {
+            "slug": "progetti.delete",
+            "name": "Elimina Progetti",
+            "module": "Progetti"
+        },
+        {
+            "slug": "progetti.edit",
+            "name": "Modifica Progetti",
+            "module": "Progetti"
+        },
+        {
+            "slug": "progetti.export",
+            "name": "Esporta Dati Progetti",
+            "module": "Progetti"
+        },
+        {
+            "slug": "progetti.log_time",
+            "name": "Registra Ore Progetto",
+            "module": "Progetti"
+        },
+        {
+            "slug": "progetti.manage_all",
+            "name": "Gestione Completa Progetti",
+            "module": "Progetti"
+        },
+        {
+            "slug": "progetti.manage_members",
+            "name": "Gestisci Membri Progetto",
+            "module": "Progetti"
+        },
+        {
+            "slug": "progetti.view",
+            "name": "Visualizza Progetti",
+            "module": "Progetti"
+        },
+        {
+            "slug": "progetti.view_all",
+            "name": "Visualizza Tutti i Progetti",
+            "module": "Progetti"
+        },
+        {
+            "slug": "reports.admin",
+            "name": "Amministrazione report",
+            "module": "Reports"
+        },
+        {
+            "slug": "reports.create",
+            "name": "Crea template report",
+            "module": "Reports"
+        },
+        {
+            "slug": "reports.delete",
+            "name": "Elimina template report",
+            "module": "Reports"
+        },
+        {
+            "slug": "reports.documents",
+            "name": "Gestisci modelli documento",
+            "module": "Reports"
+        },
+        {
+            "slug": "reports.edit",
+            "name": "Modifica template report",
+            "module": "Reports"
+        },
+        {
+            "slug": "reports.export",
+            "name": "Esporta dati",
+            "module": "Reports"
+        },
+        {
+            "slug": "reports.styles",
+            "name": "Gestisci stili report",
+            "module": "Reports"
+        },
+        {
+            "slug": "reports.view",
+            "name": "Visualizza Report",
+            "module": "Reports"
+        },
+        {
+            "slug": "scheduler.manage",
+            "name": "Gestisci Scheduler",
+            "module": "Scheduler"
+        },
+        {
+            "slug": "scheduler.view",
+            "name": "Visualizza Scheduler",
+            "module": "Scheduler"
+        },
+        {
+            "slug": "tasks.create",
+            "name": "Crea Attività",
+            "module": "Tasks"
+        },
+        {
+            "slug": "tasks.delete",
+            "name": "Elimina Attività",
+            "module": "Tasks"
+        },
+        {
+            "slug": "tasks.edit",
+            "name": "Modifica Attività",
+            "module": "Tasks"
+        },
+        {
+            "slug": "tasks.view",
+            "name": "Visualizza Attività",
+            "module": "Tasks"
+        },
+        {
+            "slug": "teams.admin",
+            "name": "Amministra Teams (pannello, cleanup, override)",
+            "module": "Teams"
+        },
+        {
+            "slug": "teams.create",
+            "name": "Invia messaggi, gestisci gruppi e membri",
+            "module": "Teams"
+        },
+        {
+            "slug": "teams.delete",
+            "name": "Modifica/elimina i propri messaggi, esci dai gruppi",
+            "module": "Teams"
+        },
+        {
+            "slug": "teams.view",
+            "name": "Accesso Teams (lettura, presence, mute/hide)",
+            "module": "Teams"
+        }
+    ],
+    "modules": [
+        {
+            "name": "Admin",
+            "version": "2.0.0",
+            "description": "Pannello di amministrazione: utenti, ruoli, permessi, moduli, impostazioni, email, log e changelog",
+            "core": true,
+            "database_mode": "shared",
+            "database_suggested_name": null,
+            "database_installed": null,
+            "dependencies": [],
+            "has_migrations": false,
+            "search_provider": null,
+            "export_provider": null,
+            "counts": {
+                "routes": 101,
+                "tables": 9,
+                "permissions": 20,
+                "services": 16,
+                "controllers": 16
+            },
+            "tables": [
+                "roles",
+                "permissions",
+                "user_role",
+                "role_permission",
+                "audit_logs",
+                "app_settings",
+                "mail_templates",
+                "mail_log",
+                "changelog_versions"
+            ],
+            "permissions": [
+                "admin.users.view",
+                "admin.users.create",
+                "admin.users.edit",
+                "admin.users.delete",
+                "admin.users.impersonate",
+                "admin.roles.manage",
+                "admin.modules.manage",
+                "admin.security.view",
+                "admin.security.manage",
+                "admin.security.policy",
+                "admin.security.assets",
+                "admin.security.logs",
+                "admin.retention.manage",
+                "admin.logs.view",
+                "admin.logs.purge",
+                "admin.changelog.manage",
+                "admin.settings.manage",
+                "admin.mail.manage",
+                "admin.mail.log",
+                "admin.dev.simulator"
+            ],
+            "controllers": [
+                "AdminDashboardController",
+                "AdminIndexController",
+                "AdminLogsController",
+                "ChangelogController",
+                "DataRetentionController",
+                "DevSimulatorController",
+                "ImpersonationController",
+                "MailController",
+                "ModuleController",
+                "PaletteApiController",
+                "RoleConstraintController",
+                "RoleController",
+                "SecurityDashboardController",
+                "SecurityIncidentController",
+                "SettingsController",
+                "UserController"
+            ],
+            "services": [
+                "AdminDashboardService",
+                "AdminIndexService",
+                "AdminLogsService",
+                "AdminUserService",
+                "ChangelogService",
+                "EnvWriterService",
+                "ImpersonationService",
+                "ImportResult",
+                "MailAdminService",
+                "ModuleDataExporter",
+                "ModuleExportService",
+                "ModuleImportService",
+                "ModuleManagementService",
+                "ModuleUninstallService",
+                "RoleService",
+                "UninstallResult"
+            ],
+            "detail": "context/Admin.json"
+        },
+        {
+            "name": "Auth",
+            "version": "2.0.0",
+            "description": "Autenticazione, sessioni, recupero password e profilo utente",
+            "core": true,
+            "database_mode": "shared",
+            "database_suggested_name": null,
+            "database_installed": null,
+            "dependencies": [
+                "Notifications"
+            ],
+            "has_migrations": false,
+            "search_provider": null,
+            "export_provider": null,
+            "counts": {
+                "routes": 33,
+                "tables": 4,
+                "permissions": 0,
+                "services": 0,
+                "controllers": 7
+            },
+            "tables": [
+                "users",
+                "login_attempts",
+                "user_sessions",
+                "password_resets"
+            ],
+            "permissions": [],
+            "controllers": [
+                "AuthController",
+                "AvatarCropController",
+                "ForgotPasswordController",
+                "LocaleController",
+                "RegistrazioneController",
+                "ResetPasswordController",
+                "TotpController"
+            ],
+            "services": [],
+            "detail": "context/Auth.json"
+        },
+        {
+            "name": "Backup",
+            "version": "2.0.0",
+            "description": "Backup database SQL in PHP puro, compresso gzip, con rotazione automatica e download sicuro.",
+            "core": true,
+            "database_mode": "shared",
+            "database_suggested_name": null,
+            "database_installed": null,
+            "dependencies": [
+                "Notifications"
+            ],
+            "has_migrations": false,
+            "search_provider": null,
+            "export_provider": null,
+            "counts": {
+                "routes": 5,
+                "tables": 1,
+                "permissions": 3,
+                "services": 2,
+                "controllers": 1
+            },
+            "tables": [
+                "backup_history"
+            ],
+            "permissions": [
+                "backup.manage",
+                "backup.download",
+                "backup.restore"
+            ],
+            "controllers": [
+                "BackupController"
+            ],
+            "services": [
+                "BackupEncryptionService",
+                "BackupService"
+            ],
+            "detail": "context/Backup.json"
+        },
+        {
+            "name": "Calendar",
+            "version": "2.0.0",
+            "description": "Calendario eventi personali e condivisi per ruolo con viste mensile, settimanale e giornaliera",
+            "core": true,
+            "database_mode": "shared",
+            "database_suggested_name": null,
+            "database_installed": null,
+            "dependencies": [
+                "Notifications"
+            ],
+            "has_migrations": false,
+            "search_provider": "App\\Modules\\Calendar\\Providers\\CalendarSearchProvider",
+            "export_provider": "App\\Modules\\Calendar\\Providers\\CalendarExportProvider",
+            "counts": {
+                "routes": 12,
+                "tables": 1,
+                "permissions": 4,
+                "services": 3,
+                "controllers": 1
+            },
+            "tables": [
+                "calendar_events"
+            ],
+            "permissions": [
+                "calendar.view",
+                "calendar.create",
+                "calendar.edit",
+                "calendar.delete"
+            ],
+            "controllers": [
+                "CalendarController"
+            ],
+            "services": [
+                "CalendarIcsService",
+                "CalendarReminderService",
+                "CalendarService"
+            ],
+            "detail": "context/Calendar.json"
+        },
+        {
+            "name": "Contacts",
+            "version": "2.0.0",
+            "description": "Rubrica contatti privata per utente con ricorrenze, reminder automatici e integrazione calendario",
+            "core": true,
+            "database_mode": "shared",
+            "database_suggested_name": null,
+            "database_installed": null,
+            "dependencies": [
+                "Notifications"
+            ],
+            "has_migrations": false,
+            "search_provider": "App\\Modules\\Contacts\\Providers\\ContactsSearchProvider",
+            "export_provider": "App\\Modules\\Contacts\\Providers\\ContactsExportProvider",
+            "counts": {
+                "routes": 34,
+                "tables": 4,
+                "permissions": 6,
+                "services": 5,
+                "controllers": 7
+            },
+            "tables": [
+                "contact_categories",
+                "contacts",
+                "contact_recurrences",
+                "contact_shares"
+            ],
+            "permissions": [
+                "contacts.view",
+                "contacts.create",
+                "contacts.edit",
+                "contacts.delete",
+                "contacts.import",
+                "contacts.share"
+            ],
+            "controllers": [
+                "CategoriesController",
+                "ContactsController",
+                "FileImportController",
+                "ImportController",
+                "RecurrencesController",
+                "ReminderController",
+                "SharingController"
+            ],
+            "services": [
+                "ContactFileImportService",
+                "ContactSourceService",
+                "ContactsReminderService",
+                "ContactsService",
+                "RecurrencesService"
+            ],
+            "detail": "context/Contacts.json"
+        },
+        {
+            "name": "Feedback",
+            "version": "1.0.0",
+            "description": "Segnalazione contestuale di bug e funzionalità: cattura automatica dell'ambiente (URL, modulo, route, errori console, sequenza di azioni, snapshot DOM) + console admin con triage ed export 'Copia per LLM'.",
+            "core": true,
+            "database_mode": "shared",
+            "database_suggested_name": null,
+            "database_installed": null,
+            "dependencies": [
+                "Notifications"
+            ],
+            "has_migrations": false,
+            "search_provider": null,
+            "export_provider": null,
+            "counts": {
+                "routes": 8,
+                "tables": 1,
+                "permissions": 2,
+                "services": 2,
+                "controllers": 1
+            },
+            "tables": [
+                "feedback"
+            ],
+            "permissions": [
+                "feedback.view",
+                "feedback.manage"
+            ],
+            "controllers": [
+                "FeedbackController"
+            ],
+            "services": [
+                "FeedbackReportBuilder",
+                "FeedbackService"
+            ],
+            "detail": "context/Feedback.json"
+        },
+        {
+            "name": "Files",
+            "version": "2.0.0",
+            "description": "Gestione file aziendale: upload drag-and-drop, cartelle virtuali, visibilità privata/condivisa, cestino con ripristino, dashboard amministrativa.",
+            "core": true,
+            "database_mode": "shared",
+            "database_suggested_name": null,
+            "database_installed": null,
+            "dependencies": [],
+            "has_migrations": false,
+            "search_provider": "App\\Modules\\Files\\Providers\\FilesSearchProvider",
+            "export_provider": "App\\Modules\\Files\\Providers\\FilesExportProvider",
+            "counts": {
+                "routes": 29,
+                "tables": 4,
+                "permissions": 7,
+                "services": 1,
+                "controllers": 2
+            },
+            "tables": [
+                "files",
+                "user_folders",
+                "file_versions",
+                "file_shares"
+            ],
+            "permissions": [
+                "files.access",
+                "files.view",
+                "files.create",
+                "files.edit",
+                "files.delete",
+                "files.share",
+                "files.admin"
+            ],
+            "controllers": [
+                "AdminFilesController",
+                "FilesController"
+            ],
+            "services": [
+                "FilesService"
+            ],
+            "detail": "context/Files.json"
+        },
+        {
+            "name": "HealthCheck",
+            "version": "3.0.0",
+            "description": "Stato di salute dell'installazione (PHP, database, filesystem, sicurezza ISO 27001, prestazioni). Check rapidi sul dashboard e scansione approfondita (DNS email, esposizione .env, vulnerabilità dipendenze), CLI 'health:check' per CI/deploy, storico run, export CSV, notifiche admin.",
+            "core": true,
+            "database_mode": "shared",
+            "database_suggested_name": null,
+            "database_installed": null,
+            "dependencies": [
+                "Notifications"
+            ],
+            "has_migrations": false,
+            "search_provider": null,
+            "export_provider": null,
+            "counts": {
+                "routes": 4,
+                "tables": 1,
+                "permissions": 3,
+                "services": 1,
+                "controllers": 1
+            },
+            "tables": [
+                "healthcheck_runs"
+            ],
+            "permissions": [
+                "healthcheck.view",
+                "healthcheck.history",
+                "healthcheck.export"
+            ],
+            "controllers": [
+                "HealthCheckController"
+            ],
+            "services": [
+                "HealthCheckService"
+            ],
+            "detail": "context/HealthCheck.json"
+        },
+        {
+            "name": "HelpOnline",
+            "version": "2.2.0",
+            "description": "Help inline contestuale, knowledge base utente (Q/R) e pannello amministrativo per moduli, alias, ricerca e analytics del supporto.",
+            "core": true,
+            "database_mode": "shared",
+            "database_suggested_name": null,
+            "database_installed": null,
+            "dependencies": [],
+            "has_migrations": false,
+            "search_provider": "App\\Modules\\HelpOnline\\Providers\\HelpOnlineSearchProvider",
+            "export_provider": null,
+            "counts": {
+                "routes": 18,
+                "tables": 5,
+                "permissions": 1,
+                "services": 2,
+                "controllers": 1
+            },
+            "tables": [
+                "help_modules",
+                "help_entries",
+                "help_entry_aliases",
+                "help_search_terms",
+                "help_queries"
+            ],
+            "permissions": [
+                "helponline.admin"
+            ],
+            "controllers": [
+                "HelpOnlineController"
+            ],
+            "services": [
+                "HelpAdminService",
+                "HelpOnlineService"
+            ],
+            "detail": "context/HelpOnline.json"
+        },
+        {
+            "name": "Home",
+            "version": "2.0.0",
+            "description": "Dashboard principale, ricerca globale e preferenze utente (tema, sidebar, colore)",
+            "core": true,
+            "database_mode": "shared",
+            "database_suggested_name": null,
+            "database_installed": null,
+            "dependencies": [],
+            "has_migrations": false,
+            "search_provider": null,
+            "export_provider": null,
+            "counts": {
+                "routes": 24,
+                "tables": 2,
+                "permissions": 0,
+                "services": 9,
+                "controllers": 6
+            },
+            "tables": [
+                "user_preferences",
+                "user_widget_preferences"
+            ],
+            "permissions": [],
+            "controllers": [
+                "ChangelogController",
+                "HomeController",
+                "ModuleFallbackController",
+                "PreferencesController",
+                "SearchController",
+                "WeatherController"
+            ],
+            "services": [
+                "ChangelogService",
+                "DashboardColorPalette",
+                "DashboardService",
+                "DashboardStatTextFormatter",
+                "OggiService",
+                "PreferencesService",
+                "WeatherService",
+                "WidgetDataCache",
+                "WidgetPreferencesService"
+            ],
+            "detail": "context/Home.json"
+        },
+        {
+            "name": "Notifications",
+            "version": "2.0.0",
+            "description": "Sistema notifiche con dispatcher multicanale: in-app, email, Telegram, queue, preferenze utente e tracking delivery.",
+            "core": true,
+            "database_mode": "shared",
+            "database_suggested_name": null,
+            "database_installed": null,
+            "dependencies": [],
+            "has_migrations": false,
+            "search_provider": "App\\Modules\\Notifications\\Providers\\NotifSearchProvider",
+            "export_provider": "App\\Modules\\Notifications\\Providers\\NotifExportProvider",
+            "counts": {
+                "routes": 13,
+                "tables": 10,
+                "permissions": 5,
+                "services": 12,
+                "controllers": 3
+            },
+            "tables": [
+                "notifications",
+                "notification_channels",
+                "notification_event_types",
+                "notification_event_channel_bindings",
+                "user_notification_preferences",
+                "notification_dispatches",
+                "notification_deliveries",
+                "notification_queue",
+                "telegram_bots",
+                "telegram_user_links"
+            ],
+            "permissions": [
+                "notifications.admin.send",
+                "notifications.admin.manage",
+                "notifications.admin.templates",
+                "notifications.admin.bots",
+                "notifications.admin.deliveries"
+            ],
+            "controllers": [
+                "AdminNotificationsController",
+                "NotificationsController",
+                "TelegramWebhookController"
+            ],
+            "services": [
+                "EmailChannelDriver",
+                "InAppChannelDriver",
+                "NotificationAdminService",
+                "NotificationChannelDriverInterface",
+                "NotificationDispatcherService",
+                "NotificationEventRegistryService",
+                "NotificationModuleCatalogService",
+                "NotificationPreferenceService",
+                "NotificationQueueProcessorService",
+                "NotificationService",
+                "TelegramChannelDriver",
+                "TelegramLinkService"
+            ],
+            "detail": "context/Notifications.json"
+        },
+        {
+            "name": "Reports",
+            "version": "2.0.0",
+            "description": "Sistema completo di esportazione dati e report con designer WYSIWYG, export CSV/Excel/PDF e document templates",
+            "core": true,
+            "database_mode": "shared",
+            "database_suggested_name": null,
+            "database_installed": null,
+            "dependencies": [],
+            "has_migrations": false,
+            "search_provider": "App\\Modules\\Reports\\Providers\\ReportsSearchProvider",
+            "export_provider": null,
+            "counts": {
+                "routes": 31,
+                "tables": 4,
+                "permissions": 8,
+                "services": 12,
+                "controllers": 6
+            },
+            "tables": [
+                "report_style_presets",
+                "report_templates",
+                "report_history",
+                "document_bindings"
+            ],
+            "permissions": [
+                "reports.view",
+                "reports.create",
+                "reports.edit",
+                "reports.delete",
+                "reports.styles",
+                "reports.admin",
+                "reports.export",
+                "reports.documents"
+            ],
+            "controllers": [
+                "DocumentController",
+                "ExportController",
+                "HistoryController",
+                "ReportsController",
+                "StyleController",
+                "TemplateController"
+            ],
+            "services": [
+                "BundledTemplateService",
+                "DocumentService",
+                "ExportProviderService",
+                "HistoryService",
+                "ReportsDashboardService",
+                "ReportsDocumentBindingService",
+                "ReportsHistoryQueryService",
+                "ReportsTemplateQueryService",
+                "SmartComponentResolver",
+                "StyleService",
+                "TemplateHtmlSanitizer",
+                "TemplateService"
+            ],
+            "detail": "context/Reports.json"
+        },
+        {
+            "name": "Scheduler",
+            "version": "2.0.0",
+            "description": "Motore di scheduling per job periodici: notifiche, promemoria, publish, cleanup. Un solo cron entry: php favilla scheduler:run",
+            "core": true,
+            "database_mode": "shared",
+            "database_suggested_name": null,
+            "database_installed": null,
+            "dependencies": [],
+            "has_migrations": false,
+            "search_provider": null,
+            "export_provider": null,
+            "counts": {
+                "routes": 13,
+                "tables": 2,
+                "permissions": 2,
+                "services": 1,
+                "controllers": 1
+            },
+            "tables": [
+                "scheduler_jobs",
+                "scheduler_log"
+            ],
+            "permissions": [
+                "scheduler.view",
+                "scheduler.manage"
+            ],
+            "controllers": [
+                "SchedulerController"
+            ],
+            "services": [
+                "SchedulerService"
+            ],
+            "detail": "context/Scheduler.json"
+        },
+        {
+            "name": "Tasks",
+            "version": "2.0.0",
+            "description": "Gestione attività personali con Kanban board, to-do list, checklist, integrazione calendario e notifiche scadenze",
+            "core": true,
+            "database_mode": "shared",
+            "database_suggested_name": null,
+            "database_installed": null,
+            "dependencies": [
+                "Notifications"
+            ],
+            "has_migrations": false,
+            "search_provider": "App\\Modules\\Tasks\\Providers\\TasksSearchProvider",
+            "export_provider": "App\\Modules\\Tasks\\Providers\\TasksExportProvider",
+            "counts": {
+                "routes": 18,
+                "tables": 4,
+                "permissions": 4,
+                "services": 1,
+                "controllers": 1
+            },
+            "tables": [
+                "tasks",
+                "task_checklist",
+                "task_tags",
+                "task_tag_map"
+            ],
+            "permissions": [
+                "tasks.view",
+                "tasks.create",
+                "tasks.edit",
+                "tasks.delete"
+            ],
+            "controllers": [
+                "TasksController"
+            ],
+            "services": [
+                "TasksService"
+            ],
+            "detail": "context/Tasks.json"
+        },
+        {
+            "name": "Blog",
+            "version": "2.3.0",
+            "description": "Comunicazioni interne aziendali con articoli, commenti, categorie e tag",
+            "core": false,
+            "database_mode": "shared",
+            "database_suggested_name": null,
+            "database_installed": null,
+            "dependencies": [
+                "Notifications"
+            ],
+            "has_migrations": false,
+            "search_provider": "App\\Modules\\Blog\\Providers\\BlogSearchProvider",
+            "export_provider": "App\\Modules\\Blog\\Providers\\BlogExportProvider",
+            "counts": {
+                "routes": 42,
+                "tables": 9,
+                "permissions": 5,
+                "services": 8,
+                "controllers": 5
+            },
+            "tables": [
+                "blog_categories",
+                "blog_tags",
+                "blog_articles",
+                "blog_article_tags",
+                "blog_comments",
+                "blog_comment_blacklist",
+                "blog_article_likes",
+                "blog_article_bookmarks",
+                "blog_article_views"
+            ],
+            "permissions": [
+                "blog.view",
+                "blog.comment",
+                "blog.write",
+                "blog.comment.moderate",
+                "blog.admin"
+            ],
+            "controllers": [
+                "BlogAdminController",
+                "BlogAuthorController",
+                "BlogCommentController",
+                "BlogInteractionController",
+                "BlogPublicController"
+            ],
+            "services": [
+                "BlogAdminService",
+                "BlogArticleService",
+                "BlogAuthorService",
+                "BlogCommentService",
+                "BlogContentSanitizer",
+                "BlogInteractionService",
+                "BlogPublicService",
+                "BlogSlugService"
+            ],
+            "detail": "context/Blog.json"
+        },
+        {
+            "name": "Documenti",
+            "version": "1.0.0",
+            "description": "Gestione documentazione aziendale con versionamento immutabile, workflow approvazione tri-step, scadenze e categorie gerarchiche.",
+            "core": false,
+            "database_mode": "shared",
+            "database_suggested_name": null,
+            "database_installed": null,
+            "dependencies": [
+                "Notifications"
+            ],
+            "has_migrations": false,
+            "search_provider": "App\\Modules\\Documenti\\Providers\\DocumentiSearchProvider",
+            "export_provider": "App\\Modules\\Documenti\\Providers\\DocumentiExportProvider",
+            "counts": {
+                "routes": 48,
+                "tables": 7,
+                "permissions": 12,
+                "services": 13,
+                "controllers": 5
+            },
+            "tables": [
+                "documenti_categorie",
+                "documenti",
+                "documenti_versioni",
+                "documenti_approvazioni",
+                "documenti_collegamenti",
+                "documenti_files",
+                "documenti_protocollo_sequenze"
+            ],
+            "permissions": [
+                "documenti.access",
+                "documenti.view",
+                "documenti.create",
+                "documenti.redazione",
+                "documenti.controllo",
+                "documenti.approvazione",
+                "documenti.inbox",
+                "documenti.delete",
+                "documenti.manage_categorie",
+                "documenti.manage_collegamenti",
+                "documenti.export",
+                "documenti.admin"
+            ],
+            "controllers": [
+                "ApprovazioniController",
+                "CategorieController",
+                "CollegamentiController",
+                "DocumentiController",
+                "VersioniController"
+            ],
+            "services": [
+                "CategoryTreeService",
+                "CollegamentoService",
+                "DocumentiAdminService",
+                "DocumentiAuditService",
+                "DocumentiHealthService",
+                "DocumentiMimeRegistry",
+                "DocumentiRecipientService",
+                "DocumentiStorageService",
+                "DocumentoService",
+                "ProtocolGeneratorService",
+                "ReminderService",
+                "VersioningService",
+                "WorkflowApprovazioneService"
+            ],
+            "detail": "context/Documenti.json"
+        },
+        {
+            "name": "Progetti",
+            "version": "2.0.0",
+            "description": "Gestione progetti per PMI con milestone, task, gantt, timesheet e controllo budget",
+            "core": false,
+            "database_mode": "shared",
+            "database_suggested_name": null,
+            "database_installed": null,
+            "dependencies": [
+                "Notifications"
+            ],
+            "has_migrations": false,
+            "search_provider": "App\\Modules\\Progetti\\Providers\\ProgettiSearchProvider",
+            "export_provider": "App\\Modules\\Progetti\\Providers\\ProgettiExportProvider",
+            "counts": {
+                "routes": 49,
+                "tables": 10,
+                "permissions": 9,
+                "services": 3,
+                "controllers": 3
+            },
+            "tables": [
+                "projects",
+                "project_milestones",
+                "project_tasks",
+                "project_task_dependencies",
+                "project_members",
+                "project_timesheets",
+                "project_files",
+                "project_checklist_templates",
+                "project_checklist_template_items",
+                "project_task_checklist_items"
+            ],
+            "permissions": [
+                "progetti.view",
+                "progetti.create",
+                "progetti.edit",
+                "progetti.delete",
+                "progetti.manage_members",
+                "progetti.log_time",
+                "progetti.view_all",
+                "progetti.manage_all",
+                "progetti.export"
+            ],
+            "controllers": [
+                "AdminProgettiController",
+                "ChecklistController",
+                "ProgettiController"
+            ],
+            "services": [
+                "AdminProgettiService",
+                "ChecklistService",
+                "ProgettiService"
+            ],
+            "detail": "context/Progetti.json"
+        },
+        {
+            "name": "Teams",
+            "version": "2.0.0",
+            "description": "Messaggistica interna con chat 1:1 e gruppo, presenza e typing indicator",
+            "core": false,
+            "database_mode": "shared",
+            "database_suggested_name": null,
+            "database_installed": null,
+            "dependencies": [
+                "Notifications",
+                "Files"
+            ],
+            "has_migrations": false,
+            "search_provider": "App\\Modules\\Teams\\Providers\\TeamsSearchProvider",
+            "export_provider": "App\\Modules\\Teams\\Providers\\TeamsExportProvider",
+            "counts": {
+                "routes": 43,
+                "tables": 9,
+                "permissions": 4,
+                "services": 7,
+                "controllers": 6
+            },
+            "tables": [
+                "teams_conversations",
+                "teams_conversation_members",
+                "teams_messages",
+                "teams_user_presence",
+                "teams_typing",
+                "teams_message_edits",
+                "teams_message_reactions",
+                "teams_message_attachments",
+                "teams_message_mentions"
+            ],
+            "permissions": [
+                "teams.view",
+                "teams.create",
+                "teams.delete",
+                "teams.admin"
+            ],
+            "controllers": [
+                "AdminTeamsController",
+                "GroupPanelController",
+                "MemberController",
+                "MessageController",
+                "ReactionController",
+                "TeamsController"
+            ],
+            "services": [
+                "AdminTeamsService",
+                "GroupPanelService",
+                "TeamsMemberService",
+                "TeamsMessageService",
+                "TeamsNotificationService",
+                "TeamsReactionService",
+                "TeamsService"
+            ],
+            "detail": "context/Teams.json"
+        }
+    ],
+    "core": {
+        "tables": [
+            "changelogs",
+            "changelog_translations",
+            "data_retention_policies",
+            "migrations",
+            "module_databases",
+            "module_states",
+            "password_history",
+            "php_sessions",
+            "rate_limits",
+            "role_constraints",
+            "security_incidents",
+            "sessions",
+            "user_totp_backup_codes",
+            "user_totp_secrets",
+            "user_weather_preferences"
+        ],
+        "services_count": 30,
+        "detail": "context/_core.json"
+    }
+}

@@ -1,0 +1,196 @@
+<?php
+
+/**
+ * Tasks module — French.
+ */
+return [
+    'title'         => 'Tâches',
+    'subtitle'      => 'Planification opérationnelle sur un tableau Kanban',
+    'list_title'    => 'Tâches — Liste',
+    'list_subtitle' => 'Vue en liste avec filtres et tri',
+    'new_page_title'  => 'Nouvelle tâche',
+    'edit_page_title' => 'Modifier la tâche',
+    'breadcrumb_list' => 'Liste',
+    'breadcrumb_new'  => 'Nouvelle',
+    'breadcrumb_edit' => 'Modifier',
+
+    'status' => [
+        'backlog'     => 'Backlog',
+        'todo'        => 'À faire',
+        'in_progress' => 'En cours',
+        'review'      => 'En révision',
+        'done'        => 'Terminé',
+    ],
+    'priority' => [
+        'low'    => 'Basse',
+        'medium' => 'Moyenne',
+        'high'   => 'Haute',
+        'urgent' => 'Urgente',
+    ],
+
+    'stats' => [
+        'overdue' => 'En retard',
+        'total'   => 'Total',
+        'active'  => 'Actives',
+        'done'    => 'Terminées',
+    ],
+
+    'actions' => [
+        'kanban'      => 'Kanban',
+        'list'        => 'Liste',
+        'new'         => 'Nouvelle tâche',
+        'in_calendar' => 'Dans le calendrier',
+        'detail'      => 'Détail',
+        'calendar'    => 'Calendrier',
+    ],
+    'tooltip' => [
+        'list_view'    => 'Vue liste',
+        'kanban_view'  => 'Vue Kanban',
+        'new'          => 'Nouvelle tâche',
+        'linked_tasks' => 'Tâches liées au calendrier',
+        'open_event'   => "Ouvrir l'événement lié dans le calendrier",
+        'add_in'       => 'Ajouter dans :status',
+        'add_task_in'  => 'Ajouter une tâche dans :status',
+    ],
+
+    'fields' => [
+        'title'       => 'Titre',
+        'description' => 'Description',
+        'status'      => 'Statut',
+        'priority'    => 'Priorité',
+        'due_date'    => 'Échéance',
+        'due_time'    => 'Heure',
+        'color'       => 'Couleur',
+        'tags'        => 'Tags',
+    ],
+    'form' => [
+        'title_placeholder'       => 'Que devez-vous faire ?',
+        'description_placeholder' => 'Détails...',
+        'title_hint'              => 'Saisissez un titre.',
+        'description_invalid'     => 'Description non valide.',
+        'fix_errors'              => 'Corrigez les erreurs.',
+        'new_heading'             => 'Nouvelle',
+        'edit_heading'            => 'Modifier',
+        'all_priorities'          => 'Toutes les priorités',
+    ],
+
+    'checklist' => [
+        'label'         => 'Checklist',
+        'add_placeholder' => 'Ajouter un élément...',
+        'empty'         => 'Aucun élément dans la checklist.',
+        'remove_item'   => 'Supprimer cet élément ?',
+        'item_added'    => 'Élément de checklist ajouté.',
+        'item_removed'  => 'Élément de checklist supprimé.',
+        'updated'       => 'Checklist mise à jour.',
+        'meta'          => ':done sur :total terminés',
+    ],
+
+    'detail' => [
+        'created'         => 'Créée',
+        'completed'       => 'Terminée',
+        'no_link_warning' => "Cette tâche a une échéance mais n'est pas liée à un événement du calendrier.",
+        'delete_confirm'  => 'Supprimer cette tâche ?',
+        'delete_confirm_calendar' => "Supprimer cette tâche et aussi l'événement lié dans le calendrier ?",
+    ],
+
+    'list' => [
+        'filter_status'      => 'Filtrer par statut',
+        'all'                => 'Toutes',
+        'results'            => ':count résultats',
+        'search_placeholder' => 'Rechercher par titre ou description…',
+        'reset_tooltip'      => 'Supprimer tous les filtres',
+        'clear_search'       => 'Effacer la recherche',
+        'overdue_tooltip'    => 'Tâches en retard non terminées',
+        'scope_all'          => 'Tout',
+        'scope_today'        => "Aujourd'hui",
+        'scope_week'         => '7 jours',
+        'scope_linked'       => 'Dans le calendrier',
+        'scope_overdue'      => 'En retard',
+        'page_info'          => 'page :page sur :pages',
+    ],
+
+    'table' => [
+        'col_task'      => 'Tâche',
+        'col_checklist' => 'Checklist',
+        'empty_title'   => 'Aucune tâche trouvée',
+        'empty_hint'    => 'Essayez de modifier les filtres ou créez une nouvelle tâche.',
+        'checklist_done' => ':done sur :total terminés',
+        'open_calendar' => 'Ouvrir dans le calendrier',
+        'open_calendar_link' => "Ouvrir l'événement lié dans le calendrier",
+        'delete_confirm'         => 'Supprimer la tâche ?',
+        'delete_confirm_calendar' => "Supprimer la tâche et aussi l'événement lié dans le calendrier ?",
+    ],
+
+    'search' => [
+        'no_results'     => 'Aucun résultat pour « :q ».',
+        'type_to_search' => 'Tapez pour rechercher.',
+    ],
+
+    'flash' => [
+        'created'   => 'Tâche créée.',
+        'updated'   => 'Tâche mise à jour.',
+        'deleted'   => 'Tâche supprimée.',
+        'not_found' => 'Tâche introuvable.',
+    ],
+
+    'validation' => [
+        'title_required'  => 'Le titre est obligatoire.',
+        'title_max'       => 'Le titre ne peut pas dépasser 255 caractères.',
+        'status_invalid'  => 'Statut non valide.',
+        'priority_invalid' => 'Priorité non valide.',
+        'due_date_invalid' => 'Format de date non valide.',
+        'due_time_invalid' => 'Format d\'heure non valide.',
+        'color_invalid'   => 'Couleur non valide.',
+        'create_error'    => 'Erreur lors de la création de la tâche.',
+        'update_error'    => 'Erreur lors de la mise à jour de la tâche.',
+        'move_status_invalid' => 'Statut non valide',
+        'tag_name_invalid' => 'Nom de tag non valide (max 50 caractères)',
+        'tag_exists'      => 'Tag déjà existant',
+        'checklist_text_required' => 'Texte obligatoire.',
+        'checklist_text_max' => 'Le texte de la checklist ne peut pas dépasser 500 caractères.',
+        'checklist_save_error' => 'Erreur lors de l\'enregistrement de la checklist.',
+        'checklist_update_error' => 'Erreur lors de la mise à jour de la checklist.',
+        'checklist_remove_error' => 'Erreur lors de la suppression de l\'élément de checklist.',
+    ],
+
+    'form_page' => [
+        'subtitle_new'                 => 'Remplissez les champs pour enregistrer une nouvelle tâche',
+        'back_to_list'                 => 'Retour à la liste',
+        'some_invalid'                 => 'Certains champs ne sont pas valides',
+        'section_details'              => 'Détails de la tâche',
+        'section_planning'             => 'Planification',
+        'title_required_hint'          => 'Titre obligatoire (max 255 caractères).',
+        'description_placeholder_full' => 'Détails, notes, liens...',
+        'value_invalid'                => 'Valeur non valide.',
+        'color_aria'                   => 'Couleur de la tâche',
+    ],
+
+    'detail_page' => [
+        'subtitle'         => 'Détail de la tâche n° :id',
+        'at'               => 'à',
+        'linked_event'     => 'Événement lié',
+        'no_linked_event'  => 'Aucun événement lié',
+        'not_applicable'   => 'Non prévu',
+        'created_at'       => 'Créée le',
+        'completed_at'     => 'Terminée le',
+        'back_kanban'      => 'Retour au Kanban',
+        'back_list'        => 'Retour à la liste',
+        'open_event'       => 'Ouvrir l\'événement lié',
+        'no_description'   => 'Aucune description.',
+        'no_link_warning2' => "Cette tâche a une échéance mais n'est actuellement pas liée à un événement du calendrier.",
+    ],
+
+    'widget' => [
+        'active_label'     => 'Tâches actives',
+        'upcoming_label'   => 'Prochaines échéances',
+        'trend_label'      => 'Complétions hebdomadaires',
+        'overdue_sub'      => ':count en retard',
+        'duesoon_sub'      => ':count à échéance (7 j)',
+        'col_task'         => 'Tâche',
+        'col_priority'     => 'Priorité',
+        'col_due'          => 'Échéance',
+        'due_prefix'       => 'Éch.',
+        'upcoming_empty'   => 'Aucune échéance imminente. Tout est sous contrôle !',
+        'series_completed' => 'Terminées',
+    ],
+];

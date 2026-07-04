@@ -1,0 +1,1526 @@
+/**
+ * Admin Module â€” Unified Stylesheet
+ * Prefix: .adm-
+ */
+
+/* â”€â”€ Page header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-page-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius-md);
+    font-size: 1.1rem;
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    color: var(--accent);
+    flex-shrink: 0;
+}
+
+.adm-page-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.3;
+}
+
+/* â”€â”€ Stat cards (shared dashboard + logs) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-stat-card {
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+.adm-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1) !important;
+}
+
+.adm-stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+.adm-stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.adm-stat-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* â”€â”€ Card variants â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-card {
+    border: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .08);
+}
+
+.adm-card-header {
+    background-color: var(--bs-tertiary-bg);
+    border-bottom: 1px solid var(--bs-border-color);
+}
+
+/* â”€â”€ Table th (shared mail + changelog) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-table th {
+    font-size: .8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    color: var(--bs-secondary-color, #6c757d);
+    border-bottom-width: 2px;
+}
+
+/* â”€â”€ Settings-specific â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-label {
+    font-weight: 500;
+}
+
+.adm-key-hint {
+    font-family: var(--bs-font-monospace);
+    font-size: 0.75rem;
+}
+
+/* â”€â”€ Mail-specific â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-var-badge {
+    font-size: 0.75rem;
+    font-family: var(--bs-font-monospace);
+    margin-right: 2px;
+}
+
+/* â”€â”€ Changelog-specific â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-version-link {
+    font-family: var(--bs-font-monospace, monospace);
+    font-size: .9rem;
+    color: var(--bs-primary);
+}
+.adm-version-link:hover {
+    text-decoration: underline !important;
+}
+
+.adm-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+    text-align: center;
+}
+
+.adm-version-pill {
+    display: inline-block;
+    font-family: var(--bs-font-monospace, monospace);
+    font-size: .875rem;
+    font-weight: 600;
+    padding: .25rem .65rem;
+    border-radius: 999px;
+    background: var(--bs-primary-bg-subtle, #cfe2ff);
+    color: var(--bs-primary-text-emphasis, #084298);
+    border: 1px solid var(--bs-primary-border-subtle, #9ec5fe);
+}
+
+.adm-notes-pre {
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-family: var(--bs-font-monospace, monospace);
+    font-size: .875rem;
+    line-height: 1.6;
+    background: var(--bs-body-bg);
+    border: none;
+    padding: 0;
+    margin: 0;
+    color: var(--bs-body-color);
+}
+
+.adm-notes-area {
+    font-family: var(--bs-font-monospace, monospace);
+    font-size: .875rem;
+    line-height: 1.6;
+    resize: vertical;
+    min-height: 220px;
+}
+
+.adm-version-badge {
+    display: inline-block;
+    margin-left: .75rem;
+    padding: .15rem .55rem;
+    border-radius: 999px;
+    font-size: .7rem;
+    font-family: var(--bs-font-monospace, monospace);
+    font-weight: 600;
+    background: color-mix(in srgb, currentColor 10%, transparent);
+    opacity: .75;
+    vertical-align: middle;
+}
+
+/* â”€â”€ Logs-specific â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-detail-pre {
+    background: var(--bs-tertiary-bg);
+    border: 1px solid var(--bs-border-color);
+    border-radius: .375rem;
+    padding: .75rem;
+    font-size: .8rem;
+    white-space: pre-wrap;
+    word-break: break-all;
+    max-height: 320px;
+    overflow-y: auto;
+    min-height: 60px;
+}
+
+/* â”€â”€ Utility classes (replacing inline styles) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-detail-label {
+    width: 40%;
+}
+
+.adm-badge-auto {
+    --bs-bg-opacity: .15;
+}
+
+.adm-chart-container {
+    height: 280px;
+}
+
+.adm-truncate {
+    max-width: 220px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.adm-col-version {
+    width: 110px;
+}
+
+.adm-col-date {
+    width: 120px;
+}
+
+.adm-col-status {
+    width: 90px;
+}
+
+.adm-col-actions {
+    width: 100px;
+}
+
+.adm-col-avatar {
+    width: 40px;
+}
+
+.adm-input-sm {
+    max-width: 120px;
+}
+
+.adm-progress-thin {
+    height: 8px;
+}
+
+.adm-text-accent {
+    color: var(--accent-color);
+}
+
+.adm-input-days {
+    width: 80px;
+}
+
+.adm-select-action {
+    width: 130px;
+}
+
+.adm-col-40 {
+    width: 40px;
+}
+
+.adm-col-datetime {
+    width: 140px;
+}
+
+.adm-col-level {
+    width: 80px;
+}
+
+.adm-col-line {
+    width: 50px;
+}
+
+/* â”€â”€ Admin index â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-index-stat-card {
+    border: 1px solid color-mix(in srgb, var(--bs-border-color) 85%, transparent);
+}
+
+.adm-index-stat-icon,
+.adm-index-group-icon,
+.adm-index-link-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--accent-color, var(--bs-primary));
+    background: color-mix(in srgb, var(--accent-color, var(--bs-primary)) 12%, transparent);
+}
+
+.adm-index-stat-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-lg);
+    font-size: 1.25rem;
+}
+
+.adm-index-note-card {
+    border-color: color-mix(in srgb, var(--bs-border-color) 85%, transparent) !important;
+}
+
+.adm-index-group {
+    border: 1px solid color-mix(in srgb, var(--bs-border-color) 88%, transparent);
+    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+
+.adm-index-group:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 .75rem 1.75rem rgba(0, 0, 0, .08);
+    border-color: color-mix(in srgb, var(--accent-color, var(--bs-primary)) 22%, var(--bs-border-color));
+}
+
+.adm-index-group-body {
+    padding: .75rem !important;
+}
+
+.adm-index-group-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    font-size: .95rem;
+    flex-shrink: 0;
+}
+
+.adm-index-group-desc {
+    font-size: .75rem;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.adm-index-module-badge {
+    font-size: .65rem;
+}
+
+.adm-index-link {
+    display: block;
+    padding: .45rem .6rem;
+    border: 1px solid color-mix(in srgb, var(--bs-border-color) 88%, transparent);
+    border-radius: .55rem;
+    background: var(--bs-body-bg);
+    transition: border-color .12s ease, background-color .12s ease, box-shadow .12s ease;
+}
+
+.adm-index-link:hover {
+    border-color: color-mix(in srgb, var(--accent-color, var(--bs-primary)) 22%, var(--bs-border-color));
+    background: var(--bs-tertiary-bg);
+    box-shadow: 0 .2rem .6rem rgba(0, 0, 0, .05);
+}
+
+.adm-index-link-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius-sm);
+    font-size: .78rem;
+    flex-shrink: 0;
+}
+
+.adm-index-link-label {
+    font-size: .82rem;
+    line-height: 1.2;
+}
+
+.adm-index-link-desc {
+    font-size: .72rem;
+    max-width: 100%;
+}
+
+.adm-index-link-chevron {
+    color: var(--bs-secondary-color);
+    font-size: .65rem;
+    opacity: .6;
+}
+
+.adm-index-flow {
+    font-size: .75rem;
+    font-weight: 500;
+}
+
+/* â”€â”€ Section navigation bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-index-section-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .4rem .5rem;
+    min-height: 2rem;
+}
+
+.adm-index-nav-label {
+    font-size: .78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--bs-secondary-color);
+    white-space: nowrap;
+    margin-right: .25rem;
+}
+
+.adm-index-nav-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: .3rem;
+    padding: .28rem .75rem;
+    border-radius: 999px;
+    font-size: .8rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid color-mix(in srgb, var(--accent-color, var(--bs-primary)) 25%, var(--bs-border-color));
+    background: color-mix(in srgb, var(--accent-color, var(--bs-primary)) 6%, var(--bs-body-bg));
+    color: var(--bs-body-color);
+    transition: background .15s ease, border-color .15s ease, transform .12s ease;
+}
+
+.adm-index-nav-pill:hover {
+    background: color-mix(in srgb, var(--accent-color, var(--bs-primary)) 14%, var(--bs-body-bg));
+    border-color: color-mix(in srgb, var(--accent-color, var(--bs-primary)) 50%, var(--bs-border-color));
+    color: var(--accent-color, var(--bs-primary));
+    transform: translateY(-1px);
+}
+
+.adm-index-nav-pill-eyebrow {
+    font-size: .65rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    font-weight: 600;
+    color: var(--accent-color, var(--bs-primary));
+    opacity: .8;
+}
+
+/* â”€â”€ Section header â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-index-section-header {
+    padding-left: 1rem;
+    border-left: 3px solid color-mix(in srgb, var(--accent-color, var(--bs-primary)) 60%, transparent);
+}
+
+.adm-index-section-eyebrow {
+    display: inline-block;
+    font-size: .68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    color: var(--accent-color, var(--bs-primary));
+    padding: .15rem .55rem;
+    border-radius: .35rem;
+    background: color-mix(in srgb, var(--accent-color, var(--bs-primary)) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent-color, var(--bs-primary)) 20%, transparent);
+}
+
+/* â”€â”€ Group count badge â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-index-group-count {
+    background: color-mix(in srgb, var(--accent-color, var(--bs-primary)) 12%, var(--bs-tertiary-bg));
+    color: var(--accent-color, var(--bs-primary));
+    border: 1px solid color-mix(in srgb, var(--accent-color, var(--bs-primary)) 25%, var(--bs-border-color));
+    font-size: .7rem;
+}
+
+/* â”€â”€ Keyboard shortcut badge â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-index-kbd {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: .3rem;
+    background: var(--bs-tertiary-bg);
+    border: 1px solid var(--bs-border-color);
+    font-size: .7rem;
+    font-family: var(--bs-font-monospace);
+    font-weight: 600;
+    color: var(--bs-secondary-color);
+    line-height: 1;
+}
+
+@media (max-width: 1199.98px) {
+    .adm-stat-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    .adm-stat-value {
+        font-size: 1.25rem;
+    }
+}
+
+/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+   DASHBOARD v2 â€” KPI, Timeline, Quick Actions
+   â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
+
+/* â”€â”€ Quick action pills â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-quick-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    padding: .4rem .9rem;
+    border-radius: 999px;
+    font-size: .8rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid var(--bs-border-color);
+    background: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    transition: border-color .15s ease, background .15s ease, box-shadow .15s ease, transform .12s ease;
+}
+.adm-quick-btn:hover {
+    border-color: color-mix(in srgb, var(--accent-color, var(--bs-primary)) 40%, var(--bs-border-color));
+    background: color-mix(in srgb, var(--accent-color, var(--bs-primary)) 6%, var(--bs-body-bg));
+    box-shadow: 0 2px 8px rgba(0,0,0,.07);
+    transform: translateY(-1px);
+    color: var(--bs-body-color);
+}
+.adm-quick-btn--accent {
+    background: color-mix(in srgb, var(--accent-color, var(--bs-primary)) 12%, var(--bs-body-bg));
+    border-color: color-mix(in srgb, var(--accent-color, var(--bs-primary)) 30%, var(--bs-border-color));
+    color: var(--accent-color, var(--bs-primary));
+    font-weight: 600;
+}
+.adm-quick-btn--accent:hover {
+    background: color-mix(in srgb, var(--accent-color, var(--bs-primary)) 18%, var(--bs-body-bg));
+    color: var(--accent-color, var(--bs-primary));
+}
+
+/* â”€â”€ KPI cards â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-kpi-card {
+    border-radius: .75rem;
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+.adm-kpi-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1) !important;
+}
+.adm-kpi-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+.adm-kpi-value {
+    font-size: 1.65rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-top: .5rem;
+}
+.adm-kpi-label {
+    font-size: .7rem;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    font-weight: 600;
+}
+.adm-kpi-progress {
+    height: 4px;
+    border-radius: 2px;
+}
+.adm-kpi-extra-badge {
+    font-size: .65rem;
+    padding: .2rem .45rem;
+    border-radius: .35rem;
+}
+
+/* â”€â”€ Live indicator â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-live-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--bs-success-bg-subtle, color-mix(in srgb, var(--bs-success) 14%, transparent));
+    color: var(--bs-success-text-emphasis, var(--bs-success));
+    border: 1px solid color-mix(in srgb, var(--bs-success) 18%, transparent);
+    font-size: .7rem;
+    padding: .2rem .55rem;
+    border-radius: 999px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+.adm-live-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--bs-success, #198754);
+    flex-shrink: 0;
+    animation: adm-pulse 1.6s ease-in-out infinite;
+}
+@keyframes adm-pulse {
+    0%, 100% { opacity: 1;   transform: scale(1); }
+    50%       { opacity: .45; transform: scale(.7); }
+}
+
+/* â”€â”€ Trend badge â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-trend-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    background: transparent;
+    border: none;
+    padding: .1rem .35rem;
+    font-size: .72rem;
+    font-weight: 700;
+}
+
+/* â”€â”€ Section icon (card headers) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-section-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: var(--radius-sm);
+    font-size: .9rem;
+    flex-shrink: 0;
+    background: color-mix(in srgb, var(--accent-color, var(--bs-primary)) 12%, transparent);
+    color: var(--accent-color, var(--bs-primary));
+}
+
+/* â”€â”€ Timeline (recent logs) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-timeline {
+    max-height: 468px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--bs-border-color) transparent;
+}
+.adm-timeline-item {
+    border-bottom: 1px solid var(--bs-border-color-translucent);
+    transition: background .1s ease;
+}
+.adm-timeline-item:last-child {
+    border-bottom: none;
+}
+.adm-timeline-item:hover {
+    background: var(--bs-tertiary-bg);
+}
+.adm-timeline-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: .75rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+.adm-action-label {
+    font-size: .65rem;
+    padding: .18rem .45rem;
+    border-radius: .35rem;
+}
+
+/* â”€â”€ System info icon â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-sys-icon {
+    opacity: .6;
+    font-size: .8rem;
+}
+
+/* â”€â”€ Module pills (badge cloud) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-mod-pill {
+    font-size: .72rem;
+    padding: .28rem .55rem;
+    border-radius: .4rem;
+    font-weight: 500;
+    opacity: .82;
+    cursor: default;
+    transition: opacity .12s ease;
+}
+.adm-mod-pill:hover {
+    opacity: 1;
+}
+.adm-dot-icon {
+    font-size: .42rem;
+    vertical-align: middle;
+}
+
+@media (max-width: 767.98px) {
+    .adm-stat-value {
+        font-size: 1.35rem;
+    }
+
+    .adm-index-stat-icon,
+    .adm-index-group-icon {
+        width: 30px;
+        height: 30px;
+        border-radius: var(--radius-sm);
+    }
+
+    .adm-index-link {
+        padding: .4rem .5rem;
+    }
+}
+
+/* â”€â”€ User avatar (table) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-user-avatar-sm {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--bs-border-color);
+}
+
+.adm-user-initials-sm {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: .75rem;
+    font-weight: 700;
+    color: var(--accent, var(--bs-primary));
+    background: color-mix(in srgb, var(--accent, var(--bs-primary)) 12%, transparent);
+    border: 2px solid color-mix(in srgb, var(--accent, var(--bs-primary)) 25%, transparent);
+    user-select: none;
+}
+
+/* â”€â”€ User avatar (detail hero) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-user-avatar-lg-wrap {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.adm-user-avatar-lg {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--bs-border-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+}
+
+.adm-user-initials-lg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--accent, var(--bs-primary));
+    background: color-mix(in srgb, var(--accent, var(--bs-primary)) 12%, transparent);
+    border: 3px solid color-mix(in srgb, var(--accent, var(--bs-primary)) 25%, transparent);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+    user-select: none;
+}
+
+.adm-user-status-indicator {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 3px solid var(--bs-body-bg, #fff);
+}
+
+/* â”€â”€ Hero card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-user-hero {
+    background: var(--bs-body-bg);
+    border: 1px solid var(--bs-border-color);
+    border-radius: .75rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .06);
+}
+
+/* â”€â”€ Role badges â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-role-badge {
+    font-size: .7rem;
+    font-weight: 600;
+    padding: .25rem .55rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--accent, var(--bs-primary)) 12%, transparent);
+    color: var(--accent, var(--bs-primary));
+    border: 1px solid color-mix(in srgb, var(--accent, var(--bs-primary)) 20%, transparent);
+}
+
+/* â”€â”€ Status dot â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-status-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 4px;
+    vertical-align: middle;
+}
+.adm-status-active  { background-color: var(--bs-success); }
+.adm-status-inactive { background-color: var(--bs-secondary); }
+
+/* â”€â”€ Table action buttons â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-action-btn {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    border: 1px solid transparent;
+    color: var(--bs-secondary-color, #6c757d);
+    background: transparent;
+    transition: all .15s ease;
+    font-size: .8rem;
+}
+.adm-action-btn:hover {
+    background: var(--bs-tertiary-bg, #f8f9fa);
+    color: var(--bs-body-color);
+    border-color: var(--bs-border-color);
+}
+.adm-action-primary:hover {
+    color: var(--bs-primary);
+    border-color: color-mix(in srgb, var(--bs-primary) 40%, transparent);
+    background: color-mix(in srgb, var(--bs-primary) 8%, transparent);
+}
+
+/* â”€â”€ Roles permissions editor â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-perm-filter {
+    min-width: 200px;
+}
+
+.adm-perm-item {
+    border: 1px solid var(--bs-border-color-translucent, rgba(0,0,0,.06));
+    border-radius: .5rem;
+    padding: .4rem .5rem;
+}
+
+.adm-perm-item:hover {
+    background: var(--bs-tertiary-bg, #f8f9fa);
+}
+
+/* â”€â”€ Clickable row â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-clickable-row[data-href] {
+    cursor: pointer;
+}
+
+/* â”€â”€ Inactive row â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-row-inactive {
+    opacity: .6;
+}
+.adm-row-inactive:hover {
+    opacity: .85;
+}
+
+/* â”€â”€ Mini stat cards (user detail) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-mini-stat {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    padding: .875rem 1rem;
+    background: var(--bs-body-bg);
+    border: 1px solid var(--bs-border-color);
+    border-radius: .625rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .04);
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+.adm-mini-stat:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .08);
+}
+.adm-mini-stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+.adm-mini-stat-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+.adm-mini-stat-label {
+    font-size: .7rem;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+    color: var(--bs-secondary-color, #6c757d);
+}
+
+/* â”€â”€ Activity timeline â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-timeline {
+    padding: .5rem 1rem;
+}
+.adm-timeline-item {
+    display: flex;
+    gap: .75rem;
+    padding: .625rem 0;
+    border-bottom: 1px solid var(--bs-border-color-translucent, rgba(0,0,0,.06));
+}
+.adm-timeline-item:last-child {
+    border-bottom: none;
+}
+.adm-timeline-dot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    font-size: .7rem;
+    color: #fff;
+    margin-top: 2px;
+}
+.adm-timeline-content {
+    flex: 1;
+    min-width: 0;
+    font-size: .875rem;
+}
+
+/* â”€â”€ Admin Sub-navigation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-subnav {
+    background: var(--bs-body-bg);
+    border: 1px solid var(--bs-border-color);
+    border-radius: var(--radius-md);
+    padding: 8px 14px;
+}
+.adm-subnav-back {
+    width: 28px;
+    height: 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    background: var(--bs-secondary-bg);
+    color: var(--bs-secondary-color);
+    text-decoration: none;
+    transition: background .12s, color .12s;
+    flex-shrink: 0;
+}
+.adm-subnav-back:hover { background: var(--accent-color); color: #fff; }
+.adm-subnav-section {
+    font-size: .72rem;
+    font-weight: 600;
+    color: var(--bs-secondary-color);
+    white-space: nowrap;
+}
+.adm-subnav-sep {
+    color: var(--bs-border-color);
+    font-size: .8rem;
+}
+.adm-subnav-link {
+    display: inline-flex;
+    align-items: center;
+    font-size: .75rem;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--bs-body-color);
+    background: transparent;
+    transition: background .1s, color .1s;
+    white-space: nowrap;
+}
+.adm-subnav-link:hover { background: var(--bs-secondary-bg); color: var(--bs-body-color); }
+.adm-subnav-link--active {
+    background: color-mix(in srgb, var(--accent-color) 12%, transparent);
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+/* â”€â”€ Bulk toolbar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-bulk-toolbar {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1050;
+    background: var(--bs-body-bg);
+    border: 1px solid var(--bs-border-color);
+    border-radius: var(--radius-lg);
+    padding: 10px 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,.18);
+    min-width: 480px;
+    animation: adm-bulk-in .18s cubic-bezier(.16,1,.3,1);
+}
+@keyframes adm-bulk-in {
+    from { opacity: 0; transform: translateX(-50%) translateY(12px); }
+    to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+.adm-col-check { width: 36px; }
+
+/* â”€â”€ Online ora widget â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-online-item {
+    transition: background .1s;
+}
+.adm-online-item:hover { background: var(--bs-secondary-bg); }
+
+.adm-online-avatar {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+}
+.adm-online-avatar-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.adm-online-avatar-initials {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--accent-color) 15%, transparent);
+    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .7rem;
+    font-weight: 700;
+}
+.adm-online-dot {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 8px;
+    height: 8px;
+    background: var(--bs-success, #198754);
+    border-radius: 50%;
+    border: 2px solid var(--bg-surface, var(--bs-body-bg));
+}
+
+.adm-online-empty-label {
+    font-size: .78rem;
+}
+
+.adm-online-min-w-0 {
+    min-width: 0;
+}
+
+.adm-online-meta-text {
+    font-size: .68rem;
+}
+
+.adm-security-badge {
+    font-size: .6rem;
+    letter-spacing: .02em;
+}
+
+/* â”€â”€ Settings page â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.adm-search-input {
+    max-width: 360px;
+}
+
+.adm-toggle-card {
+    border: 1px solid var(--bs-border-color);
+    border-radius: .75rem;
+    padding: 1.25rem;
+    background: var(--bs-body-bg);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .06);
+    transition: border-color .15s ease;
+}
+.adm-toggle-card:hover {
+    border-color: color-mix(in srgb, var(--accent-color, var(--bs-primary)) 30%, var(--bs-border-color));
+}
+
+.adm-instant-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: .68rem;
+    font-weight: 600;
+    padding: .2rem .5rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--bs-success) 12%, transparent);
+    color: var(--bs-success);
+}
+
+.adm-env-status {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .5rem;
+    padding: .75rem 1rem;
+    border-radius: .5rem;
+    background: var(--bs-tertiary-bg);
+    border: 1px solid var(--bs-border-color);
+    font-size: .8rem;
+}
+.adm-env-status code {
+    font-size: .75rem;
+    padding: .15rem .4rem;
+    border-radius: .3rem;
+    background: var(--bs-body-bg);
+    border: 1px solid var(--bs-border-color);
+}
+
+.adm-progress-fill {
+    width: var(--adm-progress, 0%);
+}
+
+/* Email panel inside Settings */
+.adm-mail-panel-wrap {
+    border: 1px solid var(--bs-border-color);
+    border-radius: var(--radius-md, 10px);
+    background: var(--bs-body-bg);
+    padding: 1rem;
+}
+
+.adm-mail-driver-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: .4rem;
+    border: 1px solid color-mix(in srgb, var(--accent-color, var(--bs-primary)) 35%, var(--bs-border-color));
+    border-radius: 999px;
+    padding: .35rem .7rem;
+    font-size: .75rem;
+    font-weight: 600;
+    color: var(--accent-color, var(--bs-primary));
+    background: color-mix(in srgb, var(--accent-color, var(--bs-primary)) 10%, var(--bs-body-bg));
+}
+
+.adm-mail-kpi {
+    display: flex;
+    align-items: center;
+    gap: .65rem;
+    border: 1px solid var(--bs-border-color);
+    border-radius: .65rem;
+    background: var(--bs-tertiary-bg);
+    padding: .6rem .75rem;
+    min-height: 70px;
+}
+
+.adm-mail-kpi-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: .55rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-color, var(--bs-primary));
+    background: color-mix(in srgb, var(--accent-color, var(--bs-primary)) 14%, transparent);
+    flex-shrink: 0;
+}
+
+.adm-mail-kpi-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.adm-mail-kpi-label {
+    font-size: .72rem;
+    color: var(--bs-secondary-color);
+    text-transform: uppercase;
+    letter-spacing: .03em;
+}
+
+.adm-mail-subtabs .nav-link {
+    border: 1px solid var(--bs-border-color);
+    background: var(--bs-body-bg);
+    color: var(--bs-body-color);
+}
+
+.adm-mail-subtabs .nav-link.active {
+    border-color: color-mix(in srgb, var(--accent-color, var(--bs-primary)) 35%, var(--bs-border-color));
+    background: color-mix(in srgb, var(--accent-color, var(--bs-primary)) 10%, var(--bs-body-bg));
+    color: var(--accent-color, var(--bs-primary));
+}
+
+.adm-mail-count-badge {
+    background: var(--bs-secondary-bg);
+    color: var(--bs-body-color);
+    border: 1px solid var(--bs-border-color);
+}
+
+.adm-mail-card {
+    border: 1px solid var(--bs-border-color);
+    box-shadow: none;
+}
+
+.adm-mail-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    font-size: .8rem;
+    color: var(--bs-secondary-color);
+}
+
+.adm-var-badge {
+    background: var(--bs-tertiary-bg);
+    color: var(--bs-body-color);
+    border-color: var(--bs-border-color) !important;
+}
+
+/* ── Roles permissions editor v2 — accordion + compact grid ─── */
+
+.adm-sticky-col > .card {
+    position: sticky;
+    top: 1rem;
+}
+
+.adm-perm-sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--bs-body-bg);
+    border-bottom: 1px solid var(--bs-border-color);
+}
+
+.adm-perm-scroll-body {
+    max-height: calc(100vh - 220px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--bs-border-color) transparent;
+}
+
+.adm-module-header {
+    background: var(--bs-tertiary-bg);
+    font-size: .875rem;
+    font-weight: 600;
+    padding: .5rem .75rem;
+    gap: 0;
+    box-shadow: none !important;
+    width: auto; /* override Bootstrap's 100% to allow flex siblings */
+}
+
+.adm-module-header:not(.collapsed) {
+    background: color-mix(in srgb, var(--bs-primary) 8%, var(--bs-body-bg));
+    color: var(--bs-body-color);
+}
+
+.adm-module-header::after {
+    display: none !important;
+}
+
+.adm-module-chevron {
+    font-size: .7rem;
+    color: var(--bs-secondary-color);
+    transition: transform .2s ease;
+    flex-shrink: 0;
+}
+
+.adm-module-header:not(.collapsed) .adm-module-chevron {
+    transform: rotate(180deg);
+}
+
+.adm-module-name {
+    text-transform: uppercase;
+    font-size: .75rem;
+    letter-spacing: .04em;
+}
+
+.adm-module-badge {
+    font-size: .7rem;
+    font-variant-numeric: tabular-nums;
+    min-width: 3.5rem;
+    text-align: center;
+}
+
+.adm-badge-accent {
+    background-color: var(--accent-color) !important;
+    color: #fff !important;
+}
+
+.adm-perm-compact {
+    display: flex;
+    align-items: center;
+    gap: .35rem;
+    border: 1px solid var(--bs-border-color-translucent, rgba(0,0,0,.06));
+    border-radius: .4rem;
+    padding: .3rem .45rem;
+    font-size: .8125rem;
+    cursor: pointer;
+    transition: background-color .1s ease, border-color .1s ease;
+    min-width: 0;
+}
+
+.adm-perm-compact:hover {
+    background: var(--bs-tertiary-bg);
+    border-color: var(--bs-border-color);
+}
+
+.adm-perm-compact input[type="checkbox"] {
+    flex-shrink: 0;
+    margin-top: 0;
+}
+
+.adm-perm-compact .form-check-label {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    min-width: 0;
+}
+
+.btn-xs {
+    padding: .15rem .45rem;
+    font-size: .7rem;
+    line-height: 1.4;
+    border-radius: .3rem;
+}
+
+#perm-accordion.accordion-flush .accordion-item {
+    border-radius: 0;
+}
+
+@media (max-width: 1199.98px) {
+    .adm-perm-scroll-body {
+        max-height: calc(100vh - 180px);
+    }
+    .adm-sticky-col > .card {
+        position: static;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .adm-perm-scroll-body {
+        max-height: none;
+        overflow-y: visible;
+    }
+}
+
+/* ── Roles editor v3 — hero stats, meta card, refined header, presets ─── */
+
+.adm-hero-stat {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    padding: .2rem .6rem;
+    border-radius: var(--radius-sm, 6px);
+    background: var(--bs-body-bg);
+    border: 1px solid var(--bs-border-color);
+    font-size: .8125rem;
+    color: var(--bs-body-color);
+    line-height: 1.4;
+}
+
+.adm-hero-stat i {
+    color: var(--accent-color);
+    font-size: .8em;
+}
+
+.adm-role-slug-inline {
+    background: var(--bs-tertiary-bg);
+    border: 1px solid var(--bs-border-color);
+    border-radius: var(--radius-sm, 6px);
+    padding: .15rem .5rem;
+    font-size: .8125rem;
+    color: var(--bs-body-color);
+}
+
+/* ── Meta panoramica card ── */
+
+.adm-role-meta-card {
+    border: 1px solid var(--bs-border-color);
+}
+
+.adm-meta-label {
+    font-size: .7rem;
+    letter-spacing: .06em;
+    color: var(--bs-secondary-color);
+}
+
+.adm-role-stats {
+    margin-top: .25rem;
+}
+
+.adm-stat-box {
+    background: var(--bs-tertiary-bg);
+    border: 1px solid var(--bs-border-color);
+    border-radius: var(--radius-md, 10px);
+    padding: .6rem .75rem;
+    height: 100%;
+    transition: border-color .15s ease, background-color .15s ease;
+}
+
+.adm-stat-box:hover {
+    border-color: var(--accent-color);
+}
+
+.adm-stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--bs-body-color);
+    font-variant-numeric: tabular-nums;
+}
+
+.adm-stat-value.adm-stat-date {
+    font-size: .95rem;
+    font-weight: 600;
+}
+
+.adm-stat-sep {
+    font-size: .85rem;
+    font-weight: 500;
+    color: var(--bs-secondary-color);
+    margin-left: .15rem;
+}
+
+.adm-stat-label {
+    font-size: .7rem;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--bs-secondary-color);
+    margin-top: .15rem;
+}
+
+.adm-stat-label i {
+    color: var(--accent-color);
+}
+
+/* ── Sticky permissions header (refined) ── */
+
+.adm-perm-header-row {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .5rem .75rem;
+    flex-wrap: wrap;
+}
+
+.adm-perm-header-actions {
+    align-items: center;
+    gap: .25rem;
+}
+
+.adm-perm-filter-wrap {
+    position: relative;
+    min-width: 180px;
+    max-width: 320px;
+    flex: 1 1 200px;
+}
+
+.adm-perm-filter-wrap .adm-perm-filter {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.adm-perm-filter-icon {
+    position: absolute;
+    left: .6rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--bs-secondary-color);
+    font-size: .8rem;
+    pointer-events: none;
+}
+
+.adm-perm-filter-kbd {
+    position: absolute;
+    right: .4rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--bs-tertiary-bg);
+    color: var(--bs-secondary-color);
+    border: 1px solid var(--bs-border-color);
+    border-radius: 4px;
+    font-size: .7rem;
+    padding: 0 .35rem;
+    line-height: 1.4;
+    pointer-events: none;
+    font-family: inherit;
+}
+
+.adm-perm-filter-wrap:focus-within .adm-perm-filter-kbd {
+    opacity: 0;
+}
+
+/* Module icon circle */
+.adm-module-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: var(--radius-sm, 6px);
+    background: var(--bs-body-bg);
+    border: 1px solid var(--bs-border-color);
+    color: var(--bs-secondary-color);
+    font-size: .8rem;
+    margin-right: .6rem;
+    flex-shrink: 0;
+    transition: background-color .15s ease, color .15s ease, border-color .15s ease;
+}
+
+.adm-module-header:not(.collapsed) .adm-module-icon {
+    background: color-mix(in srgb, var(--accent-color) 12%, var(--bs-body-bg));
+    border-color: color-mix(in srgb, var(--accent-color) 30%, var(--bs-border-color));
+    color: var(--accent-color);
+}
+
+/* Thin progress bar beneath module header */
+.adm-module-progress {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: transparent;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.adm-module-progress-bar {
+    display: block;
+    height: 100%;
+    width: var(--pct, 0%);
+    background: var(--accent-color);
+    transition: width .25s ease;
+}
+
+.accordion-item.adm-perm-group {
+    position: relative;
+}
+
+/* Save button pulse when dirty */
+.adm-btn-pulse {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-color) 50%, transparent);
+    animation: admBtnPulse 1.8s ease-out infinite;
+}
+
+@keyframes admBtnPulse {
+    0%   { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-color) 45%, transparent); }
+    70%  { box-shadow: 0 0 0 8px color-mix(in srgb, var(--accent-color) 0%, transparent); }
+    100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-color) 0%, transparent); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .adm-btn-pulse { animation: none; }
+}
+
+/* Checked permission item highlight */
+.adm-perm-compact:has(input[type="checkbox"]:checked) {
+    background: color-mix(in srgb, var(--accent-color) 7%, var(--bs-body-bg));
+    border-color: color-mix(in srgb, var(--accent-color) 25%, var(--bs-border-color));
+}
+
+/* Keyboard hints */
+kbd {
+    background: var(--bs-tertiary-bg);
+    color: var(--bs-body-color);
+    border: 1px solid var(--bs-border-color);
+    border-radius: 4px;
+    padding: .05rem .35rem;
+    font-size: .75em;
+    font-family: inherit;
+    box-shadow: inset 0 -1px 0 var(--bs-border-color);
+}
+
+@media (max-width: 767.98px) {
+    .adm-perm-filter-wrap { max-width: none; }
+    .adm-perm-header-actions { width: 100%; justify-content: flex-end; }
+}
+

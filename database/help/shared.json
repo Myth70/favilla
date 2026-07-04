@@ -1,0 +1,328 @@
+{
+    "module_key": "shared",
+    "module_name": "Shared",
+    "label": "Flussi trasversali",
+    "description": "Guide ai flussi che collegano piu moduli di Favilla, utili quando un processo operativo attraversa piu sezioni applicative.",
+    "audience_default": "user",
+    "locale_default": "it",
+    "route_name": "home.index",
+    "permission_slug": null,
+    "sort_order": 90,
+    "entries": [
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 20,
+            "sort_order": 1,
+            "locales": {
+                "it": {
+                    "question": "Come funzionano i flussi tra moduli?",
+                    "answer_markdown": "## Flussi tra moduli\r\nFavilla è pensato come ecosistema di moduli che collaborano tra loro. Questa sezione serve a capire i passaggi tipici tra una superficie e l'altra.\r\n\r\n### Esempi reali di flussi trasversali\r\n- da una **attività** a una **notifica**;\r\n- da un **contatto** a una ricorrenza nel **Calendario**;\r\n- da un **file** a un **report**;\r\n- da un **messaggio** a un allegato salvato in **File**;\r\n- dalla **Home** ai moduli operativi più pertinenti;\r\n- dalla scheda di un record alla generazione di un **documento** collegato.\r\n\r\n### Perché questa area è utile\r\nAiuta quando il bisogno reale non appartiene a un solo modulo, ma a un processo che attraversa più punti dell'applicazione.\r\n\r\n### Come usarla bene\r\nParti dall'esempio più vicino al tuo caso, poi apri la FAQ specifica del flusso per i passaggi operativi dettagliati.",
+                    "excerpt": "Flussi tra moduli Favilla è pensato come ecosistema di moduli che collaborano tra loro. Questa sezione serve a capire i passaggi tipici tra una superficie e l'altra. Esempi reali di flussi trasversali da una attività a...",
+                    "aliases": [
+                        "flussi tra moduli",
+                        "integrazione moduli",
+                        "processi trasversali",
+                        "workflow cross modulo",
+                        "passaggi tra moduli"
+                    ]
+                },
+                "en": {
+                    "question": "How do flows between modules work?",
+                    "answer_markdown": "## Flows between modules\nFavilla is designed as an ecosystem of modules that work together. This section helps you understand the typical transitions from one surface to another.\n\n### Real examples of cross-cutting flows\n- from a **task** to a **notification**;\n- from a **contact** to a recurrence in the **Calendar**;\n- from a **file** to a **report**;\n- from a **message** to an attachment saved in **Files**;\n- from the **Home** to the most relevant operational modules;\n- from a record's card to the generation of a linked **document**.\n\n### Why this area is useful\nIt helps when the real need does not belong to a single module, but to a process that crosses several points of the application.\n\n### How to use it well\nStart from the example closest to your case, then open the specific FAQ for that flow for the detailed operational steps.",
+                    "excerpt": "Flows between modules Favilla is designed as an ecosystem of modules that work together. This section helps you understand the typical transitions from one surface to another. Real examples of cross-c...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment fonctionnent les flux entre modules ?",
+                    "answer_markdown": "## Flux entre modules\nFavilla est conçu comme un écosystème de modules qui collaborent. Cette section aide à comprendre les transitions typiques d'une surface à l'autre.\n\n### Exemples réels de flux transversaux\n- d'une **tâche** à une **notification** ;\n- d'un **contact** à une récurrence dans le **Calendrier** ;\n- d'un **fichier** à un **rapport** ;\n- d'un **message** à une pièce jointe enregistrée dans **Fichiers** ;\n- de l'**Accueil** aux modules opérationnels les plus pertinents ;\n- de la fiche d'un enregistrement à la génération d'un **document** lié.\n\n### Pourquoi cette zone est utile\nElle aide lorsque le besoin réel n'appartient pas à un seul module, mais à un processus qui traverse plusieurs points de l'application.\n\n### Comment bien l'utiliser\nPartez de l'exemple le plus proche de votre cas, puis ouvrez la FAQ spécifique du flux pour les étapes opérationnelles détaillées.",
+                    "excerpt": "Flux entre modules Favilla est conçu comme un écosystème de modules qui collaborent. Cette section aide à comprendre les transitions typiques d'une surface à l'autre. Exemples réels de flux transversa...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie funktionieren Abläufe zwischen Modulen?",
+                    "answer_markdown": "## Abläufe zwischen Modulen\nFavilla ist als Ökosystem von Modulen konzipiert, die zusammenarbeiten. Dieser Abschnitt hilft, die typischen Übergänge von einer Oberfläche zur anderen zu verstehen.\n\n### Echte Beispiele für übergreifende Abläufe\n- von einer **Aufgabe** zu einer **Benachrichtigung**;\n- von einem **Kontakt** zu einer Wiederholung im **Kalender**;\n- von einer **Datei** zu einem **Bericht**;\n- von einer **Nachricht** zu einem in **Dateien** gespeicherten Anhang;\n- von der **Startseite** zu den relevantesten operativen Modulen;\n- von der Karte eines Datensatzes zur Erzeugung eines verknüpften **Dokuments**.\n\n### Warum dieser Bereich nützlich ist\nEr hilft, wenn der eigentliche Bedarf nicht zu einem einzelnen Modul gehört, sondern zu einem Prozess, der mehrere Punkte der Anwendung durchläuft.\n\n### Wie man ihn gut nutzt\nBeginnen Sie mit dem Beispiel, das Ihrem Fall am nächsten kommt, und öffnen Sie dann die spezifische FAQ des Ablaufs für die detaillierten operativen Schritte.",
+                    "excerpt": "Abläufe zwischen Modulen Favilla ist als Ökosystem von Modulen konzipiert, die zusammenarbeiten. Dieser Abschnitt hilft, die typischen Übergänge von einer Oberfläche zur anderen zu verstehen. Echte Be...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo funcionan los flujos entre módulos?",
+                    "answer_markdown": "## Flujos entre módulos\nFavilla está pensado como un ecosistema de módulos que colaboran entre sí. Esta sección sirve para entender las transiciones típicas de una superficie a otra.\n\n### Ejemplos reales de flujos transversales\n- de una **tarea** a una **notificación**;\n- de un **contacto** a una recurrencia en el **Calendario**;\n- de un **archivo** a un **informe**;\n- de un **mensaje** a un adjunto guardado en **Archivos**;\n- de la **Home** a los módulos operativos más pertinentes;\n- de la ficha de un registro a la generación de un **documento** vinculado.\n\n### Por qué es útil esta área\nAyuda cuando la necesidad real no pertenece a un solo módulo, sino a un proceso que atraviesa varios puntos de la aplicación.\n\n### Cómo usarla bien\nParte del ejemplo más cercano a tu caso y luego abre la FAQ específica del flujo para los pasos operativos detallados.",
+                    "excerpt": "Flujos entre módulos Favilla está pensado como un ecosistema de módulos que colaboran entre sí. Esta sección sirve para entender las transiciones típicas de una superficie a otra. Ejemplos reales de f...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 2,
+            "locales": {
+                "it": {
+                    "question": "Dalla scadenza di un task alla notifica",
+                    "answer_markdown": "1. Crei un'attività in **Attività** con una data di scadenza.\n2. Lo scheduler monitora le scadenze.\n3. Quando la data arriva (o passa senza completamento), **Notifiche** invia un avviso sui canali che hai configurato.\n4. Clicchi la notifica e navighi direttamente al task.",
+                    "excerpt": "Crei un'attività in Attività con una data di scadenza. Lo scheduler monitora le scadenze. Quando la data arriva (o passa senza completamento), Notifiche invia un avviso sui canali che hai configurato. Clicchi la notif…",
+                    "aliases": [
+                        "come dalla scadenza di un task alla notifica",
+                        "dalla scadenza di un task alla notifica",
+                        "flussi trasversali tra moduli",
+                        "flussi trasversali tra moduli dalla scadenza di un task alla notifica",
+                        "shared dalla scadenza di un task alla notifica"
+                    ]
+                },
+                "en": {
+                    "question": "From a task deadline to the notification",
+                    "answer_markdown": "1. You create a task in **Tasks** with a due date.\n2. The scheduler monitors the deadlines.\n3. When the date arrives (or passes without completion), **Notifications** sends an alert on the channels you have configured.\n4. You click the notification and navigate straight to the task.",
+                    "excerpt": "1. You create a task in Tasks with a due date. 2. The scheduler monitors the deadlines. 3. When the date arrives (or passes without completion), Notifications sends an alert on the channels you have c...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "De l'échéance d'une tâche à la notification",
+                    "answer_markdown": "1. Vous créez une tâche dans **Tâches** avec une date d'échéance.\n2. Le planificateur surveille les échéances.\n3. Lorsque la date arrive (ou passe sans achèvement), **Notifications** envoie une alerte sur les canaux que vous avez configurés.\n4. Vous cliquez sur la notification et accédez directement à la tâche.",
+                    "excerpt": "1. Vous créez une tâche dans Tâches avec une date d'échéance. 2. Le planificateur surveille les échéances. 3. Lorsque la date arrive (ou passe sans achèvement), Notifications envoie une alerte sur les...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Von der Fälligkeit einer Aufgabe zur Benachrichtigung",
+                    "answer_markdown": "1. Sie erstellen eine Aufgabe in **Aufgaben** mit einem Fälligkeitsdatum.\n2. Der Scheduler überwacht die Fälligkeiten.\n3. Wenn das Datum erreicht ist (oder ohne Abschluss verstreicht), sendet **Benachrichtigungen** eine Warnung über die von Ihnen konfigurierten Kanäle.\n4. Sie klicken auf die Benachrichtigung und gelangen direkt zur Aufgabe.",
+                    "excerpt": "1. Sie erstellen eine Aufgabe in Aufgaben mit einem Fälligkeitsdatum. 2. Der Scheduler überwacht die Fälligkeiten. 3. Wenn das Datum erreicht ist (oder ohne Abschluss verstreicht), sendet Benachrichti...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Del vencimiento de una tarea a la notificación",
+                    "answer_markdown": "1. Creas una tarea en **Tareas** con una fecha de vencimiento.\n2. El programador supervisa los vencimientos.\n3. Cuando llega la fecha (o pasa sin completarse), **Notificaciones** envía un aviso por los canales que has configurado.\n4. Haces clic en la notificación y navegas directamente a la tarea.",
+                    "excerpt": "1. Creas una tarea en Tareas con una fecha de vencimiento. 2. El programador supervisa los vencimientos. 3. Cuando llega la fecha (o pasa sin completarse), Notificaciones envía un aviso por los canale...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 3,
+            "locales": {
+                "it": {
+                    "question": "Dal contatto all'anniversario nel Calendario",
+                    "answer_markdown": "1. Apri un contatto in **Contatti** e aggiungi una ricorrenza (es. compleanno con preavviso di 3 giorni).\n2. Il sistema crea automaticamente un evento ricorrente nel **Calendario** collegato a quella ricorrenza.\n3. La barra \"Prossime ricorrenze\" nella lista Contatti mostra il chip con l'avvicinarsi della data.\n4. Pochi giorni prima, **Notifiche** invia il promemoria sui canali configurati.\n5. Se modifichi o elimini la ricorrenza, l'evento nel Calendario viene aggiornato o rimosso di conseguenza.",
+                    "excerpt": "Apri un contatto in Contatti e aggiungi una ricorrenza (es. compleanno con preavviso di 3 giorni). Il sistema crea automaticamente un evento ricorrente nel Calendario collegato a quella ricorrenza. La barra \"Prossime ri…",
+                    "aliases": [
+                        "come dal contatto all anniversario nel calendario",
+                        "dal contatto all anniversario nel calendario",
+                        "flussi trasversali tra moduli",
+                        "flussi trasversali tra moduli dal contatto all anniversario nel calendario",
+                        "shared dal contatto all anniversario nel calendario"
+                    ]
+                },
+                "en": {
+                    "question": "From a contact to the anniversary in the Calendar",
+                    "answer_markdown": "1. Open a contact in **Contacts** and add a recurrence (e.g. a birthday with 3 days' notice).\n2. The system automatically creates a recurring event in the **Calendar** linked to that recurrence.\n3. The \"Upcoming recurrences\" bar in the Contacts list shows the chip as the date approaches.\n4. A few days before, **Notifications** sends the reminder on the configured channels.\n5. If you edit or delete the recurrence, the event in the Calendar is updated or removed accordingly.",
+                    "excerpt": "1. Open a contact in Contacts and add a recurrence (e.g. a birthday with 3 days' notice). 2. The system automatically creates a recurring event in the Calendar linked to that recurrence. 3. The \"Upcom...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Du contact à l'anniversaire dans le Calendrier",
+                    "answer_markdown": "1. Ouvrez un contact dans **Contacts** et ajoutez une récurrence (ex. anniversaire avec préavis de 3 jours).\n2. Le système crée automatiquement un événement récurrent dans le **Calendrier** lié à cette récurrence.\n3. La barre « Prochaines récurrences » dans la liste Contacts affiche la pastille à l'approche de la date.\n4. Quelques jours avant, **Notifications** envoie le rappel sur les canaux configurés.\n5. Si vous modifiez ou supprimez la récurrence, l'événement dans le Calendrier est mis à jour ou supprimé en conséquence.",
+                    "excerpt": "1. Ouvrez un contact dans Contacts et ajoutez une récurrence (ex. anniversaire avec préavis de 3 jours). 2. Le système crée automatiquement un événement récurrent dans le Calendrier lié à cette récurr...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Vom Kontakt zum Jahrestag im Kalender",
+                    "answer_markdown": "1. Öffnen Sie einen Kontakt in **Kontakte** und fügen Sie eine Wiederholung hinzu (z. B. Geburtstag mit 3 Tagen Vorlauf).\n2. Das System erstellt automatisch ein wiederkehrendes Ereignis im **Kalender**, das mit dieser Wiederholung verknüpft ist.\n3. Die Leiste „Nächste Wiederholungen“ in der Kontaktliste zeigt den Chip, wenn das Datum näher rückt.\n4. Einige Tage vorher sendet **Benachrichtigungen** die Erinnerung über die konfigurierten Kanäle.\n5. Wenn Sie die Wiederholung bearbeiten oder löschen, wird das Ereignis im Kalender entsprechend aktualisiert oder entfernt.",
+                    "excerpt": "1. Öffnen Sie einen Kontakt in Kontakte und fügen Sie eine Wiederholung hinzu (z. B. Geburtstag mit 3 Tagen Vorlauf). 2. Das System erstellt automatisch ein wiederkehrendes Ereignis im Kalender, das m...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Del contacto al aniversario en el Calendario",
+                    "answer_markdown": "1. Abre un contacto en **Contactos** y añade una recurrencia (p. ej. cumpleaños con 3 días de aviso).\n2. El sistema crea automáticamente un evento recurrente en el **Calendario** vinculado a esa recurrencia.\n3. La barra «Próximas recurrencias» en la lista de Contactos muestra el chip a medida que se acerca la fecha.\n4. Unos días antes, **Notificaciones** envía el recordatorio por los canales configurados.\n5. Si modificas o eliminas la recurrencia, el evento en el Calendario se actualiza o se elimina en consecuencia.",
+                    "excerpt": "1. Abre un contacto en Contactos y añade una recurrencia (p. ej. cumpleaños con 3 días de aviso). 2. El sistema crea automáticamente un evento recurrente en el Calendario vinculado a esa recurrencia. ...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 4,
+            "locales": {
+                "it": {
+                    "question": "Dal file al report",
+                    "answer_markdown": "1. Carichi documenti in **File**.\n2. Nel modulo **Report** crei un template con sorgente \"File\".\n3. Generi l'export: elenco documenti con metadati in Excel, CSV o PDF.\n4. Il file export finisce nello storico ed è scaricabile.",
+                    "excerpt": "Carichi documenti in File. Nel modulo Report crei un template con sorgente \"File\". Generi l'export: elenco documenti con metadati in Excel, CSV o PDF. Il file export finisce nello storico ed è scaricabile.",
+                    "aliases": [
+                        "come dal file al report",
+                        "dal file al report",
+                        "flussi trasversali tra moduli",
+                        "flussi trasversali tra moduli dal file al report",
+                        "shared dal file al report"
+                    ]
+                },
+                "en": {
+                    "question": "From a file to the report",
+                    "answer_markdown": "1. You upload documents in **Files**.\n2. In the **Reports** module you create a template with the \"Files\" source.\n3. You generate the export: a list of documents with metadata in Excel, CSV or PDF.\n4. The export file ends up in the history and is downloadable.",
+                    "excerpt": "1. You upload documents in Files. 2. In the Reports module you create a template with the \"Files\" source. 3. You generate the export: a list of documents with metadata in Excel, CSV or PDF. 4. The exp...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Du fichier au rapport",
+                    "answer_markdown": "1. Vous téléversez des documents dans **Fichiers**.\n2. Dans le module **Rapports**, vous créez un modèle avec la source « Fichiers ».\n3. Vous générez l'export : une liste de documents avec métadonnées en Excel, CSV ou PDF.\n4. Le fichier d'export se retrouve dans l'historique et est téléchargeable.",
+                    "excerpt": "1. Vous téléversez des documents dans Fichiers. 2. Dans le module Rapports, vous créez un modèle avec la source « Fichiers ». 3. Vous générez l'export : une liste de documents avec métadonnées en Exce...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Von der Datei zum Bericht",
+                    "answer_markdown": "1. Sie laden Dokumente in **Dateien** hoch.\n2. Im Modul **Berichte** erstellen Sie eine Vorlage mit der Quelle „Dateien“.\n3. Sie erzeugen den Export: eine Liste von Dokumenten mit Metadaten in Excel, CSV oder PDF.\n4. Die Exportdatei landet im Verlauf und ist herunterladbar.",
+                    "excerpt": "1. Sie laden Dokumente in Dateien hoch. 2. Im Modul Berichte erstellen Sie eine Vorlage mit der Quelle „Dateien“. 3. Sie erzeugen den Export: eine Liste von Dokumenten mit Metadaten in Excel, CSV oder...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Del archivo al informe",
+                    "answer_markdown": "1. Subes documentos en **Archivos**.\n2. En el módulo **Informes** creas una plantilla con el origen «Archivos».\n3. Generas la exportación: una lista de documentos con metadatos en Excel, CSV o PDF.\n4. El archivo de exportación queda en el historial y se puede descargar.",
+                    "excerpt": "1. Subes documentos en Archivos. 2. En el módulo Informes creas una plantilla con el origen «Archivos». 3. Generas la exportación: una lista de documentos con metadatos en Excel, CSV o PDF. 4. El arch...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 5,
+            "locales": {
+                "it": {
+                    "question": "Dalla Home a tutto il resto",
+                    "answer_markdown": "1. Apri **Home**: il widget \"Attività in scadenza\" mostra i task urgenti.\n2. Clicchi su un task: navighi in **Attività**.\n3. Il widget \"Prossimi eventi\" mostra il prossimo appuntamento: cliccando arrivi al **Calendario**.\n4. La ricerca globale nell'header ti permette di trovare elementi in tutti i moduli senza cambiare sezione.",
+                    "excerpt": "Apri Home: il widget \"Attività in scadenza\" mostra i task urgenti. Clicchi su un task: navighi in Attività. Il widget \"Prossimi eventi\" mostra il prossimo appuntamento: cliccando arrivi al Calendario. La ricerca globa…",
+                    "aliases": [
+                        "come dalla home a tutto il resto",
+                        "dalla home a tutto il resto",
+                        "flussi trasversali tra moduli",
+                        "flussi trasversali tra moduli dalla home a tutto il resto",
+                        "shared dalla home a tutto il resto"
+                    ]
+                },
+                "en": {
+                    "question": "From the Home to everything else",
+                    "answer_markdown": "1. Open the **Home**: the \"Tasks due\" widget shows the urgent tasks.\n2. You click a task: you navigate to **Tasks**.\n3. The \"Upcoming events\" widget shows the next appointment: clicking it takes you to the **Calendar**.\n4. The global search in the header lets you find items across all modules without changing section.",
+                    "excerpt": "1. Open the Home: the \"Tasks due\" widget shows the urgent tasks. 2. You click a task: you navigate to Tasks. 3. The \"Upcoming events\" widget shows the next appointment: clicking it takes you to the Ca...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "De l'Accueil à tout le reste",
+                    "answer_markdown": "1. Ouvrez l'**Accueil** : le widget « Tâches à échéance » affiche les tâches urgentes.\n2. Vous cliquez sur une tâche : vous accédez à **Tâches**.\n3. Le widget « Prochains événements » affiche le prochain rendez-vous : en cliquant, vous arrivez au **Calendrier**.\n4. La recherche globale dans l'en-tête vous permet de trouver des éléments dans tous les modules sans changer de section.",
+                    "excerpt": "1. Ouvrez l'Accueil : le widget « Tâches à échéance » affiche les tâches urgentes. 2. Vous cliquez sur une tâche : vous accédez à Tâches. 3. Le widget « Prochains événements » affiche le prochain rend...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Von der Startseite zu allem anderen",
+                    "answer_markdown": "1. Öffnen Sie die **Startseite**: Das Widget „Fällige Aufgaben“ zeigt die dringenden Aufgaben.\n2. Sie klicken auf eine Aufgabe: Sie gelangen zu **Aufgaben**.\n3. Das Widget „Nächste Ereignisse“ zeigt den nächsten Termin: Mit einem Klick gelangen Sie zum **Kalender**.\n4. Die globale Suche in der Kopfzeile ermöglicht es, Elemente in allen Modulen zu finden, ohne den Bereich zu wechseln.",
+                    "excerpt": "1. Öffnen Sie die Startseite: Das Widget „Fällige Aufgaben“ zeigt die dringenden Aufgaben. 2. Sie klicken auf eine Aufgabe: Sie gelangen zu Aufgaben. 3. Das Widget „Nächste Ereignisse“ zeigt den nächs...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "De la Home a todo lo demás",
+                    "answer_markdown": "1. Abre la **Home**: el widget «Tareas que vencen» muestra las tareas urgentes.\n2. Haces clic en una tarea: navegas a **Tareas**.\n3. El widget «Próximos eventos» muestra la próxima cita: al hacer clic llegas al **Calendario**.\n4. La búsqueda global en la cabecera te permite encontrar elementos en todos los módulos sin cambiar de sección.",
+                    "excerpt": "1. Abre la Home: el widget «Tareas que vencen» muestra las tareas urgentes. 2. Haces clic en una tarea: navegas a Tareas. 3. El widget «Próximos eventos» muestra la próxima cita: al hacer clic llegas ...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 6,
+            "locales": {
+                "it": {
+                    "question": "Generare un documento da un record",
+                    "answer_markdown": "1. Apri la scheda di un contatto in **Contatti** (o di qualsiasi record supportato).\n2. Se un template di tipo \"Documento/Scheda\" è configurato per quel modulo, compare il pulsante \"Genera documento\".\n3. In un clic il **Report** produce il PDF personalizzato con i dati di quel record.\n4. Il file viene scaricato e registrato nello storico Report.",
+                    "excerpt": "Apri la scheda di un contatto in Contatti (o di qualsiasi record supportato). Se un template di tipo \"Documento/Scheda\" è configurato per quel modulo, compare il pulsante \"Genera documento\". In un clic il Report produc…",
+                    "aliases": [
+                        "come generare un documento da un record",
+                        "flussi trasversali tra moduli",
+                        "flussi trasversali tra moduli generare un documento da un record",
+                        "generare un documento da un record",
+                        "shared generare un documento da un record"
+                    ]
+                },
+                "en": {
+                    "question": "Generating a document from a record",
+                    "answer_markdown": "1. Open a contact's card in **Contacts** (or any supported record).\n2. If a \"Document/Card\" template is configured for that module, the \"Generate document\" button appears.\n3. In one click, **Reports** produces the personalized PDF with that record's data.\n4. The file is downloaded and recorded in the Reports history.",
+                    "excerpt": "1. Open a contact's card in Contacts (or any supported record). 2. If a \"Document/Card\" template is configured for that module, the \"Generate document\" button appears. 3. In one click, Reports produce...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Générer un document à partir d'un enregistrement",
+                    "answer_markdown": "1. Ouvrez la fiche d'un contact dans **Contacts** (ou de tout enregistrement pris en charge).\n2. Si un modèle de type « Document/Fiche » est configuré pour ce module, le bouton « Générer le document » apparaît.\n3. En un clic, **Rapports** produit le PDF personnalisé avec les données de cet enregistrement.\n4. Le fichier est téléchargé et enregistré dans l'historique des Rapports.",
+                    "excerpt": "1. Ouvrez la fiche d'un contact dans Contacts (ou de tout enregistrement pris en charge). 2. Si un modèle de type « Document/Fiche » est configuré pour ce module, le bouton « Générer le document » app...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Ein Dokument aus einem Datensatz erzeugen",
+                    "answer_markdown": "1. Öffnen Sie die Karte eines Kontakts in **Kontakte** (oder eines beliebigen unterstützten Datensatzes).\n2. Wenn für dieses Modul eine Vorlage vom Typ „Dokument/Karte“ konfiguriert ist, erscheint die Schaltfläche „Dokument erzeugen“.\n3. Mit einem Klick erzeugt **Berichte** das personalisierte PDF mit den Daten dieses Datensatzes.\n4. Die Datei wird heruntergeladen und im Berichte-Verlauf erfasst.",
+                    "excerpt": "1. Öffnen Sie die Karte eines Kontakts in Kontakte (oder eines beliebigen unterstützten Datensatzes). 2. Wenn für dieses Modul eine Vorlage vom Typ „Dokument/Karte“ konfiguriert ist, erscheint die Sch...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Generar un documento a partir de un registro",
+                    "answer_markdown": "1. Abre la ficha de un contacto en **Contactos** (o de cualquier registro compatible).\n2. Si hay una plantilla de tipo «Documento/Ficha» configurada para ese módulo, aparece el botón «Generar documento».\n3. En un clic, **Informes** produce el PDF personalizado con los datos de ese registro.\n4. El archivo se descarga y se registra en el historial de Informes.",
+                    "excerpt": "1. Abre la ficha de un contacto en Contactos (o de cualquier registro compatible). 2. Si hay una plantilla de tipo «Documento/Ficha» configurada para ese módulo, aparece el botón «Generar documento». ...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 7,
+            "locales": {
+                "it": {
+                    "question": "Condivisione trasversale",
+                    "answer_markdown": "- Un **contatto** condiviso con un ruolo diventa visibile a tutti gli utenti di quel ruolo (solo anagrafica).\n- Un **evento** del Calendario condiviso con un ruolo appare nel calendario di tutti gli utenti di quel ruolo.\n- Un **file** condiviso con un ruolo è scaricabile da tutti gli utenti di quel ruolo.\n- Le **notifiche di condivisione** arrivano ai destinatari in base alle loro preferenze canale.",
+                    "excerpt": "Un contatto condiviso con un ruolo diventa visibile a tutti gli utenti di quel ruolo (solo anagrafica). Un evento del Calendario condiviso con un ruolo appare nel calendario di tutti gli utenti di quel ruolo. Un file co…",
+                    "aliases": [
+                        "come condivisione trasversale",
+                        "condivisione trasversale",
+                        "flussi trasversali tra moduli",
+                        "flussi trasversali tra moduli condivisione trasversale",
+                        "shared condivisione trasversale"
+                    ]
+                },
+                "en": {
+                    "question": "Cross-cutting sharing",
+                    "answer_markdown": "- A **contact** shared with a role becomes visible to all users of that role (contact details only).\n- A Calendar **event** shared with a role appears in the calendar of all users of that role.\n- A **file** shared with a role is downloadable by all users of that role.\n- The **sharing notifications** reach the recipients based on their channel preferences.",
+                    "excerpt": "A contact shared with a role becomes visible to all users of that role (contact details only). A Calendar event shared with a role appears in the calendar of all users of that role. A file shared with...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Partage transversal",
+                    "answer_markdown": "- Un **contact** partagé avec un rôle devient visible pour tous les utilisateurs de ce rôle (coordonnées uniquement).\n- Un **événement** du Calendrier partagé avec un rôle apparaît dans le calendrier de tous les utilisateurs de ce rôle.\n- Un **fichier** partagé avec un rôle est téléchargeable par tous les utilisateurs de ce rôle.\n- Les **notifications de partage** parviennent aux destinataires selon leurs préférences de canal.",
+                    "excerpt": "Un contact partagé avec un rôle devient visible pour tous les utilisateurs de ce rôle (coordonnées uniquement). Un événement du Calendrier partagé avec un rôle apparaît dans le calendrier de tous les ...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Übergreifende Freigabe",
+                    "answer_markdown": "- Ein mit einer Rolle geteilter **Kontakt** wird für alle Benutzer dieser Rolle sichtbar (nur Stammdaten).\n- Ein mit einer Rolle geteiltes Kalender-**Ereignis** erscheint im Kalender aller Benutzer dieser Rolle.\n- Eine mit einer Rolle geteilte **Datei** ist für alle Benutzer dieser Rolle herunterladbar.\n- Die **Freigabe-Benachrichtigungen** erreichen die Empfänger entsprechend ihren Kanaleinstellungen.",
+                    "excerpt": "Ein mit einer Rolle geteilter Kontakt wird für alle Benutzer dieser Rolle sichtbar (nur Stammdaten). Ein mit einer Rolle geteiltes Kalender-Ereignis erscheint im Kalender aller Benutzer dieser Rolle. ...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Compartición transversal",
+                    "answer_markdown": "- Un **contacto** compartido con un rol se vuelve visible para todos los usuarios de ese rol (solo datos de contacto).\n- Un **evento** del Calendario compartido con un rol aparece en el calendario de todos los usuarios de ese rol.\n- Un **archivo** compartido con un rol puede descargarlo cualquier usuario de ese rol.\n- Las **notificaciones de compartición** llegan a los destinatarios según sus preferencias de canal.",
+                    "excerpt": "Un contacto compartido con un rol se vuelve visible para todos los usuarios de ese rol (solo datos de contacto). Un evento del Calendario compartido con un rol aparece en el calendario de todos los us...",
+                    "aliases": []
+                }
+            }
+        }
+    ]
+}

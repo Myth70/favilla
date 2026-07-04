@@ -1,0 +1,39 @@
+<?php
+
+use App\Middleware\AuthMiddleware;
+use App\Middleware\CsrfMiddleware;
+use App\Middleware\RoleMiddleware;
+use {{ModuleNamespace}}\Controllers\{{ModuleName}}Controller;
+
+$router->group([
+    'prefix'     => '{{module-name}}',
+    'middleware' => [AuthMiddleware::class, CsrfMiddleware::class],
+], function ($r) {
+
+    // ── VIEW: lista (statica) ─────────────────────────────────────────
+    $r->group(['middleware' => [RoleMiddleware::withPermission('{{module_name}}.view')]], function ($r) {
+        $r->get('/', [{{ModuleName}}Controller::class, 'index'])->name('{{module_name}}.index');
+    });
+
+    // ── CREATE: form + salvataggio (statiche, PRIMA di /{id}) ─────────
+    $r->group(['middleware' => [RoleMiddleware::withPermission('{{module_name}}.create')]], function ($r) {
+        $r->get('/create', [{{ModuleName}}Controller::class, 'create'])->name('{{module_name}}.create');
+        $r->post('/',      [{{ModuleName}}Controller::class, 'store'])->name('{{module_name}}.store');
+    });
+
+    // ── VIEW: dettaglio (parametrica, DOPO le statiche) ───────────────
+    $r->group(['middleware' => [RoleMiddleware::withPermission('{{module_name}}.view')]], function ($r) {
+        $r->get('/{id}', [{{ModuleName}}Controller::class, 'show'])->name('{{module_name}}.show');
+    });
+
+    // ── EDIT: form + aggiornamento (parametriche) ─────────────────────
+    $r->group(['middleware' => [RoleMiddleware::withPermission('{{module_name}}.edit')]], function ($r) {
+        $r->get('/{id}/edit', [{{ModuleName}}Controller::class, 'edit'])->name('{{module_name}}.edit');
+        $r->put('/{id}',      [{{ModuleName}}Controller::class, 'update'])->name('{{module_name}}.update');
+    });
+
+    // ── DELETE: eliminazione (parametrica) ────────────────────────────
+    $r->group(['middleware' => [RoleMiddleware::withPermission('{{module_name}}.delete')]], function ($r) {
+        $r->delete('/{id}', [{{ModuleName}}Controller::class, 'destroy'])->name('{{module_name}}.destroy');
+    });
+});

@@ -1,0 +1,7 @@
+# Report/PDF generati e loghi stili: contenuto potenzialmente sensibile.
+# L'accesso passa SOLO dalle route applicative (streaming con permessi).
+Require all denied
+
+# Difesa in profondità se il deny venisse mai allentato: niente esecuzione PHP.
+Options -ExecCGI -Indexes
+php_flag engine off

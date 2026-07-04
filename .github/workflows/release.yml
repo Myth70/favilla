@@ -1,0 +1,38 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build edition zips
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Full history so release-notes generation can diff against the
+          # previous tag; the zips themselves only need the tagged tree.
+          fetch-depth: 0
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, zip
+          coverage: none
+
+      - name: Build the 3 edition zips (Developer / Personal / Team)
+        # ci.yml already gates every commit on tests/PHPStan/cs/lang:check
+        # before it can be tagged — this job only packages, it doesn't re-test.
+        run: php tools/build-editions.php "${{ github.ref_name }}"
+
+      - name: Create GitHub release with the 3 zips as assets
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.zip
+          generate_release_notes: true

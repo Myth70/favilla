@@ -1,0 +1,391 @@
+{
+    "module_key": "healthcheck",
+    "module_name": "HealthCheck",
+    "label": "Health Check",
+    "description": "Diagnostica amministrativa dell installazione: controlli su PHP, database, filesystem, sicurezza, compliance, storico run ed export CSV.",
+    "audience_default": "admin",
+    "locale_default": "it",
+    "route_name": "healthcheck.index",
+    "permission_slug": "healthcheck.view",
+    "sort_order": 45,
+    "entries": [
+        {
+            "audience": "admin",
+            "route_name": "healthcheck.index",
+            "permission_slug": "healthcheck.view",
+            "ranking_weight": 60,
+            "sort_order": 10,
+            "locales": {
+                "it": {
+                    "question": "Come funziona il modulo Health Check?",
+                    "answer_markdown": "## Modulo Health Check\r\nHealth Check è il pannello che esegue controlli diagnostici sull'installazione di Favilla.\r\n\r\n### Flusso della pagina\r\nAlla prima apertura viene mostrato uno shell; il contenuto reale arriva via HTMX e in quel momento i check vengono eseguiti, aggregati e salvati nello storico.\r\n\r\n### Cosa copre\r\nI controlli possono toccare runtime PHP, connessioni database, filesystem, log, posta, hardening e aspetti di compliance o sicurezza applicativa.",
+                    "excerpt": "Modulo Health Check Health Check è il pannello che esegue controlli diagnostici sull'installazione di Favilla. Flusso della pagina Alla prima apertura viene mostrato uno shell; il contenuto reale arriva via HTMX e in...",
+                    "aliases": [
+                        "diagnostica health check",
+                        "stato salute sistema",
+                        "controlli health check"
+                    ]
+                },
+                "en": {
+                    "question": "How does the Health Check module work?",
+                    "answer_markdown": "## Health Check module\nHealth Check is the panel that runs diagnostic checks on the Favilla installation.\n\n### Page flow\nOn first opening, a shell is shown; the real content arrives via HTMX, and at that point the checks are run, aggregated and saved to the history.\n\n### What it covers\nThe checks can touch the PHP runtime, database connections, the filesystem, logs, mail, hardening and compliance or application-security aspects.",
+                    "excerpt": "Health Check module Health Check is the panel that runs diagnostic checks on the Favilla installation. Page flow On first opening, a shell is shown; the real content arrives via HTMX, and at that poin...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment fonctionne le module Health Check ?",
+                    "answer_markdown": "## Module Health Check\nHealth Check est le panneau qui exécute des contrôles de diagnostic sur l'installation de Favilla.\n\n### Déroulement de la page\nÀ la première ouverture, une coquille est affichée ; le contenu réel arrive via HTMX, et à ce moment les contrôles sont exécutés, agrégés et enregistrés dans l'historique.\n\n### Ce qu'il couvre\nLes contrôles peuvent porter sur l'environnement PHP, les connexions à la base de données, le système de fichiers, les journaux, la messagerie, le durcissement et des aspects de conformité ou de sécurité applicative.",
+                    "excerpt": "Module Health Check Health Check est le panneau qui exécute des contrôles de diagnostic sur l'installation de Favilla. Déroulement de la page À la première ouverture, une coquille est affichée ; le co...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie funktioniert das Health-Check-Modul?",
+                    "answer_markdown": "## Health-Check-Modul\nHealth Check ist das Panel, das Diagnoseprüfungen der Favilla-Installation durchführt.\n\n### Seitenablauf\nBeim ersten Öffnen wird eine Hülle angezeigt; der eigentliche Inhalt kommt über HTMX, und in diesem Moment werden die Prüfungen ausgeführt, aggregiert und im Verlauf gespeichert.\n\n### Was es abdeckt\nDie Prüfungen können die PHP-Laufzeit, Datenbankverbindungen, das Dateisystem, Protokolle, E-Mail, Härtung sowie Compliance- oder Anwendungssicherheitsaspekte betreffen.",
+                    "excerpt": "Health-Check-Modul Health Check ist das Panel, das Diagnoseprüfungen der Favilla-Installation durchführt. Seitenablauf Beim ersten Öffnen wird eine Hülle angezeigt; der eigentliche Inhalt kommt über H...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo funciona el módulo Health Check?",
+                    "answer_markdown": "## Módulo Health Check\nHealth Check es el panel que ejecuta comprobaciones de diagnóstico sobre la instalación de Favilla.\n\n### Flujo de la página\nAl abrirla por primera vez se muestra un armazón; el contenido real llega vía HTMX, y en ese momento las comprobaciones se ejecutan, se agregan y se guardan en el historial.\n\n### Qué cubre\nLas comprobaciones pueden afectar al entorno de ejecución de PHP, las conexiones de base de datos, el sistema de archivos, los registros, el correo, el endurecimiento y aspectos de cumplimiento o seguridad de la aplicación.",
+                    "excerpt": "Módulo Health Check Health Check es el panel que ejecuta comprobaciones de diagnóstico sobre la instalación de Favilla. Flujo de la página Al abrirla por primera vez se muestra un armazón; el contenid...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "healthcheck.index",
+            "permission_slug": "healthcheck.view",
+            "ranking_weight": 24,
+            "sort_order": 20,
+            "locales": {
+                "it": {
+                    "question": "Cosa significano OK, warning e failed in Health Check?",
+                    "answer_markdown": "## Esiti dei controlli\r\nOgni check restituisce uno stato sintetico.\r\n\r\n### Significato\r\n- **OK**: la condizione verificata è conforme;\r\n- **warning**: c'è un margine di miglioramento o un rischio da monitorare;\r\n- **failed**: è presente un problema che richiede un intervento esplicito.\r\n\r\n### Come usarli\r\nParti sempre dai failure, poi affronta i warning che possono diventare incidenti o debito operativo.",
+                    "excerpt": "Esiti dei controlli Ogni check restituisce uno stato sintetico. Significato OK: la condizione verificata è conforme; warning: c'è un margine di miglioramento o un rischio da monitorare; failed: è presente un problema...",
+                    "aliases": [
+                        "warning health check",
+                        "failed health check",
+                        "esito controlli",
+                        "Come leggo warning e fail?",
+                        "Come distinguo OK, warning e failed?"
+                    ]
+                },
+                "en": {
+                    "question": "What do OK, warning and failed mean in Health Check?",
+                    "answer_markdown": "## Check outcomes\nEach check returns a summary status.\n\n### Meaning\n- **OK**: the verified condition is compliant;\n- **warning**: there is room for improvement or a risk to monitor;\n- **failed**: there is a problem that requires explicit action.\n\n### How to use them\nAlways start from the failures, then deal with the warnings that may turn into incidents or operational debt.",
+                    "excerpt": "Check outcomes Each check returns a summary status. Meaning OK: the verified condition is compliant; warning: there is room for improvement or a risk to monitor; failed: there is a problem that requir...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Que signifient OK, warning et failed dans Health Check ?",
+                    "answer_markdown": "## Résultats des contrôles\nChaque contrôle renvoie un statut synthétique.\n\n### Signification\n- **OK** : la condition vérifiée est conforme ;\n- **warning** : il y a une marge d'amélioration ou un risque à surveiller ;\n- **failed** : un problème nécessite une intervention explicite.\n\n### Comment les utiliser\nCommencez toujours par les échecs, puis traitez les avertissements qui peuvent devenir des incidents ou de la dette opérationnelle.",
+                    "excerpt": "Résultats des contrôles Chaque contrôle renvoie un statut synthétique. Signification OK : la condition vérifiée est conforme ; warning : il y a une marge d'amélioration ou un risque à surveiller ; fai...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Was bedeuten OK, warning und failed im Health Check?",
+                    "answer_markdown": "## Prüfergebnisse\nJede Prüfung gibt einen zusammenfassenden Status zurück.\n\n### Bedeutung\n- **OK**: die geprüfte Bedingung ist konform;\n- **warning**: es gibt Verbesserungspotenzial oder ein zu überwachendes Risiko;\n- **failed**: es liegt ein Problem vor, das ein ausdrückliches Eingreifen erfordert.\n\n### Wie man sie nutzt\nBeginnen Sie immer mit den Fehlern, behandeln Sie dann die Warnungen, die zu Vorfällen oder operativen Schulden werden können.",
+                    "excerpt": "Prüfergebnisse Jede Prüfung gibt einen zusammenfassenden Status zurück. Bedeutung OK: die geprüfte Bedingung ist konform; warning: es gibt Verbesserungspotenzial oder ein zu überwachendes Risiko; fail...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Qué significan OK, warning y failed en Health Check?",
+                    "answer_markdown": "## Resultados de las comprobaciones\nCada comprobación devuelve un estado resumido.\n\n### Significado\n- **OK**: la condición verificada es conforme;\n- **warning**: hay margen de mejora o un riesgo que vigilar;\n- **failed**: existe un problema que requiere una intervención explícita.\n\n### Cómo usarlos\nEmpieza siempre por los fallos y luego aborda las advertencias que pueden convertirse en incidentes o deuda operativa.",
+                    "excerpt": "Resultados de las comprobaciones Cada comprobación devuelve un estado resumido. Significado OK: la condición verificada es conforme; warning: hay margen de mejora o un riesgo que vigilar; failed: exis...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "healthcheck.index",
+            "permission_slug": "healthcheck.view",
+            "ranking_weight": 20,
+            "sort_order": 30,
+            "locales": {
+                "it": {
+                    "question": "Quali aree controlla Health Check?",
+                    "answer_markdown": "## Aree coperte\r\nIl modulo può raggruppare i check per domini diversi: runtime, database, filesystem, log, sicurezza PHP, posta e altri controlli di assetto operativo.\r\n\r\n### Perché è utile\r\nLa suddivisione per gruppi aiuta a capire se il problema è infrastrutturale, applicativo o di configurazione, e rende più semplice assegnare il follow-up alla persona giusta.",
+                    "excerpt": "Aree coperte Il modulo può raggruppare i check per domini diversi: runtime, database, filesystem, log, sicurezza PHP, posta e altri controlli di assetto operativo. Perché è utile La suddivisione per gruppi aiuta a...",
+                    "aliases": [
+                        "gruppi health check",
+                        "controlli runtime database filesystem",
+                        "aree diagnostica",
+                        "Come capisco quali aree sono in errore?"
+                    ]
+                },
+                "en": {
+                    "question": "Which areas does Health Check check?",
+                    "answer_markdown": "## Covered areas\nThe module can group the checks by different domains: runtime, database, filesystem, logs, PHP security, mail and other operational-setup checks.\n\n### Why it is useful\nGrouping helps you understand whether the problem is infrastructural, application-level or configuration-related, and makes it easier to assign the follow-up to the right person.",
+                    "excerpt": "Covered areas The module can group the checks by different domains: runtime, database, filesystem, logs, PHP security, mail and other operational-setup checks. Why it is useful Grouping helps you unde...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Quelles zones Health Check contrôle-t-il ?",
+                    "answer_markdown": "## Zones couvertes\nLe module peut regrouper les contrôles par différents domaines : environnement d'exécution, base de données, système de fichiers, journaux, sécurité PHP, messagerie et autres contrôles de configuration opérationnelle.\n\n### Pourquoi c'est utile\nLe regroupement aide à comprendre si le problème est infrastructurel, applicatif ou de configuration, et facilite l'attribution du suivi à la bonne personne.",
+                    "excerpt": "Zones couvertes Le module peut regrouper les contrôles par différents domaines : environnement d'exécution, base de données, système de fichiers, journaux, sécurité PHP, messagerie et autres contrôles...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Welche Bereiche prüft Health Check?",
+                    "answer_markdown": "## Abgedeckte Bereiche\nDas Modul kann die Prüfungen nach verschiedenen Domänen gruppieren: Laufzeit, Datenbank, Dateisystem, Protokolle, PHP-Sicherheit, E-Mail und weitere Prüfungen der Betriebskonfiguration.\n\n### Warum es nützlich ist\nDie Gruppierung hilft zu verstehen, ob das Problem infrastrukturell, anwendungsseitig oder konfigurationsbedingt ist, und erleichtert die Zuweisung der Nachverfolgung an die richtige Person.",
+                    "excerpt": "Abgedeckte Bereiche Das Modul kann die Prüfungen nach verschiedenen Domänen gruppieren: Laufzeit, Datenbank, Dateisystem, Protokolle, PHP-Sicherheit, E-Mail und weitere Prüfungen der Betriebskonfigura...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Qué áreas comprueba Health Check?",
+                    "answer_markdown": "## Áreas cubiertas\nEl módulo puede agrupar las comprobaciones por distintos dominios: entorno de ejecución, base de datos, sistema de archivos, registros, seguridad de PHP, correo y otras comprobaciones de configuración operativa.\n\n### Por qué es útil\nLa agrupación ayuda a entender si el problema es de infraestructura, de aplicación o de configuración, y facilita asignar el seguimiento a la persona adecuada.",
+                    "excerpt": "Áreas cubiertas El módulo puede agrupar las comprobaciones por distintos dominios: entorno de ejecución, base de datos, sistema de archivos, registros, seguridad de PHP, correo y otras comprobaciones ...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "healthcheck.history",
+            "permission_slug": "healthcheck.history",
+            "ranking_weight": 22,
+            "sort_order": 40,
+            "locales": {
+                "it": {
+                    "question": "Come consulto lo storico dei run di Health Check?",
+                    "answer_markdown": "## Storico run\r\nLa sezione storico mostra i run precedenti salvati dal modulo.\r\n\r\n### Quando serve\r\n- verificare se un warning è episodico o ricorrente;\r\n- controllare da quando è comparso un failure;\r\n- confrontare l'effetto di una correzione infrastrutturale.",
+                    "excerpt": "Storico run La sezione storico mostra i run precedenti salvati dal modulo. Quando serve verificare se un warning è episodico o ricorrente; controllare da quando è comparso un failure; confrontare l'effetto di una...",
+                    "aliases": [
+                        "storico health check",
+                        "run precedenti health check",
+                        "history health check",
+                        "Come consulto lo storico dei run?"
+                    ]
+                },
+                "en": {
+                    "question": "How do I view the Health Check run history?",
+                    "answer_markdown": "## Run history\nThe history section shows the previous runs saved by the module.\n\n### When it helps\n- to check whether a warning is occasional or recurring;\n- to check since when a failure has appeared;\n- to compare the effect of an infrastructure fix.",
+                    "excerpt": "Run history The history section shows the previous runs saved by the module. When it helps to check whether a warning is occasional or recurring; to check since when a failure has appeared; to compare...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment consulter l'historique des exécutions de Health Check ?",
+                    "answer_markdown": "## Historique des exécutions\nLa section historique affiche les exécutions précédentes enregistrées par le module.\n\n### Quand c'est utile\n- vérifier si un avertissement est ponctuel ou récurrent ;\n- contrôler depuis quand un échec est apparu ;\n- comparer l'effet d'une correction d'infrastructure.",
+                    "excerpt": "Historique des exécutions La section historique affiche les exécutions précédentes enregistrées par le module. Quand c'est utile vérifier si un avertissement est ponctuel ou récurrent ; contrôler depu...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie sehe ich den Ausführungsverlauf von Health Check ein?",
+                    "answer_markdown": "## Ausführungsverlauf\nDer Verlaufsbereich zeigt die vom Modul gespeicherten früheren Ausführungen.\n\n### Wann es hilft\n- um zu prüfen, ob eine Warnung gelegentlich oder wiederkehrend ist;\n- um zu prüfen, seit wann ein Fehler aufgetreten ist;\n- um die Wirkung einer Infrastrukturkorrektur zu vergleichen.",
+                    "excerpt": "Ausführungsverlauf Der Verlaufsbereich zeigt die vom Modul gespeicherten früheren Ausführungen. Wann es hilft um zu prüfen, ob eine Warnung gelegentlich oder wiederkehrend ist; um zu prüfen, seit wann...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo consulto el historial de ejecuciones de Health Check?",
+                    "answer_markdown": "## Historial de ejecuciones\nLa sección de historial muestra las ejecuciones anteriores guardadas por el módulo.\n\n### Cuándo sirve\n- comprobar si una advertencia es puntual o recurrente;\n- comprobar desde cuándo ha aparecido un fallo;\n- comparar el efecto de una corrección de infraestructura.",
+                    "excerpt": "Historial de ejecuciones La sección de historial muestra las ejecuciones anteriores guardadas por el módulo. Cuándo sirve comprobar si una advertencia es puntual o recurrente; comprobar desde cuándo h...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "healthcheck.export",
+            "permission_slug": "healthcheck.export",
+            "ranking_weight": 20,
+            "sort_order": 50,
+            "locales": {
+                "it": {
+                    "question": "Come esporto un report CSV di Health Check?",
+                    "answer_markdown": "## Export CSV\r\nL'export CSV genera un file con i controlli correnti, utile per audit, analisi esterne o condivisione rapida con il team tecnico.\r\n\r\n### Nota importante\r\nL'export produce i dati del run corrente, quindi conviene eseguirlo quando hai già verificato che la situazione che vuoi documentare sia effettivamente quella visibile nel pannello.",
+                    "excerpt": "Export CSV L'export CSV genera un file con i controlli correnti, utile per audit, analisi esterne o condivisione rapida con il team tecnico. Nota importante L'export produce i dati del run corrente, quindi conviene...",
+                    "aliases": [
+                        "csv health check",
+                        "esportare controlli",
+                        "report health check",
+                        "Come esporto un CSV di Health Check?"
+                    ]
+                },
+                "en": {
+                    "question": "How do I export a Health Check CSV report?",
+                    "answer_markdown": "## CSV export\nThe CSV export generates a file with the current checks, useful for audits, external analysis or quick sharing with the technical team.\n\n### Important note\nThe export produces the data of the current run, so it is best to run it once you have already verified that the situation you want to document is actually the one visible in the panel.",
+                    "excerpt": "CSV export The CSV export generates a file with the current checks, useful for audits, external analysis or quick sharing with the technical team. Important note The export produces the data of the cu...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment exporter un rapport CSV de Health Check ?",
+                    "answer_markdown": "## Export CSV\nL'export CSV génère un fichier avec les contrôles actuels, utile pour les audits, l'analyse externe ou un partage rapide avec l'équipe technique.\n\n### Note importante\nL'export produit les données de l'exécution en cours, il est donc préférable de le lancer une fois que vous avez vérifié que la situation à documenter est bien celle visible dans le panneau.",
+                    "excerpt": "Export CSV L'export CSV génère un fichier avec les contrôles actuels, utile pour les audits, l'analyse externe ou un partage rapide avec l'équipe technique. Note importante L'export produit les donnée...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie exportiere ich einen Health-Check-CSV-Bericht?",
+                    "answer_markdown": "## CSV-Export\nDer CSV-Export erzeugt eine Datei mit den aktuellen Prüfungen, nützlich für Audits, externe Analysen oder schnelles Teilen mit dem technischen Team.\n\n### Wichtiger Hinweis\nDer Export erzeugt die Daten der aktuellen Ausführung, daher führen Sie ihn am besten aus, sobald Sie überprüft haben, dass die zu dokumentierende Situation tatsächlich die im Panel sichtbare ist.",
+                    "excerpt": "CSV-Export Der CSV-Export erzeugt eine Datei mit den aktuellen Prüfungen, nützlich für Audits, externe Analysen oder schnelles Teilen mit dem technischen Team. Wichtiger Hinweis Der Export erzeugt die...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo exporto un informe CSV de Health Check?",
+                    "answer_markdown": "## Exportación CSV\nLa exportación CSV genera un archivo con las comprobaciones actuales, útil para auditorías, análisis externos o compartir rápidamente con el equipo técnico.\n\n### Nota importante\nLa exportación produce los datos de la ejecución actual, por lo que conviene ejecutarla cuando ya hayas comprobado que la situación que quieres documentar es efectivamente la visible en el panel.",
+                    "excerpt": "Exportación CSV La exportación CSV genera un archivo con las comprobaciones actuales, útil para auditorías, análisis externos o compartir rápidamente con el equipo técnico. Nota importante La exportac...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "healthcheck.index",
+            "permission_slug": "healthcheck.view",
+            "ranking_weight": 20,
+            "sort_order": 60,
+            "locales": {
+                "it": {
+                    "question": "Cosa faccio se Health Check segnala un failure?",
+                    "answer_markdown": "## Gestire un failure\r\nUn failure indica un problema attuale, non solo teorico.\r\n\r\n### Procedura minima\r\n- apri il dettaglio del controllo coinvolto;\r\n- individua se il problema riguarda configurazione, servizio esterno, filesystem o database;\r\n- correggi la causa;\r\n- rilancia il pannello per ottenere un nuovo run e verificare il rientro.\r\n\r\n### Quando serve escalation\r\nSe il failure riguarda sicurezza, disponibilità del database o integrità dei log, trattalo come incidente prioritario.",
+                    "excerpt": "Gestire un failure Un failure indica un problema attuale, non solo teorico. Procedura minima apri il dettaglio del controllo coinvolto; individua se il problema riguarda configurazione, servizio esterno, filesystem o...",
+                    "aliases": [
+                        "errore health check",
+                        "failure diagnostica",
+                        "problema health check",
+                        "Come gestisco un failure critico?"
+                    ]
+                },
+                "en": {
+                    "question": "What do I do if Health Check reports a failure?",
+                    "answer_markdown": "## Handling a failure\nA failure indicates a current, not just theoretical, problem.\n\n### Minimum procedure\n- open the detail of the affected check;\n- identify whether the problem concerns configuration, an external service, the filesystem or the database;\n- fix the cause;\n- re-run the panel to get a new run and verify recovery.\n\n### When escalation is needed\nIf the failure concerns security, database availability or log integrity, treat it as a priority incident.",
+                    "excerpt": "Handling a failure A failure indicates a current, not just theoretical, problem. Minimum procedure open the detail of the affected check; identify whether the problem concerns configuration, an extern...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Que faire si Health Check signale un échec ?",
+                    "answer_markdown": "## Gérer un échec\nUn échec indique un problème actuel, pas seulement théorique.\n\n### Procédure minimale\n- ouvrez le détail du contrôle concerné ;\n- déterminez si le problème concerne la configuration, un service externe, le système de fichiers ou la base de données ;\n- corrigez la cause ;\n- relancez le panneau pour obtenir une nouvelle exécution et vérifier le rétablissement.\n\n### Quand une escalade est nécessaire\nSi l'échec concerne la sécurité, la disponibilité de la base de données ou l'intégrité des journaux, traitez-le comme un incident prioritaire.",
+                    "excerpt": "Gérer un échec Un échec indique un problème actuel, pas seulement théorique. Procédure minimale ouvrez le détail du contrôle concerné ; déterminez si le problème concerne la configuration, un service ...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Was tue ich, wenn Health Check einen Fehler meldet?",
+                    "answer_markdown": "## Einen Fehler behandeln\nEin Fehler weist auf ein aktuelles, nicht nur theoretisches Problem hin.\n\n### Mindestvorgehen\n- öffnen Sie das Detail der betroffenen Prüfung;\n- stellen Sie fest, ob das Problem die Konfiguration, einen externen Dienst, das Dateisystem oder die Datenbank betrifft;\n- beheben Sie die Ursache;\n- führen Sie das Panel erneut aus, um eine neue Ausführung zu erhalten und die Behebung zu überprüfen.\n\n### Wann eine Eskalation nötig ist\nWenn der Fehler die Sicherheit, die Datenbankverfügbarkeit oder die Protokollintegrität betrifft, behandeln Sie ihn als vorrangigen Vorfall.",
+                    "excerpt": "Einen Fehler behandeln Ein Fehler weist auf ein aktuelles, nicht nur theoretisches Problem hin. Mindestvorgehen öffnen Sie das Detail der betroffenen Prüfung; stellen Sie fest, ob das Problem die Konf...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Qué hago si Health Check informa de un fallo?",
+                    "answer_markdown": "## Gestionar un fallo\nUn fallo indica un problema actual, no solo teórico.\n\n### Procedimiento mínimo\n- abre el detalle de la comprobación afectada;\n- identifica si el problema afecta a la configuración, a un servicio externo, al sistema de archivos o a la base de datos;\n- corrige la causa;\n- vuelve a ejecutar el panel para obtener una nueva ejecución y verificar la recuperación.\n\n### Cuándo se necesita escalado\nSi el fallo afecta a la seguridad, a la disponibilidad de la base de datos o a la integridad de los registros, trátalo como un incidente prioritario.",
+                    "excerpt": "Gestionar un fallo Un fallo indica un problema actual, no solo teórico. Procedimiento mínimo abre el detalle de la comprobación afectada; identifica si el problema afecta a la configuración, a un serv...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "healthcheck.deep",
+            "permission_slug": "healthcheck.view",
+            "ranking_weight": 15,
+            "sort_order": 61,
+            "locales": {
+                "it": {
+                    "question": "Che differenza c'è tra scansione rapida e scansione approfondita?",
+                    "answer_markdown": "## Scansione rapida vs approfondita\nAll'apertura della pagina viene eseguita una **scansione rapida** con i controlli più veloci.\n\n### Scansione approfondita\nLa scansione **deep** include anche i controlli più lenti (rete, comandi shell): usala quando vuoi un quadro completo, ad esempio prima di un audit o dopo un cambio di configurazione importante.",
+                    "excerpt": "Scansione rapida vs approfondita All'apertura della pagina viene eseguita una scansione rapida con i controlli più veloci. Scansione approfondita La scansione deep include anche i controlli più lenti (rete, comandi shell): usala...",
+                    "aliases": [
+                        "scansione rapida",
+                        "deep scan",
+                        "scansione approfondita"
+                    ]
+                },
+                "en": {
+                    "question": "What's the difference between quick and deep scan?",
+                    "answer_markdown": "## Quick vs deep scan\nOpening the page runs a **quick scan** with the fastest checks.\n\n### Deep scan\nThe **deep** scan also includes the slower checks (network, shell commands): use it when you want a full picture, for example before an audit or after a major configuration change.",
+                    "excerpt": "Quick vs deep scan Opening the page runs a quick scan with the fastest checks. Deep scan The deep scan also includes the slower checks (network, shell commands): use it when you want a full picture, for example before an audit or...",
+                    "aliases": [
+                        "quick scan",
+                        "deep scan"
+                    ]
+                },
+                "fr": {
+                    "question": "Quelle est la différence entre scan rapide et scan approfondi ?",
+                    "answer_markdown": "## Scan rapide vs approfondi\nL'ouverture de la page lance un **scan rapide** avec les contrôles les plus rapides.\n\n### Scan approfondi\nLe scan **deep** inclut aussi les contrôles plus lents (réseau, commandes shell) : utilisez-le pour une vue complète, par exemple avant un audit ou après un changement de configuration important.",
+                    "excerpt": "Scan rapide vs approfondi L'ouverture de la page lance un scan rapide avec les contrôles les plus rapides. Scan approfondi Le scan deep inclut aussi les contrôles plus lents (réseau, commandes shell) : utilisez-le pour une vue...",
+                    "aliases": [
+                        "scan rapide",
+                        "scan approfondi"
+                    ]
+                },
+                "de": {
+                    "question": "Was ist der Unterschied zwischen Schnell- und Tiefenscan?",
+                    "answer_markdown": "## Schnellscan vs. Tiefenscan\nBeim Öffnen der Seite wird ein **Schnellscan** mit den schnellsten Prüfungen ausgeführt.\n\n### Tiefenscan\nDer **Deep**-Scan umfasst auch die langsameren Prüfungen (Netzwerk, Shell-Befehle): nutzen Sie ihn für ein vollständiges Bild, etwa vor einem Audit oder nach einer größeren Konfigurationsänderung.",
+                    "excerpt": "Schnellscan vs. Tiefenscan Beim Öffnen der Seite wird ein Schnellscan mit den schnellsten Prüfungen ausgeführt. Tiefenscan Der Deep-Scan umfasst auch die langsameren Prüfungen (Netzwerk, Shell-Befehle): nutzen Sie ihn für ein...",
+                    "aliases": [
+                        "schnellscan",
+                        "tiefenscan"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cuál es la diferencia entre escaneo rápido y escaneo profundo?",
+                    "answer_markdown": "## Escaneo rápido vs profundo\nAl abrir la página se ejecuta un **escaneo rápido** con las comprobaciones más veloces.\n\n### Escaneo profundo\nEl escaneo **deep** incluye también las comprobaciones más lentas (red, comandos de shell): úsalo cuando quieras una visión completa, por ejemplo antes de una auditoría o tras un cambio de configuración importante.",
+                    "excerpt": "Escaneo rápido vs profundo Al abrir la página se ejecuta un escaneo rápido con las comprobaciones más veloces. Escaneo profundo El escaneo deep incluye también las comprobaciones más lentas (red, comandos de shell): úsalo cuando...",
+                    "aliases": [
+                        "escaneo rápido",
+                        "escaneo profundo"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "healthcheck.index",
+            "permission_slug": "healthcheck.view",
+            "ranking_weight": 0,
+            "sort_order": 62,
+            "locales": {
+                "it": {
+                    "question": "Health Check viene eseguito automaticamente?",
+                    "answer_markdown": "## Esecuzione automatica\nOltre alla scansione manuale dalla pagina, il comando `php favilla health:check` esegue tutti i controlli da riga di comando (utile pianificato via Scheduler o cron di sistema).\n\n### Notifiche\nSe un controllo fallisce, il sistema può notificare gli amministratori a seconda della configurazione delle notifiche.",
+                    "excerpt": "Esecuzione automatica Oltre alla scansione manuale dalla pagina, il comando php favilla health:check esegue tutti i controlli da riga di comando (utile pianificato via Scheduler o cron di sistema). Notifiche Se un controllo...",
+                    "aliases": [
+                        "health check automatico",
+                        "healthcheck scheduler",
+                        "health check cli"
+                    ]
+                },
+                "en": {
+                    "question": "Does Health Check run automatically?",
+                    "answer_markdown": "## Automatic execution\nBesides the manual scan from the page, the `php favilla health:check` command runs every check from the command line (useful when scheduled via Scheduler or a system cron).\n\n### Notifications\nIf a check fails, the system can notify administrators depending on the notification configuration.",
+                    "excerpt": "Automatic execution Besides the manual scan from the page, the php favilla health:check command runs every check from the command line (useful when scheduled via Scheduler or a system cron). Notifications If a check fails, the...",
+                    "aliases": [
+                        "automatic health check",
+                        "healthcheck scheduler",
+                        "health check cli"
+                    ]
+                },
+                "fr": {
+                    "question": "Health Check s'exécute-t-il automatiquement ?",
+                    "answer_markdown": "## Exécution automatique\nOutre le scan manuel depuis la page, la commande `php favilla health:check` exécute tous les contrôles en ligne de commande (utile si planifiée via Scheduler ou un cron système).\n\n### Notifications\nSi un contrôle échoue, le système peut notifier les administrateurs selon la configuration des notifications.",
+                    "excerpt": "Exécution automatique Outre le scan manuel depuis la page, la commande php favilla health:check exécute tous les contrôles en ligne de commande (utile si planifiée via Scheduler ou un cron système). Notifications Si un contrôle...",
+                    "aliases": [
+                        "health check automatique",
+                        "healthcheck scheduler",
+                        "health check cli"
+                    ]
+                },
+                "de": {
+                    "question": "Wird Health Check automatisch ausgeführt?",
+                    "answer_markdown": "## Automatische Ausführung\nNeben dem manuellen Scan über die Seite führt der Befehl `php favilla health:check` alle Prüfungen über die Kommandozeile aus (nützlich bei Planung über Scheduler oder einen System-Cron).\n\n### Benachrichtigungen\nSchlägt eine Prüfung fehl, kann das System je nach Benachrichtigungskonfiguration Administratoren benachrichtigen.",
+                    "excerpt": "Automatische Ausführung Neben dem manuellen Scan über die Seite führt der Befehl php favilla health:check alle Prüfungen über die Kommandozeile aus (nützlich bei Planung über Scheduler oder einen System-Cron). Benachrichtigungen...",
+                    "aliases": [
+                        "automatischer health check",
+                        "healthcheck scheduler",
+                        "health check cli"
+                    ]
+                },
+                "es": {
+                    "question": "¿Health Check se ejecuta automáticamente?",
+                    "answer_markdown": "## Ejecución automática\nAdemás del escaneo manual desde la página, el comando `php favilla health:check` ejecuta todas las comprobaciones desde la línea de comandos (útil si se programa vía Scheduler o un cron del sistema).\n\n### Notificaciones\nSi una comprobación falla, el sistema puede notificar a los administradores según la configuración de notificaciones.",
+                    "excerpt": "Ejecución automática Además del escaneo manual desde la página, el comando php favilla health:check ejecuta todas las comprobaciones desde la línea de comandos (útil si se programa vía Scheduler o un cron del sistema)....",
+                    "aliases": [
+                        "health check automático",
+                        "healthcheck scheduler",
+                        "health check cli"
+                    ]
+                }
+            }
+        }
+    ]
+}

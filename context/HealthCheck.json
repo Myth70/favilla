@@ -1,0 +1,141 @@
+{
+    "module": "HealthCheck",
+    "generated_at": "2026-07-04T09:48:34+02:00",
+    "routes": [
+        {
+            "method": "GET",
+            "uri": "/admin/health/",
+            "name": "healthcheck.index",
+            "controller": "HealthCheckController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "RoleMiddleware:healthcheck.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/health/deep",
+            "name": "healthcheck.deep",
+            "controller": "HealthCheckController@deepScan",
+            "middleware": [
+                "AuthMiddleware",
+                "RoleMiddleware:healthcheck.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/health/history",
+            "name": "healthcheck.history",
+            "controller": "HealthCheckController@history",
+            "middleware": [
+                "AuthMiddleware",
+                "RoleMiddleware:healthcheck.history"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/health/export",
+            "name": "healthcheck.export",
+            "controller": "HealthCheckController@export",
+            "middleware": [
+                "AuthMiddleware",
+                "RoleMiddleware:healthcheck.export"
+            ]
+        }
+    ],
+    "tables": [
+        {
+            "name": "healthcheck_runs",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "total_ok",
+                    "type": "smallint(5) unsigned",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "total_warn",
+                    "type": "smallint(5) unsigned",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "total_fail",
+                    "type": "smallint(5) unsigned",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "data",
+                    "type": "longtext",
+                    "nullable": false
+                },
+                {
+                    "name": "created_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "created_by",
+                    "columns": [
+                        "created_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "healthcheck_runs_ibfk_1",
+                    "column": "created_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        }
+    ],
+    "permissions": [
+        {
+            "slug": "healthcheck.export",
+            "name": "Esporta Health Check"
+        },
+        {
+            "slug": "healthcheck.history",
+            "name": "Storico Health Check"
+        },
+        {
+            "slug": "healthcheck.view",
+            "name": "Visualizza Health Check"
+        }
+    ],
+    "services": [
+        "App\\Modules\\HealthCheck\\Services\\HealthCheckService"
+    ],
+    "controllers": [
+        "App\\Modules\\HealthCheck\\Controllers\\HealthCheckController"
+    ]
+}

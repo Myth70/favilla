@@ -1,0 +1,138 @@
+{
+    "name": "Calendar",
+    "core": true,
+    "icon": "fa-solid fa-calendar",
+    "version": "2.0.0",
+    "description": "Calendario eventi personali e condivisi per ruolo con viste mensile, settimanale e giornaliera",
+    "author": "Favilla",
+    "framework_min": "1.0",
+    "database": "shared",
+    "tables": ["calendar_events"],
+    "dependencies": ["Notifications"],
+    "dashboard_provider": "App\\Modules\\Calendar\\Providers\\CalendarDashboardProvider",
+    "search_provider": "App\\Modules\\Calendar\\Providers\\CalendarSearchProvider",
+    "export_provider": "App\\Modules\\Calendar\\Providers\\CalendarExportProvider",
+    "services": ["NotificationService", "AuditService"],
+    "notification_events": [
+        {
+            "slug": "calendar.shared_event_created",
+            "name": "Evento condiviso creato",
+            "description": "Inviata quando viene creato un evento condiviso",
+            "default_level": "info",
+            "icon": "fa-solid fa-calendar-plus",
+            "context_variables": {
+                "event_id": "ID evento",
+                "event_title": "Titolo evento",
+                "start_label": "Data/ora inizio",
+                "location": "Luogo"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Nuovo evento condiviso: {{event_title}}",
+                    "body": "Hai ricevuto un nuovo evento condiviso"
+                },
+                "email": {
+                    "subject": "Nuovo evento condiviso: {{event_title}}",
+                    "body": "<h2>Nuovo evento condiviso</h2><p>{{event_title}}</p><p>Quando: {{start_label}}</p><p><a href=\"{{link}}\">Apri calendario</a></p>"
+                },
+                "telegram": {
+                    "body": "📅 Nuovo evento condiviso: {{event_title}}\nQuando: {{start_label}}\n{{link}}"
+                }
+            }
+        },
+        {
+            "slug": "calendar.event_reminder",
+            "name": "Promemoria evento",
+            "description": "Inviata dallo scheduler prima dell'inizio di un evento con reminder configurato",
+            "default_level": "info",
+            "icon": "fa-solid fa-bell",
+            "context_variables": {
+                "event_id":      "ID evento",
+                "event_title":   "Titolo evento",
+                "start_label":   "Data/ora inizio",
+                "location":      "Luogo",
+                "minutes_before": "Minuti prima dell'evento"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Promemoria: {{event_title}}",
+                    "body": "L'evento inizia tra {{minutes_before}} minuti"
+                },
+                "email": {
+                    "subject": "Promemoria: {{event_title}}",
+                    "body": "<h2>Promemoria evento</h2><p>{{event_title}}</p><p>Quando: {{start_label}}</p><p><a href=\"{{link}}\">Apri calendario</a></p>"
+                },
+                "telegram": {
+                    "body": "🔔 Promemoria: {{event_title}}\nTra {{minutes_before}} min — {{start_label}}\n{{link}}"
+                }
+            }
+        }
+    ],
+    "assets": {
+        "css": ["calendar.css"],
+        "js": ["calendar.js"]
+    },
+    "menu": [
+        {
+            "label": "Calendario",
+            "icon": "fa-calendar",
+            "route": "calendar.index",
+            "permission": "calendar.view",
+            "order": 3
+        }
+    ],
+    "navigation": [
+        {
+            "id": "calendar.index",
+            "label": "Calendario",
+            "icon": "fa-calendar-days",
+            "route": "calendar.index",
+            "permission": "calendar.view",
+            "order": 3,
+            "surfaces": ["user_menu", "radial", "quick_access"]
+        }
+    ],
+    "admin_panel": {
+        "section": "Pannelli admin dei moduli",
+        "eyebrow": "Moduli attivi",
+        "groups": [
+            {
+                "title": "Calendario",
+                "description": "Gestione eventi, condivisioni per ruolo, agenda e import/export ICS.",
+                "icon": "fa-solid fa-calendar-days",
+                "flows": [
+                    "Nuovo evento",
+                    "Agenda",
+                    "Import ICS",
+                    "Export ICS"
+                ],
+                "links": [
+                    {
+                        "label": "Calendario",
+                        "route": "calendar.index",
+                        "permission": "calendar.view",
+                        "description": "Vista mensile degli eventi del sistema.",
+                        "icon": "fa-solid fa-calendar-days",
+                        "keywords": "calendario eventi mensile settimanale giornaliero"
+                    },
+                    {
+                        "label": "Agenda",
+                        "route": "calendar.agenda",
+                        "permission": "calendar.view",
+                        "description": "Vista agenda cronologica degli eventi.",
+                        "icon": "fa-solid fa-list",
+                        "keywords": "agenda calendario eventi lista"
+                    },
+                    {
+                        "label": "Nuovo evento",
+                        "route": "calendar.create",
+                        "permission": "calendar.create",
+                        "description": "Crea un nuovo evento nel calendario.",
+                        "icon": "fa-solid fa-calendar-plus",
+                        "keywords": "crea evento calendario nuovo"
+                    }
+                ]
+            }
+        ]
+    }
+}

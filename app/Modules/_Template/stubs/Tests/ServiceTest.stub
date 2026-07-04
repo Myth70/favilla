@@ -1,0 +1,92 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ModuleNamespace}}\Tests\Unit;
+
+use Tests\ModuleTestCase;
+use {{ModuleNamespace}}\Repositories\{{ModuleName}}Repository;
+use {{ModuleNamespace}}\Services\{{ModuleName}}Service;
+
+class {{ModuleName}}ServiceTest extends ModuleTestCase
+{
+    private {{ModuleName}}Service $service;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->migrate("
+            CREATE TABLE {{TableName}} (
+                id          INTEGER PRIMARY KEY AUTOINCREMENT,
+                name        TEXT NOT NULL,
+                description TEXT DEFAULT NULL,
+                status      TEXT NOT NULL DEFAULT 'active',
+                created_by  INTEGER DEFAULT NULL,
+                created_at  TEXT DEFAULT (datetime('now')),
+                updated_at  TEXT DEFAULT (datetime('now')),
+                deleted_at  TEXT DEFAULT NULL
+            )
+        ");
+
+        $this->service = new {{ModuleName}}Service(app({{ModuleName}}Repository::class));
+    }
+
+    public function test_create_persists_and_returns_id(): void
+    {
+        $id = $this->service->create(['name' => 'Primo', 'description' => 'x'], 42);
+
+        $this->assertIsInt($id);
+        $this->assertGreaterThan(0, $id);
+
+        $item = $this->service->find($id, 42);
+        $this->assertNotNull($item);
+        $this->assertSame('Primo', $item['name']);
+        $this->assertSame(42, (int) $item['created_by']);
+    }
+
+    public function test_list_returns_paginated_shape(): void
+    {
+        $this->service->create(['name' => 'A'], 1);
+        $this->service->create(['name' => 'B'], 1);
+
+        $result = $this->service->list(['page' => 1], 1);
+
+        $this->assertArrayHasKey('data', $result);
+        $this->assertArrayHasKey('total', $result);
+        $this->assertArrayHasKey('lastPage', $result);
+        $this->assertArrayHasKey('page', $result);
+        $this->assertSame(2, $result['total']);
+        $this->assertCount(2, $result['data']);
+    }
+
+    public function test_update_modifies_record(): void
+    {
+        $id = $this->service->create(['name' => 'Originale'], 1);
+        $this->service->update($id, ['name' => 'Aggiornato'], 1);
+
+        $item = $this->service->find($id, 1);
+        $this->assertSame('Aggiornato', $item['name']);
+    }
+
+    public function test_delete_removes_record(): void
+    {
+        $id = $this->service->create(['name' => 'Da cancellare'], 1);
+        $this->service->delete($id, 1);
+
+        $this->assertNull($this->service->find($id, 1));
+    }
+
+    public function test_find_is_owner_scoped(): void
+    {
+        $id = $this->service->create(['name' => 'Mio'], 1);
+
+        // L'utente 2 non vede il record dell'utente 1 (owner-scoping).
+        $this->assertNull($this->service->find($id, 2));
+        $this->assertNotNull($this->service->find($id, 1));
+    }
+
+    public function test_find_returns_null_for_missing_id(): void
+    {
+        $this->assertNull($this->service->find(99999, 1));
+    }
+}

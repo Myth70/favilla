@@ -1,0 +1,11 @@
+# Runtime storage — logs, encrypted backups, sessions, cache, reports, tmp.
+# Never expose any of this over HTTP. This applies to every subdirectory.
+# Only relevant if the project root is web-accessible; harmless otherwise.
+# (PHP reads these files from disk, which is unaffected by this rule.)
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+</IfModule>

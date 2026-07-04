@@ -1,0 +1,10 @@
+/* ==========================================================================
+   Tema visivo: DEFAULT
+   Nessuna sovrascrittura: rappresenta lo stato dei token dichiarati in
+   :root dentro app.css. Questo file esiste per coerenza col sistema di
+   caricamento e come punto di estensione futuro.
+   ========================================================================== */
+
+[data-theme-skin="default"] {
+    /* nessun override — usa i valori di :root in app.css */
+}

@@ -1,0 +1,108 @@
+<?php
+/**
+ * VISTA DETTAGLIO — Mostra un singolo record.
+ *
+ * Layout a 2 colonne (4+8): info + contenuto principale.
+ *
+ * Variabili dal Controller:
+ *   $item   → array con i dati del record
+ *   + automatiche dal layout: $view, $user, $pageTitle, $breadcrumbs
+ *
+ * i18n: ogni stringa user-facing passa da e(t('{{module_name}}.<chiave>')).
+ */
+
+$view->layout('main');
+
+$statusColors = ['active' => 'success', 'inactive' => 'secondary', 'archived' => 'warning'];
+$statusKey    = (string) ($item['status'] ?? 'active');
+$statusColor  = $statusColors[$statusKey] ?? 'secondary';
+?>
+
+<?php $view->start('content'); ?>
+
+<div class="container-fluid">
+    <div class="row g-4">
+
+        <!-- ── Colonna sinistra: info + azioni ─────────────────── -->
+        <div class="col-lg-4">
+            <!-- Card info -->
+            <div class="card mb-3">
+                <div class="card-header"><i class="fa-solid fa-circle-info me-1"></i> <?= e(t('{{module_name}}.sections.info')) ?></div>
+                <div class="card-body">
+                    <dl class="row mb-0 small">
+                        <dt class="col-5 text-muted"><?= e(t('{{module_name}}.fields.id')) ?></dt>
+                        <dd class="col-7">#<?= e((string) $item['id']) ?></dd>
+
+                        <dt class="col-5 text-muted"><?= e(t('{{module_name}}.fields.status')) ?></dt>
+                        <dd class="col-7">
+                            <span class="badge bg-<?= e($statusColor) ?>"><?= e(t('{{module_name}}.status.' . $statusKey)) ?></span>
+                        </dd>
+
+                        <dt class="col-5 text-muted"><?= e(t('{{module_name}}.fields.author')) ?></dt>
+                        <dd class="col-7"><?= e($item['author_name'] ?? '—') ?></dd>
+
+                        <dt class="col-5 text-muted"><?= e(t('{{module_name}}.fields.created_at')) ?></dt>
+                        <dd class="col-7"><?= e(format_date_it($item['created_at'] ?? '', 'long')) ?></dd>
+                    </dl>
+                </div>
+            </div>
+
+            <!-- Card azioni -->
+            <div class="card mb-3">
+                <div class="card-header"><i class="fa-solid fa-cog me-1"></i> <?= e(t('{{module_name}}.sections.actions')) ?></div>
+                <div class="card-body d-grid gap-2">
+                    <?php if (has_permission('{{module_name}}.edit')): ?>
+                    <a href="<?= e(route('{{module_name}}.edit', ['id' => $item['id']])) ?>"
+                       class="btn btn-sm btn-outline-primary">
+                        <i class="fa-solid fa-pen me-1"></i> <?= e(t('{{module_name}}.actions.edit')) ?>
+                    </a>
+                    <?php endif; ?>
+                    <a href="<?= e(route('{{module_name}}.index')) ?>" class="btn btn-sm btn-outline-secondary">
+                        <i class="fa-solid fa-arrow-left me-1"></i> <?= e(t('{{module_name}}.actions.back')) ?>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card pericolo -->
+            <?php if (has_permission('{{module_name}}.delete')): ?>
+            <div class="card border-danger">
+                <div class="card-header text-danger"><i class="fa-solid fa-triangle-exclamation me-1"></i> <?= e(t('{{module_name}}.sections.danger_zone')) ?></div>
+                <div class="card-body">
+                    <form method="POST" action="<?= e(route('{{module_name}}.destroy', ['id' => $item['id']])) ?>">
+                        <?= csrf_field() ?>
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="btn btn-sm btn-outline-danger w-100"
+                                data-app-confirm="<?= e(t('{{module_name}}.confirm.delete')) ?>">
+                            <i class="fa-solid fa-trash me-1"></i> <?= e(t('{{module_name}}.actions.delete')) ?>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <?php endif; ?>
+        </div>
+
+        <!-- ── Colonna destra: contenuto ───────────────────────── -->
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0"><?= e($item['name']) ?></h5>
+                </div>
+                <div class="card-body">
+                    <?php if (!empty($item['description'])): ?>
+                        <p><?= nl2br(e($item['description'])) ?></p>
+                    <?php else: ?>
+                        <p class="text-muted fst-italic"><?= e(t('{{module_name}}.detail.no_description')) ?></p>
+                    <?php endif; ?>
+                </div>
+                <?php if (!empty($item['updated_at'])): ?>
+                <div class="card-footer text-muted small">
+                    <?= e(t('{{module_name}}.detail.last_update')) ?> <?= e(format_date_it($item['updated_at'] ?? '', 'long')) ?>
+                </div>
+                <?php endif; ?>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<?php $view->end(); ?>

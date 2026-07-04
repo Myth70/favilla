@@ -1,0 +1,78 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ModuleNamespace}}\Services;
+
+use {{ModuleNamespace}}\Repositories\{{ModuleName}}Repository;
+
+class {{ModuleName}}Service
+{
+    private {{ModuleName}}Repository $repo;
+
+    public function __construct({{ModuleName}}Repository $repo)
+    {
+        $this->repo = $repo;
+    }
+
+    /**
+     * Lista paginata con filtri (delega al repository, owner-scoped).
+     * $filters['page'], $filters['sort'], $filters['dir'] gestiti nel repository.
+     */
+    public function list(array $filters, int $userId): array
+    {
+        return $this->repo->listPaginated($filters, $userId);
+    }
+
+    /**
+     * Conteggio per status (badge header lista), owner-scoped.
+     */
+    public function statusCounts(int $userId): array
+    {
+        return $this->repo->countByStatus($userId);
+    }
+
+    /**
+     * Trova un record visibile all'utente (null se non esiste o non è suo).
+     * Il permesso autorizza l'azione, lo scoping limita i dati: servono entrambi.
+     */
+    public function find(int $id, int $userId): ?array
+    {
+        return $this->repo->findForUser($id, $userId);
+    }
+
+    /**
+     * Crea un nuovo record.
+     *
+     * @param array $data  Dati già sanitizzati dal controller
+     * @param int   $userId  Utente autore
+     * @return int  ID del record creato
+     */
+    public function create(array $data, int $userId): int
+    {
+        $data['created_by'] = $userId;
+        return $this->repo->create($data);
+    }
+
+    /**
+     * Aggiorna un record esistente (solo se visibile all'utente).
+     */
+    public function update(int $id, array $data, int $userId): bool
+    {
+        if (!$this->repo->findForUser($id, $userId)) {
+            return false;
+        }
+        return $this->repo->update($id, $data);
+    }
+
+    /**
+     * Elimina un record (solo se visibile all'utente).
+     */
+    public function delete(int $id, int $userId): bool
+    {
+        if (!$this->repo->findForUser($id, $userId)) {
+            return false;
+        }
+        return $this->repo->delete($id);
+    }
+}

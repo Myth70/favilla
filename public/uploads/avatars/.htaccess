@@ -1,0 +1,6 @@
+# Impedisce l'esecuzione di script nella directory degli avatar utente.
+<FilesMatch "\.(php|php3|php4|php5|phtml|pl|py|cgi|sh)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+Options -ExecCGI -Indexes

@@ -1,0 +1,65 @@
+/* Shared base styles for transactional emails */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+.em-body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 24px;
+}
+
+.em-container {
+  max-width: 540px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 8px;
+  padding: 32px;
+  border: 1px solid #e0e0e0;
+}
+
+.em-title {
+  color: #333;
+  margin-top: 0;
+}
+
+.em-text {
+  color: #555;
+}
+
+.em-body-html {
+  color: #555;
+  line-height: 1.6;
+}
+
+.em-cta-wrap {
+  text-align: center;
+  margin: 32px 0;
+}
+
+.em-button {
+  background: #0d6efd;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.em-note {
+  color: #888;
+  font-size: 13px;
+}
+
+.em-divider {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 24px 0;
+}
+
+.em-footer {
+  color: #aaa;
+  font-size: 12px;
+  text-align: center;
+}

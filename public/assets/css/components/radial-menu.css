@@ -1,0 +1,182 @@
+/* radial-menu.css — Favilla Radial Context Menu */
+
+:root {
+    /* --rm-accent eredita da --accent già iniettato dal layout (primary_color utente) */
+    --rm-accent: var(--accent, #3b82f6);
+    --rm-size: 52px;
+    --rm-radius: 88px;
+    --rm-surface: rgba(255, 255, 255, 0.97);
+    --rm-border: rgba(0, 0, 0, 0.08);
+    --rm-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+    --rm-text: #1a1d27;
+    --rm-muted: #8890a4;
+}
+
+/* Adatta per tema scuro — Favilla usa data-bs-theme="dark" (Bootstrap 5) */
+[data-bs-theme="dark"] {
+    --rm-surface: rgba(26, 29, 39, 0.96);
+    --rm-border: rgba(255, 255, 255, 0.10);
+    --rm-text: #e2e6f0;
+    --rm-muted: #8890a4;
+    --rm-shadow: 0 8px 32px rgba(0, 0, 0, 0.50);
+}
+
+/* ── Root ── */
+#rm-root {
+    position: fixed;
+    top: var(--rm-oy, 0px);
+    left: var(--rm-ox, 0px);
+    pointer-events: none;
+    z-index: 9999;
+}
+
+#rm-root.rm-visible {
+    pointer-events: all;
+}
+
+/* ── Ripple origin ── */
+.rm-origin {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    background: radial-gradient(circle, color-mix(in srgb, var(--rm-accent) 60%, transparent), transparent 70%);
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s;
+}
+
+#rm-root.rm-visible .rm-origin {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+/* ── Fan items ── */
+.rm-item {
+    position: absolute;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition:
+        transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+        opacity 0.25s ease;
+}
+
+#rm-root.rm-visible .rm-item {
+    transform: translate(-50%, -50%) translateX(var(--rm-tx)) translateY(var(--rm-ty)) scale(1);
+    opacity: 1;
+}
+
+/* Stagger per 6 voci */
+.rm-item:nth-child(2) { transition-delay: 0.00s; }
+.rm-item:nth-child(3) { transition-delay: 0.03s; }
+.rm-item:nth-child(4) { transition-delay: 0.06s; }
+.rm-item:nth-child(5) { transition-delay: 0.09s; }
+.rm-item:nth-child(6) { transition-delay: 0.12s; }
+.rm-item:nth-child(7) { transition-delay: 0.15s; }
+
+/* ── Button ── */
+.rm-btn {
+    width: var(--rm-size);
+    height: var(--rm-size);
+    border-radius: 50%;
+    border: 1px solid var(--rm-border);
+    background: var(--rm-surface);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    color: var(--rm-muted);
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: var(--rm-shadow);
+    text-decoration: none;
+    transition:
+        background 0.18s,
+        color 0.18s,
+        transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.18s,
+        border-color 0.18s;
+}
+
+.rm-btn:hover {
+    background: var(--rm-accent);
+    color: #ffffff;
+    border-color: transparent;
+    transform: scale(1.15);
+    box-shadow:
+        0 0 0 4px color-mix(in srgb, var(--rm-accent) 20%, transparent),
+        0 6px 24px color-mix(in srgb, var(--rm-accent) 35%, transparent);
+}
+
+.rm-btn:active {
+    transform: scale(0.95);
+}
+
+/* ── Tooltip ── */
+.rm-btn::after {
+    content: attr(data-rm-tooltip);
+    position: absolute;
+    right: calc(100% + 8px);
+    top: 50%;
+    transform: translateY(-50%) translateX(-4px);
+    background: var(--rm-surface);
+    border: 1px solid var(--rm-border);
+    color: var(--rm-text);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    padding: 4px 9px;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s, transform 0.15s;
+}
+
+.rm-btn:hover::after {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
+
+/* ── Close dot ── */
+.rm-close {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--rm-surface);
+    border: 1px solid var(--rm-border);
+    cursor: pointer;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition:
+        transform 0.25s 0.10s cubic-bezier(0.34, 1.56, 0.64, 1),
+        opacity 0.20s 0.10s,
+        background 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--rm-shadow);
+    color: var(--rm-muted);
+    font-size: 9px;
+}
+
+#rm-root.rm-visible .rm-close {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.rm-close:hover {
+    background: #fee2e2;
+    color: #ef4444;
+    border-color: #fecaca;
+}
+
+[data-bs-theme="dark"] .rm-close:hover {
+    background: rgba(239, 68, 68, 0.2);
+    color: #f87171;
+    border-color: rgba(239, 68, 68, 0.3);
+}

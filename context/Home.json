@@ -1,0 +1,485 @@
+{
+    "module": "Home",
+    "generated_at": "2026-07-04T09:48:34+02:00",
+    "routes": [
+        {
+            "method": "GET",
+            "uri": "/",
+            "name": "home.index",
+            "controller": "HomeController@index",
+            "middleware": [
+                "CsrfMiddleware",
+                "AuthMiddleware",
+                "SessionSecurityMiddleware"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/home",
+            "name": "home",
+            "controller": "HomeController@index",
+            "middleware": [
+                "CsrfMiddleware",
+                "AuthMiddleware",
+                "SessionSecurityMiddleware"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/oggi",
+            "name": "home.today",
+            "controller": "HomeController@oggi",
+            "middleware": [
+                "CsrfMiddleware",
+                "AuthMiddleware",
+                "SessionSecurityMiddleware"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/oggi/feed",
+            "name": "home.today.feed",
+            "controller": "HomeController@oggiFeed",
+            "middleware": [
+                "CsrfMiddleware",
+                "AuthMiddleware",
+                "SessionSecurityMiddleware"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/oggi/actions/complete-task/{id}",
+            "name": "home.today.action.complete-task",
+            "controller": "HomeController@oggiCompleteTask",
+            "middleware": [
+                "CsrfMiddleware",
+                "AuthMiddleware",
+                "SessionSecurityMiddleware"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/oggi/actions/quick-add-task",
+            "name": "home.today.action.quick-add-task",
+            "controller": "HomeController@oggiQuickAddTask",
+            "middleware": [
+                "CsrfMiddleware",
+                "AuthMiddleware",
+                "SessionSecurityMiddleware"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/changelog",
+            "name": "home.changelog",
+            "controller": "ChangelogController@index",
+            "middleware": [
+                "CsrfMiddleware",
+                "AuthMiddleware",
+                "SessionSecurityMiddleware"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/home/widgets/settings",
+            "name": "home.widgets.settings",
+            "controller": "HomeController@widgetSettings",
+            "middleware": [
+                "CsrfMiddleware",
+                "AuthMiddleware",
+                "SessionSecurityMiddleware"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/home/widgets/layout",
+            "name": "home.widgets.layout",
+            "controller": "HomeController@saveWidgetLayout",
+            "middleware": [
+                "CsrfMiddleware",
+                "AuthMiddleware",
+                "SessionSecurityMiddleware"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/home/widgets/reset",
+            "name": "home.widgets.reset",
+            "controller": "HomeController@resetWidgetLayout",
+            "middleware": [
+                "CsrfMiddleware",
+                "AuthMiddleware",
+                "SessionSecurityMiddleware"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/home/widgets",
+            "name": "home.widgets",
+            "controller": "HomeController@widgets",
+            "middleware": [
+                "CsrfMiddleware",
+                "AuthMiddleware",
+                "SessionSecurityMiddleware"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/home/widget/{id}",
+            "name": "home.widget",
+            "controller": "HomeController@widget",
+            "middleware": [
+                "CsrfMiddleware",
+                "AuthMiddleware",
+                "SessionSecurityMiddleware"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/home/weather/search",
+            "name": "home.weather.search",
+            "controller": "WeatherController@search",
+            "middleware": [
+                "CsrfMiddleware",
+                "AuthMiddleware",
+                "SessionSecurityMiddleware"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/home/weather/location",
+            "name": "home.weather.location",
+            "controller": "WeatherController@setLocation",
+            "middleware": [
+                "CsrfMiddleware",
+                "AuthMiddleware",
+                "SessionSecurityMiddleware"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/home/meteo",
+            "name": "home.weather.page",
+            "controller": "WeatherController@page",
+            "middleware": [
+                "CsrfMiddleware",
+                "AuthMiddleware",
+                "SessionSecurityMiddleware"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/search",
+            "name": "search.index",
+            "controller": "SearchController@index",
+            "middleware": [
+                "CsrfMiddleware",
+                "AuthMiddleware",
+                "SessionSecurityMiddleware"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/search/quick",
+            "name": "search.quick",
+            "controller": "SearchController@quick",
+            "middleware": [
+                "CsrfMiddleware",
+                "AuthMiddleware",
+                "SessionSecurityMiddleware"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/preferences/theme",
+            "name": "preferences.theme",
+            "controller": "PreferencesController@updateTheme",
+            "middleware": [
+                "CsrfMiddleware",
+                "AuthMiddleware",
+                "SessionSecurityMiddleware"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/preferences/sidebar",
+            "name": "preferences.sidebar",
+            "controller": "PreferencesController@updateSidebar",
+            "middleware": [
+                "CsrfMiddleware",
+                "AuthMiddleware",
+                "SessionSecurityMiddleware"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/preferences/sidebar-style",
+            "name": "preferences.sidebar_style",
+            "controller": "PreferencesController@updateSidebarStyle",
+            "middleware": [
+                "CsrfMiddleware",
+                "AuthMiddleware",
+                "SessionSecurityMiddleware"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/preferences/color",
+            "name": "preferences.color",
+            "controller": "PreferencesController@updateColor",
+            "middleware": [
+                "CsrfMiddleware",
+                "AuthMiddleware",
+                "SessionSecurityMiddleware"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/preferences/pattern",
+            "name": "preferences.pattern",
+            "controller": "PreferencesController@updatePattern",
+            "middleware": [
+                "CsrfMiddleware",
+                "AuthMiddleware",
+                "SessionSecurityMiddleware"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/preferences/skin",
+            "name": "preferences.skin",
+            "controller": "PreferencesController@updateSkin",
+            "middleware": [
+                "CsrfMiddleware",
+                "AuthMiddleware",
+                "SessionSecurityMiddleware"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/preferences/font",
+            "name": "preferences.font",
+            "controller": "PreferencesController@updateFont",
+            "middleware": [
+                "CsrfMiddleware",
+                "AuthMiddleware",
+                "SessionSecurityMiddleware"
+            ]
+        }
+    ],
+    "tables": [
+        {
+            "name": "user_preferences",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "theme",
+                    "type": "varchar(10)",
+                    "nullable": false,
+                    "default": "'light'"
+                },
+                {
+                    "name": "primary_color",
+                    "type": "varchar(7)",
+                    "nullable": false,
+                    "default": "'#3b82f6'"
+                },
+                {
+                    "name": "theme_skin",
+                    "type": "varchar(32)",
+                    "nullable": false,
+                    "default": "'default'"
+                },
+                {
+                    "name": "font_family",
+                    "type": "varchar(32)",
+                    "nullable": false,
+                    "default": "'system'"
+                },
+                {
+                    "name": "language",
+                    "type": "varchar(5)",
+                    "nullable": false,
+                    "default": "'it'"
+                },
+                {
+                    "name": "sidebar_collapsed",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "sidebar_style",
+                    "type": "varchar(16)",
+                    "nullable": false,
+                    "default": "'default'"
+                },
+                {
+                    "name": "background_pattern",
+                    "type": "varchar(20)",
+                    "nullable": false,
+                    "default": "'circles'"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "user_id",
+                    "columns": [
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "user_preferences_ibfk_1",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "user_widget_preferences",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "widget_id",
+                    "type": "varchar(100)",
+                    "nullable": false
+                },
+                {
+                    "name": "sort_order",
+                    "type": "smallint(5) unsigned",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "visible",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "1"
+                },
+                {
+                    "name": "size",
+                    "type": "tinyint(3) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_uwp_user_sort",
+                    "columns": [
+                        "user_id",
+                        "sort_order"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "uq_user_widget",
+                    "columns": [
+                        "user_id",
+                        "widget_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_uwp_user",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        }
+    ],
+    "permissions": [],
+    "services": [
+        "App\\Modules\\Home\\Services\\ChangelogService",
+        "App\\Modules\\Home\\Services\\DashboardColorPalette",
+        "App\\Modules\\Home\\Services\\DashboardService",
+        "App\\Modules\\Home\\Services\\DashboardStatTextFormatter",
+        "App\\Modules\\Home\\Services\\OggiService",
+        "App\\Modules\\Home\\Services\\PreferencesService",
+        "App\\Modules\\Home\\Services\\WeatherService",
+        "App\\Modules\\Home\\Services\\WidgetDataCache",
+        "App\\Modules\\Home\\Services\\WidgetPreferencesService"
+    ],
+    "controllers": [
+        "App\\Modules\\Home\\Controllers\\ChangelogController",
+        "App\\Modules\\Home\\Controllers\\HomeController",
+        "App\\Modules\\Home\\Controllers\\ModuleFallbackController",
+        "App\\Modules\\Home\\Controllers\\PreferencesController",
+        "App\\Modules\\Home\\Controllers\\SearchController",
+        "App\\Modules\\Home\\Controllers\\WeatherController"
+    ]
+}

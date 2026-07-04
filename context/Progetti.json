@@ -1,0 +1,1720 @@
+{
+    "module": "Progetti",
+    "generated_at": "2026-07-04T09:48:34+02:00",
+    "routes": [
+        {
+            "method": "GET",
+            "uri": "/admin/projects/",
+            "name": "projects.admin.index",
+            "controller": "AdminProgettiController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.manage_all"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/projects/trash",
+            "name": "projects.admin.trash",
+            "controller": "AdminProgettiController@trash",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.manage_all"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/projects/table",
+            "name": "projects.admin.table",
+            "controller": "AdminProgettiController@table",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.manage_all"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/projects/{id}/trash",
+            "name": "projects.admin.move_to_trash",
+            "controller": "AdminProgettiController@moveToTrash",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.manage_all"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/projects/{id}/restore",
+            "name": "projects.admin.restore",
+            "controller": "AdminProgettiController@restore",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.manage_all"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/admin/projects/{id}",
+            "name": "projects.admin.purge",
+            "controller": "AdminProgettiController@purge",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.manage_all"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/projects/",
+            "name": "projects.index",
+            "controller": "ProgettiController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/projects/search",
+            "name": "projects.search",
+            "controller": "ProgettiController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/projects/my-tasks",
+            "name": "projects.my_tasks",
+            "controller": "ProgettiController@myTasks",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/projects/checklist-templates",
+            "name": "projects.checklist_templates.index",
+            "controller": "ChecklistController@listTemplates",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.edit"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/projects/checklist-templates/{tplId}",
+            "name": "projects.checklist_templates.show",
+            "controller": "ChecklistController@showTemplate",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.edit"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/projects/checklist-templates",
+            "name": "projects.checklist_templates.store",
+            "controller": "ChecklistController@storeTemplate",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.edit"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/projects/checklist-templates/{tplId}",
+            "name": "projects.checklist_templates.update",
+            "controller": "ChecklistController@updateTemplate",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.edit"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/projects/checklist-templates/{tplId}",
+            "name": "projects.checklist_templates.destroy",
+            "controller": "ChecklistController@destroyTemplate",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.edit"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/projects/create",
+            "name": "projects.create",
+            "controller": "ProgettiController@create",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.create"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/projects/",
+            "name": "projects.store",
+            "controller": "ProgettiController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.create"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/projects/{id}/edit",
+            "name": "projects.edit",
+            "controller": "ProgettiController@edit",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.edit"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/projects/{id}",
+            "name": "projects.update",
+            "controller": "ProgettiController@update",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.edit"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/projects/{id}",
+            "name": "projects.destroy",
+            "controller": "ProgettiController@destroy",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.delete"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/projects/{id}",
+            "name": "projects.show",
+            "controller": "ProgettiController@show",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/projects/{id}/kanban",
+            "name": "projects.kanban",
+            "controller": "ProgettiController@kanban",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/projects/{id}/gantt",
+            "name": "projects.gantt",
+            "controller": "ProgettiController@gantt",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/projects/{id}/timesheet",
+            "name": "projects.timesheet",
+            "controller": "ProgettiController@timesheet",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/projects/{id}/report",
+            "name": "projects.report",
+            "controller": "ProgettiController@report",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.view"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/projects/{id}/members",
+            "name": "projects.members.store",
+            "controller": "ProgettiController@storeMember",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.view"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/projects/{id}/members/{memberId}",
+            "name": "projects.members.update",
+            "controller": "ProgettiController@updateMember",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.view"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/projects/{id}/members/{memberId}",
+            "name": "projects.members.destroy",
+            "controller": "ProgettiController@destroyMember",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.view"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/projects/{id}/milestones",
+            "name": "projects.milestones.store",
+            "controller": "ProgettiController@storeMilestone",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.edit"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/projects/{id}/milestones/{milestoneId}",
+            "name": "projects.milestones.update",
+            "controller": "ProgettiController@updateMilestone",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.edit"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/projects/{id}/milestones/{milestoneId}",
+            "name": "projects.milestones.destroy",
+            "controller": "ProgettiController@destroyMilestone",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.edit"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/projects/{id}/tasks",
+            "name": "projects.tasks.store",
+            "controller": "ProgettiController@storeTask",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.edit"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/projects/{id}/tasks/{taskId}",
+            "name": "projects.tasks.update",
+            "controller": "ProgettiController@updateTask",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.edit"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/projects/{id}/tasks/{taskId}",
+            "name": "projects.tasks.destroy",
+            "controller": "ProgettiController@destroyTask",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.edit"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/projects/{id}/tasks/{taskId}/dependencies",
+            "name": "projects.dependencies.store",
+            "controller": "ProgettiController@storeDependency",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.edit"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/projects/{id}/tasks/{taskId}/dependencies/{predecessorId}",
+            "name": "projects.dependencies.destroy",
+            "controller": "ProgettiController@destroyDependency",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.edit"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/projects/{id}/files",
+            "name": "projects.files.store",
+            "controller": "ProgettiController@storeFile",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.edit"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/projects/{id}/files/{fileId}",
+            "name": "projects.files.destroy",
+            "controller": "ProgettiController@destroyFile",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.edit"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/projects/{id}/tasks/{taskId}/status",
+            "name": "projects.tasks.quick_status",
+            "controller": "ProgettiController@quickStatusTask",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.view"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/projects/{id}/tasks/{taskId}/move",
+            "name": "projects.tasks.move",
+            "controller": "ProgettiController@moveTask",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/projects/{id}/tasks/{taskId}/checklist",
+            "name": "projects.tasks.checklist.index",
+            "controller": "ChecklistController@getChecklist",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.view"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/projects/{id}/tasks/{taskId}/checklist/reorder",
+            "name": "projects.tasks.checklist.reorder",
+            "controller": "ChecklistController@reorderItems",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.view"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/projects/{id}/tasks/{taskId}/checklist/from-template",
+            "name": "projects.tasks.checklist.apply_template",
+            "controller": "ChecklistController@applyTemplate",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.view"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/projects/{id}/tasks/{taskId}/checklist",
+            "name": "projects.tasks.checklist.store",
+            "controller": "ChecklistController@storeItem",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.view"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/projects/{id}/tasks/{taskId}/checklist/{itemId}/done",
+            "name": "projects.tasks.checklist.check",
+            "controller": "ChecklistController@checkItem",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.view"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/projects/{id}/tasks/{taskId}/checklist/{itemId}",
+            "name": "projects.tasks.checklist.update",
+            "controller": "ChecklistController@updateItem",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.view"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/projects/{id}/tasks/{taskId}/checklist/{itemId}",
+            "name": "projects.tasks.checklist.destroy",
+            "controller": "ChecklistController@destroyItem",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.view"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/projects/{id}/timesheet",
+            "name": "projects.timesheet.store",
+            "controller": "ProgettiController@storeTimesheet",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.log_time"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/projects/{id}/timesheet/{timesheetId}",
+            "name": "projects.timesheet.update",
+            "controller": "ProgettiController@updateTimesheet",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.log_time"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/projects/{id}/timesheet/{timesheetId}",
+            "name": "projects.timesheet.destroy",
+            "controller": "ProgettiController@destroyTimesheet",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:progetti.log_time"
+            ]
+        }
+    ],
+    "tables": [
+        {
+            "name": "projects",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "name",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "code",
+                    "type": "varchar(50)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "description",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "client_name",
+                    "type": "varchar(255)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "owner_user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "status",
+                    "type": "enum('planning','active','on_hold','completed','cancelled')",
+                    "nullable": false,
+                    "default": "'planning'"
+                },
+                {
+                    "name": "start_date",
+                    "type": "date",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "end_date",
+                    "type": "date",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "estimated_hours",
+                    "type": "decimal(10,2)",
+                    "nullable": false,
+                    "default": "0.00"
+                },
+                {
+                    "name": "budget_planned",
+                    "type": "decimal(12,2)",
+                    "nullable": false,
+                    "default": "0.00"
+                },
+                {
+                    "name": "budget_actual_cached",
+                    "type": "decimal(12,2)",
+                    "nullable": false,
+                    "default": "0.00"
+                },
+                {
+                    "name": "progress_cached",
+                    "type": "decimal(5,2)",
+                    "nullable": false,
+                    "default": "0.00"
+                },
+                {
+                    "name": "teams_conversation_id",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                },
+                {
+                    "name": "deleted_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "created_by",
+                    "columns": [
+                        "created_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_projects_deleted",
+                    "columns": [
+                        "deleted_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_projects_end_date",
+                    "columns": [
+                        "end_date"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_projects_owner",
+                    "columns": [
+                        "owner_user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_projects_status",
+                    "columns": [
+                        "status"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "uk_projects_code",
+                    "columns": [
+                        "code"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "projects_ibfk_1",
+                    "column": "owner_user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "projects_ibfk_2",
+                    "column": "created_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "project_milestones",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "project_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "name",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "description",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "due_date",
+                    "type": "date",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "billable",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "status",
+                    "type": "enum('pending','in_progress','done','missed')",
+                    "nullable": false,
+                    "default": "'pending'"
+                },
+                {
+                    "name": "progress_cached",
+                    "type": "decimal(5,2)",
+                    "nullable": false,
+                    "default": "0.00"
+                },
+                {
+                    "name": "calendar_event_id",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                },
+                {
+                    "name": "deleted_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "created_by",
+                    "columns": [
+                        "created_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_pm_due_date",
+                    "columns": [
+                        "due_date"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_pm_project",
+                    "columns": [
+                        "project_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_pm_status",
+                    "columns": [
+                        "status"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "project_milestones_ibfk_1",
+                    "column": "project_id",
+                    "references": "projects.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "project_milestones_ibfk_2",
+                    "column": "created_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "project_tasks",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "project_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "milestone_id",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "title",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "description",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "assigned_user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "priority",
+                    "type": "enum('low','medium','high','urgent')",
+                    "nullable": false,
+                    "default": "'medium'"
+                },
+                {
+                    "name": "status",
+                    "type": "enum('todo','in_progress','review','blocked','done')",
+                    "nullable": false,
+                    "default": "'todo'"
+                },
+                {
+                    "name": "start_date",
+                    "type": "date",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "due_date",
+                    "type": "date",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "estimated_hours",
+                    "type": "decimal(10,2)",
+                    "nullable": false,
+                    "default": "0.00"
+                },
+                {
+                    "name": "position",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "completed_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "calendar_event_id",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "last_reminded_date",
+                    "type": "date",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                },
+                {
+                    "name": "deleted_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "created_by",
+                    "columns": [
+                        "created_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_pt_assigned_due",
+                    "columns": [
+                        "assigned_user_id",
+                        "due_date"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_pt_calendar",
+                    "columns": [
+                        "calendar_event_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_pt_milestone",
+                    "columns": [
+                        "milestone_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_pt_project_due",
+                    "columns": [
+                        "project_id",
+                        "due_date"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_pt_project_status",
+                    "columns": [
+                        "project_id",
+                        "status"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "project_tasks_ibfk_1",
+                    "column": "project_id",
+                    "references": "projects.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "project_tasks_ibfk_2",
+                    "column": "milestone_id",
+                    "references": "project_milestones.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "project_tasks_ibfk_3",
+                    "column": "assigned_user_id",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "project_tasks_ibfk_4",
+                    "column": "created_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "project_task_dependencies",
+            "columns": [
+                {
+                    "name": "predecessor_task_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "successor_task_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "dependency_type",
+                    "type": "enum('FS')",
+                    "nullable": false,
+                    "default": "'FS'"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_ptd_successor",
+                    "columns": [
+                        "successor_task_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "predecessor_task_id",
+                        "successor_task_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "project_task_dependencies_ibfk_1",
+                    "column": "predecessor_task_id",
+                    "references": "project_tasks.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "project_task_dependencies_ibfk_2",
+                    "column": "successor_task_id",
+                    "references": "project_tasks.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "project_members",
+            "columns": [
+                {
+                    "name": "project_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "role",
+                    "type": "enum('owner','member','viewer')",
+                    "nullable": false,
+                    "default": "'member'"
+                },
+                {
+                    "name": "hourly_rate_override",
+                    "type": "decimal(10,2)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "joined_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_pmem_role",
+                    "columns": [
+                        "role"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_pmem_user",
+                    "columns": [
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "project_id",
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "project_members_ibfk_1",
+                    "column": "project_id",
+                    "references": "projects.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "project_members_ibfk_2",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "project_timesheets",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "project_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "task_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "work_date",
+                    "type": "date",
+                    "nullable": false
+                },
+                {
+                    "name": "hours",
+                    "type": "decimal(5,2)",
+                    "nullable": false
+                },
+                {
+                    "name": "note",
+                    "type": "varchar(500)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_pts_project_date",
+                    "columns": [
+                        "project_id",
+                        "work_date"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_pts_task_date",
+                    "columns": [
+                        "task_id",
+                        "work_date"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_pts_user_date",
+                    "columns": [
+                        "user_id",
+                        "work_date"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "project_timesheets_ibfk_1",
+                    "column": "project_id",
+                    "references": "projects.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "project_timesheets_ibfk_2",
+                    "column": "task_id",
+                    "references": "project_tasks.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "project_timesheets_ibfk_3",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "project_files",
+            "columns": [
+                {
+                    "name": "project_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "file_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "linked_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "linked_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_pf_file",
+                    "columns": [
+                        "file_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "linked_by",
+                    "columns": [
+                        "linked_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "project_id",
+                        "file_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "project_files_ibfk_1",
+                    "column": "project_id",
+                    "references": "projects.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "project_files_ibfk_2",
+                    "column": "file_id",
+                    "references": "files.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "project_files_ibfk_3",
+                    "column": "linked_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "project_checklist_templates",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "name",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "created_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                },
+                {
+                    "name": "deleted_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_pct_created_by",
+                    "columns": [
+                        "created_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "project_checklist_templates_ibfk_1",
+                    "column": "created_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "project_checklist_template_items",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "template_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "label",
+                    "type": "varchar(500)",
+                    "nullable": false
+                },
+                {
+                    "name": "position",
+                    "type": "smallint(5) unsigned",
+                    "nullable": false,
+                    "default": "0"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_pcti_tpl_pos",
+                    "columns": [
+                        "template_id",
+                        "position"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "project_checklist_template_items_ibfk_1",
+                    "column": "template_id",
+                    "references": "project_checklist_templates.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "project_task_checklist_items",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "task_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "label",
+                    "type": "varchar(500)",
+                    "nullable": false
+                },
+                {
+                    "name": "position",
+                    "type": "smallint(5) unsigned",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "is_done",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "done_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "done_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "comment",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "created_by",
+                    "columns": [
+                        "created_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "done_by",
+                    "columns": [
+                        "done_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_ptci_task_done",
+                    "columns": [
+                        "task_id",
+                        "is_done"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_ptci_task_pos",
+                    "columns": [
+                        "task_id",
+                        "position"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "project_task_checklist_items_ibfk_1",
+                    "column": "task_id",
+                    "references": "project_tasks.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "project_task_checklist_items_ibfk_2",
+                    "column": "done_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "project_task_checklist_items_ibfk_3",
+                    "column": "created_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        }
+    ],
+    "permissions": [
+        {
+            "slug": "progetti.create",
+            "name": "Crea Progetti"
+        },
+        {
+            "slug": "progetti.delete",
+            "name": "Elimina Progetti"
+        },
+        {
+            "slug": "progetti.edit",
+            "name": "Modifica Progetti"
+        },
+        {
+            "slug": "progetti.export",
+            "name": "Esporta Dati Progetti"
+        },
+        {
+            "slug": "progetti.log_time",
+            "name": "Registra Ore Progetto"
+        },
+        {
+            "slug": "progetti.manage_all",
+            "name": "Gestione Completa Progetti"
+        },
+        {
+            "slug": "progetti.manage_members",
+            "name": "Gestisci Membri Progetto"
+        },
+        {
+            "slug": "progetti.view",
+            "name": "Visualizza Progetti"
+        },
+        {
+            "slug": "progetti.view_all",
+            "name": "Visualizza Tutti i Progetti"
+        }
+    ],
+    "services": [
+        "App\\Modules\\Progetti\\Services\\AdminProgettiService",
+        "App\\Modules\\Progetti\\Services\\ChecklistService",
+        "App\\Modules\\Progetti\\Services\\ProgettiService"
+    ],
+    "controllers": [
+        "App\\Modules\\Progetti\\Controllers\\AdminProgettiController",
+        "App\\Modules\\Progetti\\Controllers\\ChecklistController",
+        "App\\Modules\\Progetti\\Controllers\\ProgettiController"
+    ]
+}

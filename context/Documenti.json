@@ -1,0 +1,1527 @@
+{
+    "module": "Documenti",
+    "generated_at": "2026-07-04T09:48:34+02:00",
+    "routes": [
+        {
+            "method": "GET",
+            "uri": "/admin/documenti/",
+            "name": "documenti.admin.dashboard",
+            "controller": "AdminDashboardController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.admin"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/documenti/elenco",
+            "name": "documenti.admin.elenco",
+            "controller": "AdminDocumentiController@elenco",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.admin"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/documenti/trash",
+            "name": "documenti.admin.trash",
+            "controller": "AdminTrashController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.admin"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/documenti/trash/{id}/restore",
+            "name": "documenti.admin.trash.restore",
+            "controller": "AdminTrashController@restore",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.admin"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/admin/documenti/trash/{id}",
+            "name": "documenti.admin.trash.purge",
+            "controller": "AdminTrashController@purge",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.admin"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/documenti/categorie",
+            "name": "documenti.admin.categorie",
+            "controller": "AdminCategorieController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.admin"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/documenti/audit",
+            "name": "documenti.admin.audit",
+            "controller": "AdminAuditController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.admin"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/documenti/audit/export",
+            "name": "documenti.admin.audit.export",
+            "controller": "AdminAuditController@exportCsv",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.admin"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/documenti/audit/{entity}/{id}",
+            "name": "documenti.admin.audit.dettaglio",
+            "controller": "AdminAuditController@dettaglio",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.admin"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/documenti/sequenze",
+            "name": "documenti.admin.sequenze",
+            "controller": "AdminSequenzeController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.admin"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/documenti/sequenze/{categoriaId}/reset",
+            "name": "documenti.admin.sequenze.reset",
+            "controller": "AdminSequenzeController@reset",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.admin"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/documenti/health",
+            "name": "documenti.admin.health",
+            "controller": "AdminHealthController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.admin"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/documenti/mime",
+            "name": "documenti.admin.mime",
+            "controller": "AdminMimeController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.admin"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/documenti/mime/{mime}/toggle",
+            "name": "documenti.admin.mime.toggle",
+            "controller": "AdminMimeController@toggle",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.admin"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/documenti/jobs/reminders/run",
+            "name": "documenti.admin.jobs.reminders",
+            "controller": "AdminDashboardController@runReminders",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.admin"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/documenti/jobs/expire/run",
+            "name": "documenti.admin.jobs.expire",
+            "controller": "AdminDashboardController@runExpire",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.admin"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/documenti/{id}/riassegna-owner",
+            "name": "documenti.admin.riassegna_owner",
+            "controller": "AdminDocumentiController@riassegnaOwner",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.admin"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/documenti/categorie/",
+            "name": "documenti.categorie.index",
+            "controller": "CategorieController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.manage_categorie"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/documenti/categorie/",
+            "name": "documenti.categorie.store",
+            "controller": "CategorieController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.manage_categorie"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/documenti/categorie/quick",
+            "name": "documenti.categorie.quickStore",
+            "controller": "CategorieController@quickStore",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.manage_categorie"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/documenti/categorie/{id}",
+            "name": "documenti.categorie.update",
+            "controller": "CategorieController@update",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.manage_categorie"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/documenti/categorie/{id}/sposta",
+            "name": "documenti.categorie.sposta",
+            "controller": "CategorieController@sposta",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.manage_categorie"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/documenti/categorie/{id}",
+            "name": "documenti.categorie.destroy",
+            "controller": "CategorieController@destroy",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.manage_categorie"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/documenti/",
+            "name": "documenti.index",
+            "controller": "DocumentiController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.access",
+                "RoleMiddleware:documenti.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/documenti/create",
+            "name": "documenti.create",
+            "controller": "DocumentiController@create",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.access",
+                "RoleMiddleware:documenti.create"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/documenti/",
+            "name": "documenti.store",
+            "controller": "DocumentiController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.access",
+                "RoleMiddleware:documenti.create"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/documenti/inbox",
+            "name": "documenti.inbox",
+            "controller": "DocumentiController@inbox",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.access",
+                "RoleMiddleware:documenti.inbox"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/documenti/scadenze",
+            "name": "documenti.scadenze",
+            "controller": "DocumentiController@scadenze",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.access",
+                "RoleMiddleware:documenti.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/documenti/tree",
+            "name": "documenti.tree",
+            "controller": "DocumentiController@tree",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.access",
+                "RoleMiddleware:documenti.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/documenti/{id}",
+            "name": "documenti.show",
+            "controller": "DocumentiController@show",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.access",
+                "RoleMiddleware:documenti.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/documenti/{id}/edit",
+            "name": "documenti.edit",
+            "controller": "DocumentiController@edit",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.access",
+                "RoleMiddleware:documenti.redazione"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/documenti/{id}",
+            "name": "documenti.update",
+            "controller": "DocumentiController@update",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.access",
+                "RoleMiddleware:documenti.redazione"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/documenti/{id}",
+            "name": "documenti.destroy",
+            "controller": "DocumentiController@destroy",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.access",
+                "RoleMiddleware:documenti.delete"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/documenti/{id}/versioni",
+            "name": "documenti.versioni.store",
+            "controller": "VersioniController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.access",
+                "RoleMiddleware:documenti.redazione"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/documenti/{id}/versioni/{vid}/download",
+            "name": "documenti.versioni.download",
+            "controller": "VersioniController@download",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.access",
+                "RoleMiddleware:documenti.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/documenti/{id}/versioni/{vid}/preview",
+            "name": "documenti.versioni.preview",
+            "controller": "VersioniController@preview",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.access",
+                "RoleMiddleware:documenti.view"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/documenti/{id}/versioni/{vid}/ripristina",
+            "name": "documenti.versioni.ripristina",
+            "controller": "VersioniController@ripristina",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.access",
+                "RoleMiddleware:documenti.redazione"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/documenti/{id}/approvazioni/invia",
+            "name": "documenti.approvazioni.invia",
+            "controller": "ApprovazioniController@invia",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.access",
+                "RoleMiddleware:documenti.redazione"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/documenti/{id}/approvazioni/riprendi",
+            "name": "documenti.approvazioni.riprendi",
+            "controller": "ApprovazioniController@riprendi",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.access",
+                "RoleMiddleware:documenti.redazione"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/documenti/{id}/approvazioni/ritira",
+            "name": "documenti.approvazioni.ritira",
+            "controller": "ApprovazioniController@ritira",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.access",
+                "RoleMiddleware:documenti.redazione"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/documenti/{id}/approvazioni/prende-in-carico",
+            "name": "documenti.approvazioni.prende_in_carico",
+            "controller": "ApprovazioniController@prendeInCarico",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.access",
+                "RoleMiddleware:documenti.controllo"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/documenti/{id}/approvazioni/approva",
+            "name": "documenti.approvazioni.approva",
+            "controller": "ApprovazioniController@approva",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.access",
+                "RoleMiddleware:documenti.inbox"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/documenti/{id}/approvazioni/rifiuta",
+            "name": "documenti.approvazioni.rifiuta",
+            "controller": "ApprovazioniController@rifiuta",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.access",
+                "RoleMiddleware:documenti.inbox"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/documenti/{id}/approvazioni/restituisci",
+            "name": "documenti.approvazioni.restituisci",
+            "controller": "ApprovazioniController@restituisci",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.access",
+                "RoleMiddleware:documenti.inbox"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/documenti/{id}/approvazioni/pubblica",
+            "name": "documenti.approvazioni.pubblica",
+            "controller": "ApprovazioniController@pubblica",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.access",
+                "RoleMiddleware:documenti.admin"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/documenti/{id}/approvazioni/archivia",
+            "name": "documenti.approvazioni.archivia",
+            "controller": "ApprovazioniController@archivia",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.access",
+                "RoleMiddleware:documenti.admin"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/documenti/{id}/collegamenti",
+            "name": "documenti.collegamenti.store",
+            "controller": "CollegamentiController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.access",
+                "RoleMiddleware:documenti.manage_collegamenti"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/documenti/{id}/collegamenti/{lid}",
+            "name": "documenti.collegamenti.destroy",
+            "controller": "CollegamentiController@destroy",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:documenti.access",
+                "RoleMiddleware:documenti.manage_collegamenti"
+            ]
+        }
+    ],
+    "tables": [
+        {
+            "name": "documenti_categorie",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "parent_id",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "nome",
+                    "type": "varchar(200)",
+                    "nullable": false
+                },
+                {
+                    "name": "slug",
+                    "type": "varchar(220)",
+                    "nullable": false
+                },
+                {
+                    "name": "codice",
+                    "type": "varchar(20)",
+                    "nullable": false,
+                    "comment": "Usato nel protocollo DOC-{CODICE}-{YYYY}-{NNNN}"
+                },
+                {
+                    "name": "descrizione",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "colore",
+                    "type": "varchar(20)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "icona",
+                    "type": "varchar(80)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "path",
+                    "type": "varchar(500)",
+                    "nullable": true,
+                    "default": "NULL",
+                    "comment": "Path materializzato: /1/5/12/"
+                },
+                {
+                    "name": "depth",
+                    "type": "tinyint(3) unsigned",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "approvazione_richiesta",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "1"
+                },
+                {
+                    "name": "reminder_giorni_default",
+                    "type": "longtext",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "ordine",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "created_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "updated_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "datetime",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "datetime",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                },
+                {
+                    "name": "deleted_at",
+                    "type": "datetime",
+                    "nullable": true,
+                    "default": "NULL"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_parent",
+                    "columns": [
+                        "parent_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "uk_codice",
+                    "columns": [
+                        "codice"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "uk_slug",
+                    "columns": [
+                        "slug"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_categorie_parent",
+                    "column": "parent_id",
+                    "references": "documenti_categorie.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "documenti",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "protocollo",
+                    "type": "varchar(80)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "titolo",
+                    "type": "varchar(500)",
+                    "nullable": false
+                },
+                {
+                    "name": "descrizione",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "categoria_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "owner_user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "versione_corrente_id",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "file_corrente_id",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "versione_no",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "stato",
+                    "type": "enum('bozza','inviato','in_controllo','controllato','in_approvazione','approvato','rifiutato','pubblicato','scaduto','archiviato')",
+                    "nullable": false,
+                    "default": "'bozza'"
+                },
+                {
+                    "name": "approvazione_richiesta",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "1"
+                },
+                {
+                    "name": "step_corrente",
+                    "type": "enum('redazione','controllo','approvazione','completato')",
+                    "nullable": false,
+                    "default": "'redazione'"
+                },
+                {
+                    "name": "pubblicato_il",
+                    "type": "datetime",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "scade_il",
+                    "type": "datetime",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "reminder_giorni",
+                    "type": "longtext",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "reminder_stage_inviato",
+                    "type": "tinyint(3) unsigned",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "reminder_ultimo_invio_at",
+                    "type": "datetime",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "reminder_destinatari_extra",
+                    "type": "longtext",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "lock_user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "lock_acquired_at",
+                    "type": "datetime",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "tag",
+                    "type": "varchar(500)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "updated_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "datetime",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "datetime",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                },
+                {
+                    "name": "deleted_at",
+                    "type": "datetime",
+                    "nullable": true,
+                    "default": "NULL"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "fk_doc_file_corrente",
+                    "columns": [
+                        "file_corrente_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "fk_doc_versione_corrente",
+                    "columns": [
+                        "versione_corrente_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "ft_titolo_descrizione",
+                    "columns": [
+                        "titolo",
+                        "descrizione"
+                    ],
+                    "unique": false,
+                    "type": "FULLTEXT"
+                },
+                {
+                    "name": "idx_categoria",
+                    "columns": [
+                        "categoria_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_deleted_at",
+                    "columns": [
+                        "deleted_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_owner",
+                    "columns": [
+                        "owner_user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_pubblicato_il",
+                    "columns": [
+                        "pubblicato_il"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_scade_il",
+                    "columns": [
+                        "scade_il"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_stato",
+                    "columns": [
+                        "stato"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_step_corrente",
+                    "columns": [
+                        "step_corrente"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "uk_protocollo",
+                    "columns": [
+                        "protocollo"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_doc_categoria",
+                    "column": "categoria_id",
+                    "references": "documenti_categorie.id",
+                    "on_delete": "RESTRICT",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "fk_doc_file_corrente",
+                    "column": "file_corrente_id",
+                    "references": "documenti_files.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "fk_doc_versione_corrente",
+                    "column": "versione_corrente_id",
+                    "references": "documenti_versioni.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "documenti_versioni",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "documento_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "versione_no",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "file_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "note_modifica",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "stato",
+                    "type": "enum('bozza','inviato','in_controllo','controllato','in_approvazione','approvato','rifiutato','pubblicato','sostituito')",
+                    "nullable": false,
+                    "default": "'bozza'"
+                },
+                {
+                    "name": "ripristino_di",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL",
+                    "comment": "Se questa versione è un ripristino, id della versione sorgente"
+                },
+                {
+                    "name": "created_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "datetime",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "pubblicato_il",
+                    "type": "datetime",
+                    "nullable": true,
+                    "default": "NULL"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "fk_ver_ripristino",
+                    "columns": [
+                        "ripristino_di"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_documento_id",
+                    "columns": [
+                        "documento_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_file_id",
+                    "columns": [
+                        "file_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "uk_doc_ver",
+                    "columns": [
+                        "documento_id",
+                        "versione_no"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_ver_documento",
+                    "column": "documento_id",
+                    "references": "documenti.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "fk_ver_file",
+                    "column": "file_id",
+                    "references": "documenti_files.id",
+                    "on_delete": "RESTRICT",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "fk_ver_ripristino",
+                    "column": "ripristino_di",
+                    "references": "documenti_versioni.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "documenti_approvazioni",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "documento_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "versione_id",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "step",
+                    "type": "enum('redazione','controllo','approvazione')",
+                    "nullable": false
+                },
+                {
+                    "name": "azione",
+                    "type": "enum('invia','approva','rifiuta','restituisci','prende_in_carico')",
+                    "nullable": false
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "note",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "datetime",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_documento",
+                    "columns": [
+                        "documento_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_versione",
+                    "columns": [
+                        "versione_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_approv_documento",
+                    "column": "documento_id",
+                    "references": "documenti.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "fk_approv_versione",
+                    "column": "versione_id",
+                    "references": "documenti_versioni.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "documenti_collegamenti",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "documento_origine_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "documento_destinazione_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "tipo",
+                    "type": "enum('correlato','sostituisce','sostituito_da','allegato','riferimento')",
+                    "nullable": false
+                },
+                {
+                    "name": "note",
+                    "type": "varchar(500)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "datetime",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_destinazione",
+                    "columns": [
+                        "documento_destinazione_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "uk_collegamento",
+                    "columns": [
+                        "documento_origine_id",
+                        "documento_destinazione_id",
+                        "tipo"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_coll_destinazione",
+                    "column": "documento_destinazione_id",
+                    "references": "documenti.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "fk_coll_origine",
+                    "column": "documento_origine_id",
+                    "references": "documenti.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "documenti_files",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "original_name",
+                    "type": "varchar(500)",
+                    "nullable": false
+                },
+                {
+                    "name": "stored_name",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "directory",
+                    "type": "varchar(500)",
+                    "nullable": false
+                },
+                {
+                    "name": "mime_type",
+                    "type": "varchar(120)",
+                    "nullable": false
+                },
+                {
+                    "name": "extension",
+                    "type": "varchar(20)",
+                    "nullable": false
+                },
+                {
+                    "name": "size_bytes",
+                    "type": "bigint(20) unsigned",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "checksum_sha256",
+                    "type": "char(64)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "datetime",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "datetime",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                },
+                {
+                    "name": "deleted_at",
+                    "type": "datetime",
+                    "nullable": true,
+                    "default": "NULL"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_checksum",
+                    "columns": [
+                        "checksum_sha256"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_deleted_at",
+                    "columns": [
+                        "deleted_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "uk_stored_name",
+                    "columns": [
+                        "stored_name"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": []
+        },
+        {
+            "name": "documenti_protocollo_sequenze",
+            "columns": [
+                {
+                    "name": "categoria_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "anno",
+                    "type": "smallint(5) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "ultimo_numero",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "default": "0"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "categoria_id",
+                        "anno"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_seq_categoria",
+                    "column": "categoria_id",
+                    "references": "documenti_categorie.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        }
+    ],
+    "permissions": [
+        {
+            "slug": "documenti.access",
+            "name": "Accesso modulo Documenti"
+        },
+        {
+            "slug": "documenti.admin",
+            "name": "Amministra tutti i documenti"
+        },
+        {
+            "slug": "documenti.approvazione",
+            "name": "Approvazione documenti (step 3 workflow)"
+        },
+        {
+            "slug": "documenti.controllo",
+            "name": "Controllo documenti (step 2 workflow)"
+        },
+        {
+            "slug": "documenti.create",
+            "name": "Crea documenti"
+        },
+        {
+            "slug": "documenti.delete",
+            "name": "Elimina propri documenti"
+        },
+        {
+            "slug": "documenti.export",
+            "name": "Esporta elenchi documenti"
+        },
+        {
+            "slug": "documenti.inbox",
+            "name": "Inbox documenti (workflow in entrata)"
+        },
+        {
+            "slug": "documenti.manage_categorie",
+            "name": "Gestisci categorie documenti"
+        },
+        {
+            "slug": "documenti.manage_collegamenti",
+            "name": "Gestisci collegamenti documenti"
+        },
+        {
+            "slug": "documenti.redazione",
+            "name": "Redazione documenti (modifica bozze, carica versioni)"
+        },
+        {
+            "slug": "documenti.view",
+            "name": "Visualizza documenti"
+        }
+    ],
+    "services": [
+        "App\\Modules\\Documenti\\Services\\CategoryTreeService",
+        "App\\Modules\\Documenti\\Services\\CollegamentoService",
+        "App\\Modules\\Documenti\\Services\\DocumentiAdminService",
+        "App\\Modules\\Documenti\\Services\\DocumentiAuditService",
+        "App\\Modules\\Documenti\\Services\\DocumentiHealthService",
+        "App\\Modules\\Documenti\\Services\\DocumentiMimeRegistry",
+        "App\\Modules\\Documenti\\Services\\DocumentiRecipientService",
+        "App\\Modules\\Documenti\\Services\\DocumentiStorageService",
+        "App\\Modules\\Documenti\\Services\\DocumentoService",
+        "App\\Modules\\Documenti\\Services\\ProtocolGeneratorService",
+        "App\\Modules\\Documenti\\Services\\ReminderService",
+        "App\\Modules\\Documenti\\Services\\VersioningService",
+        "App\\Modules\\Documenti\\Services\\WorkflowApprovazioneService"
+    ],
+    "controllers": [
+        "App\\Modules\\Documenti\\Controllers\\ApprovazioniController",
+        "App\\Modules\\Documenti\\Controllers\\CategorieController",
+        "App\\Modules\\Documenti\\Controllers\\CollegamentiController",
+        "App\\Modules\\Documenti\\Controllers\\DocumentiController",
+        "App\\Modules\\Documenti\\Controllers\\VersioniController"
+    ]
+}

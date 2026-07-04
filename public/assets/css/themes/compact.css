@@ -1,0 +1,101 @@
+/* ==========================================================================
+   Tema visivo: COMPACT
+   Identita': massima densita' informativa. Radius standard, ma padding,
+   spaziature e font-size ridotti, header e sidebar piu' compatti,
+   superfici leggermente desaturate/muted.
+   Tono "power user / tool tecnico".
+   ========================================================================== */
+
+[data-theme-skin="compact"] {
+    /* Scala tipografica ridotta */
+    --font-size-scale: 0.92;
+    --density-scale: 0.85;
+
+    /* Card: padding e gap ridotti */
+    --card-padding: 0.875rem;
+    --card-gap: 0.75rem;
+    --section-gap: 1rem;
+    --form-field-gap: 0.75rem;
+
+    /* Pulsanti piu' snelli */
+    --btn-padding-y: 0.28rem;
+    --btn-padding-x: 0.6rem;
+
+    /* Layout chrome piu' compatto */
+    --header-height: 36px;
+    --sidebar-width: 185px;
+    --sidebar-collapsed-width: 58px;
+    --footer-height: 26px;
+
+    /* Radius leggermente ridotti */
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 10px;
+    --card-radius: 6px;
+    --btn-radius: 4px;
+
+    /* Border piu' sottili */
+    --card-border-width: 1px;
+}
+
+/* ---------- Light: superfici muted / desaturate ---------- */
+[data-theme-skin="compact"][data-bs-theme="light"] {
+    --bg-primary: #f1f2f3;
+    --bg-surface: #f8f8f9;
+    --header-bg: #f4f4f5;
+    --header-border: #dcdde0;
+    --footer-bg: #f4f4f5;
+    --footer-border: #dcdde0;
+    --border-color: #dcdde0;
+    --border-color-strong: #c4c6cb;
+    --text-secondary: #5e616a;
+    --text-muted: #8c8f98;
+    --sidebar-default-bg: #1f2128;
+    --sidebar-default-text: #b0b2ba;
+    --sidebar-default-brand-bg: #14151a;
+    --sidebar-default-active-bg: rgba(255, 255, 255, 0.09);
+    --sidebar-default-hover-bg: rgba(255, 255, 255, 0.05);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.03);
+    --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+/* ---------- Dark: superfici muted deep ---------- */
+[data-theme-skin="compact"][data-bs-theme="dark"] {
+    --bg-primary: #101114;
+    --bg-surface: #1a1b20;
+    --header-bg: #202128;
+    --header-border: #2e303a;
+    --footer-bg: #1a1b20;
+    --footer-border: #2e303a;
+    --border-color: #2e303a;
+    --border-color-strong: #3f414d;
+    --text-secondary: #b4b6be;
+    --text-muted: #7c7e88;
+    --sidebar-default-bg: #101114;
+    --sidebar-default-text: #7c7e88;
+    --sidebar-default-brand-bg: #090a0c;
+    --sidebar-default-active-bg: rgba(255, 255, 255, 0.07);
+    --sidebar-default-hover-bg: rgba(255, 255, 255, 0.03);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.20);
+    --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.30);
+    --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+}
+
+/* Riduci leggermente la taglia icone nei bottoni */
+[data-theme-skin="compact"] .btn > .fa-solid,
+[data-theme-skin="compact"] .btn > .fa-regular,
+[data-theme-skin="compact"] .btn > .fa-brands,
+[data-theme-skin="compact"] .btn > .bi {
+    font-size: var(--icon-xs);
+}
+
+/* Card header piu' compatto */
+[data-theme-skin="compact"] .card-header {
+    padding: 0.5rem 0.875rem;
+}
+
+/* Tabelle con righe piu' strette */
+[data-theme-skin="compact"] .table > :not(caption) > * > * {
+    padding: 0.35rem 0.5rem;
+}

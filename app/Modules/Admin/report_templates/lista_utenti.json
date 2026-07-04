@@ -1,0 +1,14 @@
+{
+    "name": "Lista Utenti",
+    "description": "Elenco completo degli utenti con ruoli e stato",
+    "source_key": "users",
+    "source_type": "list",
+    "output_format": "pdf",
+    "visibility": "global",
+    "max_rows": 10000,
+    "template_html": "<div data-prm-type=\"logo\" data-prm-config='{\"max_height\":60,\"align\":\"left\"}'></div><h1 style=\"text-align:center;color:#1e293b;font-size:16pt;margin:8px 0;\">Lista Utenti</h1><div style=\"font-size:8pt;color:#64748b;margin-bottom:6px;\">Generato il <span data-prm-type=\"system\" data-prm-config='{\"kind\":\"datetime\"}'></span></div><hr style=\"border:none;border-top:1px solid #3b82f6;margin:6px 0 10px;\"><div data-prm-type=\"filters_summary\" data-prm-config='{\"title\":\"Filtri applicati\"}' style=\"margin-bottom:10px;\"></div><table data-prm-type=\"data_table\" data-prm-config='{\"columns\":[{\"name\":\"id\",\"label\":\"ID\",\"align\":\"right\"},{\"name\":\"name\",\"label\":\"Nome\"},{\"name\":\"email\",\"label\":\"Email\"},{\"name\":\"username\",\"label\":\"Username\"},{\"name\":\"roles_list\",\"label\":\"Ruoli\"},{\"name\":\"is_active\",\"label\":\"Attivo\",\"align\":\"center\"},{\"name\":\"created_at\",\"label\":\"Data Creazione\"}],\"striped\":true,\"bordered\":true}'></table><div style=\"margin-top:10px;font-size:9pt;\"><span data-prm-type=\"calculated\" data-prm-config='{\"op\":\"count\",\"label\":\"Totale utenti\"}'></span></div>",
+    "sorting_config": {
+        "field": "name",
+        "dir": "ASC"
+    }
+}

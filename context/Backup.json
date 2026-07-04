@@ -1,0 +1,163 @@
+{
+    "module": "Backup",
+    "generated_at": "2026-07-04T09:48:34+02:00",
+    "routes": [
+        {
+            "method": "GET",
+            "uri": "/admin/backup/",
+            "name": "backup.index",
+            "controller": "BackupController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:backup.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/backup/",
+            "name": "backup.store",
+            "controller": "BackupController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:backup.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/backup/delete",
+            "name": "backup.destroy",
+            "controller": "BackupController@destroy",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:backup.manage"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/backup/download",
+            "name": "backup.download",
+            "controller": "BackupController@download",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:backup.download"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/backup/restore",
+            "name": "backup.restore",
+            "controller": "BackupController@restore",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:backup.restore"
+            ]
+        }
+    ],
+    "tables": [
+        {
+            "name": "backup_history",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "filename",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "format",
+                    "type": "varchar(8)",
+                    "nullable": false,
+                    "default": "'sqlgz'"
+                },
+                {
+                    "name": "size_bytes",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "table_count",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "databases_json",
+                    "type": "longtext",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "created_by",
+                    "columns": [
+                        "created_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "backup_history_ibfk_1",
+                    "column": "created_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        }
+    ],
+    "permissions": [
+        {
+            "slug": "backup.download",
+            "name": "Scarica backup"
+        },
+        {
+            "slug": "backup.manage",
+            "name": "Gestisci backup"
+        },
+        {
+            "slug": "backup.restore",
+            "name": "Ripristina backup"
+        }
+    ],
+    "services": [
+        "App\\Modules\\Backup\\Services\\BackupEncryptionService",
+        "App\\Modules\\Backup\\Services\\BackupService"
+    ],
+    "controllers": [
+        "App\\Modules\\Backup\\Controllers\\BackupController"
+    ]
+}

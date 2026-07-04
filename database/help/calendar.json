@@ -1,0 +1,586 @@
+{
+    "module_key": "calendar",
+    "module_name": "Calendario",
+    "label": "Calendario",
+    "description": "Agenda personale e condivisa con viste calendario, eventi ricorrenti, promemoria, collegamenti ad attivita e altre scadenze applicative.",
+    "audience_default": "user",
+    "locale_default": "it",
+    "route_name": "calendar.index",
+    "permission_slug": "calendar.view",
+    "sort_order": 30,
+    "entries": [
+        {
+            "audience": "user",
+            "route_name": "calendar.index",
+            "permission_slug": "calendar.view",
+            "ranking_weight": 24,
+            "sort_order": 1,
+            "locales": {
+                "it": {
+                    "question": "Come funziona il modulo Calendario?",
+                    "answer_markdown": "## Modulo Calendario\r\nCalendario raccoglie eventi, promemoria e ricorrenze in una vista temporale unica.\r\n\r\n### Cosa trovi\r\n- viste calendario diverse per leggere la settimana, il mese o altri orizzonti temporali;\r\n- creazione, modifica ed eliminazione eventi;\r\n- **promemoria** e **ricorrenze**;\r\n- eventi condivisi visibili in base al tuo ruolo;\r\n- import/export **ICS** dove previsto;\r\n- integrazioni con Attività e Contatti.\r\n\r\n### Quando usarlo\r\nAprilo quando il punto di vista corretto è il tempo: appuntamenti, scadenze, ricorrenze e coordinamento delle giornate.\r\n\r\n### Valore pratico\r\nSe un'informazione nasce in un altro modulo ma diventa rilevante per una data, il Calendario è spesso la superficie migliore per non perderla di vista.",
+                    "excerpt": "Modulo Calendario Calendario raccoglie eventi, promemoria e ricorrenze in una vista temporale unica. Cosa trovi viste calendario diverse per leggere la settimana, il mese o altri orizzonti temporali; creazione, modifica...",
+                    "aliases": [
+                        "modulo calendario",
+                        "agenda",
+                        "eventi e promemoria",
+                        "ricorrenze calendario",
+                        "calendario condiviso"
+                    ]
+                },
+                "en": {
+                    "question": "How does the Calendar module work?",
+                    "answer_markdown": "## Calendar module\nCalendar gathers events, reminders and recurrences in a single time-based view.\n\n### What you find\n- different calendar views to read the week, the month or other time horizons;\n- creating, editing and deleting events;\n- **reminders** and **recurrences**;\n- shared events visible based on your role;\n- **ICS** import/export where available;\n- integrations with Tasks and Contacts.\n\n### When to use it\nOpen it when the right point of view is time: appointments, deadlines, recurrences and coordinating your days.\n\n### Practical value\nIf a piece of information starts in another module but becomes relevant to a date, the Calendar is often the best surface to keep it in sight.",
+                    "excerpt": "Calendar module Calendar gathers events, reminders and recurrences in a single time-based view. What you find different calendar views to read the week, the month or other time horizons; creating, edi...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment fonctionne le module Calendrier ?",
+                    "answer_markdown": "## Module Calendrier\nCalendrier rassemble les événements, rappels et récurrences dans une vue temporelle unique.\n\n### Ce que vous trouvez\n- différentes vues calendrier pour lire la semaine, le mois ou d'autres horizons temporels ;\n- création, modification et suppression d'événements ;\n- **rappels** et **récurrences** ;\n- événements partagés visibles selon votre rôle ;\n- import/export **ICS** là où c'est prévu ;\n- intégrations avec Tâches et Contacts.\n\n### Quand l'utiliser\nOuvrez-le lorsque le bon point de vue est le temps : rendez-vous, échéances, récurrences et coordination des journées.\n\n### Valeur pratique\nSi une information naît dans un autre module mais devient pertinente pour une date, le Calendrier est souvent la meilleure surface pour ne pas la perdre de vue.",
+                    "excerpt": "Module Calendrier Calendrier rassemble les événements, rappels et récurrences dans une vue temporelle unique. Ce que vous trouvez différentes vues calendrier pour lire la semaine, le mois ou d'autres ...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie funktioniert das Kalender-Modul?",
+                    "answer_markdown": "## Kalender-Modul\nKalender fasst Ereignisse, Erinnerungen und Wiederholungen in einer einzigen zeitbasierten Ansicht zusammen.\n\n### Was Sie finden\n- verschiedene Kalenderansichten, um die Woche, den Monat oder andere Zeithorizonte zu lesen;\n- Erstellen, Bearbeiten und Löschen von Ereignissen;\n- **Erinnerungen** und **Wiederholungen**;\n- geteilte Ereignisse, sichtbar je nach Ihrer Rolle;\n- **ICS**-Import/-Export, sofern vorgesehen;\n- Integrationen mit Aufgaben und Kontakte.\n\n### Wann Sie es verwenden\nÖffnen Sie es, wenn die richtige Perspektive die Zeit ist: Termine, Fälligkeiten, Wiederholungen und die Koordination der Tage.\n\n### Praktischer Nutzen\nWenn eine Information in einem anderen Modul entsteht, aber für ein Datum relevant wird, ist der Kalender oft die beste Oberfläche, um sie im Blick zu behalten.",
+                    "excerpt": "Kalender-Modul Kalender fasst Ereignisse, Erinnerungen und Wiederholungen in einer einzigen zeitbasierten Ansicht zusammen. Was Sie finden verschiedene Kalenderansichten, um die Woche, den Monat oder ...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo funciona el módulo Calendario?",
+                    "answer_markdown": "## Módulo Calendario\nCalendario reúne eventos, recordatorios y recurrencias en una única vista temporal.\n\n### Qué encuentras\n- distintas vistas de calendario para leer la semana, el mes u otros horizontes temporales;\n- creación, edición y eliminación de eventos;\n- **recordatorios** y **recurrencias**;\n- eventos compartidos visibles según tu rol;\n- importación/exportación **ICS** donde está previsto;\n- integraciones con Tareas y Contactos.\n\n### Cuándo usarlo\nÁbrelo cuando el punto de vista correcto es el tiempo: citas, vencimientos, recurrencias y coordinación de los días.\n\n### Valor práctico\nSi una información nace en otro módulo pero se vuelve relevante para una fecha, el Calendario suele ser la mejor superficie para no perderla de vista.",
+                    "excerpt": "Módulo Calendario Calendario reúne eventos, recordatorios y recurrencias en una única vista temporal. Qué encuentras distintas vistas de calendario para leer la semana, el mes u otros horizontes tempo...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "calendar.index",
+            "permission_slug": "calendar.view",
+            "ranking_weight": 18,
+            "sort_order": 2,
+            "locales": {
+                "it": {
+                    "question": "Come accedo al Calendario?",
+                    "answer_markdown": "## Accesso al Calendario\r\nIl Calendario è raggiungibile dalla sidebar tramite la voce **Calendario**.\r\n\r\n### Permesso minimo\r\nPer vedere la pagina serve `calendar.view`.\r\n\r\n### Altri permessi collegati\r\n- `calendar.create` per creare eventi;\r\n- `calendar.edit` per modificarli;\r\n- `calendar.delete` per eliminarli.\r\n\r\n### Se la sezione non compare\r\nQuando la voce manca, il tuo account in genere non ha il permesso di visualizzazione necessario oppure non dispone delle superfici di navigazione abilitate per quel ruolo.",
+                    "excerpt": "Accesso al Calendario Il Calendario è raggiungibile dalla sidebar tramite la voce Calendario. Permesso minimo Per vedere la pagina serve calendar.view. Altri permessi collegati calendar.create per creare eventi...",
+                    "aliases": [
+                        "accesso calendario",
+                        "aprire calendario",
+                        "dove trovo calendario",
+                        "entrare nel calendario"
+                    ]
+                },
+                "en": {
+                    "question": "How do I access the Calendar?",
+                    "answer_markdown": "## Accessing the Calendar\nThe Calendar is reachable from the sidebar via the **Calendar** entry.\n\n### Minimum permission\nTo see the page you need `calendar.view`.\n\n### Other related permissions\n- `calendar.create` to create events;\n- `calendar.edit` to edit them;\n- `calendar.delete` to delete them.\n\n### If the section doesn't appear\nWhen the entry is missing, your account usually doesn't have the necessary view permission or doesn't have the navigation surfaces enabled for that role.",
+                    "excerpt": "Accessing the Calendar The Calendar is reachable from the sidebar via the Calendar entry. Minimum permission To see the page you need calendar.view. Other related permissions calendar.create to cr...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment accéder au Calendrier ?",
+                    "answer_markdown": "## Accès au Calendrier\nLe Calendrier est accessible depuis la barre latérale via l'entrée **Calendrier**.\n\n### Autorisation minimale\nPour voir la page, il faut `calendar.view`.\n\n### Autres autorisations liées\n- `calendar.create` pour créer des événements ;\n- `calendar.edit` pour les modifier ;\n- `calendar.delete` pour les supprimer.\n\n### Si la section n'apparaît pas\nQuand l'entrée manque, votre compte n'a généralement pas l'autorisation de consultation nécessaire ou ne dispose pas des surfaces de navigation activées pour ce rôle.",
+                    "excerpt": "Accès au Calendrier Le Calendrier est accessible depuis la barre latérale via l'entrée Calendrier. Autorisation minimale Pour voir la page, il faut calendar.view. Autres autorisations liées calendar...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie greife ich auf den Kalender zu?",
+                    "answer_markdown": "## Zugriff auf den Kalender\nDer Kalender ist über die Sidebar mit dem Eintrag **Kalender** erreichbar.\n\n### Mindestberechtigung\nUm die Seite zu sehen, benötigen Sie `calendar.view`.\n\n### Weitere zugehörige Berechtigungen\n- `calendar.create`, um Ereignisse zu erstellen;\n- `calendar.edit`, um sie zu bearbeiten;\n- `calendar.delete`, um sie zu löschen.\n\n### Wenn der Bereich nicht erscheint\nWenn der Eintrag fehlt, hat Ihr Konto in der Regel nicht die erforderliche Anzeigeberechtigung oder verfügt nicht über die für diese Rolle aktivierten Navigationsoberflächen.",
+                    "excerpt": "Zugriff auf den Kalender Der Kalender ist über die Sidebar mit dem Eintrag Kalender erreichbar. Mindestberechtigung Um die Seite zu sehen, benötigen Sie calendar.view. Weitere zugehörige Berechtigun...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo accedo al Calendario?",
+                    "answer_markdown": "## Acceso al Calendario\nEl Calendario es accesible desde la barra lateral mediante la entrada **Calendario**.\n\n### Permiso mínimo\nPara ver la página necesitas `calendar.view`.\n\n### Otros permisos relacionados\n- `calendar.create` para crear eventos;\n- `calendar.edit` para editarlos;\n- `calendar.delete` para eliminarlos.\n\n### Si la sección no aparece\nCuando falta la entrada, tu cuenta normalmente no tiene el permiso de visualización necesario o no dispone de las superficies de navegación habilitadas para ese rol.",
+                    "excerpt": "Acceso al Calendario El Calendario es accesible desde la barra lateral mediante la entrada Calendario. Permiso mínimo Para ver la página necesitas calendar.view. Otros permisos relacionados calendar...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "calendar.index",
+            "permission_slug": "calendar.view",
+            "ranking_weight": 0,
+            "sort_order": 3,
+            "locales": {
+                "it": {
+                    "question": "Viste disponibili in Calendario",
+                    "answer_markdown": "Il modulo offre due viste principali:\n\n- **Calendario**: griglia interattiva (FullCalendar) con sotto-viste Mese, Settimana e Giorno selezionabili dalla barra superiore.\n- **Agenda**: lista testuale compatta dei prossimi otto eventi, visibile nella colonna laterale destra. Su schermi grandi e' sempre in vista; su mobile usa il pulsante \"Agenda\" per aprirla.\n\nI pulsanti \"Precedente\", \"Successivo\" e \"Oggi\" navigano il periodo nella vista calendario.",
+                    "excerpt": "Il modulo offre due viste principali: Calendario: griglia interattiva (FullCalendar) con sotto-viste Mese, Settimana e Giorno selezionabili dalla barra superiore. Agenda: lista testuale compatta dei prossimi otto eventi…",
+                    "aliases": [
+                        "calendario",
+                        "calendario viste disponibili",
+                        "come viste disponibili",
+                        "viste disponibili"
+                    ]
+                },
+                "en": {
+                    "question": "Available views in Calendar",
+                    "answer_markdown": "The module offers two main views:\n\n- **Calendar**: an interactive grid (FullCalendar) with Month, Week and Day sub-views selectable from the top bar.\n- **Agenda**: a compact text list of the next eight events, visible in the right-hand side column. On large screens it is always in view; on mobile, use the \"Agenda\" button to open it.\n\nThe \"Previous\", \"Next\" and \"Today\" buttons navigate the period in the calendar view.",
+                    "excerpt": "The module offers two main views: Calendar: an interactive grid (FullCalendar) with Month, Week and Day sub-views selectable from the top bar. Agenda: a compact text list of the next eight events, vis...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Vues disponibles dans Calendrier",
+                    "answer_markdown": "Le module offre deux vues principales :\n\n- **Calendrier** : une grille interactive (FullCalendar) avec des sous-vues Mois, Semaine et Jour sélectionnables depuis la barre supérieure.\n- **Agenda** : une liste textuelle compacte des huit prochains événements, visible dans la colonne latérale droite. Sur les grands écrans, elle est toujours visible ; sur mobile, utilisez le bouton « Agenda » pour l'ouvrir.\n\nLes boutons « Précédent », « Suivant » et « Aujourd'hui » naviguent dans la période dans la vue calendrier.",
+                    "excerpt": "Le module offre deux vues principales : Calendrier : une grille interactive (FullCalendar) avec des sous-vues Mois, Semaine et Jour sélectionnables depuis la barre supérieure. Agenda : une liste textu...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Verfügbare Ansichten im Kalender",
+                    "answer_markdown": "Das Modul bietet zwei Hauptansichten:\n\n- **Kalender**: ein interaktives Raster (FullCalendar) mit den Unteransichten Monat, Woche und Tag, die über die obere Leiste auswählbar sind.\n- **Agenda**: eine kompakte Textliste der nächsten acht Ereignisse, sichtbar in der rechten Seitenspalte. Auf großen Bildschirmen ist sie immer sichtbar; auf Mobilgeräten verwenden Sie die Schaltfläche „Agenda“, um sie zu öffnen.\n\nDie Schaltflächen „Zurück“, „Weiter“ und „Heute“ navigieren den Zeitraum in der Kalenderansicht.",
+                    "excerpt": "Das Modul bietet zwei Hauptansichten: Kalender: ein interaktives Raster (FullCalendar) mit den Unteransichten Monat, Woche und Tag, die über die obere Leiste auswählbar sind. Agenda: eine kompakte Tex...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Vistas disponibles en Calendario",
+                    "answer_markdown": "El módulo ofrece dos vistas principales:\n\n- **Calendario**: una cuadrícula interactiva (FullCalendar) con subvistas Mes, Semana y Día seleccionables desde la barra superior.\n- **Agenda**: una lista de texto compacta de los próximos ocho eventos, visible en la columna lateral derecha. En pantallas grandes está siempre a la vista; en móvil, usa el botón «Agenda» para abrirla.\n\nLos botones «Anterior», «Siguiente» y «Hoy» navegan por el periodo en la vista de calendario.",
+                    "excerpt": "El módulo ofrece dos vistas principales: Calendario: una cuadrícula interactiva (FullCalendar) con subvistas Mes, Semana y Día seleccionables desde la barra superior. Agenda: una lista de texto compac...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "calendar.index",
+            "permission_slug": "calendar.view",
+            "ranking_weight": 0,
+            "sort_order": 4,
+            "locales": {
+                "it": {
+                    "question": "Barra dei comandi e filtri rapidi",
+                    "answer_markdown": "Sopra il calendario trovi una barra che offre:\n\n- **Campo di ricerca testo**: filtra gli eventi per titolo, luogo e descrizione direttamente sulla griglia, senza inviare richieste al server. Digita per restringere la visualizzazione; il pulsante \"Azzera\" ripristina tutti gli eventi.\n- **Filtri di focus** (pulsanti rapidi):\n  - **Tutti** — mostra tutti gli eventi accessibili.\n  - **I miei** — solo eventi creati da te.\n  - **Condivisi** — solo eventi condivisi da altri utenti o ruoli.\n  - **Giornata intera** — solo eventi \"tutto il giorno\".",
+                    "excerpt": "Sopra il calendario trovi una barra che offre: Campo di ricerca testo: filtra gli eventi per titolo, luogo e descrizione direttamente sulla griglia, senza inviare richieste al server. Digita per restringere la visualizz…",
+                    "aliases": [
+                        "barra dei comandi e filtri rapidi",
+                        "calendario",
+                        "calendario barra dei comandi e filtri rapidi",
+                        "come barra dei comandi e filtri rapidi"
+                    ]
+                },
+                "en": {
+                    "question": "Command bar and quick filters",
+                    "answer_markdown": "Above the calendar you find a bar that offers:\n\n- **Text search field**: filters events by title, location and description directly on the grid, without sending requests to the server. Type to narrow the view; the \"Clear\" button restores all events.\n- **Focus filters** (quick buttons):\n  - **All** — shows all accessible events.\n  - **Mine** — only events created by you.\n  - **Shared** — only events shared by other users or roles.\n  - **All-day** — only \"all day\" events.",
+                    "excerpt": "Above the calendar you find a bar that offers: Text search field: filters events by title, location and description directly on the grid, without sending requests to the server. Type to narrow the vie...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Barre de commandes et filtres rapides",
+                    "answer_markdown": "Au-dessus du calendrier, vous trouvez une barre qui offre :\n\n- **Champ de recherche texte** : filtre les événements par titre, lieu et description directement sur la grille, sans envoyer de requêtes au serveur. Saisissez pour restreindre l'affichage ; le bouton « Réinitialiser » rétablit tous les événements.\n- **Filtres de focus** (boutons rapides) :\n  - **Tous** — affiche tous les événements accessibles.\n  - **Les miens** — uniquement les événements créés par vous.\n  - **Partagés** — uniquement les événements partagés par d'autres utilisateurs ou rôles.\n  - **Journée entière** — uniquement les événements « toute la journée ».",
+                    "excerpt": "Au-dessus du calendrier, vous trouvez une barre qui offre : Champ de recherche texte : filtre les événements par titre, lieu et description directement sur la grille, sans envoyer de requêtes au serve...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Befehlsleiste und Schnellfilter",
+                    "answer_markdown": "Über dem Kalender finden Sie eine Leiste, die Folgendes bietet:\n\n- **Textsuchfeld**: filtert Ereignisse nach Titel, Ort und Beschreibung direkt im Raster, ohne Anfragen an den Server zu senden. Tippen Sie, um die Ansicht einzugrenzen; die Schaltfläche „Zurücksetzen“ stellt alle Ereignisse wieder her.\n- **Fokusfilter** (Schnellschaltflächen):\n  - **Alle** — zeigt alle zugänglichen Ereignisse.\n  - **Meine** — nur von Ihnen erstellte Ereignisse.\n  - **Geteilt** — nur von anderen Benutzern oder Rollen geteilte Ereignisse.\n  - **Ganztägig** — nur „ganztägige“ Ereignisse.",
+                    "excerpt": "Über dem Kalender finden Sie eine Leiste, die Folgendes bietet: Textsuchfeld: filtert Ereignisse nach Titel, Ort und Beschreibung direkt im Raster, ohne Anfragen an den Server zu senden. Tippen Sie, u...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Barra de comandos y filtros rápidos",
+                    "answer_markdown": "Encima del calendario encuentras una barra que ofrece:\n\n- **Campo de búsqueda de texto**: filtra los eventos por título, lugar y descripción directamente en la cuadrícula, sin enviar peticiones al servidor. Escribe para acotar la visualización; el botón «Restablecer» restaura todos los eventos.\n- **Filtros de foco** (botones rápidos):\n  - **Todos** — muestra todos los eventos accesibles.\n  - **Míos** — solo eventos creados por ti.\n  - **Compartidos** — solo eventos compartidos por otros usuarios o roles.\n  - **Todo el día** — solo eventos «todo el día».",
+                    "excerpt": "Encima del calendario encuentras una barra que ofrece: Campo de búsqueda de texto: filtra los eventos por título, lugar y descripción directamente en la cuadrícula, sin enviar peticiones al servidor. ...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "calendar.create",
+            "permission_slug": "calendar.create",
+            "ranking_weight": 0,
+            "sort_order": 5,
+            "locales": {
+                "it": {
+                    "question": "Creare un evento",
+                    "answer_markdown": "**Metodo rapido**: clicca su un giorno o su un'ora nella griglia. Si apre un modulo rapido per inserire titolo e orario.\n\n**Modulo completo**:\n1. Clicca \"Nuovo evento\" oppure usa il modulo rapido e poi \"Dettagli\".\n2. Compila i campi:\n   - **Titolo** (obbligatorio);\n   - **Data inizio** e **data fine**;\n   - **Orario**: se l'evento occupa l'intera giornata, spunta \"Tutto il giorno\";\n   - **Luogo**: indirizzo o nome del posto;\n   - **Descrizione**: note aggiuntive sull'evento;\n   - **Colore**: etichetta cromatica visibile sulla griglia;\n   - **Categoria**: raggruppamento dell'evento;\n   - **Visibilità**: \"Personale\" (solo per te) o \"Condiviso\";\n   - **Visibile al ruolo**: se scegli \"Condiviso\", seleziona il ruolo con cui vuoi condividere l'evento; tutti gli utenti di quel ruolo lo vedranno nel proprio calendario;\n   - **Promemoria**: notifica prima dell'evento (15 min, 30 min, 1 ora, 2 ore, 1 giorno);\n   - **Ricorrenza**: se è un appuntamento periodico, configura frequenza e data di fine della serie.\n3. Salva.",
+                    "excerpt": "Metodo rapido: clicca su un giorno o su un'ora nella griglia. Si apre un modulo rapido per inserire titolo e orario. Modulo completo: Clicca \"Nuovo evento\" oppure usa il modulo rapido e poi \"Dettagli\". Compila i campi:…",
+                    "aliases": [
+                        "calendario",
+                        "calendario creare un evento",
+                        "come creare un evento",
+                        "creare un evento"
+                    ]
+                },
+                "en": {
+                    "question": "Creating an event",
+                    "answer_markdown": "**Quick method**: click on a day or a time in the grid. A quick form opens to enter the title and time.\n\n**Full form**:\n1. Click \"New event\" or use the quick form and then \"Details\".\n2. Fill in the fields:\n   - **Title** (required);\n   - **Start date** and **end date**;\n   - **Time**: if the event takes the whole day, tick \"All day\";\n   - **Location**: address or name of the place;\n   - **Description**: additional notes about the event;\n   - **Color**: a color label visible on the grid;\n   - **Category**: a grouping of the event;\n   - **Visibility**: \"Personal\" (only for you) or \"Shared\";\n   - **Visible to role**: if you choose \"Shared\", select the role you want to share the event with; all users of that role will see it in their own calendar;\n   - **Reminder**: a notification before the event (15 min, 30 min, 1 hour, 2 hours, 1 day);\n   - **Recurrence**: if it is a periodic appointment, configure the frequency and end date of the series.\n3. Save.",
+                    "excerpt": "Quick method: click on a day or a time in the grid. A quick form opens to enter the title and time. Full form: 1. Click \"New event\" or use the quick form and then \"Details\". 2. Fill in the fields: - T...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Créer un événement",
+                    "answer_markdown": "**Méthode rapide** : cliquez sur un jour ou une heure dans la grille. Un formulaire rapide s'ouvre pour saisir le titre et l'horaire.\n\n**Formulaire complet** :\n1. Cliquez sur « Nouvel événement » ou utilisez le formulaire rapide puis « Détails ».\n2. Remplissez les champs :\n   - **Titre** (obligatoire) ;\n   - **Date de début** et **date de fin** ;\n   - **Horaire** : si l'événement occupe toute la journée, cochez « Toute la journée » ;\n   - **Lieu** : adresse ou nom de l'endroit ;\n   - **Description** : notes supplémentaires sur l'événement ;\n   - **Couleur** : étiquette chromatique visible sur la grille ;\n   - **Catégorie** : regroupement de l'événement ;\n   - **Visibilité** : « Personnel » (uniquement pour vous) ou « Partagé » ;\n   - **Visible par le rôle** : si vous choisissez « Partagé », sélectionnez le rôle avec lequel partager l'événement ; tous les utilisateurs de ce rôle le verront dans leur propre calendrier ;\n   - **Rappel** : notification avant l'événement (15 min, 30 min, 1 heure, 2 heures, 1 jour) ;\n   - **Récurrence** : s'il s'agit d'un rendez-vous périodique, configurez la fréquence et la date de fin de la série.\n3. Enregistrez.",
+                    "excerpt": "Méthode rapide : cliquez sur un jour ou une heure dans la grille. Un formulaire rapide s'ouvre pour saisir le titre et l'horaire. Formulaire complet : 1. Cliquez sur « Nouvel événement » ou utilisez l...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Ein Ereignis erstellen",
+                    "answer_markdown": "**Schnellmethode**: Klicken Sie auf einen Tag oder eine Uhrzeit im Raster. Ein Schnellformular öffnet sich, um Titel und Uhrzeit einzugeben.\n\n**Vollständiges Formular**:\n1. Klicken Sie auf „Neues Ereignis“ oder verwenden Sie das Schnellformular und dann „Details“.\n2. Füllen Sie die Felder aus:\n   - **Titel** (erforderlich);\n   - **Startdatum** und **Enddatum**;\n   - **Uhrzeit**: Wenn das Ereignis den ganzen Tag dauert, aktivieren Sie „Ganztägig“;\n   - **Ort**: Adresse oder Name des Ortes;\n   - **Beschreibung**: zusätzliche Notizen zum Ereignis;\n   - **Farbe**: ein auf dem Raster sichtbares Farblabel;\n   - **Kategorie**: eine Gruppierung des Ereignisses;\n   - **Sichtbarkeit**: „Persönlich“ (nur für Sie) oder „Geteilt“;\n   - **Für Rolle sichtbar**: Wenn Sie „Geteilt“ wählen, wählen Sie die Rolle aus, mit der Sie das Ereignis teilen möchten; alle Benutzer dieser Rolle sehen es in ihrem eigenen Kalender;\n   - **Erinnerung**: eine Benachrichtigung vor dem Ereignis (15 Min., 30 Min., 1 Stunde, 2 Stunden, 1 Tag);\n   - **Wiederholung**: Wenn es ein periodischer Termin ist, konfigurieren Sie die Häufigkeit und das Enddatum der Serie.\n3. Speichern.",
+                    "excerpt": "Schnellmethode: Klicken Sie auf einen Tag oder eine Uhrzeit im Raster. Ein Schnellformular öffnet sich, um Titel und Uhrzeit einzugeben. Vollständiges Formular: 1. Klicken Sie auf „Neues Ereignis“ ode...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Crear un evento",
+                    "answer_markdown": "**Método rápido**: haz clic en un día o una hora en la cuadrícula. Se abre un formulario rápido para introducir el título y el horario.\n\n**Formulario completo**:\n1. Haz clic en «Nuevo evento» o usa el formulario rápido y luego «Detalles».\n2. Rellena los campos:\n   - **Título** (obligatorio);\n   - **Fecha de inicio** y **fecha de fin**;\n   - **Horario**: si el evento ocupa todo el día, marca «Todo el día»;\n   - **Lugar**: dirección o nombre del sitio;\n   - **Descripción**: notas adicionales sobre el evento;\n   - **Color**: etiqueta cromática visible en la cuadrícula;\n   - **Categoría**: agrupación del evento;\n   - **Visibilidad**: «Personal» (solo para ti) o «Compartido»;\n   - **Visible para el rol**: si eliges «Compartido», selecciona el rol con el que quieres compartir el evento; todos los usuarios de ese rol lo verán en su propio calendario;\n   - **Recordatorio**: notificación antes del evento (15 min, 30 min, 1 hora, 2 horas, 1 día);\n   - **Recurrencia**: si es una cita periódica, configura la frecuencia y la fecha de fin de la serie.\n3. Guarda.",
+                    "excerpt": "Método rápido: haz clic en un día o una hora en la cuadrícula. Se abre un formulario rápido para introducir el título y el horario. Formulario completo: 1. Haz clic en «Nuevo evento» o usa el formular...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "calendar.index",
+            "permission_slug": "calendar.view",
+            "ranking_weight": 0,
+            "sort_order": 6,
+            "locales": {
+                "it": {
+                    "question": "Modificare un evento",
+                    "answer_markdown": "- Clicca sull'evento nel calendario per aprire il pannello dettaglio.\n- Dal pannello, clicca \"Modifica\" per aprire il modulo completo.\n- **Spostamento rapido**: trascina l'evento in un altro giorno o orario direttamente sulla griglia. L'evento si aggiorna immediatamente.\n- **Ridimensionamento**: trascina il bordo inferiore dell'evento (in vista settimanale o giornaliera) per allungare o accorciare l'ora di fine.\n\nSolo il proprietario dell'evento può spostarlo o ridimensionarlo; gli eventi condivisi da altri sono visualizzabili ma non modificabili salvo permessi specifici.",
+                    "excerpt": "Clicca sull'evento nel calendario per aprire il pannello dettaglio. Dal pannello, clicca \"Modifica\" per aprire il modulo completo. Spostamento rapido: trascina l'evento in un altro giorno o orario direttamente sulla gri…",
+                    "aliases": [
+                        "calendario",
+                        "calendario modificare un evento",
+                        "come modificare un evento",
+                        "modificare un evento"
+                    ]
+                },
+                "en": {
+                    "question": "Editing an event",
+                    "answer_markdown": "- Click the event in the calendar to open the detail panel.\n- From the panel, click \"Edit\" to open the full form.\n- **Quick move**: drag the event to another day or time directly on the grid. The event updates immediately.\n- **Resizing**: drag the bottom edge of the event (in week or day view) to lengthen or shorten the end time.\n\nOnly the event owner can move or resize it; events shared by others are viewable but not editable unless specific permissions apply.",
+                    "excerpt": "Click the event in the calendar to open the detail panel. From the panel, click \"Edit\" to open the full form. Quick move: drag the event to another day or time directly on the grid. The event updates ...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Modifier un événement",
+                    "answer_markdown": "- Cliquez sur l'événement dans le calendrier pour ouvrir le panneau de détail.\n- Depuis le panneau, cliquez sur « Modifier » pour ouvrir le formulaire complet.\n- **Déplacement rapide** : faites glisser l'événement vers un autre jour ou horaire directement sur la grille. L'événement se met à jour immédiatement.\n- **Redimensionnement** : faites glisser le bord inférieur de l'événement (en vue semaine ou jour) pour allonger ou raccourcir l'heure de fin.\n\nSeul le propriétaire de l'événement peut le déplacer ou le redimensionner ; les événements partagés par d'autres sont consultables mais non modifiables sauf autorisations spécifiques.",
+                    "excerpt": "Cliquez sur l'événement dans le calendrier pour ouvrir le panneau de détail. Depuis le panneau, cliquez sur « Modifier » pour ouvrir le formulaire complet. Déplacement rapide : faites glisser l'événem...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Ein Ereignis bearbeiten",
+                    "answer_markdown": "- Klicken Sie auf das Ereignis im Kalender, um das Detailpanel zu öffnen.\n- Klicken Sie im Panel auf „Bearbeiten“, um das vollständige Formular zu öffnen.\n- **Schnelles Verschieben**: Ziehen Sie das Ereignis direkt im Raster auf einen anderen Tag oder eine andere Uhrzeit. Das Ereignis wird sofort aktualisiert.\n- **Größenänderung**: Ziehen Sie den unteren Rand des Ereignisses (in der Wochen- oder Tagesansicht), um die Endzeit zu verlängern oder zu verkürzen.\n\nNur der Eigentümer des Ereignisses kann es verschieben oder in der Größe ändern; von anderen geteilte Ereignisse sind anzeigbar, aber nicht bearbeitbar, sofern keine spezifischen Berechtigungen gelten.",
+                    "excerpt": "Klicken Sie auf das Ereignis im Kalender, um das Detailpanel zu öffnen. Klicken Sie im Panel auf „Bearbeiten“, um das vollständige Formular zu öffnen. Schnelles Verschieben: Ziehen Sie das Ereignis di...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Editar un evento",
+                    "answer_markdown": "- Haz clic en el evento en el calendario para abrir el panel de detalle.\n- Desde el panel, haz clic en «Editar» para abrir el formulario completo.\n- **Movimiento rápido**: arrastra el evento a otro día u horario directamente en la cuadrícula. El evento se actualiza de inmediato.\n- **Redimensionar**: arrastra el borde inferior del evento (en vista de semana o día) para alargar o acortar la hora de fin.\n\nSolo el propietario del evento puede moverlo o redimensionarlo; los eventos compartidos por otros se pueden ver pero no editar salvo permisos específicos.",
+                    "excerpt": "Haz clic en el evento en el calendario para abrir el panel de detalle. Desde el panel, haz clic en «Editar» para abrir el formulario completo. Movimiento rápido: arrastra el evento a otro día u horari...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "calendar.index",
+            "permission_slug": "calendar.delete",
+            "ranking_weight": 18,
+            "sort_order": 7,
+            "locales": {
+                "it": {
+                    "question": "Come elimino un evento dal Calendario?",
+                    "answer_markdown": "## Eliminare un evento dal Calendario\r\nPer eliminare un evento apri il suo dettaglio e conferma l'azione di rimozione.\r\n\r\n### Permesso richiesto\r\nL'operazione richiede `calendar.delete`.\r\n\r\n### Effetti collaterali utili da sapere\r\nSe l'evento era collegato a un'attività o a una ricorrenza proveniente da Contatti, il collegamento viene rimosso per evitare riferimenti incoerenti.\r\n\r\n### Prima di confermare\r\nControlla se l'evento è condiviso o se rappresenta una scadenza importante: eliminare il record corretto ma nel momento sbagliato può creare disallineamento operativo.",
+                    "excerpt": "Eliminare un evento dal Calendario Per eliminare un evento apri il suo dettaglio e conferma l'azione di rimozione. Permesso richiesto L'operazione richiede calendar.delete. Effetti collaterali utili da sapere Se...",
+                    "aliases": [
+                        "eliminare evento",
+                        "cancellare evento calendario",
+                        "delete evento",
+                        "rimuovere evento"
+                    ]
+                },
+                "en": {
+                    "question": "How do I delete an event from the Calendar?",
+                    "answer_markdown": "## Deleting an event from the Calendar\nTo delete an event, open its detail and confirm the removal action.\n\n### Required permission\nThe operation requires `calendar.delete`.\n\n### Side effects worth knowing\nIf the event was linked to a task or to a recurrence coming from Contacts, the link is removed to avoid inconsistent references.\n\n### Before confirming\nCheck whether the event is shared or represents an important deadline: deleting the right record but at the wrong time can cause operational misalignment.",
+                    "excerpt": "Deleting an event from the Calendar To delete an event, open its detail and confirm the removal action. Required permission The operation requires calendar.delete. Side effects worth knowing If the ...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment supprimer un événement du Calendrier ?",
+                    "answer_markdown": "## Supprimer un événement du Calendrier\nPour supprimer un événement, ouvrez son détail et confirmez l'action de suppression.\n\n### Autorisation requise\nL'opération nécessite `calendar.delete`.\n\n### Effets secondaires à connaître\nSi l'événement était lié à une tâche ou à une récurrence provenant de Contacts, le lien est supprimé pour éviter des références incohérentes.\n\n### Avant de confirmer\nVérifiez si l'événement est partagé ou s'il représente une échéance importante : supprimer le bon enregistrement mais au mauvais moment peut créer un désalignement opérationnel.",
+                    "excerpt": "Supprimer un événement du Calendrier Pour supprimer un événement, ouvrez son détail et confirmez l'action de suppression. Autorisation requise L'opération nécessite calendar.delete. Effets secondair...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie lösche ich ein Ereignis aus dem Kalender?",
+                    "answer_markdown": "## Ein Ereignis aus dem Kalender löschen\nUm ein Ereignis zu löschen, öffnen Sie sein Detail und bestätigen Sie die Entfernungsaktion.\n\n### Erforderliche Berechtigung\nDer Vorgang erfordert `calendar.delete`.\n\n### Wissenswerte Nebeneffekte\nWenn das Ereignis mit einer Aufgabe oder einer aus Kontakte stammenden Wiederholung verknüpft war, wird die Verknüpfung entfernt, um inkonsistente Verweise zu vermeiden.\n\n### Vor dem Bestätigen\nPrüfen Sie, ob das Ereignis geteilt ist oder eine wichtige Frist darstellt: Den richtigen Datensatz, aber zum falschen Zeitpunkt zu löschen, kann zu betrieblicher Fehlausrichtung führen.",
+                    "excerpt": "Ein Ereignis aus dem Kalender löschen Um ein Ereignis zu löschen, öffnen Sie sein Detail und bestätigen Sie die Entfernungsaktion. Erforderliche Berechtigung Der Vorgang erfordert calendar.delete. W...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo elimino un evento del Calendario?",
+                    "answer_markdown": "## Eliminar un evento del Calendario\nPara eliminar un evento, abre su detalle y confirma la acción de eliminación.\n\n### Permiso requerido\nLa operación requiere `calendar.delete`.\n\n### Efectos secundarios que conviene conocer\nSi el evento estaba vinculado a una tarea o a una recurrencia procedente de Contactos, el vínculo se elimina para evitar referencias incoherentes.\n\n### Antes de confirmar\nComprueba si el evento está compartido o representa un vencimiento importante: eliminar el registro correcto pero en el momento equivocado puede crear desalineación operativa.",
+                    "excerpt": "Eliminar un evento del Calendario Para eliminar un evento, abre su detalle y confirma la acción de eliminación. Permiso requerido La operación requiere calendar.delete. Efectos secundarios que convi...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "calendar.index",
+            "permission_slug": "calendar.view",
+            "ranking_weight": 0,
+            "sort_order": 8,
+            "locales": {
+                "it": {
+                    "question": "Dettaglio evento",
+                    "answer_markdown": "Il pannello o la pagina di dettaglio mostra:\n\n- titolo, descrizione, luogo, date, colore e categoria;\n- visibilità e ruoli con cui è condiviso;\n- ricorrenza (se impostata);\n- **collegamenti**: se l'evento è collegato a un'attività in Attività o a una ricorrenza in Contatti, trovi i link diretti a quei record.",
+                    "excerpt": "Il pannello o la pagina di dettaglio mostra: titolo, descrizione, luogo, date, colore e categoria; visibilità e ruoli con cui è condiviso; ricorrenza (se impostata); collegamenti: se l'evento è collegato a un'attivit…",
+                    "aliases": [
+                        "calendario",
+                        "calendario dettaglio evento",
+                        "come dettaglio evento",
+                        "dettaglio evento"
+                    ]
+                },
+                "en": {
+                    "question": "Event detail",
+                    "answer_markdown": "The detail panel or page shows:\n\n- title, description, location, dates, color and category;\n- visibility and the roles it is shared with;\n- recurrence (if set);\n- **links**: if the event is linked to a task in Tasks or to a recurrence in Contacts, you find the direct links to those records.",
+                    "excerpt": "The detail panel or page shows: title, description, location, dates, color and category; visibility and the roles it is shared with; recurrence (if set); links: if the event is linked to a task in Tas...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Détail de l'événement",
+                    "answer_markdown": "Le panneau ou la page de détail affiche :\n\n- titre, description, lieu, dates, couleur et catégorie ;\n- visibilité et rôles avec lesquels il est partagé ;\n- récurrence (si définie) ;\n- **liens** : si l'événement est lié à une tâche dans Tâches ou à une récurrence dans Contacts, vous trouvez les liens directs vers ces enregistrements.",
+                    "excerpt": "Le panneau ou la page de détail affiche : titre, description, lieu, dates, couleur et catégorie ; visibilité et rôles avec lesquels il est partagé ; récurrence (si définie) ; liens : si l'événement es...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Ereignisdetail",
+                    "answer_markdown": "Das Detailpanel oder die Detailseite zeigt:\n\n- Titel, Beschreibung, Ort, Daten, Farbe und Kategorie;\n- Sichtbarkeit und die Rollen, mit denen es geteilt ist;\n- Wiederholung (falls festgelegt);\n- **Verknüpfungen**: Wenn das Ereignis mit einer Aufgabe in Aufgaben oder einer Wiederholung in Kontakte verknüpft ist, finden Sie die direkten Links zu diesen Datensätzen.",
+                    "excerpt": "Das Detailpanel oder die Detailseite zeigt: Titel, Beschreibung, Ort, Daten, Farbe und Kategorie; Sichtbarkeit und die Rollen, mit denen es geteilt ist; Wiederholung (falls festgelegt); Verknüpfungen:...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Detalle del evento",
+                    "answer_markdown": "El panel o la página de detalle muestra:\n\n- título, descripción, lugar, fechas, color y categoría;\n- visibilidad y los roles con los que se comparte;\n- recurrencia (si está establecida);\n- **enlaces**: si el evento está vinculado a una tarea en Tareas o a una recurrencia en Contactos, encuentras los enlaces directos a esos registros.",
+                    "excerpt": "El panel o la página de detalle muestra: título, descripción, lugar, fechas, color y categoría; visibilidad y los roles con los que se comparte; recurrencia (si está establecida); enlaces: si el event...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "calendar.index",
+            "permission_slug": "calendar.view",
+            "ranking_weight": 0,
+            "sort_order": 9,
+            "locales": {
+                "it": {
+                    "question": "Promemoria",
+                    "answer_markdown": "Quando crei o modifichi un evento puoi impostare un promemoria scegliendo tra gli intervalli predefiniti (15 min, 30 min, 1 ora, 2 ore, 1 giorno prima). Favilla invia la notifica sui canali configurati nelle preferenze (in-app, email, Telegram).",
+                    "excerpt": "Quando crei o modifichi un evento puoi impostare un promemoria scegliendo tra gli intervalli predefiniti (15 min, 30 min, 1 ora, 2 ore, 1 giorno prima). Favilla invia la notifica sui canali configurati nelle preferenze…",
+                    "aliases": [
+                        "calendario",
+                        "calendario promemoria",
+                        "come promemoria",
+                        "promemoria"
+                    ]
+                },
+                "en": {
+                    "question": "Reminders",
+                    "answer_markdown": "When you create or edit an event, you can set a reminder by choosing among the predefined intervals (15 min, 30 min, 1 hour, 2 hours, 1 day before). Favilla sends the notification on the channels configured in your preferences (in-app, email, Telegram).",
+                    "excerpt": "When you create or edit an event, you can set a reminder by choosing among the predefined intervals (15 min, 30 min, 1 hour, 2 hours, 1 day before). Favilla sends the notification on the channels conf...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Rappels",
+                    "answer_markdown": "Lorsque vous créez ou modifiez un événement, vous pouvez définir un rappel en choisissant parmi les intervalles prédéfinis (15 min, 30 min, 1 heure, 2 heures, 1 jour avant). Favilla envoie la notification sur les canaux configurés dans vos préférences (in-app, e-mail, Telegram).",
+                    "excerpt": "Lorsque vous créez ou modifiez un événement, vous pouvez définir un rappel en choisissant parmi les intervalles prédéfinis (15 min, 30 min, 1 heure, 2 heures, 1 jour avant). Favilla envoie la notifica...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Erinnerungen",
+                    "answer_markdown": "Wenn Sie ein Ereignis erstellen oder bearbeiten, können Sie eine Erinnerung festlegen, indem Sie unter den vordefinierten Intervallen wählen (15 Min., 30 Min., 1 Stunde, 2 Stunden, 1 Tag vorher). Favilla sendet die Benachrichtigung über die in Ihren Einstellungen konfigurierten Kanäle (In-App, E-Mail, Telegram).",
+                    "excerpt": "Wenn Sie ein Ereignis erstellen oder bearbeiten, können Sie eine Erinnerung festlegen, indem Sie unter den vordefinierten Intervallen wählen (15 Min., 30 Min., 1 Stunde, 2 Stunden, 1 Tag vorher). Favi...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Recordatorios",
+                    "answer_markdown": "Cuando creas o editas un evento, puedes establecer un recordatorio eligiendo entre los intervalos predefinidos (15 min, 30 min, 1 hora, 2 horas, 1 día antes). Favilla envía la notificación por los canales configurados en tus preferencias (in-app, correo, Telegram).",
+                    "excerpt": "Cuando creas o editas un evento, puedes establecer un recordatorio eligiendo entre los intervalos predefinidos (15 min, 30 min, 1 hora, 2 horas, 1 día antes). Favilla envía la notificación por los can...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "calendar.index",
+            "permission_slug": "calendar.view",
+            "ranking_weight": 0,
+            "sort_order": 10,
+            "locales": {
+                "it": {
+                    "question": "Ricorrenze",
+                    "answer_markdown": "Per eventi che si ripetono (riunione settimanale, appuntamento mensile, ecc.) usa la sezione \"Ricorrenza\" nel modulo di creazione/modifica. Puoi specificare la frequenza (giornaliera, settimanale, mensile) e la data di fine della serie.",
+                    "excerpt": "Per eventi che si ripetono (riunione settimanale, appuntamento mensile, ecc.) usa la sezione \"Ricorrenza\" nel modulo di creazione/modifica. Puoi specificare la frequenza (giornaliera, settimanale, mensile) e la data di…",
+                    "aliases": [
+                        "calendario",
+                        "calendario ricorrenze",
+                        "come ricorrenze",
+                        "ricorrenze"
+                    ]
+                },
+                "en": {
+                    "question": "Recurrences",
+                    "answer_markdown": "For events that repeat (a weekly meeting, a monthly appointment, etc.) use the \"Recurrence\" section in the create/edit form. You can specify the frequency (daily, weekly, monthly) and the end date of the series.",
+                    "excerpt": "For events that repeat (a weekly meeting, a monthly appointment, etc.) use the \"Recurrence\" section in the create/edit form. You can specify the frequency (daily, weekly, monthly) and the end date of ...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Récurrences",
+                    "answer_markdown": "Pour les événements qui se répètent (réunion hebdomadaire, rendez-vous mensuel, etc.), utilisez la section « Récurrence » dans le formulaire de création/modification. Vous pouvez spécifier la fréquence (quotidienne, hebdomadaire, mensuelle) et la date de fin de la série.",
+                    "excerpt": "Pour les événements qui se répètent (réunion hebdomadaire, rendez-vous mensuel, etc.), utilisez la section « Récurrence » dans le formulaire de création/modification. Vous pouvez spécifier la fréquenc...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wiederholungen",
+                    "answer_markdown": "Für Ereignisse, die sich wiederholen (ein wöchentliches Meeting, ein monatlicher Termin usw.), verwenden Sie den Abschnitt „Wiederholung“ im Erstellungs-/Bearbeitungsformular. Sie können die Häufigkeit (täglich, wöchentlich, monatlich) und das Enddatum der Serie angeben.",
+                    "excerpt": "Für Ereignisse, die sich wiederholen (ein wöchentliches Meeting, ein monatlicher Termin usw.), verwenden Sie den Abschnitt „Wiederholung“ im Erstellungs-/Bearbeitungsformular. Sie können die Häufigkei...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Recurrencias",
+                    "answer_markdown": "Para eventos que se repiten (una reunión semanal, una cita mensual, etc.) usa la sección «Recurrencia» en el formulario de creación/edición. Puedes especificar la frecuencia (diaria, semanal, mensual) y la fecha de fin de la serie.",
+                    "excerpt": "Para eventos que se repiten (una reunión semanal, una cita mensual, etc.) usa la sección «Recurrencia» en el formulario de creación/edición. Puedes especificar la frecuencia (diaria, semanal, mensual)...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "calendar.index",
+            "permission_slug": "calendar.view",
+            "ranking_weight": 0,
+            "sort_order": 11,
+            "locales": {
+                "it": {
+                    "question": "Visualizzare eventi condivisi",
+                    "answer_markdown": "Se un altro utente o un ruolo ha condiviso un evento con te, questo compare nel calendario con un indicatore visivo. In genere puoi visualizzarlo ma non modificarlo, a meno che non ti sia stato concesso anche il permesso di modifica.",
+                    "excerpt": "Se un altro utente o un ruolo ha condiviso un evento con te, questo compare nel calendario con un indicatore visivo. In genere puoi visualizzarlo ma non modificarlo, a meno che non ti sia stato concesso anche il permess…",
+                    "aliases": [
+                        "calendario",
+                        "calendario visualizzare eventi condivisi",
+                        "come visualizzare eventi condivisi",
+                        "visualizzare eventi condivisi"
+                    ]
+                },
+                "en": {
+                    "question": "Viewing shared events",
+                    "answer_markdown": "If another user or a role has shared an event with you, it appears in the calendar with a visual indicator. Usually you can view it but not edit it, unless you have also been granted the edit permission.",
+                    "excerpt": "If another user or a role has shared an event with you, it appears in the calendar with a visual indicator. Usually you can view it but not edit it, unless you have also been granted the edit permissi...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Visualiser les événements partagés",
+                    "answer_markdown": "Si un autre utilisateur ou un rôle a partagé un événement avec vous, il apparaît dans le calendrier avec un indicateur visuel. En général, vous pouvez le consulter mais pas le modifier, sauf si l'autorisation de modification vous a également été accordée.",
+                    "excerpt": "Si un autre utilisateur ou un rôle a partagé un événement avec vous, il apparaît dans le calendrier avec un indicateur visuel. En général, vous pouvez le consulter mais pas le modifier, sauf si l'auto...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Geteilte Ereignisse anzeigen",
+                    "answer_markdown": "Wenn ein anderer Benutzer oder eine Rolle ein Ereignis mit Ihnen geteilt hat, erscheint es im Kalender mit einem visuellen Indikator. In der Regel können Sie es anzeigen, aber nicht bearbeiten, es sei denn, Ihnen wurde auch die Bearbeitungsberechtigung erteilt.",
+                    "excerpt": "Wenn ein anderer Benutzer oder eine Rolle ein Ereignis mit Ihnen geteilt hat, erscheint es im Kalender mit einem visuellen Indikator. In der Regel können Sie es anzeigen, aber nicht bearbeiten, es sei...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Visualizar eventos compartidos",
+                    "answer_markdown": "Si otro usuario o un rol ha compartido un evento contigo, aparece en el calendario con un indicador visual. Por lo general puedes verlo pero no editarlo, a menos que también se te haya concedido el permiso de edición.",
+                    "excerpt": "Si otro usuario o un rol ha compartido un evento contigo, aparece en el calendario con un indicador visual. Por lo general puedes verlo pero no editarlo, a menos que también se te haya concedido el pe...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "calendar.index",
+            "permission_slug": "calendar.view",
+            "ranking_weight": 0,
+            "sort_order": 12,
+            "locales": {
+                "it": {
+                    "question": "Import ed export ICS",
+                    "answer_markdown": "**Export**: clicca \"Esporta\" per scaricare tutti i tuoi eventi in formato `.ics`, compatibile con la maggior parte dei client di calendario (Outlook, Google Calendar, Apple Calendar, ecc.).\n\n**Import**: clicca \"Importa\" e seleziona un file `.ics` dal tuo dispositivo. Gli eventi vengono importati nel tuo calendario personale. Verifica gli eventi importati prima di procedere per evitare duplicati.",
+                    "excerpt": "Export: clicca \"Esporta\" per scaricare tutti i tuoi eventi in formato .ics, compatibile con la maggior parte dei client di calendario (Outlook, Google Calendar, Apple Calendar, ecc.). Import: clicca \"Importa\" e selezion…",
+                    "aliases": [
+                        "calendario",
+                        "calendario import ed export ics",
+                        "come import ed export ics",
+                        "import ed export ics"
+                    ]
+                },
+                "en": {
+                    "question": "ICS import and export",
+                    "answer_markdown": "**Export**: click \"Export\" to download all your events in `.ics` format, compatible with most calendar clients (Outlook, Google Calendar, Apple Calendar, etc.).\n\n**Import**: click \"Import\" and select an `.ics` file from your device. The events are imported into your personal calendar. Check the imported events before proceeding to avoid duplicates.",
+                    "excerpt": "Export: click \"Export\" to download all your events in .ics format, compatible with most calendar clients (Outlook, Google Calendar, Apple Calendar, etc.). Import: click \"Import\" and select an .ics fil...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Import et export ICS",
+                    "answer_markdown": "**Export** : cliquez sur « Exporter » pour télécharger tous vos événements au format `.ics`, compatible avec la plupart des clients de calendrier (Outlook, Google Calendar, Apple Calendar, etc.).\n\n**Import** : cliquez sur « Importer » et sélectionnez un fichier `.ics` depuis votre appareil. Les événements sont importés dans votre calendrier personnel. Vérifiez les événements importés avant de continuer pour éviter les doublons.",
+                    "excerpt": "Export : cliquez sur « Exporter » pour télécharger tous vos événements au format .ics, compatible avec la plupart des clients de calendrier (Outlook, Google Calendar, Apple Calendar, etc.). Import : c...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "ICS-Import und -Export",
+                    "answer_markdown": "**Export**: Klicken Sie auf „Exportieren“, um alle Ihre Ereignisse im Format `.ics` herunterzuladen, kompatibel mit den meisten Kalenderclients (Outlook, Google Calendar, Apple Calendar usw.).\n\n**Import**: Klicken Sie auf „Importieren“ und wählen Sie eine `.ics`-Datei von Ihrem Gerät aus. Die Ereignisse werden in Ihren persönlichen Kalender importiert. Prüfen Sie die importierten Ereignisse, bevor Sie fortfahren, um Duplikate zu vermeiden.",
+                    "excerpt": "Export: Klicken Sie auf „Exportieren“, um alle Ihre Ereignisse im Format .ics herunterzuladen, kompatibel mit den meisten Kalenderclients (Outlook, Google Calendar, Apple Calendar usw.). Import: Klick...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Importación y exportación ICS",
+                    "answer_markdown": "**Exportar**: haz clic en «Exportar» para descargar todos tus eventos en formato `.ics`, compatible con la mayoría de los clientes de calendario (Outlook, Google Calendar, Apple Calendar, etc.).\n\n**Importar**: haz clic en «Importar» y selecciona un archivo `.ics` desde tu dispositivo. Los eventos se importan en tu calendario personal. Comprueba los eventos importados antes de continuar para evitar duplicados.",
+                    "excerpt": "Exportar: haz clic en «Exportar» para descargar todos tus eventos en formato .ics, compatible con la mayoría de los clientes de calendario (Outlook, Google Calendar, Apple Calendar, etc.). Importar: h...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "calendar.index",
+            "permission_slug": "calendar.view",
+            "ranking_weight": 0,
+            "sort_order": 13,
+            "locales": {
+                "it": {
+                    "question": "Integrazione con Attività e Contatti",
+                    "answer_markdown": "- **Attività**: i task con una scadenza possono essere collegati a eventi del Calendario; il filtro \"In calendario\" nella lista Attività mostra i task collegati.\n- **Contatti**: le ricorrenze (compleanni, anniversari) registrate nei contatti possono generare automaticamente eventi nel Calendario; la sincronizzazione avviene al momento del salvataggio della ricorrenza.\n\n---",
+                    "excerpt": "Attività: i task con una scadenza possono essere collegati a eventi del Calendario; il filtro \"In calendario\" nella lista Attività mostra i task collegati. Contatti: le ricorrenze (compleanni, anniversari) registrate…",
+                    "aliases": [
+                        "calendario",
+                        "calendario integrazione con attivita e contatti",
+                        "come integrazione con attivita e contatti",
+                        "integrazione con attivita e contatti"
+                    ]
+                },
+                "en": {
+                    "question": "Integration with Tasks and Contacts",
+                    "answer_markdown": "- **Tasks**: tasks with a due date can be linked to Calendar events; the \"In calendar\" filter in the Tasks list shows the linked tasks.\n- **Contacts**: recurrences (birthdays, anniversaries) recorded in contacts can automatically generate events in the Calendar; the synchronization happens when the recurrence is saved.\n\n---",
+                    "excerpt": "Tasks: tasks with a due date can be linked to Calendar events; the \"In calendar\" filter in the Tasks list shows the linked tasks. Contacts: recurrences (birthdays, anniversaries) recorded in contacts ...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Intégration avec Tâches et Contacts",
+                    "answer_markdown": "- **Tâches** : les tâches avec une échéance peuvent être liées à des événements du Calendrier ; le filtre « Dans le calendrier » dans la liste Tâches affiche les tâches liées.\n- **Contacts** : les récurrences (anniversaires) enregistrées dans les contacts peuvent générer automatiquement des événements dans le Calendrier ; la synchronisation a lieu au moment de l'enregistrement de la récurrence.\n\n---",
+                    "excerpt": "Tâches : les tâches avec une échéance peuvent être liées à des événements du Calendrier ; le filtre « Dans le calendrier » dans la liste Tâches affiche les tâches liées. Contacts : les récurrences (an...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Integration mit Aufgaben und Kontakte",
+                    "answer_markdown": "- **Aufgaben**: Aufgaben mit einer Fälligkeit können mit Kalenderereignissen verknüpft werden; der Filter „Im Kalender“ in der Aufgabenliste zeigt die verknüpften Aufgaben.\n- **Kontakte**: In Kontakten erfasste Wiederholungen (Geburtstage, Jahrestage) können automatisch Ereignisse im Kalender erzeugen; die Synchronisierung erfolgt beim Speichern der Wiederholung.\n\n---",
+                    "excerpt": "Aufgaben: Aufgaben mit einer Fälligkeit können mit Kalenderereignissen verknüpft werden; der Filter „Im Kalender“ in der Aufgabenliste zeigt die verknüpften Aufgaben. Kontakte: In Kontakten erfasste W...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Integración con Tareas y Contactos",
+                    "answer_markdown": "- **Tareas**: las tareas con vencimiento pueden vincularse a eventos del Calendario; el filtro «En calendario» en la lista de Tareas muestra las tareas vinculadas.\n- **Contactos**: las recurrencias (cumpleaños, aniversarios) registradas en los contactos pueden generar automáticamente eventos en el Calendario; la sincronización ocurre al guardar la recurrencia.\n\n---",
+                    "excerpt": "Tareas: las tareas con vencimiento pueden vincularse a eventos del Calendario; el filtro «En calendario» en la lista de Tareas muestra las tareas vinculadas. Contactos: las recurrencias (cumpleaños, a...",
+                    "aliases": []
+                }
+            }
+        }
+    ]
+}

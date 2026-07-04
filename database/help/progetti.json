@@ -1,0 +1,1066 @@
+{
+    "module_key": "progetti",
+    "module_name": "Progetti",
+    "label": "Progetti",
+    "description": "Gestione progetti con milestone, attività, vista Kanban e Gantt, timesheet e controllo budget.",
+    "audience_default": "user",
+    "locale_default": "it",
+    "route_name": "projects.index",
+    "permission_slug": "progetti.view",
+    "sort_order": 27,
+    "entries": [
+        {
+            "audience": "user",
+            "route_name": "projects.index",
+            "permission_slug": "progetti.view",
+            "ranking_weight": 24,
+            "sort_order": 1,
+            "locales": {
+                "it": {
+                    "question": "Come funziona il modulo Progetti?",
+                    "answer_markdown": "## Modulo Progetti\nProgetti è il modulo per pianificare e governare il lavoro strutturato in team: dal singolo progetto alle sue attività, milestone e budget.\n\n### Cosa puoi fare\n- creare progetti con cliente, budget e date di inizio/fine;\n- organizzare il lavoro in **milestone** e **attività**;\n- lavorare in vista **Kanban** o **Gantt**;\n- registrare le ore lavorate con il **timesheet**;\n- tenere sotto controllo **budget** e avanzamento con report e KPI.\n\n### Quando usarlo\nUsa Progetti quando devi coordinare un insieme strutturato di attività, persone e scadenze con un budget da monitorare.\n\n### Differenza rispetto ad Attività\nAttività è pensato per il lavoro puntuale o personale. Progetti è il perimetro corretto quando servono milestone, membri con ruoli diversi e controllo dei costi.",
+                    "excerpt": "Modulo Progetti Progetti è il modulo per pianificare e governare il lavoro strutturato in team: dal singolo progetto alle sue attività, milestone e budget. Cosa puoi fare creare progetti con cliente, budget e date di inizio/fine;...",
+                    "aliases": [
+                        "modulo progetti",
+                        "gestione progetti",
+                        "project management",
+                        "cos'è progetti"
+                    ]
+                },
+                "en": {
+                    "question": "How does the Projects module work?",
+                    "answer_markdown": "## Projects module\nProjects is where you plan and run structured team work: from a single project down to its tasks, milestones and budget.\n\n### What you can do\n- create projects with a client, budget and start/end dates;\n- organize the work into **milestones** and **tasks**;\n- work in **Kanban** or **Gantt** view;\n- log worked hours with the **timesheet**;\n- keep **budget** and progress under control with reports and KPIs.\n\n### When to use it\nUse Projects whenever you need to coordinate a structured set of tasks, people and deadlines with a budget to track.\n\n### Difference from Tasks\nTasks is meant for ad-hoc or personal work. Projects is the right place when you need milestones, members with different roles, and cost control.",
+                    "excerpt": "Projects module Projects is where you plan and run structured team work: from a single project down to its tasks, milestones and budget. What you can do create projects with a client, budget and start/end dates; organize the work...",
+                    "aliases": [
+                        "projects module",
+                        "project management",
+                        "what is projects",
+                        "projects overview"
+                    ]
+                },
+                "fr": {
+                    "question": "Come fonctionne le module Projets ?",
+                    "answer_markdown": "## Module Projets\nProjets est le module pour planifier et piloter le travail structuré en équipe : du projet à ses tâches, jalons et budget.\n\n### Ce que vous pouvez faire\n- créer des projets avec client, budget et dates de début/fin ;\n- organiser le travail en **jalons** et **tâches** ;\n- travailler en vue **Kanban** ou **Gantt** ;\n- enregistrer les heures travaillées avec la **feuille de temps** ;\n- suivre **budget** et avancement avec rapports et KPI.\n\n### Quand l'utiliser\nUtilisez Projets pour coordonner un ensemble structuré de tâches, de personnes et d'échéances avec un budget à surveiller.\n\n### Différence avec Tâches\nTâches convient au travail ponctuel ou personnel. Projets est le bon périmètre dès qu'il faut des jalons, des membres avec des rôles différents et un contrôle des coûts.",
+                    "excerpt": "Module Projets Projets est le module pour planifier et piloter le travail structuré en équipe : du projet à ses tâches, jalons et budget. Ce que vous pouvez faire créer des projets avec client, budget et dates de début/fin ;...",
+                    "aliases": [
+                        "module projets",
+                        "gestion de projets",
+                        "qu'est-ce que projets",
+                        "aperçu projets"
+                    ]
+                },
+                "de": {
+                    "question": "Wie funktioniert das Modul Projekte?",
+                    "answer_markdown": "## Modul Projekte\nProjekte ist das Modul zur Planung und Steuerung strukturierter Teamarbeit: vom einzelnen Projekt bis zu Aufgaben, Meilensteinen und Budget.\n\n### Was Sie tun können\n- Projekte mit Kunde, Budget und Start-/Enddatum anlegen;\n- die Arbeit in **Meilensteine** und **Aufgaben** gliedern;\n- in der **Kanban**- oder **Gantt**-Ansicht arbeiten;\n- geleistete Stunden mit der **Zeiterfassung** protokollieren;\n- **Budget** und Fortschritt mit Berichten und KPIs im Blick behalten.\n\n### Wann einsetzen\nNutzen Sie Projekte, wenn Sie eine strukturierte Menge an Aufgaben, Personen und Terminen mit zu überwachendem Budget koordinieren müssen.\n\n### Unterschied zu Aufgaben\nAufgaben eignet sich für punktuelle oder persönliche Arbeit. Projekte ist der richtige Rahmen, wenn Meilensteine, Mitglieder mit unterschiedlichen Rollen und Kostenkontrolle nötig sind.",
+                    "excerpt": "Modul Projekte Projekte ist das Modul zur Planung und Steuerung strukturierter Teamarbeit: vom einzelnen Projekt bis zu Aufgaben, Meilensteinen und Budget. Was Sie tun können Projekte mit Kunde, Budget und Start-/Enddatum...",
+                    "aliases": [
+                        "modul projekte",
+                        "projektmanagement",
+                        "was ist projekte",
+                        "projekte überblick"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo funciona el módulo Proyectos?",
+                    "answer_markdown": "## Módulo Proyectos\nProyectos es el módulo para planificar y gobernar el trabajo estructurado en equipo: desde el proyecto hasta sus tareas, hitos y presupuesto.\n\n### Qué puedes hacer\n- crear proyectos con cliente, presupuesto y fechas de inicio/fin;\n- organizar el trabajo en **hitos** y **tareas**;\n- trabajar en vista **Kanban** o **Gantt**;\n- registrar las horas trabajadas con el **parte de horas**;\n- controlar **presupuesto** y avance con informes y KPI.\n\n### Cuándo usarlo\nUsa Proyectos cuando necesites coordinar un conjunto estructurado de tareas, personas y plazos con un presupuesto que vigilar.\n\n### Diferencia con Tareas\nTareas es para trabajo puntual o personal. Proyectos es el ámbito correcto cuando hacen falta hitos, miembros con distintos roles y control de costes.",
+                    "excerpt": "Módulo Proyectos Proyectos es el módulo para planificar y gobernar el trabajo estructurado en equipo: desde el proyecto hasta sus tareas, hitos y presupuesto. Qué puedes hacer crear proyectos con cliente, presupuesto y fechas de...",
+                    "aliases": [
+                        "módulo proyectos",
+                        "gestión de proyectos",
+                        "qué es proyectos",
+                        "resumen proyectos"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "projects.index",
+            "permission_slug": "progetti.view",
+            "ranking_weight": 18,
+            "sort_order": 2,
+            "locales": {
+                "it": {
+                    "question": "Come accedo al modulo Progetti?",
+                    "answer_markdown": "## Accesso a Progetti\nIl modulo Progetti si apre dalla sidebar tramite la voce **Progetti**.\n\n### Permesso minimo\nPer entrare nel modulo serve `progetti.view` (mostra solo i tuoi progetti e quelli in cui sei membro).\n\n### Altri permessi utili\n- `progetti.view_all` per vedere tutti i progetti dell'azienda;\n- `progetti.create` per creare nuovi progetti;\n- `progetti.edit` per modificare progetti, attività e milestone;\n- `progetti.delete` per eliminare un progetto;\n- `progetti.manage_members` per gestire i membri;\n- `progetti.log_time` per registrare ore nel timesheet;\n- `progetti.export` per esportare i dati;\n- `progetti.manage_all` per amministrare tutti i progetti.\n\n### Se non vedi la voce nel menu\nDi solito significa che il tuo ruolo non include il permesso minimo di visualizzazione.",
+                    "excerpt": "Accesso a Progetti Il modulo Progetti si apre dalla sidebar tramite la voce Progetti. Permesso minimo Per entrare nel modulo serve progetti.view (mostra solo i tuoi progetti e quelli in cui sei membro). Altri permessi utili...",
+                    "aliases": [
+                        "accesso progetti",
+                        "permessi progetti",
+                        "aprire progetti",
+                        "dove trovo progetti"
+                    ]
+                },
+                "en": {
+                    "question": "How do I access the Projects module?",
+                    "answer_markdown": "## Access to Projects\nThe Projects module opens from the sidebar via the **Projects** entry.\n\n### Minimum permission\nYou need `progetti.view` to enter the module (shows only your own projects and the ones you're a member of).\n\n### Other useful permissions\n- `progetti.view_all` to see every project in the company;\n- `progetti.create` to create new projects;\n- `progetti.edit` to edit projects, tasks and milestones;\n- `progetti.delete` to delete a project;\n- `progetti.manage_members` to manage members;\n- `progetti.log_time` to log timesheet hours;\n- `progetti.export` to export data;\n- `progetti.manage_all` to administer every project.\n\n### If you don't see the menu entry\nThis usually means your role doesn't include the minimum view permission.",
+                    "excerpt": "Access to Projects The Projects module opens from the sidebar via the Projects entry. Minimum permission You need progetti.view to enter the module (shows only your own projects and the ones you're a member of). Other useful...",
+                    "aliases": [
+                        "access projects",
+                        "projects permissions",
+                        "open projects",
+                        "where is projects"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment accéder au module Projets ?",
+                    "answer_markdown": "## Accès à Projets\nLe module Projets s'ouvre depuis la barre latérale via l'entrée **Projets**.\n\n### Permission minimale\nIl faut `progetti.view` pour entrer dans le module (affiche uniquement vos projets et ceux dont vous êtes membre).\n\n### Autres permissions utiles\n- `progetti.view_all` pour voir tous les projets de l'entreprise ;\n- `progetti.create` pour créer de nouveaux projets ;\n- `progetti.edit` pour modifier projets, tâches et jalons ;\n- `progetti.delete` pour supprimer un projet ;\n- `progetti.manage_members` pour gérer les membres ;\n- `progetti.log_time` pour saisir des heures ;\n- `progetti.export` pour exporter les données ;\n- `progetti.manage_all` pour administrer tous les projets.\n\n### Si vous ne voyez pas l'entrée dans le menu\nCela signifie généralement que votre rôle n'inclut pas la permission minimale de consultation.",
+                    "excerpt": "Accès à Projets Le module Projets s'ouvre depuis la barre latérale via l'entrée Projets. Permission minimale Il faut progetti.view pour entrer dans le module (affiche uniquement vos projets et ceux dont vous êtes membre). Autres...",
+                    "aliases": [
+                        "accès projets",
+                        "permissions projets",
+                        "ouvrir projets",
+                        "où trouver projets"
+                    ]
+                },
+                "de": {
+                    "question": "Wie greife ich auf das Modul Projekte zu?",
+                    "answer_markdown": "## Zugriff auf Projekte\nDas Modul Projekte öffnen Sie über den Sidebar-Eintrag **Projekte**.\n\n### Mindestberechtigung\nFür den Zugang benötigen Sie `progetti.view` (zeigt nur Ihre eigenen Projekte und die, in denen Sie Mitglied sind).\n\n### Weitere nützliche Berechtigungen\n- `progetti.view_all`, um alle Projekte des Unternehmens zu sehen;\n- `progetti.create`, um neue Projekte anzulegen;\n- `progetti.edit`, um Projekte, Aufgaben und Meilensteine zu bearbeiten;\n- `progetti.delete`, um ein Projekt zu löschen;\n- `progetti.manage_members` zur Mitgliederverwaltung;\n- `progetti.log_time` für die Zeiterfassung;\n- `progetti.export`, um Daten zu exportieren;\n- `progetti.manage_all`, um alle Projekte zu verwalten.\n\n### Wenn der Menüpunkt fehlt\nDas bedeutet meist, dass Ihre Rolle nicht die Mindestberechtigung zur Ansicht enthält.",
+                    "excerpt": "Zugriff auf Projekte Das Modul Projekte öffnen Sie über den Sidebar-Eintrag Projekte. Mindestberechtigung Für den Zugang benötigen Sie progetti.view (zeigt nur Ihre eigenen Projekte und die, in denen Sie Mitglied sind). Weitere...",
+                    "aliases": [
+                        "zugriff projekte",
+                        "projekte berechtigungen",
+                        "projekte öffnen",
+                        "wo finde ich projekte"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo accedo al módulo Proyectos?",
+                    "answer_markdown": "## Acceso a Proyectos\nEl módulo Proyectos se abre desde la barra lateral mediante la entrada **Proyectos**.\n\n### Permiso mínimo\nPara entrar necesitas `progetti.view` (muestra solo tus proyectos y aquellos en los que eres miembro).\n\n### Otros permisos útiles\n- `progetti.view_all` para ver todos los proyectos de la empresa;\n- `progetti.create` para crear nuevos proyectos;\n- `progetti.edit` para editar proyectos, tareas e hitos;\n- `progetti.delete` para eliminar un proyecto;\n- `progetti.manage_members` para gestionar miembros;\n- `progetti.log_time` para registrar horas;\n- `progetti.export` para exportar datos;\n- `progetti.manage_all` para administrar todos los proyectos.\n\n### Si no ves la entrada en el menú\nSuele significar que tu rol no incluye el permiso mínimo de visualización.",
+                    "excerpt": "Acceso a Proyectos El módulo Proyectos se abre desde la barra lateral mediante la entrada Proyectos. Permiso mínimo Para entrar necesitas progetti.view (muestra solo tus proyectos y aquellos en los que eres miembro). Otros...",
+                    "aliases": [
+                        "acceso proyectos",
+                        "permisos proyectos",
+                        "abrir proyectos",
+                        "dónde está proyectos"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "projects.create",
+            "permission_slug": "progetti.create",
+            "ranking_weight": 0,
+            "sort_order": 3,
+            "locales": {
+                "it": {
+                    "question": "Come creo un nuovo progetto?",
+                    "answer_markdown": "## Creare un progetto\nDalla lista Progetti clicca su **Nuovo progetto** (richiede `progetti.create`).\n\n### Campi principali\n- **nome** e **codice** identificativo;\n- **cliente** di riferimento;\n- **stato** iniziale (di norma Pianificazione);\n- **budget pianificato** e **ore stimate**;\n- **data inizio** e **data fine**;\n- descrizione libera.\n\n### Dopo la creazione\nIl progetto nasce senza membri: aggiungili dalla scheda progetto prima di creare attività e milestone.",
+                    "excerpt": "Creare un progetto Dalla lista Progetti clicca su Nuovo progetto (richiede progetti.create). Campi principali nome e codice identificativo; cliente di riferimento; stato iniziale (di norma Pianificazione); budget pianificato e...",
+                    "aliases": [
+                        "creare progetto",
+                        "nuovo progetto",
+                        "aggiungere progetto"
+                    ]
+                },
+                "en": {
+                    "question": "How do I create a new project?",
+                    "answer_markdown": "## Creating a project\nFrom the Projects list click **New project** (requires `progetti.create`).\n\n### Main fields\n- **name** and identifying **code**;\n- reference **client**;\n- initial **status** (usually Planning);\n- **planned budget** and **estimated hours**;\n- **start date** and **end date**;\n- free-text description.\n\n### After creation\nThe project starts with no members: add them from the project page before creating tasks and milestones.",
+                    "excerpt": "Creating a project From the Projects list click New project (requires progetti.create). Main fields name and identifying code; reference client; initial status (usually Planning); planned budget and estimated hours; start date...",
+                    "aliases": [
+                        "create project",
+                        "new project",
+                        "add project"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment créer un nouveau projet ?",
+                    "answer_markdown": "## Créer un projet\nDepuis la liste Projets, cliquez sur **Nouveau projet** (nécessite `progetti.create`).\n\n### Champs principaux\n- **nom** et **code** d'identification ;\n- **client** de référence ;\n- **statut** initial (généralement Planification) ;\n- **budget prévu** et **heures estimées** ;\n- **date de début** et **date de fin** ;\n- description libre.\n\n### Après la création\nLe projet démarre sans membres : ajoutez-les depuis la fiche projet avant de créer des tâches et des jalons.",
+                    "excerpt": "Créer un projet Depuis la liste Projets, cliquez sur Nouveau projet (nécessite progetti.create). Champs principaux nom et code d'identification ; client de référence ; statut initial (généralement Planification) ; budget prévu et...",
+                    "aliases": [
+                        "créer projet",
+                        "nouveau projet",
+                        "ajouter projet"
+                    ]
+                },
+                "de": {
+                    "question": "Wie erstelle ich ein neues Projekt?",
+                    "answer_markdown": "## Ein Projekt erstellen\nKlicken Sie in der Projektliste auf **Neues Projekt** (erfordert `progetti.create`).\n\n### Hauptfelder\n- **Name** und Kenncode;\n- zugehöriger **Kunde**;\n- Anfangsstatus (in der Regel Planung);\n- **geplantes Budget** und **geschätzte Stunden**;\n- **Startdatum** und **Enddatum**;\n- freie Beschreibung.\n\n### Nach der Erstellung\nDas Projekt startet ohne Mitglieder: Fügen Sie diese über die Projektseite hinzu, bevor Sie Aufgaben und Meilensteine anlegen.",
+                    "excerpt": "Ein Projekt erstellen Klicken Sie in der Projektliste auf Neues Projekt (erfordert progetti.create). Hauptfelder Name und Kenncode; zugehöriger Kunde; Anfangsstatus (in der Regel Planung); geplantes Budget und geschätzte Stunden;...",
+                    "aliases": [
+                        "projekt erstellen",
+                        "neues projekt",
+                        "projekt hinzufügen"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo creo un nuevo proyecto?",
+                    "answer_markdown": "## Crear un proyecto\nDesde la lista de Proyectos, haz clic en **Nuevo proyecto** (requiere `progetti.create`).\n\n### Campos principales\n- **nombre** y **código** identificativo;\n- **cliente** de referencia;\n- **estado** inicial (normalmente Planificación);\n- **presupuesto planificado** y **horas estimadas**;\n- **fecha de inicio** y **fecha de fin**;\n- descripción libre.\n\n### Después de crearlo\nEl proyecto nace sin miembros: añádelos desde la ficha del proyecto antes de crear tareas e hitos.",
+                    "excerpt": "Crear un proyecto Desde la lista de Proyectos, haz clic en Nuevo proyecto (requiere progetti.create). Campos principales nombre y código identificativo; cliente de referencia; estado inicial (normalmente Planificación);...",
+                    "aliases": [
+                        "crear proyecto",
+                        "nuevo proyecto",
+                        "añadir proyecto"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "projects.index",
+            "permission_slug": "progetti.view",
+            "ranking_weight": 0,
+            "sort_order": 4,
+            "locales": {
+                "it": {
+                    "question": "Quali sono gli stati di un progetto?",
+                    "answer_markdown": "## Stati del progetto\nOgni progetto ha uno stato che ne rappresenta la fase corrente.\n\n### Stati disponibili\n| Stato | Significato |\n|---|---|\n| **Pianificazione** | Progetto definito ma non ancora avviato |\n| **Attivo** | Lavoro in corso |\n| **In pausa** | Temporaneamente sospeso |\n| **Completato** | Lavoro concluso |\n| **Annullato** | Progetto interrotto definitivamente |\n\n### Come cambiarlo\nModifica lo stato dalla scheda progetto (richiede `progetti.edit`). Il cambio di stato non elimina attività, milestone o timesheet collegati.",
+                    "excerpt": "Stati del progetto Ogni progetto ha uno stato che ne rappresenta la fase corrente. Stati disponibili Stato Significato Pianificazione Progetto definito ma non ancora avviato Attivo Lavoro in corso In pausa Temporaneamente sospeso...",
+                    "aliases": [
+                        "stati progetto",
+                        "stato progetto",
+                        "fasi progetto",
+                        "ciclo di vita progetto"
+                    ]
+                },
+                "en": {
+                    "question": "What are the possible project statuses?",
+                    "answer_markdown": "## Project statuses\nEach project has a status representing its current phase.\n\n### Available statuses\n| Status | Meaning |\n|---|---|\n| **Planning** | Defined but not started yet |\n| **Active** | Work in progress |\n| **On hold** | Temporarily suspended |\n| **Completed** | Work finished |\n| **Cancelled** | Permanently discontinued |\n\n### How to change it\nChange the status from the project page (requires `progetti.edit`). Changing status doesn't delete linked tasks, milestones or timesheet entries.",
+                    "excerpt": "Project statuses Each project has a status representing its current phase. Available statuses Status Meaning Planning Defined but not started yet Active Work in progress On hold Temporarily suspended Completed Work finished...",
+                    "aliases": [
+                        "project statuses",
+                        "project status",
+                        "project lifecycle",
+                        "project phases"
+                    ]
+                },
+                "fr": {
+                    "question": "Quels sont les statuts possibles d'un projet ?",
+                    "answer_markdown": "## Statuts du projet\nChaque projet a un statut représentant sa phase actuelle.\n\n### Statuts disponibles\n| Statut | Signification |\n|---|---|\n| **Planification** | Défini mais pas encore démarré |\n| **Actif** | Travail en cours |\n| **En pause** | Suspendu temporairement |\n| **Terminé** | Travail achevé |\n| **Annulé** | Interrompu définitivement |\n\n### Comment le changer\nModifiez le statut depuis la fiche projet (nécessite `progetti.edit`). Le changement de statut ne supprime ni tâches, ni jalons, ni feuilles de temps liés.",
+                    "excerpt": "Statuts du projet Chaque projet a un statut représentant sa phase actuelle. Statuts disponibles Statut Signification Planification Défini mais pas encore démarré Actif Travail en cours En pause Suspendu temporairement Terminé...",
+                    "aliases": [
+                        "statuts projet",
+                        "statut projet",
+                        "cycle de vie projet",
+                        "phases projet"
+                    ]
+                },
+                "de": {
+                    "question": "Welche Status kann ein Projekt haben?",
+                    "answer_markdown": "## Projektstatus\nJedes Projekt hat einen Status, der die aktuelle Phase darstellt.\n\n### Verfügbare Status\n| Status | Bedeutung |\n|---|---|\n| **Planung** | Definiert, aber noch nicht gestartet |\n| **Aktiv** | Arbeit läuft |\n| **Pausiert** | Vorübergehend ausgesetzt |\n| **Abgeschlossen** | Arbeit beendet |\n| **Abgebrochen** | Endgültig eingestellt |\n\n### Ändern\nÄndern Sie den Status über die Projektseite (erfordert `progetti.edit`). Der Statuswechsel löscht keine verknüpften Aufgaben, Meilensteine oder Zeiterfassungen.",
+                    "excerpt": "Projektstatus Jedes Projekt hat einen Status, der die aktuelle Phase darstellt. Verfügbare Status Status Bedeutung Planung Definiert, aber noch nicht gestartet Aktiv Arbeit läuft Pausiert Vorübergehend ausgesetzt Abgeschlossen...",
+                    "aliases": [
+                        "projektstatus",
+                        "projektphasen",
+                        "projekt lebenszyklus"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cuáles son los estados posibles de un proyecto?",
+                    "answer_markdown": "## Estados del proyecto\nCada proyecto tiene un estado que representa su fase actual.\n\n### Estados disponibles\n| Estado | Significado |\n|---|---|\n| **Planificación** | Definido pero aún no iniciado |\n| **Activo** | Trabajo en curso |\n| **En pausa** | Suspendido temporalmente |\n| **Completado** | Trabajo finalizado |\n| **Cancelado** | Interrumpido definitivamente |\n\n### Cómo cambiarlo\nCambia el estado desde la ficha del proyecto (requiere `progetti.edit`). El cambio de estado no elimina tareas, hitos ni registros de horas vinculados.",
+                    "excerpt": "Estados del proyecto Cada proyecto tiene un estado que representa su fase actual. Estados disponibles Estado Significado Planificación Definido pero aún no iniciado Activo Trabajo en curso En pausa Suspendido temporalmente...",
+                    "aliases": [
+                        "estados proyecto",
+                        "estado proyecto",
+                        "ciclo de vida proyecto",
+                        "fases proyecto"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "projects.index",
+            "permission_slug": "progetti.manage_members",
+            "ranking_weight": 0,
+            "sort_order": 5,
+            "locales": {
+                "it": {
+                    "question": "Come gestisco i membri di un progetto?",
+                    "answer_markdown": "## Membri del progetto\nOgni progetto ha una squadra di membri con un ruolo specifico.\n\n### Ruoli disponibili\n- **Responsabile** (owner): il creatore del progetto, non può essere rimosso;\n- **Membro**: partecipa alle attività assegnate;\n- **Osservatore** (viewer): può consultare senza operare.\n\n### Aggiungere o rimuovere membri\nServe `progetti.manage_members`. Un membro non può essere rimosso se ha ancora attività assegnate: riassegnale prima di toglierlo dal progetto.\n\n### Tariffa oraria\nPer ogni membro puoi impostare una tariffa oraria specifica, usata nel calcolo dei costi del timesheet.",
+                    "excerpt": "Membri del progetto Ogni progetto ha una squadra di membri con un ruolo specifico. Ruoli disponibili Responsabile (owner): il creatore del progetto, non può essere rimosso; Membro: partecipa alle attività assegnate; Osservatore...",
+                    "aliases": [
+                        "membri progetto",
+                        "ruoli progetto",
+                        "aggiungere membri",
+                        "responsabile progetto",
+                        "team progetto"
+                    ]
+                },
+                "en": {
+                    "question": "How do I manage project members?",
+                    "answer_markdown": "## Project members\nEach project has a team of members with a specific role.\n\n### Available roles\n- **Owner**: the project's creator, cannot be removed;\n- **Member**: works on assigned tasks;\n- **Viewer**: can consult without acting.\n\n### Adding or removing members\nRequires `progetti.manage_members`. A member can't be removed while they still have assigned tasks: reassign those first.\n\n### Hourly rate\nEach member can have a specific hourly rate, used to compute timesheet costs.",
+                    "excerpt": "Project members Each project has a team of members with a specific role. Available roles Owner: the project's creator, cannot be removed; Member: works on assigned tasks; Viewer: can consult without acting. Adding or removing...",
+                    "aliases": [
+                        "project members",
+                        "project roles",
+                        "add members",
+                        "project owner",
+                        "project team"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment gérer les membres d'un projet ?",
+                    "answer_markdown": "## Membres du projet\nChaque projet dispose d'une équipe de membres avec un rôle spécifique.\n\n### Rôles disponibles\n- **Responsable** (owner) : le créateur du projet, ne peut pas être retiré ;\n- **Membre** : travaille sur les tâches assignées ;\n- **Observateur** (viewer) : peut consulter sans agir.\n\n### Ajouter ou retirer des membres\nNécessite `progetti.manage_members`. Un membre ne peut pas être retiré s'il a encore des tâches assignées : réassignez-les d'abord.\n\n### Taux horaire\nChaque membre peut avoir un taux horaire spécifique, utilisé pour calculer les coûts de la feuille de temps.",
+                    "excerpt": "Membres du projet Chaque projet dispose d'une équipe de membres avec un rôle spécifique. Rôles disponibles Responsable (owner) : le créateur du projet, ne peut pas être retiré ; Membre : travaille sur les tâches assignées ;...",
+                    "aliases": [
+                        "membres projet",
+                        "rôles projet",
+                        "ajouter membres",
+                        "responsable projet",
+                        "équipe projet"
+                    ]
+                },
+                "de": {
+                    "question": "Wie verwalte ich die Mitglieder eines Projekts?",
+                    "answer_markdown": "## Projektmitglieder\nJedes Projekt hat ein Team von Mitgliedern mit einer bestimmten Rolle.\n\n### Verfügbare Rollen\n- **Verantwortlicher** (Owner): der Ersteller des Projekts, kann nicht entfernt werden;\n- **Mitglied**: arbeitet an zugewiesenen Aufgaben;\n- **Beobachter** (Viewer): kann einsehen, aber nicht bearbeiten.\n\n### Mitglieder hinzufügen oder entfernen\nErfordert `progetti.manage_members`. Ein Mitglied kann nicht entfernt werden, solange ihm noch Aufgaben zugewiesen sind: weisen Sie diese zuerst neu zu.\n\n### Stundensatz\nFür jedes Mitglied kann ein eigener Stundensatz festgelegt werden, der für die Kostenberechnung der Zeiterfassung verwendet wird.",
+                    "excerpt": "Projektmitglieder Jedes Projekt hat ein Team von Mitgliedern mit einer bestimmten Rolle. Verfügbare Rollen Verantwortlicher (Owner): der Ersteller des Projekts, kann nicht entfernt werden; Mitglied: arbeitet an zugewiesenen...",
+                    "aliases": [
+                        "projektmitglieder",
+                        "projektrollen",
+                        "mitglieder hinzufügen",
+                        "projektverantwortlicher",
+                        "projektteam"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo gestiono los miembros de un proyecto?",
+                    "answer_markdown": "## Miembros del proyecto\nCada proyecto tiene un equipo de miembros con un rol específico.\n\n### Roles disponibles\n- **Responsable** (owner): quien creó el proyecto, no se puede eliminar;\n- **Miembro**: trabaja en las tareas asignadas;\n- **Observador** (viewer): puede consultar sin actuar.\n\n### Añadir o quitar miembros\nRequiere `progetti.manage_members`. No se puede quitar a un miembro mientras tenga tareas asignadas: reasígnalas primero.\n\n### Tarifa horaria\nPara cada miembro puedes fijar una tarifa horaria específica, usada para calcular los costes del parte de horas.",
+                    "excerpt": "Miembros del proyecto Cada proyecto tiene un equipo de miembros con un rol específico. Roles disponibles Responsable (owner): quien creó el proyecto, no se puede eliminar; Miembro: trabaja en las tareas asignadas; Observador...",
+                    "aliases": [
+                        "miembros proyecto",
+                        "roles proyecto",
+                        "añadir miembros",
+                        "responsable proyecto",
+                        "equipo proyecto"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "projects.index",
+            "permission_slug": "progetti.edit",
+            "ranking_weight": 0,
+            "sort_order": 6,
+            "locales": {
+                "it": {
+                    "question": "Cosa sono le milestone e come le gestisco?",
+                    "answer_markdown": "## Milestone\nLe milestone sono le tappe chiave che scandiscono l'avanzamento del progetto.\n\n### Campi di una milestone\n- nome e descrizione;\n- **data di scadenza**;\n- **stato**: in attesa, in corso, completata, mancata;\n- flag **fatturabile**, utile per i progetti a cliente.\n\n### Gestione\nCrea, modifica ed elimina le milestone dalla scheda progetto (richiede `progetti.edit`). Le attività possono essere collegate a una milestone per tenerne traccia l'avanzamento.",
+                    "excerpt": "Milestone Le milestone sono le tappe chiave che scandiscono l'avanzamento del progetto. Campi di una milestone nome e descrizione; data di scadenza; stato: in attesa, in corso, completata, mancata; flag fatturabile, utile per i...",
+                    "aliases": [
+                        "milestone progetto",
+                        "tappe progetto",
+                        "scadenze milestone"
+                    ]
+                },
+                "en": {
+                    "question": "What are milestones and how do I manage them?",
+                    "answer_markdown": "## Milestones\nMilestones are the key checkpoints marking a project's progress.\n\n### Milestone fields\n- name and description;\n- **due date**;\n- **status**: pending, in progress, done, missed;\n- **billable** flag, useful for client projects.\n\n### Management\nCreate, edit and delete milestones from the project page (requires `progetti.edit`). Tasks can be linked to a milestone to track its progress.",
+                    "excerpt": "Milestones Milestones are the key checkpoints marking a project's progress. Milestone fields name and description; due date; status: pending, in progress, done, missed; billable flag, useful for client projects. Management...",
+                    "aliases": [
+                        "project milestones",
+                        "milestone status",
+                        "milestone due date"
+                    ]
+                },
+                "fr": {
+                    "question": "Que sont les jalons et comment les gérer ?",
+                    "answer_markdown": "## Jalons\nLes jalons sont les étapes clés qui rythment l'avancement du projet.\n\n### Champs d'un jalon\n- nom et description ;\n- **date d'échéance** ;\n- **statut** : en attente, en cours, terminé, manqué ;\n- indicateur **facturable**, utile pour les projets clients.\n\n### Gestion\nCréez, modifiez et supprimez les jalons depuis la fiche projet (nécessite `progetti.edit`). Les tâches peuvent être liées à un jalon pour suivre son avancement.",
+                    "excerpt": "Jalons Les jalons sont les étapes clés qui rythment l'avancement du projet. Champs d'un jalon nom et description ; date d'échéance ; statut : en attente, en cours, terminé, manqué ; indicateur facturable, utile pour les projets...",
+                    "aliases": [
+                        "jalons projet",
+                        "étapes projet",
+                        "échéances jalons"
+                    ]
+                },
+                "de": {
+                    "question": "Was sind Meilensteine und wie verwalte ich sie?",
+                    "answer_markdown": "## Meilensteine\nMeilensteine sind die wichtigsten Etappen, die den Fortschritt eines Projekts markieren.\n\n### Felder eines Meilensteins\n- Name und Beschreibung;\n- **Fälligkeitsdatum**;\n- **Status**: ausstehend, in Bearbeitung, erledigt, verpasst;\n- Kennzeichen **abrechenbar**, nützlich für Kundenprojekte.\n\n### Verwaltung\nMeilensteine werden über die Projektseite erstellt, bearbeitet und gelöscht (erfordert `progetti.edit`). Aufgaben können mit einem Meilenstein verknüpft werden, um dessen Fortschritt zu verfolgen.",
+                    "excerpt": "Meilensteine Meilensteine sind die wichtigsten Etappen, die den Fortschritt eines Projekts markieren. Felder eines Meilensteins Name und Beschreibung; Fälligkeitsdatum; Status: ausstehend, in Bearbeitung, erledigt, verpasst;...",
+                    "aliases": [
+                        "projektmeilensteine",
+                        "meilenstein status",
+                        "meilenstein termin"
+                    ]
+                },
+                "es": {
+                    "question": "¿Qué son los hitos y cómo los gestiono?",
+                    "answer_markdown": "## Hitos\nLos hitos son los puntos clave que marcan el avance del proyecto.\n\n### Campos de un hito\n- nombre y descripción;\n- **fecha límite**;\n- **estado**: pendiente, en curso, completado, fallido;\n- indicador **facturable**, útil para proyectos con cliente.\n\n### Gestión\nCrea, edita y elimina hitos desde la ficha del proyecto (requiere `progetti.edit`). Las tareas pueden vincularse a un hito para seguir su avance.",
+                    "excerpt": "Hitos Los hitos son los puntos clave que marcan el avance del proyecto. Campos de un hito nombre y descripción; fecha límite; estado: pendiente, en curso, completado, fallido; indicador facturable, útil para proyectos con...",
+                    "aliases": [
+                        "hitos proyecto",
+                        "estado hito",
+                        "fecha límite hito"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "projects.index",
+            "permission_slug": "progetti.edit",
+            "ranking_weight": 0,
+            "sort_order": 7,
+            "locales": {
+                "it": {
+                    "question": "Come creo e gestisco le attività di un progetto?",
+                    "answer_markdown": "## Attività di progetto\nLe attività sono le unità di lavoro assegnate ai membri del team.\n\n### Campi principali\n- **titolo** e descrizione;\n- **priorità**: bassa, media, alta, urgente;\n- **stato**: da fare, in corso, revisione, bloccato, completato;\n- **assegnatario**, date di inizio/scadenza, ore stimate;\n- collegamento opzionale a una **milestone**.\n\n### Chi può modificarle\nServe `progetti.edit` per creare o modificare i campi dell'attività. L'utente assegnato può comunque cambiare lo stato della propria attività anche senza questo permesso.",
+                    "excerpt": "Attività di progetto Le attività sono le unità di lavoro assegnate ai membri del team. Campi principali titolo e descrizione; priorità: bassa, media, alta, urgente; stato: da fare, in corso, revisione, bloccato, completato;...",
+                    "aliases": [
+                        "creare attivita progetto",
+                        "gestire attivita progetto",
+                        "task progetto",
+                        "assegnare attivita"
+                    ]
+                },
+                "en": {
+                    "question": "How do I create and manage project tasks?",
+                    "answer_markdown": "## Project tasks\nTasks are the units of work assigned to team members.\n\n### Main fields\n- **title** and description;\n- **priority**: low, medium, high, urgent;\n- **status**: to do, in progress, review, blocked, done;\n- **assignee**, start/due dates, estimated hours;\n- optional link to a **milestone**.\n\n### Who can edit them\n`progetti.edit` is required to create or edit task fields. The assigned user can still change their own task's status without this permission.",
+                    "excerpt": "Project tasks Tasks are the units of work assigned to team members. Main fields title and description; priority: low, medium, high, urgent; status: to do, in progress, review, blocked, done; assignee, start/due dates, estimated...",
+                    "aliases": [
+                        "create project task",
+                        "manage project tasks",
+                        "assign task",
+                        "project task fields"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment créer et gérer les tâches d'un projet ?",
+                    "answer_markdown": "## Tâches du projet\nLes tâches sont les unités de travail assignées aux membres de l'équipe.\n\n### Champs principaux\n- **titre** et description ;\n- **priorité** : basse, moyenne, haute, urgente ;\n- **statut** : à faire, en cours, révision, bloqué, terminé ;\n- **assigné**, dates de début/échéance, heures estimées ;\n- lien optionnel vers un **jalon**.\n\n### Qui peut les modifier\n`progetti.edit` est nécessaire pour créer ou modifier les champs de la tâche. La personne assignée peut néanmoins changer le statut de sa propre tâche sans cette permission.",
+                    "excerpt": "Tâches du projet Les tâches sont les unités de travail assignées aux membres de l'équipe. Champs principaux titre et description ; priorité : basse, moyenne, haute, urgente ; statut : à faire, en cours, révision, bloqué, terminé...",
+                    "aliases": [
+                        "créer tâche projet",
+                        "gérer tâches projet",
+                        "assigner tâche"
+                    ]
+                },
+                "de": {
+                    "question": "Wie erstelle und verwalte ich Projektaufgaben?",
+                    "answer_markdown": "## Projektaufgaben\nAufgaben sind die Arbeitseinheiten, die Teammitgliedern zugewiesen werden.\n\n### Hauptfelder\n- **Titel** und Beschreibung;\n- **Priorität**: niedrig, mittel, hoch, dringend;\n- **Status**: zu erledigen, in Bearbeitung, Prüfung, blockiert, erledigt;\n- **Zuständiger**, Start-/Fälligkeitsdatum, geschätzte Stunden;\n- optionale Verknüpfung mit einem **Meilenstein**.\n\n### Wer sie bearbeiten darf\n`progetti.edit` ist erforderlich, um Aufgabenfelder zu erstellen oder zu ändern. Der zugewiesene Benutzer kann den Status seiner eigenen Aufgabe auch ohne diese Berechtigung ändern.",
+                    "excerpt": "Projektaufgaben Aufgaben sind die Arbeitseinheiten, die Teammitgliedern zugewiesen werden. Hauptfelder Titel und Beschreibung; Priorität: niedrig, mittel, hoch, dringend; Status: zu erledigen, in Bearbeitung, Prüfung, blockiert,...",
+                    "aliases": [
+                        "projektaufgabe erstellen",
+                        "projektaufgaben verwalten",
+                        "aufgabe zuweisen"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo creo y gestiono las tareas de un proyecto?",
+                    "answer_markdown": "## Tareas del proyecto\nLas tareas son las unidades de trabajo asignadas a los miembros del equipo.\n\n### Campos principales\n- **título** y descripción;\n- **prioridad**: baja, media, alta, urgente;\n- **estado**: por hacer, en curso, revisión, bloqueada, completada;\n- **asignado**, fechas de inicio/vencimiento, horas estimadas;\n- vínculo opcional a un **hito**.\n\n### Quién puede modificarlas\nSe requiere `progetti.edit` para crear o modificar los campos de la tarea. El usuario asignado puede cambiar el estado de su propia tarea aunque no tenga ese permiso.",
+                    "excerpt": "Tareas del proyecto Las tareas son las unidades de trabajo asignadas a los miembros del equipo. Campos principales título y descripción; prioridad: baja, media, alta, urgente; estado: por hacer, en curso, revisión, bloqueada,...",
+                    "aliases": [
+                        "crear tarea proyecto",
+                        "gestionar tareas proyecto",
+                        "asignar tarea"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "projects.kanban",
+            "permission_slug": "progetti.view",
+            "ranking_weight": 0,
+            "sort_order": 8,
+            "locales": {
+                "it": {
+                    "question": "Come funziona il flusso di stato delle attività?",
+                    "answer_markdown": "## Flusso di stato\nLe attività passano attraverso cinque stati: **Da fare → In corso → Revisione → Bloccato → Completato**.\n\n### Blocchi al completamento\nUn'attività non può passare a **Completato** se:\n- ha voci di checklist non ancora spuntate;\n- ha attività predecessori (dipendenze) non ancora completate.\n\n### Chi può cambiare lo stato\nChi ha `progetti.edit`, oppure l'utente assegnato all'attività, direttamente dalla scheda o trascinando la card nella board Kanban.",
+                    "excerpt": "Flusso di stato Le attività passano attraverso cinque stati: Da fare → In corso → Revisione → Bloccato → Completato. Blocchi al completamento Un'attività non può passare a Completato se: ha voci di checklist non ancora spuntate;...",
+                    "aliases": [
+                        "stati attivita progetto",
+                        "flusso attivita",
+                        "come completare attivita",
+                        "blocco completamento"
+                    ]
+                },
+                "en": {
+                    "question": "How does the task status workflow work?",
+                    "answer_markdown": "## Status workflow\nTasks move through five statuses: **To do → In progress → Review → Blocked → Done**.\n\n### Blocks on completion\nA task cannot move to **Done** if:\n- it still has unchecked checklist items;\n- it has predecessor tasks (dependencies) that aren't done yet.\n\n### Who can change the status\nAnyone with `progetti.edit`, or the user assigned to the task, either from the task page or by dragging the card on the Kanban board.",
+                    "excerpt": "Status workflow Tasks move through five statuses: To do → In progress → Review → Blocked → Done. Blocks on completion A task cannot move to Done if: it still has unchecked checklist items; it has predecessor tasks (dependencies)...",
+                    "aliases": [
+                        "task status workflow",
+                        "task states",
+                        "how to complete task",
+                        "completion block"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment fonctionne le flux de statut des tâches ?",
+                    "answer_markdown": "## Flux de statut\nLes tâches traversent cinq statuts : **À faire → En cours → Révision → Bloqué → Terminé**.\n\n### Blocages à la finalisation\nUne tâche ne peut pas passer à **Terminé** si :\n- elle a des éléments de checklist non cochés ;\n- elle a des tâches prédécesseurs (dépendances) non terminées.\n\n### Qui peut changer le statut\nToute personne disposant de `progetti.edit`, ou la personne assignée à la tâche, depuis la fiche ou en glissant la carte sur le tableau Kanban.",
+                    "excerpt": "Flux de statut Les tâches traversent cinq statuts : À faire → En cours → Révision → Bloqué → Terminé. Blocages à la finalisation Une tâche ne peut pas passer à Terminé si : elle a des éléments de checklist non cochés ; elle a des...",
+                    "aliases": [
+                        "statuts tâches projet",
+                        "flux tâches",
+                        "terminer une tâche",
+                        "blocage finalisation"
+                    ]
+                },
+                "de": {
+                    "question": "Wie funktioniert der Status-Workflow für Aufgaben?",
+                    "answer_markdown": "## Status-Workflow\nAufgaben durchlaufen fünf Status: **Zu erledigen → In Bearbeitung → Prüfung → Blockiert → Erledigt**.\n\n### Sperren beim Abschluss\nEine Aufgabe kann nicht auf **Erledigt** wechseln, wenn:\n- noch nicht abgehakte Checklistenpunkte vorhanden sind;\n- vorgelagerte Aufgaben (Abhängigkeiten) noch nicht erledigt sind.\n\n### Wer den Status ändern darf\nJeder mit `progetti.edit`, oder der zugewiesene Benutzer, entweder über die Aufgabenseite oder per Ziehen der Karte im Kanban-Board.",
+                    "excerpt": "Status-Workflow Aufgaben durchlaufen fünf Status: Zu erledigen → In Bearbeitung → Prüfung → Blockiert → Erledigt. Sperren beim Abschluss Eine Aufgabe kann nicht auf Erledigt wechseln, wenn: noch nicht abgehakte Checklistenpunkte...",
+                    "aliases": [
+                        "aufgabenstatus projekt",
+                        "aufgaben workflow",
+                        "aufgabe abschließen",
+                        "abschluss blockiert"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo funciona el flujo de estado de las tareas?",
+                    "answer_markdown": "## Flujo de estado\nLas tareas pasan por cinco estados: **Por hacer → En curso → Revisión → Bloqueada → Completada**.\n\n### Bloqueos para completar\nUna tarea no puede pasar a **Completada** si:\n- todavía tiene elementos de la checklist sin marcar;\n- tiene tareas predecesoras (dependencias) sin completar.\n\n### Quién puede cambiar el estado\nQuien tenga `progetti.edit`, o el usuario asignado a la tarea, desde la ficha o arrastrando la tarjeta en el tablero Kanban.",
+                    "excerpt": "Flujo de estado Las tareas pasan por cinco estados: Por hacer → En curso → Revisión → Bloqueada → Completada. Bloqueos para completar Una tarea no puede pasar a Completada si: todavía tiene elementos de la checklist sin marcar;...",
+                    "aliases": [
+                        "estados tareas proyecto",
+                        "flujo tareas",
+                        "completar tarea",
+                        "bloqueo completar"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "projects.index",
+            "permission_slug": "progetti.edit",
+            "ranking_weight": 0,
+            "sort_order": 9,
+            "locales": {
+                "it": {
+                    "question": "Cosa sono le dipendenze tra attività?",
+                    "answer_markdown": "## Dipendenze\nUna dipendenza collega un'attività a un'altra che deve essere completata prima (predecessore).\n\n### Regole\n- le dipendenze devono restare nello stesso progetto;\n- il sistema impedisce di creare **dipendenze circolari**;\n- un'attività con predecessori non completati non può passare a Completato.\n\n### Gestione\nAggiungi o rimuovi dipendenze dalla scheda attività (richiede `progetti.edit`).",
+                    "excerpt": "Dipendenze Una dipendenza collega un'attività a un'altra che deve essere completata prima (predecessore). Regole le dipendenze devono restare nello stesso progetto; il sistema impedisce di creare dipendenze circolari; un'attività...",
+                    "aliases": [
+                        "dipendenze attivita",
+                        "predecessori attivita",
+                        "collegare attivita"
+                    ]
+                },
+                "en": {
+                    "question": "What are task dependencies?",
+                    "answer_markdown": "## Dependencies\nA dependency links a task to another one that must be completed first (a predecessor).\n\n### Rules\n- dependencies must stay within the same project;\n- the system prevents **circular dependencies**;\n- a task with incomplete predecessors cannot move to Done.\n\n### Management\nAdd or remove dependencies from the task page (requires `progetti.edit`).",
+                    "excerpt": "Dependencies A dependency links a task to another one that must be completed first (a predecessor). Rules dependencies must stay within the same project; the system prevents circular dependencies; a task with incomplete...",
+                    "aliases": [
+                        "task dependencies",
+                        "task predecessors",
+                        "link tasks"
+                    ]
+                },
+                "fr": {
+                    "question": "Que sont les dépendances entre tâches ?",
+                    "answer_markdown": "## Dépendances\nUne dépendance relie une tâche à une autre qui doit être terminée avant (prédécesseur).\n\n### Règles\n- les dépendances doivent rester dans le même projet ;\n- le système empêche les **dépendances circulaires** ;\n- une tâche dont les prédécesseurs ne sont pas terminés ne peut pas passer à Terminé.\n\n### Gestion\nAjoutez ou retirez des dépendances depuis la fiche tâche (nécessite `progetti.edit`).",
+                    "excerpt": "Dépendances Une dépendance relie une tâche à une autre qui doit être terminée avant (prédécesseur). Règles les dépendances doivent rester dans le même projet ; le système empêche les dépendances circulaires ; une tâche dont les...",
+                    "aliases": [
+                        "dépendances tâches",
+                        "prédécesseurs tâche",
+                        "lier des tâches"
+                    ]
+                },
+                "de": {
+                    "question": "Was sind Abhängigkeiten zwischen Aufgaben?",
+                    "answer_markdown": "## Abhängigkeiten\nEine Abhängigkeit verknüpft eine Aufgabe mit einer anderen, die zuerst abgeschlossen sein muss (Vorgänger).\n\n### Regeln\n- Abhängigkeiten müssen innerhalb desselben Projekts bleiben;\n- das System verhindert **zirkuläre Abhängigkeiten**;\n- eine Aufgabe mit nicht abgeschlossenen Vorgängern kann nicht auf Erledigt wechseln.\n\n### Verwaltung\nAbhängigkeiten werden über die Aufgabenseite hinzugefügt oder entfernt (erfordert `progetti.edit`).",
+                    "excerpt": "Abhängigkeiten Eine Abhängigkeit verknüpft eine Aufgabe mit einer anderen, die zuerst abgeschlossen sein muss (Vorgänger). Regeln Abhängigkeiten müssen innerhalb desselben Projekts bleiben; das System verhindert zirkuläre...",
+                    "aliases": [
+                        "aufgaben abhängigkeiten",
+                        "vorgänger aufgabe",
+                        "aufgaben verknüpfen"
+                    ]
+                },
+                "es": {
+                    "question": "¿Qué son las dependencias entre tareas?",
+                    "answer_markdown": "## Dependencias\nUna dependencia vincula una tarea con otra que debe completarse antes (predecesora).\n\n### Reglas\n- las dependencias deben permanecer dentro del mismo proyecto;\n- el sistema impide crear **dependencias circulares**;\n- una tarea con predecesoras sin completar no puede pasar a Completada.\n\n### Gestión\nAñade o elimina dependencias desde la ficha de la tarea (requiere `progetti.edit`).",
+                    "excerpt": "Dependencias Una dependencia vincula una tarea con otra que debe completarse antes (predecesora). Reglas las dependencias deben permanecer dentro del mismo proyecto; el sistema impide crear dependencias circulares; una tarea con...",
+                    "aliases": [
+                        "dependencias tareas",
+                        "predecesoras tarea",
+                        "vincular tareas"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "projects.kanban",
+            "permission_slug": "progetti.view",
+            "ranking_weight": 0,
+            "sort_order": 10,
+            "locales": {
+                "it": {
+                    "question": "Come uso la vista Kanban?",
+                    "answer_markdown": "## Board Kanban\nLa board Kanban mostra le attività del progetto raggruppate per stato in colonne.\n\n### Come si usa\n- trascina una card per cambiarne lo stato o l'ordine;\n- ogni colonna corrisponde a uno stato (Da fare, In corso, Revisione, Bloccato, Completato);\n- i blocchi su checklist e dipendenze si applicano anche qui: una card non entra in Completato se non soddisfa le condizioni.",
+                    "excerpt": "Board Kanban La board Kanban mostra le attività del progetto raggruppate per stato in colonne. Come si usa trascina una card per cambiarne lo stato o l'ordine; ogni colonna corrisponde a uno stato (Da fare, In corso, Revisione,...",
+                    "aliases": [
+                        "kanban progetti",
+                        "board progetti",
+                        "trascinare attivita"
+                    ]
+                },
+                "en": {
+                    "question": "How do I use the Kanban view?",
+                    "answer_markdown": "## Kanban board\nThe Kanban board shows the project's tasks grouped into columns by status.\n\n### How to use it\n- drag a card to change its status or order;\n- each column matches a status (To do, In progress, Review, Blocked, Done);\n- the checklist and dependency blocks still apply here: a card can't enter Done unless the conditions are met.",
+                    "excerpt": "Kanban board The Kanban board shows the project's tasks grouped into columns by status. How to use it drag a card to change its status or order; each column matches a status (To do, In progress, Review, Blocked, Done); the...",
+                    "aliases": [
+                        "projects kanban",
+                        "kanban board",
+                        "drag task"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment utiliser la vue Kanban ?",
+                    "answer_markdown": "## Tableau Kanban\nLe tableau Kanban affiche les tâches du projet regroupées par statut en colonnes.\n\n### Utilisation\n- glissez une carte pour changer son statut ou son ordre ;\n- chaque colonne correspond à un statut (À faire, En cours, Révision, Bloqué, Terminé) ;\n- les blocages liés aux checklists et dépendances s'appliquent aussi ici : une carte n'entre pas dans Terminé si les conditions ne sont pas remplies.",
+                    "excerpt": "Tableau Kanban Le tableau Kanban affiche les tâches du projet regroupées par statut en colonnes. Utilisation glissez une carte pour changer son statut ou son ordre ; chaque colonne correspond à un statut (À faire, En cours,...",
+                    "aliases": [
+                        "kanban projets",
+                        "tableau kanban",
+                        "glisser une tâche"
+                    ]
+                },
+                "de": {
+                    "question": "Wie benutze ich die Kanban-Ansicht?",
+                    "answer_markdown": "## Kanban-Board\nDas Kanban-Board zeigt die Aufgaben des Projekts nach Status in Spalten gruppiert.\n\n### Verwendung\n- eine Karte ziehen, um Status oder Reihenfolge zu ändern;\n- jede Spalte entspricht einem Status (Zu erledigen, In Bearbeitung, Prüfung, Blockiert, Erledigt);\n- die Sperren durch Checklisten und Abhängigkeiten gelten auch hier: eine Karte kommt nur bei erfüllten Bedingungen nach Erledigt.",
+                    "excerpt": "Kanban-Board Das Kanban-Board zeigt die Aufgaben des Projekts nach Status in Spalten gruppiert. Verwendung eine Karte ziehen, um Status oder Reihenfolge zu ändern; jede Spalte entspricht einem Status (Zu erledigen, In...",
+                    "aliases": [
+                        "projekte kanban",
+                        "kanban board",
+                        "aufgabe ziehen"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo uso la vista Kanban?",
+                    "answer_markdown": "## Tablero Kanban\nEl tablero Kanban muestra las tareas del proyecto agrupadas por estado en columnas.\n\n### Cómo se usa\n- arrastra una tarjeta para cambiar su estado u orden;\n- cada columna corresponde a un estado (Por hacer, En curso, Revisión, Bloqueada, Completada);\n- los bloqueos de checklist y dependencias también aplican aquí: una tarjeta no entra en Completada si no se cumplen las condiciones.",
+                    "excerpt": "Tablero Kanban El tablero Kanban muestra las tareas del proyecto agrupadas por estado en columnas. Cómo se usa arrastra una tarjeta para cambiar su estado u orden; cada columna corresponde a un estado (Por hacer, En curso,...",
+                    "aliases": [
+                        "kanban proyectos",
+                        "tablero kanban",
+                        "arrastrar tarea"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "projects.gantt",
+            "permission_slug": "progetti.view",
+            "ranking_weight": 0,
+            "sort_order": 11,
+            "locales": {
+                "it": {
+                    "question": "Come uso la vista Gantt?",
+                    "answer_markdown": "## Diagramma di Gantt\nIl Gantt mostra la timeline del progetto in base alle date di inizio e scadenza delle attività.\n\n### Scala temporale\nLa scala si adatta automaticamente: giornaliera per progetti fino a 60 giorni, settimanale per progetti più lunghi.\n\n### A cosa serve\nTi aiuta a individuare sovrapposizioni, colli di bottiglia e il carico di lavoro nel tempo.",
+                    "excerpt": "Diagramma di Gantt Il Gantt mostra la timeline del progetto in base alle date di inizio e scadenza delle attività. Scala temporale La scala si adatta automaticamente: giornaliera per progetti fino a 60 giorni, settimanale per...",
+                    "aliases": [
+                        "gantt progetti",
+                        "diagramma gantt",
+                        "timeline progetto"
+                    ]
+                },
+                "en": {
+                    "question": "How do I use the Gantt view?",
+                    "answer_markdown": "## Gantt chart\nThe Gantt chart shows the project timeline based on tasks' start and due dates.\n\n### Time scale\nThe scale adapts automatically: daily for projects up to 60 days, weekly for longer ones.\n\n### What it's for\nIt helps you spot overlaps, bottlenecks and workload over time.",
+                    "excerpt": "Gantt chart The Gantt chart shows the project timeline based on tasks' start and due dates. Time scale The scale adapts automatically: daily for projects up to 60 days, weekly for longer ones. What it's for It helps you spot...",
+                    "aliases": [
+                        "projects gantt",
+                        "gantt chart",
+                        "project timeline"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment utiliser la vue Gantt ?",
+                    "answer_markdown": "## Diagramme de Gantt\nLe Gantt affiche la chronologie du projet selon les dates de début et d'échéance des tâches.\n\n### Échelle temporelle\nL'échelle s'adapte automatiquement : journalière pour les projets jusqu'à 60 jours, hebdomadaire au-delà.\n\n### À quoi ça sert\nCela aide à repérer les chevauchements, les goulots d'étranglement et la charge de travail dans le temps.",
+                    "excerpt": "Diagramme de Gantt Le Gantt affiche la chronologie du projet selon les dates de début et d'échéance des tâches. Échelle temporelle L'échelle s'adapte automatiquement : journalière pour les projets jusqu'à 60 jours, hebdomadaire...",
+                    "aliases": [
+                        "gantt projets",
+                        "diagramme gantt",
+                        "chronologie projet"
+                    ]
+                },
+                "de": {
+                    "question": "Wie benutze ich die Gantt-Ansicht?",
+                    "answer_markdown": "## Gantt-Diagramm\nDas Gantt-Diagramm zeigt die Projekt-Zeitachse anhand der Start- und Fälligkeitsdaten der Aufgaben.\n\n### Zeitskala\nDie Skala passt sich automatisch an: täglich für Projekte bis 60 Tage, wöchentlich für längere.\n\n### Wofür es nützlich ist\nEs hilft, Überschneidungen, Engpässe und die Arbeitsauslastung im Zeitverlauf zu erkennen.",
+                    "excerpt": "Gantt-Diagramm Das Gantt-Diagramm zeigt die Projekt-Zeitachse anhand der Start- und Fälligkeitsdaten der Aufgaben. Zeitskala Die Skala passt sich automatisch an: täglich für Projekte bis 60 Tage, wöchentlich für längere. Wofür es...",
+                    "aliases": [
+                        "projekte gantt",
+                        "gantt diagramm",
+                        "projekt zeitachse"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo uso la vista Gantt?",
+                    "answer_markdown": "## Diagrama de Gantt\nEl Gantt muestra la línea temporal del proyecto según las fechas de inicio y vencimiento de las tareas.\n\n### Escala temporal\nLa escala se adapta automáticamente: diaria para proyectos de hasta 60 días, semanal para los más largos.\n\n### Para qué sirve\nAyuda a detectar solapes, cuellos de botella y la carga de trabajo a lo largo del tiempo.",
+                    "excerpt": "Diagrama de Gantt El Gantt muestra la línea temporal del proyecto según las fechas de inicio y vencimiento de las tareas. Escala temporal La escala se adapta automáticamente: diaria para proyectos de hasta 60 días, semanal para...",
+                    "aliases": [
+                        "gantt proyectos",
+                        "diagrama gantt",
+                        "línea temporal proyecto"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "projects.checklist_templates.index",
+            "permission_slug": "progetti.edit",
+            "ranking_weight": 0,
+            "sort_order": 12,
+            "locales": {
+                "it": {
+                    "question": "Come funzionano le checklist e i template?",
+                    "answer_markdown": "## Checklist delle attività\nOgni attività può avere una checklist di voci da completare.\n\n### Regole\n- le voci completate diventano **immutabili**: non si possono più modificare né riaprire;\n- quando spunti **l'ultima voce rimasta**, il sistema richiede un **commento** obbligatorio di chiusura;\n- puoi riordinare le voci con trascinamento.\n\n### Template riutilizzabili\nDal pannello Template puoi creare elenchi di voci standard (richiede `progetti.edit`) e applicarli in blocco a un'attività invece di inserirle una per una.",
+                    "excerpt": "Checklist delle attività Ogni attività può avere una checklist di voci da completare. Regole le voci completate diventano immutabili: non si possono più modificare né riaprire; quando spunti l'ultima voce rimasta, il sistema...",
+                    "aliases": [
+                        "checklist attivita",
+                        "template checklist",
+                        "voci checklist",
+                        "checklist progetti"
+                    ]
+                },
+                "en": {
+                    "question": "How do checklists and templates work?",
+                    "answer_markdown": "## Task checklists\nEach task can have a checklist of items to complete.\n\n### Rules\n- checked items become **immutable**: they can no longer be edited or reopened;\n- when you check **the last remaining item**, the system requires a mandatory closing **comment**;\n- you can reorder items by dragging.\n\n### Reusable templates\nFrom the Templates panel you can create standard item lists (requires `progetti.edit`) and apply them in bulk to a task instead of adding items one by one.",
+                    "excerpt": "Task checklists Each task can have a checklist of items to complete. Rules checked items become immutable: they can no longer be edited or reopened; when you check the last remaining item, the system requires a mandatory closing...",
+                    "aliases": [
+                        "task checklist",
+                        "checklist template",
+                        "checklist items",
+                        "project checklist"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment fonctionnent les checklists et les modèles ?",
+                    "answer_markdown": "## Checklists de tâches\nChaque tâche peut avoir une checklist d'éléments à compléter.\n\n### Règles\n- les éléments cochés deviennent **immuables** : ils ne peuvent plus être modifiés ni rouverts ;\n- lorsque vous cochez **le dernier élément restant**, le système exige un **commentaire** de clôture obligatoire ;\n- vous pouvez réordonner les éléments par glisser-déposer.\n\n### Modèles réutilisables\nDepuis le panneau Modèles, créez des listes d'éléments standard (nécessite `progetti.edit`) et appliquez-les en masse à une tâche au lieu de les saisir une par une.",
+                    "excerpt": "Checklists de tâches Chaque tâche peut avoir une checklist d'éléments à compléter. Règles les éléments cochés deviennent immuables : ils ne peuvent plus être modifiés ni rouverts ; lorsque vous cochez le dernier élément restant,...",
+                    "aliases": [
+                        "checklist tâches",
+                        "modèle checklist",
+                        "éléments checklist"
+                    ]
+                },
+                "de": {
+                    "question": "Wie funktionieren Checklisten und Vorlagen?",
+                    "answer_markdown": "## Aufgaben-Checklisten\nJede Aufgabe kann eine Checkliste mit zu erledigenden Punkten haben.\n\n### Regeln\n- abgehakte Punkte werden **unveränderlich**: sie können nicht mehr bearbeitet oder wieder geöffnet werden;\n- wenn Sie **den letzten verbleibenden Punkt** abhaken, verlangt das System einen verpflichtenden Abschlusskommentar;\n- Punkte können per Ziehen neu geordnet werden.\n\n### Wiederverwendbare Vorlagen\nIm Vorlagen-Panel können Sie Standardlisten erstellen (erfordert `progetti.edit`) und sie einer Aufgabe gesammelt statt einzeln zuweisen.",
+                    "excerpt": "Aufgaben-Checklisten Jede Aufgabe kann eine Checkliste mit zu erledigenden Punkten haben. Regeln abgehakte Punkte werden unveränderlich: sie können nicht mehr bearbeitet oder wieder geöffnet werden; wenn Sie den letzten...",
+                    "aliases": [
+                        "aufgaben checkliste",
+                        "checkliste vorlage",
+                        "checkliste punkte"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo funcionan las checklists y las plantillas?",
+                    "answer_markdown": "## Checklists de tareas\nCada tarea puede tener una checklist de elementos por completar.\n\n### Reglas\n- los elementos marcados se vuelven **inmutables**: ya no se pueden editar ni reabrir;\n- al marcar **el último elemento pendiente**, el sistema exige un **comentario** de cierre obligatorio;\n- puedes reordenar los elementos arrastrándolos.\n\n### Plantillas reutilizables\nDesde el panel de Plantillas puedes crear listas de elementos estándar (requiere `progetti.edit`) y aplicarlas en bloque a una tarea en vez de añadirlas una a una.",
+                    "excerpt": "Checklists de tareas Cada tarea puede tener una checklist de elementos por completar. Reglas los elementos marcados se vuelven inmutables: ya no se pueden editar ni reabrir; al marcar el último elemento pendiente, el sistema...",
+                    "aliases": [
+                        "checklist tareas",
+                        "plantilla checklist",
+                        "elementos checklist"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "projects.timesheet",
+            "permission_slug": "progetti.log_time",
+            "ranking_weight": 0,
+            "sort_order": 13,
+            "locales": {
+                "it": {
+                    "question": "Come registro le ore lavorate (timesheet)?",
+                    "answer_markdown": "## Timesheet\nIl timesheet registra le ore lavorate su un progetto, per attività o a livello generale.\n\n### Permesso richiesto\nServe `progetti.log_time`.\n\n### Campi di una registrazione\n- **data** del lavoro svolto;\n- **ore** (da 0,01 a 24 per voce);\n- attività collegata (opzionale);\n- **nota** libera.\n\n### Modifica ed eliminazione\nPuoi correggere o cancellare le tue registrazioni finché il progetto è aperto.",
+                    "excerpt": "Timesheet Il timesheet registra le ore lavorate su un progetto, per attività o a livello generale. Permesso richiesto Serve progetti.log_time. Campi di una registrazione data del lavoro svolto; ore (da 0,01 a 24 per voce);...",
+                    "aliases": [
+                        "timesheet progetti",
+                        "registrare ore",
+                        "ore lavorate progetto",
+                        "log ore"
+                    ]
+                },
+                "en": {
+                    "question": "How do I log worked hours (timesheet)?",
+                    "answer_markdown": "## Timesheet\nThe timesheet logs hours worked on a project, per task or at the general level.\n\n### Required permission\nYou need `progetti.log_time`.\n\n### Entry fields\n- **date** the work was done;\n- **hours** (0.01 to 24 per entry);\n- linked task (optional);\n- free-text **note**.\n\n### Editing and deleting\nYou can correct or delete your own entries as long as the project is open.",
+                    "excerpt": "Timesheet The timesheet logs hours worked on a project, per task or at the general level. Required permission You need progetti.log_time. Entry fields date the work was done; hours (0.01 to 24 per entry); linked task (optional);...",
+                    "aliases": [
+                        "project timesheet",
+                        "log hours",
+                        "worked hours",
+                        "log time"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment enregistrer les heures travaillées (feuille de temps) ?",
+                    "answer_markdown": "## Feuille de temps\nLa feuille de temps enregistre les heures travaillées sur un projet, par tâche ou au niveau général.\n\n### Permission requise\nIl faut `progetti.log_time`.\n\n### Champs d'une saisie\n- **date** du travail effectué ;\n- **heures** (de 0,01 à 24 par saisie) ;\n- tâche liée (optionnelle) ;\n- **note** libre.\n\n### Modification et suppression\nVous pouvez corriger ou supprimer vos saisies tant que le projet est ouvert.",
+                    "excerpt": "Feuille de temps La feuille de temps enregistre les heures travaillées sur un projet, par tâche ou au niveau général. Permission requise Il faut progetti.log_time. Champs d'une saisie date du travail effectué ; heures (de 0,01 à...",
+                    "aliases": [
+                        "feuille de temps projet",
+                        "saisir heures",
+                        "heures travaillées"
+                    ]
+                },
+                "de": {
+                    "question": "Wie erfasse ich geleistete Stunden (Zeiterfassung)?",
+                    "answer_markdown": "## Zeiterfassung\nDie Zeiterfassung protokolliert geleistete Stunden für ein Projekt, pro Aufgabe oder allgemein.\n\n### Erforderliche Berechtigung\nSie benötigen `progetti.log_time`.\n\n### Felder eines Eintrags\n- **Datum** der geleisteten Arbeit;\n- **Stunden** (0,01 bis 24 pro Eintrag);\n- verknüpfte Aufgabe (optional);\n- freie **Notiz**.\n\n### Bearbeiten und Löschen\nSie können Ihre eigenen Einträge korrigieren oder löschen, solange das Projekt offen ist.",
+                    "excerpt": "Zeiterfassung Die Zeiterfassung protokolliert geleistete Stunden für ein Projekt, pro Aufgabe oder allgemein. Erforderliche Berechtigung Sie benötigen progetti.log_time. Felder eines Eintrags Datum der geleisteten Arbeit; Stunden...",
+                    "aliases": [
+                        "projekt zeiterfassung",
+                        "stunden erfassen",
+                        "geleistete stunden"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo registro las horas trabajadas (parte de horas)?",
+                    "answer_markdown": "## Parte de horas\nEl parte de horas registra las horas trabajadas en un proyecto, por tarea o a nivel general.\n\n### Permiso requerido\nSe necesita `progetti.log_time`.\n\n### Campos de un registro\n- **fecha** del trabajo realizado;\n- **horas** (de 0,01 a 24 por registro);\n- tarea vinculada (opcional);\n- **nota** libre.\n\n### Edición y eliminación\nPuedes corregir o eliminar tus registros mientras el proyecto esté abierto.",
+                    "excerpt": "Parte de horas El parte de horas registra las horas trabajadas en un proyecto, por tarea o a nivel general. Permiso requerido Se necesita progetti.log_time. Campos de un registro fecha del trabajo realizado; horas (de 0,01 a 24...",
+                    "aliases": [
+                        "parte de horas proyecto",
+                        "registrar horas",
+                        "horas trabajadas"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "projects.report",
+            "permission_slug": "progetti.view",
+            "ranking_weight": 0,
+            "sort_order": 14,
+            "locales": {
+                "it": {
+                    "question": "Come funzionano budget e controllo costi?",
+                    "answer_markdown": "## Budget e costi\nOgni progetto ha un **budget pianificato** confrontato con il costo reale calcolato dalle ore registrate.\n\n### Come si calcola il costo\nIl costo di ogni registrazione di ore è dato dalla tariffa oraria del membro (se impostata) moltiplicata per le ore registrate.\n\n### Soglie di avviso sul consumo del budget\n- verde fino all'85% del budget consumato;\n- giallo fino al 100%;\n- rosso oltre il 100%.\n\nRiceverai una notifica quando il consumo raggiunge l'80% e il 100% del budget pianificato.",
+                    "excerpt": "Budget e costi Ogni progetto ha un budget pianificato confrontato con il costo reale calcolato dalle ore registrate. Come si calcola il costo Il costo di ogni registrazione di ore è dato dalla tariffa oraria del membro (se...",
+                    "aliases": [
+                        "budget progetto",
+                        "controllo costi progetto",
+                        "burn budget",
+                        "costo progetto"
+                    ]
+                },
+                "en": {
+                    "question": "How does budget and cost control work?",
+                    "answer_markdown": "## Budget and costs\nEach project has a **planned budget** compared against the actual cost computed from logged hours.\n\n### How the cost is calculated\nThe cost of each hours entry is the member's hourly rate (if set) multiplied by the logged hours.\n\n### Budget burn warning thresholds\n- green up to 85% of budget consumed;\n- yellow up to 100%;\n- red beyond 100%.\n\nYou'll get notified when consumption reaches 80% and 100% of the planned budget.",
+                    "excerpt": "Budget and costs Each project has a planned budget compared against the actual cost computed from logged hours. How the cost is calculated The cost of each hours entry is the member's hourly rate (if set) multiplied by the logged...",
+                    "aliases": [
+                        "project budget",
+                        "cost control project",
+                        "budget burn",
+                        "project cost"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment fonctionnent le budget et le contrôle des coûts ?",
+                    "answer_markdown": "## Budget et coûts\nChaque projet a un **budget prévu** comparé au coût réel calculé à partir des heures enregistrées.\n\n### Calcul du coût\nLe coût de chaque saisie d'heures correspond au taux horaire du membre (si défini) multiplié par les heures saisies.\n\n### Seuils d'alerte sur la consommation du budget\n- vert jusqu'à 85 % du budget consommé ;\n- jaune jusqu'à 100 % ;\n- rouge au-delà de 100 %.\n\nVous serez notifié lorsque la consommation atteint 80 % et 100 % du budget prévu.",
+                    "excerpt": "Budget et coûts Chaque projet a un budget prévu comparé au coût réel calculé à partir des heures enregistrées. Calcul du coût Le coût de chaque saisie d'heures correspond au taux horaire du membre (si défini) multiplié par les...",
+                    "aliases": [
+                        "budget projet",
+                        "contrôle des coûts",
+                        "consommation budget",
+                        "coût projet"
+                    ]
+                },
+                "de": {
+                    "question": "Wie funktionieren Budget und Kostenkontrolle?",
+                    "answer_markdown": "## Budget und Kosten\nJedes Projekt hat ein **geplantes Budget**, das mit den tatsächlichen, aus erfassten Stunden berechneten Kosten verglichen wird.\n\n### Kostenberechnung\nDie Kosten jedes Stundeneintrags ergeben sich aus dem Stundensatz des Mitglieds (falls festgelegt) multipliziert mit den erfassten Stunden.\n\n### Warnschwellen beim Budgetverbrauch\n- grün bis 85 % des verbrauchten Budgets;\n- gelb bis 100 %;\n- rot über 100 %.\n\nSie werden benachrichtigt, wenn der Verbrauch 80 % und 100 % des geplanten Budgets erreicht.",
+                    "excerpt": "Budget und Kosten Jedes Projekt hat ein geplantes Budget, das mit den tatsächlichen, aus erfassten Stunden berechneten Kosten verglichen wird. Kostenberechnung Die Kosten jedes Stundeneintrags ergeben sich aus dem Stundensatz des...",
+                    "aliases": [
+                        "projektbudget",
+                        "kostenkontrolle projekt",
+                        "budgetverbrauch",
+                        "projektkosten"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo funcionan el presupuesto y el control de costes?",
+                    "answer_markdown": "## Presupuesto y costes\nCada proyecto tiene un **presupuesto planificado** que se compara con el coste real calculado a partir de las horas registradas.\n\n### Cómo se calcula el coste\nEl coste de cada registro de horas es la tarifa horaria del miembro (si está definida) multiplicada por las horas registradas.\n\n### Umbrales de aviso sobre el consumo del presupuesto\n- verde hasta el 85% del presupuesto consumido;\n- amarillo hasta el 100%;\n- rojo por encima del 100%.\n\nRecibirás una notificación cuando el consumo llegue al 80% y al 100% del presupuesto planificado.",
+                    "excerpt": "Presupuesto y costes Cada proyecto tiene un presupuesto planificado que se compara con el coste real calculado a partir de las horas registradas. Cómo se calcula el coste El coste de cada registro de horas es la tarifa horaria...",
+                    "aliases": [
+                        "presupuesto proyecto",
+                        "control de costes",
+                        "consumo presupuesto",
+                        "coste proyecto"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "projects.report",
+            "permission_slug": "progetti.view",
+            "ranking_weight": 0,
+            "sort_order": 15,
+            "locales": {
+                "it": {
+                    "question": "Cosa mostra il report di chiusura progetto?",
+                    "answer_markdown": "## Report di chiusura\nIl report riassume lo stato di avanzamento e i numeri chiave del progetto.\n\n### KPI mostrati\n- **% di avanzamento**: attività completate sul totale (rosso <50%, giallo <80%, verde ≥80%);\n- **% ore consumate** rispetto alle ore stimate;\n- **% di budget consumato** (burn rate);\n- stato delle milestone e riepilogo delle attività per stato.",
+                    "excerpt": "Report di chiusura Il report riassume lo stato di avanzamento e i numeri chiave del progetto. KPI mostrati % di avanzamento: attività completate sul totale (rosso <50%, giallo <80%, verde ≥80%); % ore consumate rispetto alle ore...",
+                    "aliases": [
+                        "report progetto",
+                        "kpi progetto",
+                        "avanzamento progetto",
+                        "dashboard progetto"
+                    ]
+                },
+                "en": {
+                    "question": "What does the project closure report show?",
+                    "answer_markdown": "## Closure report\nThe report summarizes the project's progress and key figures.\n\n### KPIs shown\n- **progress %**: completed tasks over the total (red <50%, yellow <80%, green ≥80%);\n- **hours consumed %** versus estimated hours;\n- **budget consumed %** (burn rate);\n- milestone status and a task summary by status.",
+                    "excerpt": "Closure report The report summarizes the project's progress and key figures. KPIs shown progress %: completed tasks over the total (red <50%, yellow <80%, green ≥80%); hours consumed % versus estimated hours; budget consumed %...",
+                    "aliases": [
+                        "project report",
+                        "project kpi",
+                        "project progress",
+                        "project dashboard"
+                    ]
+                },
+                "fr": {
+                    "question": "Que montre le rapport de clôture du projet ?",
+                    "answer_markdown": "## Rapport de clôture\nLe rapport résume l'avancement et les chiffres clés du projet.\n\n### KPI affichés\n- **% d'avancement** : tâches terminées sur le total (rouge <50 %, jaune <80 %, vert ≥80 %) ;\n- **% d'heures consommées** par rapport aux heures estimées ;\n- **% de budget consommé** (burn rate) ;\n- statut des jalons et récapitulatif des tâches par statut.",
+                    "excerpt": "Rapport de clôture Le rapport résume l'avancement et les chiffres clés du projet. KPI affichés % d'avancement : tâches terminées sur le total (rouge <50 %, jaune <80 %, vert ≥80 %) ; % d'heures consommées par rapport aux heures...",
+                    "aliases": [
+                        "rapport projet",
+                        "kpi projet",
+                        "avancement projet",
+                        "tableau de bord projet"
+                    ]
+                },
+                "de": {
+                    "question": "Was zeigt der Projektabschlussbericht?",
+                    "answer_markdown": "## Abschlussbericht\nDer Bericht fasst den Fortschritt und die wichtigsten Kennzahlen des Projekts zusammen.\n\n### Angezeigte KPIs\n- **Fortschritt in %**: abgeschlossene Aufgaben im Verhältnis zur Gesamtzahl (rot <50 %, gelb <80 %, grün ≥80 %);\n- **verbrauchte Stunden in %** im Vergleich zu geschätzten Stunden;\n- **verbrauchtes Budget in %** (Burn Rate);\n- Meilensteinstatus und Aufgabenübersicht nach Status.",
+                    "excerpt": "Abschlussbericht Der Bericht fasst den Fortschritt und die wichtigsten Kennzahlen des Projekts zusammen. Angezeigte KPIs Fortschritt in %: abgeschlossene Aufgaben im Verhältnis zur Gesamtzahl (rot <50 %, gelb <80 %, grün ≥80 %);...",
+                    "aliases": [
+                        "projektbericht",
+                        "projekt kpi",
+                        "projektfortschritt",
+                        "projekt dashboard"
+                    ]
+                },
+                "es": {
+                    "question": "¿Qué muestra el informe de cierre del proyecto?",
+                    "answer_markdown": "## Informe de cierre\nEl informe resume el avance y las cifras clave del proyecto.\n\n### KPI mostrados\n- **% de avance**: tareas completadas sobre el total (rojo <50%, amarillo <80%, verde ≥80%);\n- **% de horas consumidas** frente a las horas estimadas;\n- **% de presupuesto consumido** (burn rate);\n- estado de los hitos y resumen de tareas por estado.",
+                    "excerpt": "Informe de cierre El informe resume el avance y las cifras clave del proyecto. KPI mostrados % de avance: tareas completadas sobre el total (rojo <50%, amarillo <80%, verde ≥80%); % de horas consumidas frente a las horas...",
+                    "aliases": [
+                        "informe proyecto",
+                        "kpi proyecto",
+                        "avance proyecto",
+                        "panel proyecto"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "projects.my_tasks",
+            "permission_slug": "progetti.view",
+            "ranking_weight": 0,
+            "sort_order": 16,
+            "locales": {
+                "it": {
+                    "question": "Come vedo le mie attività assegnate su più progetti?",
+                    "answer_markdown": "## Le mie attività\nLa vista **Attività assegnate** raccoglie in un solo elenco le attività di tutti i progetti in cui sei coinvolto.\n\n### Filtri disponibili\nPuoi filtrare per stato e priorità per concentrarti su cosa fare per primo, senza passare da un progetto all'altro.",
+                    "excerpt": "Le mie attività La vista Attività assegnate raccoglie in un solo elenco le attività di tutti i progetti in cui sei coinvolto. Filtri disponibili Puoi filtrare per stato e priorità per concentrarti su cosa fare per primo, senza...",
+                    "aliases": [
+                        "mie attivita progetti",
+                        "attivita assegnate",
+                        "task assegnati"
+                    ]
+                },
+                "en": {
+                    "question": "How do I see my assigned tasks across multiple projects?",
+                    "answer_markdown": "## My tasks\nThe **Assigned tasks** view collects, in a single list, the tasks from every project you're involved in.\n\n### Available filters\nYou can filter by status and priority to focus on what to do first, without switching between projects.",
+                    "excerpt": "My tasks The Assigned tasks view collects, in a single list, the tasks from every project you're involved in. Available filters You can filter by status and priority to focus on what to do first, without switching between...",
+                    "aliases": [
+                        "my project tasks",
+                        "assigned tasks",
+                        "tasks assigned to me"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment voir mes tâches assignées sur plusieurs projets ?",
+                    "answer_markdown": "## Mes tâches\nLa vue **Tâches assignées** rassemble dans une seule liste les tâches de tous les projets auxquels vous participez.\n\n### Filtres disponibles\nVous pouvez filtrer par statut et priorité pour vous concentrer sur ce qu'il faut faire en premier, sans passer d'un projet à l'autre.",
+                    "excerpt": "Mes tâches La vue Tâches assignées rassemble dans une seule liste les tâches de tous les projets auxquels vous participez. Filtres disponibles Vous pouvez filtrer par statut et priorité pour vous concentrer sur ce qu'il faut...",
+                    "aliases": [
+                        "mes tâches projets",
+                        "tâches assignées",
+                        "tâches qui me sont assignées"
+                    ]
+                },
+                "de": {
+                    "question": "Wie sehe ich meine zugewiesenen Aufgaben über mehrere Projekte hinweg?",
+                    "answer_markdown": "## Meine Aufgaben\nDie Ansicht **Zugewiesene Aufgaben** sammelt in einer einzigen Liste die Aufgaben aus allen Projekten, an denen Sie beteiligt sind.\n\n### Verfügbare Filter\nSie können nach Status und Priorität filtern, um sich auf das Wichtigste zu konzentrieren, ohne zwischen Projekten zu wechseln.",
+                    "excerpt": "Meine Aufgaben Die Ansicht Zugewiesene Aufgaben sammelt in einer einzigen Liste die Aufgaben aus allen Projekten, an denen Sie beteiligt sind. Verfügbare Filter Sie können nach Status und Priorität filtern, um sich auf das...",
+                    "aliases": [
+                        "meine projektaufgaben",
+                        "zugewiesene aufgaben",
+                        "mir zugewiesene aufgaben"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo veo mis tareas asignadas en varios proyectos?",
+                    "answer_markdown": "## Mis tareas\nLa vista **Tareas asignadas** reúne en una sola lista las tareas de todos los proyectos en los que participas.\n\n### Filtros disponibles\nPuedes filtrar por estado y prioridad para centrarte en qué hacer primero, sin cambiar de un proyecto a otro.",
+                    "excerpt": "Mis tareas La vista Tareas asignadas reúne en una sola lista las tareas de todos los proyectos en los que participas. Filtros disponibles Puedes filtrar por estado y prioridad para centrarte en qué hacer primero, sin cambiar de...",
+                    "aliases": [
+                        "mis tareas proyectos",
+                        "tareas asignadas",
+                        "tareas asignadas a mí"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "projects.admin.index",
+            "permission_slug": "progetti.manage_all",
+            "ranking_weight": 0,
+            "sort_order": 17,
+            "locales": {
+                "it": {
+                    "question": "Come amministro cestino e ripristino dei progetti?",
+                    "answer_markdown": "## Amministrazione progetti\nIl pannello admin di Progetti permette di governare i progetti a livello aziendale.\n\n### Permesso richiesto\nServe `progetti.manage_all`.\n\n### Cosa puoi fare\n- vedere ed eliminare (soft-delete) qualsiasi progetto, anche non tuo;\n- consultare il **cestino** dei progetti eliminati;\n- **ripristinare** un progetto dal cestino;\n- eseguire il **purge** definitivo (irreversibile) di un progetto nel cestino.",
+                    "excerpt": "Amministrazione progetti Il pannello admin di Progetti permette di governare i progetti a livello aziendale. Permesso richiesto Serve progetti.manage_all. Cosa puoi fare vedere ed eliminare (soft-delete) qualsiasi progetto, anche...",
+                    "aliases": [
+                        "cestino progetti",
+                        "amministrazione progetti",
+                        "ripristinare progetto",
+                        "eliminare progetto definitivamente"
+                    ]
+                },
+                "en": {
+                    "question": "How do I administer the projects trash and restore?",
+                    "answer_markdown": "## Projects administration\nThe Projects admin panel lets you govern projects at the company level.\n\n### Required permission\nYou need `progetti.manage_all`.\n\n### What you can do\n- view and soft-delete any project, even ones you don't own;\n- browse the **trash** of deleted projects;\n- **restore** a project from the trash;\n- perform a permanent (irreversible) **purge** of a project in the trash.",
+                    "excerpt": "Projects administration The Projects admin panel lets you govern projects at the company level. Required permission You need progetti.manage_all. What you can do view and soft-delete any project, even ones you don't own; browse...",
+                    "aliases": [
+                        "projects trash",
+                        "projects administration",
+                        "restore project",
+                        "permanently delete project"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment administrer la corbeille et la restauration des projets ?",
+                    "answer_markdown": "## Administration des projets\nLe panneau d'administration de Projets permet de piloter les projets au niveau de l'entreprise.\n\n### Permission requise\nIl faut `progetti.manage_all`.\n\n### Ce que vous pouvez faire\n- voir et supprimer (suppression douce) n'importe quel projet, même s'il ne vous appartient pas ;\n- consulter la **corbeille** des projets supprimés ;\n- **restaurer** un projet depuis la corbeille ;\n- effectuer une **suppression définitive** (irréversible) d'un projet de la corbeille.",
+                    "excerpt": "Administration des projets Le panneau d'administration de Projets permet de piloter les projets au niveau de l'entreprise. Permission requise Il faut progetti.manage_all. Ce que vous pouvez faire voir et supprimer (suppression...",
+                    "aliases": [
+                        "corbeille projets",
+                        "administration projets",
+                        "restaurer projet",
+                        "supprimer projet définitivement"
+                    ]
+                },
+                "de": {
+                    "question": "Wie verwalte ich Papierkorb und Wiederherstellung von Projekten?",
+                    "answer_markdown": "## Projektverwaltung\nDas Admin-Panel von Projekte ermöglicht die unternehmensweite Steuerung von Projekten.\n\n### Erforderliche Berechtigung\nSie benötigen `progetti.manage_all`.\n\n### Was Sie tun können\n- jedes Projekt einsehen und (weich) löschen, auch fremde;\n- den **Papierkorb** gelöschter Projekte einsehen;\n- ein Projekt aus dem Papierkorb **wiederherstellen**;\n- ein Projekt im Papierkorb endgültig (unwiderruflich) **löschen** (Purge).",
+                    "excerpt": "Projektverwaltung Das Admin-Panel von Projekte ermöglicht die unternehmensweite Steuerung von Projekten. Erforderliche Berechtigung Sie benötigen progetti.manage_all. Was Sie tun können jedes Projekt einsehen und (weich) löschen,...",
+                    "aliases": [
+                        "projekte papierkorb",
+                        "projektverwaltung",
+                        "projekt wiederherstellen",
+                        "projekt endgültig löschen"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo administro la papelera y la restauración de proyectos?",
+                    "answer_markdown": "## Administración de proyectos\nEl panel de administración de Proyectos permite gobernar los proyectos a nivel de empresa.\n\n### Permiso requerido\nSe necesita `progetti.manage_all`.\n\n### Qué puedes hacer\n- ver y eliminar (borrado suave) cualquier proyecto, aunque no sea tuyo;\n- consultar la **papelera** de proyectos eliminados;\n- **restaurar** un proyecto desde la papelera;\n- realizar un **purgado** definitivo (irreversible) de un proyecto en la papelera.",
+                    "excerpt": "Administración de proyectos El panel de administración de Proyectos permite gobernar los proyectos a nivel de empresa. Permiso requerido Se necesita progetti.manage_all. Qué puedes hacer ver y eliminar (borrado suave) cualquier...",
+                    "aliases": [
+                        "papelera proyectos",
+                        "administración proyectos",
+                        "restaurar proyecto",
+                        "eliminar proyecto definitivamente"
+                    ]
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,586 @@
+{
+    "module_key": "contacts",
+    "module_name": "Contatti",
+    "label": "Contatti",
+    "description": "Rubrica personale e condivisa con schede contatto, campi estesi, importazione, condivisione e ricorrenze collegate al calendario.",
+    "audience_default": "user",
+    "locale_default": "it",
+    "route_name": "contacts.index",
+    "permission_slug": "contacts.view",
+    "sort_order": 25,
+    "entries": [
+        {
+            "audience": "user",
+            "route_name": "contacts.index",
+            "permission_slug": "contacts.view",
+            "ranking_weight": 24,
+            "sort_order": 1,
+            "locales": {
+                "it": {
+                    "question": "Come funziona il modulo Contatti?",
+                    "answer_markdown": "## Modulo Contatti\r\nContatti è la rubrica operativa di Favilla per persone, aziende e riferimenti utili.\r\n\r\n### Cosa puoi gestire\r\n- contatti personali o condivisi;\r\n- preferiti, categorie e tag;\r\n- canali di contatto e riferimenti social;\r\n- ricerca e filtri per trovare rapidamente la scheda corretta;\r\n- mappa e geolocalizzazione dove disponibili;\r\n- ricorrenze e promemoria collegati al Calendario;\r\n- importazioni o collegamenti da altri moduli.\r\n\r\n### Quando usarlo\r\nUsalo quando il centro del lavoro è la relazione con una persona o un'organizzazione e non ancora l'evento, il task o il documento collegato.\r\n\r\n### Punto di forza\r\nUna buona scheda contatto evita di riscrivere dati in altri moduli e rende molto più semplice creare appuntamenti, follow-up o documenti collegati.",
+                    "excerpt": "Modulo Contatti Contatti è la rubrica operativa di Favilla per persone, aziende e riferimenti utili. Cosa puoi gestire contatti personali o condivisi; preferiti, categorie e tag; canali di contatto e riferimenti...",
+                    "aliases": [
+                        "modulo contatti",
+                        "rubrica",
+                        "contatti condivisi",
+                        "ricorrenze contatti",
+                        "mappa contatti"
+                    ]
+                },
+                "en": {
+                    "question": "How does the Contacts module work?",
+                    "answer_markdown": "## Contacts module\nContacts is Favilla's operational address book for people, companies and useful references.\n\n### What you can manage\n- personal or shared contacts;\n- favorites, categories and tags;\n- contact channels and social references;\n- search and filters to quickly find the right card;\n- map and geolocation where available;\n- recurrences and reminders linked to the Calendar;\n- imports or links from other modules.\n\n### When to use it\nUse it when the center of the work is the relationship with a person or an organization, and not yet the linked event, task or document.\n\n### Strength\nA good contact card avoids rewriting data in other modules and makes it much easier to create appointments, follow-ups or linked documents.",
+                    "excerpt": "Contacts module Contacts is Favilla's operational address book for people, companies and useful references. What you can manage personal or shared contacts; favorites, categories and tags; contact cha...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment fonctionne le module Contacts ?",
+                    "answer_markdown": "## Module Contacts\nContacts est le carnet d'adresses opérationnel de Favilla pour les personnes, les entreprises et les références utiles.\n\n### Ce que vous pouvez gérer\n- contacts personnels ou partagés ;\n- favoris, catégories et étiquettes ;\n- canaux de contact et références sociales ;\n- recherche et filtres pour trouver rapidement la bonne fiche ;\n- carte et géolocalisation lorsque disponibles ;\n- récurrences et rappels liés au Calendrier ;\n- imports ou liens depuis d'autres modules.\n\n### Quand l'utiliser\nUtilisez-le quand le centre du travail est la relation avec une personne ou une organisation, et pas encore l'événement, la tâche ou le document lié.\n\n### Point fort\nUne bonne fiche de contact évite de réécrire des données dans d'autres modules et rend bien plus simple la création de rendez-vous, de suivis ou de documents liés.",
+                    "excerpt": "Module Contacts Contacts est le carnet d'adresses opérationnel de Favilla pour les personnes, les entreprises et les références utiles. Ce que vous pouvez gérer contacts personnels ou partagés ; favor...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie funktioniert das Kontakte-Modul?",
+                    "answer_markdown": "## Kontakte-Modul\nKontakte ist das operative Adressbuch von Favilla für Personen, Unternehmen und nützliche Verweise.\n\n### Was Sie verwalten können\n- persönliche oder geteilte Kontakte;\n- Favoriten, Kategorien und Tags;\n- Kontaktkanäle und Social-Media-Verweise;\n- Suche und Filter, um schnell die richtige Karte zu finden;\n- Karte und Geolokalisierung, sofern verfügbar;\n- Wiederholungen und Erinnerungen, die mit dem Kalender verknüpft sind;\n- Importe oder Verknüpfungen aus anderen Modulen.\n\n### Wann Sie es verwenden\nVerwenden Sie es, wenn der Mittelpunkt der Arbeit die Beziehung zu einer Person oder Organisation ist und noch nicht das verknüpfte Ereignis, die Aufgabe oder das Dokument.\n\n### Stärke\nEine gute Kontaktkarte erspart das erneute Eingeben von Daten in anderen Modulen und macht es viel einfacher, Termine, Follow-ups oder verknüpfte Dokumente zu erstellen.",
+                    "excerpt": "Kontakte-Modul Kontakte ist das operative Adressbuch von Favilla für Personen, Unternehmen und nützliche Verweise. Was Sie verwalten können persönliche oder geteilte Kontakte; Favoriten, Kategorien un...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo funciona el módulo Contactos?",
+                    "answer_markdown": "## Módulo Contactos\nContactos es la agenda operativa de Favilla para personas, empresas y referencias útiles.\n\n### Qué puedes gestionar\n- contactos personales o compartidos;\n- favoritos, categorías y etiquetas;\n- canales de contacto y referencias sociales;\n- búsqueda y filtros para encontrar rápidamente la ficha correcta;\n- mapa y geolocalización donde estén disponibles;\n- recurrencias y recordatorios vinculados al Calendario;\n- importaciones o vínculos desde otros módulos.\n\n### Cuándo usarlo\nÚsalo cuando el centro del trabajo es la relación con una persona u organización, y todavía no el evento, la tarea o el documento vinculado.\n\n### Punto fuerte\nUna buena ficha de contacto evita reescribir datos en otros módulos y hace mucho más sencillo crear citas, seguimientos o documentos vinculados.",
+                    "excerpt": "Módulo Contactos Contactos es la agenda operativa de Favilla para personas, empresas y referencias útiles. Qué puedes gestionar contactos personales o compartidos; favoritos, categorías y etiquetas; c...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "contacts.index",
+            "permission_slug": "contacts.view",
+            "ranking_weight": 18,
+            "sort_order": 2,
+            "locales": {
+                "it": {
+                    "question": "Come accedo al modulo Contatti?",
+                    "answer_markdown": "## Accesso ai Contatti\r\nIl modulo Contatti è disponibile dalla sidebar tramite la voce **Contatti**.\r\n\r\n### Permesso minimo\r\nPer aprire la rubrica serve `contacts.view`.\r\n\r\n### Altri permessi utili\r\n- `contacts.create` per inserire nuovi contatti;\r\n- `contacts.edit` e `contacts.delete` per modificare o rimuovere schede;\r\n- `contacts.import` per importazioni massive;\r\n- `contacts.share` per la condivisione.\r\n\r\n### Se non lo trovi\r\nQuando la voce non compare nel menu, il tuo ruolo non ha il permesso di visualizzazione oppure la navigazione concessa al tuo profilo non include il modulo.",
+                    "excerpt": "Accesso ai Contatti Il modulo Contatti è disponibile dalla sidebar tramite la voce Contatti. Permesso minimo Per aprire la rubrica serve contacts.view. Altri permessi utili contacts.create per inserire nuovi contatti...",
+                    "aliases": [
+                        "accesso contatti",
+                        "aprire contatti",
+                        "dove trovo contatti",
+                        "entrare in contatti"
+                    ]
+                },
+                "en": {
+                    "question": "How do I access the Contacts module?",
+                    "answer_markdown": "## Accessing Contacts\nThe Contacts module is available from the sidebar via the **Contacts** entry.\n\n### Minimum permission\nTo open the address book you need `contacts.view`.\n\n### Other useful permissions\n- `contacts.create` to add new contacts;\n- `contacts.edit` and `contacts.delete` to edit or remove cards;\n- `contacts.import` for bulk imports;\n- `contacts.share` for sharing.\n\n### If you can't find it\nWhen the entry doesn't appear in the menu, your role doesn't have the view permission or the navigation granted to your profile doesn't include the module.",
+                    "excerpt": "Accessing Contacts The Contacts module is available from the sidebar via the Contacts entry. Minimum permission To open the address book you need contacts.view. Other useful permissions contacts.creat...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment accéder au module Contacts ?",
+                    "answer_markdown": "## Accès aux Contacts\nLe module Contacts est disponible depuis la barre latérale via l'entrée **Contacts**.\n\n### Autorisation minimale\nPour ouvrir le carnet d'adresses, il faut `contacts.view`.\n\n### Autres autorisations utiles\n- `contacts.create` pour ajouter de nouveaux contacts ;\n- `contacts.edit` et `contacts.delete` pour modifier ou supprimer des fiches ;\n- `contacts.import` pour les imports massifs ;\n- `contacts.share` pour le partage.\n\n### Si vous ne le trouvez pas\nQuand l'entrée n'apparaît pas dans le menu, votre rôle n'a pas l'autorisation de consultation ou la navigation accordée à votre profil n'inclut pas le module.",
+                    "excerpt": "Accès aux Contacts Le module Contacts est disponible depuis la barre latérale via l'entrée Contacts. Autorisation minimale Pour ouvrir le carnet d'adresses, il faut contacts.view. Autres autorisations...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie greife ich auf das Kontakte-Modul zu?",
+                    "answer_markdown": "## Zugriff auf Kontakte\nDas Kontakte-Modul ist über die Sidebar mit dem Eintrag **Kontakte** verfügbar.\n\n### Mindestberechtigung\nUm das Adressbuch zu öffnen, benötigen Sie `contacts.view`.\n\n### Weitere nützliche Berechtigungen\n- `contacts.create`, um neue Kontakte hinzuzufügen;\n- `contacts.edit` und `contacts.delete`, um Karten zu bearbeiten oder zu entfernen;\n- `contacts.import` für Massenimporte;\n- `contacts.share` für die Freigabe.\n\n### Wenn Sie es nicht finden\nWenn der Eintrag nicht im Menü erscheint, hat Ihre Rolle keine Anzeigeberechtigung oder die Ihrem Profil gewährte Navigation enthält das Modul nicht.",
+                    "excerpt": "Zugriff auf Kontakte Das Kontakte-Modul ist über die Sidebar mit dem Eintrag Kontakte verfügbar. Mindestberechtigung Um das Adressbuch zu öffnen, benötigen Sie contacts.view. Weitere nützliche Berecht...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo accedo al módulo Contactos?",
+                    "answer_markdown": "## Acceso a los Contactos\nEl módulo Contactos está disponible desde la barra lateral mediante la entrada **Contactos**.\n\n### Permiso mínimo\nPara abrir la agenda necesitas `contacts.view`.\n\n### Otros permisos útiles\n- `contacts.create` para añadir nuevos contactos;\n- `contacts.edit` y `contacts.delete` para modificar o eliminar fichas;\n- `contacts.import` para importaciones masivas;\n- `contacts.share` para compartir.\n\n### Si no lo encuentras\nCuando la entrada no aparece en el menú, tu rol no tiene el permiso de visualización o la navegación concedida a tu perfil no incluye el módulo.",
+                    "excerpt": "Acceso a los Contactos El módulo Contactos está disponible desde la barra lateral mediante la entrada Contactos. Permiso mínimo Para abrir la agenda necesitas contacts.view. Otros permisos útiles cont...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "contacts.index",
+            "permission_slug": "contacts.view",
+            "ranking_weight": 0,
+            "sort_order": 3,
+            "locales": {
+                "it": {
+                    "question": "Panoramica della lista contatti",
+                    "answer_markdown": "La lista mostra tutti i tuoi contatti con:\n\n- avatar (iniziali generate automaticamente se non hai una foto);\n- nome, email e telefono;\n- categorie assegnate;\n- indicatore \"preferito\" (stella);\n- indicatore se il contatto è condiviso.\n\nNella striscia in cima (hero) trovi statistiche rapide: totale contatti, preferiti, categorie e ricorrenze imminenti.\n\n**Prossime ricorrenze**: sotto l'hero compare una barra orizzontale di chip con le ricorrenze nei prossimi 30 giorni. Ogni chip mostra il nome del contatto, il tipo di ricorrenza (compleanno, anniversario, evento), l'icona corrispondente e un badge di urgenza (\"Oggi\" o \"Tra N giorni\"). Clicca su un chip per aprire la scheda del contatto direttamente.",
+                    "excerpt": "La lista mostra tutti i tuoi contatti con: avatar (iniziali generate automaticamente se non hai una foto); nome, email e telefono; categorie assegnate; indicatore \"preferito\" (stella); indicatore se il contatto è condi…",
+                    "aliases": [
+                        "come panoramica della lista contatti",
+                        "contatti",
+                        "contatti panoramica della lista contatti",
+                        "panoramica della lista contatti"
+                    ]
+                },
+                "en": {
+                    "question": "Contacts list overview",
+                    "answer_markdown": "The list shows all your contacts with:\n\n- avatar (initials generated automatically if you don't have a photo);\n- name, email and phone;\n- assigned categories;\n- \"favorite\" indicator (star);\n- an indicator of whether the contact is shared.\n\nIn the strip at the top (hero) you find quick statistics: total contacts, favorites, categories and upcoming recurrences.\n\n**Upcoming recurrences**: below the hero, a horizontal bar of chips appears with the recurrences in the next 30 days. Each chip shows the contact's name, the type of recurrence (birthday, anniversary, event), the corresponding icon and an urgency badge (\"Today\" or \"In N days\"). Click a chip to open the contact's card directly.",
+                    "excerpt": "The list shows all your contacts with: avatar (initials generated automatically if you don't have a photo); name, email and phone; assigned categories; \"favorite\" indicator (star); an indicator of whe...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Aperçu de la liste de contacts",
+                    "answer_markdown": "La liste affiche tous vos contacts avec :\n\n- avatar (initiales générées automatiquement si vous n'avez pas de photo) ;\n- nom, e-mail et téléphone ;\n- catégories attribuées ;\n- indicateur « favori » (étoile) ;\n- un indicateur indiquant si le contact est partagé.\n\nDans le bandeau en haut (hero), vous trouvez des statistiques rapides : total des contacts, favoris, catégories et récurrences imminentes.\n\n**Prochaines récurrences** : sous le hero, une barre horizontale de pastilles apparaît avec les récurrences des 30 prochains jours. Chaque pastille affiche le nom du contact, le type de récurrence (anniversaire, événement), l'icône correspondante et un badge d'urgence (« Aujourd'hui » ou « Dans N jours »). Cliquez sur une pastille pour ouvrir directement la fiche du contact.",
+                    "excerpt": "La liste affiche tous vos contacts avec : avatar (initiales générées automatiquement si vous n'avez pas de photo) ; nom, e-mail et téléphone ; catégories attribuées ; indicateur « favori » (étoile) ; ...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Überblick über die Kontaktliste",
+                    "answer_markdown": "Die Liste zeigt alle Ihre Kontakte mit:\n\n- Avatar (Initialen automatisch generiert, wenn Sie kein Foto haben);\n- Name, E-Mail und Telefon;\n- zugewiesene Kategorien;\n- „Favorit“-Indikator (Stern);\n- einem Indikator, ob der Kontakt geteilt ist.\n\nIn der Leiste oben (Hero) finden Sie Schnellstatistiken: Gesamtzahl der Kontakte, Favoriten, Kategorien und anstehende Wiederholungen.\n\n**Nächste Wiederholungen**: Unter dem Hero erscheint eine horizontale Chip-Leiste mit den Wiederholungen der nächsten 30 Tage. Jeder Chip zeigt den Namen des Kontakts, die Art der Wiederholung (Geburtstag, Jahrestag, Ereignis), das entsprechende Symbol und ein Dringlichkeitsabzeichen („Heute“ oder „In N Tagen“). Klicken Sie auf einen Chip, um die Karte des Kontakts direkt zu öffnen.",
+                    "excerpt": "Die Liste zeigt alle Ihre Kontakte mit: Avatar (Initialen automatisch generiert, wenn Sie kein Foto haben); Name, E-Mail und Telefon; zugewiesene Kategorien; „Favorit“-Indikator (Stern); einem Indikat...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Resumen de la lista de contactos",
+                    "answer_markdown": "La lista muestra todos tus contactos con:\n\n- avatar (iniciales generadas automáticamente si no tienes una foto);\n- nombre, correo y teléfono;\n- categorías asignadas;\n- indicador «favorito» (estrella);\n- un indicador de si el contacto está compartido.\n\nEn la franja superior (hero) encuentras estadísticas rápidas: total de contactos, favoritos, categorías y recurrencias próximas.\n\n**Próximas recurrencias**: bajo el hero aparece una barra horizontal de chips con las recurrencias de los próximos 30 días. Cada chip muestra el nombre del contacto, el tipo de recurrencia (cumpleaños, aniversario, evento), el icono correspondiente y una insignia de urgencia («Hoy» o «En N días»). Haz clic en un chip para abrir directamente la ficha del contacto.",
+                    "excerpt": "La lista muestra todos tus contactos con: avatar (iniciales generadas automáticamente si no tienes una foto); nombre, correo y teléfono; categorías asignadas; indicador «favorito» (estrella); un indic...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "contacts.create",
+            "permission_slug": "contacts.create",
+            "ranking_weight": 0,
+            "sort_order": 4,
+            "locales": {
+                "it": {
+                    "question": "Creare un contatto",
+                    "answer_markdown": "1. Clicca \"Nuovo contatto\".\n2. Compila i campi che ti servono:\n   - **Nome** (obbligatorio) e cognome;\n   - **Azienda** e ruolo professionale;\n   - **Telefono**, telefono alternativo e **email**;\n   - **WhatsApp** collegato al numero di telefono;\n   - **Indirizzo**: via, citta', CAP, nazione;\n   - **Sito web**;\n   - **Profili social**: LinkedIn, Instagram, Twitter/X, Facebook, Telegram;\n   - **Categorie**: assegna una o piu' categorie;\n   - **Tag**: etichette libere separate da virgola;\n   - **Note**: testo libero (max 2000 caratteri);\n   - **Preferito**: spunta la stellina per contrassegnarlo fin dalla creazione.\n3. Salva.\n\n#### Geolocalizzazione dell'indirizzo\n\nNel modulo di creazione/modifica trovi i campi latitudine e longitudine. Per compilarli automaticamente clicca il pulsante **\"Seleziona da OpenStreetMap\"**: si apre una finestra di ricerca geocoding dove digiti un indirizzo e il sistema recupera le coordinate. Una volta salvate le coordinate, nella scheda del contatto compare una mappa interattiva OpenStreetMap.",
+                    "excerpt": "Clicca \"Nuovo contatto\". Compila i campi che ti servono: - Nome (obbligatorio) e cognome; - Azienda e ruolo professionale; - Telefono, telefono alternativo e email; - WhatsApp collegato al numero di telefono; - Indirizz…",
+                    "aliases": [
+                        "come creare un contatto",
+                        "contatti",
+                        "contatti creare un contatto",
+                        "creare un contatto"
+                    ]
+                },
+                "en": {
+                    "question": "Creating a contact",
+                    "answer_markdown": "1. Click \"New contact\".\n2. Fill in the fields you need:\n   - **First name** (required) and last name;\n   - **Company** and professional role;\n   - **Phone**, alternative phone and **email**;\n   - **WhatsApp** linked to the phone number;\n   - **Address**: street, city, postal code, country;\n   - **Website**;\n   - **Social profiles**: LinkedIn, Instagram, Twitter/X, Facebook, Telegram;\n   - **Categories**: assign one or more categories;\n   - **Tags**: free labels separated by commas;\n   - **Notes**: free text (max 2000 characters);\n   - **Favorite**: tick the star to mark it as a favorite right from creation.\n3. Save.\n\n#### Address geolocation\n\nIn the create/edit form you find the latitude and longitude fields. To fill them automatically, click the **\"Select from OpenStreetMap\"** button: a geocoding search window opens where you type an address and the system retrieves the coordinates. Once the coordinates are saved, an interactive OpenStreetMap map appears in the contact's card.",
+                    "excerpt": "1. Click \"New contact\". 2. Fill in the fields you need: - First name (required) and last name; - Company and professional role; - Phone, alternative phone and email; - WhatsApp linked to the phone num...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Créer un contact",
+                    "answer_markdown": "1. Cliquez sur « Nouveau contact ».\n2. Remplissez les champs dont vous avez besoin :\n   - **Prénom** (obligatoire) et nom ;\n   - **Entreprise** et rôle professionnel ;\n   - **Téléphone**, téléphone alternatif et **e-mail** ;\n   - **WhatsApp** lié au numéro de téléphone ;\n   - **Adresse** : rue, ville, code postal, pays ;\n   - **Site web** ;\n   - **Profils sociaux** : LinkedIn, Instagram, Twitter/X, Facebook, Telegram ;\n   - **Catégories** : attribuez une ou plusieurs catégories ;\n   - **Étiquettes** : libellés libres séparés par des virgules ;\n   - **Notes** : texte libre (max 2000 caractères) ;\n   - **Favori** : cochez l'étoile pour le marquer comme favori dès la création.\n3. Enregistrez.\n\n#### Géolocalisation de l'adresse\n\nDans le formulaire de création/modification, vous trouvez les champs latitude et longitude. Pour les remplir automatiquement, cliquez sur le bouton **« Sélectionner depuis OpenStreetMap »** : une fenêtre de recherche de géocodage s'ouvre où vous saisissez une adresse et le système récupère les coordonnées. Une fois les coordonnées enregistrées, une carte interactive OpenStreetMap apparaît dans la fiche du contact.",
+                    "excerpt": "1. Cliquez sur « Nouveau contact ». 2. Remplissez les champs dont vous avez besoin : - Prénom (obligatoire) et nom ; - Entreprise et rôle professionnel ; - Téléphone, téléphone alternatif et e-mail ; ...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Einen Kontakt erstellen",
+                    "answer_markdown": "1. Klicken Sie auf „Neuer Kontakt“.\n2. Füllen Sie die benötigten Felder aus:\n   - **Vorname** (erforderlich) und Nachname;\n   - **Unternehmen** und berufliche Rolle;\n   - **Telefon**, Alternativtelefon und **E-Mail**;\n   - **WhatsApp**, mit der Telefonnummer verknüpft;\n   - **Adresse**: Straße, Stadt, Postleitzahl, Land;\n   - **Website**;\n   - **Social-Media-Profile**: LinkedIn, Instagram, Twitter/X, Facebook, Telegram;\n   - **Kategorien**: weisen Sie eine oder mehrere Kategorien zu;\n   - **Tags**: freie, durch Kommas getrennte Labels;\n   - **Notizen**: Freitext (max. 2000 Zeichen);\n   - **Favorit**: Aktivieren Sie den Stern, um ihn schon bei der Erstellung als Favorit zu markieren.\n3. Speichern.\n\n#### Geolokalisierung der Adresse\n\nIm Erstellungs-/Bearbeitungsformular finden Sie die Felder Breitengrad und Längengrad. Um sie automatisch auszufüllen, klicken Sie auf die Schaltfläche **„Aus OpenStreetMap auswählen“**: Es öffnet sich ein Geocoding-Suchfenster, in dem Sie eine Adresse eingeben und das System die Koordinaten abruft. Sobald die Koordinaten gespeichert sind, erscheint in der Kontaktkarte eine interaktive OpenStreetMap-Karte.",
+                    "excerpt": "1. Klicken Sie auf „Neuer Kontakt“. 2. Füllen Sie die benötigten Felder aus: - Vorname (erforderlich) und Nachname; - Unternehmen und berufliche Rolle; - Telefon, Alternativtelefon und E-Mail; - Whats...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Crear un contacto",
+                    "answer_markdown": "1. Haz clic en «Nuevo contacto».\n2. Rellena los campos que necesites:\n   - **Nombre** (obligatorio) y apellido;\n   - **Empresa** y rol profesional;\n   - **Teléfono**, teléfono alternativo y **correo**;\n   - **WhatsApp** vinculado al número de teléfono;\n   - **Dirección**: calle, ciudad, código postal, país;\n   - **Sitio web**;\n   - **Perfiles sociales**: LinkedIn, Instagram, Twitter/X, Facebook, Telegram;\n   - **Categorías**: asigna una o más categorías;\n   - **Etiquetas**: etiquetas libres separadas por comas;\n   - **Notas**: texto libre (máx. 2000 caracteres);\n   - **Favorito**: marca la estrella para marcarlo como favorito desde la creación.\n3. Guarda.\n\n#### Geolocalización de la dirección\n\nEn el formulario de creación/edición encuentras los campos latitud y longitud. Para rellenarlos automáticamente, haz clic en el botón **«Seleccionar desde OpenStreetMap»**: se abre una ventana de búsqueda de geocodificación donde escribes una dirección y el sistema recupera las coordenadas. Una vez guardadas las coordenadas, en la ficha del contacto aparece un mapa interactivo de OpenStreetMap.",
+                    "excerpt": "1. Haz clic en «Nuevo contacto». 2. Rellena los campos que necesites: - Nombre (obligatorio) y apellido; - Empresa y rol profesional; - Teléfono, teléfono alternativo y correo; - WhatsApp vinculado al...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "contacts.index",
+            "permission_slug": "contacts.view",
+            "ranking_weight": 0,
+            "sort_order": 5,
+            "locales": {
+                "it": {
+                    "question": "Modificare ed eliminare un contatto",
+                    "answer_markdown": "- Dalla lista: clicca sul nome per aprire il dettaglio, poi \"Modifica\".\n- Dal dettaglio: usa il pulsante \"Modifica\" o \"Elimina\".\n- L'eliminazione è definitiva: il contatto non viene spostato in un cestino.",
+                    "excerpt": "Dalla lista: clicca sul nome per aprire il dettaglio, poi \"Modifica\". Dal dettaglio: usa il pulsante \"Modifica\" o \"Elimina\". L'eliminazione è definitiva: il contatto non viene spostato in un cestino.",
+                    "aliases": [
+                        "come modificare ed eliminare un contatto",
+                        "contatti",
+                        "contatti modificare ed eliminare un contatto",
+                        "modificare ed eliminare un contatto"
+                    ]
+                },
+                "en": {
+                    "question": "Editing and deleting a contact",
+                    "answer_markdown": "- From the list: click the name to open the detail, then \"Edit\".\n- From the detail: use the \"Edit\" or \"Delete\" button.\n- Deletion is permanent: the contact is not moved to a trash.",
+                    "excerpt": "From the list: click the name to open the detail, then \"Edit\". From the detail: use the \"Edit\" or \"Delete\" button. Deletion is permanent: the contact is not moved to a trash.",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Modifier et supprimer un contact",
+                    "answer_markdown": "- Depuis la liste : cliquez sur le nom pour ouvrir le détail, puis « Modifier ».\n- Depuis le détail : utilisez le bouton « Modifier » ou « Supprimer ».\n- La suppression est définitive : le contact n'est pas déplacé dans une corbeille.",
+                    "excerpt": "Depuis la liste : cliquez sur le nom pour ouvrir le détail, puis « Modifier ». Depuis le détail : utilisez le bouton « Modifier » ou « Supprimer ». La suppression est définitive : le contact n'est pas...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Einen Kontakt bearbeiten und löschen",
+                    "answer_markdown": "- Aus der Liste: Klicken Sie auf den Namen, um das Detail zu öffnen, dann auf „Bearbeiten“.\n- Aus dem Detail: Verwenden Sie die Schaltfläche „Bearbeiten“ oder „Löschen“.\n- Das Löschen ist endgültig: Der Kontakt wird nicht in einen Papierkorb verschoben.",
+                    "excerpt": "Aus der Liste: Klicken Sie auf den Namen, um das Detail zu öffnen, dann auf „Bearbeiten“. Aus dem Detail: Verwenden Sie die Schaltfläche „Bearbeiten“ oder „Löschen“. Das Löschen ist endgültig: Der Kon...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Editar y eliminar un contacto",
+                    "answer_markdown": "- Desde la lista: haz clic en el nombre para abrir el detalle, luego «Editar».\n- Desde el detalle: usa el botón «Editar» o «Eliminar».\n- La eliminación es definitiva: el contacto no se mueve a una papelera.",
+                    "excerpt": "Desde la lista: haz clic en el nombre para abrir el detalle, luego «Editar». Desde el detalle: usa el botón «Editar» o «Eliminar». La eliminación es definitiva: el contacto no se mueve a una papelera.",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "contacts.index",
+            "permission_slug": "contacts.view",
+            "ranking_weight": 0,
+            "sort_order": 6,
+            "locales": {
+                "it": {
+                    "question": "Contatti preferiti",
+                    "answer_markdown": "Clicca la stella accanto a un contatto per marcarlo come preferito (o toglierla per rimuoverlo dai preferiti). L'aggiornamento avviene in tempo reale senza ricaricare la pagina. I preferiti compaiono in evidenza nella lista e sono facilmente filtrabili tramite il filtro rapido.",
+                    "excerpt": "Clicca la stella accanto a un contatto per marcarlo come preferito (o toglierla per rimuoverlo dai preferiti). L'aggiornamento avviene in tempo reale senza ricaricare la pagina. I preferiti compaiono in evidenza nella l…",
+                    "aliases": [
+                        "come contatti preferiti",
+                        "contatti",
+                        "contatti contatti preferiti",
+                        "contatti preferiti"
+                    ]
+                },
+                "en": {
+                    "question": "Favorite contacts",
+                    "answer_markdown": "Click the star next to a contact to mark it as a favorite (or remove it to take it out of favorites). The update happens in real time without reloading the page. Favorites appear highlighted in the list and are easily filterable via the quick filter.",
+                    "excerpt": "Click the star next to a contact to mark it as a favorite (or remove it to take it out of favorites). The update happens in real time without reloading the page. Favorites appear highlighted in the li...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Contacts favoris",
+                    "answer_markdown": "Cliquez sur l'étoile à côté d'un contact pour le marquer comme favori (ou retirez-la pour le retirer des favoris). La mise à jour se fait en temps réel sans recharger la page. Les favoris apparaissent en évidence dans la liste et sont facilement filtrables via le filtre rapide.",
+                    "excerpt": "Cliquez sur l'étoile à côté d'un contact pour le marquer comme favori (ou retirez-la pour le retirer des favoris). La mise à jour se fait en temps réel sans recharger la page. Les favoris apparaissent...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Favoritenkontakte",
+                    "answer_markdown": "Klicken Sie auf den Stern neben einem Kontakt, um ihn als Favorit zu markieren (oder entfernen Sie ihn, um ihn aus den Favoriten zu nehmen). Die Aktualisierung erfolgt in Echtzeit, ohne die Seite neu zu laden. Favoriten werden in der Liste hervorgehoben und können über den Schnellfilter leicht gefiltert werden.",
+                    "excerpt": "Klicken Sie auf den Stern neben einem Kontakt, um ihn als Favorit zu markieren (oder entfernen Sie ihn, um ihn aus den Favoriten zu nehmen). Die Aktualisierung erfolgt in Echtzeit, ohne die Seite neu ...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Contactos favoritos",
+                    "answer_markdown": "Haz clic en la estrella junto a un contacto para marcarlo como favorito (o quítala para sacarlo de favoritos). La actualización ocurre en tiempo real sin recargar la página. Los favoritos aparecen destacados en la lista y se pueden filtrar fácilmente mediante el filtro rápido.",
+                    "excerpt": "Haz clic en la estrella junto a un contacto para marcarlo como favorito (o quítala para sacarlo de favoritos). La actualización ocurre en tiempo real sin recargar la página. Los favoritos aparecen des...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "contacts.index",
+            "permission_slug": "contacts.view",
+            "ranking_weight": 0,
+            "sort_order": 7,
+            "locales": {
+                "it": {
+                    "question": "Categorie e tag",
+                    "answer_markdown": "**Categorie**: raggruppano i contatti per tipo (es. Fornitori, Colleghi, Clienti). La sezione \"Categorie\" è accessibile dalla barra del modulo. Da qui puoi creare, rinominare e eliminare categorie. Eliminando una categoria, i contatti ad essa associati non vengono eliminati: perdono solo quell'etichetta.\n\n**Tag**: etichette libere separate da virgola sul singolo contatto. A differenza delle categorie non hanno una gestione centralizzata; puoi usarle per aggiungere parole chiave trasversali e filtrarci sopra.",
+                    "excerpt": "Categorie: raggruppano i contatti per tipo (es. Fornitori, Colleghi, Clienti). La sezione \"Categorie\" è accessibile dalla barra del modulo. Da qui puoi creare, rinominare e eliminare categorie. Eliminando una categoria…",
+                    "aliases": [
+                        "categorie e tag",
+                        "come categorie e tag",
+                        "contatti",
+                        "contatti categorie e tag"
+                    ]
+                },
+                "en": {
+                    "question": "Categories and tags",
+                    "answer_markdown": "**Categories**: group contacts by type (e.g. Suppliers, Colleagues, Customers). The \"Categories\" section is accessible from the module bar. From here you can create, rename and delete categories. Deleting a category does not delete the contacts associated with it: they only lose that label.\n\n**Tags**: free labels separated by commas on the individual contact. Unlike categories, they have no centralized management; you can use them to add cross-cutting keywords and filter on them.",
+                    "excerpt": "Categories: group contacts by type (e.g. Suppliers, Colleagues, Customers). The \"Categories\" section is accessible from the module bar. From here you can create, rename and delete categories. Deleting...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Catégories et étiquettes",
+                    "answer_markdown": "**Catégories** : regroupent les contacts par type (ex. Fournisseurs, Collègues, Clients). La section « Catégories » est accessible depuis la barre du module. Depuis là, vous pouvez créer, renommer et supprimer des catégories. Supprimer une catégorie ne supprime pas les contacts qui lui sont associés : ils perdent seulement cette étiquette.\n\n**Étiquettes** : libellés libres séparés par des virgules sur le contact individuel. Contrairement aux catégories, elles n'ont pas de gestion centralisée ; vous pouvez les utiliser pour ajouter des mots-clés transversaux et filtrer dessus.",
+                    "excerpt": "Catégories : regroupent les contacts par type (ex. Fournisseurs, Collègues, Clients). La section « Catégories » est accessible depuis la barre du module. Depuis là, vous pouvez créer, renommer et supp...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Kategorien und Tags",
+                    "answer_markdown": "**Kategorien**: gruppieren Kontakte nach Typ (z. B. Lieferanten, Kollegen, Kunden). Der Abschnitt „Kategorien“ ist über die Modulleiste zugänglich. Von hier aus können Sie Kategorien erstellen, umbenennen und löschen. Das Löschen einer Kategorie löscht die damit verknüpften Kontakte nicht: Sie verlieren nur dieses Label.\n\n**Tags**: freie, durch Kommas getrennte Labels am einzelnen Kontakt. Anders als Kategorien haben sie keine zentrale Verwaltung; Sie können sie verwenden, um übergreifende Stichwörter hinzuzufügen und danach zu filtern.",
+                    "excerpt": "Kategorien: gruppieren Kontakte nach Typ (z. B. Lieferanten, Kollegen, Kunden). Der Abschnitt „Kategorien“ ist über die Modulleiste zugänglich. Von hier aus können Sie Kategorien erstellen, umbenennen...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Categorías y etiquetas",
+                    "answer_markdown": "**Categorías**: agrupan los contactos por tipo (p. ej. Proveedores, Colegas, Clientes). La sección «Categorías» es accesible desde la barra del módulo. Desde aquí puedes crear, renombrar y eliminar categorías. Eliminar una categoría no elimina los contactos asociados a ella: solo pierden esa etiqueta.\n\n**Etiquetas**: etiquetas libres separadas por comas en el contacto individual. A diferencia de las categorías, no tienen gestión centralizada; puedes usarlas para añadir palabras clave transversales y filtrar por ellas.",
+                    "excerpt": "Categorías: agrupan los contactos por tipo (p. ej. Proveedores, Colegas, Clientes). La sección «Categorías» es accesible desde la barra del módulo. Desde aquí puedes crear, renombrar y eliminar catego...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "contacts.index",
+            "permission_slug": "contacts.view",
+            "ranking_weight": 0,
+            "sort_order": 8,
+            "locales": {
+                "it": {
+                    "question": "Ricorrenze e promemoria",
+                    "answer_markdown": "Le ricorrenze servono a ricordare date importanti legate a un contatto: compleanni, anniversari, scadenze contrattuali, ecc.\n\n**Tipi di ricorrenza disponibili**: compleanno, anniversario, evento.\n\n**Aggiungere una ricorrenza**:\n1. Apri il dettaglio del contatto.\n2. Nella sezione \"Ricorrenze\", clicca \"Aggiungi\".\n3. Inserisci il tipo, il titolo, la data e quanti giorni prima vuoi ricevere il promemoria.\n4. Salva.\n\nQuando la data si avvicina, il modulo Notifiche invia un avviso secondo le tue preferenze. Se il modulo Calendario e' attivo, la ricorrenza genera automaticamente un evento ricorrente nel Calendario; aggiornare o eliminare la ricorrenza aggiorna o rimuove l'evento corrispondente. L'icona \"In calendario\" nel dettaglio della ricorrenza indica che esiste l'evento collegato.",
+                    "excerpt": "Le ricorrenze servono a ricordare date importanti legate a un contatto: compleanni, anniversari, scadenze contrattuali, ecc. Tipi di ricorrenza disponibili: compleanno, anniversario, evento. Aggiungere una ricorrenza: A…",
+                    "aliases": [
+                        "come ricorrenze e promemoria",
+                        "contatti",
+                        "contatti ricorrenze e promemoria",
+                        "ricorrenze e promemoria"
+                    ]
+                },
+                "en": {
+                    "question": "Recurrences and reminders",
+                    "answer_markdown": "Recurrences serve to remember important dates linked to a contact: birthdays, anniversaries, contract deadlines, etc.\n\n**Available recurrence types**: birthday, anniversary, event.\n\n**Adding a recurrence**:\n1. Open the contact's detail.\n2. In the \"Recurrences\" section, click \"Add\".\n3. Enter the type, the title, the date and how many days before you want to receive the reminder.\n4. Save.\n\nWhen the date approaches, the Notifications module sends an alert according to your preferences. If the Calendar module is active, the recurrence automatically generates a recurring event in the Calendar; updating or deleting the recurrence updates or removes the corresponding event. The \"In calendar\" icon in the recurrence detail indicates that the linked event exists.",
+                    "excerpt": "Recurrences serve to remember important dates linked to a contact: birthdays, anniversaries, contract deadlines, etc. Available recurrence types: birthday, anniversary, event. Adding a recurrence: 1. ...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Récurrences et rappels",
+                    "answer_markdown": "Les récurrences servent à se souvenir de dates importantes liées à un contact : anniversaires, échéances de contrat, etc.\n\n**Types de récurrence disponibles** : anniversaire de naissance, anniversaire, événement.\n\n**Ajouter une récurrence** :\n1. Ouvrez le détail du contact.\n2. Dans la section « Récurrences », cliquez sur « Ajouter ».\n3. Saisissez le type, le titre, la date et le nombre de jours avant lesquels vous voulez recevoir le rappel.\n4. Enregistrez.\n\nLorsque la date approche, le module Notifications envoie une alerte selon vos préférences. Si le module Calendrier est actif, la récurrence génère automatiquement un événement récurrent dans le Calendrier ; mettre à jour ou supprimer la récurrence met à jour ou supprime l'événement correspondant. L'icône « Dans le calendrier » dans le détail de la récurrence indique que l'événement lié existe.",
+                    "excerpt": "Les récurrences servent à se souvenir de dates importantes liées à un contact : anniversaires, échéances de contrat, etc. Types de récurrence disponibles : anniversaire de naissance, anniversaire, évé...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wiederholungen und Erinnerungen",
+                    "answer_markdown": "Wiederholungen dienen dazu, sich an wichtige, mit einem Kontakt verbundene Daten zu erinnern: Geburtstage, Jahrestage, Vertragsfristen usw.\n\n**Verfügbare Wiederholungstypen**: Geburtstag, Jahrestag, Ereignis.\n\n**Eine Wiederholung hinzufügen**:\n1. Öffnen Sie das Detail des Kontakts.\n2. Klicken Sie im Abschnitt „Wiederholungen“ auf „Hinzufügen“.\n3. Geben Sie den Typ, den Titel, das Datum und ein, wie viele Tage vorher Sie die Erinnerung erhalten möchten.\n4. Speichern.\n\nWenn das Datum näher rückt, sendet das Benachrichtigungen-Modul eine Warnung gemäß Ihren Einstellungen. Wenn das Kalender-Modul aktiv ist, erzeugt die Wiederholung automatisch ein wiederkehrendes Ereignis im Kalender; das Aktualisieren oder Löschen der Wiederholung aktualisiert oder entfernt das entsprechende Ereignis. Das Symbol „Im Kalender“ im Wiederholungsdetail zeigt an, dass das verknüpfte Ereignis existiert.",
+                    "excerpt": "Wiederholungen dienen dazu, sich an wichtige, mit einem Kontakt verbundene Daten zu erinnern: Geburtstage, Jahrestage, Vertragsfristen usw. Verfügbare Wiederholungstypen: Geburtstag, Jahrestag, Ereign...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Recurrencias y recordatorios",
+                    "answer_markdown": "Las recurrencias sirven para recordar fechas importantes vinculadas a un contacto: cumpleaños, aniversarios, vencimientos de contrato, etc.\n\n**Tipos de recurrencia disponibles**: cumpleaños, aniversario, evento.\n\n**Añadir una recurrencia**:\n1. Abre el detalle del contacto.\n2. En la sección «Recurrencias», haz clic en «Añadir».\n3. Introduce el tipo, el título, la fecha y cuántos días antes quieres recibir el recordatorio.\n4. Guarda.\n\nCuando la fecha se acerca, el módulo Notificaciones envía un aviso según tus preferencias. Si el módulo Calendario está activo, la recurrencia genera automáticamente un evento recurrente en el Calendario; actualizar o eliminar la recurrencia actualiza o elimina el evento correspondiente. El icono «En calendario» en el detalle de la recurrencia indica que el evento vinculado existe.",
+                    "excerpt": "Las recurrencias sirven para recordar fechas importantes vinculadas a un contacto: cumpleaños, aniversarios, vencimientos de contrato, etc. Tipos de recurrencia disponibles: cumpleaños, aniversario, e...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "contacts.index",
+            "permission_slug": "contacts.view",
+            "ranking_weight": 0,
+            "sort_order": 9,
+            "locales": {
+                "it": {
+                    "question": "Condivisione",
+                    "answer_markdown": "Se hai il permesso di condivisione, puoi rendere un contatto visibile a tutti gli utenti di un determinato ruolo.\n\n**Condividere un contatto**:\n1. Apri il dettaglio del contatto.\n2. Clicca \"Modifica condivisione\" o l'icona apposita.\n3. Si apre la pagina condivisione con i ruoli disponibili. Spunta quelli con cui vuoi condividere.\n4. Salva.\n\nI destinatari ricevono una notifica della condivisione (se attiva). Il contatto condiviso e' visibile a tutti gli utenti di quel ruolo nella propria lista contatti (solo anagrafica; le ricorrenze private non vengono condivise), ma solo tu (il proprietario) puoi modificarlo o eliminarlo.\n\nPer revocare una condivisione, torna nella pagina condivisione e deseleziona il ruolo.",
+                    "excerpt": "Se hai il permesso di condivisione, puoi rendere un contatto visibile a tutti gli utenti di un determinato ruolo. Condividere un contatto: Apri il dettaglio del contatto. Clicca \"Modifica condivisione\" o l'icona apposit…",
+                    "aliases": [
+                        "come condivisione",
+                        "condivisione",
+                        "contatti",
+                        "contatti condivisione"
+                    ]
+                },
+                "en": {
+                    "question": "Sharing",
+                    "answer_markdown": "If you have the sharing permission, you can make a contact visible to all users of a given role.\n\n**Sharing a contact**:\n1. Open the contact's detail.\n2. Click \"Edit sharing\" or the dedicated icon.\n3. The sharing page opens with the available roles. Tick those you want to share with.\n4. Save.\n\nThe recipients receive a notification of the sharing (if active). The shared contact is visible to all users of that role in their own contacts list (contact details only; private recurrences are not shared), but only you (the owner) can edit or delete it.\n\nTo revoke a share, go back to the sharing page and deselect the role.",
+                    "excerpt": "If you have the sharing permission, you can make a contact visible to all users of a given role. Sharing a contact: 1. Open the contact's detail. 2. Click \"Edit sharing\" or the dedicated icon. 3. The ...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Partage",
+                    "answer_markdown": "Si vous avez l'autorisation de partage, vous pouvez rendre un contact visible à tous les utilisateurs d'un rôle donné.\n\n**Partager un contact** :\n1. Ouvrez le détail du contact.\n2. Cliquez sur « Modifier le partage » ou sur l'icône dédiée.\n3. La page de partage s'ouvre avec les rôles disponibles. Cochez ceux avec lesquels vous voulez partager.\n4. Enregistrez.\n\nLes destinataires reçoivent une notification du partage (si activée). Le contact partagé est visible par tous les utilisateurs de ce rôle dans leur propre liste de contacts (coordonnées uniquement ; les récurrences privées ne sont pas partagées), mais seul vous (le propriétaire) pouvez le modifier ou le supprimer.\n\nPour révoquer un partage, retournez sur la page de partage et désélectionnez le rôle.",
+                    "excerpt": "Si vous avez l'autorisation de partage, vous pouvez rendre un contact visible à tous les utilisateurs d'un rôle donné. Partager un contact : 1. Ouvrez le détail du contact. 2. Cliquez sur « Modifier l...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Freigabe",
+                    "answer_markdown": "Wenn Sie die Freigabeberechtigung haben, können Sie einen Kontakt für alle Benutzer einer bestimmten Rolle sichtbar machen.\n\n**Einen Kontakt teilen**:\n1. Öffnen Sie das Detail des Kontakts.\n2. Klicken Sie auf „Freigabe bearbeiten“ oder das entsprechende Symbol.\n3. Die Freigabeseite öffnet sich mit den verfügbaren Rollen. Aktivieren Sie diejenigen, mit denen Sie teilen möchten.\n4. Speichern.\n\nDie Empfänger erhalten eine Benachrichtigung über die Freigabe (falls aktiv). Der geteilte Kontakt ist für alle Benutzer dieser Rolle in ihrer eigenen Kontaktliste sichtbar (nur Stammdaten; private Wiederholungen werden nicht geteilt), aber nur Sie (der Eigentümer) können ihn bearbeiten oder löschen.\n\nUm eine Freigabe zu widerrufen, gehen Sie zurück zur Freigabeseite und wählen Sie die Rolle ab.",
+                    "excerpt": "Wenn Sie die Freigabeberechtigung haben, können Sie einen Kontakt für alle Benutzer einer bestimmten Rolle sichtbar machen. Einen Kontakt teilen: 1. Öffnen Sie das Detail des Kontakts. 2. Klicken Sie ...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Compartición",
+                    "answer_markdown": "Si tienes el permiso de compartición, puedes hacer que un contacto sea visible para todos los usuarios de un rol determinado.\n\n**Compartir un contacto**:\n1. Abre el detalle del contacto.\n2. Haz clic en «Editar compartición» o en el icono correspondiente.\n3. Se abre la página de compartición con los roles disponibles. Marca aquellos con los que quieres compartir.\n4. Guarda.\n\nLos destinatarios reciben una notificación de la compartición (si está activa). El contacto compartido es visible para todos los usuarios de ese rol en su propia lista de contactos (solo datos de contacto; las recurrencias privadas no se comparten), pero solo tú (el propietario) puedes editarlo o eliminarlo.\n\nPara revocar una compartición, vuelve a la página de compartición y deselecciona el rol.",
+                    "excerpt": "Si tienes el permiso de compartición, puedes hacer que un contacto sea visible para todos los usuarios de un rol determinado. Compartir un contacto: 1. Abre el detalle del contacto. 2. Haz clic en «Ed...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "contacts.index",
+            "permission_slug": "contacts.view",
+            "ranking_weight": 0,
+            "sort_order": 10,
+            "locales": {
+                "it": {
+                    "question": "Social e canali di contatto",
+                    "answer_markdown": "Nella scheda del contatto, accanto ai recapiti trovi pulsanti diretti per le azioni più comuni:\n\n- **Chiama**: apre il dialer del dispositivo;\n- **Email**: apre il client di posta predefinito;\n- **WhatsApp**: apre una chat WhatsApp diretta sul numero del contatto;\n- **LinkedIn, Twitter/X, Instagram, Facebook, Telegram, Sito web**: aprono il profilo corrispondente in una nuova scheda.",
+                    "excerpt": "Nella scheda del contatto, accanto ai recapiti trovi pulsanti diretti per le azioni più comuni: Chiama: apre il dialer del dispositivo; Email: apre il client di posta predefinito; WhatsApp: apre una chat WhatsApp diret…",
+                    "aliases": [
+                        "come social e canali di contatto",
+                        "contatti",
+                        "contatti social e canali di contatto",
+                        "social e canali di contatto"
+                    ]
+                },
+                "en": {
+                    "question": "Socials and contact channels",
+                    "answer_markdown": "In the contact's card, next to the contact details, you find direct buttons for the most common actions:\n\n- **Call**: opens the device's dialer;\n- **Email**: opens the default mail client;\n- **WhatsApp**: opens a direct WhatsApp chat on the contact's number;\n- **LinkedIn, Twitter/X, Instagram, Facebook, Telegram, Website**: open the corresponding profile in a new tab.",
+                    "excerpt": "In the contact's card, next to the contact details, you find direct buttons for the most common actions: Call: opens the device's dialer; Email: opens the default mail client; WhatsApp: opens a direct...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Réseaux sociaux et canaux de contact",
+                    "answer_markdown": "Dans la fiche du contact, à côté des coordonnées, vous trouvez des boutons directs pour les actions les plus courantes :\n\n- **Appeler** : ouvre le composeur de l'appareil ;\n- **E-mail** : ouvre le client de messagerie par défaut ;\n- **WhatsApp** : ouvre une discussion WhatsApp directe sur le numéro du contact ;\n- **LinkedIn, Twitter/X, Instagram, Facebook, Telegram, Site web** : ouvrent le profil correspondant dans un nouvel onglet.",
+                    "excerpt": "Dans la fiche du contact, à côté des coordonnées, vous trouvez des boutons directs pour les actions les plus courantes : Appeler : ouvre le composeur de l'appareil ; E-mail : ouvre le client de messag...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Social Media und Kontaktkanäle",
+                    "answer_markdown": "In der Kontaktkarte finden Sie neben den Kontaktdaten direkte Schaltflächen für die häufigsten Aktionen:\n\n- **Anrufen**: öffnet den Dialer des Geräts;\n- **E-Mail**: öffnet den Standard-E-Mail-Client;\n- **WhatsApp**: öffnet einen direkten WhatsApp-Chat mit der Nummer des Kontakts;\n- **LinkedIn, Twitter/X, Instagram, Facebook, Telegram, Website**: öffnen das entsprechende Profil in einem neuen Tab.",
+                    "excerpt": "In der Kontaktkarte finden Sie neben den Kontaktdaten direkte Schaltflächen für die häufigsten Aktionen: Anrufen: öffnet den Dialer des Geräts; E-Mail: öffnet den Standard-E-Mail-Client; WhatsApp: öff...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Redes sociales y canales de contacto",
+                    "answer_markdown": "En la ficha del contacto, junto a los datos de contacto, encuentras botones directos para las acciones más comunes:\n\n- **Llamar**: abre el marcador del dispositivo;\n- **Correo**: abre el cliente de correo predeterminado;\n- **WhatsApp**: abre un chat de WhatsApp directo en el número del contacto;\n- **LinkedIn, Twitter/X, Instagram, Facebook, Telegram, Sitio web**: abren el perfil correspondiente en una nueva pestaña.",
+                    "excerpt": "En la ficha del contacto, junto a los datos de contacto, encuentras botones directos para las acciones más comunes: Llamar: abre el marcador del dispositivo; Correo: abre el cliente de correo predeter...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "contacts.index",
+            "permission_slug": "contacts.view",
+            "ranking_weight": 0,
+            "sort_order": 11,
+            "locales": {
+                "it": {
+                    "question": "Mappa",
+                    "answer_markdown": "Se per il contatto sono state salvate le coordinate geografiche, la scheda mostra una mappa interattiva OpenStreetMap direttamente inline (non solo un link esterno). Puoi visualizzare la posizione senza lasciare la pagina.",
+                    "excerpt": "Se per il contatto sono state salvate le coordinate geografiche, la scheda mostra una mappa interattiva OpenStreetMap direttamente inline (non solo un link esterno). Puoi visualizzare la posizione senza lasciare la pagi…",
+                    "aliases": [
+                        "come mappa",
+                        "contatti",
+                        "contatti mappa",
+                        "mappa"
+                    ]
+                },
+                "en": {
+                    "question": "Map",
+                    "answer_markdown": "If geographic coordinates have been saved for the contact, the card shows an interactive OpenStreetMap map directly inline (not just an external link). You can view the location without leaving the page.",
+                    "excerpt": "If geographic coordinates have been saved for the contact, the card shows an interactive OpenStreetMap map directly inline (not just an external link). You can view the location without leaving the pa...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Carte",
+                    "answer_markdown": "Si des coordonnées géographiques ont été enregistrées pour le contact, la fiche affiche une carte interactive OpenStreetMap directement en ligne (pas seulement un lien externe). Vous pouvez voir l'emplacement sans quitter la page.",
+                    "excerpt": "Si des coordonnées géographiques ont été enregistrées pour le contact, la fiche affiche une carte interactive OpenStreetMap directement en ligne (pas seulement un lien externe). Vous pouvez voir l'emp...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Karte",
+                    "answer_markdown": "Wenn für den Kontakt geografische Koordinaten gespeichert wurden, zeigt die Karte eine interaktive OpenStreetMap-Karte direkt inline an (nicht nur einen externen Link). Sie können den Standort anzeigen, ohne die Seite zu verlassen.",
+                    "excerpt": "Wenn für den Kontakt geografische Koordinaten gespeichert wurden, zeigt die Karte eine interaktive OpenStreetMap-Karte direkt inline an (nicht nur einen externen Link). Sie können den Standort anzeige...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Mapa",
+                    "answer_markdown": "Si se han guardado coordenadas geográficas para el contacto, la ficha muestra un mapa interactivo de OpenStreetMap directamente en línea (no solo un enlace externo). Puedes ver la ubicación sin salir de la página.",
+                    "excerpt": "Si se han guardado coordenadas geográficas para el contacto, la ficha muestra un mapa interactivo de OpenStreetMap directamente en línea (no solo un enlace externo). Puedes ver la ubicación sin salir ...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "contacts.index",
+            "permission_slug": "contacts.view",
+            "ranking_weight": 0,
+            "sort_order": 12,
+            "locales": {
+                "it": {
+                    "question": "Importare contatti da altri moduli",
+                    "answer_markdown": "Se hai il permesso di importazione, puoi importare contatti da sorgenti disponibili nella tua installazione (altri moduli che espongono i propri dati come sorgente contatti). Il flusso guidato si articola in quattro passi:\n\n1. Selezione della sorgente (modulo da cui importare).\n2. Navigazione dell'elenco dei record del modulo con ricerca testuale.\n3. Selezione del record da importare.\n4. Anteprima e modifica: il modulo di creazione contatto viene precompilato con i dati del record; puoi correggere i campi prima di salvare.\n5. Conferma e importazione.",
+                    "excerpt": "Se hai il permesso di importazione, puoi importare contatti da sorgenti disponibili nella tua installazione (altri moduli che espongono i propri dati come sorgente contatti). Il flusso guidato si articola in quattro pas…",
+                    "aliases": [
+                        "come importare contatti da altri moduli",
+                        "contatti",
+                        "contatti importare contatti da altri moduli",
+                        "importare contatti da altri moduli"
+                    ]
+                },
+                "en": {
+                    "question": "Importing contacts from other modules",
+                    "answer_markdown": "If you have the import permission, you can import contacts from sources available in your installation (other modules that expose their own data as a contacts source). The guided flow has four steps:\n\n1. Selecting the source (the module to import from).\n2. Browsing the list of the module's records with text search.\n3. Selecting the record to import.\n4. Preview and edit: the contact creation form is pre-filled with the record's data; you can correct the fields before saving.\n5. Confirmation and import.",
+                    "excerpt": "If you have the import permission, you can import contacts from sources available in your installation (other modules that expose their own data as a contacts source). The guided flow has four steps: ...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Importer des contacts depuis d'autres modules",
+                    "answer_markdown": "Si vous avez l'autorisation d'import, vous pouvez importer des contacts depuis des sources disponibles dans votre installation (d'autres modules qui exposent leurs propres données comme source de contacts). Le flux guidé comporte quatre étapes :\n\n1. Sélection de la source (le module à importer).\n2. Navigation dans la liste des enregistrements du module avec recherche textuelle.\n3. Sélection de l'enregistrement à importer.\n4. Aperçu et modification : le formulaire de création de contact est prérempli avec les données de l'enregistrement ; vous pouvez corriger les champs avant d'enregistrer.\n5. Confirmation et import.",
+                    "excerpt": "Si vous avez l'autorisation d'import, vous pouvez importer des contacts depuis des sources disponibles dans votre installation (d'autres modules qui exposent leurs propres données comme source de cont...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Kontakte aus anderen Modulen importieren",
+                    "answer_markdown": "Wenn Sie die Import-Berechtigung haben, können Sie Kontakte aus in Ihrer Installation verfügbaren Quellen importieren (andere Module, die ihre eigenen Daten als Kontaktquelle bereitstellen). Der geführte Ablauf hat vier Schritte:\n\n1. Auswahl der Quelle (das zu importierende Modul).\n2. Durchsuchen der Liste der Datensätze des Moduls mit Textsuche.\n3. Auswahl des zu importierenden Datensatzes.\n4. Vorschau und Bearbeitung: Das Kontakterstellungsformular wird mit den Daten des Datensatzes vorausgefüllt; Sie können die Felder vor dem Speichern korrigieren.\n5. Bestätigung und Import.",
+                    "excerpt": "Wenn Sie die Import-Berechtigung haben, können Sie Kontakte aus in Ihrer Installation verfügbaren Quellen importieren (andere Module, die ihre eigenen Daten als Kontaktquelle bereitstellen). Der gefüh...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Importar contactos desde otros módulos",
+                    "answer_markdown": "Si tienes el permiso de importación, puedes importar contactos desde fuentes disponibles en tu instalación (otros módulos que exponen sus propios datos como fuente de contactos). El flujo guiado tiene cuatro pasos:\n\n1. Selección de la fuente (el módulo del que importar).\n2. Navegación por la lista de registros del módulo con búsqueda textual.\n3. Selección del registro a importar.\n4. Vista previa y edición: el formulario de creación de contacto se rellena previamente con los datos del registro; puedes corregir los campos antes de guardar.\n5. Confirmación e importación.",
+                    "excerpt": "Si tienes el permiso de importación, puedes importar contactos desde fuentes disponibles en tu instalación (otros módulos que exponen sus propios datos como fuente de contactos). El flujo guiado tiene...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "contacts.index",
+            "permission_slug": "contacts.view",
+            "ranking_weight": 0,
+            "sort_order": 13,
+            "locales": {
+                "it": {
+                    "question": "Filtri e ricerca contatti",
+                    "answer_markdown": "- **Ricerca testuale**: aggiornamento in tempo reale filtrando per nome, email e telefono.\n- **Filtro per categoria**: clicca una categoria (pill) per vedere solo i contatti in quella categoria.\n- **Filtro per tag**: seleziona un tag per filtrare i contatti con quell'etichetta.\n- **Filtro preferiti**: mostra solo i contatti con stella.\n\n---",
+                    "excerpt": "Ricerca testuale: aggiornamento in tempo reale filtrando per nome, email e telefono. Filtro per categoria: clicca una categoria (pill) per vedere solo i contatti in quella categoria. Filtro per tag: seleziona un tag per…",
+                    "aliases": [
+                        "come filtri e ricerca",
+                        "contatti",
+                        "contatti filtri e ricerca",
+                        "filtri e ricerca"
+                    ]
+                },
+                "en": {
+                    "question": "Contact filters and search",
+                    "answer_markdown": "- **Text search**: real-time update filtering by name, email and phone.\n- **Filter by category**: click a category (pill) to see only the contacts in that category.\n- **Filter by tag**: select a tag to filter the contacts with that label.\n- **Favorites filter**: shows only the contacts with a star.\n\n---",
+                    "excerpt": "Text search: real-time update filtering by name, email and phone. Filter by category: click a category (pill) to see only the contacts in that category. Filter by tag: select a tag to filter the conta...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Filtres et recherche de contacts",
+                    "answer_markdown": "- **Recherche textuelle** : mise à jour en temps réel en filtrant par nom, e-mail et téléphone.\n- **Filtre par catégorie** : cliquez sur une catégorie (pastille) pour voir uniquement les contacts de cette catégorie.\n- **Filtre par étiquette** : sélectionnez une étiquette pour filtrer les contacts avec ce libellé.\n- **Filtre favoris** : affiche uniquement les contacts avec une étoile.\n\n---",
+                    "excerpt": "Recherche textuelle : mise à jour en temps réel en filtrant par nom, e-mail et téléphone. Filtre par catégorie : cliquez sur une catégorie (pastille) pour voir uniquement les contacts de cette catégor...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Kontaktfilter und -suche",
+                    "answer_markdown": "- **Textsuche**: Echtzeit-Aktualisierung mit Filterung nach Name, E-Mail und Telefon.\n- **Filter nach Kategorie**: Klicken Sie auf eine Kategorie (Pille), um nur die Kontakte dieser Kategorie zu sehen.\n- **Filter nach Tag**: Wählen Sie ein Tag, um die Kontakte mit diesem Label zu filtern.\n- **Favoritenfilter**: zeigt nur die Kontakte mit einem Stern.\n\n---",
+                    "excerpt": "Textsuche: Echtzeit-Aktualisierung mit Filterung nach Name, E-Mail und Telefon. Filter nach Kategorie: Klicken Sie auf eine Kategorie (Pille), um nur die Kontakte dieser Kategorie zu sehen. Filter nac...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Filtros y búsqueda de contactos",
+                    "answer_markdown": "- **Búsqueda textual**: actualización en tiempo real filtrando por nombre, correo y teléfono.\n- **Filtro por categoría**: haz clic en una categoría (pill) para ver solo los contactos de esa categoría.\n- **Filtro por etiqueta**: selecciona una etiqueta para filtrar los contactos con esa etiqueta.\n- **Filtro de favoritos**: muestra solo los contactos con estrella.\n\n---",
+                    "excerpt": "Búsqueda textual: actualización en tiempo real filtrando por nombre, correo y teléfono. Filtro por categoría: haz clic en una categoría (pill) para ver solo los contactos de esa categoría. Filtro por ...",
+                    "aliases": []
+                }
+            }
+        }
+    ]
+}

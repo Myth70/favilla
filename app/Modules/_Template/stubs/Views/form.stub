@@ -1,0 +1,100 @@
+<?php
+/**
+ * VISTA FORM — usata sia per creazione che per modifica.
+ *
+ * Variabili passate dal Controller:
+ *   $item   → null (creazione) oppure array (modifica)
+ *   $errors → ['campo' => ['msg', ...]] — da $_SESSION, passati dal controller
+ *   $old    → dati precedenti per ripopolare il form dopo errore di validazione
+ *
+ * Pattern per ogni campo:
+ *   1. classe "is-invalid" se ci sono errori sul campo
+ *   2. value: $old (priorità) → $item (fallback) → '' (default)
+ *   3. <div class="invalid-feedback"> con il messaggio sotto il campo
+ *
+ * i18n: ogni stringa user-facing passa da e(t('{{module_name}}.<chiave>')).
+ */
+$view->layout('main');
+$isEdit = $item !== null;
+?>
+
+<?php $view->start('content'); ?>
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0"><?= e($isEdit ? t('{{module_name}}.edit_page_title') : t('{{module_name}}.new_page_title')) ?></h5>
+                </div>
+                <div class="card-body">
+
+                    <form method="POST"
+                          action="<?= $isEdit
+                              ? e(route('{{module_name}}.update', ['id' => $item['id']]))
+                              : e(route('{{module_name}}.store')) ?>">
+                        <?= csrf_field() ?>
+                        <?php if ($isEdit): ?>
+                            <input type="hidden" name="_method" value="PUT">
+                        <?php endif; ?>
+
+                        <!-- Campo testo: copia questo blocco per ogni campo -->
+                        <div class="mb-3">
+                            <label for="name" class="form-label"><?= e(t('{{module_name}}.fields.name')) ?> <span class="text-danger">*</span></label>
+                            <input type="text"
+                                   class="form-control <?= !empty($errors['name']) ? 'is-invalid' : '' ?>"
+                                   id="name" name="name"
+                                   value="<?= e($old['name'] ?? $item['name'] ?? '') ?>"
+                                   maxlength="200" required>
+                            <?php if (!empty($errors['name'])): ?>
+                                <div class="invalid-feedback"><?= e(is_array($errors['name']) ? $errors['name'][0] : $errors['name']) ?></div>
+                            <?php endif; ?>
+                        </div>
+
+                        <!-- Textarea -->
+                        <div class="mb-3">
+                            <label for="description" class="form-label"><?= e(t('{{module_name}}.fields.description')) ?></label>
+                            <textarea class="form-control <?= !empty($errors['description']) ? 'is-invalid' : '' ?>"
+                                      id="description" name="description"
+                                      rows="4"><?= e($old['description'] ?? $item['description'] ?? '') ?></textarea>
+                            <?php if (!empty($errors['description'])): ?>
+                                <div class="invalid-feedback"><?= e(is_array($errors['description']) ? $errors['description'][0] : $errors['description']) ?></div>
+                            <?php endif; ?>
+                        </div>
+
+                        <!-- Select -->
+                        <div class="mb-3">
+                            <label for="status" class="form-label"><?= e(t('{{module_name}}.fields.status')) ?></label>
+                            <?php $currentStatus = $old['status'] ?? $item['status'] ?? 'active'; ?>
+                            <select class="form-select <?= !empty($errors['status']) ? 'is-invalid' : '' ?>"
+                                    id="status" name="status">
+                                <option value="active"   <?= $currentStatus === 'active'   ? 'selected' : '' ?>><?= e(t('{{module_name}}.status.active')) ?></option>
+                                <option value="inactive" <?= $currentStatus === 'inactive' ? 'selected' : '' ?>><?= e(t('{{module_name}}.status.inactive')) ?></option>
+                                <option value="archived" <?= $currentStatus === 'archived' ? 'selected' : '' ?>><?= e(t('{{module_name}}.status.archived')) ?></option>
+                            </select>
+                            <?php if (!empty($errors['status'])): ?>
+                                <div class="invalid-feedback"><?= e(is_array($errors['status']) ? $errors['status'][0] : $errors['status']) ?></div>
+                            <?php endif; ?>
+                        </div>
+
+                        <!-- Bottoni -->
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fa-solid fa-check me-1"></i>
+                                <?= e($isEdit ? t('{{module_name}}.actions.update') : t('{{module_name}}.actions.create')) ?>
+                            </button>
+                            <a href="<?= e(route('{{module_name}}.index')) ?>" class="btn btn-outline-secondary">
+                                <?= e(t('{{module_name}}.actions.cancel')) ?>
+                            </a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<?php $view->end(); ?>

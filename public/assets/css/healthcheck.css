@@ -1,0 +1,234 @@
+/* HealthCheck module — prefix .hc- */
+
+.hc-summary-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: .25rem;
+    padding: .35rem .75rem;
+    border-radius: .5rem;
+    font-size: .86rem;
+    font-weight: 600;
+    border: 1px solid var(--hc-border, color-mix(in srgb, currentColor 12%, transparent));
+}
+.hc-ok {
+    --hc-border: var(--bs-success-border-subtle, color-mix(in srgb, var(--bs-success) 24%, transparent));
+    background: var(--bs-success-bg-subtle, color-mix(in srgb, var(--bs-success) 14%, transparent));
+    color: var(--bs-success-text-emphasis, var(--bs-success));
+}
+.hc-warn {
+    --hc-border: var(--bs-warning-border-subtle, color-mix(in srgb, var(--bs-warning) 24%, transparent));
+    background: var(--bs-warning-bg-subtle, color-mix(in srgb, var(--bs-warning) 14%, transparent));
+    color: var(--bs-warning-text-emphasis, var(--bs-warning));
+}
+.hc-fail {
+    --hc-border: var(--bs-danger-border-subtle, color-mix(in srgb, var(--bs-danger) 24%, transparent));
+    background: var(--bs-danger-bg-subtle, color-mix(in srgb, var(--bs-danger) 14%, transparent));
+    color: var(--bs-danger-text-emphasis, var(--bs-danger));
+}
+.hc-card {
+    border-left-width: 4px;
+    box-shadow: 0 6px 22px rgba(15, 23, 42, .05);
+    overflow: hidden;
+}
+
+.hc-card .card-header {
+    background: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--bg-surface) 92%, var(--bg-primary)),
+        color-mix(in srgb, var(--bg-surface) 78%, var(--bg-primary))
+    );
+}
+
+.hc-card-highlights {
+    padding: .9rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+    background: color-mix(in srgb, var(--bg-surface) 88%, var(--bg-primary));
+}
+
+.hc-card-highlights-title {
+    font-size: .78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--text-secondary);
+    margin-bottom: .55rem;
+}
+
+.hc-highlight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: .55rem;
+    font-size: .88rem;
+    color: var(--text-primary);
+}
+
+.hc-highlight-item + .hc-highlight-item {
+    margin-top: .45rem;
+}
+
+.hc-card .table td {
+    vertical-align: middle;
+}
+
+.hc-row-warn td {
+    background: color-mix(in srgb, var(--bs-warning) 16%, transparent);
+}
+
+.hc-row-fail td {
+    background: color-mix(in srgb, var(--bs-danger) 16%, transparent);
+}
+
+.hc-card .table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.hc-history-badge {
+    display: inline-block;
+    min-width: 1.8rem;
+    text-align: center;
+    padding: .15rem .4rem;
+    border-radius: .35rem;
+    font-size: .8rem;
+    font-weight: 600;
+    border: 1px solid var(--hc-border, transparent);
+}
+
+.hc-col-icon {
+    width: 2rem;
+}
+
+.hc-toolbar .btn {
+    font-size: .85rem;
+}
+
+.hc-state-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: .2rem .55rem;
+    border-radius: 999px;
+    font-size: .72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    border: 1px solid var(--hc-border, transparent);
+}
+
+.hc-overview {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.hc-summary-shell {
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    background: linear-gradient(
+        180deg,
+        var(--bg-surface),
+        color-mix(in srgb, var(--bg-surface) 72%, var(--bg-primary))
+    );
+    padding: 1rem;
+}
+
+.hc-summary-note {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: .9rem;
+    padding: .85rem 1rem;
+    border-radius: .75rem;
+    background: color-mix(in srgb, var(--bg-surface) 76%, var(--bg-primary));
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.hc-summary-separator {
+    width: 1px;
+    align-self: stretch;
+    background: color-mix(in srgb, var(--border-color) 82%, transparent);
+}
+
+.hc-refresh-spin,
+#hc-spinner.htmx-request {
+    animation: hc-spin 1s linear infinite;
+}
+@keyframes hc-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+/* Loading overlay (first load) */
+.hc-loading-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    border-radius: .75rem;
+    border: 1px dashed var(--border-color);
+    background: linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--bg-surface) 76%, var(--bg-primary)),
+        var(--bg-surface)
+    );
+}
+
+.hc-spinner-wrap {
+    text-align: center;
+}
+
+.hc-pulse-ring {
+    width: 64px;
+    height: 64px;
+    border: 4px solid color-mix(in srgb, var(--border-color) 80%, transparent);
+    border-top-color: var(--accent-color);
+    border-radius: 50%;
+    animation: hc-spin 0.9s linear infinite;
+    margin: 0 auto 12px;
+}
+
+.hc-pulse-icon {
+    font-size: 1.8rem;
+    animation: hc-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes hc-pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.35; }
+}
+
+@media (max-width: 992px) {
+    .hc-summary-bar {
+        gap: .5rem;
+    }
+
+    .hc-summary-bar .ms-auto {
+        width: 100%;
+        margin-left: 0 !important;
+        padding-top: .25rem;
+    }
+
+    .hc-card .card-header {
+        flex-wrap: wrap;
+        gap: .5rem;
+    }
+
+    .hc-card .card-header .ms-auto {
+        width: 100%;
+        margin-left: 0 !important;
+    }
+
+    .hc-overview {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hc-summary-note {
+        flex-wrap: wrap;
+        gap: .5rem;
+    }
+
+    .hc-summary-separator {
+        display: none;
+    }
+}

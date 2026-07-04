@@ -1,0 +1,163 @@
+/* Reports Wizard — guided creation flow */
+.rp-wizard-wrap {
+    max-width: 920px;
+    margin: 0 auto;
+}
+
+.rp-wizard-stepper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: var(--bg-surface, #fff);
+    border: 1px solid var(--border-color, #e5e7eb);
+    border-radius: var(--radius-lg, 14px);
+    box-shadow: var(--shadow-sm, 0 1px 2px rgba(0, 0, 0, 0.04));
+}
+
+.rp-wizard-step {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted, #6b7280);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.rp-wizard-step.is-active {
+    color: var(--accent-color, #3b82f6);
+    font-weight: 600;
+}
+.rp-wizard-step.is-done:not(.is-active) {
+    color: var(--text-secondary, #374151);
+}
+
+.rp-wizard-step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    border-radius: 50%;
+    background: var(--bg-muted, #f3f4f6);
+    color: inherit;
+    font-weight: 600;
+    border: 1px solid var(--border-color, #e5e7eb);
+}
+.rp-wizard-step.is-active .rp-wizard-step-num {
+    background: var(--accent-color, #3b82f6);
+    color: #fff;
+    border-color: var(--accent-color, #3b82f6);
+}
+.rp-wizard-step.is-done:not(.is-active) .rp-wizard-step-num {
+    background: var(--accent-color, #3b82f6);
+    color: #fff;
+    border-color: var(--accent-color, #3b82f6);
+    opacity: 0.6;
+}
+
+.rp-wizard-step-line {
+    flex: 1;
+    height: 2px;
+    background: var(--border-color, #e5e7eb);
+    border-radius: 2px;
+}
+.rp-wizard-step-line.is-done {
+    background: var(--accent-color, #3b82f6);
+    opacity: 0.6;
+}
+
+/* Card grid for choice selection */
+.rp-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 0.75rem;
+}
+.rp-card-grid-compact {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.rp-choice-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: var(--bg-surface, #fff);
+    border: 2px solid var(--border-color, #e5e7eb);
+    border-radius: var(--radius-md, 10px);
+    cursor: pointer;
+    transition: border-color 0.15s, box-shadow 0.15s, transform 0.1s;
+    position: relative;
+    margin: 0;
+}
+.rp-choice-card:hover {
+    border-color: var(--accent-color, #3b82f6);
+    box-shadow: var(--shadow-md, 0 2px 8px rgba(0, 0, 0, 0.06));
+}
+.rp-choice-card.is-selected {
+    border-color: var(--accent-color, #3b82f6);
+    background: color-mix(in srgb, var(--accent-color, #3b82f6) 6%, var(--bg-surface, #fff));
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color, #3b82f6) 15%, transparent);
+}
+.rp-choice-card-sm {
+    padding: 0.75rem;
+}
+
+.rp-choice-radio {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.rp-choice-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--radius-sm, 6px);
+    background: var(--bg-muted, #f3f4f6);
+    color: var(--accent-color, #3b82f6);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+.rp-choice-card.is-selected .rp-choice-icon {
+    background: var(--accent-color, #3b82f6);
+    color: #fff;
+}
+
+.rp-choice-body {
+    flex: 1;
+    min-width: 0;
+}
+.rp-choice-title {
+    font-weight: 600;
+    color: var(--text-primary, #111827);
+    margin-bottom: 0.15rem;
+}
+.rp-choice-desc {
+    font-size: 0.825rem;
+    color: var(--text-muted, #6b7280);
+    line-height: 1.35;
+}
+
+/* Field chips for preview */
+.rp-field-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+}
+.rp-field-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    background: var(--bg-muted, #f3f4f6);
+    color: var(--text-primary, #111827);
+    border: 1px solid var(--border-color, #e5e7eb);
+    font-size: 0.8rem;
+}
+
+@media (max-width: 640px) {
+    .rp-wizard-stepper { flex-direction: column; align-items: stretch; }
+    .rp-wizard-step-line { height: 16px; width: 2px; align-self: center; }
+}

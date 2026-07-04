@@ -1,0 +1,134 @@
+{
+    "name": "Contacts",
+    "core": true,
+    "icon": "fa-solid fa-address-book",
+    "version": "2.0.0",
+    "description": "Rubrica contatti privata per utente con ricorrenze, reminder automatici e integrazione calendario",
+    "database": "shared",
+    "tables": ["contact_categories", "contacts", "contact_recurrences", "contact_shares"],
+    "dependencies": ["Notifications"],
+    "search_provider": "App\\Modules\\Contacts\\Providers\\ContactsSearchProvider",
+    "export_provider": "App\\Modules\\Contacts\\Providers\\ContactsExportProvider",
+    "notification_events": [
+        {
+            "slug": "contacts.reminder_due",
+            "name": "Promemoria contatto",
+            "description": "Inviata per ricorrenze e reminder contatti",
+            "default_level": "info",
+            "icon": "fa-solid fa-address-book",
+            "context_variables": {
+                "contatto_id": "ID contatto",
+                "titolo": "Titolo reminder",
+                "contatto_nome": "Nome contatto",
+                "data_label": "Data evento",
+                "giorni": "Giorni mancanti"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Promemoria: {{titolo}}",
+                    "body": "{{contatto_nome}} - {{data_label}}"
+                },
+                "email": {
+                    "subject": "Promemoria: {{titolo}}",
+                    "body": "<h2>Promemoria contatti</h2><p>{{titolo}}</p><p>Contatto: {{contatto_nome}}</p><p>Data: {{data_label}}</p><p><a href=\"{{link}}\">Apri contatto</a></p>"
+                },
+                "telegram": {
+                    "body": "📇 Promemoria: {{titolo}}\nContatto: {{contatto_nome}}\nData: {{data_label}}\n{{link}}"
+                }
+            }
+        },
+        {
+            "slug": "contacts.shared_with_role",
+            "name": "Contatto condiviso con il tuo ruolo",
+            "description": "Inviata agli utenti di un ruolo quando un contatto viene condiviso con quel ruolo",
+            "default_level": "info",
+            "icon": "fa-solid fa-users",
+            "context_variables": {
+                "contatto_id": "ID contatto",
+                "contatto_nome": "Nome contatto",
+                "shared_by_name": "Chi ha condiviso",
+                "role_name": "Ruolo destinatario"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "{{shared_by_name}} ha condiviso un contatto con {{role_name}}",
+                    "body": "{{contatto_nome}}"
+                },
+                "email": {
+                    "subject": "Nuovo contatto condiviso: {{contatto_nome}}",
+                    "body": "<h2>Contatto condiviso</h2><p>{{shared_by_name}} ha condiviso il contatto <strong>{{contatto_nome}}</strong> con il ruolo <strong>{{role_name}}</strong>.</p><p><a href=\"{{link}}\">Apri contatto</a></p>"
+                },
+                "telegram": {
+                    "body": "👥 {{shared_by_name}} ha condiviso un contatto con {{role_name}}\nContatto: {{contatto_nome}}\n{{link}}"
+                }
+            }
+        }
+    ],
+    "changelog": {
+        "1.0.0": "Versione iniziale — CRUD contatti, categorie, ricorrenze con reminder e integrazione calendario"
+    },
+    "menu": [
+        {
+            "label": "Contatti",
+            "icon": "fa-address-book",
+            "route": "contacts.index",
+            "permission": "contacts.view",
+            "order": 35,
+            "children": []
+        }
+    ],
+    "navigation": [
+        {
+            "id": "contacts.index",
+            "label": "Contatti",
+            "icon": "fa-address-book",
+            "route": "contacts.index",
+            "permission": "contacts.view",
+            "order": 35,
+            "surfaces": ["user_menu", "radial", "quick_access"]
+        }
+    ],
+    "admin_panel": {
+        "section": "Pannelli admin dei moduli",
+        "eyebrow": "Moduli attivi",
+        "groups": [
+            {
+                "title": "Contatti",
+                "description": "Rubrica, categorie, condivisioni e reminder della base contatti.",
+                "icon": "fa-solid fa-address-book",
+                "flows": [
+                    "Nuovo contatto",
+                    "Importa contatti",
+                    "Gestisci categorie",
+                    "Condivisione per ruolo"
+                ],
+                "links": [
+                    {
+                        "label": "Rubrica contatti",
+                        "route": "contacts.index",
+                        "permission": "contacts.view",
+                        "description": "Elenco completo dei contatti registrati nel sistema.",
+                        "icon": "fa-solid fa-address-book",
+                        "keywords": "contatti rubrica elenco persone aziende"
+                    },
+                    {
+                        "label": "Nuovo contatto",
+                        "route": "contacts.create",
+                        "permission": "contacts.create",
+                        "description": "Aggiunge un nuovo contatto alla rubrica.",
+                        "icon": "fa-solid fa-user-plus",
+                        "keywords": "crea contatto nuovo rubrica"
+                    },
+                    {
+                        "label": "Importa contatti",
+                        "route": "contacts.import.index",
+                        "permission": "contacts.import",
+                        "description": "Importa contatti da altri moduli dell'applicazione.",
+                        "icon": "fa-solid fa-file-import",
+                        "keywords": "importa contatti moduli import"
+                    }
+                ]
+            }
+        ]
+    }
+}

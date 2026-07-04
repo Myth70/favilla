@@ -1,0 +1,14 @@
+{
+    "name": "Scheda Articolo",
+    "description": "Scheda PDF per un singolo articolo delle Comunicazioni con contenuto completo",
+    "source_key": "articles",
+    "source_type": "document",
+    "output_format": "pdf",
+    "visibility": "global",
+    "max_rows": 1,
+    "template_html": "<div data-prm-type=\"logo\" data-prm-config='{\"max_height\":50,\"align\":\"left\"}'></div><div style=\"font-size:9pt;color:#64748b;margin:4px 0;\"><span data-prm-type=\"system\" data-prm-config='{\"kind\":\"company\"}'></span></div><hr style=\"border:none;border-top:1px solid #3b82f6;margin:6px 0 12px;\"><div style=\"font-size:9pt;color:#3b82f6;font-weight:600;margin-bottom:2px;\">{{ category_name }}</div><h1 style=\"color:#0f172a;font-size:20pt;margin:0 0 10px;\">{{ title }}</h1><table style=\"width:100%;border-collapse:collapse;font-size:9pt;margin-bottom:12px;\"><tr><td style=\"padding:4px 8px;border:1px solid #dee2e6;background:#f8fafc;font-weight:600;width:22%;\">Autore</td><td style=\"padding:4px 8px;border:1px solid #dee2e6;width:28%;\">{{ author_name }}</td><td style=\"padding:4px 8px;border:1px solid #dee2e6;background:#f8fafc;font-weight:600;width:22%;\">Pubblicato il</td><td style=\"padding:4px 8px;border:1px solid #dee2e6;\">{{ published_at }}</td></tr><tr><td style=\"padding:4px 8px;border:1px solid #dee2e6;background:#f8fafc;font-weight:600;\">Min. lettura</td><td style=\"padding:4px 8px;border:1px solid #dee2e6;\">{{ reading_time }}</td><td style=\"padding:4px 8px;border:1px solid #dee2e6;background:#f8fafc;font-weight:600;\">Commenti</td><td style=\"padding:4px 8px;border:1px solid #dee2e6;\">{{ comment_count }}</td></tr></table><hr style=\"border:none;border-top:1px solid #e2e8f0;margin:0 0 10px;\"><p style=\"font-size:11pt;font-style:italic;color:#475569;margin:0 0 10px;\">{{ excerpt }}</p><div style=\"font-size:11pt;color:#1e293b;white-space:pre-wrap;margin-bottom:12px;\">{{ content_text }}</div><div style=\"font-size:9pt;color:#64748b;margin-bottom:10px;\">Tag: {{ tags }}</div><hr style=\"border:none;border-top:1px solid #64748b;margin:12px 0 6px;\"><div style=\"font-size:8pt;color:#64748b;\">Generato il <span data-prm-type=\"system\" data-prm-config='{\"kind\":\"datetime\"}'></span> da <span data-prm-type=\"system\" data-prm-config='{\"kind\":\"user\"}'></span></div>",
+    "sorting_config": {
+        "field": "published_at",
+        "dir": "DESC"
+    }
+}

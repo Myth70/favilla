@@ -1,0 +1,1418 @@
+{
+    "module": "Notifications",
+    "generated_at": "2026-07-04T09:48:34+02:00",
+    "routes": [
+        {
+            "method": "POST",
+            "uri": "/notifications/telegram/webhook/{secret}",
+            "name": "notifications.telegram.webhook",
+            "controller": "TelegramWebhookController@webhook",
+            "middleware": []
+        },
+        {
+            "method": "GET",
+            "uri": "/notifications/unread-count",
+            "name": "notifications.unread-count",
+            "controller": "NotificationsController@unreadCount",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/notifications/dropdown",
+            "name": "notifications.dropdown",
+            "controller": "NotificationsController@dropdown",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/notifications/",
+            "name": "notifications.index",
+            "controller": "NotificationsController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/notifications/settings",
+            "name": "notifications.settings",
+            "controller": "NotificationsController@settings",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/notifications/read-all",
+            "name": "notifications.read-all",
+            "controller": "NotificationsController@markAllRead",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/notifications/bulk/read",
+            "name": "notifications.bulk-read",
+            "controller": "NotificationsController@markSelectedRead",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/notifications/bulk/delete",
+            "name": "notifications.bulk-destroy",
+            "controller": "NotificationsController@destroySelected",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/notifications/settings",
+            "name": "notifications.settings.update",
+            "controller": "NotificationsController@updateSettings",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/notifications/settings/telegram/regenerate",
+            "name": "notifications.settings.telegram.regenerate",
+            "controller": "NotificationsController@regenerateTelegramLink",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/notifications/settings/telegram/disconnect",
+            "name": "notifications.settings.telegram.disconnect",
+            "controller": "NotificationsController@disconnectTelegram",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/notifications/{id}/read",
+            "name": "notifications.read",
+            "controller": "NotificationsController@markRead",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/notifications/{id}",
+            "name": "notifications.destroy",
+            "controller": "NotificationsController@destroy",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware"
+            ]
+        }
+    ],
+    "tables": [
+        {
+            "name": "notifications",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "title",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "body",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "type",
+                    "type": "enum('info','success','warning','danger')",
+                    "nullable": false,
+                    "default": "'info'"
+                },
+                {
+                    "name": "icon",
+                    "type": "varchar(100)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "color",
+                    "type": "varchar(32)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "link",
+                    "type": "varchar(500)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "read_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "deleted_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "fk_notif_sender",
+                    "columns": [
+                        "created_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_deleted_at",
+                    "columns": [
+                        "deleted_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_notif_created",
+                    "columns": [
+                        "created_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_notif_user_read",
+                    "columns": [
+                        "user_id",
+                        "read_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_notif_sender",
+                    "column": "created_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "fk_notif_user",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "notification_channels",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "slug",
+                    "type": "varchar(50)",
+                    "nullable": false
+                },
+                {
+                    "name": "name",
+                    "type": "varchar(100)",
+                    "nullable": false
+                },
+                {
+                    "name": "description",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "is_enabled",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "1"
+                },
+                {
+                    "name": "sort_order",
+                    "type": "int(11)",
+                    "nullable": false,
+                    "default": "10"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_notification_channels_enabled",
+                    "columns": [
+                        "is_enabled",
+                        "sort_order"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "uq_notification_channels_slug",
+                    "columns": [
+                        "slug"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": []
+        },
+        {
+            "name": "notification_event_types",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "slug",
+                    "type": "varchar(150)",
+                    "nullable": false
+                },
+                {
+                    "name": "module_slug",
+                    "type": "varchar(100)",
+                    "nullable": false
+                },
+                {
+                    "name": "name",
+                    "type": "varchar(150)",
+                    "nullable": false
+                },
+                {
+                    "name": "description",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "context_schema",
+                    "type": "longtext",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "source",
+                    "type": "varchar(20)",
+                    "nullable": false,
+                    "default": "'dynamic'"
+                },
+                {
+                    "name": "default_level",
+                    "type": "enum('info','success','warning','danger')",
+                    "nullable": false,
+                    "default": "'info'"
+                },
+                {
+                    "name": "icon",
+                    "type": "varchar(150)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "color",
+                    "type": "varchar(32)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "is_system",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_notification_event_types_module",
+                    "columns": [
+                        "module_slug"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_notification_event_types_system",
+                    "columns": [
+                        "is_system"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "uq_notification_event_types_slug",
+                    "columns": [
+                        "slug"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": []
+        },
+        {
+            "name": "notification_event_channel_bindings",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "event_type_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "channel_slug",
+                    "type": "varchar(50)",
+                    "nullable": false
+                },
+                {
+                    "name": "is_enabled",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "1"
+                },
+                {
+                    "name": "subject_template",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "body_template",
+                    "type": "mediumtext",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "layout_config",
+                    "type": "longtext",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_notification_event_channel_enabled",
+                    "columns": [
+                        "channel_slug",
+                        "is_enabled"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "uq_notification_event_channel",
+                    "columns": [
+                        "event_type_id",
+                        "channel_slug"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_notification_event_channel_channel",
+                    "column": "channel_slug",
+                    "references": "notification_channels.slug",
+                    "on_delete": "RESTRICT",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "fk_notification_event_channel_event",
+                    "column": "event_type_id",
+                    "references": "notification_event_types.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "user_notification_preferences",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "module_slug",
+                    "type": "varchar(100)",
+                    "nullable": false
+                },
+                {
+                    "name": "event_slug",
+                    "type": "varchar(150)",
+                    "nullable": false,
+                    "default": "''"
+                },
+                {
+                    "name": "channel_slug",
+                    "type": "varchar(50)",
+                    "nullable": false
+                },
+                {
+                    "name": "is_enabled",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "1"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "fk_user_notification_preferences_channel",
+                    "columns": [
+                        "channel_slug"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_user_notification_preferences_lookup",
+                    "columns": [
+                        "user_id",
+                        "module_slug",
+                        "event_slug"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "uq_user_notification_preference",
+                    "columns": [
+                        "user_id",
+                        "module_slug",
+                        "event_slug",
+                        "channel_slug"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_user_notification_preferences_channel",
+                    "column": "channel_slug",
+                    "references": "notification_channels.slug",
+                    "on_delete": "RESTRICT",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "fk_user_notification_preferences_user",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "notification_dispatches",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "event_slug",
+                    "type": "varchar(150)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "source_module",
+                    "type": "varchar(100)",
+                    "nullable": false
+                },
+                {
+                    "name": "recipient_user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "recipient_role_slug",
+                    "type": "varchar(100)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "title",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "body",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "type",
+                    "type": "enum('info','success','warning','danger')",
+                    "nullable": false,
+                    "default": "'info'"
+                },
+                {
+                    "name": "link",
+                    "type": "varchar(500)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "icon",
+                    "type": "varchar(150)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "color",
+                    "type": "varchar(32)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "payload_json",
+                    "type": "longtext",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "bypass_preferences",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "status",
+                    "type": "enum('pending','queued','sent','partial','failed')",
+                    "nullable": false,
+                    "default": "'pending'"
+                },
+                {
+                    "name": "total_recipients",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "total_deliveries",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "fk_notification_dispatches_created_by",
+                    "columns": [
+                        "created_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "fk_notification_dispatches_recipient_user",
+                    "columns": [
+                        "recipient_user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_notification_dispatches_event",
+                    "columns": [
+                        "event_slug"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_notification_dispatches_status",
+                    "columns": [
+                        "status",
+                        "created_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_notification_dispatches_created_by",
+                    "column": "created_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "fk_notification_dispatches_recipient_user",
+                    "column": "recipient_user_id",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "notification_deliveries",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "dispatch_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "channel_slug",
+                    "type": "varchar(50)",
+                    "nullable": false
+                },
+                {
+                    "name": "status",
+                    "type": "enum('pending','queued','processing','sent','failed','skipped')",
+                    "nullable": false,
+                    "default": "'pending'"
+                },
+                {
+                    "name": "subject",
+                    "type": "varchar(255)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "body",
+                    "type": "mediumtext",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "link",
+                    "type": "varchar(500)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "icon",
+                    "type": "varchar(150)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "color",
+                    "type": "varchar(32)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "provider_message_id",
+                    "type": "varchar(255)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "error_message",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "attempts",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "sent_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_notification_deliveries_channel",
+                    "columns": [
+                        "channel_slug",
+                        "status"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_notification_deliveries_dispatch",
+                    "columns": [
+                        "dispatch_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_notification_deliveries_user",
+                    "columns": [
+                        "user_id",
+                        "status"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_notification_deliveries_channel",
+                    "column": "channel_slug",
+                    "references": "notification_channels.slug",
+                    "on_delete": "RESTRICT",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "fk_notification_deliveries_dispatch",
+                    "column": "dispatch_id",
+                    "references": "notification_dispatches.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "fk_notification_deliveries_user",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "notification_queue",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "delivery_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "channel_slug",
+                    "type": "varchar(50)",
+                    "nullable": false
+                },
+                {
+                    "name": "payload_json",
+                    "type": "longtext",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "status",
+                    "type": "enum('pending','processing','sent','failed','skipped')",
+                    "nullable": false,
+                    "default": "'pending'"
+                },
+                {
+                    "name": "available_at",
+                    "type": "datetime",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "locked_at",
+                    "type": "datetime",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "attempts",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "max_attempts",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "default": "5"
+                },
+                {
+                    "name": "last_error",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "fk_notification_queue_channel",
+                    "columns": [
+                        "channel_slug"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_notification_queue_pending",
+                    "columns": [
+                        "status",
+                        "channel_slug",
+                        "available_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "uq_notification_queue_delivery",
+                    "columns": [
+                        "delivery_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_notification_queue_channel",
+                    "column": "channel_slug",
+                    "references": "notification_channels.slug",
+                    "on_delete": "RESTRICT",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "fk_notification_queue_delivery",
+                    "column": "delivery_id",
+                    "references": "notification_deliveries.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "telegram_bots",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "name",
+                    "type": "varchar(100)",
+                    "nullable": false
+                },
+                {
+                    "name": "bot_username",
+                    "type": "varchar(100)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "bot_token",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "webhook_secret",
+                    "type": "varchar(100)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "is_enabled",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "1"
+                },
+                {
+                    "name": "is_default",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "created_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "fk_telegram_bots_created_by",
+                    "columns": [
+                        "created_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_telegram_bots_enabled",
+                    "columns": [
+                        "is_enabled",
+                        "is_default"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_telegram_bots_created_by",
+                    "column": "created_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "telegram_user_links",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "bot_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "telegram_user_id",
+                    "type": "varchar(100)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "chat_id",
+                    "type": "varchar(100)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "telegram_username",
+                    "type": "varchar(100)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "link_token",
+                    "type": "varchar(100)",
+                    "nullable": false
+                },
+                {
+                    "name": "status",
+                    "type": "enum('pending','linked','revoked')",
+                    "nullable": false,
+                    "default": "'pending'"
+                },
+                {
+                    "name": "linked_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "last_seen_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "metadata_json",
+                    "type": "longtext",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "fk_telegram_user_links_bot",
+                    "columns": [
+                        "bot_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_telegram_user_links_chat",
+                    "columns": [
+                        "chat_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_telegram_user_links_status",
+                    "columns": [
+                        "status"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "uq_telegram_user_links_token",
+                    "columns": [
+                        "link_token"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "uq_telegram_user_links_user_bot",
+                    "columns": [
+                        "user_id",
+                        "bot_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_telegram_user_links_bot",
+                    "column": "bot_id",
+                    "references": "telegram_bots.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "fk_telegram_user_links_user",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        }
+    ],
+    "permissions": [
+        {
+            "slug": "notifications.admin.bots",
+            "name": "Gestisci bot Telegram"
+        },
+        {
+            "slug": "notifications.admin.deliveries",
+            "name": "Visualizza code e delivery notifiche"
+        },
+        {
+            "slug": "notifications.admin.manage",
+            "name": "Gestisci dispatcher notifiche"
+        },
+        {
+            "slug": "notifications.admin.send",
+            "name": "Invia notifiche agli utenti (admin)"
+        },
+        {
+            "slug": "notifications.admin.templates",
+            "name": "Gestisci template notifiche"
+        }
+    ],
+    "services": [
+        "App\\Modules\\Notifications\\Services\\EmailChannelDriver",
+        "App\\Modules\\Notifications\\Services\\InAppChannelDriver",
+        "App\\Modules\\Notifications\\Services\\NotificationAdminService",
+        "App\\Modules\\Notifications\\Services\\NotificationChannelDriverInterface",
+        "App\\Modules\\Notifications\\Services\\NotificationDispatcherService",
+        "App\\Modules\\Notifications\\Services\\NotificationEventRegistryService",
+        "App\\Modules\\Notifications\\Services\\NotificationModuleCatalogService",
+        "App\\Modules\\Notifications\\Services\\NotificationPreferenceService",
+        "App\\Modules\\Notifications\\Services\\NotificationQueueProcessorService",
+        "App\\Modules\\Notifications\\Services\\NotificationService",
+        "App\\Modules\\Notifications\\Services\\TelegramChannelDriver",
+        "App\\Modules\\Notifications\\Services\\TelegramLinkService"
+    ],
+    "controllers": [
+        "App\\Modules\\Notifications\\Controllers\\AdminNotificationsController",
+        "App\\Modules\\Notifications\\Controllers\\NotificationsController",
+        "App\\Modules\\Notifications\\Controllers\\TelegramWebhookController"
+    ]
+}

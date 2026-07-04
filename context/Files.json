@@ -1,0 +1,836 @@
+{
+    "module": "Files",
+    "generated_at": "2026-07-04T09:48:34+02:00",
+    "routes": [
+        {
+            "method": "GET",
+            "uri": "/admin/files/",
+            "name": "files.admin.index",
+            "controller": "AdminFilesController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:files.admin"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/files/trash",
+            "name": "files.admin.trash",
+            "controller": "AdminFilesController@trash",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:files.admin"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/files/stats-widget",
+            "name": "files.admin.stats_widget",
+            "controller": "AdminFilesController@statsWidget",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:files.admin"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/files/export",
+            "name": "files.admin.export",
+            "controller": "AdminFilesController@export",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:files.admin"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/files/bulk-delete",
+            "name": "files.admin.bulk_delete",
+            "controller": "AdminFilesController@bulkDelete",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:files.admin"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/files/bulk-purge",
+            "name": "files.admin.bulk_purge",
+            "controller": "AdminFilesController@bulkPurge",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:files.admin"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/files/{id}/restore",
+            "name": "files.admin.restore",
+            "controller": "AdminFilesController@restore",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:files.admin"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/admin/files/{id}",
+            "name": "files.admin.purge",
+            "controller": "AdminFilesController@purge",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:files.admin"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/files/",
+            "name": "files.index",
+            "controller": "FilesController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:files.access"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/files/picker",
+            "name": "files.picker",
+            "controller": "FilesController@picker",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:files.access"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/files/upload",
+            "name": "files.upload",
+            "controller": "FilesController@upload",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:files.access"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/files/",
+            "name": "files.store",
+            "controller": "FilesController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:files.access"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/files/download-zip",
+            "name": "files.download_zip",
+            "controller": "FilesController@downloadZip",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:files.access"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/files/bulk-delete",
+            "name": "files.bulk_destroy",
+            "controller": "FilesController@bulkDestroy",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:files.access"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/files/folders",
+            "name": "files.folders.store",
+            "controller": "FilesController@storeFolder",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:files.access"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/files/folders/rename",
+            "name": "files.folders.rename",
+            "controller": "FilesController@renameFolder",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:files.access"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/files/folders",
+            "name": "files.folders.destroy",
+            "controller": "FilesController@destroyFolder",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:files.access"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/files/{id}/versions/snapshot",
+            "name": "files.versions.snapshot",
+            "controller": "FilesController@snapshotVersion",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:files.access"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/files/{id}/versions/restore",
+            "name": "files.versions.restore",
+            "controller": "FilesController@restoreVersion",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:files.access"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/files/{id}/share/user",
+            "name": "files.share.user",
+            "controller": "FilesController@shareUser",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:files.access"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/files/{id}/share/role",
+            "name": "files.share.role",
+            "controller": "FilesController@shareRole",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:files.access"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/files/{id}/share/revoke",
+            "name": "files.share.revoke",
+            "controller": "FilesController@revokeShare",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:files.access"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/files/{id}",
+            "name": "files.show",
+            "controller": "FilesController@show",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:files.access"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/files/{id}/download",
+            "name": "files.download",
+            "controller": "FilesController@download",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:files.access"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/files/{id}/preview",
+            "name": "files.preview",
+            "controller": "FilesController@preview",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:files.access"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/files/{id}/preview-modal",
+            "name": "files.preview_modal",
+            "controller": "FilesController@previewModal",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:files.access"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/files/{id}/edit",
+            "name": "files.edit",
+            "controller": "FilesController@edit",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:files.access"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/files/{id}",
+            "name": "files.update",
+            "controller": "FilesController@update",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:files.access"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/files/{id}",
+            "name": "files.destroy",
+            "controller": "FilesController@destroy",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:files.access"
+            ]
+        }
+    ],
+    "tables": [
+        {
+            "name": "files",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "original_name",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "stored_name",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "directory",
+                    "type": "varchar(100)",
+                    "nullable": false,
+                    "default": "'files'"
+                },
+                {
+                    "name": "mime_type",
+                    "type": "varchar(100)",
+                    "nullable": false
+                },
+                {
+                    "name": "extension",
+                    "type": "varchar(20)",
+                    "nullable": false
+                },
+                {
+                    "name": "size_bytes",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "checksum_sha256",
+                    "type": "varchar(64)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "folder",
+                    "type": "varchar(200)",
+                    "nullable": false,
+                    "default": "''"
+                },
+                {
+                    "name": "description",
+                    "type": "varchar(500)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "tags",
+                    "type": "varchar(500)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "visibility",
+                    "type": "enum('private','internal')",
+                    "nullable": false,
+                    "default": "'private'"
+                },
+                {
+                    "name": "created_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                },
+                {
+                    "name": "deleted_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_deleted_at",
+                    "columns": [
+                        "deleted_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_files_created",
+                    "columns": [
+                        "created_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_files_folder",
+                    "columns": [
+                        "folder",
+                        "deleted_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_files_owner",
+                    "columns": [
+                        "created_by",
+                        "deleted_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_files_vis",
+                    "columns": [
+                        "visibility",
+                        "deleted_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "stored_name",
+                    "columns": [
+                        "stored_name"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_files_user",
+                    "column": "created_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "user_folders",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "folder",
+                    "type": "varchar(200)",
+                    "nullable": false
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "uk_user_folder",
+                    "columns": [
+                        "user_id",
+                        "folder"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "user_folders_ibfk_1",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "file_versions",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "file_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "version_no",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "original_name",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "stored_name",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "mime_type",
+                    "type": "varchar(150)",
+                    "nullable": false
+                },
+                {
+                    "name": "extension",
+                    "type": "varchar(20)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "size_bytes",
+                    "type": "bigint(20) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "checksum_sha256",
+                    "type": "varchar(64)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "created_by",
+                    "columns": [
+                        "created_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_file_versions_file",
+                    "columns": [
+                        "file_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "uk_file_versions_file_ver",
+                    "columns": [
+                        "file_id",
+                        "version_no"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "file_versions_ibfk_1",
+                    "column": "file_id",
+                    "references": "files.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "file_versions_ibfk_2",
+                    "column": "created_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "file_shares",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "file_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "target_type",
+                    "type": "enum('user','role')",
+                    "nullable": false
+                },
+                {
+                    "name": "target_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "permission",
+                    "type": "enum('view','edit')",
+                    "nullable": false,
+                    "default": "'view'"
+                },
+                {
+                    "name": "created_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "created_by",
+                    "columns": [
+                        "created_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_file_shares_file",
+                    "columns": [
+                        "file_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_file_shares_target",
+                    "columns": [
+                        "target_type",
+                        "target_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "uk_file_shares_unique",
+                    "columns": [
+                        "file_id",
+                        "target_type",
+                        "target_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "file_shares_ibfk_1",
+                    "column": "file_id",
+                    "references": "files.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "file_shares_ibfk_2",
+                    "column": "created_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        }
+    ],
+    "permissions": [
+        {
+            "slug": "files.access",
+            "name": "Accesso modulo File"
+        },
+        {
+            "slug": "files.admin",
+            "name": "Amministra tutti i file"
+        },
+        {
+            "slug": "files.create",
+            "name": "Carica file"
+        },
+        {
+            "slug": "files.delete",
+            "name": "Elimina propri file"
+        },
+        {
+            "slug": "files.edit",
+            "name": "Modifica metadati file"
+        },
+        {
+            "slug": "files.share",
+            "name": "Condividi file"
+        },
+        {
+            "slug": "files.view",
+            "name": "Visualizza file"
+        }
+    ],
+    "services": [
+        "App\\Modules\\Files\\Services\\FilesService"
+    ],
+    "controllers": [
+        "App\\Modules\\Files\\Controllers\\AdminFilesController",
+        "App\\Modules\\Files\\Controllers\\FilesController"
+    ]
+}

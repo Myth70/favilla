@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="tests/bootstrap.php"
+         colors="true"
+         cacheDirectory=".phpunit.cache">
+    <testsuites>
+        <testsuite name="Core">
+            <directory>tests/Unit</directory>
+        </testsuite>
+        <testsuite name="Modules">
+            <directory suffix="Test.php">app/Modules</directory>
+            <exclude>app/Modules/_Template</exclude>
+        </testsuite>
+        <!-- Opt-in: real-MariaDB tests. Skip unless RUN_DB_INTEGRATION=1, so the
+             default run stays on in-memory SQLite and never touches a DB server. -->
+        <testsuite name="Integration">
+            <directory>tests/Integration</directory>
+        </testsuite>
+    </testsuites>
+
+    <!-- Code coverage scope. Delimits which files count toward coverage; the
+         reports are produced on demand via the CLI coverage flags so normal runs
+         stay quiet. Run phpunit with "xdebug.mode=coverage" plus a coverage-text
+         or coverage-html flag. Requires a coverage driver (Xdebug or PCOV);
+         without one PHPUnit just skips coverage. -->
+    <source>
+        <include>
+            <directory>app</directory>
+        </include>
+        <exclude>
+            <directory>app/Modules/_Template</directory>
+            <directory>app/Views</directory>
+            <directory suffix="Test.php">app/Modules</directory>
+            <directory>app/Modules/*/Tests</directory>
+        </exclude>
+    </source>
+</phpunit>

@@ -1,0 +1,46 @@
+{
+    "name": "{{ModuleName}}",
+    "version": "1.0.0",
+    "description": "Modulo {{ModuleName}}",
+    "author": "Favilla",
+    "framework_min": "1.0",
+    "database": "shared",
+    "database_suggested_name": null,
+    "tables": ["{{TableName}}"],
+    "dependencies": [],
+    "optional_dependencies": [],
+    "dashboard_provider": null,
+    "search_provider": null,
+    "export_provider": null,
+    "notification_events": [],
+    "changelog": {
+        "1.0.0": "Versione iniziale"
+    },
+    "assets": {
+        "css": [],
+        "js": []
+    },
+    "uploads_directory": null,
+    "menu": [
+        {
+            "label": "{{ModuleName}}",
+            "icon": "fa-solid fa-circle",
+            "route": "{{module_name}}.index",
+            "permission": "{{module_name}}.view",
+            "order": 50,
+            "children": []
+        }
+    ],
+    "navigation": [
+        {
+            "id": "{{module_name}}.index",
+            "label": "{{ModuleName}}",
+            "icon": "fa-solid fa-circle",
+            "route": "{{module_name}}.index",
+            "permission": "{{module_name}}.view",
+            "order": 50,
+            "surfaces": ["sidebar"],
+            "children": []
+        }
+    ]
+}

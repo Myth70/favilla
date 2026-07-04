@@ -1,0 +1,7 @@
+# Contenuto privato: l'accesso passa SOLO dalle route applicative con ACL
+# (files.download / files.preview). Nessun serving diretto da Apache.
+Require all denied
+
+# Difesa in profondità se il deny venisse mai allentato: niente esecuzione PHP.
+Options -ExecCGI -Indexes
+php_flag engine off

@@ -1,0 +1,748 @@
+.ntas-page .nav-tabs .nav-link {
+    font-weight: 600;
+}
+
+.ntas-stat-card {
+    border: 1px solid color-mix(in srgb, var(--accent-color) 10%, var(--bs-border-color));
+    background: linear-gradient(145deg, color-mix(in srgb, var(--accent-color) 6%, var(--bg-surface)) 0%, var(--bg-surface) 100%);
+}
+
+.ntas-stat-label {
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--bs-secondary-color);
+}
+
+.ntas-stat-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--bs-body-color);
+    margin-top: 0.25rem;
+}
+
+.ntas-stat-meta {
+    margin-top: 0.25rem;
+    font-size: 0.8rem;
+    color: var(--bs-secondary-color);
+}
+
+.ntas-module-card {
+    border: 1px solid color-mix(in srgb, var(--accent-color) 9%, var(--bs-border-color));
+}
+
+.ntas-module-accordion .accordion-button {
+    font-weight: 700;
+    background: color-mix(in srgb, var(--accent-color) 4%, var(--bg-surface));
+}
+
+.ntas-module-accordion .accordion-button:not(.collapsed) {
+    color: var(--bs-body-color);
+    background: color-mix(in srgb, var(--accent-color) 8%, var(--bg-surface));
+}
+
+.ntas-module-head {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.ntas-module-collapse-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78rem;
+}
+
+.ntas-module-collapse-toggle .fa-chevron-down {
+    transition: transform 0.2s ease;
+}
+
+.ntas-module-collapse-toggle[aria-expanded="true"] .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+.ntas-module-collapse {
+    margin-top: 0.3rem;
+}
+
+.ntas-module-title {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.ntas-module-desc {
+    font-size: 0.83rem;
+    color: var(--bs-secondary-color);
+    margin-top: 0.18rem;
+}
+
+.ntas-block-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--bs-secondary-color);
+    margin-bottom: 0.8rem;
+}
+
+.ntas-channel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 0.9rem;
+}
+
+.ntas-channel-card {
+    border: 1px solid var(--bs-border-color);
+    border-radius: var(--radius-lg);
+    padding: 0.9rem;
+    background-color: color-mix(in srgb, var(--accent-color) 3%, var(--bg-surface));
+}
+
+.ntas-explicit-events {
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px dashed color-mix(in srgb, var(--accent-color) 18%, var(--bs-border-color));
+}
+
+.ntas-event-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.ntas-event-card,
+.ntas-bot-card {
+    border: 1px solid color-mix(in srgb, var(--accent-color) 8%, var(--bs-border-color));
+    border-radius: var(--radius-lg);
+    padding: 1rem;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent-color) 4%, var(--bg-surface)) 0%, var(--bg-surface) 100%);
+}
+
+.ntas-event-head,
+.ntas-bot-head {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.ntas-event-title {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--bs-body-color);
+}
+
+.ntas-event-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.ntas-event-inline .ntas-event-title {
+    margin-right: 0.2rem;
+}
+
+.ntas-event-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+}
+
+.ntas-event-details {
+    border-top: 1px dashed color-mix(in srgb, var(--accent-color) 14%, var(--bs-border-color));
+    padding-top: 0.6rem;
+}
+
+.ntas-event-details > summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem;
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--bs-secondary-color);
+}
+
+.ntas-event-details > summary::-webkit-details-marker {
+    display: none;
+}
+
+.ntas-event-details > summary::after {
+    content: '\f078';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    transition: transform 0.2s ease;
+}
+
+.ntas-event-details[open] > summary::after {
+    transform: rotate(180deg);
+}
+
+.ntas-bot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1rem;
+}
+
+.ntas-bot-card-create {
+    border-style: dashed;
+}
+
+.ntas-bot-switches {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.ntas-bot-meta {
+    margin-top: 1rem;
+    font-size: 0.82rem;
+}
+
+.ntas-status-block + .ntas-status-block {
+    margin-top: 1rem;
+}
+
+.ntas-status-title {
+    font-size: 0.84rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+}
+
+.ntas-status-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.ntas-visual-preview {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    border: 1px solid var(--bs-border-color);
+    border-radius: var(--radius-md);
+    background: color-mix(in srgb, var(--accent-color) 3%, var(--bg-surface));
+    padding: 0.45rem 0.65rem;
+}
+
+.ntas-icon-chip {
+    width: 2rem;
+    height: 2rem;
+    border-radius: var(--radius-md);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid color-mix(in srgb, var(--accent-color) 18%, var(--bs-border-color));
+    background: var(--bg-surface);
+    color: var(--bs-body-color);
+}
+
+.ntas-color-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--bs-secondary-color);
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.ntas-color-dot {
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--accent-color) 20%, var(--bs-border-color));
+    background-color: transparent;
+}
+
+.ntas-color-dot.is-default {
+    background: repeating-linear-gradient(
+        45deg,
+        color-mix(in srgb, var(--accent-color) 25%, transparent),
+        color-mix(in srgb, var(--accent-color) 25%, transparent) 3px,
+        transparent 3px,
+        transparent 6px
+    );
+}
+
+.ntas-color-dot-lg {
+    width: 1.15rem;
+    height: 1.15rem;
+}
+
+.ntas-picker-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    justify-content: flex-start;
+    min-height: 2.45rem;
+}
+
+.ntas-picker-btn .js-ntas-icon-preview {
+    width: 1.2rem;
+    text-align: center;
+}
+
+.ntas-icon-preview-lg {
+    font-size: 1.1rem;
+}
+
+.ntas-chevron-xs {
+    font-size: 0.65rem;
+}
+
+.ntas-hidden-data {
+    display: none;
+}
+
+.ntas-icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.55rem;
+}
+
+.ntas-icon-custom {
+    border: 1px dashed color-mix(in srgb, var(--accent-color) 22%, var(--bs-border-color));
+    border-radius: var(--radius-md);
+    padding: 0.65rem;
+    background: color-mix(in srgb, var(--accent-color) 3%, var(--bg-surface));
+}
+
+.ntas-icon-option {
+    border: 1px solid var(--bs-border-color);
+    border-radius: var(--radius-md);
+    background: var(--bg-surface);
+    color: var(--bs-body-color);
+    padding: 0.55rem 0.65rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    text-align: left;
+    cursor: pointer;
+}
+
+.ntas-icon-option:hover,
+.ntas-icon-option.is-active {
+    border-color: color-mix(in srgb, var(--accent-color) 50%, var(--bs-border-color));
+    background: color-mix(in srgb, var(--accent-color) 5%, var(--bg-surface));
+}
+
+.ntas-icon-option i {
+    font-size: 1.1rem;
+    width: 1.3rem;
+    text-align: center;
+}
+
+.ntas-icon-option-label {
+    font-size: 0.85rem;
+}
+
+.ntas-icon-option-class {
+    font-size: 0.75rem;
+    color: var(--bs-secondary-color);
+}
+
+.ntas-color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 0.55rem;
+}
+
+.ntas-color-option {
+    border: 1px solid var(--bs-border-color);
+    border-radius: var(--radius-md);
+    background: var(--bg-surface);
+    color: var(--bs-body-color);
+    padding: 0.5rem 0.6rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    text-align: left;
+}
+
+.ntas-color-option:hover,
+.ntas-color-option.is-active {
+    border-color: color-mix(in srgb, var(--accent-color) 50%, var(--bs-border-color));
+    background: color-mix(in srgb, var(--accent-color) 5%, var(--bg-surface));
+}
+
+.ntas-color-option-dot {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--accent-color) 20%, var(--bs-border-color));
+}
+
+.ntas-color-option-dot.is-default {
+    background: repeating-linear-gradient(
+        45deg,
+        color-mix(in srgb, var(--accent-color) 25%, transparent),
+        color-mix(in srgb, var(--accent-color) 25%, transparent) 3px,
+        transparent 3px,
+        transparent 6px
+    );
+}
+
+.ntas-template-guide {
+    border: 1px solid color-mix(in srgb, var(--accent-color) 10%, var(--bs-border-color));
+}
+
+.ntas-guide-list {
+    padding-left: 1rem;
+}
+
+.ntas-guide-list li {
+    margin-bottom: 0.35rem;
+    color: var(--bs-secondary-color);
+}
+
+.ntas-guide-example {
+    border: 1px dashed color-mix(in srgb, var(--accent-color) 16%, var(--bs-border-color));
+    border-radius: var(--radius-md);
+    background: color-mix(in srgb, var(--accent-color) 4%, var(--bg-surface));
+    padding: 0.7rem 0.8rem;
+    display: grid;
+    gap: 0.45rem;
+}
+
+.ntas-guide-pill-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.ntas-event-key-map {
+    display: grid;
+    gap: 0.6rem;
+}
+
+.ntas-event-key-item {
+    border: 1px solid var(--bs-border-color);
+    border-radius: var(--radius-md);
+    padding: 0.55rem 0.65rem;
+    background: color-mix(in srgb, var(--accent-color) 2%, var(--bg-surface));
+}
+
+.ntas-event-key-title {
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+}
+
+.ntas-event-form {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.ntas-context-chip-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    min-height: 2.3rem;
+    align-items: flex-start;
+}
+
+.ntas-context-chip {
+    font-size: 0.76rem;
+    border-radius: 999px;
+    padding: 0.15rem 0.5rem;
+}
+
+/* =================================================================
+   Events table
+   ================================================================= */
+.ntas-events-table {
+    font-size: 0.88rem;
+}
+
+.ntas-table-filter-group {
+    max-width: 280px;
+}
+
+.ntas-col-icon {
+    width: 3.2rem;
+}
+
+.ntas-col-channel {
+    width: 6rem;
+}
+
+.ntas-col-actions {
+    width: 9rem;
+}
+
+.ntas-system-badge {
+    font-size: 0.65rem;
+}
+
+.ntas-events-table thead th {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--bs-secondary-color);
+    border-bottom-width: 2px;
+    white-space: nowrap;
+}
+
+.ntas-module-header-row td {
+    background: color-mix(in srgb, var(--accent-color) 5%, var(--bg-surface));
+    border-bottom: 1px solid color-mix(in srgb, var(--accent-color) 12%, var(--bs-border-color));
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    font-size: 0.82rem;
+}
+
+.ntas-event-row:hover {
+    background: color-mix(in srgb, var(--accent-color) 3%, var(--bg-surface));
+}
+
+.ntas-table-icon-dot {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: var(--radius-md);
+    background: color-mix(in srgb, var(--accent-color) 6%, var(--bg-surface));
+    border: 1px solid color-mix(in srgb, var(--accent-color) 14%, var(--bs-border-color));
+    font-size: 0.9rem;
+}
+
+.ntas-table-event-name {
+    font-weight: 600;
+    font-size: 0.88rem;
+    line-height: 1.3;
+}
+
+.ntas-table-event-slug {
+    font-size: 0.74rem;
+    color: var(--bs-secondary-color);
+}
+
+.ntas-table-event-slug code {
+    font-size: 0.72rem;
+}
+
+.ntas-ch-badge {
+    width: 1.6rem;
+    height: 1.6rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    font-size: 0.65rem;
+}
+
+.ntas-ch-on {
+    background-color: color-mix(in srgb, #16A34A 15%, var(--bg-surface));
+    color: #16A34A;
+    border: 1px solid color-mix(in srgb, #16A34A 30%, var(--bs-border-color));
+}
+
+.ntas-ch-off {
+    background-color: color-mix(in srgb, var(--bs-secondary-color) 6%, var(--bg-surface));
+    color: var(--bs-secondary-color);
+    border: 1px solid var(--bs-border-color);
+    opacity: 0.5;
+}
+
+.ntas-table-filter .input-group {
+    transition: box-shadow 0.15s ease;
+}
+
+.ntas-table-filter .input-group:focus-within {
+    box-shadow: 0 0 0 0.15rem color-mix(in srgb, var(--accent-color) 25%, transparent);
+}
+
+.ntas-channel-tabs .nav-link {
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 0.45rem 0.8rem;
+    border-radius: var(--radius-sm);
+    color: var(--bs-secondary-color);
+    position: relative;
+}
+
+.ntas-channel-tabs .nav-link.active {
+    background: color-mix(in srgb, var(--accent-color) 12%, var(--bg-surface));
+    color: var(--bs-body-color);
+}
+
+.ntas-ch-tab-indicator {
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    margin-left: 0.35rem;
+    vertical-align: middle;
+}
+
+.ntas-ch-tab-indicator.is-on {
+    background-color: #16A34A;
+}
+
+.ntas-ch-tab-indicator.is-off {
+    background-color: var(--bs-secondary-color);
+    opacity: 0.35;
+}
+
+/* Context chip variants */
+.ntas-chip-module {
+    background-color: color-mix(in srgb, var(--accent-color) 8%, var(--bg-surface));
+    border: 1px solid color-mix(in srgb, var(--accent-color) 22%, var(--bs-border-color));
+    color: var(--bs-body-color);
+}
+
+.ntas-chip-module:hover {
+    background-color: color-mix(in srgb, var(--accent-color) 16%, var(--bg-surface));
+}
+
+.ntas-chip-global {
+    background-color: transparent;
+    border: 1px dashed var(--bs-border-color);
+    color: var(--bs-secondary-color);
+}
+
+.ntas-chip-global:hover {
+    background-color: color-mix(in srgb, var(--accent-color) 5%, var(--bg-surface));
+    color: var(--bs-body-color);
+}
+
+/* =================================================================
+   Live preview panel
+   ================================================================= */
+.ntas-preview-panel {
+    border: 1px solid color-mix(in srgb, var(--accent-color) 12%, var(--bs-border-color));
+    border-radius: var(--radius-md);
+    background: color-mix(in srgb, var(--accent-color) 2%, var(--bg-surface));
+    overflow: hidden;
+    position: sticky;
+    top: 1rem;
+}
+
+.ntas-preview-header {
+    padding: 0.55rem 0.85rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--bs-secondary-color);
+    background: color-mix(in srgb, var(--accent-color) 6%, var(--bg-surface));
+    border-bottom: 1px solid color-mix(in srgb, var(--accent-color) 10%, var(--bs-border-color));
+}
+
+.ntas-preview-body {
+    padding: 1rem;
+    min-height: 200px;
+}
+
+/* --- In-App preview — uses real .nt-item from nt-notifications.css --- */
+.ntas-preview-nt-item {
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--bs-border-color);
+}
+
+.ntas-preview-nt-item .nt-type-icon {
+    font-size: 1.1rem;
+}
+
+/* --- Email preview --- */
+.ntas-preview-email-wrap {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #ffffff;
+    font-size: 0.82rem;
+    color: #333;
+}
+
+.ntas-preview-email-header {
+    background: #f8f9fa;
+    padding: 0.65rem 0.85rem;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.ntas-preview-email-greeting {
+    padding: 0.75rem 0.85rem 0.2rem;
+    font-size: 0.82rem;
+    color: #555;
+}
+
+.ntas-preview-email-body {
+    padding: 0.4rem 0.85rem;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: #555;
+    word-break: break-word;
+}
+
+.ntas-preview-email-cta {
+    padding: 0.65rem 0.85rem;
+    text-align: center;
+}
+
+.ntas-preview-email-btn {
+    display: inline-block;
+    padding: 0.35rem 1.2rem;
+    background: #0d6efd;
+    color: #fff !important;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.ntas-preview-email-footer {
+    padding: 0.5rem 0.85rem;
+    border-top: 1px solid #eee;
+    text-align: center;
+    font-size: 0.7rem;
+    color: #aaa;
+}
+
+/* --- Telegram preview --- */
+.ntas-preview-telegram {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.ntas-preview-tg-bubble {
+    max-width: 90%;
+    background: color-mix(in srgb, var(--accent-color) 8%, var(--bg-surface));
+    border: 1px solid color-mix(in srgb, var(--accent-color) 14%, var(--bs-border-color));
+    border-radius: 12px 12px 12px 4px;
+    padding: 0.6rem 0.85rem;
+}
+
+.ntas-preview-tg-name {
+    font-weight: 700;
+    font-size: 0.78rem;
+    color: #2563EB;
+    margin-bottom: 0.2rem;
+}
+
+.ntas-preview-tg-text {
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: var(--bs-body-color);
+    word-break: break-word;
+}
+
+.ntas-preview-tg-time {
+    text-align: right;
+    font-size: 0.65rem;
+    color: var(--bs-secondary-color);
+    margin-top: 0.25rem;
+    opacity: 0.7;
+}

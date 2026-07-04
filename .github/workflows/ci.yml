@@ -1,0 +1,169 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  tests:
+    name: Tests (PHP ${{ matrix.php }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['8.2', '8.3']
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: mbstring, pdo_sqlite, gd, zip, openssl
+          coverage: none
+
+      - name: Validate composer.json
+        run: composer validate --strict
+
+      - name: Cache Composer packages
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: composer-${{ matrix.php }}-${{ hashFiles('**/composer.lock') }}
+          restore-keys: composer-${{ matrix.php }}-
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Run test suite
+        # Tests use an in-memory SQLite database — no external services required.
+        run: vendor/bin/phpunit
+
+  static-analysis:
+    name: PHPStan (level 6)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, pdo_sqlite, gd, zip, openssl
+          coverage: none
+
+      - name: Cache Composer packages
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: composer-phpstan-${{ hashFiles('**/composer.lock') }}
+          restore-keys: composer-phpstan-
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Cache PHPStan result cache
+        uses: actions/cache@v4
+        with:
+          path: storage/tmp/phpstan-cache
+          key: phpstan-${{ hashFiles('**/composer.lock') }}-${{ hashFiles('app/**/*.php') }}
+          restore-keys: |
+            phpstan-${{ hashFiles('**/composer.lock') }}-
+            phpstan-
+
+      - name: Run PHPStan
+        run: vendor/bin/phpstan analyse -c phpstan.neon --no-progress
+
+  quality:
+    name: Quality (audit, coverage, code style)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, pdo_sqlite, gd, zip, openssl
+          coverage: pcov
+
+      - name: Cache Composer packages
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: composer-quality-${{ hashFiles('**/composer.lock') }}
+          restore-keys: composer-quality-
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Security audit (dependencies)
+        run: composer audit
+
+      - name: Test suite with coverage
+        run: vendor/bin/phpunit --coverage-clover coverage.xml --coverage-text
+
+      - name: Upload coverage report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-clover
+          path: coverage.xml
+          if-no-files-found: warn
+
+      - name: Code style (PSR-12)
+        # Blocking: the tree is fully php-cs-fixer conformant. New violations fail CI.
+        run: composer cs
+
+      - name: Translations completeness (it baseline)
+        # Blocking: every en/fr/de/es key must mirror the Italian source — no
+        # missing, extra or empty translations. Guards against i18n regressions.
+        run: php favilla lang:check --strict
+
+  integration-mariadb:
+    name: Integration (MariaDB 10.4)
+    runs-on: ubuntu-latest
+    services:
+      mariadb:
+        image: mariadb:10.4
+        env:
+          MARIADB_ROOT_PASSWORD: root
+        ports:
+          - 3306:3306
+        options: >-
+          --health-cmd="healthcheck.sh --connect --innodb_initialized"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, pdo_mysql, gd, zip, openssl
+          coverage: none
+
+      - name: Cache Composer packages
+        uses: actions/cache@v4
+        with:
+          path: vendor
+          key: composer-integration-${{ hashFiles('**/composer.lock') }}
+          restore-keys: composer-integration-
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Run MariaDB integration suite
+        # Loads database/schema.sql into a throwaway DB and runs the queries that
+        # SQLite can't validate (LIMIT binding, NOW(), collation, reserved words).
+        env:
+          RUN_DB_INTEGRATION: '1'
+          DB_HOST: 127.0.0.1
+          DB_PORT: '3306'
+          DB_USER: root
+          DB_PASS: root
+          DB_TEST_NAME: favilla_ci_test
+        run: vendor/bin/phpunit --testsuite Integration

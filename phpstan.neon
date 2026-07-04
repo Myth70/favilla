@@ -1,0 +1,34 @@
+includes:
+    - phpstan-baseline.neon
+
+parameters:
+    level: 6
+    tmpDir: storage/tmp/phpstan-cache
+    paths:
+        - app
+    excludePaths:
+        - app/Modules/_Template/stubs/*
+        - app/Modules/*/Tests/*
+        - app/Modules/*/migrations/*
+        # Template views: PHP files with variables extract()-ed from the
+        # render data array — PHPStan cannot track them without annotations.
+        - app/Modules/*/Views/*
+        - app/Views/*
+        - app/Mail/templates/*
+        - app/Setup/steps/*
+        # Route files receive $router/$r injected by the loader's scope.
+        - app/Modules/*/routes.php
+        - app/Config/routes.php
+    bootstrapFiles:
+        - phpstan-bootstrap.php
+    treatPhpDocTypesAsCertain: false
+    reportUnmatchedIgnoredErrors: true
+    # Level 6 is enforced for parameter/return/property types (the codebase is
+    # already clean there after the strict_types pass). The ONLY remaining level-6
+    # gap was ~1300 `missingType.iterableValue` (missing array<…> generics in
+    # phpdoc) — the lowest-value type check. It is deferred (not baselined) via the
+    # identifier ignore below, so adding precise array generics can happen
+    # incrementally without blocking. New code is still held to full param/return
+    # types. Bumping to level 7 is the next step once generics are filled in.
+    ignoreErrors:
+        - identifier: missingType.iterableValue

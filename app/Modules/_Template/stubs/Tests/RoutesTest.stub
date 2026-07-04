@@ -1,0 +1,103 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ModuleNamespace}}\Tests\Unit;
+
+use App\Core\Router;
+use App\Middleware\AuthMiddleware;
+use App\Middleware\CsrfMiddleware;
+use App\Middleware\RoleMiddleware;
+use PHPUnit\Framework\TestCase;
+use ReflectionClass;
+
+/**
+ * Verifica che le route del modulo siano registrate con i middleware corretti.
+ * Catch class: permessi mancanti, CSRF dimenticato, route non auth-gated.
+ *
+ * I test HTTP end-to-end non sono fattibili in-process perche' i middleware
+ * di Favilla chiamano exit() sui failure path. Qui testiamo il contratto
+ * di registrazione, che e' la classe di bug che conta davvero.
+ */
+class {{ModuleName}}RoutesTest extends TestCase
+{
+    private Router $router;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->router = new Router();
+        $router = $this->router;
+        include BASE_PATH . '/app/Modules/{{ModuleName}}/routes.php';
+    }
+
+    public function test_index_route_requires_auth_and_view_permission(): void
+    {
+        $route = $this->findRoute('GET', '/{{module-name}}');
+
+        $this->assertNotNull($route, 'Route GET /{{module-name}} non registrata');
+        $this->assertSame('{{module_name}}.index', $route['name']);
+        $this->assertHasMiddleware(AuthMiddleware::class, $route['middleware']);
+        $this->assertHasRolePermission('{{module_name}}.view', $route['middleware']);
+    }
+
+    public function test_store_route_requires_csrf_and_create_permission(): void
+    {
+        $route = $this->findRoute('POST', '/{{module-name}}');
+
+        $this->assertNotNull($route, 'Route POST /{{module-name}} non registrata');
+        $this->assertSame('{{module_name}}.store', $route['name']);
+        $this->assertHasMiddleware(AuthMiddleware::class, $route['middleware']);
+        $this->assertHasMiddleware(CsrfMiddleware::class, $route['middleware']);
+        $this->assertHasRolePermission('{{module_name}}.create', $route['middleware']);
+    }
+
+    public function test_destroy_route_requires_csrf_and_delete_permission(): void
+    {
+        $route = $this->findRoute('DELETE', '/{{module-name}}/{id}');
+
+        $this->assertNotNull($route, 'Route DELETE /{{module-name}}/{id} non registrata');
+        $this->assertSame('{{module_name}}.destroy', $route['name']);
+        $this->assertHasMiddleware(CsrfMiddleware::class, $route['middleware']);
+        $this->assertHasRolePermission('{{module_name}}.delete', $route['middleware']);
+    }
+
+    // ------------------------------------------------------------------
+
+    private function findRoute(string $method, string $uri): ?array
+    {
+        foreach ($this->router->getRoutes() as $route) {
+            if ($route['method'] === $method && $route['uri'] === $uri) {
+                return $route;
+            }
+        }
+        return null;
+    }
+
+    private function assertHasMiddleware(string $class, array $middleware): void
+    {
+        foreach ($middleware as $mw) {
+            if ($mw === $class || $mw instanceof $class) {
+                $this->addToAssertionCount(1);
+                return;
+            }
+        }
+        $this->fail("Middleware {$class} non presente nella route.");
+    }
+
+    private function assertHasRolePermission(string $permission, array $middleware): void
+    {
+        foreach ($middleware as $mw) {
+            if (!($mw instanceof RoleMiddleware)) {
+                continue;
+            }
+            $prop = (new ReflectionClass($mw))->getProperty('permission');
+            $prop->setAccessible(true);
+            if ($prop->getValue($mw) === $permission) {
+                $this->addToAssertionCount(1);
+                return;
+            }
+        }
+        $this->fail("RoleMiddleware per permesso '{$permission}' non presente.");
+    }
+}

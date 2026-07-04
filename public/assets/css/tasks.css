@@ -1,0 +1,559 @@
+/* ═══════════════════════════════════════════════════════════════
+   Modulo Attività — CSS personalizzato
+   Prefisso: .att-  (evita collisioni con altri moduli)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Kanban container ─────────────────────────────────────────── */
+.att-kanban-container {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+    min-height: 0;
+    /* Ancora il container alla larghezza del genitore, evita scroll di pagina */
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+/* Horizontal scrollbar */
+.att-kanban-container::-webkit-scrollbar { height: 6px; }
+.att-kanban-container::-webkit-scrollbar-track { background: transparent; }
+.att-kanban-container::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 3px; }
+
+/* ── Column ───────────────────────────────────────────────────── */
+.att-kanban-column {
+    /* Fluid: cresce per riempire, si contrae fino a 230px, non supera 320px */
+    flex: 1 1 230px;
+    min-width: 230px;
+    max-width: 320px;
+    box-sizing: border-box;
+    background: var(--bs-tertiary-bg, #f8f9fa);
+    border: 1px solid var(--bs-border-color, #dee2e6);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    max-height: min(760px, calc(100dvh - 210px));
+}
+
+/* ── Column header colors ─────────────────────────────────────── */
+.att-kanban-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 0.75rem;
+    border-bottom: 2px solid transparent;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    font-weight: 600;
+    font-size: 0.82rem;
+    user-select: none;
+}
+.att-kanban-header-secondary { border-bottom-color: var(--bs-secondary, #6c757d); }
+.att-kanban-header-info      { border-bottom-color: var(--bs-info, #0dcaf0); }
+.att-kanban-header-primary   { border-bottom-color: var(--bs-primary, #0d6efd); }
+.att-kanban-header-warning   { border-bottom-color: var(--bs-warning, #ffc107); }
+.att-kanban-header-success   { border-bottom-color: var(--bs-success, #198754); }
+
+.att-kanban-title {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.att-kanban-add-btn {
+    border: none;
+    background: transparent;
+    font-size: 0.85rem;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: opacity .15s, background .15s;
+    padding: 0.15rem 0.4rem;
+    border-radius: var(--radius-sm);
+    line-height: 1;
+    color: inherit;
+}
+.att-kanban-add-btn:hover {
+    opacity: 1;
+    background: rgba(0,0,0,0.06);
+}
+
+/* ── Items area (sortable) ────────────────────────────────────── */
+.att-kanban-items {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0.5rem;
+    min-height: 50px;
+}
+
+.att-kanban-items::-webkit-scrollbar { width: 4px; }
+.att-kanban-items::-webkit-scrollbar-track { background: transparent; }
+.att-kanban-items::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.12); border-radius: 2px; }
+
+/* ── Card (item) ──────────────────────────────────────────────── */
+.att-kanban-item {
+    background: var(--bs-body-bg, #fff);
+    border: 1px solid var(--bs-border-color, #dee2e6);
+    border-radius: var(--radius-sm);
+    box-sizing: border-box;
+    max-width: 100%;
+    margin-bottom: 0.5rem;
+    cursor: grab;
+    transition: box-shadow .15s, transform .1s;
+    position: relative;
+    overflow: hidden;
+}
+.att-kanban-item:hover {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    transform: translateY(-1px);
+}
+.att-kanban-item:active { cursor: grabbing; }
+.att-kanban-item:last-child { margin-bottom: 0; }
+
+/* Priority bar (left side) */
+.att-kanban-item-priority {
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 4px;
+}
+.att-priority-low    { background-color: var(--bs-secondary, #6c757d); }
+.att-priority-medium { background-color: var(--bs-info, #0dcaf0); }
+.att-priority-high   { background-color: var(--bs-warning, #ffc107); }
+.att-priority-urgent { background-color: var(--bs-danger, #dc3545); }
+
+.att-kanban-item-body {
+    padding: 0.55rem 0.65rem 0.55rem 0.85rem;
+    min-width: 0;
+}
+
+.att-kanban-item-title {
+    font-size: 0.82rem;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 0.35rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.35rem;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+/* ── Tags ─────────────────────────────────────────────────────── */
+.att-kanban-item-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px;
+    margin-bottom: 0.35rem;
+}
+.att-kanban-tag {
+    display: inline-block;
+    padding: 0.1rem 0.4rem;
+    border-radius: 0.2rem;
+    font-size: 0.65rem;
+    font-weight: 600;
+    background-color: color-mix(in srgb, var(--att-tag-color, #6c757d), transparent 85%);
+    color: var(--att-tag-color, #6c757d);
+    border: 1px solid color-mix(in srgb, var(--att-tag-color, #6c757d), transparent 70%);
+    line-height: 1.3;
+}
+
+/* ── Card footer ──────────────────────────────────────────────── */
+.att-kanban-item-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 0.2rem;
+    font-size: 0.7rem;
+}
+.att-kanban-item-meta {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.att-kanban-due {
+    color: var(--bs-secondary-color, #6c757d);
+}
+.att-kanban-due.att-overdue {
+    color: var(--bs-danger, #dc3545);
+    font-weight: 600;
+}
+
+.att-kanban-priority { font-size: 0.72rem; }
+.att-priority-text-secondary { color: var(--bs-secondary, #6c757d); }
+.att-priority-text-info      { color: var(--bs-info, #0dcaf0); }
+.att-priority-text-warning   { color: var(--bs-warning, #ffc107); }
+.att-priority-text-danger    { color: var(--bs-danger, #dc3545); }
+
+.att-kanban-checklist {
+    color: var(--bs-secondary-color, #6c757d);
+    font-size: 0.68rem;
+}
+.att-kanban-checklist.att-checklist-complete {
+    color: var(--bs-success, #198754);
+}
+
+/* ── Color dot ────────────────────────────────────────────────── */
+.att-color-dot {
+    display: inline-block;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.att-color-dot-dynamic {
+    background-color: var(--att-color, transparent);
+}
+
+/* ── Ghost & drag states ──────────────────────────────────────── */
+.sortable-ghost.att-kanban-item {
+    opacity: 0.3;
+    background: var(--bs-primary-bg-subtle, #cfe2ff);
+    border: 2px dashed var(--bs-primary, #0d6efd);
+}
+.sortable-chosen.att-kanban-item {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    transform: rotate(1.5deg);
+}
+.sortable-drag.att-kanban-item {
+    opacity: 0.9;
+}
+
+/* ── Card style for views ─────────────────────────────────────── */
+.att-card {
+    border-left: 3px solid var(--accent, var(--bs-primary, #0d6efd));
+}
+
+.att-description {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* ── Tag check (form) ─────────────────────────────────────────── */
+.att-tag-check {
+    cursor: pointer;
+}
+.att-tag-check input:checked + .att-tag-badge {
+    box-shadow: 0 0 0 2px var(--att-tag-color, #6c757d);
+    font-weight: 700;
+}
+.att-tag-badge {
+    background-color: color-mix(in srgb, var(--att-tag-color, #6c757d), transparent 85%);
+    color: var(--att-tag-color, #6c757d);
+    border: 1px solid color-mix(in srgb, var(--att-tag-color, #6c757d), transparent 70%);
+    transition: box-shadow .15s;
+    cursor: pointer;
+}
+.att-tag-badge:hover {
+    box-shadow: 0 0 0 1px var(--att-tag-color, #6c757d);
+}
+
+/* ── Checklist ────────────────────────────────────────────────── */
+.att-checklist .att-checklist-item {
+    border: none;
+    border-bottom: 1px solid var(--bs-border-color-translucent, rgba(0,0,0,0.08));
+    padding: 0.4rem 0.75rem;
+    transition: background .1s;
+}
+.att-checklist .att-checklist-item:hover {
+    background: var(--bs-tertiary-bg, rgba(0,0,0,0.02));
+}
+.att-checklist .att-checklist-item:last-child {
+    border-bottom: none;
+}
+.att-checklist-done span {
+    opacity: 0.6;
+}
+
+/* ── Table list view ──────────────────────────────────────────── */
+.att-row-done td {
+    opacity: 0.55;
+}
+.att-row-overdue {
+    border-left: 3px solid var(--bs-danger, #dc3545);
+}
+
+.att-col-dot { width: 36px; }
+.att-col-status { width: 130px; }
+.att-col-priority { width: 110px; }
+.att-col-due { width: 130px; white-space: nowrap; }
+.att-col-checklist { width: 110px; }
+.att-col-actions { width: 130px; white-space: nowrap; }
+
+.att-list-table .att-col-due,
+.att-list-table td:nth-child(5) {
+    white-space: nowrap;
+}
+
+.att-progress-sm { height: 6px; }
+.att-progress-xs { height: 5px; }
+.att-progress-fixed-100 { width: 100px; }
+.att-progress-fixed-60 { width: 60px; }
+.att-progress-fixed-40 { width: 40px; }
+
+.att-progress-fill {
+    width: var(--att-progress, 0%);
+}
+
+.att-tag-chip {
+    background-color: color-mix(in srgb, var(--att-tag-color, #6c757d), transparent 84%);
+    color: var(--att-tag-color, #6c757d);
+    border: 1px solid color-mix(in srgb, var(--att-tag-color, #6c757d), transparent 66%);
+}
+
+/* ── Responsive ───────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .att-kanban-container {
+        gap: 10px;
+        scroll-snap-type: x mandatory;
+    }
+
+    .att-kanban-column {
+        flex: 0 0 min(88vw, 360px);
+        min-width: min(88vw, 360px);
+        max-width: min(88vw, 360px);
+        max-height: none;
+        scroll-snap-align: start;
+    }
+
+    .att-kanban-items {
+        max-height: none;
+        overflow-y: visible;
+    }
+}
+
+@media (max-width: 576px) {
+    .att-kanban-container {
+        display: block;
+        overflow-x: hidden;
+        overflow-y: visible;
+        padding-bottom: 0;
+        scroll-snap-type: none;
+    }
+
+    .att-kanban-column {
+        --att-kanban-col-width: 100%;
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        margin-bottom: 0.75rem;
+        scroll-snap-align: none;
+    }
+
+    .att-kanban-column:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* ── Dark mode ────────────────────────────────────────────────── */
+[data-bs-theme="dark"] .att-kanban-column {
+    background: var(--bs-tertiary-bg, #212529);
+    border-color: var(--bs-border-color, #495057);
+}
+[data-bs-theme="dark"] .att-kanban-item {
+    background: var(--bs-body-bg, #2b3035);
+    border-color: var(--bs-border-color, #495057);
+}
+[data-bs-theme="dark"] .att-kanban-item:hover {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+}
+[data-bs-theme="dark"] .sortable-ghost.att-kanban-item {
+    background: rgba(13, 110, 253, 0.15);
+}
+[data-bs-theme="dark"] .att-kanban-add-btn:hover {
+    background: rgba(255,255,255,0.08);
+}
+[data-bs-theme="dark"] .att-tag-badge,
+[data-bs-theme="dark"] .att-kanban-tag {
+    background-color: color-mix(in srgb, var(--att-tag-color, #6c757d), transparent 90%);
+}
+[data-bs-theme="dark"] .att-tag-chip {
+    background-color: color-mix(in srgb, var(--att-tag-color, #6c757d), transparent 88%);
+    color: color-mix(in srgb, var(--att-tag-color, #6c757d) 88%, #ffffff);
+    border-color: color-mix(in srgb, var(--att-tag-color, #6c757d), transparent 58%);
+}
+
+/* ── Lista — card Panoramica + Filtri, compattezza coerente col profilo ── */
+@media (min-width: 992px) {
+    .att-list-card .card-body {
+        padding-top: 0.85rem;
+        padding-bottom: 0.85rem;
+    }
+}
+
+/* ── Lista — status filter pills ─────────────────────────────── */
+.att-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    align-items: center;
+}
+
+.att-status-pill {
+    --att-pill-color: var(--bs-secondary-color, #6c757d);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.75rem;
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 1.2;
+    border: 1.5px solid color-mix(in srgb, var(--att-pill-color) 45%, transparent);
+    background: var(--bs-secondary-bg, #f3f4f6);
+    color: var(--bs-body-color);
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background .15s, border-color .15s, color .15s, transform .1s;
+}
+.att-status-pill:hover {
+    border-color: var(--att-pill-color);
+    color: var(--att-pill-color);
+    transform: translateY(-1px);
+}
+.att-status-pill > i { color: var(--att-pill-color); }
+.att-status-pill.active {
+    background: var(--att-pill-color);
+    border-color: var(--att-pill-color);
+    color: #fff;
+}
+.att-status-pill.active > i,
+.att-status-pill.active .att-pill-count { color: #fff; }
+.att-status-pill-static { cursor: default; pointer-events: none; }
+
+.att-status-pill-secondary { --att-pill-color: var(--bs-secondary, #6c757d); }
+.att-status-pill-info      { --att-pill-color: var(--bs-info, #0dcaf0); }
+.att-status-pill-primary   { --att-pill-color: var(--bs-primary, #0d6efd); }
+.att-status-pill-warning   { --att-pill-color: var(--bs-warning, #ffc107); }
+.att-status-pill-success   { --att-pill-color: var(--bs-success, #198754); }
+.att-status-pill-danger    { --att-pill-color: var(--bs-danger, #dc3545); }
+
+.att-pill-count {
+    display: inline-block;
+    min-width: 1.25rem;
+    padding: 0 0.35rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--att-pill-color) 18%, transparent);
+    color: var(--att-pill-color);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1.4;
+}
+.att-status-pill.active .att-pill-count {
+    background: rgba(255,255,255,0.25);
+}
+
+.att-filter-sep {
+    display: inline-block;
+    width: 1px;
+    height: 1.2rem;
+    background: var(--bs-border-color, #dee2e6);
+    margin: 0 0.25rem;
+}
+
+/* ── Lista — table card ──────────────────────────────────────── */
+.att-list-table thead th {
+    background: var(--bs-tertiary-bg, #f8f9fa);
+    border-bottom: 1px solid var(--bs-border-color, #dee2e6);
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--bs-secondary-color, #6c757d);
+    padding: 0.65rem 0.75rem;
+}
+.att-list-table tbody td {
+    padding: 0.7rem 0.75rem;
+}
+.att-list-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.att-sort-link {
+    color: inherit;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+}
+.att-sort-link:hover { color: var(--accent-color, var(--bs-primary)); }
+
+.att-title-link {
+    color: var(--bs-body-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+.att-title-link:hover {
+    color: var(--accent-color, var(--bs-primary));
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+/* Priority chip */
+.att-priority-chip {
+    --att-chip-color: var(--bs-secondary, #6c757d);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    background: color-mix(in srgb, var(--att-chip-color) 15%, transparent);
+    color: var(--att-chip-color);
+    border: 1px solid color-mix(in srgb, var(--att-chip-color) 35%, transparent);
+    white-space: nowrap;
+}
+.att-priority-chip-secondary { --att-chip-color: var(--bs-secondary, #6c757d); }
+.att-priority-chip-info      { --att-chip-color: var(--bs-info, #0dcaf0); }
+.att-priority-chip-primary   { --att-chip-color: var(--bs-primary, #0d6efd); }
+.att-priority-chip-warning   { --att-chip-color: #d97706; }
+.att-priority-chip-success   { --att-chip-color: var(--bs-success, #198754); }
+.att-priority-chip-danger    { --att-chip-color: var(--bs-danger, #dc3545); }
+
+.att-checklist-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.att-row-overdue {
+    box-shadow: inset 3px 0 0 var(--bs-danger, #dc3545);
+}
+
+/* Empty state */
+.att-empty-state {
+    text-align: center;
+    padding: 3rem 1.5rem;
+}
+.att-empty-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--bs-tertiary-bg, #f3f4f6);
+    color: var(--bs-secondary-color, #6c757d);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+}
+
+/* Dark mode */
+[data-bs-theme="dark"] .att-status-pill {
+    background: var(--bs-tertiary-bg, rgba(255,255,255,0.05));
+}
+[data-bs-theme="dark"] .att-list-table thead th {
+    background: var(--bs-tertiary-bg, #1e222a);
+}
+[data-bs-theme="dark"] .att-empty-icon {
+    background: rgba(255,255,255,0.05);
+}

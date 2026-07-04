@@ -1,0 +1,207 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ModuleNamespace}}\Controllers;
+
+use App\Core\Controller;
+use {{ModuleNamespace}}\Services\{{ModuleName}}Service;
+use App\Traits\ControllerHelpers;
+
+class {{ModuleName}}Controller extends Controller
+{
+    use ControllerHelpers;
+
+    /** Stati ammessi (devono combaciare con l'ENUM in migrations/). */
+    private const STATUSES = ['active', 'inactive', 'archived'];
+
+    private {{ModuleName}}Service $service;
+
+    public function __construct()
+    {
+        $this->service = app({{ModuleName}}Service::class);
+    }
+
+    public function index(): void
+    {
+        $userId  = (int) $_SESSION['user_id'];
+        $filters = array_merge(
+            $this->cleanGet(['q', 'status']),
+            [
+                'sort' => $_GET['sort'] ?? 'created_at',
+                'dir'  => $_GET['dir']  ?? 'desc',
+                'page' => max(1, (int) ($_GET['page'] ?? 1)),
+            ]
+        );
+
+        $result       = $this->service->list($filters, $userId);
+        $statusCounts = $this->service->statusCounts($userId);
+
+        $data = [
+            'pageTitle'    => t('{{module_name}}.title'),
+            'breadcrumbs'  => [['label' => t('{{module_name}}.title')]],
+            'items'        => $result['data'],
+            'total'        => $result['total'],
+            'pages'        => $result['lastPage'],
+            'page'         => $result['page'],
+            'filters'      => $filters,
+            'statusCounts' => $statusCounts,
+        ];
+
+        if ($this->isHtmxRequest()) {
+            $this->renderPartial('{{ModuleName}}/Views/partials/table', $data);
+            return;
+        }
+
+        $this->render('{{ModuleName}}/Views/index', $data);
+    }
+
+    public function create(): void
+    {
+        $this->render('{{ModuleName}}/Views/form', [
+            'pageTitle'   => t('{{module_name}}.new_page_title'),
+            'item'        => null,
+            'errors'      => $_SESSION['_errors'] ?? [],
+            'old'         => $_SESSION['_old'] ?? [],
+            'breadcrumbs' => [
+                ['label' => t('{{module_name}}.title'), 'route' => '{{module_name}}.index'],
+                ['label' => t('{{module_name}}.breadcrumb_new')],
+            ],
+        ]);
+        unset($_SESSION['_errors'], $_SESSION['_old']);
+    }
+
+    public function store(): void
+    {
+        $data   = $this->readFormData();
+        $errors = $this->validateForm($data);
+
+        if (!empty($errors)) {
+            $_SESSION['_errors'] = $errors;
+            $_SESSION['_old']    = $_POST;
+            $this->redirect(route('{{module_name}}.create'));
+            return;
+        }
+
+        $this->service->create($data, (int) $_SESSION['user_id']);
+        flash_success(t('{{module_name}}.flash.created'));
+        $this->redirect(route('{{module_name}}.index'));
+    }
+
+    public function show(string $id): void
+    {
+        // find() è owner-scoped: un ID altrui restituisce null (no IDOR).
+        $item = $this->service->find((int) $id, (int) $_SESSION['user_id']);
+        if (!$item) {
+            flash_error(t('{{module_name}}.flash.not_found'));
+            $this->redirect(route('{{module_name}}.index'));
+            return;
+        }
+        $this->render('{{ModuleName}}/Views/show', [
+            'pageTitle'   => (string) $item['name'],
+            'item'        => $item,
+            'breadcrumbs' => [
+                ['label' => t('{{module_name}}.title'), 'route' => '{{module_name}}.index'],
+                ['label' => (string) $item['name']],
+            ],
+        ]);
+    }
+
+    public function edit(string $id): void
+    {
+        $item = $this->service->find((int) $id, (int) $_SESSION['user_id']);
+        if (!$item) {
+            flash_error(t('{{module_name}}.flash.not_found'));
+            $this->redirect(route('{{module_name}}.index'));
+            return;
+        }
+        $this->render('{{ModuleName}}/Views/form', [
+            'pageTitle'   => t('{{module_name}}.edit_page_title'),
+            'item'        => $item,
+            'errors'      => $_SESSION['_errors'] ?? [],
+            'old'         => $_SESSION['_old'] ?? [],
+            'breadcrumbs' => [
+                ['label' => t('{{module_name}}.title'), 'route' => '{{module_name}}.index'],
+                ['label' => t('{{module_name}}.breadcrumb_edit')],
+            ],
+        ]);
+        unset($_SESSION['_errors'], $_SESSION['_old']);
+    }
+
+    public function update(string $id): void
+    {
+        $itemId = (int) $id;
+        $userId = (int) $_SESSION['user_id'];
+        if (!$this->service->find($itemId, $userId)) {
+            flash_error(t('{{module_name}}.flash.not_found'));
+            $this->redirect(route('{{module_name}}.index'));
+            return;
+        }
+
+        $data   = $this->readFormData();
+        $errors = $this->validateForm($data);
+
+        if (!empty($errors)) {
+            $_SESSION['_errors'] = $errors;
+            $_SESSION['_old']    = $_POST;
+            $this->redirect(route('{{module_name}}.edit', ['id' => $itemId]));
+            return;
+        }
+
+        $this->service->update($itemId, $data, $userId);
+        flash_success(t('{{module_name}}.flash.updated'));
+        $this->redirect(route('{{module_name}}.index'));
+    }
+
+    public function destroy(string $id): void
+    {
+        $itemId = (int) $id;
+        $userId = (int) $_SESSION['user_id'];
+        if (!$this->service->delete($itemId, $userId)) {
+            flash_error(t('{{module_name}}.flash.not_found'));
+            $this->redirect(route('{{module_name}}.index'));
+            return;
+        }
+        flash_success(t('{{module_name}}.flash.deleted'));
+        $this->redirect(route('{{module_name}}.index'));
+    }
+
+    // ── Private helpers ─────────────────────────────────────────────
+
+    /**
+     * Legge e sanitizza i dati dal form POST.
+     * Adatta i campi alla tua tabella.
+     */
+    private function readFormData(): array
+    {
+        $clean  = $this->cleanPost(['name', 'description']);
+        $status = (string) ($_POST['status'] ?? 'active');
+
+        return [
+            'name'        => $clean['name'],
+            'description' => $clean['description'],
+            'status'      => in_array($status, self::STATUSES, true) ? $status : 'active',
+        ];
+    }
+
+    /**
+     * Validazione form (required, formato). La validazione business
+     * (unicità, regole di dominio) va nel Service.
+     */
+    private function validateForm(array $data): array
+    {
+        $errors = [];
+
+        if ($data['name'] === '') {
+            $errors['name'] = [t('validation.required', ['field' => t('{{module_name}}.fields.name')])];
+        } elseif (mb_strlen($data['name']) > 200) {
+            $errors['name'] = [t('validation.max', ['field' => t('{{module_name}}.fields.name'), 'max' => 200])];
+        }
+
+        if (!in_array($data['status'], self::STATUSES, true)) {
+            $errors['status'] = [t('validation.in', ['field' => t('{{module_name}}.fields.status')])];
+        }
+
+        return $errors;
+    }
+}

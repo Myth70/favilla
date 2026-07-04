@@ -1,0 +1,618 @@
+﻿/* Home Oggi page — prefix hm-today- */
+
+/* ── Page tint (daily-workspace identity) ───────────────── */
+.hm-today-page {
+    background:
+        radial-gradient(circle at top right,
+            color-mix(in srgb, var(--accent-color) 4%, transparent) 0%,
+            transparent 60%);
+    padding-bottom: 1rem;
+}
+
+/* ── Hero "Today" variant — subtle accent tint ──────────── */
+.hm-today-hero .pf-hero-header {
+    background-color: color-mix(in srgb, var(--accent-color) 7%, var(--bg-surface));
+}
+
+/* ── Hero stats (custom layout, replaces pf-hero-stat) ──── */
+.hm-today-hero .pf-hero-stats {
+    padding: 0;
+    background: linear-gradient(180deg,
+        color-mix(in srgb, var(--accent-color) 5%, var(--bg-surface)) 0%,
+        var(--bg-surface) 100%);
+}
+
+.hm-today-hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+}
+
+.hm-today-hero-stat {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    padding: 0.95rem 1.25rem;
+    border-left: 1px solid var(--header-border);
+    transition: background-color 0.18s ease;
+}
+
+.hm-today-hero-stat:first-child {
+    border-left: none;
+}
+
+.hm-today-hero-stat:hover {
+    background-color: color-mix(in srgb, var(--accent-color) 6%, transparent);
+}
+
+.hm-today-hero-stat-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.65rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    flex-shrink: 0;
+    background: color-mix(in srgb, var(--bs-secondary) 14%, transparent);
+    color: var(--bs-secondary);
+}
+
+.hm-today-hero-stat--success .hm-today-hero-stat-icon {
+    background: color-mix(in srgb, var(--bs-success) 16%, transparent);
+    color: var(--bs-success);
+}
+
+.hm-today-hero-stat--info .hm-today-hero-stat-icon {
+    background: color-mix(in srgb, var(--bs-info) 16%, transparent);
+    color: var(--bs-info);
+}
+
+.hm-today-hero-stat--danger .hm-today-hero-stat-icon {
+    background: color-mix(in srgb, var(--bs-danger) 18%, transparent);
+    color: var(--bs-danger);
+}
+
+.hm-today-hero-stat--warning .hm-today-hero-stat-icon {
+    background: color-mix(in srgb, var(--bs-warning) 22%, transparent);
+    color: color-mix(in srgb, var(--bs-warning) 80%, #000);
+}
+
+.hm-today-hero-stat--secondary .hm-today-hero-stat-icon {
+    background: color-mix(in srgb, var(--text-secondary) 14%, transparent);
+    color: var(--text-secondary);
+}
+
+.hm-today-hero-stat-body {
+    min-width: 0;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.hm-today-hero-stat-value {
+    line-height: 1.1;
+    color: var(--bs-body-color);
+    display: flex;
+    align-items: baseline;
+    gap: 0.15rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.hm-today-hero-stat-main {
+    font-size: 1.55rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+}
+
+.hm-today-hero-stat-suffix {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.hm-today-hero-stat-time {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.hm-today-hero-stat-empty {
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.hm-today-hero-stat-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    line-height: 1.2;
+    margin-top: 0.15rem;
+}
+
+.hm-today-hero-stat-sub {
+    font-size: 0.78rem;
+    color: color-mix(in srgb, var(--text-secondary) 85%, transparent);
+    line-height: 1.25;
+    margin-top: 0.05rem;
+}
+
+.hm-today-hero-stat-bar {
+    margin-top: 0.45rem;
+    width: 100%;
+    height: 4px;
+    border-radius: 4px;
+    background: color-mix(in srgb, var(--text-secondary) 15%, transparent);
+    overflow: hidden;
+}
+
+.hm-today-hero-stat-bar > span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg,
+        color-mix(in srgb, var(--bs-success) 80%, #fff) 0%,
+        var(--bs-success) 100%);
+    border-radius: 4px;
+    transition: width 0.4s ease;
+}
+
+.hm-today-hero-stat--info .hm-today-hero-stat-bar > span {
+    background: linear-gradient(90deg,
+        color-mix(in srgb, var(--bs-info) 80%, #fff) 0%,
+        var(--bs-info) 100%);
+}
+
+/* Mobile: stack 3 → 1 (con divider top invece di left) */
+@media (max-width: 767.98px) {
+    .hm-today-hero-stats {
+        grid-template-columns: 1fr;
+    }
+    .hm-today-hero-stat {
+        border-left: none;
+        border-top: 1px solid var(--header-border);
+        padding: 0.75rem 1rem;
+    }
+    .hm-today-hero-stat:first-child {
+        border-top: none;
+    }
+    .hm-today-hero-stat-main {
+        font-size: 1.35rem;
+    }
+}
+
+/* ── Feed container ─────────────────────────────────────── */
+.hm-today-feed {
+    min-height: 18rem;
+}
+
+.hm-today-card { overflow: hidden; }
+
+.hm-today-timestamp {
+    white-space: nowrap;
+}
+
+.hm-today-indicator {
+    font-size: 0.85rem;
+}
+
+/* ── Header: refresh button ─────────────────────────────── */
+.hm-today-refresh {
+    width: 2rem;
+    height: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ── Hero: tasto switch verso dashboard ─────────────────── */
+.hm-switch-btn {
+    background: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    color: #fff;
+    font-weight: 600;
+}
+
+.hm-switch-btn:hover,
+.hm-switch-btn:focus,
+.hm-switch-btn:active {
+    background: color-mix(in srgb, var(--accent-color) 88%, #000 12%);
+    border-color: color-mix(in srgb, var(--accent-color) 88%, #000 12%);
+    color: #fff;
+}
+
+/* ── KPI badges ─────────────────────────────────────────── */
+.hm-today-kpi {
+    font-weight: 600;
+}
+
+/* ── Filter bar ─────────────────────────────────────────── */
+.hm-today-filters-wrap {
+    background: color-mix(in srgb, var(--bg-surface) 97%, var(--accent-color) 3%);
+}
+
+.hm-today-filters-wrap .btn {
+    border-color: var(--border-color);
+    color: var(--text-secondary);
+    padding: 0.2rem 0.65rem;
+    font-size: 0.8rem;
+}
+
+.hm-today-filters-wrap .btn:hover,
+.hm-today-filters-wrap .btn:focus-visible {
+    background: color-mix(in srgb, var(--accent-color) 10%, var(--bg-surface));
+    border-color: color-mix(in srgb, var(--accent-color) 45%, var(--border-color));
+    color: var(--text-primary);
+}
+
+.hm-today-filters-wrap .btn.active {
+    background: color-mix(in srgb, var(--accent-color) 16%, var(--bg-surface));
+    color: var(--text-primary);
+    border-color: color-mix(in srgb, var(--accent-color) 35%, var(--border-color));
+}
+
+.hm-today-filters-wrap .btn.active:hover,
+.hm-today-filters-wrap .btn.active:focus-visible {
+    background: color-mix(in srgb, var(--accent-color) 24%, var(--bg-surface));
+    border-color: color-mix(in srgb, var(--accent-color) 55%, var(--border-color));
+    color: var(--text-primary);
+}
+
+.hm-today-filter-count {
+    white-space: nowrap;
+    font-size: 0.8rem;
+}
+
+/* ── List items ─────────────────────────────────────────── */
+.hm-today-item {
+    border-left: 3px solid transparent;
+    transition: background-color 0.12s ease;
+}
+
+/* Always-visible left border by urgency */
+.hm-today-item--danger   { border-left-color: var(--bs-danger); }
+.hm-today-item--warning  { border-left-color: var(--bs-warning); }
+.hm-today-item--info     { border-left-color: var(--bs-info); }
+.hm-today-item--success  { border-left-color: var(--bs-success); }
+.hm-today-item--secondary { border-left-color: var(--border-color); }
+
+.hm-today-source-icon {
+    width: 1.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.hm-today-source-pill {
+    background: color-mix(in srgb, var(--bg-surface) 84%, var(--text-secondary) 16%);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    font-weight: 500;
+}
+
+.hm-today-title {
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+/* ── Group headers ──────────────────────────────────────── */
+.hm-today-group-header {
+    padding: 0.35rem 1rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    background: color-mix(in srgb, var(--bg-surface) 93%, var(--text-secondary) 7%);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.hm-today-group-header:first-child {
+    border-top: none;
+}
+
+/* ── Source icon color classes ──────────────────────────── */
+.hm-today-icon--purple    { color: #6f42c1; }
+.hm-today-icon--success   { color: var(--bs-success); }
+.hm-today-icon--teal      { color: #20c997; }
+.hm-today-icon--warning   { color: var(--bs-warning); }
+.hm-today-icon--secondary { color: var(--text-secondary); }
+.hm-today-icon--danger    { color: var(--bs-danger); }
+.hm-today-icon--info      { color: var(--bs-info); }
+
+/* ── Empty states ───────────────────────────────────────── */
+.hm-today-empty i {
+    color: color-mix(in srgb, var(--text-secondary) 68%, transparent);
+}
+
+/* ── Mobile ─────────────────────────────────────────────── */
+@media (max-width: 767.98px) {
+    .hm-today-kpi {
+        font-size: 0.7rem;
+    }
+
+    .hm-today-item .d-flex.gap-1 {
+        margin-top: 0.5rem;
+    }
+
+    .hm-today-filter-count {
+        width: 100%;
+    }
+}
+
+/* ── Filter button count badges ─────────────────────────── */
+.hm-today-filter-badge {
+    font-size: 0.65rem;
+    padding: 0.15em 0.42em;
+    vertical-align: middle;
+    border-radius: 10rem;
+    line-height: 1.25;
+    pointer-events: none;
+}
+
+/* When the parent filter button is active, invert the badge */
+.hm-today-filters-wrap .btn.active .hm-today-filter-badge {
+    background: rgba(255, 255, 255, 0.25) !important;
+    color: inherit;
+}
+
+/* ── "Segna tutte lette" button ─────────────────────────── */
+.hm-today-read-all {
+    width: 2rem;
+    height: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border-radius: 50%;
+}
+
+/* ── Item removal animation ─────────────────────────────── */
+@keyframes hm-today-slide-out {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+        max-height: 12rem;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+    }
+    40% {
+        opacity: 0;
+        transform: translateX(12px);
+    }
+    100% {
+        opacity: 0;
+        max-height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        overflow: hidden;
+    }
+}
+
+.hm-today-item--removing {
+    animation: hm-today-slide-out 0.38s ease forwards;
+    pointer-events: none;
+}
+
+/* ── Progress bar ───────────────────────────────────────── */
+.hm-today-progress {
+    background: color-mix(in srgb, var(--bs-success) 5%, var(--bg-surface));
+}
+
+.hm-today-progress-bar {
+    height: 6px;
+    background: color-mix(in srgb, var(--text-secondary) 12%, transparent);
+}
+
+/* ── Quick-add ──────────────────────────────────────────── */
+.hm-today-quickadd {
+    background: color-mix(in srgb, var(--accent-color) 3%, var(--bg-surface));
+}
+
+.hm-today-quickadd-input {
+    background: transparent;
+}
+
+.hm-today-quickadd-input:focus,
+.hm-today-quickadd-input:focus-visible {
+    box-shadow: none;
+    background: transparent;
+    color: var(--text-primary);
+}
+
+.hm-today-quickadd-input::placeholder {
+    color: color-mix(in srgb, var(--text-secondary) 70%, transparent);
+}
+
+/* ── View-mode toggle (segmented) ───────────────────────── */
+.hm-today-viewmode .btn {
+    padding: 0.2rem 0.7rem;
+    font-size: 0.8rem;
+    border-color: var(--border-color);
+    color: var(--text-secondary);
+}
+
+.hm-today-viewmode .btn:hover,
+.hm-today-viewmode .btn:focus-visible {
+    background: color-mix(in srgb, var(--accent-color) 10%, var(--bg-surface));
+    border-color: color-mix(in srgb, var(--accent-color) 45%, var(--border-color));
+    color: var(--text-primary);
+}
+
+.hm-today-viewmode .btn.active {
+    background: color-mix(in srgb, var(--accent-color) 22%, var(--bg-surface));
+    border-color: color-mix(in srgb, var(--accent-color) 55%, var(--border-color));
+    color: var(--text-primary);
+}
+
+/* ── Timeline ───────────────────────────────────────────── */
+.hm-today-tl-wrap {
+    position: relative;
+}
+
+.hm-today-tl-strip {
+    background: color-mix(in srgb, var(--bg-surface) 96%, var(--text-secondary) 4%);
+}
+
+.hm-today-tl-strip--passati {
+    background: color-mix(in srgb, var(--bs-danger) 4%, var(--bg-surface));
+}
+
+.hm-today-tl-strip-items .hm-today-item {
+    border-radius: 0.5rem;
+    margin-bottom: 0.35rem;
+    border: 1px solid color-mix(in srgb, var(--border-color) 70%, transparent);
+    background: var(--bg-surface);
+}
+
+.hm-today-tl-strip-items .hm-today-item:last-child {
+    margin-bottom: 0;
+}
+
+.hm-today-tl {
+    position: relative;
+    padding: 0;
+}
+
+.hm-today-tl-row {
+    display: grid;
+    grid-template-columns: 4rem 1fr;
+    gap: 0.5rem;
+    border-top: 1px dashed color-mix(in srgb, var(--border-color) 70%, transparent);
+    padding: 0.35rem 1rem 0.35rem 0;
+    min-height: 2.5rem;
+    position: relative;
+}
+
+.hm-today-tl-row:first-child {
+    border-top: none;
+}
+
+.hm-today-tl-hour {
+    color: var(--text-secondary);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding-top: 0.4rem;
+    text-align: right;
+    padding-right: 0.5rem;
+    font-variant-numeric: tabular-nums;
+}
+
+.hm-today-tl-row--now .hm-today-tl-hour {
+    color: var(--bs-danger);
+}
+
+.hm-today-tl-track {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 0.15rem 0;
+    min-height: 1.5rem;
+}
+
+.hm-today-tl-track .hm-today-item {
+    border-radius: 0.5rem;
+    border: 1px solid color-mix(in srgb, var(--border-color) 60%, transparent);
+    background: var(--bg-surface);
+}
+
+.hm-today-tl-empty-row {
+    height: 0.5rem;
+}
+
+/* "Now" line marker */
+.hm-today-tl-now {
+    position: absolute;
+    left: -4.25rem;
+    right: 0;
+    top: var(--hm-now-offset, 0%);
+    height: 2px;
+    background: var(--bs-danger);
+    pointer-events: none;
+    z-index: 3;
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--bs-danger) 18%, transparent);
+}
+
+.hm-today-tl-now::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: -3px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--bs-danger);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--bs-danger) 22%, transparent);
+}
+
+.hm-today-tl-now-label {
+    position: absolute;
+    right: 0;
+    top: -1.4em;
+    font-size: 0.7rem;
+    color: var(--bs-danger);
+    font-weight: 700;
+    background: var(--bg-surface);
+    padding: 0 0.3rem;
+    border-radius: 0.2rem;
+    letter-spacing: 0.02em;
+}
+
+/* ── Completed-today collapsible ────────────────────────── */
+.hm-today-completed {
+    background: color-mix(in srgb, var(--bs-success) 3%, var(--bg-surface));
+}
+
+.hm-today-completed-toggle {
+    padding: 0.6rem 1rem;
+    border-radius: 0;
+    border: none;
+    background: transparent;
+    text-decoration: none;
+}
+
+.hm-today-completed-toggle:hover,
+.hm-today-completed-toggle:focus-visible {
+    background: color-mix(in srgb, var(--bs-success) 8%, var(--bg-surface));
+    box-shadow: none;
+}
+
+.hm-today-completed-chevron {
+    transition: transform 0.18s ease;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.hm-today-completed-toggle[aria-expanded="true"] .hm-today-completed-chevron {
+    transform: rotate(180deg);
+}
+
+.hm-today-completed-items li + li {
+    border-top: 1px solid color-mix(in srgb, var(--border-color) 50%, transparent);
+}
+
+/* ── Mobile tweaks ──────────────────────────────────────── */
+@media (max-width: 575.98px) {
+    .hm-today-tl-row {
+        grid-template-columns: 3rem 1fr;
+        gap: 0.35rem;
+    }
+    .hm-today-tl-hour {
+        font-size: 0.7rem;
+    }
+    .hm-today-tl-now {
+        left: -3.25rem;
+    }
+    .hm-today-tl-now-label {
+        display: none;
+    }
+    .hm-today-timestamp {
+        order: -1;
+        flex-basis: 100%;
+        text-align: end;
+    }
+}

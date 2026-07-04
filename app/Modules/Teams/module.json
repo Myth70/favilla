@@ -1,0 +1,222 @@
+{
+    "name": "Teams",
+    "icon": "fa-solid fa-comments",
+    "version": "2.0.0",
+    "changelog": {
+        "1.0.0": "Versione iniziale"
+    },
+    "description": "Messaggistica interna con chat 1:1 e gruppo, presenza e typing indicator",
+    "author": "Prometeo",
+    "framework_min": "2.0",
+    "database": "shared",
+    "tables": [
+        "teams_conversations",
+        "teams_conversation_members",
+        "teams_messages",
+        "teams_user_presence",
+        "teams_typing",
+        "teams_message_edits",
+        "teams_message_reactions",
+        "teams_message_attachments",
+        "teams_message_mentions"
+    ],
+    "dependencies": ["Notifications", "Files"],
+    "search_provider": "App\\Modules\\Teams\\Providers\\TeamsSearchProvider",
+    "export_provider": "App\\Modules\\Teams\\Providers\\TeamsExportProvider",
+    "dashboard_provider": "App\\Modules\\Teams\\Providers\\TeamsDashboardProvider",
+    "services": [
+        "FileUploadService",
+        "NotificationService"
+    ],
+    "notification_events": [
+        {
+            "slug": "teams.new_message",
+            "name": "Nuovo messaggio di gruppo",
+            "description": "Inviata quando arriva un nuovo messaggio in una chat di gruppo",
+            "default_level": "info",
+            "icon": "fa-solid fa-comments",
+            "context_variables": {
+                "conversation_id": "ID conversazione",
+                "conversation_name": "Nome del gruppo",
+                "sender_name": "Nome mittente",
+                "message_preview": "Anteprima messaggio"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Nuovo messaggio in {{conversation_name}}",
+                    "body": "{{sender_name}}: {{message_preview}}"
+                },
+                "email": {
+                    "subject": "Nuovo messaggio nel gruppo {{conversation_name}}",
+                    "body": "<h2>Nuovo messaggio di gruppo</h2><p>Nel gruppo <strong>{{conversation_name}}</strong>, <strong>{{sender_name}}</strong> ha scritto:</p><blockquote>{{message_preview}}</blockquote><p><a href=\"{{link}}\">Apri la chat</a></p>"
+                },
+                "telegram": {
+                    "body": "💬 [{{conversation_name}}] {{sender_name}}: {{message_preview}}\n{{link}}"
+                }
+            }
+        },
+        {
+            "slug": "teams.new_direct_message",
+            "name": "Nuovo messaggio personale",
+            "description": "Inviata quando arriva un nuovo messaggio diretto (1:1)",
+            "default_level": "info",
+            "icon": "fa-solid fa-envelope",
+            "context_variables": {
+                "conversation_id": "ID conversazione",
+                "sender_name": "Nome mittente",
+                "message_preview": "Anteprima messaggio"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Messaggio da {{sender_name}}",
+                    "body": "{{sender_name}}: {{message_preview}}"
+                },
+                "email": {
+                    "subject": "Nuovo messaggio da {{sender_name}}",
+                    "body": "<h2>Nuovo messaggio privato</h2><p><strong>{{sender_name}}</strong> ti ha scritto:</p><blockquote>{{message_preview}}</blockquote><p><a href=\"{{link}}\">Rispondi</a></p>"
+                },
+                "telegram": {
+                    "body": "✉️ {{sender_name}} ti ha scritto: {{message_preview}}\n{{link}}"
+                }
+            }
+        },
+        {
+            "slug": "teams.member_promoted",
+            "name": "Membro promosso",
+            "description": "Inviata quando un membro viene promosso a admin conversazione",
+            "default_level": "success",
+            "icon": "fa-solid fa-user-check",
+            "context_variables": {
+                "conversation_id": "ID conversazione",
+                "conversation_name": "Nome conversazione",
+                "member_name": "Nome membro promosso"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Promozione in {{conversation_name}}",
+                    "body": "{{member_name}} e ora amministratore della conversazione"
+                },
+                "email": {
+                    "subject": "Promozione in {{conversation_name}}",
+                    "body": "<h2>Membro promosso</h2><p>{{member_name}} e stato promosso in {{conversation_name}}.</p><p><a href=\"{{link}}\">Apri conversazione</a></p>"
+                },
+                "telegram": {
+                    "body": "✅ {{member_name}} promosso in {{conversation_name}}\n{{link}}"
+                }
+            }
+        },
+        {
+            "slug": "teams.user_mentioned",
+            "name": "Sei stato menzionato",
+            "description": "Inviata quando un utente viene menzionato (@) in un messaggio. Bypassa il mute della conversazione.",
+            "default_level": "urgent",
+            "icon": "fa-solid fa-at",
+            "context_variables": {
+                "conversation_id": "ID conversazione",
+                "conversation_name": "Nome conversazione",
+                "sender_name": "Nome di chi ha menzionato",
+                "message_preview": "Anteprima messaggio"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "{{sender_name}} ti ha menzionato",
+                    "body": "In {{conversation_name}}: {{message_preview}}"
+                },
+                "email": {
+                    "subject": "{{sender_name}} ti ha menzionato in {{conversation_name}}",
+                    "body": "<h2>Sei stato menzionato</h2><p><strong>{{sender_name}}</strong> ti ha menzionato in <strong>{{conversation_name}}</strong>:</p><blockquote>{{message_preview}}</blockquote><p><a href=\"{{link}}\">Apri la conversazione</a></p>"
+                },
+                "telegram": {
+                    "body": "📣 {{sender_name}} ti ha menzionato in {{conversation_name}}: {{message_preview}}\n{{link}}"
+                }
+            }
+        },
+        {
+            "slug": "teams.conversation_archived",
+            "name": "Conversazione archiviata",
+            "description": "Inviata quando una conversazione viene archiviata",
+            "default_level": "warning",
+            "icon": "fa-solid fa-box-archive",
+            "context_variables": {
+                "conversation_id": "ID conversazione",
+                "conversation_name": "Nome conversazione"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Conversazione archiviata",
+                    "body": "La conversazione {{conversation_name}} e stata archiviata"
+                },
+                "email": {
+                    "subject": "Conversazione archiviata",
+                    "body": "<h2>Conversazione archiviata</h2><p>{{conversation_name}} e stata archiviata.</p><p><a href=\"{{link}}\">Apri Teams</a></p>"
+                },
+                "telegram": {
+                    "body": "📦 Conversazione archiviata: {{conversation_name}}\n{{link}}"
+                }
+            }
+        }
+    ],
+    "assets": {
+        "css": [
+            "teams.css"
+        ],
+        "js": [
+            "teams.js"
+        ]
+    },
+    "uploads_directory": null,
+    "menu": [
+        {
+            "label": "Messaggi",
+            "icon": "fa-comments",
+            "route": "teams.index",
+            "permission": "teams.view",
+            "order": 2
+        }
+    ],
+    "navigation": [
+        {
+            "id": "teams.index",
+            "label": "Messaggi",
+            "icon": "fa-comments",
+            "route": "teams.index",
+            "permission": "teams.view",
+            "order": 2,
+            "surfaces": ["sidebar", "quick_access"]
+        }
+    ],
+    "admin_panel": {
+        "section": "Pannelli admin dei moduli",
+        "eyebrow": "Moduli attivi",
+        "groups": [
+            {
+                "title": "Messaggistica Teams",
+                "description": "Pulizia conversazioni e governo operativo dell'area chat.",
+                "icon": "fa-solid fa-comments",
+                "flows": [
+                    "Archivia conversazione",
+                    "Elimina conversazione",
+                    "Cleanup manuale"
+                ],
+                "links": [
+                    {
+                        "label": "Pannello Teams",
+                        "route": "teams.admin.index",
+                        "permission": "teams.admin",
+                        "description": "Vista amministrativa delle conversazioni.",
+                        "icon": "fa-solid fa-comments",
+                        "keywords": "teams admin chat"
+                    },
+                    {
+                        "label": "Preview cleanup",
+                        "route": "teams.admin.cleanup_preview",
+                        "permission": "teams.admin",
+                        "description": "Stima elementi da pulire prima del run di cleanup.",
+                        "icon": "fa-solid fa-broom",
+                        "keywords": "cleanup preview teams"
+                    }
+                ]
+            }
+        ]
+    }
+}

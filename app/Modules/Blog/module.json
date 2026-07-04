@@ -1,0 +1,230 @@
+{
+    "name": "Blog",
+    "icon": "fa-solid fa-newspaper",
+    "version": "2.3.0",
+    "changelog": {
+        "1.0.0": "Versione iniziale",
+        "1.1.0": "Service layer, PDF export, articoli in evidenza, visibilità per ruolo, tempo lettura, UX professionale",
+        "2.0.0": "Modello permessi a 3 livelli (view/write/admin): write copre create+edit+delete sui propri articoli, admin aggiunge moderazione globale",
+        "2.1.0": "Adattamento Prometeo moderno: navigation block, scheduler job per publish-at, sanitizer allowlist, $fillable whitelist, data-app-confirm, validazione ruoli visibility, logging dei catch, lookup admin per slug",
+        "2.2.0": "Debug + feature core: blog.view enforcata su tutte le route read/interazioni, slug e publish_at preservati su update di articoli pubblicati, reading time UTF-8, batch action con counter reale, validazione autore in dispatch notifiche, regex strict per cover image library; nuova pagina autore (/blog/author/{id}), articoli correlati su show, moderazione commenti (pending/approved/rejected) con setting, meta SEO (description/keywords/og_image), dedup viste 1/utente/giorno via blog_article_views, filtri avanzati su home (data + sort popular), warning UI su delete categoria/tag con count articoli, enforce 1-livello reply a livello repo",
+        "2.3.0": "Permessi granulari per commenti: nuovo blog.comment (pubblicare commenti/risposte, separato da blog.view che ora è sola lettura+like+bookmark) e nuovo blog.comment.moderate (approvare/rifiutare/eliminare commenti + blacklist, separato da blog.admin). Supporta ruoli viewer-only e moderatori non-admin. Migration 003 seed: blog.comment a tutti i ruoli (preserva comportamento), blog.comment.moderate al solo Administrator. Nuovo evento notification blog.comment_pending inviato a tutti gli utenti con blog.comment.moderate quando un commento entra in coda di moderazione."
+    },
+    "description": "Comunicazioni interne aziendali con articoli, commenti, categorie e tag",
+    "author": "Prometeo",
+    "framework_min": "1.0",
+    "database": "shared",
+    "tables": [
+        "blog_categories",
+        "blog_tags",
+        "blog_articles",
+        "blog_article_tags",
+        "blog_comments",
+        "blog_comment_blacklist",
+        "blog_article_likes",
+        "blog_article_bookmarks",
+        "blog_article_views"
+    ],
+    "scheduled_jobs": [
+        { "slug": "blog-publish-scheduled", "name": "Blog — pubblicazione articoli schedulati", "command": "blog:publish-scheduled", "interval_minutes": 5, "enabled_by_default": false }
+    ],
+    "dependencies": ["Notifications"],
+    "optional_dependencies": ["Files", "Reports"],
+    "dashboard_provider": "App\\Modules\\Blog\\Providers\\BlogDashboardProvider",
+    "search_provider": "App\\Modules\\Blog\\Providers\\BlogSearchProvider",
+    "export_provider": "App\\Modules\\Blog\\Providers\\BlogExportProvider",
+    "services": ["FileUploadService", "AuditService", "NotificationService"],
+    "notification_events": [
+        {
+            "slug": "blog.article_published",
+            "name": "Articolo pubblicato",
+            "description": "Inviata quando viene pubblicato un nuovo articolo",
+            "default_level": "success",
+            "icon": "fa-solid fa-newspaper",
+            "context_variables": {
+                "article_id": "ID articolo",
+                "article_title": "Titolo articolo",
+                "article_slug": "Slug articolo"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Nuovo articolo: {{article_title}}",
+                    "body": "E stato pubblicato un nuovo articolo nelle Comunicazioni"
+                },
+                "email": {
+                    "subject": "Nuovo articolo: {{article_title}}",
+                    "body": "<h2>Nuovo articolo pubblicato</h2><p>{{article_title}}</p><p><a href=\"{{link}}\">Leggi articolo</a></p>"
+                },
+                "telegram": {
+                    "body": "📰 Nuovo articolo: {{article_title}}\n{{link}}"
+                }
+            }
+        },
+        {
+            "slug": "blog.comment_pending",
+            "name": "Commento in attesa di moderazione",
+            "description": "Inviata ai moderatori quando un nuovo commento entra in coda di approvazione",
+            "default_level": "warning",
+            "icon": "fa-solid fa-clock",
+            "context_variables": {
+                "article_id": "ID articolo",
+                "article_title": "Titolo articolo",
+                "comment_id": "ID commento",
+                "author_name": "Autore del commento"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Commento da moderare su {{article_title}}",
+                    "body": "{{author_name}} ha inviato un commento in attesa di approvazione."
+                },
+                "email": {
+                    "subject": "Commento da moderare: {{article_title}}",
+                    "body": "<h2>Commento in attesa di moderazione</h2><p>{{author_name}} ha inviato un commento sull'articolo <strong>{{article_title}}</strong>.</p><p><a href=\"{{link}}\">Apri pannello moderazione</a></p>"
+                },
+                "telegram": {
+                    "body": "⏳ Commento da moderare su {{article_title}}\nAutore: {{author_name}}\n{{link}}"
+                }
+            }
+        },
+        {
+            "slug": "blog.comment_created",
+            "name": "Nuovo commento",
+            "description": "Inviata quando viene inserito un nuovo commento",
+            "default_level": "info",
+            "icon": "fa-solid fa-comment",
+            "context_variables": {
+                "article_id": "ID articolo",
+                "article_title": "Titolo articolo",
+                "comment_id": "ID commento"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Nuovo commento su {{article_title}}",
+                    "body": "E stato inserito un nuovo commento"
+                },
+                "email": {
+                    "subject": "Nuovo commento su {{article_title}}",
+                    "body": "<h2>Nuovo commento</h2><p>E stato aggiunto un commento all'articolo {{article_title}}.</p><p><a href=\"{{link}}\">Apri discussione</a></p>"
+                },
+                "telegram": {
+                    "body": "💬 Nuovo commento su {{article_title}}\n{{link}}"
+                }
+            }
+        },
+        {
+            "slug": "blog.comment_replied",
+            "name": "Risposta a commento",
+            "description": "Inviata quando un commento riceve una risposta",
+            "default_level": "info",
+            "icon": "fa-solid fa-comments",
+            "context_variables": {
+                "article_id": "ID articolo",
+                "article_title": "Titolo articolo",
+                "comment_id": "ID commento originale"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Nuova risposta su {{article_title}}",
+                    "body": "Un tuo commento ha ricevuto una risposta"
+                },
+                "email": {
+                    "subject": "Nuova risposta su {{article_title}}",
+                    "body": "<h2>Nuova risposta</h2><p>Un tuo commento su {{article_title}} ha ricevuto una risposta.</p><p><a href=\"{{link}}\">Apri discussione</a></p>"
+                },
+                "telegram": {
+                    "body": "↩️ Nuova risposta su {{article_title}}\n{{link}}"
+                }
+            }
+        }
+    ],
+    "assets": {
+        "css": ["blog.css"],
+        "js": ["blog.js"]
+    },
+    "navigation": [
+        {
+            "id": "blog.index",
+            "label": "Comunicazioni",
+            "icon": "fa-newspaper",
+            "route": "blog.index",
+            "permission": "blog.view",
+            "order": 3,
+            "surfaces": ["sidebar", "quick_access"]
+        }
+    ],
+    "admin_panel": {
+        "section": "Pannelli admin dei moduli",
+        "eyebrow": "Moduli attivi",
+        "groups": [
+            {
+                "title": "Comunicazioni",
+                "description": "Moderazione contenuti, tassonomie e blacklist editoriale.",
+                "icon": "fa-solid fa-newspaper",
+                "flows": [
+                    "Azioni massive articoli",
+                    "Pin e unpin",
+                    "Restore dal cestino",
+                    "Purge definitivo"
+                ],
+                "links": [
+                    {
+                        "label": "Pannello Comunicazioni",
+                        "route": "blog.admin.index",
+                        "permission": "blog.admin",
+                        "description": "Dashboard di amministrazione delle Comunicazioni.",
+                        "icon": "fa-solid fa-newspaper",
+                        "keywords": "comunicazioni blog admin"
+                    },
+                    {
+                        "label": "Articoli",
+                        "route": "blog.admin.articles",
+                        "permission": "blog.admin",
+                        "description": "Elenco contenuti, stato pubblicazione e pin.",
+                        "icon": "fa-solid fa-file-lines",
+                        "keywords": "articoli comunicazioni blog"
+                    },
+                    {
+                        "label": "Commenti",
+                        "route": "blog.admin.comments",
+                        "permission": "blog.comment.moderate",
+                        "description": "Moderazione commenti e pulizia contenuti.",
+                        "icon": "fa-solid fa-comments",
+                        "keywords": "commenti moderazione"
+                    },
+                    {
+                        "label": "Categorie",
+                        "route": "blog.admin.categories",
+                        "permission": "blog.admin",
+                        "description": "Gestione tassonomia categorie.",
+                        "icon": "fa-solid fa-folder-tree",
+                        "keywords": "categorie comunicazioni blog"
+                    },
+                    {
+                        "label": "Tag",
+                        "route": "blog.admin.tags",
+                        "permission": "blog.admin",
+                        "description": "Catalogo tag e manutenzione classificazione.",
+                        "icon": "fa-solid fa-tags",
+                        "keywords": "tag comunicazioni blog"
+                    },
+                    {
+                        "label": "Blacklist",
+                        "route": "blog.admin.blacklist",
+                        "permission": "blog.comment.moderate",
+                        "description": "Utenti bannati dalla partecipazione editoriale.",
+                        "icon": "fa-solid fa-ban",
+                        "keywords": "blacklist ban comunicazioni blog"
+                    },
+                    {
+                        "label": "Cestino articoli",
+                        "route": "blog.admin.trash",
+                        "permission": "blog.admin",
+                        "description": "Recupero o purge degli articoli eliminati.",
+                        "icon": "fa-solid fa-trash-can",
+                        "keywords": "trash cestino articoli"
+                    }
+                ]
+            }
+        ]
+    }
+}

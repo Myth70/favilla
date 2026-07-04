@@ -1,0 +1,314 @@
+{
+    "module_key": "feedback",
+    "module_name": "Segnalazioni",
+    "label": "Segnalazioni",
+    "description": "Invio contestuale di bug, richieste di funzionalita e domande con raccolta automatica del contesto tecnico, triage amministrativo ed export operativo.",
+    "audience_default": "user",
+    "locale_default": "it",
+    "route_name": "feedback.admin.index",
+    "permission_slug": "feedback.view",
+    "sort_order": 95,
+    "entries": [
+        {
+            "audience": "user",
+            "route_name": null,
+            "permission_slug": null,
+            "ranking_weight": 110,
+            "sort_order": 10,
+            "locales": {
+                "it": {
+                    "question": "A cosa serve il modulo Segnalazioni?",
+                    "answer_markdown": "Il modulo Segnalazioni permette agli utenti autenticati di inviare bug, richieste di funzionalità o domande senza uscire dalla pagina corrente.\n\n### Cosa raccoglie\n- contesto tecnico della pagina e del modulo corrente\n- errori console JS e richieste HTMX recenti\n- sequenza di azioni utile a riprodurre il problema\n- riferimento univoco `SG-XXXXXX` da condividere con il team\n\nLa segnalazione viene notificata agli amministratori e poi gestita dalla console dedicata.",
+                    "excerpt": "Canale contestuale per bug, richieste di funzionalità e domande con contesto tecnico automatico.",
+                    "aliases": [
+                        "modulo segnalazioni",
+                        "a cosa serve segnalazioni",
+                        "report bug contestuale"
+                    ]
+                },
+                "en": {
+                    "question": "What is the Feedback module for?",
+                    "answer_markdown": "The Feedback module lets authenticated users send bugs, feature requests or questions without leaving the current page.\n\n### What it collects\n- technical context of the current page and module\n- recent JS console errors and HTMX requests\n- a sequence of actions useful to reproduce the problem\n- a unique `SG-XXXXXX` reference to share with the team\n\nThe report is notified to administrators and then handled from the dedicated console.",
+                    "excerpt": "The Feedback module lets authenticated users send bugs, feature requests or questions without leaving the current page. What it collects technical context of the current page and module recent JS cons...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "À quoi sert le module Signalements ?",
+                    "answer_markdown": "Le module Signalements permet aux utilisateurs authentifiés d'envoyer des bugs, des demandes de fonctionnalités ou des questions sans quitter la page courante.\n\n### Ce qu'il collecte\n- le contexte technique de la page et du module courant\n- les erreurs récentes de la console JS et les requêtes HTMX\n- une séquence d'actions utile pour reproduire le problème\n- une référence unique `SG-XXXXXX` à partager avec l'équipe\n\nLe signalement est notifié aux administrateurs puis géré depuis la console dédiée.",
+                    "excerpt": "Le module Signalements permet aux utilisateurs authentifiés d'envoyer des bugs, des demandes de fonctionnalités ou des questions sans quitter la page courante. Ce qu'il collecte le contexte technique ...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wofür dient das Meldungen-Modul?",
+                    "answer_markdown": "Das Meldungen-Modul ermöglicht es authentifizierten Benutzern, Bugs, Funktionswünsche oder Fragen zu senden, ohne die aktuelle Seite zu verlassen.\n\n### Was es erfasst\n- den technischen Kontext der aktuellen Seite und des Moduls\n- aktuelle JS-Konsolenfehler und HTMX-Anfragen\n- eine Abfolge von Aktionen, die zur Reproduktion des Problems nützlich ist\n- eine eindeutige Referenz `SG-XXXXXX` zum Teilen mit dem Team\n\nDie Meldung wird den Administratoren mitgeteilt und anschließend über die dedizierte Konsole bearbeitet.",
+                    "excerpt": "Das Meldungen-Modul ermöglicht es authentifizierten Benutzern, Bugs, Funktionswünsche oder Fragen zu senden, ohne die aktuelle Seite zu verlassen. Was es erfasst den technischen Kontext der aktuellen ...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Para qué sirve el módulo Incidencias?",
+                    "answer_markdown": "El módulo Incidencias permite a los usuarios autenticados enviar errores, solicitudes de funciones o preguntas sin salir de la página actual.\n\n### Qué recopila\n- el contexto técnico de la página y del módulo actual\n- errores recientes de la consola JS y peticiones HTMX\n- una secuencia de acciones útil para reproducir el problema\n- una referencia única `SG-XXXXXX` para compartir con el equipo\n\nLa incidencia se notifica a los administradores y luego se gestiona desde la consola dedicada.",
+                    "excerpt": "El módulo Incidencias permite a los usuarios autenticados enviar errores, solicitudes de funciones o preguntas sin salir de la página actual. Qué recopila el contexto técnico de la página y del módulo...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": null,
+            "permission_slug": null,
+            "ranking_weight": 105,
+            "sort_order": 20,
+            "locales": {
+                "it": {
+                    "question": "Come invio una segnalazione?",
+                    "answer_markdown": "1. Apri il launcher con l'icona bug nel footer.\n2. Scegli il tipo: **Bug**, **Funzionalità** o **Domanda**.\n3. Imposta la severità: **bassa**, **media**, **alta** o **critica**.\n4. Inserisci un titolo opzionale e la descrizione obbligatoria di ciò che è successo.\n5. Aggiungi i passi per riprodurre se vuoi aiutare il team a ripetere l'errore.\n6. Invia il form: vedrai il messaggio di conferma con il codice riferimento.",
+                    "excerpt": "Procedura rapida per aprire una segnalazione dal launcher globale.",
+                    "aliases": [
+                        "inviare una segnalazione",
+                        "segnalare un problema",
+                        "aprire bug da footer"
+                    ]
+                },
+                "en": {
+                    "question": "How do I send a report?",
+                    "answer_markdown": "1. Open the launcher with the bug icon in the footer.\n2. Choose the type: **Bug**, **Feature** or **Question**.\n3. Set the severity: **low**, **medium**, **high** or **critical**.\n4. Enter an optional title and the required description of what happened.\n5. Add the steps to reproduce if you want to help the team repeat the error.\n6. Submit the form: you will see the confirmation message with the reference code.",
+                    "excerpt": "1. Open the launcher with the bug icon in the footer. 2. Choose the type: Bug, Feature or Question. 3. Set the severity: low, medium, high or critical. 4. Enter an optional title and the required desc...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment envoyer un signalement ?",
+                    "answer_markdown": "1. Ouvrez le lanceur avec l'icône bug dans le pied de page.\n2. Choisissez le type : **Bug**, **Fonctionnalité** ou **Question**.\n3. Définissez la sévérité : **faible**, **moyenne**, **élevée** ou **critique**.\n4. Saisissez un titre facultatif et la description obligatoire de ce qui s'est passé.\n5. Ajoutez les étapes de reproduction si vous voulez aider l'équipe à répéter l'erreur.\n6. Envoyez le formulaire : vous verrez le message de confirmation avec le code de référence.",
+                    "excerpt": "1. Ouvrez le lanceur avec l'icône bug dans le pied de page. 2. Choisissez le type : Bug, Fonctionnalité ou Question. 3. Définissez la sévérité : faible, moyenne, élevée ou critique. 4. Saisissez un ti...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie sende ich eine Meldung?",
+                    "answer_markdown": "1. Öffnen Sie den Launcher mit dem Bug-Symbol in der Fußzeile.\n2. Wählen Sie den Typ: **Bug**, **Funktion** oder **Frage**.\n3. Legen Sie den Schweregrad fest: **niedrig**, **mittel**, **hoch** oder **kritisch**.\n4. Geben Sie einen optionalen Titel und die erforderliche Beschreibung des Vorfalls ein.\n5. Fügen Sie die Schritte zur Reproduktion hinzu, wenn Sie dem Team helfen möchten, den Fehler nachzustellen.\n6. Senden Sie das Formular ab: Sie sehen die Bestätigungsmeldung mit dem Referenzcode.",
+                    "excerpt": "1. Öffnen Sie den Launcher mit dem Bug-Symbol in der Fußzeile. 2. Wählen Sie den Typ: Bug, Funktion oder Frage. 3. Legen Sie den Schweregrad fest: niedrig, mittel, hoch oder kritisch. 4. Geben Sie ein...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo envío una incidencia?",
+                    "answer_markdown": "1. Abre el lanzador con el icono de bug en el pie de página.\n2. Elige el tipo: **Error**, **Función** o **Pregunta**.\n3. Establece la severidad: **baja**, **media**, **alta** o **crítica**.\n4. Introduce un título opcional y la descripción obligatoria de lo ocurrido.\n5. Añade los pasos para reproducir si quieres ayudar al equipo a repetir el error.\n6. Envía el formulario: verás el mensaje de confirmación con el código de referencia.",
+                    "excerpt": "1. Abre el lanzador con el icono de bug en el pie de página. 2. Elige el tipo: Error, Función o Pregunta. 3. Establece la severidad: baja, media, alta o crítica. 4. Introduce un título opcional y la d...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": null,
+            "permission_slug": null,
+            "ranking_weight": 100,
+            "sort_order": 30,
+            "locales": {
+                "it": {
+                    "question": "Cosa viene allegato automaticamente?",
+                    "answer_markdown": "Quando invii una segnalazione il sistema allega in automatico:\n\n- URL e path della pagina corrente\n- titolo pagina, modulo dedotto e route name se disponibile\n- breadcrumb di navigazione, click e chiamate HTMX recenti\n- ultimi errori console JS o HTMX catturati dal browser\n- browser, lingua, viewport, versione applicazione, IP e metadati server\n\nPer contenere la dimensione del payload vengono mantenuti solo gli ultimi eventi utili.",
+                    "excerpt": "Elenco del contesto tecnico raccolto automaticamente dal modulo.",
+                    "aliases": [
+                        "contesto automatico segnalazioni",
+                        "errori console segnalazione",
+                        "breadcrumb segnalazione"
+                    ]
+                },
+                "en": {
+                    "question": "What is attached automatically?",
+                    "answer_markdown": "When you send a report, the system automatically attaches:\n\n- the URL and path of the current page\n- the page title, the inferred module and the route name if available\n- the navigation breadcrumb, recent clicks and HTMX calls\n- the latest JS or HTMX console errors captured by the browser\n- browser, language, viewport, application version, IP and server metadata\n\nTo keep the payload size down, only the latest useful events are kept.",
+                    "excerpt": "When you send a report, the system automatically attaches: the URL and path of the current page the page title, the inferred module and the route name if available the navigation breadcrumb, recent cl...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Qu'est-ce qui est joint automatiquement ?",
+                    "answer_markdown": "Lorsque vous envoyez un signalement, le système joint automatiquement :\n\n- l'URL et le chemin de la page courante\n- le titre de la page, le module déduit et le nom de route si disponible\n- le fil d'Ariane de navigation, les clics récents et les appels HTMX\n- les dernières erreurs de console JS ou HTMX capturées par le navigateur\n- le navigateur, la langue, la fenêtre d'affichage, la version de l'application, l'IP et les métadonnées serveur\n\nPour limiter la taille du payload, seuls les derniers événements utiles sont conservés.",
+                    "excerpt": "Lorsque vous envoyez un signalement, le système joint automatiquement : l'URL et le chemin de la page courante le titre de la page, le module déduit et le nom de route si disponible le fil d'Ariane de...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Was wird automatisch angehängt?",
+                    "answer_markdown": "Wenn Sie eine Meldung senden, hängt das System automatisch an:\n\n- die URL und den Pfad der aktuellen Seite\n- den Seitentitel, das abgeleitete Modul und den Routennamen, falls verfügbar\n- den Navigations-Breadcrumb, aktuelle Klicks und HTMX-Aufrufe\n- die letzten vom Browser erfassten JS- oder HTMX-Konsolenfehler\n- Browser, Sprache, Viewport, Anwendungsversion, IP und Server-Metadaten\n\nUm die Payload-Größe zu begrenzen, werden nur die letzten nützlichen Ereignisse gespeichert.",
+                    "excerpt": "Wenn Sie eine Meldung senden, hängt das System automatisch an: die URL und den Pfad der aktuellen Seite den Seitentitel, das abgeleitete Modul und den Routennamen, falls verfügbar den Navigations-Brea...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Qué se adjunta automáticamente?",
+                    "answer_markdown": "Cuando envías una incidencia, el sistema adjunta automáticamente:\n\n- la URL y la ruta de la página actual\n- el título de la página, el módulo deducido y el nombre de ruta si está disponible\n- la ruta de navegación, los clics recientes y las llamadas HTMX\n- los últimos errores de consola JS o HTMX capturados por el navegador\n- navegador, idioma, viewport, versión de la aplicación, IP y metadatos del servidor\n\nPara contener el tamaño del payload solo se conservan los últimos eventos útiles.",
+                    "excerpt": "Cuando envías una incidencia, el sistema adjunta automáticamente: la URL y la ruta de la página actual el título de la página, el módulo deducido y el nombre de ruta si está disponible la ruta de nave...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "feedback.admin.index",
+            "permission_slug": "feedback.view",
+            "ranking_weight": 95,
+            "sort_order": 40,
+            "locales": {
+                "it": {
+                    "question": "Come consulto la console amministrativa delle segnalazioni?",
+                    "answer_markdown": "La console amministrativa è disponibile a chi ha il permesso `feedback.view`.\n\nDa **Segnalazioni** trovi:\n- elenco con ricerca testuale e filtri per stato, tipo, severità e modulo\n- dettaglio completo della segnalazione con ambiente, errori e breadcrumb\n- badge rapidi per capire subito tipo, severità e stato\n- accesso all'export tecnico e al pulsante **Copia per LLM** dal dettaglio\n\nLa lista usa una paginazione operativa per smaltire code e backlog.",
+                    "excerpt": "Uso della console amministrativa con lista, filtri e dettaglio tecnico.",
+                    "aliases": [
+                        "console admin segnalazioni",
+                        "elenco segnalazioni",
+                        "filtro segnalazioni"
+                    ]
+                },
+                "en": {
+                    "question": "How do I use the reports admin console?",
+                    "answer_markdown": "The admin console is available to those with the `feedback.view` permission.\n\nFrom **Feedback** you find:\n- a list with text search and filters by status, type, severity and module\n- the full detail of the report with environment, errors and breadcrumb\n- quick badges to immediately understand type, severity and status\n- access to the technical export and the **Copy for LLM** button from the detail\n\nThe list uses operational pagination to work through queues and backlog.",
+                    "excerpt": "The admin console is available to those with the feedback.view permission. From Feedback you find: a list with text search and filters by status, type, severity and module the full detail of the r...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment consulter la console d'administration des signalements ?",
+                    "answer_markdown": "La console d'administration est disponible pour les personnes disposant de l'autorisation `feedback.view`.\n\nDepuis **Signalements**, vous trouvez :\n- une liste avec recherche textuelle et filtres par statut, type, sévérité et module\n- le détail complet du signalement avec environnement, erreurs et fil d'Ariane\n- des badges rapides pour comprendre immédiatement le type, la sévérité et le statut\n- l'accès à l'export technique et au bouton **Copier pour LLM** depuis le détail\n\nLa liste utilise une pagination opérationnelle pour traiter les files et le backlog.",
+                    "excerpt": "La console d'administration est disponible pour les personnes disposant de l'autorisation feedback.view. Depuis Signalements, vous trouvez : une liste avec recherche textuelle et filtres par statu...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie nutze ich die Admin-Konsole der Meldungen?",
+                    "answer_markdown": "Die Admin-Konsole steht Personen mit der Berechtigung `feedback.view` zur Verfügung.\n\nUnter **Meldungen** finden Sie:\n- eine Liste mit Textsuche und Filtern nach Status, Typ, Schweregrad und Modul\n- das vollständige Detail der Meldung mit Umgebung, Fehlern und Breadcrumb\n- schnelle Badges, um Typ, Schweregrad und Status sofort zu erkennen\n- Zugriff auf den technischen Export und die Schaltfläche **Für LLM kopieren** aus dem Detail\n\nDie Liste verwendet eine operative Paginierung, um Warteschlangen und Backlog abzuarbeiten.",
+                    "excerpt": "Die Admin-Konsole steht Personen mit der Berechtigung feedback.view zur Verfügung. Unter Meldungen finden Sie: eine Liste mit Textsuche und Filtern nach Status, Typ, Schweregrad und Modul das voll...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo consulto la consola administrativa de incidencias?",
+                    "answer_markdown": "La consola administrativa está disponible para quienes tienen el permiso `feedback.view`.\n\nDesde **Incidencias** encuentras:\n- una lista con búsqueda de texto y filtros por estado, tipo, severidad y módulo\n- el detalle completo de la incidencia con entorno, errores y ruta de navegación\n- insignias rápidas para entender de inmediato tipo, severidad y estado\n- acceso a la exportación técnica y al botón **Copiar para LLM** desde el detalle\n\nLa lista usa una paginación operativa para gestionar colas y backlog.",
+                    "excerpt": "La consola administrativa está disponible para quienes tienen el permiso feedback.view. Desde Incidencias encuentras: una lista con búsqueda de texto y filtros por estado, tipo, severidad y módulo...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "feedback.admin.index",
+            "permission_slug": "feedback.manage",
+            "ranking_weight": 98,
+            "sort_order": 50,
+            "locales": {
+                "it": {
+                    "question": "Come funziona il triage di una segnalazione?",
+                    "answer_markdown": "Il triage richiede il permesso `feedback.manage`.\n\nDal dettaglio puoi aggiornare:\n- **Stato**: nuova, in_lavorazione, risolta, chiusa, non_risolvibile\n- **Severità**: bassa, media, alta, critica\n- **Assegnata a**: utente responsabile della presa in carico\n- **Note admin**: decisioni, workaround, esito dell'analisi\n\nLa cancellazione dalla console è una soft delete: la segnalazione sparisce dall'elenco ma resta recuperabile dal database.",
+                    "excerpt": "Workflow di triage con assegnazione, stati, severità e note amministrative.",
+                    "aliases": [
+                        "triage segnalazione",
+                        "assegnare segnalazione",
+                        "cambiare stato segnalazione"
+                    ]
+                },
+                "en": {
+                    "question": "How does report triage work?",
+                    "answer_markdown": "Triage requires the `feedback.manage` permission.\n\nFrom the detail you can update:\n- **Status**: new, in_progress, resolved, closed, not_resolvable\n- **Severity**: low, medium, high, critical\n- **Assigned to**: the user responsible for taking it on\n- **Admin notes**: decisions, workarounds, the outcome of the analysis\n\nDeletion from the console is a soft delete: the report disappears from the list but remains recoverable from the database.",
+                    "excerpt": "Triage requires the feedback.manage permission. From the detail you can update: Status: new, in_progress, resolved, closed, not_resolvable Severity: low, medium, high, critical Assigned to: the us...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment fonctionne le triage d'un signalement ?",
+                    "answer_markdown": "Le triage nécessite l'autorisation `feedback.manage`.\n\nDepuis le détail, vous pouvez mettre à jour :\n- **Statut** : nouveau, en_cours, résolu, fermé, non_résoluble\n- **Sévérité** : faible, moyenne, élevée, critique\n- **Assigné à** : l'utilisateur responsable de la prise en charge\n- **Notes admin** : décisions, contournements, résultat de l'analyse\n\nLa suppression depuis la console est une suppression réversible : le signalement disparaît de la liste mais reste récupérable depuis la base de données.",
+                    "excerpt": "Le triage nécessite l'autorisation feedback.manage. Depuis le détail, vous pouvez mettre à jour : Statut : nouveau, en_cours, résolu, fermé, non_résoluble Sévérité : faible, moyenne, élevée, criti...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie funktioniert das Triage einer Meldung?",
+                    "answer_markdown": "Das Triage erfordert die Berechtigung `feedback.manage`.\n\nIm Detail können Sie aktualisieren:\n- **Status**: neu, in_Bearbeitung, gelöst, geschlossen, nicht_lösbar\n- **Schweregrad**: niedrig, mittel, hoch, kritisch\n- **Zugewiesen an**: der für die Übernahme verantwortliche Benutzer\n- **Admin-Notizen**: Entscheidungen, Workarounds, das Ergebnis der Analyse\n\nDas Löschen aus der Konsole ist ein Soft Delete: Die Meldung verschwindet aus der Liste, bleibt aber aus der Datenbank wiederherstellbar.",
+                    "excerpt": "Das Triage erfordert die Berechtigung feedback.manage. Im Detail können Sie aktualisieren: Status: neu, in_Bearbeitung, gelöst, geschlossen, nicht_lösbar Schweregrad: niedrig, mittel, hoch, kritis...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo funciona el triaje de una incidencia?",
+                    "answer_markdown": "El triaje requiere el permiso `feedback.manage`.\n\nDesde el detalle puedes actualizar:\n- **Estado**: nueva, en_proceso, resuelta, cerrada, no_resoluble\n- **Severidad**: baja, media, alta, crítica\n- **Asignada a**: el usuario responsable de hacerse cargo\n- **Notas de admin**: decisiones, soluciones alternativas, resultado del análisis\n\nLa eliminación desde la consola es un borrado reversible: la incidencia desaparece de la lista pero sigue siendo recuperable desde la base de datos.",
+                    "excerpt": "El triaje requiere el permiso feedback.manage. Desde el detalle puedes actualizar: Estado: nueva, en_proceso, resuelta, cerrada, no_resoluble Severidad: baja, media, alta, crítica Asignada a: el u...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "feedback.admin.index",
+            "permission_slug": "feedback.view",
+            "ranking_weight": 90,
+            "sort_order": 60,
+            "locales": {
+                "it": {
+                    "question": "Come uso export tecnico e Copia per LLM?",
+                    "answer_markdown": "Nel dettaglio di una segnalazione trovi tre uscite rapide:\n\n- **Copia per LLM** copia in clipboard un report markdown pronto per analisi assistita\n- **.md** scarica la versione testuale della segnalazione con contesto, errori e breadcrumb\n- **.json** esporta il payload strutturato per debugging, integrazioni o archiviazione\n\nQuesti strumenti sono utili per passare la segnalazione a sviluppo, supporto o automazioni senza ricopiare dati a mano.",
+                    "excerpt": "Spiegazione di export Markdown, export JSON e report rapido per LLM.",
+                    "aliases": [
+                        "copia per llm",
+                        "export segnalazione json",
+                        "export segnalazione markdown"
+                    ]
+                },
+                "en": {
+                    "question": "How do I use the technical export and Copy for LLM?",
+                    "answer_markdown": "In the detail of a report you find three quick outputs:\n\n- **Copy for LLM** copies a markdown report to the clipboard, ready for assisted analysis\n- **.md** downloads the text version of the report with context, errors and breadcrumb\n- **.json** exports the structured payload for debugging, integrations or archiving\n\nThese tools are useful for passing the report to development, support or automations without recopying data by hand.",
+                    "excerpt": "In the detail of a report you find three quick outputs: Copy for LLM copies a markdown report to the clipboard, ready for assisted analysis .md downloads the text version of the report with context, e...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment utiliser l'export technique et Copier pour LLM ?",
+                    "answer_markdown": "Dans le détail d'un signalement, vous trouvez trois sorties rapides :\n\n- **Copier pour LLM** copie dans le presse-papiers un rapport markdown prêt pour l'analyse assistée\n- **.md** télécharge la version texte du signalement avec contexte, erreurs et fil d'Ariane\n- **.json** exporte le payload structuré pour le débogage, les intégrations ou l'archivage\n\nCes outils sont utiles pour transmettre le signalement au développement, au support ou aux automatisations sans recopier les données à la main.",
+                    "excerpt": "Dans le détail d'un signalement, vous trouvez trois sorties rapides : Copier pour LLM copie dans le presse-papiers un rapport markdown prêt pour l'analyse assistée .md télécharge la version texte du s...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie nutze ich den technischen Export und „Für LLM kopieren“?",
+                    "answer_markdown": "Im Detail einer Meldung finden Sie drei schnelle Ausgaben:\n\n- **Für LLM kopieren** kopiert einen Markdown-Bericht in die Zwischenablage, bereit für die assistierte Analyse\n- **.md** lädt die Textversion der Meldung mit Kontext, Fehlern und Breadcrumb herunter\n- **.json** exportiert das strukturierte Payload für Debugging, Integrationen oder Archivierung\n\nDiese Werkzeuge sind nützlich, um die Meldung an Entwicklung, Support oder Automatisierungen weiterzugeben, ohne Daten von Hand zu kopieren.",
+                    "excerpt": "Im Detail einer Meldung finden Sie drei schnelle Ausgaben: Für LLM kopieren kopiert einen Markdown-Bericht in die Zwischenablage, bereit für die assistierte Analyse .md lädt die Textversion der Meldun...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo uso la exportación técnica y Copiar para LLM?",
+                    "answer_markdown": "En el detalle de una incidencia encuentras tres salidas rápidas:\n\n- **Copiar para LLM** copia al portapapeles un informe markdown listo para el análisis asistido\n- **.md** descarga la versión de texto de la incidencia con contexto, errores y ruta de navegación\n- **.json** exporta el payload estructurado para depuración, integraciones o archivado\n\nEstas herramientas son útiles para pasar la incidencia a desarrollo, soporte o automatizaciones sin recopiar datos a mano.",
+                    "excerpt": "En el detalle de una incidencia encuentras tres salidas rápidas: Copiar para LLM copia al portapapeles un informe markdown listo para el análisis asistido .md descarga la versión de texto de la incide...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": null,
+            "permission_slug": null,
+            "ranking_weight": 85,
+            "sort_order": 70,
+            "locales": {
+                "it": {
+                    "question": "Quali permessi servono per usare Segnalazioni?",
+                    "answer_markdown": "Le regole di accesso del modulo sono queste:\n\n- invio segnalazione: utente autenticato con protezione CSRF, nessun permesso dedicato\n- consultazione console admin: `feedback.view`\n- triage, assegnazione, note e cancellazione: `feedback.manage`\n\nSe modifichi i permessi dei ruoli, gli utenti devono rifare logout/login per ricaricare la sessione aggiornata.",
+                    "excerpt": "Permessi necessari per invio utente, consultazione admin e triage operativo.",
+                    "aliases": [
+                        "permessi segnalazioni",
+                        "segnalazioni view",
+                        "segnalazioni manage"
+                    ]
+                },
+                "en": {
+                    "question": "Which permissions are needed to use Feedback?",
+                    "answer_markdown": "The module's access rules are these:\n\n- sending a report: authenticated user with CSRF protection, no dedicated permission\n- viewing the admin console: `feedback.view`\n- triage, assignment, notes and deletion: `feedback.manage`\n\nIf you change role permissions, users must log out and back in to reload the updated session.",
+                    "excerpt": "The module's access rules are these: sending a report: authenticated user with CSRF protection, no dedicated permission viewing the admin console: feedback.view triage, assignment, notes and delet...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Quelles autorisations faut-il pour utiliser Signalements ?",
+                    "answer_markdown": "Les règles d'accès du module sont les suivantes :\n\n- envoi d'un signalement : utilisateur authentifié avec protection CSRF, aucune autorisation dédiée\n- consultation de la console d'administration : `feedback.view`\n- triage, assignation, notes et suppression : `feedback.manage`\n\nSi vous modifiez les autorisations des rôles, les utilisateurs doivent se déconnecter puis se reconnecter pour recharger la session mise à jour.",
+                    "excerpt": "Les règles d'accès du module sont les suivantes : envoi d'un signalement : utilisateur authentifié avec protection CSRF, aucune autorisation dédiée consultation de la console d'administration : segnal...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Welche Berechtigungen werden für Meldungen benötigt?",
+                    "answer_markdown": "Die Zugriffsregeln des Moduls sind folgende:\n\n- Senden einer Meldung: authentifizierter Benutzer mit CSRF-Schutz, keine dedizierte Berechtigung\n- Einsehen der Admin-Konsole: `feedback.view`\n- Triage, Zuweisung, Notizen und Löschung: `feedback.manage`\n\nWenn Sie die Rollenberechtigungen ändern, müssen sich die Benutzer ab- und wieder anmelden, um die aktualisierte Sitzung neu zu laden.",
+                    "excerpt": "Die Zugriffsregeln des Moduls sind folgende: Senden einer Meldung: authentifizierter Benutzer mit CSRF-Schutz, keine dedizierte Berechtigung Einsehen der Admin-Konsole: feedback.view Triage, Zuwei...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Qué permisos se necesitan para usar Incidencias?",
+                    "answer_markdown": "Las reglas de acceso del módulo son estas:\n\n- envío de una incidencia: usuario autenticado con protección CSRF, sin permiso dedicado\n- consulta de la consola de administración: `feedback.view`\n- triaje, asignación, notas y eliminación: `feedback.manage`\n\nSi cambias los permisos de los roles, los usuarios deben cerrar sesión y volver a iniciarla para recargar la sesión actualizada.",
+                    "excerpt": "Las reglas de acceso del módulo son estas: envío de una incidencia: usuario autenticado con protección CSRF, sin permiso dedicado consulta de la consola de administración: feedback.view triaje, as...",
+                    "aliases": []
+                }
+            }
+        }
+    ]
+}

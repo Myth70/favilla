@@ -1,0 +1,99 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ModuleNamespace}}\Tests\Unit;
+
+use Tests\ModuleTestCase;
+use {{ModuleNamespace}}\Repositories\{{ModuleName}}Repository;
+
+class {{ModuleName}}RepositoryTest extends ModuleTestCase
+{
+    private {{ModuleName}}Repository $repo;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        // Schema SQLite di test (TEXT al posto di ENUM/VARCHAR; include deleted_at per il soft delete).
+        $this->migrate("
+            CREATE TABLE {{TableName}} (
+                id          INTEGER PRIMARY KEY AUTOINCREMENT,
+                name        TEXT NOT NULL,
+                description TEXT DEFAULT NULL,
+                status      TEXT NOT NULL DEFAULT 'active',
+                created_by  INTEGER DEFAULT NULL,
+                created_at  TEXT DEFAULT (datetime('now')),
+                updated_at  TEXT DEFAULT (datetime('now')),
+                deleted_at  TEXT DEFAULT NULL
+            )
+        ");
+        $this->repo = app({{ModuleName}}Repository::class);
+    }
+
+    public function test_create_and_find(): void
+    {
+        $id   = $this->repo->create(['name' => 'Test Item', 'description' => 'Desc', 'created_by' => 1]);
+        $item = $this->repo->find($id);
+
+        $this->assertNotNull($item);
+        $this->assertSame('Test Item', $item['name']);
+    }
+
+    public function test_update(): void
+    {
+        $id = $this->repo->create(['name' => 'Original', 'created_by' => 1]);
+        $this->repo->update($id, ['name' => 'Updated']);
+
+        $item = $this->repo->find($id);
+        $this->assertSame('Updated', $item['name']);
+    }
+
+    public function test_soft_delete_hides_record(): void
+    {
+        $id = $this->repo->create(['name' => 'To Delete', 'created_by' => 1]);
+        $this->repo->delete($id);
+
+        // Il soft delete imposta deleted_at: il record sparisce sia da find() sia dalla query owner-scoped.
+        $this->assertNull($this->repo->find($id));
+        $this->assertNull($this->repo->findForUser($id, 1));
+    }
+
+    public function test_list_paginated_returns_wrapper_shape(): void
+    {
+        $this->repo->create(['name' => 'Item A', 'created_by' => 1]);
+        $this->repo->create(['name' => 'Item B', 'created_by' => 1]);
+
+        $result = $this->repo->listPaginated([], 1);
+
+        $this->assertArrayHasKey('data', $result);
+        $this->assertArrayHasKey('total', $result);
+        $this->assertArrayHasKey('lastPage', $result);
+        $this->assertArrayHasKey('page', $result);
+
+        $this->assertSame(2, $result['total']);
+        $this->assertCount(2, $result['data']);
+    }
+
+    public function test_list_paginated_filters_by_q(): void
+    {
+        $this->repo->create(['name' => 'Alfa', 'created_by' => 1]);
+        $this->repo->create(['name' => 'Beta', 'created_by' => 1]);
+
+        $result = $this->repo->listPaginated(['q' => 'Alfa'], 1);
+
+        $this->assertSame(1, $result['total']);
+        $this->assertCount(1, $result['data']);
+        $this->assertSame('Alfa', $result['data'][0]['name']);
+    }
+
+    public function test_list_paginated_is_owner_scoped(): void
+    {
+        $this->repo->create(['name' => 'Mio',    'created_by' => 1]);
+        $this->repo->create(['name' => 'Altrui', 'created_by' => 2]);
+
+        $result = $this->repo->listPaginated([], 1);
+
+        $this->assertSame(1, $result['total']);
+        $this->assertSame('Mio', $result['data'][0]['name']);
+    }
+}

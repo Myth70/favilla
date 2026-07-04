@@ -1,0 +1,93 @@
+# Favilla — self-hosted workspace.
+# Quick start:
+#   cp .env.example .env   # then set APP_KEY, BACKUP_ENCRYPTION_KEY, DB_PASS
+#   docker compose up -d --build
+#   open http://localhost:8080   (web installer, unless AUTO_MIGRATE=true)
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    image: favilla/favilla:latest
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      APP_ENV: "${APP_ENV:-production}"
+      APP_DEBUG: "${APP_DEBUG:-false}"
+      APP_URL: "${APP_URL:-http://localhost:8080}"
+      APP_BASE_PATH: "${APP_BASE_PATH:-}"
+      APP_KEY: "${APP_KEY:?set APP_KEY in .env}"
+      APP_EDITION: "${APP_EDITION:-}"
+      BACKUP_ENCRYPTION_KEY: "${BACKUP_ENCRYPTION_KEY:?set BACKUP_ENCRYPTION_KEY in .env}"
+      DB_HOST: db
+      DB_PORT: "3306"
+      DB_NAME: "${DB_NAME:-favilla}"
+      DB_USER: "${DB_USER:-favilla}"
+      DB_PASS: "${DB_PASS:?set DB_PASS in .env}"
+      DB_CHARSET: utf8mb4
+      SCHEDULER_PHP_BINARY: php
+      # Set to true for a hands-off first boot (loads schema + seeds on an
+      # empty DB). Leave unset to use the web installer at first visit.
+      AUTO_MIGRATE: "${AUTO_MIGRATE:-false}"
+    ports:
+      - "${APP_PORT:-8080}:80"
+    volumes:
+      - storage:/var/www/html/storage
+      - uploads:/var/www/html/public/uploads
+    healthcheck:
+      test: ["CMD", "php", "-r", "exit(@fsockopen('127.0.0.1',80)?0:1);"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+
+  scheduler:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    image: favilla/favilla:latest
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      APP_ENV: "${APP_ENV:-production}"
+      APP_URL: "${APP_URL:-http://localhost:8080}"
+      APP_KEY: "${APP_KEY:?set APP_KEY in .env}"
+      APP_EDITION: "${APP_EDITION:-}"
+      BACKUP_ENCRYPTION_KEY: "${BACKUP_ENCRYPTION_KEY:?set BACKUP_ENCRYPTION_KEY in .env}"
+      DB_HOST: db
+      DB_PORT: "3306"
+      DB_NAME: "${DB_NAME:-favilla}"
+      DB_USER: "${DB_USER:-favilla}"
+      DB_PASS: "${DB_PASS:?set DB_PASS in .env}"
+      DB_CHARSET: utf8mb4
+      SCHEDULER_PHP_BINARY: php
+    volumes:
+      - storage:/var/www/html/storage
+      - uploads:/var/www/html/public/uploads
+    # One cron-equivalent loop: the master scheduler runs every due job.
+    command: ["bash", "-c", "while true; do php favilla scheduler:run || true; sleep 60; done"]
+
+  db:
+    image: mariadb:10.11
+    restart: unless-stopped
+    environment:
+      MARIADB_DATABASE: "${DB_NAME:-favilla}"
+      MARIADB_USER: "${DB_USER:-favilla}"
+      MARIADB_PASSWORD: "${DB_PASS:?set DB_PASS in .env}"
+      MARIADB_ROOT_PASSWORD: "${DB_ROOT_PASS:?set DB_ROOT_PASS in .env (must differ from DB_PASS)}"
+    volumes:
+      - db-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  storage:
+  uploads:
+  db-data:

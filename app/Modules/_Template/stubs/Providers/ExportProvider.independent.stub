@@ -1,0 +1,93 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{ModuleNamespace}}\Providers;
+
+use App\Contracts\ExportableModule;
+use App\Services\ModuleDatabaseResolver;
+use PDO;
+
+class {{ModuleName}}ExportProvider implements ExportableModule
+{
+    public function getDataSources(): array
+    {
+        return [
+            [
+                'key'        => '{{module_name}}',
+                'label'      => '{{ModuleName}}',
+                'icon'       => 'fa-circle',
+                'permission' => '{{module_name}}.view',
+                'fields'     => [
+                    ['name' => 'id',         'label' => 'ID',         'type' => 'integer',  'sortable' => true,  'filterable' => false],
+                    ['name' => 'name',       'label' => 'Nome',       'type' => 'string',   'sortable' => true,  'filterable' => true],
+                    ['name' => 'created_at', 'label' => 'Creato il',  'type' => 'datetime', 'sortable' => true,  'filterable' => true],
+                ],
+            ],
+        ];
+    }
+
+    public function getExportData(
+        string $sourceKey,
+        array  $filters = [],
+        string $sortBy = 'created_at',
+        string $sortDir = 'DESC',
+        int    $limit = 10000
+    ): array {
+        if ($sourceKey !== '{{module_name}}') {
+            return [];
+        }
+
+        if (!has_permission('{{module_name}}.view')) {
+            return [];
+        }
+
+        $allowedSorts = ['id', 'name', 'created_at'];
+        $sort = in_array($sortBy, $allowedSorts, true) ? $sortBy : 'name';
+        $dir  = strtoupper($sortDir) === 'ASC' ? 'ASC' : 'DESC';
+
+        $where  = ['deleted_at IS NULL'];
+        $params = [];
+
+        if (!empty($filters['name'])) {
+            $where[]  = 'name LIKE ?';
+            $params[] = '%' . $filters['name'] . '%';
+        }
+
+        // LIMIT interpolato come intero: MariaDB non accetta LIMIT come parametro
+        // bindato con i prepared statement nativi (vedi BaseRepository::limitClause()).
+        $sql = "SELECT id, name, created_at
+                FROM {{TableName}}
+                WHERE " . implode(' AND ', $where) . "
+                ORDER BY {$sort} {$dir}
+                LIMIT " . max(1, $limit);
+
+        $pdo  = app(ModuleDatabaseResolver::class)->pdoFor('{{ModuleName}}');
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute($params);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function getSingleRecord(string $sourceKey, int $recordId): ?array
+    {
+        if ($sourceKey !== '{{module_name}}') {
+            return null;
+        }
+
+        $pdo  = app(ModuleDatabaseResolver::class)->pdoFor('{{ModuleName}}');
+        $stmt = $pdo->prepare("SELECT * FROM {{TableName}} WHERE id = ? AND deleted_at IS NULL");
+        $stmt->execute([$recordId]);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $row ?: null;
+    }
+
+    public function getExportModuleName(): string
+    {
+        return '{{ModuleName}}';
+    }
+
+    public function getExportModuleIcon(): string
+    {
+        return 'fa-circle';
+    }
+}

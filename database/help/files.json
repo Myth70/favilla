@@ -1,0 +1,687 @@
+{
+    "module_key": "files",
+    "module_name": "Files",
+    "label": "File",
+    "description": "Libreria file personale con cartelle virtuali, upload, versioni, condivisioni, anteprime, download singoli o ZIP e file picker integrato.",
+    "audience_default": "user",
+    "locale_default": "it",
+    "route_name": "files.index",
+    "permission_slug": "files.access",
+    "sort_order": 18,
+    "entries": [
+        {
+            "audience": "user",
+            "route_name": "files.index",
+            "permission_slug": "files.access",
+            "ranking_weight": 24,
+            "sort_order": 1,
+            "locales": {
+                "it": {
+                    "question": "Come funziona il modulo File?",
+                    "answer_markdown": "## Modulo File\r\nIl modulo File è la libreria documentale operativa di Favilla.\r\n\r\n### Cosa offre\r\n- browser file con vista **lista** o **griglia**;\r\n- upload e organizzazione in cartelle;\r\n- anteprima e download dei file;\r\n- modifica dei metadati;\r\n- **versioni** e cronologia del file;\r\n- condivisione e azioni massive;\r\n- cestino per eliminazioni gestite;\r\n- **file picker** riutilizzabile dentro altri moduli.\r\n\r\n### Quando usarlo\r\nAprilo quando devi gestire allegati, documenti operativi o materiale riusabile che può servire anche ad altre aree dell'applicazione.\r\n\r\n### Valore trasversale\r\nIl modulo File non vive isolato: spesso è il punto di appoggio comune per report, messaggi, documenti e altri flussi applicativi.",
+                    "excerpt": "Modulo File Il modulo File è la libreria documentale operativa di Favilla. Cosa offre browser file con vista lista o griglia; upload e organizzazione in cartelle; anteprima e download dei file; modifica dei metadati...",
+                    "aliases": [
+                        "modulo file",
+                        "archivio file",
+                        "libreria file",
+                        "upload documenti",
+                        "file picker"
+                    ]
+                },
+                "en": {
+                    "question": "How does the Files module work?",
+                    "answer_markdown": "## Files module\nThe Files module is Favilla's operational document library.\n\n### What it offers\n- a file browser with a **list** or **grid** view;\n- upload and organization into folders;\n- preview and download of files;\n- metadata editing;\n- **versions** and file history;\n- sharing and bulk actions;\n- a trash for managed deletions;\n- a reusable **file picker** inside other modules.\n\n### When to use it\nOpen it when you need to manage attachments, operational documents or reusable material that may also serve other areas of the application.\n\n### Cross-cutting value\nThe Files module does not live in isolation: it is often the common support point for reports, messages, documents and other application flows.",
+                    "excerpt": "Files module The Files module is Favilla's operational document library. What it offers a file browser with a list or grid view; upload and organization into folders; preview and download of files; me...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment fonctionne le module Fichiers ?",
+                    "answer_markdown": "## Module Fichiers\nLe module Fichiers est la bibliothèque documentaire opérationnelle de Favilla.\n\n### Ce qu'il offre\n- un navigateur de fichiers avec vue **liste** ou **grille** ;\n- téléversement et organisation en dossiers ;\n- aperçu et téléchargement des fichiers ;\n- modification des métadonnées ;\n- **versions** et historique du fichier ;\n- partage et actions groupées ;\n- corbeille pour les suppressions gérées ;\n- un **sélecteur de fichiers** réutilisable dans d'autres modules.\n\n### Quand l'utiliser\nOuvrez-le quand vous devez gérer des pièces jointes, des documents opérationnels ou du matériel réutilisable qui peut aussi servir à d'autres zones de l'application.\n\n### Valeur transversale\nLe module Fichiers ne vit pas isolé : il est souvent le point d'appui commun pour les rapports, les messages, les documents et d'autres flux applicatifs.",
+                    "excerpt": "Module Fichiers Le module Fichiers est la bibliothèque documentaire opérationnelle de Favilla. Ce qu'il offre un navigateur de fichiers avec vue liste ou grille ; téléversement et organisation en doss...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie funktioniert das Dateien-Modul?",
+                    "answer_markdown": "## Dateien-Modul\nDas Dateien-Modul ist die operative Dokumentenbibliothek von Favilla.\n\n### Was es bietet\n- einen Datei-Browser mit **Listen**- oder **Raster**-Ansicht;\n- Hochladen und Organisation in Ordnern;\n- Vorschau und Download von Dateien;\n- Bearbeitung der Metadaten;\n- **Versionen** und Dateiverlauf;\n- Freigabe und Massenaktionen;\n- einen Papierkorb für verwaltete Löschungen;\n- einen wiederverwendbaren **File-Picker** in anderen Modulen.\n\n### Wann Sie es verwenden\nÖffnen Sie es, wenn Sie Anhänge, operative Dokumente oder wiederverwendbares Material verwalten müssen, das auch anderen Bereichen der Anwendung dienen kann.\n\n### Übergreifender Nutzen\nDas Dateien-Modul lebt nicht isoliert: Es ist oft der gemeinsame Stützpunkt für Berichte, Nachrichten, Dokumente und andere Anwendungsabläufe.",
+                    "excerpt": "Dateien-Modul Das Dateien-Modul ist die operative Dokumentenbibliothek von Favilla. Was es bietet einen Datei-Browser mit Listen- oder Raster-Ansicht; Hochladen und Organisation in Ordnern; Vorschau u...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo funciona el módulo Archivos?",
+                    "answer_markdown": "## Módulo Archivos\nEl módulo Archivos es la biblioteca documental operativa de Favilla.\n\n### Qué ofrece\n- un explorador de archivos con vista de **lista** o **cuadrícula**;\n- subida y organización en carpetas;\n- vista previa y descarga de archivos;\n- edición de metadatos;\n- **versiones** e historial del archivo;\n- compartición y acciones masivas;\n- papelera para eliminaciones gestionadas;\n- un **selector de archivos** reutilizable dentro de otros módulos.\n\n### Cuándo usarlo\nÁbrelo cuando necesites gestionar adjuntos, documentos operativos o material reutilizable que también pueda servir a otras áreas de la aplicación.\n\n### Valor transversal\nEl módulo Archivos no vive aislado: a menudo es el punto de apoyo común para informes, mensajes, documentos y otros flujos de la aplicación.",
+                    "excerpt": "Módulo Archivos El módulo Archivos es la biblioteca documental operativa de Favilla. Qué ofrece un explorador de archivos con vista de lista o cuadrícula; subida y organización en carpetas; vista prev...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "files.index",
+            "permission_slug": "files.access",
+            "ranking_weight": 0,
+            "sort_order": 2,
+            "locales": {
+                "it": {
+                    "question": "Accesso al modulo File",
+                    "answer_markdown": "Dal menu laterale, voce \"File\". Per accedere al modulo è necessario il permesso `files.access`. Le altre azioni (caricamento, condivisione, eliminazione) richiedono i rispettivi permessi aggiuntivi.",
+                    "excerpt": "Dal menu laterale, voce \"File\". Per accedere al modulo è necessario il permesso files.access. Le altre azioni (caricamento, condivisione, eliminazione) richiedono i rispettivi permessi aggiuntivi.",
+                    "aliases": [
+                        "accesso",
+                        "come accesso",
+                        "file",
+                        "file accesso",
+                        "files accesso"
+                    ]
+                },
+                "en": {
+                    "question": "Accessing the Files module",
+                    "answer_markdown": "From the side menu, the \"Files\" entry. To access the module you need the `files.access` permission. The other actions (upload, sharing, deletion) require their respective additional permissions.",
+                    "excerpt": "From the side menu, the \"Files\" entry. To access the module you need the files.access permission. The other actions (upload, sharing, deletion) require their respective additional permissions.",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Accès au module Fichiers",
+                    "answer_markdown": "Depuis le menu latéral, l'entrée « Fichiers ». Pour accéder au module, l'autorisation `files.access` est nécessaire. Les autres actions (téléversement, partage, suppression) nécessitent leurs autorisations supplémentaires respectives.",
+                    "excerpt": "Depuis le menu latéral, l'entrée « Fichiers ». Pour accéder au module, l'autorisation files.access est nécessaire. Les autres actions (téléversement, partage, suppression) nécessitent leurs autorisati...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Zugriff auf das Dateien-Modul",
+                    "answer_markdown": "Über das Seitenmenü, der Eintrag „Dateien“. Um auf das Modul zuzugreifen, ist die Berechtigung `files.access` erforderlich. Die anderen Aktionen (Hochladen, Freigabe, Löschung) erfordern ihre jeweiligen zusätzlichen Berechtigungen.",
+                    "excerpt": "Über das Seitenmenü, der Eintrag „Dateien“. Um auf das Modul zuzugreifen, ist die Berechtigung files.access erforderlich. Die anderen Aktionen (Hochladen, Freigabe, Löschung) erfordern ihre jeweiligen...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Acceso al módulo Archivos",
+                    "answer_markdown": "Desde el menú lateral, la entrada «Archivos». Para acceder al módulo es necesario el permiso `files.access`. Las demás acciones (subida, compartición, eliminación) requieren sus respectivos permisos adicionales.",
+                    "excerpt": "Desde el menú lateral, la entrada «Archivos». Para acceder al módulo es necesario el permiso files.access. Las demás acciones (subida, compartición, eliminación) requieren sus respectivos permisos adi...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "files.index",
+            "permission_slug": "files.access",
+            "ranking_weight": 0,
+            "sort_order": 3,
+            "locales": {
+                "it": {
+                    "question": "Interfaccia del browser file",
+                    "answer_markdown": "La schermata principale è divisa in:\n\n- **Albero cartelle** (pannello sinistro su desktop): gerarchia delle cartelle virtuali. Clicca su una cartella per vedere il suo contenuto. Su mobile compare un menu a tendina al posto del pannello.\n- **Elenco file** (area centrale): mostra i file della cartella selezionata.\n- **Scope rapidi** (pulsanti in cima): Recenti (modificati di recente), I miei (caricati da me), Condivisi (condivisi con me da altri utenti o ruoli).",
+                    "excerpt": "La schermata principale è divisa in: Albero cartelle (pannello sinistro su desktop): gerarchia delle cartelle virtuali. Clicca su una cartella per vedere il suo contenuto. Su mobile compare un menu a tendina al posto d…",
+                    "aliases": [
+                        "come interfaccia del browser file",
+                        "file",
+                        "file interfaccia del browser file",
+                        "files interfaccia del browser file",
+                        "interfaccia del browser file"
+                    ]
+                },
+                "en": {
+                    "question": "File browser interface",
+                    "answer_markdown": "The main screen is divided into:\n\n- **Folder tree** (left panel on desktop): the hierarchy of virtual folders. Click a folder to see its content. On mobile a dropdown menu appears instead of the panel.\n- **File list** (central area): shows the files of the selected folder.\n- **Quick scopes** (buttons at the top): Recent (recently modified), Mine (uploaded by me), Shared (shared with me by other users or roles).",
+                    "excerpt": "The main screen is divided into: Folder tree (left panel on desktop): the hierarchy of virtual folders. Click a folder to see its content. On mobile a dropdown menu appears instead of the panel. File ...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Interface du navigateur de fichiers",
+                    "answer_markdown": "L'écran principal est divisé en :\n\n- **Arborescence des dossiers** (panneau de gauche sur ordinateur) : hiérarchie des dossiers virtuels. Cliquez sur un dossier pour voir son contenu. Sur mobile, un menu déroulant apparaît à la place du panneau.\n- **Liste des fichiers** (zone centrale) : affiche les fichiers du dossier sélectionné.\n- **Portées rapides** (boutons en haut) : Récents (modifiés récemment), Les miens (téléversés par moi), Partagés (partagés avec moi par d'autres utilisateurs ou rôles).",
+                    "excerpt": "L'écran principal est divisé en : Arborescence des dossiers (panneau de gauche sur ordinateur) : hiérarchie des dossiers virtuels. Cliquez sur un dossier pour voir son contenu. Sur mobile, un menu dér...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Oberfläche des Datei-Browsers",
+                    "answer_markdown": "Der Hauptbildschirm ist unterteilt in:\n\n- **Ordnerbaum** (linkes Panel auf dem Desktop): die Hierarchie der virtuellen Ordner. Klicken Sie auf einen Ordner, um seinen Inhalt zu sehen. Auf Mobilgeräten erscheint anstelle des Panels ein Dropdown-Menü.\n- **Dateiliste** (zentraler Bereich): zeigt die Dateien des ausgewählten Ordners.\n- **Schnellbereiche** (Schaltflächen oben): Aktuell (kürzlich geändert), Meine (von mir hochgeladen), Geteilt (von anderen Benutzern oder Rollen mit mir geteilt).",
+                    "excerpt": "Der Hauptbildschirm ist unterteilt in: Ordnerbaum (linkes Panel auf dem Desktop): die Hierarchie der virtuellen Ordner. Klicken Sie auf einen Ordner, um seinen Inhalt zu sehen. Auf Mobilgeräten ersche...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Interfaz del explorador de archivos",
+                    "answer_markdown": "La pantalla principal se divide en:\n\n- **Árbol de carpetas** (panel izquierdo en escritorio): jerarquía de las carpetas virtuales. Haz clic en una carpeta para ver su contenido. En móvil aparece un menú desplegable en lugar del panel.\n- **Lista de archivos** (área central): muestra los archivos de la carpeta seleccionada.\n- **Ámbitos rápidos** (botones en la parte superior): Recientes (modificados recientemente), Míos (subidos por mí), Compartidos (compartidos conmigo por otros usuarios o roles).",
+                    "excerpt": "La pantalla principal se divide en: Árbol de carpetas (panel izquierdo en escritorio): jerarquía de las carpetas virtuales. Haz clic en una carpeta para ver su contenido. En móvil aparece un menú desp...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "files.index",
+            "permission_slug": "files.access",
+            "ranking_weight": 0,
+            "sort_order": 4,
+            "locales": {
+                "it": {
+                    "question": "Cambio vista: griglia e lista",
+                    "answer_markdown": "Usa i pulsanti in alto a destra per passare tra:\n\n- **Vista griglia** (default): card con anteprima o icona e metadati essenziali.\n- **Vista lista**: tabella compatta con dettagli aggiuntivi (dimensione, data, tipo).",
+                    "excerpt": "Usa i pulsanti in alto a destra per passare tra: Vista griglia (default): card con anteprima o icona e metadati essenziali. Vista lista: tabella compatta con dettagli aggiuntivi (dimensione, data, tipo).",
+                    "aliases": [
+                        "cambio vista griglia e lista",
+                        "come cambio vista griglia e lista",
+                        "file",
+                        "file cambio vista griglia e lista",
+                        "files cambio vista griglia e lista"
+                    ]
+                },
+                "en": {
+                    "question": "Switching view: grid and list",
+                    "answer_markdown": "Use the buttons at the top right to switch between:\n\n- **Grid view** (default): cards with a preview or icon and essential metadata.\n- **List view**: a compact table with additional details (size, date, type).",
+                    "excerpt": "Use the buttons at the top right to switch between: Grid view (default): cards with a preview or icon and essential metadata. List view: a compact table with additional details (size, date, type).",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Changement de vue : grille et liste",
+                    "answer_markdown": "Utilisez les boutons en haut à droite pour passer entre :\n\n- **Vue grille** (par défaut) : cartes avec aperçu ou icône et métadonnées essentielles.\n- **Vue liste** : tableau compact avec des détails supplémentaires (taille, date, type).",
+                    "excerpt": "Utilisez les boutons en haut à droite pour passer entre : Vue grille (par défaut) : cartes avec aperçu ou icône et métadonnées essentielles. Vue liste : tableau compact avec des détails supplémentaire...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Ansicht wechseln: Raster und Liste",
+                    "answer_markdown": "Verwenden Sie die Schaltflächen oben rechts, um zu wechseln zwischen:\n\n- **Rasteransicht** (Standard): Karten mit Vorschau oder Symbol und wesentlichen Metadaten.\n- **Listenansicht**: kompakte Tabelle mit zusätzlichen Details (Größe, Datum, Typ).",
+                    "excerpt": "Verwenden Sie die Schaltflächen oben rechts, um zu wechseln zwischen: Rasteransicht (Standard): Karten mit Vorschau oder Symbol und wesentlichen Metadaten. Listenansicht: kompakte Tabelle mit zusätzli...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Cambio de vista: cuadrícula y lista",
+                    "answer_markdown": "Usa los botones de la parte superior derecha para alternar entre:\n\n- **Vista de cuadrícula** (predeterminada): tarjetas con vista previa o icono y metadatos esenciales.\n- **Vista de lista**: tabla compacta con detalles adicionales (tamaño, fecha, tipo).",
+                    "excerpt": "Usa los botones de la parte superior derecha para alternar entre: Vista de cuadrícula (predeterminada): tarjetas con vista previa o icono y metadatos esenciales. Vista de lista: tabla compacta con det...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "files.index",
+            "permission_slug": "files.access",
+            "ranking_weight": 0,
+            "sort_order": 5,
+            "locales": {
+                "it": {
+                    "question": "Filtri",
+                    "answer_markdown": "- **Ricerca**: filtra per nome file.\n- **Tipo di file** (gruppo MIME): filtra per categoria (immagini, documenti, fogli di calcolo, ecc.).\n- **Visibilità**: mostra solo file privati o solo file pubblici/condivisi.\n- **Ordinamento**: per nome, data, dimensione.",
+                    "excerpt": "Ricerca: filtra per nome file. Tipo di file (gruppo MIME): filtra per categoria (immagini, documenti, fogli di calcolo, ecc.). Visibilità: mostra solo file privati o solo file pubblici/condivisi. Ordinamento: per nome,…",
+                    "aliases": [
+                        "come filtri",
+                        "file",
+                        "file filtri",
+                        "files filtri",
+                        "filtri"
+                    ]
+                },
+                "en": {
+                    "question": "Filters",
+                    "answer_markdown": "- **Search**: filter by file name.\n- **File type** (MIME group): filter by category (images, documents, spreadsheets, etc.).\n- **Visibility**: show only private files or only public/shared files.\n- **Sorting**: by name, date, size.",
+                    "excerpt": "Search: filter by file name. File type (MIME group): filter by category (images, documents, spreadsheets, etc.). Visibility: show only private files or only public/shared files. Sorting: by name, date...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Filtres",
+                    "answer_markdown": "- **Recherche** : filtre par nom de fichier.\n- **Type de fichier** (groupe MIME) : filtre par catégorie (images, documents, feuilles de calcul, etc.).\n- **Visibilité** : affiche uniquement les fichiers privés ou uniquement les fichiers publics/partagés.\n- **Tri** : par nom, date, taille.",
+                    "excerpt": "Recherche : filtre par nom de fichier. Type de fichier (groupe MIME) : filtre par catégorie (images, documents, feuilles de calcul, etc.). Visibilité : affiche uniquement les fichiers privés ou unique...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Filter",
+                    "answer_markdown": "- **Suche**: Filtern nach Dateiname.\n- **Dateityp** (MIME-Gruppe): Filtern nach Kategorie (Bilder, Dokumente, Tabellen usw.).\n- **Sichtbarkeit**: nur private Dateien oder nur öffentliche/geteilte Dateien anzeigen.\n- **Sortierung**: nach Name, Datum, Größe.",
+                    "excerpt": "Suche: Filtern nach Dateiname. Dateityp (MIME-Gruppe): Filtern nach Kategorie (Bilder, Dokumente, Tabellen usw.). Sichtbarkeit: nur private Dateien oder nur öffentliche/geteilte Dateien anzeigen. Sort...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Filtros",
+                    "answer_markdown": "- **Búsqueda**: filtra por nombre de archivo.\n- **Tipo de archivo** (grupo MIME): filtra por categoría (imágenes, documentos, hojas de cálculo, etc.).\n- **Visibilidad**: muestra solo archivos privados o solo archivos públicos/compartidos.\n- **Ordenación**: por nombre, fecha, tamaño.",
+                    "excerpt": "Búsqueda: filtra por nombre de archivo. Tipo de archivo (grupo MIME): filtra por categoría (imágenes, documentos, hojas de cálculo, etc.). Visibilidad: muestra solo archivos privados o solo archivos p...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "files.index",
+            "permission_slug": "files.access",
+            "ranking_weight": 0,
+            "sort_order": 6,
+            "locales": {
+                "it": {
+                    "question": "Caricare file",
+                    "answer_markdown": "1. Clicca \"Carica\" o usa il pulsante \"+\".\n2. Si apre la schermata di upload con un'area di trascinamento.\n3. Trascina uno o più file sull'area oppure clicca per aprire il selettore file. I formati consentiti e la dimensione massima sono indicati nel modulo.\n4. Compila i campi opzionali: descrizione (max 500 caratteri), tag, cartella di destinazione, visibilità.\n5. Attendi il completamento della barra di avanzamento.\n6. I file caricati compaiono nella cartella corrente.",
+                    "excerpt": "Clicca \"Carica\" o usa il pulsante \"+\". Si apre la schermata di upload con un'area di trascinamento. Trascina uno o più file sull'area oppure clicca per aprire il selettore file. I formati consentiti e la dimensione mas…",
+                    "aliases": [
+                        "caricare file",
+                        "come caricare file",
+                        "file",
+                        "file caricare file",
+                        "files caricare file"
+                    ]
+                },
+                "en": {
+                    "question": "Uploading files",
+                    "answer_markdown": "1. Click \"Upload\" or use the \"+\" button.\n2. The upload screen opens with a drag-and-drop area.\n3. Drag one or more files onto the area or click to open the file selector. The allowed formats and the maximum size are indicated in the form.\n4. Fill in the optional fields: description (max 500 characters), tags, destination folder, visibility.\n5. Wait for the progress bar to complete.\n6. The uploaded files appear in the current folder.",
+                    "excerpt": "1. Click \"Upload\" or use the \"+\" button. 2. The upload screen opens with a drag-and-drop area. 3. Drag one or more files onto the area or click to open the file selector. The allowed formats and the m...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Téléverser des fichiers",
+                    "answer_markdown": "1. Cliquez sur « Téléverser » ou utilisez le bouton « + ».\n2. L'écran de téléversement s'ouvre avec une zone de glisser-déposer.\n3. Faites glisser un ou plusieurs fichiers sur la zone ou cliquez pour ouvrir le sélecteur de fichiers. Les formats autorisés et la taille maximale sont indiqués dans le formulaire.\n4. Remplissez les champs facultatifs : description (max 500 caractères), étiquettes, dossier de destination, visibilité.\n5. Attendez la fin de la barre de progression.\n6. Les fichiers téléversés apparaissent dans le dossier courant.",
+                    "excerpt": "1. Cliquez sur « Téléverser » ou utilisez le bouton « + ». 2. L'écran de téléversement s'ouvre avec une zone de glisser-déposer. 3. Faites glisser un ou plusieurs fichiers sur la zone ou cliquez pour ...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Dateien hochladen",
+                    "answer_markdown": "1. Klicken Sie auf „Hochladen“ oder verwenden Sie die Schaltfläche „+“.\n2. Der Upload-Bildschirm öffnet sich mit einem Drag-and-Drop-Bereich.\n3. Ziehen Sie eine oder mehrere Dateien auf den Bereich oder klicken Sie, um die Dateiauswahl zu öffnen. Die zulässigen Formate und die maximale Größe sind im Formular angegeben.\n4. Füllen Sie die optionalen Felder aus: Beschreibung (max. 500 Zeichen), Tags, Zielordner, Sichtbarkeit.\n5. Warten Sie auf den Abschluss des Fortschrittsbalkens.\n6. Die hochgeladenen Dateien erscheinen im aktuellen Ordner.",
+                    "excerpt": "1. Klicken Sie auf „Hochladen“ oder verwenden Sie die Schaltfläche „+“. 2. Der Upload-Bildschirm öffnet sich mit einem Drag-and-Drop-Bereich. 3. Ziehen Sie eine oder mehrere Dateien auf den Bereich od...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Subir archivos",
+                    "answer_markdown": "1. Haz clic en «Subir» o usa el botón «+».\n2. Se abre la pantalla de subida con un área de arrastrar y soltar.\n3. Arrastra uno o más archivos al área o haz clic para abrir el selector de archivos. Los formatos permitidos y el tamaño máximo se indican en el formulario.\n4. Rellena los campos opcionales: descripción (máx. 500 caracteres), etiquetas, carpeta de destino, visibilidad.\n5. Espera a que se complete la barra de progreso.\n6. Los archivos subidos aparecen en la carpeta actual.",
+                    "excerpt": "1. Haz clic en «Subir» o usa el botón «+». 2. Se abre la pantalla de subida con un área de arrastrar y soltar. 3. Arrastra uno o más archivos al área o haz clic para abrir el selector de archivos. Los...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "files.index",
+            "permission_slug": "files.access",
+            "ranking_weight": 0,
+            "sort_order": 7,
+            "locales": {
+                "it": {
+                    "question": "Organizzare con le cartelle",
+                    "answer_markdown": "**Creare una cartella**:\n1. Clicca \"Nuova cartella\" nella barra superiore o nel pannello laterale.\n2. Inserisci un nome e conferma.\n\n**Rinominare una cartella**: nel pannello laterale, usa il menu contestuale accanto al nome della cartella.\n\n**Eliminare una cartella**: il contenuto della cartella viene spostato nel cestino insieme alla cartella stessa.",
+                    "excerpt": "Creare una cartella: Clicca \"Nuova cartella\" nella barra superiore o nel pannello laterale. Inserisci un nome e conferma. Rinominare una cartella: nel pannello laterale, usa il menu contestuale accanto al nome della car…",
+                    "aliases": [
+                        "come organizzare con le cartelle",
+                        "file",
+                        "file organizzare con le cartelle",
+                        "files organizzare con le cartelle",
+                        "organizzare con le cartelle"
+                    ]
+                },
+                "en": {
+                    "question": "Organizing with folders",
+                    "answer_markdown": "**Creating a folder**:\n1. Click \"New folder\" in the top bar or in the side panel.\n2. Enter a name and confirm.\n\n**Renaming a folder**: in the side panel, use the context menu next to the folder name.\n\n**Deleting a folder**: the folder's content is moved to the trash together with the folder itself.",
+                    "excerpt": "Creating a folder: 1. Click \"New folder\" in the top bar or in the side panel. 2. Enter a name and confirm. Renaming a folder: in the side panel, use the context menu next to the folder name. Deleting ...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Organiser avec les dossiers",
+                    "answer_markdown": "**Créer un dossier** :\n1. Cliquez sur « Nouveau dossier » dans la barre supérieure ou dans le panneau latéral.\n2. Saisissez un nom et confirmez.\n\n**Renommer un dossier** : dans le panneau latéral, utilisez le menu contextuel à côté du nom du dossier.\n\n**Supprimer un dossier** : le contenu du dossier est déplacé dans la corbeille avec le dossier lui-même.",
+                    "excerpt": "Créer un dossier : 1. Cliquez sur « Nouveau dossier » dans la barre supérieure ou dans le panneau latéral. 2. Saisissez un nom et confirmez. Renommer un dossier : dans le panneau latéral, utilisez le ...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Mit Ordnern organisieren",
+                    "answer_markdown": "**Einen Ordner erstellen**:\n1. Klicken Sie in der oberen Leiste oder im Seitenpanel auf „Neuer Ordner“.\n2. Geben Sie einen Namen ein und bestätigen Sie.\n\n**Einen Ordner umbenennen**: Verwenden Sie im Seitenpanel das Kontextmenü neben dem Ordnernamen.\n\n**Einen Ordner löschen**: Der Inhalt des Ordners wird zusammen mit dem Ordner selbst in den Papierkorb verschoben.",
+                    "excerpt": "Einen Ordner erstellen: 1. Klicken Sie in der oberen Leiste oder im Seitenpanel auf „Neuer Ordner“. 2. Geben Sie einen Namen ein und bestätigen Sie. Einen Ordner umbenennen: Verwenden Sie im Seitenpan...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Organizar con carpetas",
+                    "answer_markdown": "**Crear una carpeta**:\n1. Haz clic en «Nueva carpeta» en la barra superior o en el panel lateral.\n2. Introduce un nombre y confirma.\n\n**Renombrar una carpeta**: en el panel lateral, usa el menú contextual junto al nombre de la carpeta.\n\n**Eliminar una carpeta**: el contenido de la carpeta se mueve a la papelera junto con la propia carpeta.",
+                    "excerpt": "Crear una carpeta: 1. Haz clic en «Nueva carpeta» en la barra superior o en el panel lateral. 2. Introduce un nombre y confirma. Renombrar una carpeta: en el panel lateral, usa el menú contextual junt...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "files.index",
+            "permission_slug": "files.access",
+            "ranking_weight": 0,
+            "sort_order": 8,
+            "locales": {
+                "it": {
+                    "question": "Aprire e visualizzare un file",
+                    "answer_markdown": "Clicca sul nome del file per aprire la schermata dettaglio oppure clicca sull'icona di anteprima rapida per aprire un **overlay inline** senza navigare via dalla lista corrente. Nella schermata dettaglio trovi:\n\n- **Anteprima**: le immagini mostrano un'anteprima `<img>` inline; i PDF si aprono in un visualizzatore integrato; i file di testo (sotto i 100 KB) mostrano il contenuto in un riquadro preformattato. Per tutti gli altri formati viene proposto il download con l'icona del tipo di file.\n- **Metadati**: nome originale, estensione, tipo, dimensione, cartella, visibilità, chi ha caricato il file, date.\n- **Versioni**: elenco degli snapshot salvati.\n- **Condivisioni**: chi può accedere al file oltre a te.",
+                    "excerpt": "Clicca sul nome del file per aprire la schermata dettaglio oppure clicca sull'icona di anteprima rapida per aprire un overlay inline senza navigare via dalla lista corrente. Nella schermata dettaglio trovi: Anteprima: l…",
+                    "aliases": [
+                        "aprire e visualizzare un file",
+                        "come aprire e visualizzare un file",
+                        "file",
+                        "file aprire e visualizzare un file",
+                        "files aprire e visualizzare un file"
+                    ]
+                },
+                "en": {
+                    "question": "Opening and viewing a file",
+                    "answer_markdown": "Click the file name to open the detail screen or click the quick-preview icon to open an **inline overlay** without navigating away from the current list. In the detail screen you find:\n\n- **Preview**: images show an inline `<img>` preview; PDFs open in an integrated viewer; text files (under 100 KB) show the content in a preformatted box. For all other formats, a download is offered with the file-type icon.\n- **Metadata**: original name, extension, type, size, folder, visibility, who uploaded the file, dates.\n- **Versions**: the list of saved snapshots.\n- **Shares**: who can access the file besides you.",
+                    "excerpt": "Click the file name to open the detail screen or click the quick-preview icon to open an inline overlay without navigating away from the current list. In the detail screen you find: Preview: images sh...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Ouvrir et visualiser un fichier",
+                    "answer_markdown": "Cliquez sur le nom du fichier pour ouvrir l'écran de détail ou cliquez sur l'icône d'aperçu rapide pour ouvrir une **superposition en ligne** sans quitter la liste courante. Dans l'écran de détail, vous trouvez :\n\n- **Aperçu** : les images affichent un aperçu `<img>` en ligne ; les PDF s'ouvrent dans une visionneuse intégrée ; les fichiers texte (moins de 100 Ko) affichent le contenu dans un cadre préformaté. Pour tous les autres formats, le téléchargement est proposé avec l'icône du type de fichier.\n- **Métadonnées** : nom original, extension, type, taille, dossier, visibilité, qui a téléversé le fichier, dates.\n- **Versions** : la liste des instantanés enregistrés.\n- **Partages** : qui peut accéder au fichier en plus de vous.",
+                    "excerpt": "Cliquez sur le nom du fichier pour ouvrir l'écran de détail ou cliquez sur l'icône d'aperçu rapide pour ouvrir une superposition en ligne sans quitter la liste courante. Dans l'écran de détail, vous t...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Eine Datei öffnen und anzeigen",
+                    "answer_markdown": "Klicken Sie auf den Dateinamen, um den Detailbildschirm zu öffnen, oder klicken Sie auf das Schnellvorschau-Symbol, um ein **Inline-Overlay** zu öffnen, ohne die aktuelle Liste zu verlassen. Im Detailbildschirm finden Sie:\n\n- **Vorschau**: Bilder zeigen eine Inline-`<img>`-Vorschau; PDFs öffnen sich in einem integrierten Viewer; Textdateien (unter 100 KB) zeigen den Inhalt in einem vorformatierten Feld. Für alle anderen Formate wird der Download mit dem Dateityp-Symbol angeboten.\n- **Metadaten**: Originalname, Erweiterung, Typ, Größe, Ordner, Sichtbarkeit, wer die Datei hochgeladen hat, Daten.\n- **Versionen**: die Liste der gespeicherten Snapshots.\n- **Freigaben**: wer außer Ihnen auf die Datei zugreifen kann.",
+                    "excerpt": "Klicken Sie auf den Dateinamen, um den Detailbildschirm zu öffnen, oder klicken Sie auf das Schnellvorschau-Symbol, um ein Inline-Overlay zu öffnen, ohne die aktuelle Liste zu verlassen. Im Detailbild...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Abrir y visualizar un archivo",
+                    "answer_markdown": "Haz clic en el nombre del archivo para abrir la pantalla de detalle o haz clic en el icono de vista previa rápida para abrir una **superposición en línea** sin salir de la lista actual. En la pantalla de detalle encuentras:\n\n- **Vista previa**: las imágenes muestran una vista previa `<img>` en línea; los PDF se abren en un visor integrado; los archivos de texto (menos de 100 KB) muestran el contenido en un recuadro preformateado. Para todos los demás formatos se ofrece la descarga con el icono del tipo de archivo.\n- **Metadatos**: nombre original, extensión, tipo, tamaño, carpeta, visibilidad, quién subió el archivo, fechas.\n- **Versiones**: la lista de las instantáneas guardadas.\n- **Comparticiones**: quién puede acceder al archivo además de ti.",
+                    "excerpt": "Haz clic en el nombre del archivo para abrir la pantalla de detalle o haz clic en el icono de vista previa rápida para abrir una superposición en línea sin salir de la lista actual. En la pantalla de ...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "files.index",
+            "permission_slug": "files.access",
+            "ranking_weight": 0,
+            "sort_order": 9,
+            "locales": {
+                "it": {
+                    "question": "Scaricare un file",
+                    "answer_markdown": "Dal dettaglio o dalla lista, usa il pulsante \"Scarica\". Il file viene inviato al browser come download.\n\n**Download multiplo (ZIP)**: seleziona più file con le caselle di spunta, poi clicca \"Scarica come ZIP\". I file vengono compressi in un archivio e scaricati insieme.",
+                    "excerpt": "Dal dettaglio o dalla lista, usa il pulsante \"Scarica\". Il file viene inviato al browser come download. Download multiplo (ZIP): seleziona più file con le caselle di spunta, poi clicca \"Scarica come ZIP\". I file vengon…",
+                    "aliases": [
+                        "come scaricare un file",
+                        "file",
+                        "file scaricare un file",
+                        "files scaricare un file",
+                        "scaricare un file"
+                    ]
+                },
+                "en": {
+                    "question": "Downloading a file",
+                    "answer_markdown": "From the detail or the list, use the \"Download\" button. The file is sent to the browser as a download.\n\n**Multiple download (ZIP)**: select several files with the checkboxes, then click \"Download as ZIP\". The files are compressed into an archive and downloaded together.",
+                    "excerpt": "From the detail or the list, use the \"Download\" button. The file is sent to the browser as a download. Multiple download (ZIP): select several files with the checkboxes, then click \"Download as ZIP\". ...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Télécharger un fichier",
+                    "answer_markdown": "Depuis le détail ou la liste, utilisez le bouton « Télécharger ». Le fichier est envoyé au navigateur en téléchargement.\n\n**Téléchargement multiple (ZIP)** : sélectionnez plusieurs fichiers avec les cases à cocher, puis cliquez sur « Télécharger en ZIP ». Les fichiers sont compressés dans une archive et téléchargés ensemble.",
+                    "excerpt": "Depuis le détail ou la liste, utilisez le bouton « Télécharger ». Le fichier est envoyé au navigateur en téléchargement. Téléchargement multiple (ZIP) : sélectionnez plusieurs fichiers avec les cases ...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Eine Datei herunterladen",
+                    "answer_markdown": "Verwenden Sie aus dem Detail oder der Liste die Schaltfläche „Herunterladen“. Die Datei wird als Download an den Browser gesendet.\n\n**Mehrfach-Download (ZIP)**: Wählen Sie mehrere Dateien mit den Kontrollkästchen aus und klicken Sie dann auf „Als ZIP herunterladen“. Die Dateien werden in ein Archiv komprimiert und gemeinsam heruntergeladen.",
+                    "excerpt": "Verwenden Sie aus dem Detail oder der Liste die Schaltfläche „Herunterladen“. Die Datei wird als Download an den Browser gesendet. Mehrfach-Download (ZIP): Wählen Sie mehrere Dateien mit den Kontrollk...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Descargar un archivo",
+                    "answer_markdown": "Desde el detalle o la lista, usa el botón «Descargar». El archivo se envía al navegador como descarga.\n\n**Descarga múltiple (ZIP)**: selecciona varios archivos con las casillas, luego haz clic en «Descargar como ZIP». Los archivos se comprimen en un archivo comprimido y se descargan juntos.",
+                    "excerpt": "Desde el detalle o la lista, usa el botón «Descargar». El archivo se envía al navegador como descarga. Descarga múltiple (ZIP): selecciona varios archivos con las casillas, luego haz clic en «Descarga...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "files.index",
+            "permission_slug": "files.edit",
+            "ranking_weight": 18,
+            "sort_order": 10,
+            "locales": {
+                "it": {
+                    "question": "Come modifico i metadati di un file?",
+                    "answer_markdown": "## Modificare i metadati di un file\r\nDal dettaglio del file puoi aggiornare informazioni che non cambiano il contenuto binario ma migliorano gestione e ricerca.\r\n\r\n### Cosa puoi modificare\r\n- **descrizione** per spiegare il contenuto;\r\n- **tag** per rendere più facile il recupero;\r\n- **visibilità** per chiarire se il file resta personale o condiviso.\r\n\r\n### Perché è utile\r\nMetadati curati rendono più semplice ritrovare il file, condividerlo nel modo corretto e capire a colpo d'occhio a cosa serve senza aprirlo ogni volta.",
+                    "excerpt": "Modificare i metadati di un file Dal dettaglio del file puoi aggiornare informazioni che non cambiano il contenuto binario ma migliorano gestione e ricerca. Cosa puoi modificare descrizione per spiegare il contenuto...",
+                    "aliases": [
+                        "modificare metadati file",
+                        "tag file",
+                        "visibilita file",
+                        "descrizione file"
+                    ]
+                },
+                "en": {
+                    "question": "How do I edit a file's metadata?",
+                    "answer_markdown": "## Editing a file's metadata\nFrom the file detail you can update information that does not change the binary content but improves management and search.\n\n### What you can edit\n- the **description** to explain the content;\n- **tags** to make retrieval easier;\n- **visibility** to clarify whether the file stays personal or shared.\n\n### Why it is useful\nWell-kept metadata makes it easier to find the file again, share it correctly and understand at a glance what it is for without opening it every time.",
+                    "excerpt": "Editing a file's metadata From the file detail you can update information that does not change the binary content but improves management and search. What you can edit the description to explain the c...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment modifier les métadonnées d'un fichier ?",
+                    "answer_markdown": "## Modifier les métadonnées d'un fichier\nDepuis le détail du fichier, vous pouvez mettre à jour des informations qui ne changent pas le contenu binaire mais améliorent la gestion et la recherche.\n\n### Ce que vous pouvez modifier\n- la **description** pour expliquer le contenu ;\n- les **étiquettes** pour faciliter la récupération ;\n- la **visibilité** pour préciser si le fichier reste personnel ou partagé.\n\n### Pourquoi c'est utile\nDes métadonnées soignées facilitent la recherche du fichier, son partage correct et la compréhension en un coup d'œil de son utilité sans avoir à l'ouvrir à chaque fois.",
+                    "excerpt": "Modifier les métadonnées d'un fichier Depuis le détail du fichier, vous pouvez mettre à jour des informations qui ne changent pas le contenu binaire mais améliorent la gestion et la recherche. Ce que ...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie bearbeite ich die Metadaten einer Datei?",
+                    "answer_markdown": "## Die Metadaten einer Datei bearbeiten\nIm Dateidetail können Sie Informationen aktualisieren, die den binären Inhalt nicht ändern, aber Verwaltung und Suche verbessern.\n\n### Was Sie bearbeiten können\n- die **Beschreibung**, um den Inhalt zu erklären;\n- **Tags**, um das Auffinden zu erleichtern;\n- die **Sichtbarkeit**, um zu klären, ob die Datei persönlich oder geteilt bleibt.\n\n### Warum es nützlich ist\nGepflegte Metadaten erleichtern es, die Datei wiederzufinden, sie korrekt zu teilen und auf einen Blick zu verstehen, wozu sie dient, ohne sie jedes Mal zu öffnen.",
+                    "excerpt": "Die Metadaten einer Datei bearbeiten Im Dateidetail können Sie Informationen aktualisieren, die den binären Inhalt nicht ändern, aber Verwaltung und Suche verbessern. Was Sie bearbeiten können die Bes...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo edito los metadatos de un archivo?",
+                    "answer_markdown": "## Editar los metadatos de un archivo\nDesde el detalle del archivo puedes actualizar información que no cambia el contenido binario pero mejora la gestión y la búsqueda.\n\n### Qué puedes editar\n- la **descripción** para explicar el contenido;\n- las **etiquetas** para facilitar la recuperación;\n- la **visibilidad** para aclarar si el archivo permanece personal o compartido.\n\n### Por qué es útil\nUnos metadatos cuidados facilitan volver a encontrar el archivo, compartirlo correctamente y entender de un vistazo para qué sirve sin abrirlo cada vez.",
+                    "excerpt": "Editar los metadatos de un archivo Desde el detalle del archivo puedes actualizar información que no cambia el contenido binario pero mejora la gestión y la búsqueda. Qué puedes editar la descripción ...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "files.index",
+            "permission_slug": "files.access",
+            "ranking_weight": 0,
+            "sort_order": 11,
+            "locales": {
+                "it": {
+                    "question": "Versioni",
+                    "answer_markdown": "Il modulo supporta il versionamento dei file. Dal dettaglio di un file puoi:\n\n- **Salvare uno snapshot**: crea una copia dello stato attuale prima di caricare una versione aggiornata. Usa il pulsante \"Salva versione\".\n- **Ripristinare una versione precedente**: nella sezione \"Versioni\" del dettaglio, clicca \"Ripristina\" accanto alla versione che vuoi recuperare. Il file corrente viene sostituito dalla versione scelta.",
+                    "excerpt": "Il modulo supporta il versionamento dei file. Dal dettaglio di un file puoi: Salvare uno snapshot: crea una copia dello stato attuale prima di caricare una versione aggiornata. Usa il pulsante \"Salva versione\". Ripristi…",
+                    "aliases": [
+                        "come versioni",
+                        "file",
+                        "file versioni",
+                        "files versioni",
+                        "versioni"
+                    ]
+                },
+                "en": {
+                    "question": "Versions",
+                    "answer_markdown": "The module supports file versioning. From a file's detail you can:\n\n- **Save a snapshot**: create a copy of the current state before uploading an updated version. Use the \"Save version\" button.\n- **Restore a previous version**: in the \"Versions\" section of the detail, click \"Restore\" next to the version you want to recover. The current file is replaced by the chosen version.",
+                    "excerpt": "The module supports file versioning. From a file's detail you can: Save a snapshot: create a copy of the current state before uploading an updated version. Use the \"Save version\" button. Restore a pre...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Versions",
+                    "answer_markdown": "Le module prend en charge le versionnement des fichiers. Depuis le détail d'un fichier, vous pouvez :\n\n- **Enregistrer un instantané** : créer une copie de l'état actuel avant de téléverser une version mise à jour. Utilisez le bouton « Enregistrer la version ».\n- **Restaurer une version précédente** : dans la section « Versions » du détail, cliquez sur « Restaurer » à côté de la version que vous voulez récupérer. Le fichier courant est remplacé par la version choisie.",
+                    "excerpt": "Le module prend en charge le versionnement des fichiers. Depuis le détail d'un fichier, vous pouvez : Enregistrer un instantané : créer une copie de l'état actuel avant de téléverser une version mise ...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Versionen",
+                    "answer_markdown": "Das Modul unterstützt die Versionierung von Dateien. Im Detail einer Datei können Sie:\n\n- **Einen Snapshot speichern**: eine Kopie des aktuellen Zustands erstellen, bevor Sie eine aktualisierte Version hochladen. Verwenden Sie die Schaltfläche „Version speichern“.\n- **Eine frühere Version wiederherstellen**: Klicken Sie im Abschnitt „Versionen“ des Details auf „Wiederherstellen“ neben der Version, die Sie wiederherstellen möchten. Die aktuelle Datei wird durch die gewählte Version ersetzt.",
+                    "excerpt": "Das Modul unterstützt die Versionierung von Dateien. Im Detail einer Datei können Sie: Einen Snapshot speichern: eine Kopie des aktuellen Zustands erstellen, bevor Sie eine aktualisierte Version hochl...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Versiones",
+                    "answer_markdown": "El módulo admite el versionado de archivos. Desde el detalle de un archivo puedes:\n\n- **Guardar una instantánea**: crear una copia del estado actual antes de subir una versión actualizada. Usa el botón «Guardar versión».\n- **Restaurar una versión anterior**: en la sección «Versiones» del detalle, haz clic en «Restaurar» junto a la versión que quieres recuperar. El archivo actual se sustituye por la versión elegida.",
+                    "excerpt": "El módulo admite el versionado de archivos. Desde el detalle de un archivo puedes: Guardar una instantánea: crear una copia del estado actual antes de subir una versión actualizada. Usa el botón «Guar...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "files.index",
+            "permission_slug": "files.access",
+            "ranking_weight": 0,
+            "sort_order": 12,
+            "locales": {
+                "it": {
+                    "question": "Condividere un file",
+                    "answer_markdown": "Se hai il permesso di condivisione:\n\n1. Dal dettaglio del file, usa il pannello \"Condivisione\".\n2. Puoi condividere con un **utente specifico** oppure con un **ruolo** (tutti gli utenti di quel ruolo).\n3. Salva. I destinatari potranno vedere e scaricare il file.\n4. Per revocare, usa il pulsante \"Revoca\" accanto al destinatario nella lista condivisioni.",
+                    "excerpt": "Se hai il permesso di condivisione: Dal dettaglio del file, usa il pannello \"Condivisione\". Puoi condividere con un utente specifico oppure con un ruolo (tutti gli utenti di quel ruolo). Salva. I destinatari potranno ve…",
+                    "aliases": [
+                        "come condividere un file",
+                        "condividere un file",
+                        "file",
+                        "file condividere un file",
+                        "files condividere un file"
+                    ]
+                },
+                "en": {
+                    "question": "Sharing a file",
+                    "answer_markdown": "If you have the sharing permission:\n\n1. From the file detail, use the \"Sharing\" panel.\n2. You can share with a **specific user** or with a **role** (all users of that role).\n3. Save. The recipients will be able to see and download the file.\n4. To revoke, use the \"Revoke\" button next to the recipient in the shares list.",
+                    "excerpt": "If you have the sharing permission: 1. From the file detail, use the \"Sharing\" panel. 2. You can share with a specific user or with a role (all users of that role). 3. Save. The recipients will be abl...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Partager un fichier",
+                    "answer_markdown": "Si vous avez l'autorisation de partage :\n\n1. Depuis le détail du fichier, utilisez le panneau « Partage ».\n2. Vous pouvez partager avec un **utilisateur spécifique** ou avec un **rôle** (tous les utilisateurs de ce rôle).\n3. Enregistrez. Les destinataires pourront voir et télécharger le fichier.\n4. Pour révoquer, utilisez le bouton « Révoquer » à côté du destinataire dans la liste des partages.",
+                    "excerpt": "Si vous avez l'autorisation de partage : 1. Depuis le détail du fichier, utilisez le panneau « Partage ». 2. Vous pouvez partager avec un utilisateur spécifique ou avec un rôle (tous les utilisateurs ...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Eine Datei freigeben",
+                    "answer_markdown": "Wenn Sie die Freigabeberechtigung haben:\n\n1. Verwenden Sie im Dateidetail das Panel „Freigabe“.\n2. Sie können mit einem **bestimmten Benutzer** oder mit einer **Rolle** (allen Benutzern dieser Rolle) teilen.\n3. Speichern. Die Empfänger können die Datei sehen und herunterladen.\n4. Um zu widerrufen, verwenden Sie die Schaltfläche „Widerrufen“ neben dem Empfänger in der Freigabeliste.",
+                    "excerpt": "Wenn Sie die Freigabeberechtigung haben: 1. Verwenden Sie im Dateidetail das Panel „Freigabe“. 2. Sie können mit einem bestimmten Benutzer oder mit einer Rolle (allen Benutzern dieser Rolle) teilen. 3...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Compartir un archivo",
+                    "answer_markdown": "Si tienes el permiso de compartición:\n\n1. Desde el detalle del archivo, usa el panel «Compartición».\n2. Puedes compartir con un **usuario específico** o con un **rol** (todos los usuarios de ese rol).\n3. Guarda. Los destinatarios podrán ver y descargar el archivo.\n4. Para revocar, usa el botón «Revocar» junto al destinatario en la lista de comparticiones.",
+                    "excerpt": "Si tienes el permiso de compartición: 1. Desde el detalle del archivo, usa el panel «Compartición». 2. Puedes compartir con un usuario específico o con un rol (todos los usuarios de ese rol). 3. Guard...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "files.index",
+            "permission_slug": "files.access",
+            "ranking_weight": 0,
+            "sort_order": 13,
+            "locales": {
+                "it": {
+                    "question": "Selezione multipla e azioni massive",
+                    "answer_markdown": "Attiva la selezione multipla con le caselle di spunta sulle card (o sulle righe nella vista lista). Con uno o più file selezionati puoi:\n\n- **Elimina selezionati**: sposta nel cestino tutti i file marcati.\n- **Scarica come ZIP**: comprimi e scarica i file selezionati in un unico archivio.",
+                    "excerpt": "Attiva la selezione multipla con le caselle di spunta sulle card (o sulle righe nella vista lista). Con uno o più file selezionati puoi: Elimina selezionati: sposta nel cestino tutti i file marcati. Scarica come ZIP: c…",
+                    "aliases": [
+                        "come selezione multipla e azioni massive",
+                        "file",
+                        "file selezione multipla e azioni massive",
+                        "files selezione multipla e azioni massive",
+                        "selezione multipla e azioni massive"
+                    ]
+                },
+                "en": {
+                    "question": "Multiple selection and bulk actions",
+                    "answer_markdown": "Enable multiple selection with the checkboxes on the cards (or on the rows in the list view). With one or more files selected you can:\n\n- **Delete selected**: move all marked files to the trash.\n- **Download as ZIP**: compress and download the selected files in a single archive.",
+                    "excerpt": "Enable multiple selection with the checkboxes on the cards (or on the rows in the list view). With one or more files selected you can: Delete selected: move all marked files to the trash. Download as ...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Sélection multiple et actions groupées",
+                    "answer_markdown": "Activez la sélection multiple avec les cases à cocher sur les cartes (ou sur les lignes dans la vue liste). Avec un ou plusieurs fichiers sélectionnés, vous pouvez :\n\n- **Supprimer les sélectionnés** : déplace dans la corbeille tous les fichiers marqués.\n- **Télécharger en ZIP** : compresse et télécharge les fichiers sélectionnés dans une seule archive.",
+                    "excerpt": "Activez la sélection multiple avec les cases à cocher sur les cartes (ou sur les lignes dans la vue liste). Avec un ou plusieurs fichiers sélectionnés, vous pouvez : Supprimer les sélectionnés : dépla...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Mehrfachauswahl und Massenaktionen",
+                    "answer_markdown": "Aktivieren Sie die Mehrfachauswahl mit den Kontrollkästchen auf den Karten (oder den Zeilen in der Listenansicht). Mit einer oder mehreren ausgewählten Dateien können Sie:\n\n- **Ausgewählte löschen**: verschiebt alle markierten Dateien in den Papierkorb.\n- **Als ZIP herunterladen**: komprimiert und lädt die ausgewählten Dateien in einem einzigen Archiv herunter.",
+                    "excerpt": "Aktivieren Sie die Mehrfachauswahl mit den Kontrollkästchen auf den Karten (oder den Zeilen in der Listenansicht). Mit einer oder mehreren ausgewählten Dateien können Sie: Ausgewählte löschen: verschi...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Selección múltiple y acciones masivas",
+                    "answer_markdown": "Activa la selección múltiple con las casillas en las tarjetas (o en las filas en la vista de lista). Con uno o más archivos seleccionados puedes:\n\n- **Eliminar seleccionados**: mueve a la papelera todos los archivos marcados.\n- **Descargar como ZIP**: comprime y descarga los archivos seleccionados en un único archivo comprimido.",
+                    "excerpt": "Activa la selección múltiple con las casillas en las tarjetas (o en las filas en la vista de lista). Con uno o más archivos seleccionados puedes: Eliminar seleccionados: mueve a la papelera todos los ...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "files.index",
+            "permission_slug": "files.access",
+            "ranking_weight": 0,
+            "sort_order": 14,
+            "locales": {
+                "it": {
+                    "question": "Eliminare file e cestino",
+                    "answer_markdown": "L'eliminazione di un file è un'operazione \"soft\": il file non viene cancellato immediatamente ma spostato nel cestino. Il recupero di un file eliminato può richiedere l'intervento di un referente con permessi amministrativi.",
+                    "excerpt": "L'eliminazione di un file è un'operazione \"soft\": il file non viene cancellato immediatamente ma spostato nel cestino. Il recupero di un file eliminato può richiedere l'intervento di un referente con permessi amminist…",
+                    "aliases": [
+                        "come eliminare file e cestino",
+                        "eliminare file e cestino",
+                        "file",
+                        "file eliminare file e cestino",
+                        "files eliminare file e cestino"
+                    ]
+                },
+                "en": {
+                    "question": "Deleting files and the trash",
+                    "answer_markdown": "Deleting a file is a \"soft\" operation: the file is not deleted immediately but moved to the trash. Recovering a deleted file may require the intervention of a reference person with administrative permissions.",
+                    "excerpt": "Deleting a file is a \"soft\" operation: the file is not deleted immediately but moved to the trash. Recovering a deleted file may require the intervention of a reference person with administrative perm...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Supprimer des fichiers et la corbeille",
+                    "answer_markdown": "La suppression d'un fichier est une opération « soft » : le fichier n'est pas supprimé immédiatement mais déplacé dans la corbeille. La récupération d'un fichier supprimé peut nécessiter l'intervention d'un référent disposant d'autorisations administratives.",
+                    "excerpt": "La suppression d'un fichier est une opération « soft » : le fichier n'est pas supprimé immédiatement mais déplacé dans la corbeille. La récupération d'un fichier supprimé peut nécessiter l'interventio...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Dateien löschen und der Papierkorb",
+                    "answer_markdown": "Das Löschen einer Datei ist ein „Soft“-Vorgang: Die Datei wird nicht sofort gelöscht, sondern in den Papierkorb verschoben. Die Wiederherstellung einer gelöschten Datei kann das Eingreifen einer Bezugsperson mit administrativen Berechtigungen erfordern.",
+                    "excerpt": "Das Löschen einer Datei ist ein „Soft“-Vorgang: Die Datei wird nicht sofort gelöscht, sondern in den Papierkorb verschoben. Die Wiederherstellung einer gelöschten Datei kann das Eingreifen einer Bezug...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Eliminar archivos y la papelera",
+                    "answer_markdown": "La eliminación de un archivo es una operación «soft»: el archivo no se elimina de inmediato sino que se mueve a la papelera. La recuperación de un archivo eliminado puede requerir la intervención de un responsable con permisos administrativos.",
+                    "excerpt": "La eliminación de un archivo es una operación «soft»: el archivo no se elimina de inmediato sino que se mueve a la papelera. La recuperación de un archivo eliminado puede requerir la intervención de u...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "files.picker",
+            "permission_slug": "files.access",
+            "ranking_weight": 0,
+            "sort_order": 15,
+            "locales": {
+                "it": {
+                    "question": "File picker in altri moduli",
+                    "answer_markdown": "In alcuni contesti (es. allegati a un report o ad altri record) compare un selettore file integrato che mostra le tue cartelle e ti permette di scegliere un file già presente nella libreria senza caricare nulla di nuovo e senza lasciare la pagina corrente.\n\n---",
+                    "excerpt": "In alcuni contesti (es. allegati a un report o ad altri record) compare un selettore file integrato che mostra le tue cartelle e ti permette di scegliere un file già presente nella libreria senza caricare nulla di nuov…",
+                    "aliases": [
+                        "come file picker in altri moduli",
+                        "file",
+                        "file file picker in altri moduli",
+                        "file picker in altri moduli",
+                        "files file picker in altri moduli"
+                    ]
+                },
+                "en": {
+                    "question": "File picker in other modules",
+                    "answer_markdown": "In some contexts (e.g. attachments to a report or to other records) an integrated file selector appears that shows your folders and lets you choose a file already present in the library without uploading anything new and without leaving the current page.\n\n---",
+                    "excerpt": "In some contexts (e.g. attachments to a report or to other records) an integrated file selector appears that shows your folders and lets you choose a file already present in the library without upload...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Sélecteur de fichiers dans d'autres modules",
+                    "answer_markdown": "Dans certains contextes (ex. pièces jointes à un rapport ou à d'autres enregistrements), un sélecteur de fichiers intégré apparaît, qui affiche vos dossiers et vous permet de choisir un fichier déjà présent dans la bibliothèque sans rien téléverser de nouveau et sans quitter la page courante.\n\n---",
+                    "excerpt": "Dans certains contextes (ex. pièces jointes à un rapport ou à d'autres enregistrements), un sélecteur de fichiers intégré apparaît, qui affiche vos dossiers et vous permet de choisir un fichier déjà p...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "File-Picker in anderen Modulen",
+                    "answer_markdown": "In einigen Kontexten (z. B. Anhänge an einen Bericht oder an andere Datensätze) erscheint ein integrierter Dateiselektor, der Ihre Ordner anzeigt und es Ihnen ermöglicht, eine bereits in der Bibliothek vorhandene Datei auszuwählen, ohne etwas Neues hochzuladen und ohne die aktuelle Seite zu verlassen.\n\n---",
+                    "excerpt": "In einigen Kontexten (z. B. Anhänge an einen Bericht oder an andere Datensätze) erscheint ein integrierter Dateiselektor, der Ihre Ordner anzeigt und es Ihnen ermöglicht, eine bereits in der Bibliothe...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Selector de archivos en otros módulos",
+                    "answer_markdown": "En algunos contextos (p. ej. adjuntos a un informe o a otros registros) aparece un selector de archivos integrado que muestra tus carpetas y te permite elegir un archivo ya presente en la biblioteca sin subir nada nuevo y sin salir de la página actual.\n\n---",
+                    "excerpt": "En algunos contextos (p. ej. adjuntos a un informe o a otros registros) aparece un selector de archivos integrado que muestra tus carpetas y te permite elegir un archivo ya presente en la biblioteca s...",
+                    "aliases": []
+                }
+            }
+        }
+    ]
+}

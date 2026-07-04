@@ -1,0 +1,14 @@
+{
+    "name": "Log Audit",
+    "description": "Report completo delle attività di audit",
+    "source_key": "audit_logs",
+    "source_type": "list",
+    "output_format": "excel",
+    "visibility": "global",
+    "max_rows": 50000,
+    "template_html": "<h1 style=\"color:#1e293b;font-size:14pt;margin:0 0 10px;\">Log Audit</h1><table data-prm-type=\"data_table\" data-prm-config='{\"columns\":[{\"name\":\"id\",\"label\":\"ID\",\"align\":\"right\"},{\"name\":\"user_name\",\"label\":\"Utente\"},{\"name\":\"action\",\"label\":\"Azione\"},{\"name\":\"entity\",\"label\":\"Entità\"},{\"name\":\"entity_id\",\"label\":\"ID Ent.\",\"align\":\"right\"},{\"name\":\"ip\",\"label\":\"IP\"},{\"name\":\"created_at\",\"label\":\"Data\"}],\"striped\":true,\"bordered\":true}'></table>",
+    "sorting_config": {
+        "field": "created_at",
+        "dir": "DESC"
+    }
+}

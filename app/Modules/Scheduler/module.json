@@ -1,0 +1,18 @@
+{
+    "name": "Scheduler",
+    "icon": "fa-solid fa-clock",
+    "version": "2.0.0",
+    "description": "Motore di scheduling per job periodici: notifiche, promemoria, publish, cleanup. Un solo cron entry: php favilla scheduler:run",
+    "author": "Favilla",
+    "framework_min": "1.0",
+    "database": "shared",
+    "tables": ["scheduler_jobs", "scheduler_log"],
+    "dependencies": [],
+    "services": [],
+    "notification_events": [],
+    "assets": {
+        "css": [],
+        "js": []
+    },
+    "menu": []
+}

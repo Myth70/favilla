@@ -1,0 +1,453 @@
+{
+    "module_key": "scheduler",
+    "module_name": "Scheduler",
+    "label": "Scheduler",
+    "description": "Gestione job periodici di Favilla: intervalli in minuti, esecuzione manuale, retry controllati, log output e comando cron unico php favilla scheduler:run.",
+    "audience_default": "admin",
+    "locale_default": "it",
+    "route_name": "scheduler.index",
+    "permission_slug": "scheduler.view",
+    "sort_order": 46,
+    "entries": [
+        {
+            "audience": "admin",
+            "route_name": "scheduler.index",
+            "permission_slug": "scheduler.view",
+            "ranking_weight": 60,
+            "sort_order": 10,
+            "locales": {
+                "it": {
+                    "question": "Come funziona il modulo Scheduler?",
+                    "answer_markdown": "## Modulo Scheduler\r\nScheduler gestisce i job periodici memorizzati nel database di Favilla.\r\n\r\n### Architettura in breve\r\nSul server serve un solo cron esterno che esegua `php favilla scheduler:run`. Il modulo legge i job attivi e lancia quelli scaduti in base all'intervallo impostato.\r\n\r\n### Cosa controlli dal pannello\r\n- job attivi o disattivi;\r\n- intervallo in minuti;\r\n- ultimo run, output, retry e stato corrente;\r\n- creazione di nuovi job tramite allowlist di comandi.",
+                    "excerpt": "Modulo Scheduler Scheduler gestisce i job periodici memorizzati nel database di Favilla. Architettura in breve Sul server serve un solo cron esterno che esegua php favilla scheduler:run. Il modulo legge i job attivi e...",
+                    "aliases": [
+                        "job schedulati",
+                        "cron interno favilla",
+                        "modulo scheduler",
+                        "Come funziona il cron unico di Favilla?"
+                    ]
+                },
+                "en": {
+                    "question": "How does the Scheduler module work?",
+                    "answer_markdown": "## Scheduler module\nScheduler manages the periodic jobs stored in the Favilla database.\n\n### Architecture in brief\nThe server only needs a single external cron running `php favilla scheduler:run`. The module reads the active jobs and launches the due ones based on the configured interval.\n\n### What you control from the panel\n- active or inactive jobs;\n- interval in minutes;\n- last run, output, retries and current status;\n- creating new jobs through a command allowlist.",
+                    "excerpt": "Scheduler module Scheduler manages the periodic jobs stored in the Favilla database. Architecture in brief The server only needs a single external cron running php favilla scheduler:run. The module re...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment fonctionne le module Scheduler ?",
+                    "answer_markdown": "## Module Scheduler\nScheduler gère les tâches périodiques stockées dans la base de données de Favilla.\n\n### Architecture en bref\nLe serveur n'a besoin que d'un seul cron externe exécutant `php favilla scheduler:run`. Le module lit les tâches actives et lance celles qui sont arrivées à échéance selon l'intervalle configuré.\n\n### Ce que vous contrôlez depuis le panneau\n- tâches actives ou inactives ;\n- intervalle en minutes ;\n- dernière exécution, sortie, nouvelles tentatives et état actuel ;\n- création de nouvelles tâches via une liste blanche de commandes.",
+                    "excerpt": "Module Scheduler Scheduler gère les tâches périodiques stockées dans la base de données de Favilla. Architecture en bref Le serveur n'a besoin que d'un seul cron externe exécutant php favilla schedule...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie funktioniert das Scheduler-Modul?",
+                    "answer_markdown": "## Scheduler-Modul\nScheduler verwaltet die in der Favilla-Datenbank gespeicherten periodischen Jobs.\n\n### Architektur in Kürze\nAuf dem Server wird nur ein einziger externer Cron benötigt, der `php favilla scheduler:run` ausführt. Das Modul liest die aktiven Jobs und startet die fälligen entsprechend dem eingestellten Intervall.\n\n### Was Sie über das Panel steuern\n- aktive oder inaktive Jobs;\n- Intervall in Minuten;\n- letzte Ausführung, Ausgabe, Wiederholungen und aktueller Status;\n- Erstellen neuer Jobs über eine Befehls-Allowlist.",
+                    "excerpt": "Scheduler-Modul Scheduler verwaltet die in der Favilla-Datenbank gespeicherten periodischen Jobs. Architektur in Kürze Auf dem Server wird nur ein einziger externer Cron benötigt, der php favilla sche...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo funciona el módulo Scheduler?",
+                    "answer_markdown": "## Módulo Scheduler\nScheduler gestiona los trabajos periódicos almacenados en la base de datos de Favilla.\n\n### Arquitectura en breve\nEn el servidor solo hace falta un único cron externo que ejecute `php favilla scheduler:run`. El módulo lee los trabajos activos y lanza los vencidos según el intervalo configurado.\n\n### Qué controlas desde el panel\n- trabajos activos o inactivos;\n- intervalo en minutos;\n- última ejecución, salida, reintentos y estado actual;\n- creación de nuevos trabajos mediante una lista de comandos permitidos.",
+                    "excerpt": "Módulo Scheduler Scheduler gestiona los trabajos periódicos almacenados en la base de datos de Favilla. Arquitectura en breve En el servidor solo hace falta un único cron externo que ejecute php favil...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "scheduler.create",
+            "permission_slug": "scheduler.manage",
+            "ranking_weight": 30,
+            "sort_order": 20,
+            "locales": {
+                "it": {
+                    "question": "Come creo un job schedulato?",
+                    "answer_markdown": "## Creare un job\r\nPer aggiungere un nuovo job apri la pagina di creazione Scheduler.\r\n\r\n### Dati da compilare\r\n- nome del job;\r\n- comando consentito;\r\n- intervallo in minuti;\r\n- eventuali opzioni gestionali disponibili nel form.\r\n\r\n### Regola chiave\r\nI comandi devono appartenere alla allowlist del modulo: non puoi schedulare stringhe arbitrarie.",
+                    "excerpt": "Creare un job Per aggiungere un nuovo job apri la pagina di creazione Scheduler. Dati da compilare nome del job; comando consentito; intervallo in minuti; eventuali opzioni gestionali disponibili nel form. Regola chiave...",
+                    "aliases": [
+                        "nuovo job scheduler",
+                        "aggiungere job periodico",
+                        "creare cron interno"
+                    ]
+                },
+                "en": {
+                    "question": "How do I create a scheduled job?",
+                    "answer_markdown": "## Creating a job\nTo add a new job, open the Scheduler creation page.\n\n### Fields to fill in\n- the job name;\n- an allowed command;\n- the interval in minutes;\n- any management options available in the form.\n\n### Key rule\nCommands must belong to the module allowlist: you cannot schedule arbitrary strings.",
+                    "excerpt": "Creating a job To add a new job, open the Scheduler creation page. Fields to fill in the job name; an allowed command; the interval in minutes; any management options available in the form. Key rule C...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment créer une tâche planifiée ?",
+                    "answer_markdown": "## Créer une tâche\nPour ajouter une nouvelle tâche, ouvrez la page de création du Scheduler.\n\n### Champs à renseigner\n- le nom de la tâche ;\n- une commande autorisée ;\n- l'intervalle en minutes ;\n- les éventuelles options de gestion disponibles dans le formulaire.\n\n### Règle clé\nLes commandes doivent appartenir à la liste blanche du module : vous ne pouvez pas planifier des chaînes arbitraires.",
+                    "excerpt": "Créer une tâche Pour ajouter une nouvelle tâche, ouvrez la page de création du Scheduler. Champs à renseigner le nom de la tâche ; une commande autorisée ; l'intervalle en minutes ; les éventuelles op...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie erstelle ich einen geplanten Job?",
+                    "answer_markdown": "## Einen Job erstellen\nUm einen neuen Job hinzuzufügen, öffnen Sie die Scheduler-Erstellungsseite.\n\n### Auszufüllende Felder\n- der Jobname;\n- ein zugelassener Befehl;\n- das Intervall in Minuten;\n- etwaige im Formular verfügbare Verwaltungsoptionen.\n\n### Schlüsselregel\nBefehle müssen zur Allowlist des Moduls gehören: Sie können keine beliebigen Zeichenketten planen.",
+                    "excerpt": "Einen Job erstellen Um einen neuen Job hinzuzufügen, öffnen Sie die Scheduler-Erstellungsseite. Auszufüllende Felder der Jobname; ein zugelassener Befehl; das Intervall in Minuten; etwaige im Formular...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo creo un trabajo programado?",
+                    "answer_markdown": "## Crear un trabajo\nPara añadir un nuevo trabajo, abre la página de creación del Scheduler.\n\n### Campos a rellenar\n- el nombre del trabajo;\n- un comando permitido;\n- el intervalo en minutos;\n- las posibles opciones de gestión disponibles en el formulario.\n\n### Regla clave\nLos comandos deben pertenecer a la lista de permitidos del módulo: no puedes programar cadenas arbitrarias.",
+                    "excerpt": "Crear un trabajo Para añadir un nuevo trabajo, abre la página de creación del Scheduler. Campos a rellenar el nombre del trabajo; un comando permitido; el intervalo en minutos; las posibles opciones d...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "scheduler.create",
+            "permission_slug": "scheduler.manage",
+            "ranking_weight": 22,
+            "sort_order": 30,
+            "locales": {
+                "it": {
+                    "question": "Quali comandi posso usare in Scheduler?",
+                    "answer_markdown": "## Comandi consentiti\r\nScheduler non esegue comandi liberi: il form propone solo comandi registrati nella allowlist applicativa.\r\n\r\n### Esempi tipici\r\nTra i comandi schedulabili ci sono attività come `backup:run` o il comando tecnico `blog:publish-scheduled` per la pubblicazione programmata delle Comunicazioni, se presenti nell'elenco disponibile del sistema.\r\n\r\n### Perché questa limitazione\r\nServe a mantenere sicura l'esecuzione periodica e a evitare job non supportati o potenzialmente pericolosi.",
+                    "excerpt": "Comandi consentiti Scheduler non esegue comandi liberi: il form propone solo comandi registrati nella allowlist applicativa. Esempi tipici Tra i comandi schedulabili ci sono attività come backup:run o il comando tecnico...",
+                    "aliases": [
+                        "allowlist scheduler",
+                        "comandi scheduler",
+                        "backup run scheduler"
+                    ]
+                },
+                "en": {
+                    "question": "Which commands can I use in Scheduler?",
+                    "answer_markdown": "## Allowed commands\nScheduler does not run free-form commands: the form only offers commands registered in the application allowlist.\n\n### Typical examples\nSchedulable commands include activities such as `backup:run` or the technical command `blog:publish-scheduled` for the scheduled publishing of Announcements, if present in the system's available list.\n\n### Why this restriction\nIt keeps periodic execution safe and avoids unsupported or potentially dangerous jobs.",
+                    "excerpt": "Allowed commands Scheduler does not run free-form commands: the form only offers commands registered in the application allowlist. Typical examples Schedulable commands include activities such as back...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Quelles commandes puis-je utiliser dans Scheduler ?",
+                    "answer_markdown": "## Commandes autorisées\nScheduler n'exécute pas de commandes libres : le formulaire ne propose que les commandes enregistrées dans la liste blanche de l'application.\n\n### Exemples typiques\nParmi les commandes planifiables figurent des activités comme `backup:run` ou la commande technique `blog:publish-scheduled` pour la publication programmée des Communications, si elles sont présentes dans la liste disponible du système.\n\n### Pourquoi cette limitation\nElle permet de sécuriser l'exécution périodique et d'éviter les tâches non prises en charge ou potentiellement dangereuses.",
+                    "excerpt": "Commandes autorisées Scheduler n'exécute pas de commandes libres : le formulaire ne propose que les commandes enregistrées dans la liste blanche de l'application. Exemples typiques Parmi les commandes...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Welche Befehle kann ich im Scheduler verwenden?",
+                    "answer_markdown": "## Zugelassene Befehle\nScheduler führt keine beliebigen Befehle aus: Das Formular bietet nur Befehle an, die in der Anwendungs-Allowlist registriert sind.\n\n### Typische Beispiele\nZu den planbaren Befehlen gehören Tätigkeiten wie `backup:run` oder der technische Befehl `blog:publish-scheduled` für die geplante Veröffentlichung von Mitteilungen, sofern in der verfügbaren Liste des Systems vorhanden.\n\n### Warum diese Einschränkung\nSie hält die periodische Ausführung sicher und vermeidet nicht unterstützte oder potenziell gefährliche Jobs.",
+                    "excerpt": "Zugelassene Befehle Scheduler führt keine beliebigen Befehle aus: Das Formular bietet nur Befehle an, die in der Anwendungs-Allowlist registriert sind. Typische Beispiele Zu den planbaren Befehlen geh...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Qué comandos puedo usar en Scheduler?",
+                    "answer_markdown": "## Comandos permitidos\nScheduler no ejecuta comandos libres: el formulario solo ofrece comandos registrados en la lista de permitidos de la aplicación.\n\n### Ejemplos típicos\nEntre los comandos programables hay actividades como `backup:run` o el comando técnico `blog:publish-scheduled` para la publicación programada de las Comunicaciones, si están presentes en la lista disponible del sistema.\n\n### Por qué esta limitación\nSirve para mantener segura la ejecución periódica y evitar trabajos no soportados o potencialmente peligrosos.",
+                    "excerpt": "Comandos permitidos Scheduler no ejecuta comandos libres: el formulario solo ofrece comandos registrados en la lista de permitidos de la aplicación. Ejemplos típicos Entre los comandos programables ha...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "scheduler.index",
+            "permission_slug": "scheduler.manage",
+            "ranking_weight": 22,
+            "sort_order": 40,
+            "locales": {
+                "it": {
+                    "question": "Come eseguo subito un job o lo resetto?",
+                    "answer_markdown": "## Esecuzione manuale e reset\r\nDal pannello Scheduler puoi forzare l'esecuzione immediata di un job o resettarne lo stato quando rimane bloccato.\r\n\r\n### Quando usare Run now\r\nUsalo per verificare il comportamento di un job appena configurato o per anticipare una lavorazione senza attendere il prossimo intervallo.\r\n\r\n### Quando usare Reset\r\nIl reset serve a sbloccare job rimasti in stato anomalo prima di un nuovo tentativo.",
+                    "excerpt": "Esecuzione manuale e reset Dal pannello Scheduler puoi forzare l'esecuzione immediata di un job o resettarne lo stato quando rimane bloccato. Quando usare Run now Usalo per verificare il comportamento di un job appena...",
+                    "aliases": [
+                        "run now scheduler",
+                        "resettare job",
+                        "job bloccato scheduler",
+                        "Come resetto un job bloccato?"
+                    ]
+                },
+                "en": {
+                    "question": "How do I run a job immediately or reset it?",
+                    "answer_markdown": "## Manual run and reset\nFrom the Scheduler panel you can force the immediate execution of a job or reset its status when it stays stuck.\n\n### When to use Run now\nUse it to check the behavior of a job you have just configured or to bring forward a task without waiting for the next interval.\n\n### When to use Reset\nReset is used to unblock jobs left in an abnormal state before a new attempt.",
+                    "excerpt": "Manual run and reset From the Scheduler panel you can force the immediate execution of a job or reset its status when it stays stuck. When to use Run now Use it to check the behavior of a job you have...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment exécuter immédiatement une tâche ou la réinitialiser ?",
+                    "answer_markdown": "## Exécution manuelle et réinitialisation\nDepuis le panneau Scheduler, vous pouvez forcer l'exécution immédiate d'une tâche ou réinitialiser son état lorsqu'elle reste bloquée.\n\n### Quand utiliser Exécuter maintenant\nUtilisez-le pour vérifier le comportement d'une tâche que vous venez de configurer ou pour anticiper un traitement sans attendre le prochain intervalle.\n\n### Quand utiliser Réinitialiser\nLa réinitialisation sert à débloquer les tâches restées dans un état anormal avant une nouvelle tentative.",
+                    "excerpt": "Exécution manuelle et réinitialisation Depuis le panneau Scheduler, vous pouvez forcer l'exécution immédiate d'une tâche ou réinitialiser son état lorsqu'elle reste bloquée. Quand utiliser Exécuter ma...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie führe ich einen Job sofort aus oder setze ihn zurück?",
+                    "answer_markdown": "## Manuelle Ausführung und Zurücksetzen\nÜber das Scheduler-Panel können Sie die sofortige Ausführung eines Jobs erzwingen oder seinen Status zurücksetzen, wenn er hängen bleibt.\n\n### Wann „Jetzt ausführen“ verwenden\nVerwenden Sie es, um das Verhalten eines gerade konfigurierten Jobs zu prüfen oder eine Verarbeitung vorzuziehen, ohne auf das nächste Intervall zu warten.\n\n### Wann „Zurücksetzen“ verwenden\nDas Zurücksetzen dient dazu, in einem anomalen Zustand verbliebene Jobs vor einem neuen Versuch zu entsperren.",
+                    "excerpt": "Manuelle Ausführung und Zurücksetzen Über das Scheduler-Panel können Sie die sofortige Ausführung eines Jobs erzwingen oder seinen Status zurücksetzen, wenn er hängen bleibt. Wann „Jetzt ausführen“ ve...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo ejecuto un trabajo de inmediato o lo restablezco?",
+                    "answer_markdown": "## Ejecución manual y restablecimiento\nDesde el panel del Scheduler puedes forzar la ejecución inmediata de un trabajo o restablecer su estado cuando se queda bloqueado.\n\n### Cuándo usar Ejecutar ahora\nÚsalo para comprobar el comportamiento de un trabajo recién configurado o para adelantar un procesamiento sin esperar al siguiente intervalo.\n\n### Cuándo usar Restablecer\nEl restablecimiento sirve para desbloquear trabajos que han quedado en un estado anómalo antes de un nuevo intento.",
+                    "excerpt": "Ejecución manual y restablecimiento Desde el panel del Scheduler puedes forzar la ejecución inmediata de un trabajo o restablecer su estado cuando se queda bloqueado. Cuándo usar Ejecutar ahora Úsalo ...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "scheduler.index",
+            "permission_slug": "scheduler.view",
+            "ranking_weight": 20,
+            "sort_order": 50,
+            "locales": {
+                "it": {
+                    "question": "Come leggo errori, retry e output di Scheduler?",
+                    "answer_markdown": "## Errori e retry\r\nQuando un job fallisce, Scheduler salva output e stato per agevolare il troubleshooting.\r\n\r\n### Cosa osservare\r\n- ultimo messaggio di output;\r\n- contatore retry;\r\n- eventuale prossimo tentativo pianificato;\r\n- stato corrente del job.\r\n\r\n### Procedura pratica\r\nCorreggi la causa del fallimento, poi rilancia il job o attendi il retry successivo se il comportamento previsto è quello automatico.",
+                    "excerpt": "Errori e retry Quando un job fallisce, Scheduler salva output e stato per agevolare il troubleshooting. Cosa osservare ultimo messaggio di output; contatore retry; eventuale prossimo tentativo pianificato; stato...",
+                    "aliases": [
+                        "log scheduler",
+                        "output job schedulato",
+                        "retry scheduler",
+                        "Come leggo errori e retry?"
+                    ]
+                },
+                "en": {
+                    "question": "How do I read Scheduler errors, retries and output?",
+                    "answer_markdown": "## Errors and retries\nWhen a job fails, Scheduler saves its output and status to make troubleshooting easier.\n\n### What to look at\n- the last output message;\n- the retry counter;\n- any next scheduled attempt;\n- the current status of the job.\n\n### Practical procedure\nFix the cause of the failure, then re-run the job or wait for the next retry if the automatic behavior is the expected one.",
+                    "excerpt": "Errors and retries When a job fails, Scheduler saves its output and status to make troubleshooting easier. What to look at the last output message; the retry counter; any next scheduled attempt; the c...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment lire les erreurs, les nouvelles tentatives et la sortie de Scheduler ?",
+                    "answer_markdown": "## Erreurs et nouvelles tentatives\nLorsqu'une tâche échoue, Scheduler enregistre sa sortie et son état pour faciliter le dépannage.\n\n### Que regarder\n- le dernier message de sortie ;\n- le compteur de nouvelles tentatives ;\n- l'éventuelle prochaine tentative planifiée ;\n- l'état actuel de la tâche.\n\n### Procédure pratique\nCorrigez la cause de l'échec, puis relancez la tâche ou attendez la prochaine tentative si le comportement automatique est celui attendu.",
+                    "excerpt": "Erreurs et nouvelles tentatives Lorsqu'une tâche échoue, Scheduler enregistre sa sortie et son état pour faciliter le dépannage. Que regarder le dernier message de sortie ; le compteur de nouvelles te...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie lese ich Fehler, Wiederholungen und Ausgabe des Schedulers?",
+                    "answer_markdown": "## Fehler und Wiederholungen\nWenn ein Job fehlschlägt, speichert Scheduler dessen Ausgabe und Status, um die Fehlersuche zu erleichtern.\n\n### Worauf zu achten ist\n- die letzte Ausgabemeldung;\n- der Wiederholungszähler;\n- ein etwaiger nächster geplanter Versuch;\n- der aktuelle Status des Jobs.\n\n### Praktisches Vorgehen\nBeheben Sie die Ursache des Fehlers, führen Sie den Job dann erneut aus oder warten Sie auf die nächste Wiederholung, wenn das automatische Verhalten das erwartete ist.",
+                    "excerpt": "Fehler und Wiederholungen Wenn ein Job fehlschlägt, speichert Scheduler dessen Ausgabe und Status, um die Fehlersuche zu erleichtern. Worauf zu achten ist die letzte Ausgabemeldung; der Wiederholungsz...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo leo los errores, reintentos y la salida de Scheduler?",
+                    "answer_markdown": "## Errores y reintentos\nCuando un trabajo falla, Scheduler guarda su salida y su estado para facilitar la resolución de problemas.\n\n### Qué observar\n- el último mensaje de salida;\n- el contador de reintentos;\n- el posible próximo intento programado;\n- el estado actual del trabajo.\n\n### Procedimiento práctico\nCorrige la causa del fallo y luego vuelve a ejecutar el trabajo o espera al siguiente reintento si el comportamiento automático es el esperado.",
+                    "excerpt": "Errores y reintentos Cuando un trabajo falla, Scheduler guarda su salida y su estado para facilitar la resolución de problemas. Qué observar el último mensaje de salida; el contador de reintentos; el ...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "scheduler.index",
+            "permission_slug": "scheduler.manage",
+            "ranking_weight": 18,
+            "sort_order": 60,
+            "locales": {
+                "it": {
+                    "question": "Come automatizzo backup o pubblicazioni con Scheduler?",
+                    "answer_markdown": "## Automazioni tipiche\r\nScheduler è il posto giusto per rendere periodiche alcune attività applicative.\r\n\r\n### Esempi concreti\r\n- eseguire backup ricorrenti tramite `backup:run`;\r\n- pubblicare Comunicazioni programmate tramite il comando tecnico `blog:publish-scheduled`.\r\n\r\n### Buona pratica\r\nDopo aver creato il job, eseguilo una volta manualmente per verificare permessi, output e comportamento prima di affidarlo alla sola cadenza periodica.",
+                    "excerpt": "Automazioni tipiche Scheduler è il posto giusto per rendere periodiche alcune attività applicative. Esempi concreti eseguire backup ricorrenti tramite backup:run; pubblicare Comunicazioni programmate tramite il comando...",
+                    "aliases": [
+                        "backup automatico",
+                        "pubblicazione blog programmata",
+                        "automazioni scheduler",
+                        "Come programmo backup automatici?",
+                        "Come automatizzo backup o publish del blog?"
+                    ]
+                },
+                "en": {
+                    "question": "How do I automate backups or publishing with Scheduler?",
+                    "answer_markdown": "## Typical automations\nScheduler is the right place to make some application activities periodic.\n\n### Concrete examples\n- running recurring backups through `backup:run`;\n- publishing scheduled Announcements through the technical command `blog:publish-scheduled`.\n\n### Best practice\nAfter creating the job, run it once manually to check permissions, output and behavior before relying on the periodic schedule alone.",
+                    "excerpt": "Typical automations Scheduler is the right place to make some application activities periodic. Concrete examples running recurring backups through backup:run; publishing scheduled Announcements throug...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment automatiser les sauvegardes ou les publications avec Scheduler ?",
+                    "answer_markdown": "## Automatisations typiques\nScheduler est l'endroit idéal pour rendre périodiques certaines activités applicatives.\n\n### Exemples concrets\n- exécuter des sauvegardes récurrentes via `backup:run` ;\n- publier des Communications programmées via la commande technique `blog:publish-scheduled`.\n\n### Bonne pratique\nAprès avoir créé la tâche, exécutez-la une fois manuellement pour vérifier les autorisations, la sortie et le comportement avant de vous fier à la seule cadence périodique.",
+                    "excerpt": "Automatisations typiques Scheduler est l'endroit idéal pour rendre périodiques certaines activités applicatives. Exemples concrets exécuter des sauvegardes récurrentes via backup:run ; publier des Com...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie automatisiere ich Backups oder Veröffentlichungen mit Scheduler?",
+                    "answer_markdown": "## Typische Automatisierungen\nScheduler ist der richtige Ort, um einige Anwendungstätigkeiten periodisch auszuführen.\n\n### Konkrete Beispiele\n- wiederkehrende Backups über `backup:run` ausführen;\n- geplante Mitteilungen über den technischen Befehl `blog:publish-scheduled` veröffentlichen.\n\n### Bewährte Vorgehensweise\nFühren Sie den Job nach dem Erstellen einmal manuell aus, um Berechtigungen, Ausgabe und Verhalten zu prüfen, bevor Sie sich allein auf den periodischen Zeitplan verlassen.",
+                    "excerpt": "Typische Automatisierungen Scheduler ist der richtige Ort, um einige Anwendungstätigkeiten periodisch auszuführen. Konkrete Beispiele wiederkehrende Backups über backup:run ausführen; geplante Mitteil...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo automatizo copias de seguridad o publicaciones con Scheduler?",
+                    "answer_markdown": "## Automatizaciones típicas\nScheduler es el lugar idóneo para hacer periódicas algunas actividades de la aplicación.\n\n### Ejemplos concretos\n- ejecutar copias de seguridad recurrentes mediante `backup:run`;\n- publicar Comunicaciones programadas mediante el comando técnico `blog:publish-scheduled`.\n\n### Buena práctica\nDespués de crear el trabajo, ejecútalo una vez manualmente para comprobar permisos, salida y comportamiento antes de confiar solo en la cadencia periódica.",
+                    "excerpt": "Automatizaciones típicas Scheduler es el lugar idóneo para hacer periódicas algunas actividades de la aplicación. Ejemplos concretos ejecutar copias de seguridad recurrentes mediante backup:run; publi...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "scheduler.index",
+            "permission_slug": "scheduler.manage",
+            "ranking_weight": 15,
+            "sort_order": 61,
+            "locales": {
+                "it": {
+                    "question": "Come abilito o disabilito un job schedulato?",
+                    "answer_markdown": "## Abilitare o disabilitare un job\nDall'elenco job usa l'interruttore di stato per attivarlo o disattivarlo (richiede `scheduler.manage`), senza doverlo eliminare.\n\n### Effetto\nUn job disabilitato non viene eseguito alla sua scadenza ma resta configurato: puoi riattivarlo in qualsiasi momento.",
+                    "excerpt": "Abilitare o disabilitare un job Dall'elenco job usa l'interruttore di stato per attivarlo o disattivarlo (richiede scheduler.manage), senza doverlo eliminare. Effetto Un job disabilitato non viene eseguito alla sua scadenza ma...",
+                    "aliases": [
+                        "abilitare job",
+                        "disabilitare job",
+                        "attivare scheduler"
+                    ]
+                },
+                "en": {
+                    "question": "How do I enable or disable a scheduled job?",
+                    "answer_markdown": "## Enabling or disabling a job\nFrom the job list use the status switch to turn it on or off (requires `scheduler.manage`), without having to delete it.\n\n### Effect\nA disabled job doesn't run when it's due but stays configured: you can turn it back on at any time.",
+                    "excerpt": "Enabling or disabling a job From the job list use the status switch to turn it on or off (requires scheduler.manage), without having to delete it. Effect A disabled job doesn't run when it's due but stays configured: you can turn...",
+                    "aliases": [
+                        "enable job",
+                        "disable job",
+                        "toggle scheduler"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment activer ou désactiver un job planifié ?",
+                    "answer_markdown": "## Activer ou désactiver un job\nDepuis la liste des jobs, utilisez l'interrupteur d'état pour l'activer ou le désactiver (nécessite `scheduler.manage`), sans devoir le supprimer.\n\n### Effet\nUn job désactivé ne s'exécute pas à son échéance mais reste configuré : vous pouvez le réactiver à tout moment.",
+                    "excerpt": "Activer ou désactiver un job Depuis la liste des jobs, utilisez l'interrupteur d'état pour l'activer ou le désactiver (nécessite scheduler.manage), sans devoir le supprimer. Effet Un job désactivé ne s'exécute pas à son échéance...",
+                    "aliases": [
+                        "activer job",
+                        "désactiver job",
+                        "basculer scheduler"
+                    ]
+                },
+                "de": {
+                    "question": "Wie aktiviere oder deaktiviere ich einen geplanten Job?",
+                    "answer_markdown": "## Job aktivieren oder deaktivieren\nVerwenden Sie in der Job-Liste den Statusschalter, um ihn ein- oder auszuschalten (erfordert `scheduler.manage`), ohne ihn löschen zu müssen.\n\n### Wirkung\nEin deaktivierter Job wird bei Fälligkeit nicht ausgeführt, bleibt aber konfiguriert: Sie können ihn jederzeit wieder aktivieren.",
+                    "excerpt": "Job aktivieren oder deaktivieren Verwenden Sie in der Job-Liste den Statusschalter, um ihn ein- oder auszuschalten (erfordert scheduler.manage), ohne ihn löschen zu müssen. Wirkung Ein deaktivierter Job wird bei Fälligkeit nicht...",
+                    "aliases": [
+                        "job aktivieren",
+                        "job deaktivieren",
+                        "scheduler umschalten"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo habilito o deshabilito un trabajo programado?",
+                    "answer_markdown": "## Habilitar o deshabilitar un trabajo\nDesde la lista de trabajos usa el interruptor de estado para activarlo o desactivarlo (requiere `scheduler.manage`), sin tener que eliminarlo.\n\n### Efecto\nUn trabajo deshabilitado no se ejecuta al llegar su hora pero sigue configurado: puedes reactivarlo en cualquier momento.",
+                    "excerpt": "Habilitar o deshabilitar un trabajo Desde la lista de trabajos usa el interruptor de estado para activarlo o desactivarlo (requiere scheduler.manage), sin tener que eliminarlo. Efecto Un trabajo deshabilitado no se ejecuta al...",
+                    "aliases": [
+                        "habilitar trabajo",
+                        "deshabilitar trabajo",
+                        "alternar scheduler"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "scheduler.index",
+            "permission_slug": "scheduler.manage",
+            "ranking_weight": 0,
+            "sort_order": 62,
+            "locales": {
+                "it": {
+                    "question": "Come pulisco i log dei job schedulati?",
+                    "answer_markdown": "## Pulizia log\nDalla pagina Scheduler puoi lanciare la pulizia dei log più vecchi di un certo numero di giorni (richiede `scheduler.manage`).\n\n### Perché farlo\nI log di esecuzione si accumulano nel tempo: una pulizia periodica evita che occupino spazio inutile su disco.",
+                    "excerpt": "Pulizia log Dalla pagina Scheduler puoi lanciare la pulizia dei log più vecchi di un certo numero di giorni (richiede scheduler.manage). Perché farlo I log di esecuzione si accumulano nel tempo: una pulizia periodica evita che...",
+                    "aliases": [
+                        "pulire log scheduler",
+                        "log job vecchi",
+                        "prune log"
+                    ]
+                },
+                "en": {
+                    "question": "How do I clean up scheduled job logs?",
+                    "answer_markdown": "## Log cleanup\nFrom the Scheduler page you can trigger cleanup of logs older than a given number of days (requires `scheduler.manage`).\n\n### Why do it\nExecution logs accumulate over time: periodic cleanup keeps them from taking up unnecessary disk space.",
+                    "excerpt": "Log cleanup From the Scheduler page you can trigger cleanup of logs older than a given number of days (requires scheduler.manage). Why do it Execution logs accumulate over time: periodic cleanup keeps them from taking up...",
+                    "aliases": [
+                        "clean scheduler logs",
+                        "old job logs",
+                        "prune log"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment nettoyer les logs des jobs planifiés ?",
+                    "answer_markdown": "## Nettoyage des logs\nDepuis la page Scheduler, vous pouvez lancer le nettoyage des logs plus anciens qu'un certain nombre de jours (nécessite `scheduler.manage`).\n\n### Pourquoi le faire\nLes logs d'exécution s'accumulent avec le temps : un nettoyage périodique évite qu'ils n'occupent un espace disque inutile.",
+                    "excerpt": "Nettoyage des logs Depuis la page Scheduler, vous pouvez lancer le nettoyage des logs plus anciens qu'un certain nombre de jours (nécessite scheduler.manage). Pourquoi le faire Les logs d'exécution s'accumulent avec le temps : un...",
+                    "aliases": [
+                        "nettoyer logs scheduler",
+                        "anciens logs job",
+                        "prune log"
+                    ]
+                },
+                "de": {
+                    "question": "Wie bereinige ich die Logs geplanter Jobs?",
+                    "answer_markdown": "## Log-Bereinigung\nÜber die Scheduler-Seite können Sie die Bereinigung von Logs auslösen, die älter als eine bestimmte Anzahl von Tagen sind (erfordert `scheduler.manage`).\n\n### Warum das tun\nAusführungslogs sammeln sich mit der Zeit an: eine regelmäßige Bereinigung verhindert, dass sie unnötigen Festplattenspeicher belegen.",
+                    "excerpt": "Log-Bereinigung Über die Scheduler-Seite können Sie die Bereinigung von Logs auslösen, die älter als eine bestimmte Anzahl von Tagen sind (erfordert scheduler.manage). Warum das tun Ausführungslogs sammeln sich mit der Zeit an:...",
+                    "aliases": [
+                        "scheduler logs bereinigen",
+                        "alte job logs",
+                        "log bereinigung"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo limpio los registros de los trabajos programados?",
+                    "answer_markdown": "## Limpieza de registros\nDesde la página de Scheduler puedes lanzar la limpieza de registros con más de un número determinado de días (requiere `scheduler.manage`).\n\n### Por qué hacerlo\nLos registros de ejecución se acumulan con el tiempo: una limpieza periódica evita que ocupen espacio de disco innecesario.",
+                    "excerpt": "Limpieza de registros Desde la página de Scheduler puedes lanzar la limpieza de registros con más de un número determinado de días (requiere scheduler.manage). Por qué hacerlo Los registros de ejecución se acumulan con el tiempo:...",
+                    "aliases": [
+                        "limpiar logs scheduler",
+                        "registros job antiguos",
+                        "purgar log"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "scheduler.index",
+            "permission_slug": "scheduler.manage",
+            "ranking_weight": 0,
+            "sort_order": 63,
+            "locales": {
+                "it": {
+                    "question": "Come modifico un job schedulato esistente?",
+                    "answer_markdown": "## Modificare un job\nDall'elenco job clicca su **Modifica** per cambiare comando, frequenza o parametri (richiede `scheduler.manage`).\n\n### Effetto sulla pianificazione\nLa modifica si applica dalla prossima esecuzione utile; le esecuzioni già registrate nello storico non cambiano.",
+                    "excerpt": "Modificare un job Dall'elenco job clicca su Modifica per cambiare comando, frequenza o parametri (richiede scheduler.manage). Effetto sulla pianificazione La modifica si applica dalla prossima esecuzione utile; le esecuzioni già...",
+                    "aliases": [
+                        "modificare job",
+                        "cambiare frequenza job",
+                        "editare job scheduler"
+                    ]
+                },
+                "en": {
+                    "question": "How do I edit an existing scheduled job?",
+                    "answer_markdown": "## Editing a job\nFrom the job list click **Edit** to change the command, frequency or parameters (requires `scheduler.manage`).\n\n### Effect on scheduling\nThe change applies from the next eligible run; past executions already in the history are unchanged.",
+                    "excerpt": "Editing a job From the job list click Edit to change the command, frequency or parameters (requires scheduler.manage). Effect on scheduling The change applies from the next eligible run; past executions already in the history are...",
+                    "aliases": [
+                        "edit job",
+                        "change job frequency",
+                        "edit scheduler job"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment modifier un job planifié existant ?",
+                    "answer_markdown": "## Modifier un job\nDepuis la liste des jobs, cliquez sur **Modifier** pour changer la commande, la fréquence ou les paramètres (nécessite `scheduler.manage`).\n\n### Effet sur la planification\nLa modification s'applique dès la prochaine exécution éligible ; les exécutions déjà enregistrées dans l'historique restent inchangées.",
+                    "excerpt": "Modifier un job Depuis la liste des jobs, cliquez sur Modifier pour changer la commande, la fréquence ou les paramètres (nécessite scheduler.manage). Effet sur la planification La modification s'applique dès la prochaine...",
+                    "aliases": [
+                        "modifier job",
+                        "changer fréquence job",
+                        "éditer job scheduler"
+                    ]
+                },
+                "de": {
+                    "question": "Wie bearbeite ich einen bestehenden geplanten Job?",
+                    "answer_markdown": "## Job bearbeiten\nKlicken Sie in der Job-Liste auf **Bearbeiten**, um Befehl, Häufigkeit oder Parameter zu ändern (erfordert `scheduler.manage`).\n\n### Auswirkung auf die Planung\nDie Änderung gilt ab der nächsten fälligen Ausführung; bereits im Verlauf erfasste Ausführungen bleiben unverändert.",
+                    "excerpt": "Job bearbeiten Klicken Sie in der Job-Liste auf Bearbeiten, um Befehl, Häufigkeit oder Parameter zu ändern (erfordert scheduler.manage). Auswirkung auf die Planung Die Änderung gilt ab der nächsten fälligen Ausführung; bereits im...",
+                    "aliases": [
+                        "job bearbeiten",
+                        "job häufigkeit ändern",
+                        "scheduler job editieren"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo edito un trabajo programado existente?",
+                    "answer_markdown": "## Editar un trabajo\nDesde la lista de trabajos haz clic en **Editar** para cambiar el comando, la frecuencia o los parámetros (requiere `scheduler.manage`).\n\n### Efecto en la planificación\nEl cambio se aplica desde la próxima ejecución elegible; las ejecuciones ya registradas en el historial no cambian.",
+                    "excerpt": "Editar un trabajo Desde la lista de trabajos haz clic en Editar para cambiar el comando, la frecuencia o los parámetros (requiere scheduler.manage). Efecto en la planificación El cambio se aplica desde la próxima ejecución...",
+                    "aliases": [
+                        "editar trabajo",
+                        "cambiar frecuencia trabajo",
+                        "editar job scheduler"
+                    ]
+                }
+            }
+        }
+    ]
+}

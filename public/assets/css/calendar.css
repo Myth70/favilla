@@ -1,0 +1,499 @@
+/* =====================================================
+   Modulo Calendario â€” Prefisso .cal-
+   ===================================================== */
+
+/* â”€â”€ FullCalendar theme overrides â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+#cal-calendar {
+    transition: opacity 0.2s ease;
+}
+
+#cal-calendar .fc {
+    --fc-button-bg-color: var(--accent-color, var(--bs-primary, #0d6efd));
+    --fc-button-border-color: var(--accent-color, var(--bs-primary, #0d6efd));
+    --fc-button-hover-bg-color: color-mix(in srgb, var(--accent-color, #0d6efd) 86%, #000);
+    --fc-button-hover-border-color: color-mix(in srgb, var(--accent-color, #0d6efd) 86%, #000);
+    --fc-button-active-bg-color: color-mix(in srgb, var(--accent-color, #0d6efd) 78%, #000);
+    --fc-button-active-border-color: color-mix(in srgb, var(--accent-color, #0d6efd) 78%, #000);
+}
+
+/* Toolbar styling */
+#cal-calendar .fc-toolbar {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+#cal-calendar .fc-toolbar-chunk {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+}
+
+#cal-calendar .fc-toolbar-title {
+    font-size: 1.25rem !important;
+    font-weight: 600;
+}
+
+#cal-calendar .fc-button {
+    font-size: 0.8125rem;
+    padding: 0.3rem 0.65rem;
+    border-radius: var(--radius-sm);
+    text-transform: capitalize;
+    margin: 0.1rem;
+}
+
+/* FullCalendar button groups default to attached buttons; force visual spacing */
+#cal-calendar .fc-button-group {
+    display: inline-flex;
+    gap: 0.35rem;
+}
+
+#cal-calendar .fc-button-group > .fc-button {
+    margin: 0 !important;
+    border-radius: var(--radius-sm) !important;
+}
+
+#cal-calendar .fc-button-group > .fc-button:not(:first-child) {
+    margin-left: 0 !important;
+}
+
+#cal-calendar .fc-button-group > .fc-button + .fc-button {
+    margin-left: 0.35rem !important;
+}
+
+#cal-calendar .fc-button-primary {
+    background-color: var(--accent-color, var(--bs-primary, #0d6efd));
+    border-color: var(--accent-color, var(--bs-primary, #0d6efd));
+}
+
+#cal-calendar .fc-button-primary:not(:disabled).fc-button-active,
+#cal-calendar .fc-button-primary:not(:disabled):active {
+    background-color: color-mix(in srgb, var(--accent-color, #0d6efd) 78%, #000);
+    border-color: color-mix(in srgb, var(--accent-color, #0d6efd) 78%, #000);
+    filter: none;
+}
+
+#cal-calendar .fc-today-button {
+    background-color: var(--bs-secondary, #6c757d) !important;
+    border-color: var(--bs-secondary, #6c757d) !important;
+}
+
+/* Day cells */
+#cal-calendar .fc-daygrid-day.fc-day-today {
+    background-color: color-mix(in srgb, var(--accent-color, #0d6efd) 10%, transparent) !important;
+}
+
+#cal-calendar .fc-daygrid-day-number {
+    font-size: 0.8125rem;
+    padding: 4px 8px;
+}
+
+/* Events */
+#cal-calendar .fc-event {
+    cursor: pointer;
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    padding: 1px 4px;
+    border: none;
+}
+
+#cal-calendar .fc-event:hover {
+    filter: brightness(0.9);
+}
+
+#cal-calendar .fc-daygrid-event-dot {
+    border-color: currentColor;
+}
+
+/* Time grid (week/day) */
+#cal-calendar .fc-timegrid-slot {
+    height: 2.5rem;
+}
+
+#cal-calendar .fc-timegrid-slot-label {
+    font-size: 0.75rem;
+}
+
+/* List view */
+#cal-calendar .fc-list-event:hover td {
+    background-color: rgba(var(--bs-primary-rgb, 13, 110, 253), 0.05);
+}
+
+/* â”€â”€ Now Indicator â€” linea rossa ora corrente â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+#cal-calendar .fc-timegrid-now-indicator-line {
+    border-color: #dc3545;
+    border-width: 2px;
+}
+
+#cal-calendar .fc-timegrid-now-indicator-arrow {
+    border-top-color: #dc3545;
+    border-width: 6px;
+    margin-top: -5px;
+}
+
+/* â”€â”€ Business Hours â€” orari non lavorativi sfumati â”€â”€â”€â”€ */
+#cal-calendar .fc-non-business {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+/* â”€â”€ Drag & Drop â€” feedback visivo â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+#cal-calendar .fc-event.fc-event-dragging {
+    opacity: 0.75;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+}
+
+#cal-calendar .fc-event.fc-event-resizing {
+    opacity: 0.75;
+}
+
+/* Cursore drag per eventi editabili */
+#cal-calendar .fc-event-draggable {
+    cursor: grab;
+}
+
+#cal-calendar .fc-event-draggable:active {
+    cursor: grabbing;
+}
+
+/* â”€â”€ Select range â€” evidenziazione selezione â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+#cal-calendar .fc-highlight {
+    background-color: rgba(var(--bs-primary-rgb, 13, 110, 253), 0.12) !important;
+}
+
+/* â”€â”€ FestivitÃ  italiane â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+#cal-calendar .cal-holiday {
+    background-color: rgba(220, 53, 69, 0.08) !important;
+    border: none !important;
+    border-left: 3px solid #dc3545 !important;
+    cursor: default !important;
+    font-size: 0.75rem;
+}
+
+#cal-calendar .cal-holiday:hover {
+    filter: none;
+    background-color: rgba(220, 53, 69, 0.12) !important;
+}
+
+.cal-holiday-content {
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #dc3545;
+    padding: 0 2px;
+}
+
+/* â”€â”€ Prev/Next buttons â€” frecce piÃ¹ grandi â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+#cal-calendar .fc-prev-button,
+#cal-calendar .fc-next-button {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1;
+    padding: 0.2rem 0.55rem;
+}
+
+/* â”€â”€ Event content â€” icone visibilitÃ  â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.cal-event-content {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 0.8rem;
+    line-height: 1.3;
+}
+
+.cal-event-content .fc-event-time {
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.cal-event-content .fc-event-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* â”€â”€ Day Max Events â€” popover "+N altri" â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+#cal-calendar .fc-daygrid-more-link {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--bs-primary, #0d6efd);
+}
+
+#cal-calendar .fc-popover {
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+#cal-calendar .fc-popover-header {
+    background-color: var(--bs-primary, #0d6efd);
+    color: white;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    font-size: 0.8125rem;
+    padding: 0.4rem 0.6rem;
+}
+
+#cal-modal .form-label {
+    font-size: 0.8125rem;
+    font-weight: 500;
+}
+
+.cal-color-swatch {
+    cursor: pointer;
+}
+
+.cal-swatch-dot {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--cal-swatch-color, #0d6efd);
+    border: 3px solid var(--cal-swatch-border, transparent);
+}
+
+.cal-color-custom-input {
+    width: 28px;
+    height: 28px;
+    border: none;
+    cursor: pointer;
+}
+
+.cal-recur-guided.d-none {
+    display: none !important;
+}
+
+/* Color picker */
+.cal-color-preview {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.cal-color-dot-sm,
+.cal-color-dot-lg {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.cal-color-dot-sm {
+    width: 12px;
+    height: 12px;
+}
+
+.cal-color-dot-lg {
+    width: 14px;
+    height: 14px;
+}
+
+.cal-command-bar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.85rem 1rem;
+}
+
+.cal-command-bar__group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-width: 0;
+}
+
+.cal-command-bar__group--search {
+    flex: 1 1 28rem;
+}
+
+.cal-command-bar__group--scope {
+    flex: 1 1 22rem;
+    justify-content: flex-end;
+}
+
+.cal-command-bar__group .input-group {
+    min-width: 0;
+}
+
+.cal-command-bar__title {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    flex-shrink: 0;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    white-space: nowrap;
+}
+
+.cal-command-bar__title i {
+    color: var(--accent-color);
+    font-size: 0.85rem;
+}
+
+.cal-command-bar__divider {
+    flex: 0 0 1px;
+    align-self: stretch;
+    min-height: 2.25rem;
+    background-color: var(--border-color);
+}
+
+.cal-command-bar__scopes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.cal-command-bar__scopes .btn {
+    white-space: nowrap;
+}
+
+/* â”€â”€ Responsive â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+@media (max-width: 767.98px) {
+    .cal-command-bar__divider {
+        display: none;
+    }
+
+    .cal-command-bar__group {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.45rem;
+        width: 100%;
+    }
+
+    .cal-command-bar__group--scope,
+    .cal-command-bar__scopes {
+        justify-content: flex-start;
+    }
+
+    #cal-calendar .fc-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #cal-calendar .fc-toolbar-chunk {
+        text-align: center;
+    }
+
+    #cal-calendar .fc-toolbar-title {
+        font-size: 1rem !important;
+    }
+
+    #cal-calendar .fc-button {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .cal-command-bar__divider {
+        display: none;
+    }
+
+    .cal-command-bar__group--scope,
+    .cal-command-bar__scopes {
+        justify-content: flex-start;
+    }
+}
+
+/* â”€â”€ Dark theme compatibility â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+[data-bs-theme="dark"] #cal-calendar .fc-daygrid-day.fc-day-today {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+[data-bs-theme="dark"] #cal-calendar .fc-theme-standard td,
+[data-bs-theme="dark"] #cal-calendar .fc-theme-standard th,
+[data-bs-theme="dark"] #cal-calendar .fc-theme-standard .fc-scrollgrid {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-bs-theme="dark"] #cal-calendar .fc-col-header-cell,
+[data-bs-theme="dark"] #cal-calendar .fc-col-header,
+[data-bs-theme="dark"] #cal-calendar .fc-scrollgrid,
+[data-bs-theme="dark"] #cal-calendar .fc-daygrid-day,
+[data-bs-theme="dark"] #cal-calendar .fc-timegrid-col,
+[data-bs-theme="dark"] #cal-calendar .fc-timegrid-axis,
+[data-bs-theme="dark"] #cal-calendar .fc-timegrid-slot-lane,
+[data-bs-theme="dark"] #cal-calendar .fc-scrollgrid-section > td {
+    background-color: var(--bs-body-bg);
+}
+
+[data-bs-theme="dark"] #cal-calendar .fc-list-day-cushion {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+[data-bs-theme="dark"] #cal-calendar .fc-non-business {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+[data-bs-theme="dark"] #cal-calendar .fc-highlight {
+    background-color: rgba(100, 160, 255, 0.15) !important;
+}
+
+[data-bs-theme="dark"] #cal-calendar .fc-popover {
+    background-color: var(--bs-body-bg, #212529);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-bs-theme="dark"] #cal-calendar .fc-popover-body {
+    background-color: var(--bs-body-bg, #212529);
+}
+
+[data-bs-theme="dark"] #cal-calendar .cal-holiday {
+    background-color: rgba(220, 53, 69, 0.12) !important;
+}
+
+[data-bs-theme="dark"] .cal-holiday-content {
+    color: #e8616e;
+}
+
+[data-bs-theme="dark"] #cal-calendar .fc-list-event td {
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-bs-theme="dark"] #cal-calendar .fc-list-event:hover td {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+[data-bs-theme="dark"] #cal-calendar .fc-list-day-side-text,
+[data-bs-theme="dark"] #cal-calendar .fc-list-day-text {
+    color: var(--bs-body-color);
+}
+
+[data-bs-theme="dark"] #cal-calendar .fc-list-empty {
+    background-color: var(--bs-body-bg);
+    color: var(--bs-secondary-color);
+}
+
+.cal-color-dot-dynamic {
+    background: var(--cal-dot-color, #0d6efd);
+}
+
+.cal-color-custom-size {
+    width: 2rem;
+    height: 2rem;
+}
+
+.cal-recur-interval-input {
+    width: 4.5rem;
+}
+
+.cal-recur-count-input {
+    width: 5rem;
+}
+
+/* ── Tools card (Import/Export ICS) — compattezza coerente col profilo ── */
+@media (min-width: 992px) {
+    .cal-tools-card .card-body {
+        padding-top: 0.85rem;
+        padding-bottom: 0.85rem;
+    }
+}
+

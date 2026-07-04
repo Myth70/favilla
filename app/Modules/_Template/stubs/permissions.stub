@@ -1,0 +1,8 @@
+<?php
+
+return [
+    ['name' => 'Visualizza {{ModuleName}}', 'slug' => '{{module_name}}.view',   'module' => '{{ModuleName}}'],
+    ['name' => 'Crea {{ModuleName}}',       'slug' => '{{module_name}}.create', 'module' => '{{ModuleName}}'],
+    ['name' => 'Modifica {{ModuleName}}',   'slug' => '{{module_name}}.edit',   'module' => '{{ModuleName}}'],
+    ['name' => 'Elimina {{ModuleName}}',    'slug' => '{{module_name}}.delete', 'module' => '{{ModuleName}}'],
+];

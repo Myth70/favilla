@@ -1,0 +1,382 @@
+{
+    "module": "Scheduler",
+    "generated_at": "2026-07-04T09:48:34+02:00",
+    "routes": [
+        {
+            "method": "GET",
+            "uri": "/scheduler/",
+            "name": "scheduler.index",
+            "controller": "SchedulerController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:scheduler.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/scheduler/poll",
+            "name": "scheduler.poll",
+            "controller": "SchedulerController@pollTable",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:scheduler.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/scheduler/{id}/log",
+            "name": "scheduler.job_log",
+            "controller": "SchedulerController@jobLog",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:scheduler.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/scheduler/output/{filename}",
+            "name": "scheduler.output_file",
+            "controller": "SchedulerController@viewLogFile",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:scheduler.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/scheduler/create",
+            "name": "scheduler.create",
+            "controller": "SchedulerController@create",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:scheduler.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/scheduler/",
+            "name": "scheduler.store",
+            "controller": "SchedulerController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:scheduler.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/scheduler/toggle",
+            "name": "scheduler.toggle",
+            "controller": "SchedulerController@toggle",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:scheduler.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/scheduler/prune-log",
+            "name": "scheduler.prune_log",
+            "controller": "SchedulerController@pruneLog",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:scheduler.manage"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/scheduler/{id}/edit",
+            "name": "scheduler.edit",
+            "controller": "SchedulerController@edit",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:scheduler.manage"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/scheduler/{id}",
+            "name": "scheduler.update",
+            "controller": "SchedulerController@update",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:scheduler.manage"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/scheduler/{id}",
+            "name": "scheduler.destroy",
+            "controller": "SchedulerController@destroy",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:scheduler.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/scheduler/{id}/run",
+            "name": "scheduler.run",
+            "controller": "SchedulerController@runNow",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:scheduler.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/scheduler/{id}/reset",
+            "name": "scheduler.reset",
+            "controller": "SchedulerController@resetJob",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:scheduler.manage"
+            ]
+        }
+    ],
+    "tables": [
+        {
+            "name": "scheduler_jobs",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "slug",
+                    "type": "varchar(100)",
+                    "nullable": false
+                },
+                {
+                    "name": "name",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "command",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "args_json",
+                    "type": "longtext",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "interval_minutes",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "default": "60"
+                },
+                {
+                    "name": "enabled",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "1"
+                },
+                {
+                    "name": "last_run_at",
+                    "type": "datetime",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "last_status",
+                    "type": "enum('success','failed','running')",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "last_output",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "last_output_file",
+                    "type": "varchar(500)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "last_duration_ms",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "retry_count",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "max_retries",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "default": "3"
+                },
+                {
+                    "name": "next_retry_at",
+                    "type": "datetime",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_scheduler_jobs_next_retry",
+                    "columns": [
+                        "next_retry_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "uq_scheduler_jobs_slug",
+                    "columns": [
+                        "slug"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": []
+        },
+        {
+            "name": "scheduler_log",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "job_slug",
+                    "type": "varchar(100)",
+                    "nullable": false
+                },
+                {
+                    "name": "started_at",
+                    "type": "datetime",
+                    "nullable": false
+                },
+                {
+                    "name": "finished_at",
+                    "type": "datetime",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "status",
+                    "type": "enum('success','failed')",
+                    "nullable": false
+                },
+                {
+                    "name": "output",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "output_file",
+                    "type": "varchar(500)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "duration_ms",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_scheduler_log_job",
+                    "columns": [
+                        "job_slug"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_scheduler_log_started",
+                    "columns": [
+                        "started_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": []
+        }
+    ],
+    "permissions": [
+        {
+            "slug": "scheduler.manage",
+            "name": "Gestisci Scheduler"
+        },
+        {
+            "slug": "scheduler.view",
+            "name": "Visualizza Scheduler"
+        }
+    ],
+    "services": [
+        "App\\Modules\\Scheduler\\Services\\SchedulerService"
+    ],
+    "controllers": [
+        "App\\Modules\\Scheduler\\Controllers\\SchedulerController"
+    ]
+}

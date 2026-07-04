@@ -1,0 +1,50 @@
+# ============================================================
+# Root hardening — SAFETY NET.
+#
+# Only `public/` should ever be the web root. This file protects
+# deployments where the *project root* is accidentally web-accessible
+# (e.g. XAMPP serving htdocs/favilla/ at http://localhost/favilla/),
+# where http://.../favilla/.env would otherwise be downloadable.
+#
+# It only blocks direct HTTP access; PHP `require`/`include` read from
+# disk and are unaffected, so the application keeps working normally
+# when accessed through public/.
+# ============================================================
+
+# ── Deny all hidden files (.env, .git, .htaccess, ...) ──────
+<FilesMatch "^\.">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# ── Deny direct access to sensitive paths ──────────────────
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Sensitive root-level files (setup.php and index.php stay reachable).
+    RewriteRule ^(\.env.*|composer\.(json|lock)|phpunit\.xml|phpstan.*|phpstan-baseline\.neon|favilla|.*\.md|project_context\.json|\.git.*|\.docker.*)$ - [F,L]
+
+    # Non-public directories — never served over HTTP.
+    RewriteRule ^(app|bootstrap|database|storage|vendor|tests|docs|context|docker)(/|$) - [F,L]
+</IfModule>
+
+# ── Fallback when mod_rewrite is unavailable ───────────────
+<IfModule !mod_rewrite.c>
+    <FilesMatch "\.(env|json|lock|neon|md|sql|dist|example|yml|yaml)$">
+        <IfModule mod_authz_core.c>
+            Require all denied
+        </IfModule>
+        <IfModule !mod_authz_core.c>
+            Order allow,deny
+            Deny from all
+        </IfModule>
+    </FilesMatch>
+</IfModule>
+
+# Never list directory contents.
+Options -Indexes

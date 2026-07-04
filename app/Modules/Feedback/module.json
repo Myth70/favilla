@@ -1,0 +1,99 @@
+{
+    "name": "Feedback",
+    "core": true,
+    "icon": "fa-solid fa-bug",
+    "version": "1.0.0",
+    "description": "Segnalazione contestuale di bug e funzionalità: cattura automatica dell'ambiente (URL, modulo, route, errori console, sequenza di azioni, snapshot DOM) + console admin con triage ed export 'Copia per LLM'.",
+    "author": "Favilla",
+    "database": "shared",
+    "tables": [
+        "feedback"
+    ],
+    "dependencies": ["Notifications"],
+    "dashboard_provider": "App\\Modules\\Feedback\\Providers\\FeedbackDashboardProvider",
+    "services": ["NotificationService", "AuditService", "DataRetentionService"],
+    "assets": {
+        "css": ["feedback.css"],
+        "js": ["feedback.js"]
+    },
+    "notification_events": [
+        {
+            "slug": "feedback.created",
+            "name": "Nuova segnalazione",
+            "description": "Inviata agli amministratori quando un utente apre una nuova segnalazione.",
+            "default_level": "info",
+            "icon": "fa-solid fa-bug",
+            "context_variables": {
+                "ref_code": "Codice segnalazione",
+                "tipo": "Tipo (bug/funzionalità/domanda)",
+                "titolo": "Titolo segnalazione",
+                "modulo": "Modulo interessato",
+                "autore": "Utente che ha segnalato"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Nuova segnalazione {{ref_code}}",
+                    "body": "{{autore}} ha aperto una segnalazione ({{tipo}}) su {{modulo}}: {{titolo}}"
+                },
+                "email": {
+                    "subject": "Nuova segnalazione {{ref_code}}: {{titolo}}",
+                    "body": "<h2>Nuova segnalazione {{ref_code}}</h2><p><strong>Tipo:</strong> {{tipo}}<br><strong>Modulo:</strong> {{modulo}}<br><strong>Autore:</strong> {{autore}}</p><p>{{titolo}}</p><p><a href=\"{{link}}\">Apri segnalazione</a></p>"
+                },
+                "telegram": {
+                    "body": "🐛 Nuova segnalazione {{ref_code}} ({{tipo}})\nModulo: {{modulo}}\nAutore: {{autore}}\n{{titolo}}\n{{link}}"
+                }
+            }
+        },
+        {
+            "slug": "feedback.status_changed",
+            "name": "Stato segnalazione aggiornato",
+            "description": "Inviata al segnalatore quando lo stato della sua segnalazione cambia.",
+            "default_level": "info",
+            "icon": "fa-solid fa-circle-check",
+            "context_variables": {
+                "ref_code": "Codice segnalazione",
+                "titolo": "Titolo segnalazione",
+                "stato": "Nuovo stato"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Segnalazione {{ref_code}}: {{stato}}",
+                    "body": "La tua segnalazione \"{{titolo}}\" è ora: {{stato}}"
+                },
+                "email": {
+                    "subject": "Aggiornamento segnalazione {{ref_code}}: {{stato}}",
+                    "body": "<h2>Segnalazione {{ref_code}} aggiornata</h2><p>La tua segnalazione <strong>{{titolo}}</strong> è ora nello stato: <strong>{{stato}}</strong>.</p><p><a href=\"{{link}}\">Apri segnalazione</a></p>"
+                },
+                "telegram": {
+                    "body": "✅ Segnalazione {{ref_code}} aggiornata: {{stato}}\n{{titolo}}\n{{link}}"
+                }
+            }
+        }
+    ],
+    "admin_panel": {
+        "section": "Pannelli admin dei moduli",
+        "eyebrow": "Moduli attivi",
+        "groups": [
+            {
+                "title": "Segnalazioni",
+                "description": "Bug e richieste di funzionalità inviate dagli utenti, con contesto tecnico e triage.",
+                "icon": "fa-solid fa-bug",
+                "flows": [
+                    "Elenco segnalazioni",
+                    "Triage e assegnazione",
+                    "Export per LLM"
+                ],
+                "links": [
+                    {
+                        "label": "Elenco segnalazioni",
+                        "route": "feedback.admin.index",
+                        "permission": "feedback.view",
+                        "description": "Bug e richieste con filtri per tipo, stato, severità e modulo.",
+                        "icon": "fa-solid fa-list-check",
+                        "keywords": "segnalazioni bug feedback errori funzionalita ticket"
+                    }
+                ]
+            }
+        ]
+    }
+}

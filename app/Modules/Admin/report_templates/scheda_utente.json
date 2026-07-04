@@ -1,0 +1,14 @@
+{
+    "name": "Scheda Utente",
+    "description": "Scheda dettagliata di un singolo utente con dati anagrafici e ruoli",
+    "source_key": "users",
+    "source_type": "document",
+    "output_format": "pdf",
+    "visibility": "global",
+    "max_rows": 1,
+    "template_html": "<div data-prm-type=\"logo\" data-prm-config='{\"max_height\":60,\"align\":\"left\"}'></div><div style=\"font-size:10pt;color:#64748b;margin-bottom:6px;\"><span data-prm-type=\"system\" data-prm-config='{\"kind\":\"company\"}'></span></div><hr style=\"border:none;border-top:1px solid #3b82f6;margin:6px 0 12px;\"><h1 style=\"text-align:center;color:#1e293b;font-size:18pt;margin:0 0 16px;\">Scheda Utente</h1><table style=\"width:100%;border-collapse:collapse;font-size:11pt;margin-bottom:16px;\"><tr><td style=\"padding:6px 8px;border:1px solid #dee2e6;background:#f8fafc;font-weight:600;width:40%;\">ID Utente</td><td style=\"padding:6px 8px;border:1px solid #dee2e6;\">{{ id }}</td></tr><tr><td style=\"padding:6px 8px;border:1px solid #dee2e6;background:#f8fafc;font-weight:600;\">Nome Completo</td><td style=\"padding:6px 8px;border:1px solid #dee2e6;\">{{ name }}</td></tr><tr><td style=\"padding:6px 8px;border:1px solid #dee2e6;background:#f8fafc;font-weight:600;\">Email</td><td style=\"padding:6px 8px;border:1px solid #dee2e6;\">{{ email }}</td></tr><tr><td style=\"padding:6px 8px;border:1px solid #dee2e6;background:#f8fafc;font-weight:600;\">Username</td><td style=\"padding:6px 8px;border:1px solid #dee2e6;\">{{ username }}</td></tr><tr><td style=\"padding:6px 8px;border:1px solid #dee2e6;background:#f8fafc;font-weight:600;\">Ruoli Assegnati</td><td style=\"padding:6px 8px;border:1px solid #dee2e6;\">{{ roles_list }}</td></tr><tr><td style=\"padding:6px 8px;border:1px solid #dee2e6;background:#f8fafc;font-weight:600;\">Stato</td><td style=\"padding:6px 8px;border:1px solid #dee2e6;\">{{ is_active }}</td></tr><tr><td style=\"padding:6px 8px;border:1px solid #dee2e6;background:#f8fafc;font-weight:600;\">Data Creazione</td><td style=\"padding:6px 8px;border:1px solid #dee2e6;\">{{ created_at }}</td></tr></table><hr style=\"border:none;border-top:1px solid #64748b;margin:12px 0 6px;\"><div style=\"font-size:8pt;color:#64748b;\">Generato il <span data-prm-type=\"system\" data-prm-config='{\"kind\":\"datetime\"}'></span> da <span data-prm-type=\"system\" data-prm-config='{\"kind\":\"user\"}'></span></div>",
+    "sorting_config": {
+        "field": "name",
+        "dir": "ASC"
+    }
+}

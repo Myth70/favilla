@@ -1,0 +1,1888 @@
+{
+    "module": "Admin",
+    "generated_at": "2026-07-04T09:48:34+02:00",
+    "routes": [
+        {
+            "method": "GET",
+            "uri": "/admin/api/palette",
+            "name": "admin.api.palette",
+            "controller": "PaletteApiController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.users.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/",
+            "name": "admin.index",
+            "controller": "AdminIndexController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.users.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/dashboard",
+            "name": "admin.dashboard",
+            "controller": "AdminDashboardController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.users.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/dashboard/stats",
+            "name": "admin.dashboard.stats",
+            "controller": "AdminDashboardController@statsWidget",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.users.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/dashboard/recent-logs",
+            "name": "admin.dashboard.recent-logs",
+            "controller": "AdminDashboardController@recentLogs",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.users.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/dashboard/modules",
+            "name": "admin.dashboard.modules",
+            "controller": "AdminDashboardController@modulesWidget",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.users.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/dashboard/online",
+            "name": "admin.dashboard.online",
+            "controller": "AdminDashboardController@onlineWidget",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.users.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/logs",
+            "name": "admin.logs.index",
+            "controller": "AdminLogsController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.logs.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/logs/stats",
+            "name": "admin.logs.stats",
+            "controller": "AdminLogsController@statsWidget",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.logs.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/logs/export",
+            "name": "admin.logs.export",
+            "controller": "AdminLogsController@export",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.logs.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/logs/audit",
+            "name": "admin.logs.audit",
+            "controller": "AdminLogsController@auditTable",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.logs.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/logs/attempts",
+            "name": "admin.logs.attempts",
+            "controller": "AdminLogsController@attemptsTable",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.logs.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/logs/sessions",
+            "name": "admin.logs.sessions",
+            "controller": "AdminLogsController@sessionsTable",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.logs.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/logs/errors",
+            "name": "admin.logs.errors",
+            "controller": "AdminLogsController@errorsTable",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.logs.view"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/logs/cleanup",
+            "name": "admin.logs.cleanup",
+            "controller": "AdminLogsController@cleanup",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.logs.purge"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/security/incidents",
+            "name": "admin.security.incidents",
+            "controller": "SecurityIncidentController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.security.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/security/incidents/summary",
+            "name": "admin.security.incidents.summary",
+            "controller": "SecurityIncidentController@summaryWidget",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.security.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/security/assets",
+            "name": "admin.security.assets",
+            "controller": "SecurityDashboardController@assets",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.security.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/security/hardening",
+            "name": "admin.security.hardening",
+            "controller": "SecurityDashboardController@hardening",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.security.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/security/logs",
+            "name": "admin.security.logs",
+            "controller": "SecurityDashboardController@logsStatus",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.security.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/security/keys",
+            "name": "admin.security.keys",
+            "controller": "SecurityDashboardController@keys",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.security.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/security/sod",
+            "name": "admin.security.sod",
+            "controller": "RoleConstraintController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.security.view"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/security/logs/rotate",
+            "name": "admin.security.logs.rotate",
+            "controller": "SecurityDashboardController@rotateNow",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.security.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/security/logs/purge",
+            "name": "admin.security.logs.purge",
+            "controller": "SecurityDashboardController@purgeOld",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.security.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/security/keys/{name}/rotated",
+            "name": "admin.security.keys.record",
+            "controller": "SecurityDashboardController@recordKeyRotation",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.security.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/security/sod/create",
+            "name": "admin.security.sod.store",
+            "controller": "RoleConstraintController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.security.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/security/sod/{id}/toggle",
+            "name": "admin.security.sod.toggle",
+            "controller": "RoleConstraintController@toggle",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.security.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/security/sod/{id}/delete",
+            "name": "admin.security.sod.delete",
+            "controller": "RoleConstraintController@delete",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.security.manage"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/retention",
+            "name": "admin.retention.index",
+            "controller": "DataRetentionController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.security.view"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/retention/{id}/update",
+            "name": "admin.retention.update",
+            "controller": "DataRetentionController@update",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.security.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/retention/{id}/toggle",
+            "name": "admin.retention.toggle",
+            "controller": "DataRetentionController@toggle",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.security.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/retention/execute",
+            "name": "admin.retention.execute",
+            "controller": "DataRetentionController@execute",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.security.manage"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/users",
+            "name": "admin.users.index",
+            "controller": "UserController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.users.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/users/create",
+            "name": "admin.users.create",
+            "controller": "UserController@create",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.users.create"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/users",
+            "name": "admin.users.store",
+            "controller": "UserController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.users.create"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/users/bulk",
+            "name": "admin.users.bulk",
+            "controller": "UserController@bulk",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.users.edit"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/users/{id}",
+            "name": "admin.users.show",
+            "controller": "UserController@show",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.users.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/users/{id}/edit",
+            "name": "admin.users.edit",
+            "controller": "UserController@edit",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.users.edit"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/admin/users/{id}",
+            "name": "admin.users.update",
+            "controller": "UserController@update",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.users.edit"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/users/{id}/roles",
+            "name": "admin.users.roles.update",
+            "controller": "UserController@updateRoles",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.users.edit"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/users/{id}/reset-password",
+            "name": "admin.users.reset-password",
+            "controller": "UserController@resetPassword",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.users.edit"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/users/{id}/reset-2fa",
+            "name": "admin.users.reset-2fa",
+            "controller": "UserController@resetTotp",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.users.edit"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/users/{id}/toggle-active",
+            "name": "admin.users.toggle-active",
+            "controller": "UserController@toggleActive",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.users.edit"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/users/{id}/revoke-sessions",
+            "name": "admin.users.revoke-sessions",
+            "controller": "UserController@revokeSessions",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.users.edit"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/admin/users/{id}",
+            "name": "admin.users.destroy",
+            "controller": "UserController@destroy",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.users.delete"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/impersonate/revert",
+            "name": "admin.impersonate.revert",
+            "controller": "ImpersonationController@revert",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/users/{id}/impersonate",
+            "name": "admin.users.impersonate",
+            "controller": "ImpersonationController@start",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.users.impersonate"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/roles",
+            "name": "admin.roles.index",
+            "controller": "RoleController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.roles.manage"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/roles/table",
+            "name": "admin.roles.table",
+            "controller": "RoleController@rolesTable",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.roles.manage"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/roles/create",
+            "name": "admin.roles.create",
+            "controller": "RoleController@create",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.roles.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/roles",
+            "name": "admin.roles.store",
+            "controller": "RoleController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.roles.manage"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/roles/{id}/edit",
+            "name": "admin.roles.edit",
+            "controller": "RoleController@edit",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.roles.manage"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/admin/roles/{id}",
+            "name": "admin.roles.update",
+            "controller": "RoleController@update",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.roles.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/roles/{id}/clone",
+            "name": "admin.roles.clone",
+            "controller": "RoleController@cloneRole",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.roles.manage"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/admin/roles/{id}",
+            "name": "admin.roles.destroy",
+            "controller": "RoleController@destroy",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.roles.manage"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/roles/{id}/permissions",
+            "name": "admin.roles.permissions",
+            "controller": "RoleController@permissions",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.roles.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/roles/{id}/permissions",
+            "name": "admin.roles.permissions.update",
+            "controller": "RoleController@updatePermissions",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.roles.manage"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/notifications/send",
+            "name": "admin.notifications.send",
+            "controller": "AdminNotificationsController@showSend",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:notifications.admin.send"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/notifications/send",
+            "name": "admin.notifications.store",
+            "controller": "AdminNotificationsController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:notifications.admin.send"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/notifications/settings",
+            "name": "admin.notifications.settings",
+            "controller": "AdminNotificationsController@settings",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:notifications.admin.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/notifications/settings",
+            "name": "admin.notifications.settings.update",
+            "controller": "AdminNotificationsController@updateSettings",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:notifications.admin.manage"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/notifications/settings/events/{slug}/edit",
+            "name": "admin.notifications.settings.events.edit",
+            "controller": "AdminNotificationsController@editEvent",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:notifications.admin.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/notifications/settings/events/{slug}",
+            "name": "admin.notifications.settings.events.update",
+            "controller": "AdminNotificationsController@saveEventSettings",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:notifications.admin.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/notifications/settings/events/{slug}/simulate",
+            "name": "admin.notifications.settings.events.simulate",
+            "controller": "AdminNotificationsController@simulateEvent",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:notifications.admin.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/notifications/settings/bot",
+            "name": "admin.notifications.bot.save",
+            "controller": "AdminNotificationsController@saveBot",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:notifications.admin.bots"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/notifications/queue/retry-all",
+            "name": "admin.notifications.queue.retry-all",
+            "controller": "AdminNotificationsController@retryAllFailed",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:notifications.admin.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/notifications/queue/{id}/retry",
+            "name": "admin.notifications.queue.retry",
+            "controller": "AdminNotificationsController@retryQueueItem",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:notifications.admin.manage"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/modules",
+            "name": "admin.modules.index",
+            "controller": "ModuleController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.modules.manage"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/modules/import",
+            "name": "admin.modules.import",
+            "controller": "ModuleController@importForm",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.modules.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/modules/import",
+            "name": "admin.modules.import.store",
+            "controller": "ModuleController@import",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.modules.manage"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/modules/{name}/export",
+            "name": "admin.modules.export",
+            "controller": "ModuleController@export",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.modules.manage"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/modules/{name}/uninstall",
+            "name": "admin.modules.uninstall",
+            "controller": "ModuleController@uninstallConfirm",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.modules.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/modules/{name}/uninstall",
+            "name": "admin.modules.uninstall.do",
+            "controller": "ModuleController@uninstallDo",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.modules.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/modules/{name}/toggle",
+            "name": "admin.modules.toggle",
+            "controller": "ModuleController@toggle",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.modules.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/modules/{name}/import-permissions",
+            "name": "admin.modules.import-permissions",
+            "controller": "ModuleController@importPermissions",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.modules.manage"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/settings",
+            "name": "admin.settings.index",
+            "controller": "SettingsController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.settings.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/settings",
+            "name": "admin.settings.update",
+            "controller": "SettingsController@update",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.settings.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/settings/system",
+            "name": "admin.settings.system.update",
+            "controller": "SettingsController@updateSystem",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.settings.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/settings/system/toggle",
+            "name": "admin.settings.system.toggle",
+            "controller": "SettingsController@toggleSystemSetting",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.settings.manage"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/mail/panel",
+            "name": "admin.mail.panel",
+            "controller": "MailController@panel",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.mail.manage"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/mail",
+            "name": "admin.mail.index",
+            "controller": "MailController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.mail.manage"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/mail/templates/create",
+            "name": "admin.mail.templates.create",
+            "controller": "MailController@create",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.mail.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/mail/templates",
+            "name": "admin.mail.templates.store",
+            "controller": "MailController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.mail.manage"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/mail/templates/table",
+            "name": "admin.mail.templates.table",
+            "controller": "MailController@templatesTable",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.mail.manage"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/mail/templates/{id}/edit",
+            "name": "admin.mail.templates.edit",
+            "controller": "MailController@edit",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.mail.manage"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/admin/mail/templates/{id}",
+            "name": "admin.mail.templates.update",
+            "controller": "MailController@update",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.mail.manage"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/admin/mail/templates/{id}",
+            "name": "admin.mail.templates.destroy",
+            "controller": "MailController@destroy",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.mail.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/mail/test",
+            "name": "admin.mail.test",
+            "controller": "MailController@sendTest",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.mail.manage"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/mail/log",
+            "name": "admin.mail.log",
+            "controller": "MailController@log",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.mail.log"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/mail/log/table",
+            "name": "admin.mail.log.table",
+            "controller": "MailController@logTable",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.mail.log"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/changelog/version",
+            "name": "admin.changelog.version",
+            "controller": "ChangelogController@version",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.users.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/changelog",
+            "name": "admin.changelog.index",
+            "controller": "ChangelogController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.changelog.manage"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/changelog/create",
+            "name": "admin.changelog.create",
+            "controller": "ChangelogController@create",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.changelog.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/changelog",
+            "name": "admin.changelog.store",
+            "controller": "ChangelogController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.changelog.manage"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/changelog/{id}",
+            "name": "admin.changelog.show",
+            "controller": "ChangelogController@show",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.changelog.manage"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/changelog/{id}/edit",
+            "name": "admin.changelog.edit",
+            "controller": "ChangelogController@edit",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.changelog.manage"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/admin/changelog/{id}",
+            "name": "admin.changelog.update",
+            "controller": "ChangelogController@update",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.changelog.manage"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/admin/changelog/{id}",
+            "name": "admin.changelog.destroy",
+            "controller": "ChangelogController@destroy",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.changelog.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/changelog/{id}/publish",
+            "name": "admin.changelog.publish",
+            "controller": "ChangelogController@publish",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.changelog.manage"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/dev/simulator",
+            "name": null,
+            "controller": "DevSimulatorController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.dev.simulator"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/dev/error/{code}",
+            "name": null,
+            "controller": "DevSimulatorController@errorPreview",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.dev.simulator"
+            ]
+        }
+    ],
+    "tables": [
+        {
+            "name": "roles",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "name",
+                    "type": "varchar(100)",
+                    "nullable": false
+                },
+                {
+                    "name": "slug",
+                    "type": "varchar(100)",
+                    "nullable": false
+                },
+                {
+                    "name": "description",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "slug",
+                    "columns": [
+                        "slug"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": []
+        },
+        {
+            "name": "permissions",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "name",
+                    "type": "varchar(100)",
+                    "nullable": false
+                },
+                {
+                    "name": "slug",
+                    "type": "varchar(100)",
+                    "nullable": false
+                },
+                {
+                    "name": "module",
+                    "type": "varchar(50)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "slug",
+                    "columns": [
+                        "slug"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": []
+        },
+        {
+            "name": "user_role",
+            "columns": [
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "role_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "user_id",
+                        "role_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "role_id",
+                    "columns": [
+                        "role_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_user_role_user",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "user_role_ibfk_1",
+                    "column": "role_id",
+                    "references": "roles.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "role_permission",
+            "columns": [
+                {
+                    "name": "role_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "permission_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "permission_id",
+                    "columns": [
+                        "permission_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "role_id",
+                        "permission_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "role_permission_ibfk_1",
+                    "column": "role_id",
+                    "references": "roles.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "role_permission_ibfk_2",
+                    "column": "permission_id",
+                    "references": "permissions.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "audit_logs",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "action",
+                    "type": "varchar(100)",
+                    "nullable": false
+                },
+                {
+                    "name": "entity",
+                    "type": "varchar(100)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "entity_id",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "old_value",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "new_value",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "ip",
+                    "type": "varchar(45)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_audit_action",
+                    "columns": [
+                        "action"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_audit_created",
+                    "columns": [
+                        "created_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_audit_entity",
+                    "columns": [
+                        "entity",
+                        "entity_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_audit_user",
+                    "columns": [
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "audit_logs_ibfk_1",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "app_settings",
+            "columns": [
+                {
+                    "name": "key",
+                    "type": "varchar(100)",
+                    "nullable": false
+                },
+                {
+                    "name": "value",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "type",
+                    "type": "varchar(20)",
+                    "nullable": false,
+                    "default": "'string'"
+                },
+                {
+                    "name": "group",
+                    "type": "varchar(50)",
+                    "nullable": false,
+                    "default": "'general'"
+                },
+                {
+                    "name": "label",
+                    "type": "varchar(200)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_settings_group",
+                    "columns": [
+                        "group"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "key"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": []
+        },
+        {
+            "name": "mail_templates",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "slug",
+                    "type": "varchar(100)",
+                    "nullable": false
+                },
+                {
+                    "name": "name",
+                    "type": "varchar(200)",
+                    "nullable": false
+                },
+                {
+                    "name": "subject",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "body_html",
+                    "type": "text",
+                    "nullable": false
+                },
+                {
+                    "name": "variables",
+                    "type": "varchar(500)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "slug",
+                    "columns": [
+                        "slug"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": []
+        },
+        {
+            "name": "mail_log",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "to_email",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "subject",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "template",
+                    "type": "varchar(100)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "status",
+                    "type": "enum('sent','failed','logged')",
+                    "nullable": false,
+                    "default": "'logged'"
+                },
+                {
+                    "name": "error",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "fk_mail_log_user",
+                    "columns": [
+                        "created_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_mail_log_created",
+                    "columns": [
+                        "created_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_mail_log_status",
+                    "columns": [
+                        "status"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_mail_log_user",
+                    "column": "created_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        }
+    ],
+    "permissions": [
+        {
+            "slug": "admin.changelog.manage",
+            "name": "Gestisci changelog versioni"
+        },
+        {
+            "slug": "admin.dev.simulator",
+            "name": "Simulatore pagine (dev)"
+        },
+        {
+            "slug": "admin.logs.purge",
+            "name": "Elimina log (pulizia)"
+        },
+        {
+            "slug": "admin.logs.view",
+            "name": "Visualizza log"
+        },
+        {
+            "slug": "admin.mail.log",
+            "name": "Visualizza log email"
+        },
+        {
+            "slug": "admin.mail.manage",
+            "name": "Gestisci configurazione email"
+        },
+        {
+            "slug": "admin.modules.manage",
+            "name": "Gestisci moduli"
+        },
+        {
+            "slug": "admin.retention.manage",
+            "name": "Gestisci data retention"
+        },
+        {
+            "slug": "admin.roles.manage",
+            "name": "Gestisci ruoli e permessi"
+        },
+        {
+            "slug": "admin.security.assets",
+            "name": "Visualizza inventario asset"
+        },
+        {
+            "slug": "admin.security.logs",
+            "name": "Gestisci log di sicurezza"
+        },
+        {
+            "slug": "admin.security.manage",
+            "name": "Gestisci area sicurezza"
+        },
+        {
+            "slug": "admin.security.policy",
+            "name": "Gestisci policy sicurezza"
+        },
+        {
+            "slug": "admin.security.view",
+            "name": "Visualizza area sicurezza"
+        },
+        {
+            "slug": "admin.settings.manage",
+            "name": "Gestisci impostazioni applicazione"
+        },
+        {
+            "slug": "admin.users.create",
+            "name": "Crea utenti"
+        },
+        {
+            "slug": "admin.users.delete",
+            "name": "Elimina utenti"
+        },
+        {
+            "slug": "admin.users.edit",
+            "name": "Modifica utenti"
+        },
+        {
+            "slug": "admin.users.impersonate",
+            "name": "Accedi come utente"
+        },
+        {
+            "slug": "admin.users.view",
+            "name": "Visualizza utenti"
+        }
+    ],
+    "services": [
+        "App\\Modules\\Admin\\Services\\AdminDashboardService",
+        "App\\Modules\\Admin\\Services\\AdminIndexService",
+        "App\\Modules\\Admin\\Services\\AdminLogsService",
+        "App\\Modules\\Admin\\Services\\AdminUserService",
+        "App\\Modules\\Admin\\Services\\ChangelogService",
+        "App\\Modules\\Admin\\Services\\EnvWriterService",
+        "App\\Modules\\Admin\\Services\\ImpersonationService",
+        "App\\Modules\\Admin\\Services\\ImportResult",
+        "App\\Modules\\Admin\\Services\\MailAdminService",
+        "App\\Modules\\Admin\\Services\\ModuleDataExporter",
+        "App\\Modules\\Admin\\Services\\ModuleExportService",
+        "App\\Modules\\Admin\\Services\\ModuleImportService",
+        "App\\Modules\\Admin\\Services\\ModuleManagementService",
+        "App\\Modules\\Admin\\Services\\ModuleUninstallService",
+        "App\\Modules\\Admin\\Services\\RoleService",
+        "App\\Modules\\Admin\\Services\\UninstallResult"
+    ],
+    "controllers": [
+        "App\\Modules\\Admin\\Controllers\\AdminDashboardController",
+        "App\\Modules\\Admin\\Controllers\\AdminIndexController",
+        "App\\Modules\\Admin\\Controllers\\AdminLogsController",
+        "App\\Modules\\Admin\\Controllers\\ChangelogController",
+        "App\\Modules\\Admin\\Controllers\\DataRetentionController",
+        "App\\Modules\\Admin\\Controllers\\DevSimulatorController",
+        "App\\Modules\\Admin\\Controllers\\ImpersonationController",
+        "App\\Modules\\Admin\\Controllers\\MailController",
+        "App\\Modules\\Admin\\Controllers\\ModuleController",
+        "App\\Modules\\Admin\\Controllers\\PaletteApiController",
+        "App\\Modules\\Admin\\Controllers\\RoleConstraintController",
+        "App\\Modules\\Admin\\Controllers\\RoleController",
+        "App\\Modules\\Admin\\Controllers\\SecurityDashboardController",
+        "App\\Modules\\Admin\\Controllers\\SecurityIncidentController",
+        "App\\Modules\\Admin\\Controllers\\SettingsController",
+        "App\\Modules\\Admin\\Controllers\\UserController"
+    ]
+}

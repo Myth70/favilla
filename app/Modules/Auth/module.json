@@ -1,0 +1,51 @@
+{
+    "name": "Auth",
+    "icon": "fa-solid fa-lock",
+    "version": "2.0.0",
+    "description": "Autenticazione, sessioni, recupero password e profilo utente",
+    "database": "shared",
+    "tables": [
+        "users",
+        "login_attempts",
+        "user_sessions",
+        "password_resets"
+    ],
+    "dependencies": ["Notifications"],
+    "optional_dependencies": [],
+    "services": ["NotificationService"],
+    "notification_events": [
+        {
+            "slug": "auth.nuova_registrazione",
+            "name": "Nuova richiesta di registrazione",
+            "description": "Inviata agli amministratori quando un nuovo utente completa la registrazione e attende approvazione",
+            "default_level": "info",
+            "icon": "fa-solid fa-user-plus",
+            "context_variables": {
+                "name": "Nome e cognome del nuovo utente",
+                "username": "Username scelto",
+                "email": "Indirizzo email"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Nuova registrazione: {{name}} ({{username}})",
+                    "body": "L'utente {{name}} ({{username}} — {{email}}) si \u00e8 registrato e attende approvazione."
+                }
+            }
+        }
+    ],
+    "changelog": {
+        "1.0.0": "Versione iniziale"
+    },
+    "menu": [],
+    "navigation": [
+        {
+            "id": "profile",
+            "label": "Profilo",
+            "icon": "fa-circle-user",
+            "route": "profile",
+            "permission": null,
+            "order": 2,
+            "surfaces": ["user_menu", "radial", "quick_access"]
+        }
+    ]
+}

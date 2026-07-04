@@ -1,0 +1,262 @@
+/* ================================================================
+   Reports Module — .rp- prefix
+   ================================================================ */
+
+/* ── Subnav ────────────────────────────────────────────────────── */
+.rp-subnav {
+    border-bottom: 2px solid var(--bs-border-color);
+}
+.rp-subnav .nav-link {
+    color: var(--bs-body-color);
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    padding: .5rem 1rem;
+    font-size: .875rem;
+    transition: color .15s, border-color .15s;
+}
+.rp-subnav .nav-link:hover {
+    color: var(--bs-primary);
+    border-bottom-color: var(--bs-primary);
+    background: transparent;
+}
+.rp-subnav .nav-link.active {
+    color: var(--bs-primary);
+    border-bottom-color: var(--bs-primary);
+    background: transparent;
+    font-weight: 600;
+}
+
+/* ── Stat Cards ─────────────────────────────────────────────────── */
+.rp-stat-card {
+    border-left: 3px solid var(--bs-primary);
+    transition: box-shadow 0.2s ease, transform 0.15s ease;
+}
+.rp-stat-card:hover {
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1) !important;
+    transform: translateY(-1px);
+}
+.rp-stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+.rp-stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+.rp-stat-label {
+    font-size: 0.8rem;
+    color: var(--bs-secondary);
+}
+
+/* ── Source Cards ────────────────────────────────────────────────── */
+.rp-source-card {
+    transition: border-color 0.2s ease;
+}
+.rp-source-card:hover {
+    border-color: var(--bs-primary) !important;
+}
+
+/* ── Module Badge ───────────────────────────────────────────────── */
+.rp-module-badge {
+    padding: 0.35em 0.65em;
+    font-size: 0.85rem;
+    transition: transform 0.15s ease;
+}
+.rp-module-badge:hover {
+    transform: scale(1.05);
+}
+
+/* ── Format Badges ──────────────────────────────────────────────── */
+.rp-badge-csv {
+    background-color: #dcfce7;
+    color: #166534;
+}
+.rp-badge-excel {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+.rp-badge-pdf {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+.rp-badge-list {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+.rp-badge-document {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+.rp-badge-private {
+    background-color: #f1f5f9;
+    color: #475569;
+}
+.rp-badge-role {
+    background-color: #e0e7ff;
+    color: #3730a3;
+}
+.rp-badge-global {
+    background-color: #dcfce7;
+    color: #166534;
+}
+
+/* ── Color Swatches (Styles) ────────────────────────────────────── */
+.rp-color-swatch {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+    vertical-align: middle;
+}
+.rp-color-row {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* ── Style Cards ────────────────────────────────────────────────── */
+.rp-style-card {
+    transition: box-shadow 0.2s ease;
+    border-left: 3px solid transparent;
+}
+.rp-style-card:hover {
+    box-shadow: 0 .25rem .5rem rgba(0,0,0,.08);
+}
+.rp-style-card.rp-style-default {
+    border-left-color: var(--bs-success);
+}
+
+/* ── History Table ──────────────────────────────────────────────── */
+.rp-history-row:hover {
+    background-color: rgba(0,0,0,.015);
+}
+
+/* ── Template Card Grid ─────────────────────────────────────────── */
+.rp-template-card {
+    transition: box-shadow 0.2s ease, transform 0.15s ease;
+}
+.rp-template-card:hover {
+    box-shadow: 0 .25rem .75rem rgba(0,0,0,.1);
+    transform: translateY(-1px);
+}
+.rp-template-card .rp-template-format {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* ── Shared Toolbar Filters ───────────────────────────────────── */
+.rp-toolbar-search {
+    min-width: 180px;
+    max-width: 300px;
+}
+
+.rp-filter-auto {
+    width: auto;
+}
+
+/* ── Table Utilities ──────────────────────────────────────────── */
+.rp-col-id {
+    width: 50px;
+}
+
+.rp-col-format {
+    width: 60px;
+}
+
+.rp-col-preview-index {
+    width: 40px;
+}
+
+.rp-table-xs {
+    font-size: 0.7rem;
+}
+
+.rp-table-sm-text {
+    font-size: 0.75rem;
+}
+
+/* ── Style Form / Preview ─────────────────────────────────────── */
+.rp-logo-thumb {
+    max-height: 60px;
+}
+
+.rp-preview-sticky {
+    top: 1rem;
+}
+
+.rp-preview-page {
+    --rp-preview-primary: #3b82f6;
+    --rp-preview-header-bg: #1e293b;
+    --rp-preview-header-text: #ffffff;
+    --rp-preview-zebra: #f8fafc;
+    background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    border-color: color-mix(in srgb, var(--border-color) 68%, #ffffff) !important;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, .08);
+}
+
+[data-bs-theme="dark"] .rp-preview-page {
+    box-shadow: 0 18px 42px rgba(2, 6, 23, .36);
+}
+
+.rp-preview-header-bar {
+    background: var(--rp-preview-primary);
+}
+
+.rp-preview-logo-chip {
+    background: color-mix(in srgb, var(--rp-preview-header-text) 20%, transparent);
+}
+
+.rp-preview-logo-chip i,
+.rp-preview-header-title {
+    color: var(--rp-preview-header-text);
+}
+
+.rp-preview-subtitle {
+    font-size: 0.7rem;
+    color: color-mix(in srgb, var(--rp-preview-header-text) 55%, transparent);
+}
+
+.rp-preview-thead {
+    background: var(--rp-preview-header-bg);
+    color: var(--rp-preview-header-text);
+}
+
+.rp-preview-zebra {
+    background: var(--rp-preview-zebra);
+}
+
+.rp-preview-footer {
+    font-size: 0.65rem;
+}
+
+/* ── Color Swatches Modifiers ─────────────────────────────────── */
+.rp-color-swatch-contrast {
+    border-color: #ccc;
+}
+
+.rp-color-swatch-soft {
+    border-color: #eee;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .rp-stat-value {
+        font-size: 1.2rem;
+    }
+    .rp-stat-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}

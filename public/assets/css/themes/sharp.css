@@ -1,0 +1,100 @@
+/* ==========================================================================
+   Tema visivo: SHARP
+   Identita': angoli vivi, zero ombre, bordi marcati, tipografia geometrica
+   grassetta, superfici fredde/blue-tinted.
+   Tono "tecnico / dashboard professionale".
+   ========================================================================== */
+
+[data-theme-skin="sharp"] {
+    /* Tipografia geometrica */
+    --font-family-base: "Inter", "SF Pro Text", system-ui, -apple-system,
+                         "Segoe UI", Roboto, sans-serif;
+    --font-family-heading: var(--font-family-base);
+
+    /* Angoli quasi vivi */
+    --radius-sm: 2px;
+    --radius-md: 2px;
+    --radius-lg: 4px;
+
+    /* Pulsanti squadrati, testo piu' marcato */
+    --btn-radius: 2px;
+    --btn-padding-y: 0.4rem;
+    --btn-padding-x: 0.9rem;
+    --btn-font-weight: 600;
+
+    /* Card: bordo marcato, zero shadow */
+    --card-radius: 4px;
+    --card-shadow: none;
+    --card-border-width: 1.5px;
+    --card-padding: 1.125rem;
+}
+
+/* ---------- Light: superfici cool / blue-tinted ---------- */
+[data-theme-skin="sharp"][data-bs-theme="light"] {
+    --bg-primary: #eef1f5;
+    --bg-surface: #f9fafb;
+    --header-bg: #f3f5f8;
+    --header-border: #d1d8e0;
+    --footer-bg: #f3f5f8;
+    --footer-border: #d1d8e0;
+    --border-color: #d1d8e0;
+    --border-color-strong: #b0bcc8;
+    --text-secondary: #52606d;
+    --text-muted: #8494a5;
+    --sidebar-default-bg: #161d2b;
+    --sidebar-default-text: #a8b8cc;
+    --sidebar-default-brand-bg: #0c1220;
+    --sidebar-default-active-bg: rgba(200, 220, 255, 0.10);
+    --sidebar-default-hover-bg: rgba(200, 220, 255, 0.06);
+    --shadow-sm: none;
+    --shadow-md: none;
+}
+
+/* ---------- Dark: superfici deep cool ---------- */
+[data-theme-skin="sharp"][data-bs-theme="dark"] {
+    --bg-primary: #0b1019;
+    --bg-surface: #151c2b;
+    --header-bg: #1a2235;
+    --header-border: #2a3548;
+    --footer-bg: #151c2b;
+    --footer-border: #2a3548;
+    --border-color: #2a3548;
+    --border-color-strong: #3d4e65;
+    --text-secondary: #b0c0d4;
+    --text-muted: #7a8da2;
+    --sidebar-default-bg: #0b1019;
+    --sidebar-default-text: #7a8da2;
+    --sidebar-default-brand-bg: #060a10;
+    --sidebar-default-active-bg: rgba(140, 180, 240, 0.08);
+    --sidebar-default-hover-bg: rgba(140, 180, 240, 0.04);
+    --shadow-sm: none;
+    --shadow-md: none;
+}
+
+/* Bordi sidebar / header piu' evidenti */
+[data-theme-skin="sharp"] {
+    --border-color-strong: color-mix(in srgb, var(--text-primary) 40%, var(--bg-surface));
+}
+
+/* Icon box dei card header: leggermente piu' squadrato */
+[data-theme-skin="sharp"] .app-card-icon {
+    border-radius: 2px;
+}
+
+/* Card: left-border accent per identita' tecnica */
+[data-theme-skin="sharp"] .card {
+    border-left: 3px solid color-mix(in srgb, var(--accent-color) 40%, var(--border-color));
+}
+
+/* Input group: meno friendly, piu' tecnici */
+[data-theme-skin="sharp"] .form-control,
+[data-theme-skin="sharp"] .form-select {
+    border-radius: 2px;
+}
+
+/* Badge e contatori con font monospace */
+[data-theme-skin="sharp"] .badge,
+[data-theme-skin="sharp"] .app-stat-value {
+    font-family: var(--bs-font-monospace, "SF Mono", "Fira Code", monospace);
+    letter-spacing: 0.02em;
+}

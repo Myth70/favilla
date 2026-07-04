@@ -1,0 +1,88 @@
+/* ==========================================================================
+   Tema visivo: SOFT
+   Identita': radius generosi, pulsanti pill, card ariose, font serif sui
+   titoli, ombre morbide e diffuse, superfici calde.
+   Tono "editoriale / warm".
+   ========================================================================== */
+
+[data-theme-skin="soft"] {
+    /* Tipografia: serif sui titoli, sans per il corpo */
+    --font-family-heading: "Georgia", "Cambria", "Times New Roman", serif;
+
+    /* Radius globali piu' grandi */
+    --radius-sm: 10px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+
+    /* Pulsanti pill */
+    --btn-radius: 999px;
+    --btn-padding-y: 0.5rem;
+    --btn-padding-x: 1.25rem;
+    --btn-font-weight: 500;
+
+    /* Card ariose con ombra diffusa */
+    --card-radius: 20px;
+    --card-shadow: 0 8px 24px rgba(15, 23, 42, 0.06),
+                   0 2px 6px rgba(15, 23, 42, 0.04);
+    --card-border-width: 1px;
+    --card-padding: 1.5rem;
+
+    /* Spaziatura piu' generosa */
+    --card-gap: 1.25rem;
+    --section-gap: 2rem;
+}
+
+/* ---------- Light: superfici warm cream ---------- */
+[data-theme-skin="soft"][data-bs-theme="light"] {
+    --bg-primary: #f5f2ee;
+    --bg-surface: #fffcf9;
+    --header-bg: #faf8f5;
+    --header-border: #e8e2da;
+    --footer-bg: #faf8f5;
+    --footer-border: #e8e2da;
+    --border-color: #e5ddd4;
+    --border-color-strong: #d4c9bc;
+    --text-secondary: #6b5e52;
+    --text-muted: #9a8e82;
+    --sidebar-default-bg: #2c2520;
+    --sidebar-default-text: #d4c9bc;
+    --sidebar-default-brand-bg: #1e1814;
+    --sidebar-default-active-bg: rgba(255, 248, 240, 0.12);
+    --sidebar-default-hover-bg: rgba(255, 248, 240, 0.07);
+    --shadow-sm: 0 1px 3px rgba(60, 40, 20, 0.05), 0 1px 2px rgba(60, 40, 20, 0.03);
+    --shadow-md: 0 3px 8px rgba(60, 40, 20, 0.07), 0 6px 16px rgba(60, 40, 20, 0.05);
+    --card-shadow: 0 6px 20px rgba(60, 40, 20, 0.06), 0 2px 6px rgba(60, 40, 20, 0.03);
+}
+
+/* ---------- Dark: superfici warm slate ---------- */
+[data-theme-skin="soft"][data-bs-theme="dark"] {
+    --bg-primary: #18130f;
+    --bg-surface: #262018;
+    --header-bg: #2e2720;
+    --header-border: #3d342b;
+    --footer-bg: #262018;
+    --footer-border: #3d342b;
+    --border-color: #3d342b;
+    --border-color-strong: #524738;
+    --text-secondary: #c8b9a8;
+    --text-muted: #998a79;
+    --sidebar-default-bg: #18130f;
+    --sidebar-default-text: #998a79;
+    --sidebar-default-brand-bg: #0e0a07;
+    --sidebar-default-active-bg: rgba(255, 240, 220, 0.09);
+    --sidebar-default-hover-bg: rgba(255, 240, 220, 0.05);
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.30), 0 1px 3px rgba(0, 0, 0, 0.40);
+    --shadow-md: 0 3px 8px rgba(0, 0, 0, 0.40), 0 6px 16px rgba(0, 0, 0, 0.50);
+    --card-shadow: 0 10px 28px rgba(0, 0, 0, 0.45),
+                   0 3px 8px rgba(0, 0, 0, 0.35);
+}
+
+/* Icone nei card header: cerchio morbido */
+[data-theme-skin="soft"] .app-card-icon {
+    border-radius: 999px;
+}
+
+/* Card header con linea sottile accent in basso */
+[data-theme-skin="soft"] .card-header {
+    border-bottom: 2px solid color-mix(in srgb, var(--accent-color) 25%, var(--border-color));
+}

@@ -1,0 +1,149 @@
+{
+    "name": "Tasks",
+    "core": true,
+    "icon": "fa-solid fa-clipboard-check",
+    "version": "2.0.0",
+    "description": "Gestione attività personali con Kanban board, to-do list, checklist, integrazione calendario e notifiche scadenze",
+    "author": "Favilla",
+    "framework_min": "1.0",
+    "database": "shared",
+    "tables": [
+        "tasks",
+        "task_checklist",
+        "task_tags",
+        "task_tag_map"
+    ],
+    "dependencies": ["Notifications"],
+    "optional_dependencies": ["Calendar"],
+    "dashboard_provider": "App\\Modules\\Tasks\\Providers\\TasksDashboardProvider",
+    "search_provider": "App\\Modules\\Tasks\\Providers\\TasksSearchProvider",
+    "export_provider": "App\\Modules\\Tasks\\Providers\\TasksExportProvider",
+    "services": ["NotificationService", "AuditService"],
+    "assets": {
+        "css": ["tasks.css"],
+        "js": ["tasks.js"]
+    },
+    "notification_events": [
+        {
+            "slug": "tasks.task_overdue",
+            "name": "Attivita scaduta",
+            "description": "Inviata quando un'attivita supera la data di scadenza",
+            "default_level": "warning",
+            "icon": "fa-solid fa-clock",
+            "context_variables": {
+                "task_id": "ID attivita",
+                "task_title": "Titolo attivita",
+                "due_date": "Data di scadenza"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Attivita scaduta: {{task_title}}",
+                    "body": "L'attivita {{task_title}} e scaduta il {{due_date}}"
+                },
+                "email": {
+                    "subject": "Attivita scaduta: {{task_title}}",
+                    "body": "<h2>Attivita scaduta</h2><p>{{task_title}} - scadenza: {{due_date}}</p><p><a href=\"{{link}}\">Apri attivita</a></p>"
+                },
+                "telegram": {
+                    "body": "⚠️ Attivita scaduta: {{task_title}}\nScadenza: {{due_date}}\n{{link}}"
+                }
+            }
+        },
+        {
+            "slug": "tasks.task_due_today",
+            "name": "Attivita in scadenza oggi",
+            "description": "Inviata il giorno della scadenza di un'attivita",
+            "default_level": "info",
+            "icon": "fa-solid fa-calendar-day",
+            "context_variables": {
+                "task_id": "ID attivita",
+                "task_title": "Titolo attivita",
+                "due_date": "Data di scadenza"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Scadenza oggi: {{task_title}}",
+                    "body": "L'attivita {{task_title}} scade oggi ({{due_date}})"
+                },
+                "email": {
+                    "subject": "Scadenza oggi: {{task_title}}",
+                    "body": "<h2>Scadenza attivita</h2><p>{{task_title}} scade oggi ({{due_date}})</p><p><a href=\"{{link}}\">Apri attivita</a></p>"
+                },
+                "telegram": {
+                    "body": "📌 Scadenza oggi: {{task_title}}\nData: {{due_date}}\n{{link}}"
+                }
+            }
+        }
+    ],
+    "menu": [
+        {
+            "label": "Attività",
+            "icon": "fa-clipboard-check",
+            "route": "tasks.index",
+            "permission": "tasks.view",
+            "order": 8
+        }
+    ],
+    "navigation": [
+        {
+            "id": "tasks.index",
+            "label": "Attività",
+            "icon": "fa-clipboard-check",
+            "route": "tasks.index",
+            "permission": "tasks.view",
+            "order": 8,
+            "surfaces": ["user_menu", "radial", "quick_access"]
+        }
+    ],
+    "admin_panel": {
+        "section": "Pannelli admin dei moduli",
+        "eyebrow": "Moduli attivi",
+        "groups": [
+            {
+                "title": "Attività",
+                "description": "Task, board Kanban, tag e scadenze operative degli utenti.",
+                "icon": "fa-solid fa-clipboard-check",
+                "flows": [
+                    "Nuova attività",
+                    "Vista board",
+                    "Gestisci tag",
+                    "Verifica scadenze"
+                ],
+                "links": [
+                    {
+                        "label": "Elenco attività",
+                        "route": "tasks.index",
+                        "permission": "tasks.view",
+                        "description": "Lista completa delle attività presenti nel sistema.",
+                        "icon": "fa-solid fa-list-check",
+                        "keywords": "attivita elenco task todo"
+                    },
+                    {
+                        "label": "Board Kanban",
+                        "route": "tasks.board",
+                        "permission": "tasks.view",
+                        "description": "Vista board per stato delle attività.",
+                        "icon": "fa-solid fa-table-columns",
+                        "keywords": "board kanban attivita task stato"
+                    },
+                    {
+                        "label": "Nuova attività",
+                        "route": "tasks.create",
+                        "permission": "tasks.create",
+                        "description": "Crea una nuova attività o task.",
+                        "icon": "fa-solid fa-plus",
+                        "keywords": "crea attivita nuova task"
+                    },
+                    {
+                        "label": "Tag attività",
+                        "route": "tasks.tags",
+                        "permission": "tasks.edit",
+                        "description": "Gestisci i tag delle attività.",
+                        "icon": "fa-solid fa-tags",
+                        "keywords": "tag attivita etichette"
+                    }
+                ]
+            }
+        ]
+    }
+}

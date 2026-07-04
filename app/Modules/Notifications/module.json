@@ -1,0 +1,86 @@
+{
+    "name": "Notifications",
+    "icon": "fa-solid fa-bell",
+    "version": "2.0.0",
+    "description": "Sistema notifiche con dispatcher multicanale: in-app, email, Telegram, queue, preferenze utente e tracking delivery.",
+    "author": "Favilla",
+    "database": "shared",
+    "tables": [
+        "notifications",
+        "notification_channels",
+        "notification_event_types",
+        "notification_event_channel_bindings",
+        "user_notification_preferences",
+        "notification_dispatches",
+        "notification_deliveries",
+        "notification_queue",
+        "telegram_bots",
+        "telegram_user_links"
+    ],
+    "dependencies": [],
+    "changelog": {
+        "1.0.0": "Versione iniziale — notifiche in-app con campanella, dropdown, lista, admin send",
+        "1.1.0": "Icone personalizzabili per modulo, icon picker, invio a ruolo, batch insert, cleanup, fix polling badge",
+        "1.2.0": "Dispatcher multicanale di base, queue DB, binding canali, preferenze utente e driver email/Telegram",
+        "1.3.0": "Pagina profilo per canali per modulo, console admin binding/template, overview queue e gestione bot Telegram di default",
+        "1.4.0": "Wizard Telegram end-to-end via webhook e prime migrazioni dei produttori a eventi espliciti (Teams, Calendario, Blog)",
+        "1.5.0": "Migrazione produttori legacy: Attivita, GDPR, HealthCheck, Contatti, Backup, Admin con eventi espliciti",
+        "1.6.0": "UI override per-evento nel profilo, catalogo eventi espliciti in admin, gestione multi-bot Telegram",
+        "1.7.0": "Refactor architetturale: NotificationModuleCatalogService (auto-discovery moduli), NotificationChannelRepository, SQL estratto nei repo, retry coda da admin UI, 25 nuovi unit test"
+    },
+    "search_provider": "App\\Modules\\Notifications\\Providers\\NotifSearchProvider",
+    "export_provider": "App\\Modules\\Notifications\\Providers\\NotifExportProvider",
+    "dashboard_provider": "App\\Modules\\Notifications\\Providers\\NotificationsDashboardProvider",
+    "notification_events": [
+        {
+            "slug": "notifications.manual_send",
+            "name": "Invio manuale admin",
+            "description": "Notifica inviata manualmente dall'amministrazione",
+            "default_level": "info",
+            "icon": "fa-solid fa-paper-plane",
+            "context_variables": {
+                "title": "Titolo notifica",
+                "body": "Corpo notifica",
+                "type": "Livello notifica"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "{{title}}",
+                    "body": "{{body}}"
+                },
+                "email": {
+                    "subject": "{{title}}",
+                    "body": "<h2>{{title}}</h2><p>{{body}}</p><p><a href=\"{{link}}\">Apri</a></p>"
+                },
+                "telegram": {
+                    "body": "{{title}}\n{{body}}\n{{link}}"
+                }
+            }
+        },
+        {
+            "slug": "system.direct_send",
+            "name": "Invio diretto sistema",
+            "description": "Evento generico usato dall'API legacy send/sendToRole",
+            "default_level": "info",
+            "context_variables": {
+                "title": "Titolo notifica",
+                "body": "Corpo notifica",
+                "type": "Livello notifica"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "{{title}}",
+                    "body": "{{body}}"
+                },
+                "email": {
+                    "subject": "{{title}}",
+                    "body": "<h2>{{title}}</h2><p>{{body}}</p><p><a href=\"{{link}}\">Apri notifica</a></p>"
+                },
+                "telegram": {
+                    "body": "{{title}}\n{{body}}\n{{link}}"
+                }
+            }
+        }
+    ],
+    "menu": []
+}

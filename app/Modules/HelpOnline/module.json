@@ -1,0 +1,89 @@
+{
+    "name": "HelpOnline",
+    "core": true,
+    "icon": "fa-solid fa-circle-question",
+    "version": "2.2.0",
+    "description": "Help inline contestuale, knowledge base utente (Q/R) e pannello amministrativo per moduli, alias, ricerca e analytics del supporto.",
+    "author": "Favilla",
+    "database": "shared",
+    "tables": [
+        "help_modules",
+        "help_entries",
+        "help_entry_aliases",
+        "help_search_terms",
+        "help_queries"
+    ],
+    "dependencies": [],
+    "search_provider": "App\\Modules\\HelpOnline\\Providers\\HelpOnlineSearchProvider",
+    "assets": {
+        "css": [
+            "css/helponline.css"
+        ],
+        "js": [
+            "js/helponline.js"
+        ]
+    },
+    "admin_panel": {
+        "section": "Pannelli admin dei moduli",
+        "eyebrow": "Moduli attivi",
+        "groups": [
+            {
+                "title": "HelpOnline",
+                "description": "Knowledge base, reindicizzazione, monitoraggio query e copertura help inline.",
+                "icon": "fa-solid fa-circle-question",
+                "flows": [
+                    "Gestione moduli help",
+                    "Gestione domande e risposte",
+                    "Gestione sinonimi e alias",
+                    "Analisi query e copertura"
+                ],
+                "links": [
+                    {
+                        "label": "Dashboard help",
+                        "route": "helponline.admin.index",
+                        "permission": "helponline.admin",
+                        "description": "Panoramica amministrativa di HelpOnline.",
+                        "icon": "fa-solid fa-gauge-high",
+                        "keywords": "help online admin dashboard knowledge base"
+                    },
+                    {
+                        "label": "Moduli help",
+                        "route": "helponline.admin.modules",
+                        "permission": "helponline.admin",
+                        "description": "Gestione moduli funzionali della knowledge base.",
+                        "icon": "fa-solid fa-cubes",
+                        "keywords": "moduli help knowledge base"
+                    },
+                    {
+                        "label": "Domande e risposte",
+                        "route": "helponline.admin.entries",
+                        "permission": "helponline.admin",
+                        "description": "CRUD dei record Q/A canonici con ranking, alias e contesto.",
+                        "icon": "fa-solid fa-circle-question",
+                        "keywords": "qa domande risposte help alias sinonimi"
+                    },
+                    {
+                        "label": "Query utenti",
+                        "route": "helponline.admin.queries",
+                        "permission": "helponline.admin",
+                        "description": "Storico delle domande poste dagli utenti e relativi esiti.",
+                        "icon": "fa-solid fa-chart-line",
+                        "keywords": "query utenti analytics help"
+                    }
+                ]
+            }
+        ]
+    },
+    "menu": [],
+    "navigation": [
+        {
+            "id": "helponline.index",
+            "label": "Guida",
+            "icon": "fa-solid fa-circle-question",
+            "route": "helponline.index",
+            "permission": null,
+            "order": 900,
+            "surfaces": ["quick_access"]
+        }
+    ]
+}

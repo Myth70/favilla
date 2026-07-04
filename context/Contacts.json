@@ -1,0 +1,960 @@
+{
+    "module": "Contacts",
+    "generated_at": "2026-07-04T09:48:34+02:00",
+    "routes": [
+        {
+            "method": "GET",
+            "uri": "/contacts/",
+            "name": "contacts.index",
+            "controller": "ContactsController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/contacts/search",
+            "name": "contacts.search",
+            "controller": "ContactsController@search",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/contacts/create",
+            "name": "contacts.create",
+            "controller": "ContactsController@create",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.create"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/contacts/",
+            "name": "contacts.store",
+            "controller": "ContactsController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.create"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/contacts/categories",
+            "name": "contacts.categories.index",
+            "controller": "CategoriesController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.view"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/contacts/categories",
+            "name": "contacts.categories.store",
+            "controller": "CategoriesController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.view"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/contacts/categories/{cid}",
+            "name": "contacts.categories.update",
+            "controller": "CategoriesController@update",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.view"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/contacts/categories/{cid}",
+            "name": "contacts.categories.destroy",
+            "controller": "CategoriesController@destroy",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.view"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/contacts/reminders/process",
+            "name": "contacts.reminders.process",
+            "controller": "ReminderController@process",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/contacts/import",
+            "name": "contacts.import.index",
+            "controller": "ImportController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.import"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/contacts/import/file",
+            "name": "contacts.import.file.upload",
+            "controller": "FileImportController@upload",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.import"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/contacts/import/file/upload",
+            "name": "contacts.import.file.store",
+            "controller": "FileImportController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.import"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/contacts/import/file/preview",
+            "name": "contacts.import.file.preview",
+            "controller": "FileImportController@preview",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.import"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/contacts/import/file/commit",
+            "name": "contacts.import.file.commit",
+            "controller": "FileImportController@commit",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.import"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/contacts/import/file/result",
+            "name": "contacts.import.file.result",
+            "controller": "FileImportController@result",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.import"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/contacts/import/file/template.csv",
+            "name": "contacts.import.file.template",
+            "controller": "FileImportController@template",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.import"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/contacts/import/{module}/{source}",
+            "name": "contacts.import.browse",
+            "controller": "ImportController@browse",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.import"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/contacts/import/{module}/{source}/list",
+            "name": "contacts.import.list",
+            "controller": "ImportController@listPartial",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.import"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/contacts/import/{module}/{source}/{sourceId}",
+            "name": "contacts.import.preview",
+            "controller": "ImportController@preview",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.import"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/contacts/import/{module}/{source}/{sourceId}",
+            "name": "contacts.import.store",
+            "controller": "ImportController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.import"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/contacts/{id}",
+            "name": "contacts.show",
+            "controller": "ContactsController@show",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/contacts/{id}/foto",
+            "name": "contacts.foto",
+            "controller": "ContactsController@foto",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/contacts/{id}/edit",
+            "name": "contacts.edit",
+            "controller": "ContactsController@edit",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.edit"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/contacts/{id}",
+            "name": "contacts.update",
+            "controller": "ContactsController@update",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.edit"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/contacts/{id}",
+            "name": "contacts.destroy",
+            "controller": "ContactsController@destroy",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.delete"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/contacts/{id}/toggle-preferito",
+            "name": "contacts.toggle-preferito",
+            "controller": "ContactsController@togglePreferito",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.edit"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/contacts/{id}/sharing",
+            "name": "contacts.sharing.edit",
+            "controller": "SharingController@edit",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.share"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/contacts/{id}/sharing",
+            "name": "contacts.sharing.update",
+            "controller": "SharingController@update",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.share"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/contacts/{id}/sharing/{rid}",
+            "name": "contacts.sharing.destroy",
+            "controller": "SharingController@destroy",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.share"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/contacts/{id}/recurrences",
+            "name": "contacts.recurrences.store",
+            "controller": "RecurrencesController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.edit"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/contacts/{id}/recurrences/list",
+            "name": "contacts.recurrences.list",
+            "controller": "RecurrencesController@listPartial",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.edit"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/contacts/{id}/recurrences/{rid}/edit",
+            "name": "contacts.recurrences.edit",
+            "controller": "RecurrencesController@editForm",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.edit"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/contacts/{id}/recurrences/{rid}",
+            "name": "contacts.recurrences.update",
+            "controller": "RecurrencesController@update",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.edit"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/contacts/{id}/recurrences/{rid}",
+            "name": "contacts.recurrences.destroy",
+            "controller": "RecurrencesController@destroy",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:contacts.edit"
+            ]
+        }
+    ],
+    "tables": [
+        {
+            "name": "contact_categories",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "nome",
+                    "type": "varchar(100)",
+                    "nullable": false
+                },
+                {
+                    "name": "colore",
+                    "type": "varchar(7)",
+                    "nullable": false,
+                    "default": "'#6c757d'"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_cat_user",
+                    "columns": [
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "contact_categories_ibfk_1",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "contacts",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "categoria_id",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "nome",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "cognome",
+                    "type": "varchar(255)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "azienda",
+                    "type": "varchar(255)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "ruolo",
+                    "type": "varchar(255)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "email",
+                    "type": "varchar(255)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "telefono",
+                    "type": "varchar(50)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "telefono_alt",
+                    "type": "varchar(50)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "indirizzo",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "latitude",
+                    "type": "decimal(10,8)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "longitude",
+                    "type": "decimal(11,8)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "geocoding_source",
+                    "type": "enum('manual','osm')",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "geocoded_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "sito_web",
+                    "type": "varchar(500)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "linkedin",
+                    "type": "varchar(500)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "instagram",
+                    "type": "varchar(255)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "twitter",
+                    "type": "varchar(255)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "facebook",
+                    "type": "varchar(500)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "whatsapp",
+                    "type": "varchar(50)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "telegram",
+                    "type": "varchar(255)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "avatar",
+                    "type": "varchar(255)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "tags",
+                    "type": "varchar(500)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "note",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "preferito",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_contatti_cat",
+                    "columns": [
+                        "categoria_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_contatti_geo",
+                    "columns": [
+                        "latitude",
+                        "longitude"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_contatti_nome",
+                    "columns": [
+                        "nome"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_contatti_user",
+                    "columns": [
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "contacts_ibfk_1",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "contacts_ibfk_2",
+                    "column": "categoria_id",
+                    "references": "contact_categories.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "contact_recurrences",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "contatto_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "tipo",
+                    "type": "enum('compleanno','anniversario','evento')",
+                    "nullable": false,
+                    "default": "'evento'"
+                },
+                {
+                    "name": "titolo",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "data_ricorrenza",
+                    "type": "date",
+                    "nullable": false
+                },
+                {
+                    "name": "annuale",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "1"
+                },
+                {
+                    "name": "anno_riferimento",
+                    "type": "smallint(5) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "promemoria_giorni_prima",
+                    "type": "tinyint(3) unsigned",
+                    "nullable": false,
+                    "default": "7"
+                },
+                {
+                    "name": "notifica_giorno_stesso",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "1"
+                },
+                {
+                    "name": "crea_evento_calendario",
+                    "type": "enum('no','prossimo','annuale')",
+                    "nullable": false,
+                    "default": "'no'"
+                },
+                {
+                    "name": "calendario_event_id",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "last_notified_year",
+                    "type": "smallint(5) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "note",
+                    "type": "varchar(500)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_ric_contatto",
+                    "columns": [
+                        "contatto_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_ric_data",
+                    "columns": [
+                        "data_ricorrenza"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_ric_user",
+                    "columns": [
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "contact_recurrences_ibfk_1",
+                    "column": "contatto_id",
+                    "references": "contacts.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "contact_recurrences_ibfk_2",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "contact_shares",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "contatto_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "role_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "shared_by_user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "fk_contatti_shares_user",
+                    "columns": [
+                        "shared_by_user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_contatti_shares_role",
+                    "columns": [
+                        "role_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "uk_contatti_shares",
+                    "columns": [
+                        "contatto_id",
+                        "role_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_contatti_shares_contatto",
+                    "column": "contatto_id",
+                    "references": "contacts.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "fk_contatti_shares_role",
+                    "column": "role_id",
+                    "references": "roles.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "fk_contatti_shares_user",
+                    "column": "shared_by_user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        }
+    ],
+    "permissions": [
+        {
+            "slug": "contacts.create",
+            "name": "Crea Contatti"
+        },
+        {
+            "slug": "contacts.delete",
+            "name": "Elimina Contatti"
+        },
+        {
+            "slug": "contacts.edit",
+            "name": "Modifica Contatti"
+        },
+        {
+            "slug": "contacts.import",
+            "name": "Importa Contatti"
+        },
+        {
+            "slug": "contacts.share",
+            "name": "Condividi i propri Contatti per ruolo"
+        },
+        {
+            "slug": "contacts.view",
+            "name": "Visualizza Contatti"
+        }
+    ],
+    "services": [
+        "App\\Modules\\Contacts\\Services\\ContactFileImportService",
+        "App\\Modules\\Contacts\\Services\\ContactSourceService",
+        "App\\Modules\\Contacts\\Services\\ContactsReminderService",
+        "App\\Modules\\Contacts\\Services\\ContactsService",
+        "App\\Modules\\Contacts\\Services\\RecurrencesService"
+    ],
+    "controllers": [
+        "App\\Modules\\Contacts\\Controllers\\CategoriesController",
+        "App\\Modules\\Contacts\\Controllers\\ContactsController",
+        "App\\Modules\\Contacts\\Controllers\\FileImportController",
+        "App\\Modules\\Contacts\\Controllers\\ImportController",
+        "App\\Modules\\Contacts\\Controllers\\RecurrencesController",
+        "App\\Modules\\Contacts\\Controllers\\ReminderController",
+        "App\\Modules\\Contacts\\Controllers\\SharingController"
+    ]
+}

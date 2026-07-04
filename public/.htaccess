@@ -1,0 +1,50 @@
+# ============================================================
+# Front controller — deployment-agnostic.
+# Works both at the web root (Docker / VirtualHost, DocumentRoot = public/)
+# and in a subdirectory (XAMPP, http://localhost/favilla/public/) because
+# mod_rewrite resolves these rules relative to this directory's context.
+# No RewriteBase needed.
+# ============================================================
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    Options -MultiViews
+
+    # Let the front controller itself pass through.
+    RewriteRule ^index\.php$ - [L]
+
+    # Route everything that is not an existing file or directory to index.php.
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule . index.php [L]
+</IfModule>
+
+# Deny access to hidden files (.env, .git, .htaccess, …)
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
+
+# ============================================================
+# Browser caching for static assets (versioned via ?v= query string)
+# ============================================================
+<IfModule mod_headers.c>
+    <FilesMatch "\.(css|js|woff|woff2|ttf|eot|otf|svg|png|jpg|jpeg|gif|ico|webp)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+
+    # HTML / PHP responses: never cache (HTMX partials must stay fresh).
+    <FilesMatch "\.php$">
+        Header set Cache-Control "no-store, no-cache, must-revalidate"
+        Header set Pragma "no-cache"
+    </FilesMatch>
+</IfModule>
+
+# ============================================================
+# GZIP compression (if mod_deflate available)
+# ============================================================
+<IfModule mod_deflate.c>
+    # Cover both JS content-types: Apache/Debian serves .js as text/javascript,
+    # older setups as application/javascript.
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript text/javascript
+    AddOutputFilterByType DEFLATE application/json text/xml application/xml
+    AddOutputFilterByType DEFLATE font/woff font/woff2 image/svg+xml
+</IfModule>

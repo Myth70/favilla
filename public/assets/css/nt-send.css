@@ -1,0 +1,72 @@
+/* ============================================================
+   nt-send.css — Stili pagina Invia Notifica (admin)
+   Prefisso classi: .nt-send-
+   ============================================================ */
+
+/* Type pills */
+.nt-send-type-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.35rem 0.7rem;
+    border: 1px solid var(--bs-border-color);
+    border-radius: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: var(--bg-surface, var(--bs-body-bg));
+    color: var(--bs-secondary-color);
+    transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.nt-send-type-label:hover {
+    background: color-mix(in srgb, var(--type-color) 8%, var(--bg-surface, var(--bs-body-bg)));
+    border-color: color-mix(in srgb, var(--type-color) 40%, var(--bs-border-color));
+}
+
+.nt-send-type-label.is-active {
+    background: color-mix(in srgb, var(--type-color) 12%, var(--bg-surface, var(--bs-body-bg)));
+    border-color: var(--type-color);
+    color: var(--type-color);
+}
+
+/* Channel badges */
+.nt-send-ch-badge {
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 0.35rem 0.65rem;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.nt-send-ch-badge.is-on {
+    background-color: color-mix(in srgb, #16A34A 12%, var(--bg-surface, var(--bs-body-bg)));
+    color: #16A34A;
+    border: 1px solid color-mix(in srgb, #16A34A 30%, var(--bs-border-color));
+}
+
+.nt-send-ch-badge.is-off {
+    background-color: transparent;
+    color: var(--bs-secondary-color);
+    border: 1px solid var(--bs-border-color);
+    opacity: 0.6;
+}
+
+/* Preview — uses real .nt-item from nt-notifications.css */
+.nt-send-preview-item {
+    border-radius: 8px;
+    border: 1px solid var(--bs-border-color);
+}
+
+.nt-send-preview-item .nt-type-icon {
+    font-size: 1.1rem;
+}
+
+/* Fieldset legend */
+.nt-send-form fieldset legend,
+#nt-send-form fieldset legend {
+    border-bottom: 1px solid var(--bs-border-color);
+    padding-bottom: 0.4rem;
+}

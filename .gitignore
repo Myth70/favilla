@@ -1,0 +1,37 @@
+# ── Environment & secrets ──────────────────────────────────
+.env
+
+# ── Dependencies ───────────────────────────────────────────
+/vendor/
+
+# ── Runtime state (directory structure kept via .gitkeep) ──
+# .htaccess files harden upload/storage dirs (deny PHP execution) and MUST ship.
+/storage/*/*
+!/storage/*/.gitkeep
+!/storage/*/.htaccess
+/storage/.setup_complete
+/public/uploads/*/*
+!/public/uploads/*/.gitkeep
+!/public/uploads/*/.htaccess
+
+# ── Test & tooling artifacts ───────────────────────────────
+.phpunit.result.cache
+.phpunit.cache/
+.php-cs-fixer.cache
+
+# ── Local dev-only material (must NOT reach the public repo) ─
+# 3.1MB of study/reverse-engineering exports, not referenced by the app.
+/moduli/
+# Ad-hoc dev utility kept locally, not part of the distribution.
+/scan.php
+# Claude Code local session config (launch.json etc.).
+/.claude/
+
+# ── OS / IDE ───────────────────────────────────────────────
+Thumbs.db
+.DS_Store
+/.idea/
+/.vscode/
+*.swp
+*.swo
+*.log

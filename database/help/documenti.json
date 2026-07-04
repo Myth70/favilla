@@ -1,0 +1,1021 @@
+{
+    "module_key": "documenti",
+    "module_name": "Documenti",
+    "label": "Documenti",
+    "description": "Gestione documentale con versionamento immutabile, workflow di approvazione, categorie gerarchiche e scadenze.",
+    "audience_default": "user",
+    "locale_default": "it",
+    "route_name": "documenti.index",
+    "permission_slug": "documenti.access",
+    "sort_order": 33,
+    "entries": [
+        {
+            "audience": "user",
+            "route_name": "documenti.index",
+            "permission_slug": "documenti.access",
+            "ranking_weight": 24,
+            "sort_order": 1,
+            "locales": {
+                "it": {
+                    "question": "Come funziona il modulo Documenti?",
+                    "answer_markdown": "## Modulo Documenti\nDocumenti gestisce la documentazione aziendale con versionamento immutabile, workflow di approvazione e scadenze.\n\n### Cosa puoi fare\n- creare documenti organizzati in **categorie gerarchiche** con numero di protocollo automatico;\n- caricare **nuove versioni** mantenendo intatta la cronologia;\n- far passare un documento attraverso un **workflow di approvazione** a più passaggi;\n- ricevere **promemoria di scadenza** multi-stadio;\n- collegare documenti tra loro con relazioni tipizzate.\n\n### Quando usarlo\nUsa Documenti per tutta la documentazione che richiede tracciabilità, approvazione formale e controllo delle scadenze.",
+                    "excerpt": "Modulo Documenti Documenti gestisce la documentazione aziendale con versionamento immutabile, workflow di approvazione e scadenze. Cosa puoi fare creare documenti organizzati in categorie gerarchiche con numero di protocollo...",
+                    "aliases": [
+                        "modulo documenti",
+                        "gestione documentale",
+                        "documentazione aziendale"
+                    ]
+                },
+                "en": {
+                    "question": "How does the Documents module work?",
+                    "answer_markdown": "## Documents module\nDocuments manages corporate documentation with immutable versioning, an approval workflow and expiry tracking.\n\n### What you can do\n- create documents organized into **hierarchical categories** with automatic protocol numbers;\n- upload **new versions** while keeping the history intact;\n- move a document through a **multi-step approval workflow**;\n- receive **multi-stage expiry reminders**;\n- link documents together through typed relationships.\n\n### When to use it\nUse Documents for any documentation that needs traceability, formal approval and expiry control.",
+                    "excerpt": "Documents module Documents manages corporate documentation with immutable versioning, an approval workflow and expiry tracking. What you can do create documents organized into hierarchical categories with automatic protocol...",
+                    "aliases": [
+                        "documents module",
+                        "document management",
+                        "corporate documentation"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment fonctionne le module Documents ?",
+                    "answer_markdown": "## Module Documents\nDocuments gère la documentation d'entreprise avec versionnement immuable, workflow d'approbation et suivi des échéances.\n\n### Ce que vous pouvez faire\n- créer des documents organisés en **catégories hiérarchiques** avec numéro de protocole automatique ;\n- charger de **nouvelles versions** en conservant l'historique intact ;\n- faire passer un document par un **workflow d'approbation** à plusieurs étapes ;\n- recevoir des **rappels d'échéance** multi-étapes ;\n- lier des documents entre eux par des relations typées.\n\n### Quand l'utiliser\nUtilisez Documents pour toute documentation nécessitant traçabilité, approbation formelle et contrôle des échéances.",
+                    "excerpt": "Module Documents Documents gère la documentation d'entreprise avec versionnement immuable, workflow d'approbation et suivi des échéances. Ce que vous pouvez faire créer des documents organisés en catégories hiérarchiques avec...",
+                    "aliases": [
+                        "module documents",
+                        "gestion documentaire",
+                        "documentation entreprise"
+                    ]
+                },
+                "de": {
+                    "question": "Wie funktioniert das Modul Dokumente?",
+                    "answer_markdown": "## Modul Dokumente\nDokumente verwaltet Unternehmensdokumentation mit unveränderlicher Versionierung, Genehmigungs-Workflow und Fristenkontrolle.\n\n### Was Sie tun können\n- Dokumente in **hierarchischen Kategorien** mit automatischer Protokollnummer anlegen;\n- **neue Versionen** hochladen und dabei die Historie erhalten;\n- ein Dokument durch einen **mehrstufigen Genehmigungs-Workflow** führen;\n- **mehrstufige Erinnerungen** vor Ablauf erhalten;\n- Dokumente über typisierte Beziehungen miteinander verknüpfen.\n\n### Wann einsetzen\nNutzen Sie Dokumente für jede Dokumentation, die Nachvollziehbarkeit, formale Genehmigung und Fristenkontrolle erfordert.",
+                    "excerpt": "Modul Dokumente Dokumente verwaltet Unternehmensdokumentation mit unveränderlicher Versionierung, Genehmigungs-Workflow und Fristenkontrolle. Was Sie tun können Dokumente in hierarchischen Kategorien mit automatischer...",
+                    "aliases": [
+                        "modul dokumente",
+                        "dokumentenverwaltung",
+                        "unternehmensdokumentation"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo funciona el módulo Documentos?",
+                    "answer_markdown": "## Módulo Documentos\nDocumentos gestiona la documentación corporativa con versionado inmutable, flujo de aprobación y control de vencimientos.\n\n### Qué puedes hacer\n- crear documentos organizados en **categorías jerárquicas** con número de protocolo automático;\n- subir **nuevas versiones** manteniendo intacto el historial;\n- hacer pasar un documento por un **flujo de aprobación** de varios pasos;\n- recibir **recordatorios de vencimiento** en varias etapas;\n- vincular documentos entre sí mediante relaciones tipificadas.\n\n### Cuándo usarlo\nUsa Documentos para toda la documentación que necesite trazabilidad, aprobación formal y control de vencimientos.",
+                    "excerpt": "Módulo Documentos Documentos gestiona la documentación corporativa con versionado inmutable, flujo de aprobación y control de vencimientos. Qué puedes hacer crear documentos organizados en categorías jerárquicas con número de...",
+                    "aliases": [
+                        "módulo documentos",
+                        "gestión documental",
+                        "documentación corporativa"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "documenti.index",
+            "permission_slug": "documenti.access",
+            "ranking_weight": 18,
+            "sort_order": 2,
+            "locales": {
+                "it": {
+                    "question": "Come accedo al modulo Documenti?",
+                    "answer_markdown": "## Accesso a Documenti\nIl modulo si apre dalla sidebar tramite la voce **Documenti**.\n\n### Permesso minimo\nServe `documenti.access` per entrare, più `documenti.view` per vedere l'elenco dei documenti.\n\n### Altri permessi utili\n- `documenti.create` per creare documenti;\n- `documenti.redazione` per modificare bozze e caricare nuove versioni;\n- `documenti.controllo` e `documenti.approvazione` per i passaggi di revisione;\n- `documenti.inbox` per vedere e agire sull'inbox di approvazione;\n- `documenti.delete` per eliminare i propri documenti;\n- `documenti.manage_categorie` per gestire le categorie;\n- `documenti.manage_collegamenti` per gestire i collegamenti tra documenti;\n- `documenti.export` per esportare elenchi;\n- `documenti.admin` per amministrare tutti i documenti.\n\n### Se non vedi la voce nel menu\nDi solito significa che il tuo ruolo non include `documenti.access`.",
+                    "excerpt": "Accesso a Documenti Il modulo si apre dalla sidebar tramite la voce Documenti. Permesso minimo Serve documenti.access per entrare, più documenti.view per vedere l'elenco dei documenti. Altri permessi utili documenti.create per...",
+                    "aliases": [
+                        "accesso documenti",
+                        "permessi documenti",
+                        "aprire documenti"
+                    ]
+                },
+                "en": {
+                    "question": "How do I access the Documents module?",
+                    "answer_markdown": "## Access to Documents\nThe module opens from the sidebar via the **Documents** entry.\n\n### Minimum permission\nYou need `documenti.access` to enter, plus `documenti.view` to see the document list.\n\n### Other useful permissions\n- `documenti.create` to create documents;\n- `documenti.redazione` to edit drafts and upload new versions;\n- `documenti.controllo` and `documenti.approvazione` for the review steps;\n- `documenti.inbox` to see and act on the approval inbox;\n- `documenti.delete` to delete your own documents;\n- `documenti.manage_categorie` to manage categories;\n- `documenti.manage_collegamenti` to manage document links;\n- `documenti.export` to export lists;\n- `documenti.admin` to administer every document.\n\n### If you don't see the menu entry\nThis usually means your role doesn't include `documenti.access`.",
+                    "excerpt": "Access to Documents The module opens from the sidebar via the Documents entry. Minimum permission You need documenti.access to enter, plus documenti.view to see the document list. Other useful permissions documenti.create to...",
+                    "aliases": [
+                        "access documents",
+                        "documents permissions",
+                        "open documents"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment accéder au module Documents ?",
+                    "answer_markdown": "## Accès à Documents\nLe module s'ouvre depuis la barre latérale via l'entrée **Documents**.\n\n### Permission minimale\nIl faut `documenti.access` pour entrer, plus `documenti.view` pour voir la liste des documents.\n\n### Autres permissions utiles\n- `documenti.create` pour créer des documents ;\n- `documenti.redazione` pour modifier les brouillons et charger de nouvelles versions ;\n- `documenti.controllo` et `documenti.approvazione` pour les étapes de révision ;\n- `documenti.inbox` pour voir et agir sur la boîte de réception d'approbation ;\n- `documenti.delete` pour supprimer ses propres documents ;\n- `documenti.manage_categorie` pour gérer les catégories ;\n- `documenti.manage_collegamenti` pour gérer les liens entre documents ;\n- `documenti.export` pour exporter des listes ;\n- `documenti.admin` pour administrer tous les documents.\n\n### Si vous ne voyez pas l'entrée dans le menu\nCela signifie généralement que votre rôle n'inclut pas `documenti.access`.",
+                    "excerpt": "Accès à Documents Le module s'ouvre depuis la barre latérale via l'entrée Documents. Permission minimale Il faut documenti.access pour entrer, plus documenti.view pour voir la liste des documents. Autres permissions utiles...",
+                    "aliases": [
+                        "accès documents",
+                        "permissions documents",
+                        "ouvrir documents"
+                    ]
+                },
+                "de": {
+                    "question": "Wie greife ich auf das Modul Dokumente zu?",
+                    "answer_markdown": "## Zugriff auf Dokumente\nDas Modul öffnen Sie über den Sidebar-Eintrag **Dokumente**.\n\n### Mindestberechtigung\nSie benötigen `documenti.access` für den Zugang, plus `documenti.view`, um die Dokumentenliste zu sehen.\n\n### Weitere nützliche Berechtigungen\n- `documenti.create`, um Dokumente zu erstellen;\n- `documenti.redazione`, um Entwürfe zu bearbeiten und neue Versionen hochzuladen;\n- `documenti.controllo` und `documenti.approvazione` für die Prüfschritte;\n- `documenti.inbox`, um den Genehmigungs-Posteingang zu sehen und zu bearbeiten;\n- `documenti.delete`, um eigene Dokumente zu löschen;\n- `documenti.manage_categorie` zur Kategorienverwaltung;\n- `documenti.manage_collegamenti` zur Verwaltung von Dokumentverknüpfungen;\n- `documenti.export`, um Listen zu exportieren;\n- `documenti.admin`, um alle Dokumente zu verwalten.\n\n### Wenn der Menüpunkt fehlt\nDas bedeutet meist, dass Ihre Rolle nicht `documenti.access` enthält.",
+                    "excerpt": "Zugriff auf Dokumente Das Modul öffnen Sie über den Sidebar-Eintrag Dokumente. Mindestberechtigung Sie benötigen documenti.access für den Zugang, plus documenti.view, um die Dokumentenliste zu sehen. Weitere nützliche...",
+                    "aliases": [
+                        "zugriff dokumente",
+                        "dokumente berechtigungen",
+                        "dokumente öffnen"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo accedo al módulo Documentos?",
+                    "answer_markdown": "## Acceso a Documentos\nEl módulo se abre desde la barra lateral mediante la entrada **Documentos**.\n\n### Permiso mínimo\nNecesitas `documenti.access` para entrar, más `documenti.view` para ver la lista de documentos.\n\n### Otros permisos útiles\n- `documenti.create` para crear documentos;\n- `documenti.redazione` para editar borradores y subir nuevas versiones;\n- `documenti.controllo` y `documenti.approvazione` para los pasos de revisión;\n- `documenti.inbox` para ver y actuar sobre la bandeja de aprobación;\n- `documenti.delete` para eliminar tus propios documentos;\n- `documenti.manage_categorie` para gestionar categorías;\n- `documenti.manage_collegamenti` para gestionar los vínculos entre documentos;\n- `documenti.export` para exportar listados;\n- `documenti.admin` para administrar todos los documentos.\n\n### Si no ves la entrada en el menú\nSuele significar que tu rol no incluye `documenti.access`.",
+                    "excerpt": "Acceso a Documentos El módulo se abre desde la barra lateral mediante la entrada Documentos. Permiso mínimo Necesitas documenti.access para entrar, más documenti.view para ver la lista de documentos. Otros permisos útiles...",
+                    "aliases": [
+                        "acceso documentos",
+                        "permisos documentos",
+                        "abrir documentos"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "documenti.create",
+            "permission_slug": "documenti.create",
+            "ranking_weight": 0,
+            "sort_order": 3,
+            "locales": {
+                "it": {
+                    "question": "Come creo un nuovo documento?",
+                    "answer_markdown": "## Creare un documento\nDalla lista Documenti clicca su **Nuovo documento** (richiede `documenti.create`).\n\n### Campi principali\n- **titolo** e descrizione;\n- **categoria** (obbligatoria, determina anche il numero di protocollo);\n- **scadenza** opzionale e giorni di promemoria;\n- **tag** liberi;\n- file da caricare come prima versione.\n\n### Numero di protocollo\nAlla creazione viene generato automaticamente un protocollo univoco nel formato `DOC-{codice categoria}-{anno}-{progressivo}`.",
+                    "excerpt": "Creare un documento Dalla lista Documenti clicca su Nuovo documento (richiede documenti.create). Campi principali titolo e descrizione; categoria (obbligatoria, determina anche il numero di protocollo); scadenza opzionale e...",
+                    "aliases": [
+                        "creare documento",
+                        "nuovo documento",
+                        "protocollo documento"
+                    ]
+                },
+                "en": {
+                    "question": "How do I create a new document?",
+                    "answer_markdown": "## Creating a document\nFrom the Documents list click **New document** (requires `documenti.create`).\n\n### Main fields\n- **title** and description;\n- **category** (mandatory, also determines the protocol number);\n- optional **expiry date** and reminder days;\n- free-text **tags**;\n- file to upload as the first version.\n\n### Protocol number\nOn creation a unique protocol is automatically generated in the format `DOC-{category code}-{year}-{sequence}`.",
+                    "excerpt": "Creating a document From the Documents list click New document (requires documenti.create). Main fields title and description; category (mandatory, also determines the protocol number); optional expiry date and reminder days;...",
+                    "aliases": [
+                        "create document",
+                        "new document",
+                        "document protocol"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment créer un nouveau document ?",
+                    "answer_markdown": "## Créer un document\nDepuis la liste Documents, cliquez sur **Nouveau document** (nécessite `documenti.create`).\n\n### Champs principaux\n- **titre** et description ;\n- **catégorie** (obligatoire, détermine aussi le numéro de protocole) ;\n- **échéance** optionnelle et jours de rappel ;\n- **tags** libres ;\n- fichier à charger comme première version.\n\n### Numéro de protocole\nÀ la création, un protocole unique est généré automatiquement au format `DOC-{code catégorie}-{année}-{séquence}`.",
+                    "excerpt": "Créer un document Depuis la liste Documents, cliquez sur Nouveau document (nécessite documenti.create). Champs principaux titre et description ; catégorie (obligatoire, détermine aussi le numéro de protocole) ; échéance...",
+                    "aliases": [
+                        "créer document",
+                        "nouveau document",
+                        "protocole document"
+                    ]
+                },
+                "de": {
+                    "question": "Wie erstelle ich ein neues Dokument?",
+                    "answer_markdown": "## Ein Dokument erstellen\nKlicken Sie in der Dokumentenliste auf **Neues Dokument** (erfordert `documenti.create`).\n\n### Hauptfelder\n- **Titel** und Beschreibung;\n- **Kategorie** (Pflichtfeld, bestimmt auch die Protokollnummer);\n- optionales **Ablaufdatum** und Erinnerungstage;\n- freie **Tags**;\n- als erste Version hochzuladende Datei.\n\n### Protokollnummer\nBei der Erstellung wird automatisch ein eindeutiges Protokoll im Format `DOC-{Kategoriecode}-{Jahr}-{Fortlaufende Nummer}` erzeugt.",
+                    "excerpt": "Ein Dokument erstellen Klicken Sie in der Dokumentenliste auf Neues Dokument (erfordert documenti.create). Hauptfelder Titel und Beschreibung; Kategorie (Pflichtfeld, bestimmt auch die Protokollnummer); optionales Ablaufdatum und...",
+                    "aliases": [
+                        "dokument erstellen",
+                        "neues dokument",
+                        "dokument protokoll"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo creo un nuevo documento?",
+                    "answer_markdown": "## Crear un documento\nDesde la lista de Documentos haz clic en **Nuevo documento** (requiere `documenti.create`).\n\n### Campos principales\n- **título** y descripción;\n- **categoría** (obligatoria, determina también el número de protocolo);\n- **vencimiento** opcional y días de recordatorio;\n- **etiquetas** libres;\n- archivo a subir como primera versión.\n\n### Número de protocolo\nAl crearlo se genera automáticamente un protocolo único con el formato `DOC-{código categoría}-{año}-{secuencial}`.",
+                    "excerpt": "Crear un documento Desde la lista de Documentos haz clic en Nuevo documento (requiere documenti.create). Campos principales título y descripción; categoría (obligatoria, determina también el número de protocolo); vencimiento...",
+                    "aliases": [
+                        "crear documento",
+                        "nuevo documento",
+                        "protocolo documento"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "documenti.categorie.index",
+            "permission_slug": "documenti.manage_categorie",
+            "ranking_weight": 0,
+            "sort_order": 4,
+            "locales": {
+                "it": {
+                    "question": "Come funzionano le categorie e la numerazione di protocollo?",
+                    "answer_markdown": "## Categorie documenti\nLe categorie organizzano i documenti in una struttura **gerarchica** (con sottocategorie).\n\n### Campi di una categoria\n- **codice** univoco, usato nel numero di protocollo dei documenti;\n- se richiede **approvazione** di default (può essere sovrascritto sul singolo documento);\n- giorni di promemoria di scadenza predefiniti.\n\n### Numerazione\nOgni categoria ha un contatore progressivo per anno, azzerabile manualmente dall'amministrazione (richiede `documenti.admin`).\n\nLa gestione delle categorie richiede `documenti.manage_categorie`.",
+                    "excerpt": "Categorie documenti Le categorie organizzano i documenti in una struttura gerarchica (con sottocategorie). Campi di una categoria codice univoco, usato nel numero di protocollo dei documenti; se richiede approvazione di default...",
+                    "aliases": [
+                        "categorie documenti",
+                        "protocollo documenti",
+                        "gerarchia categorie"
+                    ]
+                },
+                "en": {
+                    "question": "How do categories and protocol numbering work?",
+                    "answer_markdown": "## Document categories\nCategories organize documents into a **hierarchical** structure (with sub-categories).\n\n### Category fields\n- unique **code**, used in documents' protocol numbers;\n- whether **approval** is required by default (can be overridden on a single document);\n- default expiry reminder days.\n\n### Numbering\nEach category has a per-year sequential counter, which can be manually reset from administration (requires `documenti.admin`).\n\nManaging categories requires `documenti.manage_categorie`.",
+                    "excerpt": "Document categories Categories organize documents into a hierarchical structure (with sub-categories). Category fields unique code, used in documents' protocol numbers; whether approval is required by default (can be overridden...",
+                    "aliases": [
+                        "document categories",
+                        "document protocol",
+                        "category hierarchy"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment fonctionnent les catégories et la numérotation de protocole ?",
+                    "answer_markdown": "## Catégories de documents\nLes catégories organisent les documents en structure **hiérarchique** (avec sous-catégories).\n\n### Champs d'une catégorie\n- **code** unique, utilisé dans le numéro de protocole des documents ;\n- si l'**approbation** est requise par défaut (peut être remplacé sur un document donné) ;\n- jours de rappel d'échéance par défaut.\n\n### Numérotation\nChaque catégorie a un compteur séquentiel par année, réinitialisable manuellement depuis l'administration (nécessite `documenti.admin`).\n\nLa gestion des catégories nécessite `documenti.manage_categorie`.",
+                    "excerpt": "Catégories de documents Les catégories organisent les documents en structure hiérarchique (avec sous-catégories). Champs d'une catégorie code unique, utilisé dans le numéro de protocole des documents ; si l'approbation est...",
+                    "aliases": [
+                        "catégories documents",
+                        "protocole documents",
+                        "hiérarchie catégories"
+                    ]
+                },
+                "de": {
+                    "question": "Wie funktionieren Kategorien und Protokollnummerierung?",
+                    "answer_markdown": "## Dokumentkategorien\nKategorien organisieren Dokumente in einer **hierarchischen** Struktur (mit Unterkategorien).\n\n### Felder einer Kategorie\n- eindeutiger **Code**, verwendet in der Protokollnummer der Dokumente;\n- ob standardmäßig eine **Genehmigung** erforderlich ist (kann pro Dokument überschrieben werden);\n- standardmäßige Erinnerungstage vor Ablauf.\n\n### Nummerierung\nJede Kategorie hat einen jährlichen fortlaufenden Zähler, der über die Administration manuell zurückgesetzt werden kann (erfordert `documenti.admin`).\n\nDie Kategorienverwaltung erfordert `documenti.manage_categorie`.",
+                    "excerpt": "Dokumentkategorien Kategorien organisieren Dokumente in einer hierarchischen Struktur (mit Unterkategorien). Felder einer Kategorie eindeutiger Code, verwendet in der Protokollnummer der Dokumente; ob standardmäßig eine...",
+                    "aliases": [
+                        "dokumentkategorien",
+                        "dokumentprotokoll",
+                        "kategorien hierarchie"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo funcionan las categorías y la numeración de protocolo?",
+                    "answer_markdown": "## Categorías de documentos\nLas categorías organizan los documentos en una estructura **jerárquica** (con subcategorías).\n\n### Campos de una categoría\n- **código** único, usado en el número de protocolo de los documentos;\n- si requiere **aprobación** por defecto (se puede anular en un documento concreto);\n- días de recordatorio de vencimiento por defecto.\n\n### Numeración\nCada categoría tiene un contador secuencial por año, que se puede reiniciar manualmente desde la administración (requiere `documenti.admin`).\n\nLa gestión de categorías requiere `documenti.manage_categorie`.",
+                    "excerpt": "Categorías de documentos Las categorías organizan los documentos en una estructura jerárquica (con subcategorías). Campos de una categoría código único, usado en el número de protocolo de los documentos; si requiere aprobación...",
+                    "aliases": [
+                        "categorías documentos",
+                        "protocolo documentos",
+                        "jerarquía categorías"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "documenti.show",
+            "permission_slug": "documenti.redazione",
+            "ranking_weight": 0,
+            "sort_order": 5,
+            "locales": {
+                "it": {
+                    "question": "Come funziona il versionamento dei documenti?",
+                    "answer_markdown": "## Versionamento immutabile\nOgni volta che carichi un nuovo file su un documento esistente, viene creata una **nuova versione**: quelle precedenti restano invariate e consultabili.\n\n### Cosa puoi fare\n- **scaricare** o **visualizzare in anteprima** ogni versione;\n- **ripristinare** una versione precedente (crea comunque una nuova versione con quel contenuto, non riscrive la storia);\n- aggiungere una **nota di modifica** a ogni nuova versione.\n\nCaricare una nuova versione richiede `documenti.redazione`.\n\n### Integrità\nOgni versione salva un checksum **SHA-256** del file, verificabile in qualsiasi momento.",
+                    "excerpt": "Versionamento immutabile Ogni volta che carichi un nuovo file su un documento esistente, viene creata una nuova versione: quelle precedenti restano invariate e consultabili. Cosa puoi fare scaricare o visualizzare in anteprima...",
+                    "aliases": [
+                        "versionamento documenti",
+                        "nuova versione",
+                        "ripristinare versione",
+                        "cronologia file"
+                    ]
+                },
+                "en": {
+                    "question": "How does document versioning work?",
+                    "answer_markdown": "## Immutable versioning\nEvery time you upload a new file to an existing document, a **new version** is created: previous ones remain unchanged and available to consult.\n\n### What you can do\n- **download** or **preview** each version;\n- **restore** a previous version (this still creates a new version with that content, it doesn't rewrite history);\n- add a **change note** to each new version.\n\nUploading a new version requires `documenti.redazione`.\n\n### Integrity\nEvery version stores a **SHA-256** checksum of the file, verifiable at any time.",
+                    "excerpt": "Immutable versioning Every time you upload a new file to an existing document, a new version is created: previous ones remain unchanged and available to consult. What you can do download or preview each version; restore a...",
+                    "aliases": [
+                        "document versioning",
+                        "new version",
+                        "restore version",
+                        "file history"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment fonctionne le versionnement des documents ?",
+                    "answer_markdown": "## Versionnement immuable\nÀ chaque nouveau fichier chargé sur un document existant, une **nouvelle version** est créée : les précédentes restent inchangées et consultables.\n\n### Ce que vous pouvez faire\n- **télécharger** ou **prévisualiser** chaque version ;\n- **restaurer** une version précédente (cela crée quand même une nouvelle version avec ce contenu, sans réécrire l'historique) ;\n- ajouter une **note de modification** à chaque nouvelle version.\n\nCharger une nouvelle version nécessite `documenti.redazione`.\n\n### Intégrité\nChaque version enregistre une empreinte **SHA-256** du fichier, vérifiable à tout moment.",
+                    "excerpt": "Versionnement immuable À chaque nouveau fichier chargé sur un document existant, une nouvelle version est créée : les précédentes restent inchangées et consultables. Ce que vous pouvez faire télécharger ou prévisualiser chaque...",
+                    "aliases": [
+                        "versionnement documents",
+                        "nouvelle version",
+                        "restaurer version",
+                        "historique fichier"
+                    ]
+                },
+                "de": {
+                    "question": "Wie funktioniert die Dokumentenversionierung?",
+                    "answer_markdown": "## Unveränderliche Versionierung\nJedes Mal, wenn Sie eine neue Datei zu einem bestehenden Dokument hochladen, wird eine **neue Version** erstellt: frühere bleiben unverändert und einsehbar.\n\n### Was Sie tun können\n- jede Version **herunterladen** oder in der **Vorschau** ansehen;\n- eine frühere Version **wiederherstellen** (dabei wird trotzdem eine neue Version mit diesem Inhalt erstellt, die Historie wird nicht überschrieben);\n- jeder neuen Version eine **Änderungsnotiz** hinzufügen.\n\nDas Hochladen einer neuen Version erfordert `documenti.redazione`.\n\n### Integrität\nJede Version speichert eine **SHA-256**-Prüfsumme der Datei, die jederzeit überprüfbar ist.",
+                    "excerpt": "Unveränderliche Versionierung Jedes Mal, wenn Sie eine neue Datei zu einem bestehenden Dokument hochladen, wird eine neue Version erstellt: frühere bleiben unverändert und einsehbar. Was Sie tun können jede Version herunterladen...",
+                    "aliases": [
+                        "dokument versionierung",
+                        "neue version",
+                        "version wiederherstellen",
+                        "datei historie"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo funciona el versionado de documentos?",
+                    "answer_markdown": "## Versionado inmutable\nCada vez que subes un archivo nuevo a un documento existente se crea una **nueva versión**: las anteriores quedan intactas y disponibles para consultar.\n\n### Qué puedes hacer\n- **descargar** o **previsualizar** cada versión;\n- **restaurar** una versión anterior (esto igualmente crea una nueva versión con ese contenido, no reescribe el historial);\n- añadir una **nota de cambio** a cada nueva versión.\n\nSubir una nueva versión requiere `documenti.redazione`.\n\n### Integridad\nCada versión guarda un checksum **SHA-256** del archivo, verificable en cualquier momento.",
+                    "excerpt": "Versionado inmutable Cada vez que subes un archivo nuevo a un documento existente se crea una nueva versión: las anteriores quedan intactas y disponibles para consultar. Qué puedes hacer descargar o previsualizar cada versión;...",
+                    "aliases": [
+                        "versionado documentos",
+                        "nueva versión",
+                        "restaurar versión",
+                        "historial archivo"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "documenti.show",
+            "permission_slug": "documenti.view",
+            "ranking_weight": 0,
+            "sort_order": 6,
+            "locales": {
+                "it": {
+                    "question": "Quali sono gli stati del workflow di approvazione?",
+                    "answer_markdown": "## Stati del documento\nUn documento passa attraverso una sequenza di stati durante il proprio ciclo di vita.\n\n### Sequenza principale\n**Bozza** → Inviato → In controllo → Controllato → In approvazione → Approvato → **Pubblicato** → (Scaduto) → Archiviato\n\n### Stati d'eccezione\n- **Rifiutato**: torna in bozza per essere ripreso;\n- **Scaduto**: quando la data di scadenza è superata su un documento pubblicato.\n\n### Passaggi (step corrente)\nOltre allo stato, ogni documento traccia anche il passaggio corrente: Redazione, Controllo, Approvazione o Completato.",
+                    "excerpt": "Stati del documento Un documento passa attraverso una sequenza di stati durante il proprio ciclo di vita. Sequenza principale Bozza → Inviato → In controllo → Controllato → In approvazione → Approvato → Pubblicato → (Scaduto) →...",
+                    "aliases": [
+                        "stati documento",
+                        "workflow documenti",
+                        "ciclo di vita documento"
+                    ]
+                },
+                "en": {
+                    "question": "What are the approval workflow states?",
+                    "answer_markdown": "## Document states\nA document goes through a sequence of states during its lifecycle.\n\n### Main sequence\n**Draft** → Sent → Under review → Reviewed → Under approval → Approved → **Published** → (Expired) → Archived\n\n### Exception states\n- **Rejected**: goes back to draft to be resumed;\n- **Expired**: when the expiry date has passed on a published document.\n\n### Steps (current step)\nBeyond the state, every document also tracks its current step: Drafting, Review, Approval or Completed.",
+                    "excerpt": "Document states A document goes through a sequence of states during its lifecycle. Main sequence Draft → Sent → Under review → Reviewed → Under approval → Approved → Published → (Expired) → Archived Exception states Rejected:...",
+                    "aliases": [
+                        "document states",
+                        "documents workflow",
+                        "document lifecycle"
+                    ]
+                },
+                "fr": {
+                    "question": "Quels sont les statuts du workflow d'approbation ?",
+                    "answer_markdown": "## Statuts du document\nUn document traverse une séquence de statuts au cours de son cycle de vie.\n\n### Séquence principale\n**Brouillon** → Envoyé → En contrôle → Contrôlé → En approbation → Approuvé → **Publié** → (Expiré) → Archivé\n\n### Statuts d'exception\n- **Rejeté** : revient en brouillon pour être repris ;\n- **Expiré** : quand la date d'échéance est dépassée sur un document publié.\n\n### Étapes (étape actuelle)\nAu-delà du statut, chaque document suit aussi son étape actuelle : Rédaction, Contrôle, Approbation ou Terminé.",
+                    "excerpt": "Statuts du document Un document traverse une séquence de statuts au cours de son cycle de vie. Séquence principale Brouillon → Envoyé → En contrôle → Contrôlé → En approbation → Approuvé → Publié → (Expiré) → Archivé Statuts...",
+                    "aliases": [
+                        "statuts document",
+                        "workflow documents",
+                        "cycle de vie document"
+                    ]
+                },
+                "de": {
+                    "question": "Welche Status hat der Genehmigungs-Workflow?",
+                    "answer_markdown": "## Dokumentstatus\nEin Dokument durchläuft während seines Lebenszyklus eine Abfolge von Status.\n\n### Hauptabfolge\n**Entwurf** → Gesendet → In Prüfung → Geprüft → In Genehmigung → Genehmigt → **Veröffentlicht** → (Abgelaufen) → Archiviert\n\n### Ausnahmestatus\n- **Abgelehnt**: geht zurück zu Entwurf, um wieder aufgenommen zu werden;\n- **Abgelaufen**: wenn das Ablaufdatum bei einem veröffentlichten Dokument überschritten ist.\n\n### Schritte (aktueller Schritt)\nZusätzlich zum Status verfolgt jedes Dokument auch seinen aktuellen Schritt: Redaktion, Prüfung, Genehmigung oder Abgeschlossen.",
+                    "excerpt": "Dokumentstatus Ein Dokument durchläuft während seines Lebenszyklus eine Abfolge von Status. Hauptabfolge Entwurf → Gesendet → In Prüfung → Geprüft → In Genehmigung → Genehmigt → Veröffentlicht → (Abgelaufen) → Archiviert...",
+                    "aliases": [
+                        "dokumentstatus",
+                        "dokumente workflow",
+                        "dokument lebenszyklus"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cuáles son los estados del flujo de aprobación?",
+                    "answer_markdown": "## Estados del documento\nUn documento pasa por una secuencia de estados durante su ciclo de vida.\n\n### Secuencia principal\n**Borrador** → Enviado → En control → Controlado → En aprobación → Aprobado → **Publicado** → (Vencido) → Archivado\n\n### Estados de excepción\n- **Rechazado**: vuelve a borrador para retomarse;\n- **Vencido**: cuando se supera la fecha de vencimiento en un documento publicado.\n\n### Pasos (paso actual)\nAdemás del estado, cada documento registra también su paso actual: Redacción, Control, Aprobación o Completado.",
+                    "excerpt": "Estados del documento Un documento pasa por una secuencia de estados durante su ciclo de vida. Secuencia principal Borrador → Enviado → En control → Controlado → En aprobación → Aprobado → Publicado → (Vencido) → Archivado...",
+                    "aliases": [
+                        "estados documento",
+                        "workflow documentos",
+                        "ciclo de vida documento"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "documenti.show",
+            "permission_slug": "documenti.inbox",
+            "ranking_weight": 0,
+            "sort_order": 7,
+            "locales": {
+                "it": {
+                    "question": "Cosa posso fare a ogni passaggio del workflow?",
+                    "answer_markdown": "## Azioni disponibili\nA seconda del passaggio in cui si trova un documento, sono disponibili azioni diverse.\n\n### Redazione (`documenti.redazione`)\n- **Invia per revisione**: passa in controllo (se la categoria non richiede approvazione, pubblica direttamente);\n- **Ritira**: annulla l'invio prima che qualcuno lo prenda in carico.\n\n### Controllo e approvazione (`documenti.controllo` / `documenti.approvazione`)\n- **Prendi in carico**: assegna a te stesso la revisione;\n- **Approva**: passa al passaggio successivo;\n- **Rifiuta**: riporta il documento in bozza con motivazione;\n- **Restituisci**: rimanda al passaggio precedente per una correzione.\n\n### Dopo l'approvazione (`documenti.admin`)\n- **Pubblica** e **Archivia**.",
+                    "excerpt": "Azioni disponibili A seconda del passaggio in cui si trova un documento, sono disponibili azioni diverse. Redazione (documenti.redazione) Invia per revisione: passa in controllo (se la categoria non richiede approvazione,...",
+                    "aliases": [
+                        "azioni workflow documenti",
+                        "prendi in carico",
+                        "approva rifiuta documento"
+                    ]
+                },
+                "en": {
+                    "question": "What can I do at each workflow step?",
+                    "answer_markdown": "## Available actions\nDifferent actions are available depending on the step a document is in.\n\n### Drafting (`documenti.redazione`)\n- **Send for review**: moves to review (if the category doesn't require approval, it publishes directly);\n- **Withdraw**: cancels the submission before anyone takes it over.\n\n### Review and approval (`documenti.controllo` / `documenti.approvazione`)\n- **Take over**: assigns the review to yourself;\n- **Approve**: moves to the next step;\n- **Reject**: sends the document back to draft with a reason;\n- **Return**: sends it back to the previous step for correction.\n\n### After approval (`documenti.admin`)\n- **Publish** and **Archive**.",
+                    "excerpt": "Available actions Different actions are available depending on the step a document is in. Drafting (documenti.redazione) Send for review: moves to review (if the category doesn't require approval, it publishes directly);...",
+                    "aliases": [
+                        "document workflow actions",
+                        "take over review",
+                        "approve reject document"
+                    ]
+                },
+                "fr": {
+                    "question": "Que puis-je faire à chaque étape du workflow ?",
+                    "answer_markdown": "## Actions disponibles\nSelon l'étape où se trouve un document, différentes actions sont disponibles.\n\n### Rédaction (`documenti.redazione`)\n- **Envoyer en révision** : passe en contrôle (si la catégorie ne requiert pas d'approbation, il est publié directement) ;\n- **Retirer** : annule l'envoi avant que quelqu'un ne le prenne en charge.\n\n### Contrôle et approbation (`documenti.controllo` / `documenti.approvazione`)\n- **Prendre en charge** : s'assigne la révision ;\n- **Approuver** : passe à l'étape suivante ;\n- **Rejeter** : renvoie le document en brouillon avec un motif ;\n- **Retourner** : renvoie à l'étape précédente pour correction.\n\n### Après approbation (`documenti.admin`)\n- **Publier** et **Archiver**.",
+                    "excerpt": "Actions disponibles Selon l'étape où se trouve un document, différentes actions sont disponibles. Rédaction (documenti.redazione) Envoyer en révision : passe en contrôle (si la catégorie ne requiert pas d'approbation, il est...",
+                    "aliases": [
+                        "actions workflow documents",
+                        "prendre en charge révision",
+                        "approuver rejeter document"
+                    ]
+                },
+                "de": {
+                    "question": "Was kann ich in jedem Workflow-Schritt tun?",
+                    "answer_markdown": "## Verfügbare Aktionen\nJe nach Schritt, in dem sich ein Dokument befindet, stehen unterschiedliche Aktionen zur Verfügung.\n\n### Redaktion (`documenti.redazione`)\n- **Zur Prüfung senden**: geht in die Prüfung (wenn die Kategorie keine Genehmigung erfordert, wird direkt veröffentlicht);\n- **Zurückziehen**: storniert die Einreichung, bevor jemand sie übernimmt.\n\n### Prüfung und Genehmigung (`documenti.controllo` / `documenti.approvazione`)\n- **Übernehmen**: weist sich selbst die Prüfung zu;\n- **Genehmigen**: geht zum nächsten Schritt über;\n- **Ablehnen**: schickt das Dokument mit Begründung zurück zum Entwurf;\n- **Zurückgeben**: schickt es zur Korrektur zum vorherigen Schritt zurück.\n\n### Nach der Genehmigung (`documenti.admin`)\n- **Veröffentlichen** und **Archivieren**.",
+                    "excerpt": "Verfügbare Aktionen Je nach Schritt, in dem sich ein Dokument befindet, stehen unterschiedliche Aktionen zur Verfügung. Redaktion (documenti.redazione) Zur Prüfung senden: geht in die Prüfung (wenn die Kategorie keine Genehmigung...",
+                    "aliases": [
+                        "dokument workflow aktionen",
+                        "prüfung übernehmen",
+                        "dokument genehmigen ablehnen"
+                    ]
+                },
+                "es": {
+                    "question": "¿Qué puedo hacer en cada paso del flujo?",
+                    "answer_markdown": "## Acciones disponibles\nSegún el paso en el que se encuentre un documento, hay distintas acciones disponibles.\n\n### Redacción (`documenti.redazione`)\n- **Enviar a revisión**: pasa a control (si la categoría no requiere aprobación, se publica directamente);\n- **Retirar**: cancela el envío antes de que alguien lo tome.\n\n### Control y aprobación (`documenti.controllo` / `documenti.approvazione`)\n- **Tomar en cargo**: se asigna la revisión a sí mismo;\n- **Aprobar**: pasa al siguiente paso;\n- **Rechazar**: devuelve el documento a borrador con un motivo;\n- **Devolver**: lo regresa al paso anterior para corregirlo.\n\n### Tras la aprobación (`documenti.admin`)\n- **Publicar** y **Archivar**.",
+                    "excerpt": "Acciones disponibles Según el paso en el que se encuentre un documento, hay distintas acciones disponibles. Redacción (documenti.redazione) Enviar a revisión: pasa a control (si la categoría no requiere aprobación, se publica...",
+                    "aliases": [
+                        "acciones workflow documentos",
+                        "tomar en cargo revisión",
+                        "aprobar rechazar documento"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "documenti.show",
+            "permission_slug": "documenti.admin",
+            "ranking_weight": 0,
+            "sort_order": 8,
+            "locales": {
+                "it": {
+                    "question": "Come funzionano pubblicazione e archiviazione?",
+                    "answer_markdown": "## Pubblicazione e archiviazione\nDopo l'approvazione finale, un documento non è ancora visibile a tutti: serve **pubblicarlo**.\n\n### Pubblicazione\nRichiede `documenti.admin`. Alla pubblicazione viene registrata la data di pubblicazione e il documento diventa lo stato ufficiale in vigore.\n\n### Archiviazione\nUn documento **pubblicato** o **scaduto** può essere archiviato (richiede `documenti.admin`): resta consultabile ma non più come versione attiva.",
+                    "excerpt": "Pubblicazione e archiviazione Dopo l'approvazione finale, un documento non è ancora visibile a tutti: serve pubblicarlo. Pubblicazione Richiede documenti.admin. Alla pubblicazione viene registrata la data di pubblicazione e il...",
+                    "aliases": [
+                        "pubblicare documento",
+                        "archiviare documento",
+                        "documento pubblicato"
+                    ]
+                },
+                "en": {
+                    "question": "How do publishing and archiving work?",
+                    "answer_markdown": "## Publishing and archiving\nAfter final approval, a document isn't yet visible to everyone: it needs to be **published**.\n\n### Publishing\nRequires `documenti.admin`. On publishing, the publish date is recorded and the document becomes the officially active version.\n\n### Archiving\nA **published** or **expired** document can be archived (requires `documenti.admin`): it remains available to consult but is no longer the active version.",
+                    "excerpt": "Publishing and archiving After final approval, a document isn't yet visible to everyone: it needs to be published. Publishing Requires documenti.admin. On publishing, the publish date is recorded and the document becomes the...",
+                    "aliases": [
+                        "publish document",
+                        "archive document",
+                        "published document"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment fonctionnent la publication et l'archivage ?",
+                    "answer_markdown": "## Publication et archivage\nAprès l'approbation finale, un document n'est pas encore visible par tous : il faut le **publier**.\n\n### Publication\nNécessite `documenti.admin`. À la publication, la date de publication est enregistrée et le document devient la version officielle en vigueur.\n\n### Archivage\nUn document **publié** ou **expiré** peut être archivé (nécessite `documenti.admin`) : il reste consultable mais n'est plus la version active.",
+                    "excerpt": "Publication et archivage Après l'approbation finale, un document n'est pas encore visible par tous : il faut le publier. Publication Nécessite documenti.admin. À la publication, la date de publication est enregistrée et le...",
+                    "aliases": [
+                        "publier document",
+                        "archiver document",
+                        "document publié"
+                    ]
+                },
+                "de": {
+                    "question": "Wie funktionieren Veröffentlichung und Archivierung?",
+                    "answer_markdown": "## Veröffentlichung und Archivierung\nNach der endgültigen Genehmigung ist ein Dokument noch nicht für alle sichtbar: es muss **veröffentlicht** werden.\n\n### Veröffentlichung\nErfordert `documenti.admin`. Bei der Veröffentlichung wird das Veröffentlichungsdatum erfasst und das Dokument wird zur offiziell gültigen Version.\n\n### Archivierung\nEin **veröffentlichtes** oder **abgelaufenes** Dokument kann archiviert werden (erfordert `documenti.admin`): es bleibt einsehbar, ist aber nicht mehr die aktive Version.",
+                    "excerpt": "Veröffentlichung und Archivierung Nach der endgültigen Genehmigung ist ein Dokument noch nicht für alle sichtbar: es muss veröffentlicht werden. Veröffentlichung Erfordert documenti.admin. Bei der Veröffentlichung wird das...",
+                    "aliases": [
+                        "dokument veröffentlichen",
+                        "dokument archivieren",
+                        "veröffentlichtes dokument"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo funcionan la publicación y el archivado?",
+                    "answer_markdown": "## Publicación y archivado\nTras la aprobación final, un documento aún no es visible para todos: hay que **publicarlo**.\n\n### Publicación\nRequiere `documenti.admin`. Al publicar se registra la fecha de publicación y el documento pasa a ser la versión oficialmente vigente.\n\n### Archivado\nUn documento **publicado** o **vencido** puede archivarse (requiere `documenti.admin`): sigue disponible para consulta pero deja de ser la versión activa.",
+                    "excerpt": "Publicación y archivado Tras la aprobación final, un documento aún no es visible para todos: hay que publicarlo. Publicación Requiere documenti.admin. Al publicar se registra la fecha de publicación y el documento pasa a ser la...",
+                    "aliases": [
+                        "publicar documento",
+                        "archivar documento",
+                        "documento publicado"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "documenti.scadenze",
+            "permission_slug": "documenti.view",
+            "ranking_weight": 0,
+            "sort_order": 9,
+            "locales": {
+                "it": {
+                    "question": "Come funzionano scadenze e promemoria?",
+                    "answer_markdown": "## Scadenze\nUn documento può avere una **data di scadenza** (`scade_il`); se assente, non scade mai.\n\n### Promemoria multi-stadio\nI giorni di preavviso (es. 30, 14, 7, 3, 1 giorni prima) sono configurabili per singolo documento oppure ereditati dalla categoria. Ogni stadio viene inviato una sola volta.\n\n### Scadenza effettiva\nUn job automatico porta il documento in stato **Scaduto** quando la data è superata. Dalla pagina **Scadenze** vedi i documenti che scadono nei prossimi 30 giorni.",
+                    "excerpt": "Scadenze Un documento può avere una data di scadenza (scade_il); se assente, non scade mai. Promemoria multi-stadio I giorni di preavviso (es. 30, 14, 7, 3, 1 giorni prima) sono configurabili per singolo documento oppure...",
+                    "aliases": [
+                        "scadenze documenti",
+                        "promemoria documenti",
+                        "documento scaduto"
+                    ]
+                },
+                "en": {
+                    "question": "How do expiry dates and reminders work?",
+                    "answer_markdown": "## Expiry\nA document can have an **expiry date** (`scade_il`); if absent, it never expires.\n\n### Multi-stage reminders\nWarning days (e.g. 30, 14, 7, 3, 1 days before) are configurable per document or inherited from the category. Each stage is sent only once.\n\n### Actual expiry\nAn automated job moves the document to **Expired** once the date has passed. From the **Expiry** page you see documents expiring in the next 30 days.",
+                    "excerpt": "Expiry A document can have an expiry date (scade_il); if absent, it never expires. Multi-stage reminders Warning days (e.g. 30, 14, 7, 3, 1 days before) are configurable per document or inherited from the category. Each stage is...",
+                    "aliases": [
+                        "document expiry",
+                        "document reminders",
+                        "expired document"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment fonctionnent les échéances et les rappels ?",
+                    "answer_markdown": "## Échéances\nUn document peut avoir une **date d'échéance** (`scade_il`) ; si absente, il n'expire jamais.\n\n### Rappels multi-étapes\nLes jours de préavis (ex. 30, 14, 7, 3, 1 jours avant) sont configurables par document ou hérités de la catégorie. Chaque étape n'est envoyée qu'une seule fois.\n\n### Expiration effective\nUne tâche automatique fait passer le document en statut **Expiré** une fois la date dépassée. Depuis la page **Échéances**, vous voyez les documents expirant dans les 30 prochains jours.",
+                    "excerpt": "Échéances Un document peut avoir une date d'échéance (scade_il) ; si absente, il n'expire jamais. Rappels multi-étapes Les jours de préavis (ex. 30, 14, 7, 3, 1 jours avant) sont configurables par document ou hérités de la...",
+                    "aliases": [
+                        "échéances documents",
+                        "rappels documents",
+                        "document expiré"
+                    ]
+                },
+                "de": {
+                    "question": "Wie funktionieren Fristen und Erinnerungen?",
+                    "answer_markdown": "## Fristen\nEin Dokument kann ein **Ablaufdatum** (`scade_il`) haben; ist keines gesetzt, läuft es nie ab.\n\n### Mehrstufige Erinnerungen\nDie Vorlauftage (z. B. 30, 14, 7, 3, 1 Tage vorher) sind pro Dokument konfigurierbar oder werden von der Kategorie geerbt. Jede Stufe wird nur einmal gesendet.\n\n### Tatsächlicher Ablauf\nEin automatischer Job setzt das Dokument nach Ablauf des Datums auf **Abgelaufen**. Auf der Seite **Fristen** sehen Sie Dokumente, die in den nächsten 30 Tagen ablaufen.",
+                    "excerpt": "Fristen Ein Dokument kann ein Ablaufdatum (scade_il) haben; ist keines gesetzt, läuft es nie ab. Mehrstufige Erinnerungen Die Vorlauftage (z. B. 30, 14, 7, 3, 1 Tage vorher) sind pro Dokument konfigurierbar oder werden von der...",
+                    "aliases": [
+                        "dokument fristen",
+                        "dokument erinnerungen",
+                        "abgelaufenes dokument"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo funcionan los vencimientos y los recordatorios?",
+                    "answer_markdown": "## Vencimientos\nUn documento puede tener una **fecha de vencimiento** (`scade_il`); si no la tiene, nunca vence.\n\n### Recordatorios en varias etapas\nLos días de aviso (p. ej. 30, 14, 7, 3, 1 días antes) son configurables por documento o se heredan de la categoría. Cada etapa se envía una sola vez.\n\n### Vencimiento efectivo\nUn proceso automático pasa el documento a **Vencido** una vez superada la fecha. Desde la página **Vencimientos** ves los documentos que vencen en los próximos 30 días.",
+                    "excerpt": "Vencimientos Un documento puede tener una fecha de vencimiento (scade_il); si no la tiene, nunca vence. Recordatorios en varias etapas Los días de aviso (p. ej. 30, 14, 7, 3, 1 días antes) son configurables por documento o se...",
+                    "aliases": [
+                        "vencimientos documentos",
+                        "recordatorios documentos",
+                        "documento vencido"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "documenti.show",
+            "permission_slug": "documenti.manage_collegamenti",
+            "ranking_weight": 0,
+            "sort_order": 10,
+            "locales": {
+                "it": {
+                    "question": "Come funzionano i collegamenti tra documenti?",
+                    "answer_markdown": "## Collegamenti\nPuoi collegare un documento a un altro con una relazione tipizzata (richiede `documenti.manage_collegamenti`).\n\n### Tipi di collegamento\n- **Correlato**: relazione generica;\n- **Sostituisce** / **Sostituito da**: versioni successive di un documento non tecnicamente collegate come versioni;\n- **Allegato**: documento accessorio;\n- **Riferimento**: rimando a normativa o altro documento esterno.\n\n### Bidirezionalità\nOgni collegamento è visibile da entrambi i documenti coinvolti.",
+                    "excerpt": "Collegamenti Puoi collegare un documento a un altro con una relazione tipizzata (richiede documenti.manage_collegamenti). Tipi di collegamento Correlato: relazione generica; Sostituisce / Sostituito da: versioni successive di un...",
+                    "aliases": [
+                        "collegamenti documenti",
+                        "relazioni documenti",
+                        "documento correlato"
+                    ]
+                },
+                "en": {
+                    "question": "How do document links work?",
+                    "answer_markdown": "## Links\nYou can link a document to another one with a typed relationship (requires `documenti.manage_collegamenti`).\n\n### Link types\n- **Related**: a generic relationship;\n- **Replaces** / **Replaced by**: successive versions of a document not technically linked as versions;\n- **Attachment**: a supporting document;\n- **Reference**: a pointer to a regulation or other external document.\n\n### Bidirectionality\nEvery link is visible from both documents involved.",
+                    "excerpt": "Links You can link a document to another one with a typed relationship (requires documenti.manage_collegamenti). Link types Related: a generic relationship; Replaces / Replaced by: successive versions of a document not...",
+                    "aliases": [
+                        "document links",
+                        "document relationships",
+                        "related document"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment fonctionnent les liens entre documents ?",
+                    "answer_markdown": "## Liens\nVous pouvez lier un document à un autre par une relation typée (nécessite `documenti.manage_collegamenti`).\n\n### Types de liens\n- **Corrélé** : relation générique ;\n- **Remplace** / **Remplacé par** : versions successives d'un document non liées techniquement comme versions ;\n- **Pièce jointe** : document accessoire ;\n- **Référence** : renvoi vers une réglementation ou un autre document externe.\n\n### Bidirectionnalité\nChaque lien est visible depuis les deux documents concernés.",
+                    "excerpt": "Liens Vous pouvez lier un document à un autre par une relation typée (nécessite documenti.manage_collegamenti). Types de liens Corrélé : relation générique ; Remplace / Remplacé par : versions successives d'un document non liées...",
+                    "aliases": [
+                        "liens documents",
+                        "relations documents",
+                        "document corrélé"
+                    ]
+                },
+                "de": {
+                    "question": "Wie funktionieren Dokumentverknüpfungen?",
+                    "answer_markdown": "## Verknüpfungen\nSie können ein Dokument über eine typisierte Beziehung mit einem anderen verknüpfen (erfordert `documenti.manage_collegamenti`).\n\n### Verknüpfungsarten\n- **Verwandt**: allgemeine Beziehung;\n- **Ersetzt** / **Ersetzt durch**: aufeinanderfolgende Versionen eines Dokuments, die nicht technisch als Versionen verknüpft sind;\n- **Anhang**: begleitendes Dokument;\n- **Referenz**: Verweis auf eine Vorschrift oder ein anderes externes Dokument.\n\n### Bidirektionalität\nJede Verknüpfung ist von beiden beteiligten Dokumenten aus sichtbar.",
+                    "excerpt": "Verknüpfungen Sie können ein Dokument über eine typisierte Beziehung mit einem anderen verknüpfen (erfordert documenti.manage_collegamenti). Verknüpfungsarten Verwandt: allgemeine Beziehung; Ersetzt / Ersetzt durch:...",
+                    "aliases": [
+                        "dokumentverknüpfungen",
+                        "dokumentbeziehungen",
+                        "verwandtes dokument"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo funcionan los vínculos entre documentos?",
+                    "answer_markdown": "## Vínculos\nPuedes vincular un documento con otro mediante una relación tipificada (requiere `documenti.manage_collegamenti`).\n\n### Tipos de vínculo\n- **Relacionado**: relación genérica;\n- **Sustituye** / **Sustituido por**: versiones sucesivas de un documento no vinculadas técnicamente como versiones;\n- **Adjunto**: documento accesorio;\n- **Referencia**: remisión a normativa u otro documento externo.\n\n### Bidireccionalidad\nCada vínculo es visible desde ambos documentos implicados.",
+                    "excerpt": "Vínculos Puedes vincular un documento con otro mediante una relación tipificada (requiere documenti.manage_collegamenti). Tipos de vínculo Relacionado: relación genérica; Sustituye / Sustituido por: versiones sucesivas de un...",
+                    "aliases": [
+                        "vínculos documentos",
+                        "relaciones documentos",
+                        "documento relacionado"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "documenti.index",
+            "permission_slug": "documenti.view",
+            "ranking_weight": 0,
+            "sort_order": 11,
+            "locales": {
+                "it": {
+                    "question": "Come cerco e filtro nell'elenco documenti?",
+                    "answer_markdown": "## Ricerca e filtri\nL'elenco documenti supporta filtri combinabili e ricerca testuale.\n\n### Filtri disponibili\n- **categoria**;\n- **stato** del workflow;\n- **intervallo di scadenza**;\n- ricerca full-text su titolo e descrizione.\n\n### Vista ad albero\nLa vista **Struttura** mostra i documenti organizzati secondo la gerarchia delle categorie.",
+                    "excerpt": "Ricerca e filtri L'elenco documenti supporta filtri combinabili e ricerca testuale. Filtri disponibili categoria; stato del workflow; intervallo di scadenza; ricerca full-text su titolo e descrizione. Vista ad albero La vista...",
+                    "aliases": [
+                        "cercare documenti",
+                        "filtri documenti",
+                        "vista struttura documenti"
+                    ]
+                },
+                "en": {
+                    "question": "How do I search and filter the document list?",
+                    "answer_markdown": "## Search and filters\nThe document list supports combinable filters and text search.\n\n### Available filters\n- **category**;\n- workflow **status**;\n- **expiry range**;\n- full-text search on title and description.\n\n### Tree view\nThe **Structure** view shows documents organized by category hierarchy.",
+                    "excerpt": "Search and filters The document list supports combinable filters and text search. Available filters category; workflow status; expiry range; full-text search on title and description. Tree view The Structure view shows documents...",
+                    "aliases": [
+                        "search documents",
+                        "document filters",
+                        "document structure view"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment rechercher et filtrer dans la liste des documents ?",
+                    "answer_markdown": "## Recherche et filtres\nLa liste des documents prend en charge des filtres combinables et une recherche textuelle.\n\n### Filtres disponibles\n- **catégorie** ;\n- **statut** du workflow ;\n- **plage d'échéance** ;\n- recherche full-text sur titre et description.\n\n### Vue arborescente\nLa vue **Structure** affiche les documents organisés selon la hiérarchie des catégories.",
+                    "excerpt": "Recherche et filtres La liste des documents prend en charge des filtres combinables et une recherche textuelle. Filtres disponibles catégorie ; statut du workflow ; plage d'échéance ; recherche full-text sur titre et description....",
+                    "aliases": [
+                        "rechercher documents",
+                        "filtres documents",
+                        "vue structure documents"
+                    ]
+                },
+                "de": {
+                    "question": "Wie suche und filtere ich in der Dokumentenliste?",
+                    "answer_markdown": "## Suche und Filter\nDie Dokumentenliste unterstützt kombinierbare Filter und Textsuche.\n\n### Verfügbare Filter\n- **Kategorie**;\n- Workflow-**Status**;\n- **Fristbereich**;\n- Volltextsuche in Titel und Beschreibung.\n\n### Baumansicht\nDie Ansicht **Struktur** zeigt Dokumente nach Kategoriehierarchie organisiert.",
+                    "excerpt": "Suche und Filter Die Dokumentenliste unterstützt kombinierbare Filter und Textsuche. Verfügbare Filter Kategorie; Workflow-Status; Fristbereich; Volltextsuche in Titel und Beschreibung. Baumansicht Die Ansicht Struktur zeigt...",
+                    "aliases": [
+                        "dokumente suchen",
+                        "dokumente filter",
+                        "dokumente struktur ansicht"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo busco y filtro en la lista de documentos?",
+                    "answer_markdown": "## Búsqueda y filtros\nLa lista de documentos admite filtros combinables y búsqueda de texto.\n\n### Filtros disponibles\n- **categoría**;\n- **estado** del flujo;\n- **rango de vencimiento**;\n- búsqueda de texto completo en título y descripción.\n\n### Vista de árbol\nLa vista **Estructura** muestra los documentos organizados según la jerarquía de categorías.",
+                    "excerpt": "Búsqueda y filtros La lista de documentos admite filtros combinables y búsqueda de texto. Filtros disponibles categoría; estado del flujo; rango de vencimiento; búsqueda de texto completo en título y descripción. Vista de árbol...",
+                    "aliases": [
+                        "buscar documentos",
+                        "filtros documentos",
+                        "vista estructura documentos"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "documenti.inbox",
+            "permission_slug": "documenti.inbox",
+            "ranking_weight": 0,
+            "sort_order": 12,
+            "locales": {
+                "it": {
+                    "question": "Cosa mostra l'inbox di approvazione?",
+                    "answer_markdown": "## Inbox\nL'inbox raccoglie i documenti che aspettano un'azione **da parte tua** nel workflow.\n\n### Chi la vede\nServe `documenti.inbox`: la vedono revisori e approvatori, con i documenti nel passaggio di loro competenza.\n\n### Uso tipico\nDall'inbox puoi prendere in carico un documento, approvarlo, rifiutarlo o restituirlo senza cercarlo nell'elenco generale.",
+                    "excerpt": "Inbox L'inbox raccoglie i documenti che aspettano un'azione da parte tua nel workflow. Chi la vede Serve documenti.inbox: la vedono revisori e approvatori, con i documenti nel passaggio di loro competenza. Uso tipico Dall'inbox...",
+                    "aliases": [
+                        "inbox documenti",
+                        "documenti da approvare",
+                        "coda approvazione"
+                    ]
+                },
+                "en": {
+                    "question": "What does the approval inbox show?",
+                    "answer_markdown": "## Inbox\nThe inbox collects documents waiting for an action **from you** in the workflow.\n\n### Who sees it\nRequires `documenti.inbox`: reviewers and approvers see it, with documents at the step they're responsible for.\n\n### Typical use\nFrom the inbox you can take over a document, approve it, reject it or return it without searching for it in the general list.",
+                    "excerpt": "Inbox The inbox collects documents waiting for an action from you in the workflow. Who sees it Requires documenti.inbox: reviewers and approvers see it, with documents at the step they're responsible for. Typical use From the...",
+                    "aliases": [
+                        "documents inbox",
+                        "documents to approve",
+                        "approval queue"
+                    ]
+                },
+                "fr": {
+                    "question": "Que montre la boîte de réception d'approbation ?",
+                    "answer_markdown": "## Boîte de réception\nLa boîte de réception rassemble les documents en attente d'une action **de votre part** dans le workflow.\n\n### Qui la voit\nNécessite `documenti.inbox` : les réviseurs et approbateurs la voient, avec les documents à l'étape dont ils sont responsables.\n\n### Utilisation typique\nDepuis la boîte de réception, vous pouvez prendre en charge un document, l'approuver, le rejeter ou le retourner sans le chercher dans la liste générale.",
+                    "excerpt": "Boîte de réception La boîte de réception rassemble les documents en attente d'une action de votre part dans le workflow. Qui la voit Nécessite documenti.inbox : les réviseurs et approbateurs la voient, avec les documents à...",
+                    "aliases": [
+                        "boîte réception documents",
+                        "documents à approuver",
+                        "file d'attente approbation"
+                    ]
+                },
+                "de": {
+                    "question": "Was zeigt der Genehmigungs-Posteingang?",
+                    "answer_markdown": "## Posteingang\nDer Posteingang sammelt Dokumente, die im Workflow auf eine Aktion **von Ihnen** warten.\n\n### Wer ihn sieht\nErfordert `documenti.inbox`: Prüfer und Genehmiger sehen ihn, mit Dokumenten im Schritt, für den sie zuständig sind.\n\n### Typische Verwendung\nÜber den Posteingang können Sie ein Dokument übernehmen, genehmigen, ablehnen oder zurückgeben, ohne es in der allgemeinen Liste zu suchen.",
+                    "excerpt": "Posteingang Der Posteingang sammelt Dokumente, die im Workflow auf eine Aktion von Ihnen warten. Wer ihn sieht Erfordert documenti.inbox: Prüfer und Genehmiger sehen ihn, mit Dokumenten im Schritt, für den sie zuständig sind....",
+                    "aliases": [
+                        "dokumente posteingang",
+                        "zu genehmigende dokumente",
+                        "genehmigungs warteschlange"
+                    ]
+                },
+                "es": {
+                    "question": "¿Qué muestra la bandeja de aprobación?",
+                    "answer_markdown": "## Bandeja de entrada\nLa bandeja reúne los documentos que esperan una acción **de tu parte** en el flujo.\n\n### Quién la ve\nRequiere `documenti.inbox`: la ven revisores y aprobadores, con los documentos en el paso del que son responsables.\n\n### Uso típico\nDesde la bandeja puedes tomar en cargo un documento, aprobarlo, rechazarlo o devolverlo sin buscarlo en el listado general.",
+                    "excerpt": "Bandeja de entrada La bandeja reúne los documentos que esperan una acción de tu parte en el flujo. Quién la ve Requiere documenti.inbox: la ven revisores y aprobadores, con los documentos en el paso del que son responsables. Uso...",
+                    "aliases": [
+                        "bandeja documentos",
+                        "documentos por aprobar",
+                        "cola de aprobación"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "documenti.destroy",
+            "permission_slug": "documenti.delete",
+            "ranking_weight": 0,
+            "sort_order": 13,
+            "locales": {
+                "it": {
+                    "question": "Cosa succede quando elimino un documento?",
+                    "answer_markdown": "## Eliminazione\nEliminare un documento (richiede `documenti.delete`) è un'operazione di **soft-delete**: il documento non viene rimosso fisicamente.\n\n### Cestino\nUn amministratore con `documenti.admin` può consultare il cestino, **ripristinare** un documento eliminato oppure eseguire il **purge** definitivo (irreversibile).",
+                    "excerpt": "Eliminazione Eliminare un documento (richiede documenti.delete) è un'operazione di soft-delete: il documento non viene rimosso fisicamente. Cestino Un amministratore con documenti.admin può consultare il cestino, ripristinare un...",
+                    "aliases": [
+                        "eliminare documento",
+                        "cestino documenti",
+                        "ripristinare documento"
+                    ]
+                },
+                "en": {
+                    "question": "What happens when I delete a document?",
+                    "answer_markdown": "## Deletion\nDeleting a document (requires `documenti.delete`) is a **soft-delete** operation: the document isn't physically removed.\n\n### Trash\nAn administrator with `documenti.admin` can browse the trash, **restore** a deleted document, or perform a permanent (irreversible) **purge**.",
+                    "excerpt": "Deletion Deleting a document (requires documenti.delete) is a soft-delete operation: the document isn't physically removed. Trash An administrator with documenti.admin can browse the trash, restore a deleted document, or perform...",
+                    "aliases": [
+                        "delete document",
+                        "documents trash",
+                        "restore document"
+                    ]
+                },
+                "fr": {
+                    "question": "Que se passe-t-il quand je supprime un document ?",
+                    "answer_markdown": "## Suppression\nSupprimer un document (nécessite `documenti.delete`) est une opération de **suppression douce** : le document n'est pas physiquement retiré.\n\n### Corbeille\nUn administrateur disposant de `documenti.admin` peut consulter la corbeille, **restaurer** un document supprimé ou effectuer une **suppression définitive** (irréversible).",
+                    "excerpt": "Suppression Supprimer un document (nécessite documenti.delete) est une opération de suppression douce : le document n'est pas physiquement retiré. Corbeille Un administrateur disposant de documenti.admin peut consulter la...",
+                    "aliases": [
+                        "supprimer document",
+                        "corbeille documents",
+                        "restaurer document"
+                    ]
+                },
+                "de": {
+                    "question": "Was passiert, wenn ich ein Dokument lösche?",
+                    "answer_markdown": "## Löschen\nDas Löschen eines Dokuments (erfordert `documenti.delete`) ist ein **Soft-Delete**: Das Dokument wird nicht physisch entfernt.\n\n### Papierkorb\nEin Administrator mit `documenti.admin` kann den Papierkorb einsehen, ein gelöschtes Dokument **wiederherstellen** oder einen endgültigen (unwiderruflichen) **Purge** durchführen.",
+                    "excerpt": "Löschen Das Löschen eines Dokuments (erfordert documenti.delete) ist ein Soft-Delete: Das Dokument wird nicht physisch entfernt. Papierkorb Ein Administrator mit documenti.admin kann den Papierkorb einsehen, ein gelöschtes...",
+                    "aliases": [
+                        "dokument löschen",
+                        "dokumente papierkorb",
+                        "dokument wiederherstellen"
+                    ]
+                },
+                "es": {
+                    "question": "¿Qué pasa cuando elimino un documento?",
+                    "answer_markdown": "## Eliminación\nEliminar un documento (requiere `documenti.delete`) es una operación de **borrado suave**: el documento no se elimina físicamente.\n\n### Papelera\nUn administrador con `documenti.admin` puede consultar la papelera, **restaurar** un documento eliminado o realizar un **purgado** definitivo (irreversible).",
+                    "excerpt": "Eliminación Eliminar un documento (requiere documenti.delete) es una operación de borrado suave: el documento no se elimina físicamente. Papelera Un administrador con documenti.admin puede consultar la papelera, restaurar un...",
+                    "aliases": [
+                        "eliminar documento",
+                        "papelera documentos",
+                        "restaurar documento"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "documenti.versioni.download",
+            "permission_slug": "documenti.view",
+            "ranking_weight": 0,
+            "sort_order": 14,
+            "locales": {
+                "it": {
+                    "question": "Come scarico o visualizzo in anteprima un file?",
+                    "answer_markdown": "## Download e anteprima\nDalla scheda del documento, apri una versione per **scaricarla** o vederne l'**anteprima** direttamente nel browser (richiede `documenti.view`).\n\n### Controllo di sicurezza\nOgni accesso al file verifica i permessi dell'utente e il tipo MIME contro la whitelist configurata dall'amministrazione.",
+                    "excerpt": "Download e anteprima Dalla scheda del documento, apri una versione per scaricarla o vederne l'anteprima direttamente nel browser (richiede documenti.view). Controllo di sicurezza Ogni accesso al file verifica i permessi...",
+                    "aliases": [
+                        "scaricare documento",
+                        "anteprima documento",
+                        "download file"
+                    ]
+                },
+                "en": {
+                    "question": "How do I download or preview a file?",
+                    "answer_markdown": "## Download and preview\nFrom the document page, open a version to **download** it or see its **preview** directly in the browser (requires `documenti.view`).\n\n### Security check\nEvery file access checks the user's permissions and the MIME type against the whitelist configured by administration.",
+                    "excerpt": "Download and preview From the document page, open a version to download it or see its preview directly in the browser (requires documenti.view). Security check Every file access checks the user's permissions and the MIME type...",
+                    "aliases": [
+                        "download document",
+                        "document preview",
+                        "download file"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment télécharger ou prévisualiser un fichier ?",
+                    "answer_markdown": "## Téléchargement et aperçu\nDepuis la fiche du document, ouvrez une version pour la **télécharger** ou voir son **aperçu** directement dans le navigateur (nécessite `documenti.view`).\n\n### Contrôle de sécurité\nChaque accès au fichier vérifie les permissions de l'utilisateur et le type MIME par rapport à la liste blanche configurée par l'administration.",
+                    "excerpt": "Téléchargement et aperçu Depuis la fiche du document, ouvrez une version pour la télécharger ou voir son aperçu directement dans le navigateur (nécessite documenti.view). Contrôle de sécurité Chaque accès au fichier vérifie les...",
+                    "aliases": [
+                        "télécharger document",
+                        "aperçu document",
+                        "télécharger fichier"
+                    ]
+                },
+                "de": {
+                    "question": "Wie lade ich eine Datei herunter oder sehe sie in der Vorschau?",
+                    "answer_markdown": "## Herunterladen und Vorschau\nÖffnen Sie auf der Dokumentseite eine Version, um sie **herunterzuladen** oder direkt im Browser in der **Vorschau** anzuzeigen (erfordert `documenti.view`).\n\n### Sicherheitsprüfung\nBei jedem Dateizugriff werden die Benutzerberechtigungen und der MIME-Typ gegen die von der Administration konfigurierte Whitelist geprüft.",
+                    "excerpt": "Herunterladen und Vorschau Öffnen Sie auf der Dokumentseite eine Version, um sie herunterzuladen oder direkt im Browser in der Vorschau anzuzeigen (erfordert documenti.view). Sicherheitsprüfung Bei jedem Dateizugriff werden die...",
+                    "aliases": [
+                        "dokument herunterladen",
+                        "dokument vorschau",
+                        "datei download"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo descargo o previsualizo un archivo?",
+                    "answer_markdown": "## Descarga y vista previa\nDesde la ficha del documento, abre una versión para **descargarla** o ver su **vista previa** directamente en el navegador (requiere `documenti.view`).\n\n### Control de seguridad\nCada acceso al archivo verifica los permisos del usuario y el tipo MIME frente a la lista blanca configurada por la administración.",
+                    "excerpt": "Descarga y vista previa Desde la ficha del documento, abre una versión para descargarla o ver su vista previa directamente en el navegador (requiere documenti.view). Control de seguridad Cada acceso al archivo verifica los...",
+                    "aliases": [
+                        "descargar documento",
+                        "vista previa documento",
+                        "descargar archivo"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "documenti.admin.audit",
+            "permission_slug": "documenti.admin",
+            "ranking_weight": 0,
+            "sort_order": 15,
+            "locales": {
+                "it": {
+                    "question": "Cosa traccia l'audit trail dei documenti?",
+                    "answer_markdown": "## Audit trail\nOgni operazione sui documenti viene registrata: creazione, modifica, eliminazione, ripristino e ogni transizione di workflow (invio, approvazione, rifiuto...).\n\n### Consultazione\nServe `documenti.admin`. Puoi filtrare per entità o utente e vedere lo storico completo di un singolo documento.\n\n### Esportazione\nL'audit è esportabile in CSV per verifiche esterne o conformità.",
+                    "excerpt": "Audit trail Ogni operazione sui documenti viene registrata: creazione, modifica, eliminazione, ripristino e ogni transizione di workflow (invio, approvazione, rifiuto...). Consultazione Serve documenti.admin. Puoi filtrare per...",
+                    "aliases": [
+                        "audit documenti",
+                        "log documenti",
+                        "storico modifiche documento"
+                    ]
+                },
+                "en": {
+                    "question": "What does the document audit trail track?",
+                    "answer_markdown": "## Audit trail\nEvery document operation is logged: creation, edit, deletion, restore and every workflow transition (send, approve, reject...).\n\n### Reviewing it\nRequires `documenti.admin`. You can filter by entity or user and see the full history of a single document.\n\n### Export\nThe audit trail can be exported to CSV for external checks or compliance.",
+                    "excerpt": "Audit trail Every document operation is logged: creation, edit, deletion, restore and every workflow transition (send, approve, reject...). Reviewing it Requires documenti.admin. You can filter by entity or user and see the full...",
+                    "aliases": [
+                        "documents audit",
+                        "documents log",
+                        "document change history"
+                    ]
+                },
+                "fr": {
+                    "question": "Que trace la piste d'audit des documents ?",
+                    "answer_markdown": "## Piste d'audit\nChaque opération sur les documents est enregistrée : création, modification, suppression, restauration et chaque transition de workflow (envoi, approbation, rejet...).\n\n### Consultation\nNécessite `documenti.admin`. Vous pouvez filtrer par entité ou utilisateur et voir l'historique complet d'un document donné.\n\n### Export\nL'audit est exportable en CSV pour des vérifications externes ou la conformité.",
+                    "excerpt": "Piste d'audit Chaque opération sur les documents est enregistrée : création, modification, suppression, restauration et chaque transition de workflow (envoi, approbation, rejet...). Consultation Nécessite documenti.admin. Vous...",
+                    "aliases": [
+                        "audit documents",
+                        "log documents",
+                        "historique modifications document"
+                    ]
+                },
+                "de": {
+                    "question": "Was erfasst das Audit-Protokoll für Dokumente?",
+                    "answer_markdown": "## Audit-Trail\nJede Dokumentoperation wird protokolliert: Erstellung, Bearbeitung, Löschung, Wiederherstellung und jeder Workflow-Übergang (Senden, Genehmigen, Ablehnen...).\n\n### Einsicht\nErfordert `documenti.admin`. Sie können nach Entität oder Benutzer filtern und die vollständige Historie eines einzelnen Dokuments einsehen.\n\n### Export\nDer Audit-Trail kann für externe Prüfungen oder Compliance als CSV exportiert werden.",
+                    "excerpt": "Audit-Trail Jede Dokumentoperation wird protokolliert: Erstellung, Bearbeitung, Löschung, Wiederherstellung und jeder Workflow-Übergang (Senden, Genehmigen, Ablehnen...). Einsicht Erfordert documenti.admin. Sie können nach...",
+                    "aliases": [
+                        "dokumente audit",
+                        "dokumente log",
+                        "dokument änderungshistorie"
+                    ]
+                },
+                "es": {
+                    "question": "¿Qué registra la pista de auditoría de documentos?",
+                    "answer_markdown": "## Pista de auditoría\nCada operación sobre documentos queda registrada: creación, edición, eliminación, restauración y cada transición del flujo (enviar, aprobar, rechazar...).\n\n### Consulta\nRequiere `documenti.admin`. Puedes filtrar por entidad o usuario y ver el historial completo de un documento concreto.\n\n### Exportación\nLa auditoría se puede exportar a CSV para verificaciones externas o cumplimiento normativo.",
+                    "excerpt": "Pista de auditoría Cada operación sobre documentos queda registrada: creación, edición, eliminación, restauración y cada transición del flujo (enviar, aprobar, rechazar...). Consulta Requiere documenti.admin. Puedes filtrar por...",
+                    "aliases": [
+                        "auditoría documentos",
+                        "log documentos",
+                        "historial cambios documento"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "documenti.admin.health",
+            "permission_slug": "documenti.admin",
+            "ranking_weight": 0,
+            "sort_order": 16,
+            "locales": {
+                "it": {
+                    "question": "Cosa controlla l'health check di Documenti?",
+                    "answer_markdown": "## Health check\nLa pagina diagnostica (richiede `documenti.admin`) verifica lo stato tecnico dell'archivio documentale.\n\n### Controlli effettuati\n- **spazio di archiviazione** occupato;\n- **file orfani** (senza documento collegato);\n- **integrità checksum SHA-256** rispetto al file salvato su disco;\n- copertura dei **tipi MIME** configurati.\n\n### Manutenzione collegata\nDa questa pagina puoi anche gestire la whitelist dei formati file accettati.",
+                    "excerpt": "Health check La pagina diagnostica (richiede documenti.admin) verifica lo stato tecnico dell'archivio documentale. Controlli effettuati spazio di archiviazione occupato; file orfani (senza documento collegato); integrità checksum...",
+                    "aliases": [
+                        "health check documenti",
+                        "integrita documenti",
+                        "file orfani documenti"
+                    ]
+                },
+                "en": {
+                    "question": "What does the Documents health check verify?",
+                    "answer_markdown": "## Health check\nThe diagnostics page (requires `documenti.admin`) verifies the technical state of the document archive.\n\n### Checks performed\n- **storage space** used;\n- **orphaned files** (with no linked document);\n- **SHA-256 checksum integrity** against the file saved on disk;\n- coverage of configured **MIME types**.\n\n### Related maintenance\nFrom this page you can also manage the whitelist of accepted file formats.",
+                    "excerpt": "Health check The diagnostics page (requires documenti.admin) verifies the technical state of the document archive. Checks performed storage space used; orphaned files (with no linked document); SHA-256 checksum integrity against...",
+                    "aliases": [
+                        "documents health check",
+                        "documents integrity",
+                        "orphaned document files"
+                    ]
+                },
+                "fr": {
+                    "question": "Que vérifie le contrôle de santé de Documents ?",
+                    "answer_markdown": "## Contrôle de santé\nLa page de diagnostic (nécessite `documenti.admin`) vérifie l'état technique de l'archive documentaire.\n\n### Contrôles effectués\n- **espace de stockage** utilisé ;\n- **fichiers orphelins** (sans document lié) ;\n- **intégrité de l'empreinte SHA-256** par rapport au fichier enregistré sur disque ;\n- couverture des **types MIME** configurés.\n\n### Maintenance liée\nDepuis cette page, vous pouvez aussi gérer la liste blanche des formats de fichiers acceptés.",
+                    "excerpt": "Contrôle de santé La page de diagnostic (nécessite documenti.admin) vérifie l'état technique de l'archive documentaire. Contrôles effectués espace de stockage utilisé ; fichiers orphelins (sans document lié) ; intégrité de...",
+                    "aliases": [
+                        "contrôle santé documents",
+                        "intégrité documents",
+                        "fichiers orphelins documents"
+                    ]
+                },
+                "de": {
+                    "question": "Was prüft der Health-Check von Dokumente?",
+                    "answer_markdown": "## Health-Check\nDie Diagnoseseite (erfordert `documenti.admin`) prüft den technischen Zustand des Dokumentenarchivs.\n\n### Durchgeführte Prüfungen\n- genutzter **Speicherplatz**;\n- **verwaiste Dateien** (ohne verknüpftes Dokument);\n- **SHA-256-Prüfsummenintegrität** im Vergleich zur auf der Festplatte gespeicherten Datei;\n- Abdeckung der konfigurierten **MIME-Typen**.\n\n### Zugehörige Wartung\nAuf dieser Seite können Sie auch die Whitelist der akzeptierten Dateiformate verwalten.",
+                    "excerpt": "Health-Check Die Diagnoseseite (erfordert documenti.admin) prüft den technischen Zustand des Dokumentenarchivs. Durchgeführte Prüfungen genutzter Speicherplatz; verwaiste Dateien (ohne verknüpftes Dokument);...",
+                    "aliases": [
+                        "dokumente health check",
+                        "dokumente integrität",
+                        "verwaiste dokumentdateien"
+                    ]
+                },
+                "es": {
+                    "question": "¿Qué comprueba el health check de Documentos?",
+                    "answer_markdown": "## Health check\nLa página de diagnóstico (requiere `documenti.admin`) verifica el estado técnico del archivo documental.\n\n### Comprobaciones realizadas\n- **espacio de almacenamiento** utilizado;\n- **archivos huérfanos** (sin documento vinculado);\n- **integridad del checksum SHA-256** frente al archivo guardado en disco;\n- cobertura de los **tipos MIME** configurados.\n\n### Mantenimiento relacionado\nDesde esta página también puedes gestionar la lista blanca de formatos de archivo aceptados.",
+                    "excerpt": "Health check La página de diagnóstico (requiere documenti.admin) verifica el estado técnico del archivo documental. Comprobaciones realizadas espacio de almacenamiento utilizado; archivos huérfanos (sin documento vinculado);...",
+                    "aliases": [
+                        "health check documentos",
+                        "integridad documentos",
+                        "archivos huérfanos documentos"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "documenti.admin.dashboard",
+            "permission_slug": "documenti.admin",
+            "ranking_weight": 0,
+            "sort_order": 17,
+            "locales": {
+                "it": {
+                    "question": "Quali job di manutenzione automatica esistono per Documenti?",
+                    "answer_markdown": "## Job pianificati\nQuattro comandi mantengono in ordine l'archivio documentale; sono disattivati di default e vanno abilitati dall'amministrazione.\n\n### I quattro job\n- **invio promemoria di scadenza** multi-stadio;\n- **passaggio a Scaduto** dei documenti pubblicati oltre la scadenza;\n- **verifica di integrità** dei checksum SHA-256;\n- **pulizia dei file orfani** più vecchi di N ore.\n\nDalla dashboard admin (`documenti.admin`) puoi anche lanciarli manualmente.",
+                    "excerpt": "Job pianificati Quattro comandi mantengono in ordine l'archivio documentale; sono disattivati di default e vanno abilitati dall'amministrazione. I quattro job invio promemoria di scadenza multi-stadio; passaggio a Scaduto dei...",
+                    "aliases": [
+                        "job documenti",
+                        "manutenzione automatica documenti",
+                        "job scadenze documenti"
+                    ]
+                },
+                "en": {
+                    "question": "What automatic maintenance jobs exist for Documents?",
+                    "answer_markdown": "## Scheduled jobs\nFour commands keep the document archive in order; they're disabled by default and must be enabled from administration.\n\n### The four jobs\n- sending multi-stage **expiry reminders**;\n- moving overdue published documents to **Expired**;\n- **integrity verification** of SHA-256 checksums;\n- **cleanup of orphaned files** older than N hours.\n\nFrom the admin dashboard (`documenti.admin`) you can also trigger them manually.",
+                    "excerpt": "Scheduled jobs Four commands keep the document archive in order; they're disabled by default and must be enabled from administration. The four jobs sending multi-stage expiry reminders; moving overdue published documents to...",
+                    "aliases": [
+                        "documents jobs",
+                        "documents automatic maintenance",
+                        "documents expiry jobs"
+                    ]
+                },
+                "fr": {
+                    "question": "Quelles tâches de maintenance automatique existent pour Documents ?",
+                    "answer_markdown": "## Tâches planifiées\nQuatre commandes maintiennent l'archive documentaire en ordre ; elles sont désactivées par défaut et doivent être activées depuis l'administration.\n\n### Les quatre tâches\n- envoi des **rappels d'échéance** multi-étapes ;\n- passage en **Expiré** des documents publiés dont l'échéance est dépassée ;\n- **vérification d'intégrité** des empreintes SHA-256 ;\n- **nettoyage des fichiers orphelins** plus vieux de N heures.\n\nDepuis le tableau de bord admin (`documenti.admin`), vous pouvez aussi les déclencher manuellement.",
+                    "excerpt": "Tâches planifiées Quatre commandes maintiennent l'archive documentaire en ordre ; elles sont désactivées par défaut et doivent être activées depuis l'administration. Les quatre tâches envoi des rappels d'échéance multi-étapes ;...",
+                    "aliases": [
+                        "tâches documents",
+                        "maintenance automatique documents",
+                        "tâches échéances documents"
+                    ]
+                },
+                "de": {
+                    "question": "Welche automatischen Wartungsjobs gibt es für Dokumente?",
+                    "answer_markdown": "## Geplante Jobs\nVier Befehle halten das Dokumentenarchiv in Ordnung; sie sind standardmäßig deaktiviert und müssen über die Administration aktiviert werden.\n\n### Die vier Jobs\n- Versand mehrstufiger **Ablauferinnerungen**;\n- Umstellung überfälliger veröffentlichter Dokumente auf **Abgelaufen**;\n- **Integritätsprüfung** der SHA-256-Prüfsummen;\n- **Bereinigung verwaister Dateien**, die älter als N Stunden sind.\n\nÜber das Admin-Dashboard (`documenti.admin`) können Sie sie auch manuell auslösen.",
+                    "excerpt": "Geplante Jobs Vier Befehle halten das Dokumentenarchiv in Ordnung; sie sind standardmäßig deaktiviert und müssen über die Administration aktiviert werden. Die vier Jobs Versand mehrstufiger Ablauferinnerungen; Umstellung...",
+                    "aliases": [
+                        "dokumente jobs",
+                        "dokumente automatische wartung",
+                        "dokumente fristen jobs"
+                    ]
+                },
+                "es": {
+                    "question": "¿Qué trabajos de mantenimiento automático existen para Documentos?",
+                    "answer_markdown": "## Trabajos programados\nCuatro comandos mantienen en orden el archivo documental; están desactivados por defecto y deben habilitarse desde la administración.\n\n### Los cuatro trabajos\n- envío de **recordatorios de vencimiento** en varias etapas;\n- paso a **Vencido** de los documentos publicados que superan la fecha;\n- **verificación de integridad** de los checksums SHA-256;\n- **limpieza de archivos huérfanos** con más de N horas.\n\nDesde el panel admin (`documenti.admin`) también puedes ejecutarlos manualmente.",
+                    "excerpt": "Trabajos programados Cuatro comandos mantienen en orden el archivo documental; están desactivados por defecto y deben habilitarse desde la administración. Los cuatro trabajos envío de recordatorios de vencimiento en varias...",
+                    "aliases": [
+                        "trabajos documentos",
+                        "mantenimiento automático documentos",
+                        "trabajos vencimientos documentos"
+                    ]
+                }
+            }
+        }
+    ]
+}

@@ -1,0 +1,163 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Call to function is_array\(\) with array\<mixed\> will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: app/Cli/Support/CliBootstrap.php
+
+		-
+			message: '#^Offset ''inter''\|''jetbrains''\|''lora''\|''plex''\|''system'' on array\{system\: ''system\-ui, \-apple…'', inter\: ''"Inter", system\-ui,…'', plex\: ''"IBM Plex Sans",…'', lora\: ''"Lora", Georgia,…'', jetbrains\: ''"JetBrains Mono",…''\} on left side of \?\? always exists and is not nullable\.$#'
+			identifier: nullCoalesce.offset
+			count: 1
+			path: app/Core/Controller.php
+
+		-
+			message: '#^Strict comparison using \=\=\= between mixed and null will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
+			count: 1
+			path: app/Helpers/functions.php
+
+		-
+			message: '#^Ternary operator condition is always true\.$#'
+			identifier: ternary.alwaysTrue
+			count: 1
+			path: app/Modules/Admin/Controllers/SecurityDashboardController.php
+
+		-
+			message: '#^Offset ''allowed'' on array\{env_key\: ''APP_ENV'', allowed\: array\{''development'', ''production''\}, default\: ''production''\} in isset\(\) always exists and is not nullable\.$#'
+			identifier: isset.offset
+			count: 1
+			path: app/Modules/Admin/Controllers/SettingsController.php
+
+		-
+			message: '#^Strict comparison using \=\=\= between ''int'' and ''int'' will always evaluate to true\.$#'
+			identifier: identical.alwaysTrue
+			count: 1
+			path: app/Modules/Admin/Controllers/SettingsController.php
+
+		-
+			message: '#^Variable \$envUpdates in empty\(\) always exists and is not falsy\.$#'
+			identifier: empty.variable
+			count: 1
+			path: app/Modules/Admin/Controllers/SettingsController.php
+
+		-
+			message: '#^Strict comparison using \!\=\= between mixed and null will always evaluate to true\.$#'
+			identifier: notIdentical.alwaysTrue
+			count: 2
+			path: app/Modules/Admin/Repositories/AdminLogsRepository.php
+
+		-
+			message: '#^Strict comparison using \!\=\= between mixed and null will always evaluate to true\.$#'
+			identifier: notIdentical.alwaysTrue
+			count: 1
+			path: app/Modules/Admin/Repositories/AdminUserRepository.php
+
+		-
+			message: '#^Strict comparison using \=\=\= between list\<array\{int, string, int\}\|string\> and false will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
+			count: 1
+			path: app/Modules/Admin/Services/ModuleImportService.php
+
+		-
+			message: '#^Strict comparison using \=\=\= between non\-empty\-string and false will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
+			count: 1
+			path: app/Modules/Admin/Services/ModuleImportService.php
+
+		-
+			message: '#^Variable \$zip in isset\(\) always exists and is not nullable\.$#'
+			identifier: isset.variable
+			count: 1
+			path: app/Modules/Admin/Services/ModuleImportService.php
+
+		-
+			message: '#^Strict comparison using \!\=\= between non\-empty\-string and '''' will always evaluate to true\.$#'
+			identifier: notIdentical.alwaysTrue
+			count: 1
+			path: app/Modules/Contacts/Services/ContactFileImportService.php
+
+		-
+			message: '#^Strict comparison using \!\=\= between mixed and null will always evaluate to true\.$#'
+			identifier: notIdentical.alwaysTrue
+			count: 2
+			path: app/Modules/Contacts/Services/ContactsService.php
+
+		-
+			message: '#^Strict comparison using \=\=\= between non\-empty\-list\<string\|null\> and false will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
+			count: 2
+			path: app/Modules/Contacts/Services/Parsers/CsvContactParser.php
+
+		-
+			message: '#^Ternary operator condition is always true\.$#'
+			identifier: ternary.alwaysTrue
+			count: 1
+			path: app/Modules/Files/Repositories/FilesRepository.php
+
+		-
+			message: '#^Result of \|\| is always true\.$#'
+			identifier: booleanOr.alwaysTrue
+			count: 1
+			path: app/Modules/HelpOnline/Services/HelpOnlineService.php
+
+		-
+			message: '#^Strict comparison using \=\=\= between array\{\} and array\{\} will always evaluate to true\.$#'
+			identifier: identical.alwaysTrue
+			count: 4
+			path: app/Modules/HelpOnline/Services/HelpOnlineService.php
+
+		-
+			message: '#^Strict comparison using \=\=\= between null and null will always evaluate to true\.$#'
+			identifier: identical.alwaysTrue
+			count: 1
+			path: app/Modules/HelpOnline/Services/HelpOnlineService.php
+
+		-
+			message: '#^Unreachable statement \- code above always terminates\.$#'
+			identifier: deadCode.unreachable
+			count: 4
+			path: app/Modules/HelpOnline/Services/HelpOnlineService.php
+
+		-
+			message: '#^Offset ''is_day'' on array\{temp\: int, apparent\: int, humidity\: int, code\: int, icon\: mixed, description\: mixed, is_day\: bool, sky\: string, \.\.\.\} on left side of \?\? always exists and is not nullable\.$#'
+			identifier: nullCoalesce.offset
+			count: 1
+			path: app/Modules/Home/Services/WeatherService.php
+
+		-
+			message: '#^Comparison operation "\>\=" between int\<1, max\> and 1 is always true\.$#'
+			identifier: greaterOrEqual.alwaysTrue
+			count: 2
+			path: app/Modules/Reports/Engines/ExcelExportEngine.php
+
+		-
+			message: '#^Ternary operator condition is always true\.$#'
+			identifier: ternary.alwaysTrue
+			count: 1
+			path: app/Modules/Reports/Repositories/TemplateRepository.php
+
+		-
+			message: '#^Strict comparison using \=\=\= between \*NEVER\* and ''success'' will always evaluate to false\.$#'
+			identifier: identical.alwaysFalse
+			count: 1
+			path: app/Modules/Scheduler/Controllers/SchedulerController.php
+
+		-
+			message: '#^Left side of && is always true\.$#'
+			identifier: booleanAnd.leftAlwaysTrue
+			count: 1
+			path: app/Setup/SetupController.php
+
+		-
+			message: '#^Ternary operator condition is always true\.$#'
+			identifier: ternary.alwaysTrue
+			count: 1
+			path: app/Setup/SetupController.php
+
+		-
+			message: '#^Unreachable statement \- code above always terminates\.$#'
+			identifier: deadCode.unreachable
+			count: 4
+			path: app/Setup/SetupController.php

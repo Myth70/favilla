@@ -1,0 +1,410 @@
+/*
+ * Files module — prefix: .fm-
+ * File manager UI: layout, grid, list, preview, upload zone, admin
+ */
+
+/* ── Layout ──────────────────────────────────────────────────────────────── */
+
+.fm-layout {
+  min-height: 400px;
+}
+
+.fm-sidebar {
+  width: 220px;
+  flex-shrink: 0;
+}
+
+.fm-main {
+  min-width: 0; /* prevent overflow in flex */
+}
+
+/* ── Folder tree ─────────────────────────────────────────────────────────── */
+
+.fm-folder-tree {
+  position: sticky;
+  top: 76px;
+}
+
+/* Subhead dentro la sidebar cartelle — padding laterale per restare in griglia
+   con gli item del tree sottostante (che hanno p-2 sul wrapper <ul>). */
+.fm-folder-head {
+  padding: 0.75rem 0.85rem 0.35rem;
+  margin-bottom: 0;
+}
+
+.fm-folder-head + ul,
+.fm-folder-head + div + ul {
+  padding-top: 0.25rem !important;
+}
+
+.fm-folder-item > a {
+  color: var(--bs-body-color);
+  transition: background-color .15s, color .15s;
+}
+
+.fm-folder-item > a:hover {
+  background-color: var(--bs-tertiary-bg);
+}
+
+.fm-folder-item.active > a {
+  background-color: var(--bs-primary-bg-subtle);
+  color: var(--bs-primary);
+  font-weight: 600;
+}
+
+.fm-folder-icon {
+  font-size: .9rem;
+  width: 1.2em;
+}
+
+/* ── Toolbar ─────────────────────────────────────────────────────────────── */
+
+.fm-toolbar .form-control,
+.fm-toolbar .form-select {
+  font-size: .875rem;
+}
+
+.fm-toolbar-search {
+  min-width: 180px;
+  max-width: 300px;
+}
+
+.fm-filter-auto {
+  width: auto;
+}
+
+.fm-filter-search {
+  max-width: 240px;
+}
+
+@media (min-width: 1400px) {
+  .app-page-wide .fm-filter-search {
+    max-width: 320px;
+  }
+
+  .app-page-wide .fm-filter-auto {
+    min-width: 9.5rem;
+  }
+}
+
+.fm-filter-search-trash {
+  max-width: 280px;
+}
+
+.fm-view-toggle .btn {
+  padding: .25rem .55rem;
+  line-height: 1.4;
+}
+
+/* ── Grid cards ──────────────────────────────────────────────────────────── */
+
+.fm-card {
+  transition: transform .15s, box-shadow .15s;
+  cursor: pointer;
+}
+
+.fm-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.1) !important;
+}
+
+.fm-card-icon {
+  font-size: 2.2rem;
+  display: block;
+}
+
+.fm-card-thumb-img {
+  max-height: 80px;
+  object-fit: cover;
+}
+
+.fm-card-name {
+  font-size: .8rem;
+  max-width: 100%;
+}
+
+.fm-card-meta {
+  font-size: .75rem;
+}
+
+.fm-card-actions .btn {
+  padding: .2rem .4rem;
+  font-size: .75rem;
+}
+
+/* ── File type icon colours ──────────────────────────────────────────────── */
+
+.fm-icon-pdf   { color: #e53935; }
+.fm-icon-word  { color: #1565c0; }
+.fm-icon-excel { color: #2e7d32; }
+.fm-icon-ppt   { color: #e65100; }
+.fm-icon-zip   { color: #f9a825; }
+.fm-icon-image { color: #7b1fa2; }
+.fm-icon-text  { color: #546e7a; }
+.fm-icon-other { color: #78909c; }
+
+/* ── Visibility badges ───────────────────────────────────────────────────── */
+
+.fm-badge-private {
+  background-color: var(--bs-secondary-bg);
+  color: var(--bs-secondary-color);
+  font-weight: 500;
+}
+
+.fm-badge-internal {
+  background-color: var(--bs-success-bg-subtle);
+  color: var(--bs-success-text-emphasis);
+  font-weight: 500;
+}
+
+/* ── List table ──────────────────────────────────────────────────────────── */
+
+.fm-table th {
+  font-size: .8rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  white-space: nowrap;
+}
+
+.fm-table td {
+  font-size: .875rem;
+}
+
+.fm-col-check {
+  width: 36px;
+}
+
+.fm-name-link {
+  max-width: 260px;
+}
+
+.fm-name-link-admin {
+  max-width: 220px;
+}
+
+.fm-folder-cell {
+  max-width: 120px;
+}
+
+/* Extra-small buttons for table rows */
+.btn-xs {
+  padding: .15rem .35rem;
+  font-size: .75rem;
+  line-height: 1.3;
+  border-radius: .25rem;
+}
+
+/* ── Upload zone ─────────────────────────────────────────────────────────── */
+
+.fm-upload-zone {
+  border: 2px dashed var(--bs-border-color);
+  border-radius: .5rem;
+  cursor: pointer;
+  transition: border-color .2s, background-color .2s;
+  background-color: var(--bs-tertiary-bg);
+}
+
+.fm-upload-zone:hover,
+.fm-upload-zone.fd-drag-over {
+  border-color: var(--accent-color);
+  background-color: color-mix(in srgb, var(--accent-color) 8%, var(--bg-surface));
+}
+
+.fm-drop-accent-icon {
+  color: var(--accent-color);
+  opacity: 0.85;
+}
+
+.fm-drop-accent-text {
+  color: var(--accent-color);
+}
+
+.fm-upload-zone-inner {
+  pointer-events: none;
+}
+
+/* ── Preview ─────────────────────────────────────────────────────────────── */
+
+.fm-preview-container {
+  min-height: 280px;
+}
+
+.fm-preview-image {
+  max-height: 580px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.fm-preview-pdf {
+  width: 100%;
+  min-height: 600px;
+  border: none;
+  display: block;
+}
+
+.fm-preview-icon-lg i {
+  display: block;
+  margin: 0 auto .5rem;
+}
+
+.fm-preview-text-block {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.fm-preview-modal-title {
+  max-width: 80%;
+}
+
+.fm-preview-modal-body {
+  min-height: 300px;
+}
+
+.fm-preview-modal-image {
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+.fm-preview-modal-frame {
+  height: 75vh;
+  border: none;
+}
+
+/* ── File meta table ─────────────────────────────────────────────────────── */
+
+.fm-file-meta-table dt {
+  font-weight: 500;
+  font-size: .8rem;
+  padding-top: .2rem;
+}
+
+.fm-file-meta-table dd {
+  font-size: .875rem;
+  padding-top: .2rem;
+}
+
+/* ── Admin stat cards ────────────────────────────────────────────────────── */
+
+.fm-admin-stat-card .card-body {
+  padding: 1rem 1.25rem;
+}
+
+.fm-admin-stat-card .rounded-circle {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Bulk action bars ────────────────────────────────────────────────────── */
+/* Hidden by default; shown when BulkSelect adds .active class */
+
+#fm-bulk-bar,
+#fm-admin-bulk-bar,
+#fm-trash-bulk-bar {
+  display: none;
+}
+
+#fm-bulk-bar.active,
+#fm-admin-bulk-bar.active,
+#fm-trash-bulk-bar.active {
+  display: flex !important;
+}
+
+/* ── Folder sidebar — hover actions ─────────────────────────────────────── */
+
+.fm-folder-row {
+  transition: background-color .15s;
+}
+
+.fm-folder-row:hover {
+  background-color: var(--bs-tertiary-bg);
+}
+
+.fm-folder-row-active {
+  background-color: var(--bs-primary-bg-subtle);
+}
+
+.fm-folder-actions {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity .15s;
+}
+
+.fm-folder-item:hover .fm-folder-actions,
+.fm-folder-item:focus-within .fm-folder-actions {
+  visibility: visible;
+  opacity: 1;
+}
+
+.fm-folder-actions .btn {
+  line-height: 1;
+}
+
+.fm-folder-icon-btn {
+  line-height: 1;
+}
+
+.fm-folder-name {
+  max-width: 90px;
+}
+
+.fm-folder-count {
+  font-size: .65rem;
+}
+
+.fm-inline-form {
+  display: inline;
+}
+
+.fm-picker-card {
+  cursor: pointer;
+}
+
+.fm-picker-thumb {
+  height: 80px;
+  background: var(--bs-tertiary-bg);
+  border-radius: .375rem .375rem 0 0;
+  overflow: hidden;
+}
+
+.fm-picker-thumb-img {
+  max-height: 80px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.fm-picker-label {
+  font-size: .72rem;
+  line-height: 1.3;
+}
+
+/* ── Folder chip picker (upload.php) ─────────────────────────────────────── */
+
+.fm-folder-chip {
+  border-radius: 1rem;
+  font-size: .78rem;
+  padding: .2rem .65rem;
+  transition: border-color .15s, color .15s, background-color .15s;
+}
+
+.fm-folder-chip.active,
+.fm-folder-chip:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  background-color: color-mix(in srgb, var(--accent-color) 8%, var(--bg-surface));
+}
+
+/* ── Dark mode adjustments ───────────────────────────────────────────────── */
+
+[data-bs-theme="dark"] .fm-upload-zone {
+  background-color: var(--bs-dark-bg-subtle);
+}
+
+[data-bs-theme="dark"] .fm-card:hover {
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.35) !important;
+}

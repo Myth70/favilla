@@ -1,0 +1,370 @@
+{
+    "module": "Calendar",
+    "generated_at": "2026-07-04T09:48:34+02:00",
+    "routes": [
+        {
+            "method": "GET",
+            "uri": "/calendar/",
+            "name": "calendar.index",
+            "controller": "CalendarController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:calendar.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/calendar/agenda",
+            "name": "calendar.agenda",
+            "controller": "CalendarController@agenda",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:calendar.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/calendar/events",
+            "name": "calendar.events",
+            "controller": "CalendarController@events",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:calendar.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/calendar/export-ics",
+            "name": "calendar.export_ics",
+            "controller": "CalendarController@exportIcs",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:calendar.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/calendar/create",
+            "name": "calendar.create",
+            "controller": "CalendarController@create",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:calendar.create"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/calendar/",
+            "name": "calendar.store",
+            "controller": "CalendarController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:calendar.create"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/calendar/import-ics",
+            "name": "calendar.import_ics",
+            "controller": "CalendarController@importIcs",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:calendar.create"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/calendar/{id}",
+            "name": "calendar.show",
+            "controller": "CalendarController@show",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:calendar.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/calendar/{id}/edit",
+            "name": "calendar.edit",
+            "controller": "CalendarController@edit",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:calendar.edit"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/calendar/{id}",
+            "name": "calendar.update",
+            "controller": "CalendarController@update",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:calendar.edit"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/calendar/{id}/move",
+            "name": "calendar.move",
+            "controller": "CalendarController@move",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:calendar.edit"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/calendar/{id}",
+            "name": "calendar.destroy",
+            "controller": "CalendarController@destroy",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:calendar.delete"
+            ]
+        }
+    ],
+    "tables": [
+        {
+            "name": "calendar_events",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "title",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "description",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "start_datetime",
+                    "type": "datetime",
+                    "nullable": false
+                },
+                {
+                    "name": "end_datetime",
+                    "type": "datetime",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "all_day",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "color",
+                    "type": "varchar(20)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "category",
+                    "type": "varchar(50)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "location",
+                    "type": "varchar(255)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "visibility",
+                    "type": "enum('personal','role','public')",
+                    "nullable": false,
+                    "default": "'personal'"
+                },
+                {
+                    "name": "visible_to_role",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "reminder_minutes",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "recurrence_rule",
+                    "type": "varchar(255)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "recurrence_end",
+                    "type": "datetime",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                },
+                {
+                    "name": "deleted_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "reminder_sent_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_calendar_events_category",
+                    "columns": [
+                        "category"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_cal_created_by",
+                    "columns": [
+                        "created_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_cal_dates",
+                    "columns": [
+                        "start_datetime",
+                        "end_datetime"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_cal_recurrence_end",
+                    "columns": [
+                        "recurrence_end"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_cal_reminder",
+                    "columns": [
+                        "reminder_minutes",
+                        "reminder_sent_at",
+                        "start_datetime"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_cal_visibility",
+                    "columns": [
+                        "visibility",
+                        "visible_to_role"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "visible_to_role",
+                    "columns": [
+                        "visible_to_role"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "calendar_events_ibfk_1",
+                    "column": "created_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "calendar_events_ibfk_2",
+                    "column": "visible_to_role",
+                    "references": "roles.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        }
+    ],
+    "permissions": [
+        {
+            "slug": "calendar.create",
+            "name": "Crea Eventi"
+        },
+        {
+            "slug": "calendar.delete",
+            "name": "Elimina Eventi"
+        },
+        {
+            "slug": "calendar.edit",
+            "name": "Modifica Eventi"
+        },
+        {
+            "slug": "calendar.view",
+            "name": "Visualizza Calendario"
+        }
+    ],
+    "services": [
+        "App\\Modules\\Calendar\\Services\\CalendarIcsService",
+        "App\\Modules\\Calendar\\Services\\CalendarReminderService",
+        "App\\Modules\\Calendar\\Services\\CalendarService"
+    ],
+    "controllers": [
+        "App\\Modules\\Calendar\\Controllers\\CalendarController"
+    ]
+}

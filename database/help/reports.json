@@ -1,0 +1,424 @@
+{
+    "module_key": "reports",
+    "module_name": "Reports",
+    "label": "Report",
+    "description": "Motore report con template riutilizzabili, designer visuale, sorgenti dati multiple, esportazione PDF Excel CSV e storico generazioni.",
+    "audience_default": "admin",
+    "locale_default": "it",
+    "route_name": "reports.index",
+    "permission_slug": "reports.view",
+    "sort_order": 50,
+    "entries": [
+        {
+            "audience": "user",
+            "route_name": "reports.index",
+            "permission_slug": "reports.view",
+            "ranking_weight": 24,
+            "sort_order": 1,
+            "locales": {
+                "it": {
+                    "question": "Come funziona il modulo Report?",
+                    "answer_markdown": "## Modulo Report\r\nIl modulo Report trasforma dati applicativi in output strutturati e riutilizzabili.\r\n\r\n### Cosa puoi fare\r\n- consultare report disponibili e sorgenti dati;\r\n- lanciare **export rapidi** quando hai bisogno di un risultato immediato;\r\n- usare o creare **template** per scenari ricorrenti;\r\n- configurare **campi** e layout di output;\r\n- mantenere **stili grafici** dedicati;\r\n- consultare lo **storico esportazioni** e scaricare output già prodotti;\r\n- generare documenti collegati a record specifici dove il flusso lo prevede.\r\n\r\n### Permessi da distinguere\r\n- `reports.view` per consultare il modulo;\r\n- `reports.export` per generare export;\r\n- `reports.create` per creare o duplicare template;\r\n- `reports.styles` per governare gli stili.\r\n\r\n### Quando usarlo\r\nÈ il modulo giusto quando vuoi ottenere dati consistenti nel tempo, non solo un'esportazione estemporanea e usa-e-getta.",
+                    "excerpt": "Modulo Report Il modulo Report trasforma dati applicativi in output strutturati e riutilizzabili. Cosa puoi fare consultare report disponibili e sorgenti dati; lanciare export rapidi quando hai bisogno di un risultato...",
+                    "aliases": [
+                        "modulo report",
+                        "export excel csv pdf",
+                        "template report",
+                        "storico esportazioni",
+                        "report builder"
+                    ]
+                },
+                "en": {
+                    "question": "How does the Reports module work?",
+                    "answer_markdown": "## Reports module\nThe Reports module turns application data into structured, reusable output.\n\n### What you can do\n- browse available reports and data sources;\n- run **quick exports** when you need an immediate result;\n- use or create **templates** for recurring scenarios;\n- configure output **fields** and layout;\n- maintain dedicated **graphic styles**;\n- browse the **export history** and download outputs already produced;\n- generate documents linked to specific records where the flow allows it.\n\n### Permissions to distinguish\n- `reports.view` to browse the module;\n- `reports.export` to generate exports;\n- `reports.create` to create or duplicate templates;\n- `reports.styles` to govern the styles.\n\n### When to use it\nIt is the right module when you want data that is consistent over time, not just a one-off, throwaway export.",
+                    "excerpt": "Reports module The Reports module turns application data into structured, reusable output. What you can do browse available reports and data sources; run quick exports when you need an immediate resul...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment fonctionne le module Rapports ?",
+                    "answer_markdown": "## Module Rapports\nLe module Rapports transforme les données applicatives en sorties structurées et réutilisables.\n\n### Ce que vous pouvez faire\n- consulter les rapports disponibles et les sources de données ;\n- lancer des **exports rapides** lorsque vous avez besoin d'un résultat immédiat ;\n- utiliser ou créer des **modèles** pour les scénarios récurrents ;\n- configurer les **champs** et la mise en page de sortie ;\n- maintenir des **styles graphiques** dédiés ;\n- consulter l'**historique des exports** et télécharger des sorties déjà produites ;\n- générer des documents liés à des enregistrements spécifiques lorsque le flux le permet.\n\n### Autorisations à distinguer\n- `reports.view` pour consulter le module ;\n- `reports.export` pour générer des exports ;\n- `reports.create` pour créer ou dupliquer des modèles ;\n- `reports.styles` pour gérer les styles.\n\n### Quand l'utiliser\nC'est le bon module lorsque vous voulez des données cohérentes dans le temps, et pas seulement un export ponctuel et jetable.",
+                    "excerpt": "Module Rapports Le module Rapports transforme les données applicatives en sorties structurées et réutilisables. Ce que vous pouvez faire consulter les rapports disponibles et les sources de données ; ...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie funktioniert das Berichte-Modul?",
+                    "answer_markdown": "## Berichte-Modul\nDas Berichte-Modul verwandelt Anwendungsdaten in strukturierte, wiederverwendbare Ausgaben.\n\n### Was Sie tun können\n- verfügbare Berichte und Datenquellen einsehen;\n- **Schnellexporte** ausführen, wenn Sie ein sofortiges Ergebnis benötigen;\n- **Vorlagen** für wiederkehrende Szenarien verwenden oder erstellen;\n- Ausgabe-**Felder** und Layout konfigurieren;\n- dedizierte **grafische Stile** pflegen;\n- den **Exportverlauf** einsehen und bereits erzeugte Ausgaben herunterladen;\n- Dokumente erzeugen, die mit bestimmten Datensätzen verknüpft sind, wo der Ablauf dies vorsieht.\n\n### Zu unterscheidende Berechtigungen\n- `reports.view`, um das Modul einzusehen;\n- `reports.export`, um Exporte zu erzeugen;\n- `reports.create`, um Vorlagen zu erstellen oder zu duplizieren;\n- `reports.styles`, um die Stile zu verwalten.\n\n### Wann Sie es verwenden\nEs ist das richtige Modul, wenn Sie über die Zeit konsistente Daten möchten, nicht nur einen einmaligen Wegwerf-Export.",
+                    "excerpt": "Berichte-Modul Das Berichte-Modul verwandelt Anwendungsdaten in strukturierte, wiederverwendbare Ausgaben. Was Sie tun können verfügbare Berichte und Datenquellen einsehen; Schnellexporte ausführen, w...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo funciona el módulo Informes?",
+                    "answer_markdown": "## Módulo Informes\nEl módulo Informes transforma los datos de la aplicación en salidas estructuradas y reutilizables.\n\n### Qué puedes hacer\n- consultar los informes disponibles y las fuentes de datos;\n- lanzar **exportaciones rápidas** cuando necesitas un resultado inmediato;\n- usar o crear **plantillas** para escenarios recurrentes;\n- configurar los **campos** y el diseño de salida;\n- mantener **estilos gráficos** dedicados;\n- consultar el **historial de exportaciones** y descargar salidas ya producidas;\n- generar documentos vinculados a registros específicos donde el flujo lo permite.\n\n### Permisos a distinguir\n- `reports.view` para consultar el módulo;\n- `reports.export` para generar exportaciones;\n- `reports.create` para crear o duplicar plantillas;\n- `reports.styles` para gestionar los estilos.\n\n### Cuándo usarlo\nEs el módulo adecuado cuando quieres datos consistentes a lo largo del tiempo, no solo una exportación puntual y de usar y tirar.",
+                    "excerpt": "Módulo Informes El módulo Informes transforma los datos de la aplicación en salidas estructuradas y reutilizables. Qué puedes hacer consultar los informes disponibles y las fuentes de datos; lanzar ex...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "reports.index",
+            "permission_slug": "reports.view",
+            "ranking_weight": 0,
+            "sort_order": 2,
+            "locales": {
+                "it": {
+                    "question": "Accesso ai Report",
+                    "answer_markdown": "Il modulo Report è raggiungibile dalla ricerca globale, da un link diretto (`/reports`) o tramite i pulsanti \"Esporta\" / \"Genera documento\" che compaiono dentro gli altri moduli quando un template è configurato. Le azioni disponibili dipendono dai permessi: visualizzazione, creazione template, modifica, eliminazione, esportazione, gestione stili e documenti.",
+                    "excerpt": "Il modulo Report è raggiungibile dalla ricerca globale, da un link diretto (/reports) o tramite i pulsanti \"Esporta\" / \"Genera documento\" che compaiono dentro gli altri moduli quando un template è configurato. Le azio…",
+                    "aliases": [
+                        "accesso",
+                        "come accesso",
+                        "report ed esportazioni",
+                        "report ed esportazioni accesso",
+                        "reports accesso"
+                    ]
+                },
+                "en": {
+                    "question": "Accessing Reports",
+                    "answer_markdown": "The Reports module is reachable from the global search, from a direct link (`/reports`) or via the \"Export\" / \"Generate document\" buttons that appear inside other modules when a template is configured. The available actions depend on permissions: viewing, creating templates, editing, deleting, exporting, managing styles and documents.",
+                    "excerpt": "The Reports module is reachable from the global search, from a direct link (/reports) or via the \"Export\" / \"Generate document\" buttons that appear inside other modules when a template is configured. ...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Accéder aux Rapports",
+                    "answer_markdown": "Le module Rapports est accessible depuis la recherche globale, depuis un lien direct (`/reports`) ou via les boutons « Exporter » / « Générer le document » qui apparaissent dans les autres modules lorsqu'un modèle est configuré. Les actions disponibles dépendent des autorisations : consultation, création de modèles, modification, suppression, export, gestion des styles et des documents.",
+                    "excerpt": "Le module Rapports est accessible depuis la recherche globale, depuis un lien direct (/reports) ou via les boutons « Exporter » / « Générer le document » qui apparaissent dans les autres modules lorsq...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Zugriff auf Berichte",
+                    "answer_markdown": "Das Berichte-Modul ist über die globale Suche, über einen direkten Link (`/reports`) oder über die Schaltflächen „Exportieren“ / „Dokument erzeugen“ erreichbar, die in anderen Modulen erscheinen, wenn eine Vorlage konfiguriert ist. Die verfügbaren Aktionen hängen von den Berechtigungen ab: Anzeigen, Vorlagen erstellen, Bearbeiten, Löschen, Exportieren, Verwalten von Stilen und Dokumenten.",
+                    "excerpt": "Das Berichte-Modul ist über die globale Suche, über einen direkten Link (/reports) oder über die Schaltflächen „Exportieren“ / „Dokument erzeugen“ erreichbar, die in anderen Modulen erscheinen, wenn e...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Acceso a los Informes",
+                    "answer_markdown": "El módulo Informes es accesible desde la búsqueda global, desde un enlace directo (`/reports`) o mediante los botones «Exportar» / «Generar documento» que aparecen dentro de otros módulos cuando hay una plantilla configurada. Las acciones disponibles dependen de los permisos: visualización, creación de plantillas, edición, eliminación, exportación, gestión de estilos y documentos.",
+                    "excerpt": "El módulo Informes es accesible desde la búsqueda global, desde un enlace directo (/reports) o mediante los botones «Exportar» / «Generar documento» que aparecen dentro de otros módulos cuando hay una...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "reports.index",
+            "permission_slug": "reports.view",
+            "ranking_weight": 0,
+            "sort_order": 3,
+            "locales": {
+                "it": {
+                    "question": "Dashboard Report",
+                    "answer_markdown": "La schermata principale mostra:\n\n- statistiche: numero di template disponibili e totale esportazioni effettuate;\n- **export recenti**: ultimi file generati con pulsante di download diretto;\n- **sorgenti dati disponibili**: elenco dei moduli da cui puoi estrarre dati.",
+                    "excerpt": "La schermata principale mostra: statistiche: numero di template disponibili e totale esportazioni effettuate; export recenti: ultimi file generati con pulsante di download diretto; sorgenti dati disponibili: elenco dei…",
+                    "aliases": [
+                        "come dashboard report",
+                        "dashboard report",
+                        "report ed esportazioni",
+                        "report ed esportazioni dashboard report",
+                        "reports dashboard report"
+                    ]
+                },
+                "en": {
+                    "question": "Reports dashboard",
+                    "answer_markdown": "The main screen shows:\n\n- statistics: number of available templates and total exports performed;\n- **recent exports**: the latest generated files with a direct download button;\n- **available data sources**: a list of the modules you can extract data from.",
+                    "excerpt": "The main screen shows: statistics: number of available templates and total exports performed; recent exports: the latest generated files with a direct download button; available data sources: a list o...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Tableau de bord Rapports",
+                    "answer_markdown": "L'écran principal affiche :\n\n- des statistiques : nombre de modèles disponibles et total des exports effectués ;\n- **exports récents** : les derniers fichiers générés avec un bouton de téléchargement direct ;\n- **sources de données disponibles** : la liste des modules dont vous pouvez extraire des données.",
+                    "excerpt": "L'écran principal affiche : des statistiques : nombre de modèles disponibles et total des exports effectués ; exports récents : les derniers fichiers générés avec un bouton de téléchargement direct ; ...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Berichte-Dashboard",
+                    "answer_markdown": "Der Hauptbildschirm zeigt:\n\n- Statistiken: Anzahl der verfügbaren Vorlagen und Gesamtzahl der durchgeführten Exporte;\n- **aktuelle Exporte**: die zuletzt erzeugten Dateien mit einer Schaltfläche für den direkten Download;\n- **verfügbare Datenquellen**: eine Liste der Module, aus denen Sie Daten extrahieren können.",
+                    "excerpt": "Der Hauptbildschirm zeigt: Statistiken: Anzahl der verfügbaren Vorlagen und Gesamtzahl der durchgeführten Exporte; aktuelle Exporte: die zuletzt erzeugten Dateien mit einer Schaltfläche für den direkt...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Panel de Informes",
+                    "answer_markdown": "La pantalla principal muestra:\n\n- estadísticas: número de plantillas disponibles y total de exportaciones realizadas;\n- **exportaciones recientes**: los últimos archivos generados con un botón de descarga directa;\n- **fuentes de datos disponibles**: una lista de los módulos de los que puedes extraer datos.",
+                    "excerpt": "La pantalla principal muestra: estadísticas: número de plantillas disponibles y total de exportaciones realizadas; exportaciones recientes: los últimos archivos generados con un botón de descarga dire...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "reports.export.quick",
+            "permission_slug": "reports.export",
+            "ranking_weight": 0,
+            "sort_order": 4,
+            "locales": {
+                "it": {
+                    "question": "Esportazione rapida",
+                    "answer_markdown": "L'esportazione rapida consente di scaricare i dati di un modulo senza costruire un template:\n\n1. Vai in \"Esportazione rapida\" oppure usa l'azione rapida dalla dashboard Report.\n2. Scegli il modulo sorgente (es. Contatti, Attività) e il formato di output: **CSV**, **Excel** o **PDF**.\n3. Eventuali filtri supportati dal modulo vengono applicati all'estrazione.\n4. Il file viene generato e scaricato immediatamente; una copia resta nello storico.",
+                    "excerpt": "L'esportazione rapida consente di scaricare i dati di un modulo senza costruire un template: Vai in \"Esportazione rapida\" oppure usa l'azione rapida dalla dashboard Report. Scegli il modulo sorgente (es. Contatti, Attiv…",
+                    "aliases": [
+                        "come esportazione rapida",
+                        "esportazione rapida",
+                        "report ed esportazioni",
+                        "report ed esportazioni esportazione rapida",
+                        "reports esportazione rapida",
+                        "Come faccio un'esportazione rapida?"
+                    ]
+                },
+                "en": {
+                    "question": "Quick export",
+                    "answer_markdown": "The quick export lets you download a module's data without building a template:\n\n1. Go to \"Quick export\" or use the quick action from the Reports dashboard.\n2. Choose the source module (e.g. Contacts, Tasks) and the output format: **CSV**, **Excel** or **PDF**.\n3. Any filters supported by the module are applied to the extraction.\n4. The file is generated and downloaded immediately; a copy stays in the history.",
+                    "excerpt": "The quick export lets you download a module's data without building a template: 1. Go to \"Quick export\" or use the quick action from the Reports dashboard. 2. Choose the source module (e.g. Contacts, ...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Export rapide",
+                    "answer_markdown": "L'export rapide permet de télécharger les données d'un module sans construire de modèle :\n\n1. Allez dans « Export rapide » ou utilisez l'action rapide depuis le tableau de bord Rapports.\n2. Choisissez le module source (ex. Contacts, Tâches) et le format de sortie : **CSV**, **Excel** ou **PDF**.\n3. Les éventuels filtres pris en charge par le module sont appliqués à l'extraction.\n4. Le fichier est généré et téléchargé immédiatement ; une copie reste dans l'historique.",
+                    "excerpt": "L'export rapide permet de télécharger les données d'un module sans construire de modèle : 1. Allez dans « Export rapide » ou utilisez l'action rapide depuis le tableau de bord Rapports. 2. Choisissez ...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Schnellexport",
+                    "answer_markdown": "Der Schnellexport ermöglicht es, die Daten eines Moduls herunterzuladen, ohne eine Vorlage zu erstellen:\n\n1. Gehen Sie zu „Schnellexport“ oder verwenden Sie die Schnellaktion im Berichte-Dashboard.\n2. Wählen Sie das Quellmodul (z. B. Kontakte, Aufgaben) und das Ausgabeformat: **CSV**, **Excel** oder **PDF**.\n3. Etwaige vom Modul unterstützte Filter werden auf die Extraktion angewendet.\n4. Die Datei wird sofort erzeugt und heruntergeladen; eine Kopie bleibt im Verlauf.",
+                    "excerpt": "Der Schnellexport ermöglicht es, die Daten eines Moduls herunterzuladen, ohne eine Vorlage zu erstellen: 1. Gehen Sie zu „Schnellexport“ oder verwenden Sie die Schnellaktion im Berichte-Dashboard. 2. ...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Exportación rápida",
+                    "answer_markdown": "La exportación rápida permite descargar los datos de un módulo sin construir una plantilla:\n\n1. Ve a «Exportación rápida» o usa la acción rápida desde el panel de Informes.\n2. Elige el módulo de origen (p. ej. Contactos, Tareas) y el formato de salida: **CSV**, **Excel** o **PDF**.\n3. Los posibles filtros admitidos por el módulo se aplican a la extracción.\n4. El archivo se genera y se descarga de inmediato; una copia queda en el historial.",
+                    "excerpt": "La exportación rápida permite descargar los datos de un módulo sin construir una plantilla: 1. Ve a «Exportación rápida» o usa la acción rápida desde el panel de Informes. 2. Elige el módulo de origen...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "reports.templates.index",
+            "permission_slug": "reports.view",
+            "ranking_weight": 0,
+            "sort_order": 5,
+            "locales": {
+                "it": {
+                    "question": "Template di report",
+                    "answer_markdown": "I template definiscono la struttura grafica e il contenuto di un report riutilizzabile.\n\n#### Wizard guidato — creare un template\n\nIl wizard si articola in tre passi:\n\n1. **Tipo di report**: scegli tra\n   - **Elenco/Lista** — una riga per record (es. elenco contatti, lista attività);\n   - **Documento/Scheda** — PDF per singolo record (es. scheda contatto, riepilogo evento);\n   - **Report Aggregato** — riepilogo con totali e indicatori chiave.\n   \n   Poi scegli il **formato di output**: PDF, Excel o CSV.\n\n2. **Sorgente dati**: seleziona il modulo e la sorgente specifica da cui attingere i dati.\n\n3. **Designer WYSIWYG** (GrapeJS): editor visivo drag-and-drop per il layout. Da qui puoi:\n   - trascinare blocchi di testo, tabelle, immagini e spazi;\n   - inserire segnaposto dati (es. `{{contatto.nome}}`, `{{attivita.titolo}}`);\n   - scegliere uno stile grafico predefinito dalla raccolta stili;\n   - impostare parametri del template (nome, descrizione, visibilità, numero massimo di righe).\n\n4. Salva il template.\n\n#### Anteprima\n\nDalla lista template apri la pagina di anteprima per visualizzare il risultato con dati reali prima di distribuirlo.\n\n#### Duplicare un template\n\nDalla lista template usa \"Duplica\" sul template di partenza per crearne una copia. Il duplicato appare con il nome originale + \"(copia)\"; rinominalo e modificalo come necessario.\n\n#### Template predefiniti (bundled)\n\nIn \"Template predefiniti\" trovi una galleria di modelli già pronti importabili con un clic. Sono utili come punto di partenza per i report più comuni.\n\n#### Usare un template\n\n1. Dalla lista template in Reports (o dal modulo sorgente se è configurato il pulsante \"Genera\").\n2. Seleziona il template desiderato.\n3. Clicca \"Genera\" o \"Esporta\".\n4. Il file viene creato e scaricato. Una copia rimane nello storico per il periodo di conservazione configurato.",
+                    "excerpt": "I template definiscono la struttura grafica e il contenuto di un report riutilizzabile. Wizard guidato — creare un template Il wizard si articola in tre passi: Tipo di report: scegli tra - Elenco/Lista — una riga per re…",
+                    "aliases": [
+                        "come template di report",
+                        "report ed esportazioni",
+                        "report ed esportazioni template di report",
+                        "reports template di report",
+                        "template di report",
+                        "Come creo un template?"
+                    ]
+                },
+                "en": {
+                    "question": "Report templates",
+                    "answer_markdown": "Templates define the graphic structure and content of a reusable report.\n\n#### Guided wizard — creating a template\n\nThe wizard has three steps:\n\n1. **Report type**: choose between\n   - **List** — one row per record (e.g. a contacts list, a tasks list);\n   - **Document/Card** — a PDF per single record (e.g. a contact card, an event summary);\n   - **Aggregate report** — a summary with totals and key indicators.\n   \n   Then choose the **output format**: PDF, Excel or CSV.\n\n2. **Data source**: select the module and the specific source to draw data from.\n\n3. **WYSIWYG designer** (GrapeJS): a visual drag-and-drop editor for the layout. From here you can:\n   - drag blocks of text, tables, images and spacers;\n   - insert data placeholders (e.g. `{{contatto.nome}}`, `{{attivita.titolo}}`);\n   - choose a predefined graphic style from the style library;\n   - set the template parameters (name, description, visibility, maximum number of rows).\n\n4. Save the template.\n\n#### Preview\n\nFrom the template list, open the preview page to view the result with real data before distributing it.\n\n#### Duplicating a template\n\nFrom the template list, use \"Duplicate\" on the starting template to create a copy. The duplicate appears with the original name + \"(copy)\"; rename and edit it as needed.\n\n#### Predefined (bundled) templates\n\nIn \"Predefined templates\" you find a gallery of ready-made models that can be imported with one click. They are useful as a starting point for the most common reports.\n\n#### Using a template\n\n1. From the template list in Reports (or from the source module if the \"Generate\" button is configured).\n2. Select the template you want.\n3. Click \"Generate\" or \"Export\".\n4. The file is created and downloaded. A copy stays in the history for the configured retention period.",
+                    "excerpt": "Templates define the graphic structure and content of a reusable report. Guided wizard — creating a template The wizard has three steps: 1. Report type: choose between - List — one row per record (e.g...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Modèles de rapport",
+                    "answer_markdown": "Les modèles définissent la structure graphique et le contenu d'un rapport réutilisable.\n\n#### Assistant guidé — créer un modèle\n\nL'assistant comporte trois étapes :\n\n1. **Type de rapport** : choisissez entre\n   - **Liste** — une ligne par enregistrement (ex. liste de contacts, liste de tâches) ;\n   - **Document/Fiche** — un PDF par enregistrement (ex. fiche de contact, récapitulatif d'événement) ;\n   - **Rapport agrégé** — un récapitulatif avec totaux et indicateurs clés.\n   \n   Puis choisissez le **format de sortie** : PDF, Excel ou CSV.\n\n2. **Source de données** : sélectionnez le module et la source spécifique d'où tirer les données.\n\n3. **Concepteur WYSIWYG** (GrapeJS) : un éditeur visuel par glisser-déposer pour la mise en page. Depuis là, vous pouvez :\n   - faire glisser des blocs de texte, des tableaux, des images et des espaceurs ;\n   - insérer des espaces réservés de données (ex. `{{contatto.nome}}`, `{{attivita.titolo}}`) ;\n   - choisir un style graphique prédéfini dans la bibliothèque de styles ;\n   - définir les paramètres du modèle (nom, description, visibilité, nombre maximal de lignes).\n\n4. Enregistrez le modèle.\n\n#### Aperçu\n\nDepuis la liste des modèles, ouvrez la page d'aperçu pour visualiser le résultat avec des données réelles avant de le distribuer.\n\n#### Dupliquer un modèle\n\nDepuis la liste des modèles, utilisez « Dupliquer » sur le modèle de départ pour en créer une copie. Le doublon apparaît avec le nom d'origine + « (copie) » ; renommez-le et modifiez-le selon les besoins.\n\n#### Modèles prédéfinis (intégrés)\n\nDans « Modèles prédéfinis », vous trouvez une galerie de modèles prêts à l'emploi importables en un clic. Ils sont utiles comme point de départ pour les rapports les plus courants.\n\n#### Utiliser un modèle\n\n1. Depuis la liste des modèles dans Rapports (ou depuis le module source si le bouton « Générer » est configuré).\n2. Sélectionnez le modèle souhaité.\n3. Cliquez sur « Générer » ou « Exporter ».\n4. Le fichier est créé et téléchargé. Une copie reste dans l'historique pendant la période de conservation configurée.",
+                    "excerpt": "Les modèles définissent la structure graphique et le contenu d'un rapport réutilisable. Assistant guidé — créer un modèle L'assistant comporte trois étapes : 1. Type de rapport : choisissez entre - Li...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Berichtsvorlagen",
+                    "answer_markdown": "Vorlagen definieren die grafische Struktur und den Inhalt eines wiederverwendbaren Berichts.\n\n#### Geführter Assistent — eine Vorlage erstellen\n\nDer Assistent hat drei Schritte:\n\n1. **Berichtstyp**: wählen Sie zwischen\n   - **Liste** — eine Zeile pro Datensatz (z. B. eine Kontaktliste, eine Aufgabenliste);\n   - **Dokument/Karte** — ein PDF pro einzelnem Datensatz (z. B. eine Kontaktkarte, eine Ereigniszusammenfassung);\n   - **Aggregierter Bericht** — eine Zusammenfassung mit Summen und Schlüsselindikatoren.\n   \n   Wählen Sie dann das **Ausgabeformat**: PDF, Excel oder CSV.\n\n2. **Datenquelle**: wählen Sie das Modul und die spezifische Quelle, aus der die Daten gezogen werden.\n\n3. **WYSIWYG-Designer** (GrapeJS): ein visueller Drag-and-Drop-Editor für das Layout. Von hier aus können Sie:\n   - Text-, Tabellen-, Bild- und Abstandsblöcke ziehen;\n   - Daten-Platzhalter einfügen (z. B. `{{contatto.nome}}`, `{{attivita.titolo}}`);\n   - einen vordefinierten grafischen Stil aus der Stilbibliothek wählen;\n   - die Vorlagenparameter festlegen (Name, Beschreibung, Sichtbarkeit, maximale Zeilenanzahl).\n\n4. Speichern Sie die Vorlage.\n\n#### Vorschau\n\nÖffnen Sie aus der Vorlagenliste die Vorschauseite, um das Ergebnis mit echten Daten anzuzeigen, bevor Sie es verteilen.\n\n#### Eine Vorlage duplizieren\n\nVerwenden Sie in der Vorlagenliste „Duplizieren“ bei der Ausgangsvorlage, um eine Kopie zu erstellen. Das Duplikat erscheint mit dem ursprünglichen Namen + „(Kopie)“; benennen Sie es um und bearbeiten Sie es nach Bedarf.\n\n#### Vordefinierte (mitgelieferte) Vorlagen\n\nUnter „Vordefinierte Vorlagen“ finden Sie eine Galerie fertiger Modelle, die mit einem Klick importiert werden können. Sie sind als Ausgangspunkt für die häufigsten Berichte nützlich.\n\n#### Eine Vorlage verwenden\n\n1. Aus der Vorlagenliste in Berichte (oder aus dem Quellmodul, wenn die Schaltfläche „Generieren“ konfiguriert ist).\n2. Wählen Sie die gewünschte Vorlage aus.\n3. Klicken Sie auf „Generieren“ oder „Exportieren“.\n4. Die Datei wird erstellt und heruntergeladen. Eine Kopie bleibt für den konfigurierten Aufbewahrungszeitraum im Verlauf.",
+                    "excerpt": "Vorlagen definieren die grafische Struktur und den Inhalt eines wiederverwendbaren Berichts. Geführter Assistent — eine Vorlage erstellen Der Assistent hat drei Schritte: 1. Berichtstyp: wählen Sie zw...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Plantillas de informe",
+                    "answer_markdown": "Las plantillas definen la estructura gráfica y el contenido de un informe reutilizable.\n\n#### Asistente guiado — crear una plantilla\n\nEl asistente consta de tres pasos:\n\n1. **Tipo de informe**: elige entre\n   - **Lista** — una fila por registro (p. ej. lista de contactos, lista de tareas);\n   - **Documento/Ficha** — un PDF por registro (p. ej. ficha de contacto, resumen de evento);\n   - **Informe agregado** — un resumen con totales e indicadores clave.\n   \n   Luego elige el **formato de salida**: PDF, Excel o CSV.\n\n2. **Fuente de datos**: selecciona el módulo y la fuente específica de la que extraer los datos.\n\n3. **Diseñador WYSIWYG** (GrapeJS): un editor visual de arrastrar y soltar para el diseño. Desde aquí puedes:\n   - arrastrar bloques de texto, tablas, imágenes y espaciadores;\n   - insertar marcadores de datos (p. ej. `{{contatto.nome}}`, `{{attivita.titolo}}`);\n   - elegir un estilo gráfico predefinido de la biblioteca de estilos;\n   - establecer los parámetros de la plantilla (nombre, descripción, visibilidad, número máximo de filas).\n\n4. Guarda la plantilla.\n\n#### Vista previa\n\nDesde la lista de plantillas, abre la página de vista previa para ver el resultado con datos reales antes de distribuirlo.\n\n#### Duplicar una plantilla\n\nDesde la lista de plantillas, usa «Duplicar» en la plantilla de partida para crear una copia. El duplicado aparece con el nombre original + «(copia)»; renómbralo y edítalo según sea necesario.\n\n#### Plantillas predefinidas (incluidas)\n\nEn «Plantillas predefinidas» encuentras una galería de modelos ya listos que se pueden importar con un clic. Son útiles como punto de partida para los informes más comunes.\n\n#### Usar una plantilla\n\n1. Desde la lista de plantillas en Informes (o desde el módulo de origen si el botón «Generar» está configurado).\n2. Selecciona la plantilla deseada.\n3. Haz clic en «Generar» o «Exportar».\n4. El archivo se crea y se descarga. Una copia queda en el historial durante el periodo de conservación configurado.",
+                    "excerpt": "Las plantillas definen la estructura gráfica y el contenido de un informe reutilizable. Asistente guiado — crear una plantilla El asistente consta de tres pasos: 1. Tipo de informe: elige entre - List...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "reports.sources",
+            "permission_slug": "reports.view",
+            "ranking_weight": 0,
+            "sort_order": 6,
+            "locales": {
+                "it": {
+                    "question": "Sorgenti dati e campi",
+                    "answer_markdown": "Nel designer, la sidebar sorgenti ti mostra tutti i moduli a cui hai accesso (es. Contatti, Attività, Calendario, File). Seleziona un modulo per vedere i campi disponibili e trascinali nel layout per inserire i segnaposto corrispondenti.",
+                    "excerpt": "Nel designer, la sidebar sorgenti ti mostra tutti i moduli a cui hai accesso (es. Contatti, Attività, Calendario, File). Seleziona un modulo per vedere i campi disponibili e trascinali nel layout per inserire i segnapo…",
+                    "aliases": [
+                        "come sorgenti dati e campi",
+                        "report ed esportazioni",
+                        "report ed esportazioni sorgenti dati e campi",
+                        "reports sorgenti dati e campi",
+                        "sorgenti dati e campi",
+                        "Come uso i segnaposto nel designer?"
+                    ]
+                },
+                "en": {
+                    "question": "Data sources and fields",
+                    "answer_markdown": "In the designer, the sources sidebar shows you all the modules you have access to (e.g. Contacts, Tasks, Calendar, Files). Select a module to see the available fields and drag them into the layout to insert the corresponding placeholders.",
+                    "excerpt": "In the designer, the sources sidebar shows you all the modules you have access to (e.g. Contacts, Tasks, Calendar, Files). Select a module to see the available fields and drag them into the layout to ...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Sources de données et champs",
+                    "answer_markdown": "Dans le concepteur, la barre latérale des sources vous montre tous les modules auxquels vous avez accès (ex. Contacts, Tâches, Calendrier, Fichiers). Sélectionnez un module pour voir les champs disponibles et faites-les glisser dans la mise en page pour insérer les espaces réservés correspondants.",
+                    "excerpt": "Dans le concepteur, la barre latérale des sources vous montre tous les modules auxquels vous avez accès (ex. Contacts, Tâches, Calendrier, Fichiers). Sélectionnez un module pour voir les champs dispon...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Datenquellen und Felder",
+                    "answer_markdown": "Im Designer zeigt Ihnen die Quellen-Sidebar alle Module, auf die Sie Zugriff haben (z. B. Kontakte, Aufgaben, Kalender, Dateien). Wählen Sie ein Modul aus, um die verfügbaren Felder zu sehen, und ziehen Sie sie in das Layout, um die entsprechenden Platzhalter einzufügen.",
+                    "excerpt": "Im Designer zeigt Ihnen die Quellen-Sidebar alle Module, auf die Sie Zugriff haben (z. B. Kontakte, Aufgaben, Kalender, Dateien). Wählen Sie ein Modul aus, um die verfügbaren Felder zu sehen, und zieh...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Fuentes de datos y campos",
+                    "answer_markdown": "En el diseñador, la barra lateral de fuentes te muestra todos los módulos a los que tienes acceso (p. ej. Contactos, Tareas, Calendario, Archivos). Selecciona un módulo para ver los campos disponibles y arrástralos al diseño para insertar los marcadores correspondientes.",
+                    "excerpt": "En el diseñador, la barra lateral de fuentes te muestra todos los módulos a los que tienes acceso (p. ej. Contactos, Tareas, Calendario, Archivos). Selecciona un módulo para ver los campos disponibles...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "reports.index",
+            "permission_slug": "reports.view",
+            "ranking_weight": 0,
+            "sort_order": 7,
+            "locales": {
+                "it": {
+                    "question": "Stili",
+                    "answer_markdown": "Gli stili definiscono l'aspetto grafico dei report PDF (font, colori principali e di accento, colori dell'intestazione, colore righe alternate nelle tabelle, dimensione carattere) e possono essere condivisi tra più template per mantenere coerenza visiva.\n\n**Creare uno stile**:\n1. Vai in \"Stili\" e clicca \"Nuovo stile\".\n2. Configura nome, colori e proprietà tipografiche.\n3. Salva e assegna lo stile ai template che vuoi uniformare.\n\nPuoi anche impostare uno stile come \"predefinito\": viene selezionato automaticamente nel designer quando non ne è scelto uno specifico.",
+                    "excerpt": "Gli stili definiscono l'aspetto grafico dei report PDF (font, colori principali e di accento, colori dell'intestazione, colore righe alternate nelle tabelle, dimensione carattere) e possono essere condivisi tra più tem…",
+                    "aliases": [
+                        "come stili",
+                        "report ed esportazioni",
+                        "report ed esportazioni stili",
+                        "reports stili",
+                        "stili",
+                        "Come imposto uno stile grafico report?"
+                    ]
+                },
+                "en": {
+                    "question": "Styles",
+                    "answer_markdown": "Styles define the graphic appearance of PDF reports (font, main and accent colors, header colors, alternate row color in tables, font size) and can be shared across several templates to keep visual consistency.\n\n**Creating a style**:\n1. Go to \"Styles\" and click \"New style\".\n2. Configure the name, colors and typographic properties.\n3. Save and assign the style to the templates you want to align.\n\nYou can also set a style as \"default\": it is selected automatically in the designer when no specific one is chosen.",
+                    "excerpt": "Styles define the graphic appearance of PDF reports (font, main and accent colors, header colors, alternate row color in tables, font size) and can be shared across several templates to keep visual co...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Styles",
+                    "answer_markdown": "Les styles définissent l'aspect graphique des rapports PDF (police, couleurs principales et d'accent, couleurs de l'en-tête, couleur des lignes alternées dans les tableaux, taille de police) et peuvent être partagés entre plusieurs modèles pour conserver une cohérence visuelle.\n\n**Créer un style** :\n1. Allez dans « Styles » et cliquez sur « Nouveau style ».\n2. Configurez le nom, les couleurs et les propriétés typographiques.\n3. Enregistrez et assignez le style aux modèles que vous voulez uniformiser.\n\nVous pouvez aussi définir un style comme « par défaut » : il est sélectionné automatiquement dans le concepteur lorsqu'aucun style spécifique n'est choisi.",
+                    "excerpt": "Les styles définissent l'aspect graphique des rapports PDF (police, couleurs principales et d'accent, couleurs de l'en-tête, couleur des lignes alternées dans les tableaux, taille de police) et peuven...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Stile",
+                    "answer_markdown": "Stile definieren das grafische Erscheinungsbild von PDF-Berichten (Schriftart, Haupt- und Akzentfarben, Kopfzeilenfarben, Farbe abwechselnder Zeilen in Tabellen, Schriftgröße) und können von mehreren Vorlagen gemeinsam genutzt werden, um die visuelle Konsistenz zu wahren.\n\n**Einen Stil erstellen**:\n1. Gehen Sie zu „Stile“ und klicken Sie auf „Neuer Stil“.\n2. Konfigurieren Sie Name, Farben und typografische Eigenschaften.\n3. Speichern Sie und weisen Sie den Stil den Vorlagen zu, die Sie vereinheitlichen möchten.\n\nSie können einen Stil auch als „Standard“ festlegen: Er wird im Designer automatisch ausgewählt, wenn kein spezifischer gewählt wird.",
+                    "excerpt": "Stile definieren das grafische Erscheinungsbild von PDF-Berichten (Schriftart, Haupt- und Akzentfarben, Kopfzeilenfarben, Farbe abwechselnder Zeilen in Tabellen, Schriftgröße) und können von mehreren ...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Estilos",
+                    "answer_markdown": "Los estilos definen el aspecto gráfico de los informes PDF (fuente, colores principales y de acento, colores del encabezado, color de filas alternas en las tablas, tamaño de fuente) y pueden compartirse entre varias plantillas para mantener la coherencia visual.\n\n**Crear un estilo**:\n1. Ve a «Estilos» y haz clic en «Nuevo estilo».\n2. Configura el nombre, los colores y las propiedades tipográficas.\n3. Guarda y asigna el estilo a las plantillas que quieras unificar.\n\nTambién puedes establecer un estilo como «predeterminado»: se selecciona automáticamente en el diseñador cuando no se elige uno específico.",
+                    "excerpt": "Los estilos definen el aspecto gráfico de los informes PDF (fuente, colores principales y de acento, colores del encabezado, color de filas alternas en las tablas, tamaño de fuente) y pueden compartir...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "reports.history.index",
+            "permission_slug": "reports.view",
+            "ranking_weight": 0,
+            "sort_order": 8,
+            "locales": {
+                "it": {
+                    "question": "Storico esportazioni",
+                    "answer_markdown": "La sezione \"Storico\" conserva l'elenco di tutti gli export generati, con:\n\n- data e ora di generazione;\n- modulo sorgente e formato;\n- dimensione del file;\n- pulsante di download (disponibile fino alla scadenza del periodo di conservazione).\n\nPuoi eliminare singoli record dallo storico. Usa \"Pulizia storico\" per rimuovere i record più vecchi in una sola operazione.",
+                    "excerpt": "La sezione \"Storico\" conserva l'elenco di tutti gli export generati, con: data e ora di generazione; modulo sorgente e formato; dimensione del file; pulsante di download (disponibile fino alla scadenza del periodo di co…",
+                    "aliases": [
+                        "come storico esportazioni",
+                        "report ed esportazioni",
+                        "report ed esportazioni storico esportazioni",
+                        "reports storico esportazioni",
+                        "storico esportazioni",
+                        "Dove trovo lo storico esportazioni?"
+                    ]
+                },
+                "en": {
+                    "question": "Export history",
+                    "answer_markdown": "The \"History\" section keeps the list of all generated exports, with:\n\n- date and time of generation;\n- source module and format;\n- file size;\n- a download button (available until the retention period expires).\n\nYou can delete individual records from the history. Use \"Clean up history\" to remove the oldest records in a single operation.",
+                    "excerpt": "The \"History\" section keeps the list of all generated exports, with: date and time of generation; source module and format; file size; a download button (available until the retention period expires)....",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Historique des exports",
+                    "answer_markdown": "La section « Historique » conserve la liste de tous les exports générés, avec :\n\n- la date et l'heure de génération ;\n- le module source et le format ;\n- la taille du fichier ;\n- un bouton de téléchargement (disponible jusqu'à l'expiration de la période de conservation).\n\nVous pouvez supprimer des enregistrements individuels de l'historique. Utilisez « Nettoyer l'historique » pour supprimer les enregistrements les plus anciens en une seule opération.",
+                    "excerpt": "La section « Historique » conserve la liste de tous les exports générés, avec : la date et l'heure de génération ; le module source et le format ; la taille du fichier ; un bouton de téléchargement (d...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Exportverlauf",
+                    "answer_markdown": "Der Abschnitt „Verlauf“ führt die Liste aller erzeugten Exporte, mit:\n\n- Datum und Uhrzeit der Erzeugung;\n- Quellmodul und Format;\n- Dateigröße;\n- einer Download-Schaltfläche (verfügbar bis zum Ablauf des Aufbewahrungszeitraums).\n\nSie können einzelne Einträge aus dem Verlauf löschen. Verwenden Sie „Verlauf bereinigen“, um die ältesten Einträge in einem einzigen Vorgang zu entfernen.",
+                    "excerpt": "Der Abschnitt „Verlauf“ führt die Liste aller erzeugten Exporte, mit: Datum und Uhrzeit der Erzeugung; Quellmodul und Format; Dateigröße; einer Download-Schaltfläche (verfügbar bis zum Ablauf des Aufb...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Historial de exportaciones",
+                    "answer_markdown": "La sección «Historial» conserva la lista de todas las exportaciones generadas, con:\n\n- fecha y hora de generación;\n- módulo de origen y formato;\n- tamaño del archivo;\n- un botón de descarga (disponible hasta que caduque el periodo de conservación).\n\nPuedes eliminar registros individuales del historial. Usa «Limpiar historial» para eliminar los registros más antiguos en una sola operación.",
+                    "excerpt": "La sección «Historial» conserva la lista de todas las exportaciones generadas, con: fecha y hora de generación; módulo de origen y formato; tamaño del archivo; un botón de descarga (disponible hasta q...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "reports.index",
+            "permission_slug": "reports.view",
+            "ranking_weight": 0,
+            "sort_order": 9,
+            "locales": {
+                "it": {
+                    "question": "Documenti collegati a record",
+                    "answer_markdown": "La funzione \"Genera documento\" permette di generare un PDF direttamente dalla scheda di un record specifico (es. dalla scheda di un contatto) usando un template di tipo \"Documento/Scheda\". Quando questa funzione è configurata, nel dettaglio del record compare un pulsante o un link che produce il file in un clic senza dover aprire il modulo Report.\n\n---",
+                    "excerpt": "La funzione \"Genera documento\" permette di generare un PDF direttamente dalla scheda di un record specifico (es. dalla scheda di un contatto) usando un template di tipo \"Documento/Scheda\". Quando questa funzione è conf…",
+                    "aliases": [
+                        "come documenti collegati a record",
+                        "documenti collegati a record",
+                        "report ed esportazioni",
+                        "report ed esportazioni documenti collegati a record",
+                        "reports documenti collegati a record",
+                        "Come genero un documento da un record?"
+                    ]
+                },
+                "en": {
+                    "question": "Documents linked to records",
+                    "answer_markdown": "The \"Generate document\" feature lets you generate a PDF directly from a specific record's card (e.g. from a contact's card) using a \"Document/Card\" type template. When this feature is configured, a button or link appears in the record detail that produces the file in one click without having to open the Reports module.\n\n---",
+                    "excerpt": "The \"Generate document\" feature lets you generate a PDF directly from a specific record's card (e.g. from a contact's card) using a \"Document/Card\" type template. When this feature is configured, a bu...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Documents liés aux enregistrements",
+                    "answer_markdown": "La fonction « Générer le document » permet de générer un PDF directement depuis la fiche d'un enregistrement spécifique (ex. depuis la fiche d'un contact) à l'aide d'un modèle de type « Document/Fiche ». Lorsque cette fonction est configurée, un bouton ou un lien apparaît dans le détail de l'enregistrement et produit le fichier en un clic sans avoir à ouvrir le module Rapports.\n\n---",
+                    "excerpt": "La fonction « Générer le document » permet de générer un PDF directement depuis la fiche d'un enregistrement spécifique (ex. depuis la fiche d'un contact) à l'aide d'un modèle de type « Document/Fiche...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Mit Datensätzen verknüpfte Dokumente",
+                    "answer_markdown": "Mit der Funktion „Dokument erzeugen“ können Sie ein PDF direkt aus der Karte eines bestimmten Datensatzes (z. B. aus der Karte eines Kontakts) mithilfe einer Vorlage vom Typ „Dokument/Karte“ erzeugen. Wenn diese Funktion konfiguriert ist, erscheint im Datensatzdetail eine Schaltfläche oder ein Link, die/der die Datei mit einem Klick erzeugt, ohne das Berichte-Modul öffnen zu müssen.\n\n---",
+                    "excerpt": "Mit der Funktion „Dokument erzeugen“ können Sie ein PDF direkt aus der Karte eines bestimmten Datensatzes (z. B. aus der Karte eines Kontakts) mithilfe einer Vorlage vom Typ „Dokument/Karte“ erzeugen....",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Documentos vinculados a registros",
+                    "answer_markdown": "La función «Generar documento» permite generar un PDF directamente desde la ficha de un registro específico (p. ej. desde la ficha de un contacto) usando una plantilla de tipo «Documento/Ficha». Cuando esta función está configurada, en el detalle del registro aparece un botón o enlace que produce el archivo en un clic sin tener que abrir el módulo Informes.\n\n---",
+                    "excerpt": "La función «Generar documento» permite generar un PDF directamente desde la ficha de un registro específico (p. ej. desde la ficha de un contacto) usando una plantilla de tipo «Documento/Ficha». Cuand...",
+                    "aliases": []
+                }
+            }
+        }
+    ]
+}

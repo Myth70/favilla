@@ -1,0 +1,1021 @@
+{
+    "module_key": "blog",
+    "module_name": "Comunicazioni",
+    "label": "Comunicazioni",
+    "description": "Comunicazioni interne con articoli, categorie, tag, commenti moderati e pubblicazione pianificata.",
+    "audience_default": "user",
+    "locale_default": "it",
+    "route_name": "blog.index",
+    "permission_slug": "blog.view",
+    "sort_order": 38,
+    "entries": [
+        {
+            "audience": "user",
+            "route_name": "blog.index",
+            "permission_slug": "blog.view",
+            "ranking_weight": 24,
+            "sort_order": 1,
+            "locales": {
+                "it": {
+                    "question": "Come funziona il modulo Comunicazioni (Blog)?",
+                    "answer_markdown": "## Modulo Comunicazioni\nComunicazioni è il blog interno aziendale per articoli, annunci e aggiornamenti condivisi con i colleghi.\n\n### Cosa puoi fare\n- leggere articoli organizzati per **categoria** e **tag**;\n- mettere **mi piace**, salvare tra i **preferiti** e commentare;\n- se abilitato, **scrivere** i tuoi articoli e pianificarne la pubblicazione;\n- gli amministratori possono **moderare** commenti e gestire la tassonomia.\n\n### Quando usarlo\nUsa Comunicazioni per condividere annunci aziendali, novità o approfondimenti con tutta l'organizzazione.",
+                    "excerpt": "Modulo Comunicazioni Comunicazioni è il blog interno aziendale per articoli, annunci e aggiornamenti condivisi con i colleghi. Cosa puoi fare leggere articoli organizzati per categoria e tag; mettere mi piace, salvare tra i...",
+                    "aliases": [
+                        "modulo comunicazioni",
+                        "modulo blog",
+                        "blog aziendale",
+                        "cos'e comunicazioni"
+                    ]
+                },
+                "en": {
+                    "question": "How does the Communications (Blog) module work?",
+                    "answer_markdown": "## Communications module\nCommunications is the internal company blog for articles, announcements and updates shared with colleagues.\n\n### What you can do\n- read articles organized by **category** and **tag**;\n- **like**, **bookmark** and comment on articles;\n- if enabled, **write** your own articles and schedule their publication;\n- administrators can **moderate** comments and manage taxonomy.\n\n### When to use it\nUse Communications to share company announcements, news or insights with the whole organization.",
+                    "excerpt": "Communications module Communications is the internal company blog for articles, announcements and updates shared with colleagues. What you can do read articles organized by category and tag; like, bookmark and comment on...",
+                    "aliases": [
+                        "communications module",
+                        "blog module",
+                        "company blog",
+                        "what is communications"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment fonctionne le module Communications (Blog) ?",
+                    "answer_markdown": "## Module Communications\nCommunications est le blog interne de l'entreprise pour les articles, annonces et actualités partagées avec les collègues.\n\n### Ce que vous pouvez faire\n- lire des articles organisés par **catégorie** et **tag** ;\n- mettre un **j'aime**, ajouter aux **favoris** et commenter ;\n- si activé, **rédiger** vos propres articles et planifier leur publication ;\n- les administrateurs peuvent **modérer** les commentaires et gérer la taxonomie.\n\n### Quand l'utiliser\nUtilisez Communications pour partager des annonces d'entreprise, des actualités ou des analyses avec toute l'organisation.",
+                    "excerpt": "Module Communications Communications est le blog interne de l'entreprise pour les articles, annonces et actualités partagées avec les collègues. Ce que vous pouvez faire lire des articles organisés par catégorie et tag ; mettre...",
+                    "aliases": [
+                        "module communications",
+                        "module blog",
+                        "blog entreprise",
+                        "qu'est-ce que communications"
+                    ]
+                },
+                "de": {
+                    "question": "Wie funktioniert das Modul Kommunikation (Blog)?",
+                    "answer_markdown": "## Modul Kommunikation\nKommunikation ist der interne Unternehmensblog für Artikel, Ankündigungen und Neuigkeiten, die mit Kollegen geteilt werden.\n\n### Was Sie tun können\n- Artikel nach **Kategorie** und **Tag** organisiert lesen;\n- **liken**, zu **Favoriten** hinzufügen und kommentieren;\n- falls aktiviert, eigene Artikel **schreiben** und deren Veröffentlichung planen;\n- Administratoren können Kommentare **moderieren** und die Taxonomie verwalten.\n\n### Wann einsetzen\nNutzen Sie Kommunikation, um Unternehmensankündigungen, Neuigkeiten oder Analysen mit der gesamten Organisation zu teilen.",
+                    "excerpt": "Modul Kommunikation Kommunikation ist der interne Unternehmensblog für Artikel, Ankündigungen und Neuigkeiten, die mit Kollegen geteilt werden. Was Sie tun können Artikel nach Kategorie und Tag organisiert lesen; liken, zu...",
+                    "aliases": [
+                        "modul kommunikation",
+                        "modul blog",
+                        "unternehmensblog",
+                        "was ist kommunikation"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo funciona el módulo Comunicaciones (Blog)?",
+                    "answer_markdown": "## Módulo Comunicaciones\nComunicaciones es el blog interno de la empresa para artículos, anuncios y novedades compartidas con los compañeros.\n\n### Qué puedes hacer\n- leer artículos organizados por **categoría** y **etiqueta**;\n- dar **me gusta**, guardar en **favoritos** y comentar;\n- si está habilitado, **escribir** tus propios artículos y programar su publicación;\n- los administradores pueden **moderar** comentarios y gestionar la taxonomía.\n\n### Cuándo usarlo\nUsa Comunicaciones para compartir anuncios de empresa, novedades o análisis con toda la organización.",
+                    "excerpt": "Módulo Comunicaciones Comunicaciones es el blog interno de la empresa para artículos, anuncios y novedades compartidas con los compañeros. Qué puedes hacer leer artículos organizados por categoría y etiqueta; dar me gusta,...",
+                    "aliases": [
+                        "módulo comunicaciones",
+                        "módulo blog",
+                        "blog empresa",
+                        "qué es comunicaciones"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "blog.index",
+            "permission_slug": "blog.view",
+            "ranking_weight": 18,
+            "sort_order": 2,
+            "locales": {
+                "it": {
+                    "question": "Come accedo al modulo Comunicazioni?",
+                    "answer_markdown": "## Accesso a Comunicazioni\nIl modulo si apre dalla sidebar tramite la voce **Comunicazioni**.\n\n### Permesso minimo\nServe `blog.view` per leggere, mettere mi piace, salvare e vedere i commenti.\n\n### Altri permessi utili\n- `blog.comment` per scrivere commenti e risposte;\n- `blog.write` per creare, modificare e pubblicare i propri articoli;\n- `blog.comment.moderate` per approvare/rifiutare commenti e gestire la blacklist;\n- `blog.admin` per amministrare articoli, categorie, tag e azioni massive.\n\n### Se non vedi la voce nel menu\nDi solito significa che il tuo ruolo non include il permesso minimo di lettura.",
+                    "excerpt": "Accesso a Comunicazioni Il modulo si apre dalla sidebar tramite la voce Comunicazioni. Permesso minimo Serve blog.view per leggere, mettere mi piace, salvare e vedere i commenti. Altri permessi utili blog.comment per scrivere...",
+                    "aliases": [
+                        "accesso comunicazioni",
+                        "permessi blog",
+                        "aprire comunicazioni"
+                    ]
+                },
+                "en": {
+                    "question": "How do I access the Communications module?",
+                    "answer_markdown": "## Access to Communications\nThe module opens from the sidebar via the **Communications** entry.\n\n### Minimum permission\nYou need `blog.view` to read, like, bookmark and see comments.\n\n### Other useful permissions\n- `blog.comment` to write comments and replies;\n- `blog.write` to create, edit and publish your own articles;\n- `blog.comment.moderate` to approve/reject comments and manage the blacklist;\n- `blog.admin` to administer articles, categories, tags and batch actions.\n\n### If you don't see the menu entry\nThis usually means your role doesn't include the minimum read permission.",
+                    "excerpt": "Access to Communications The module opens from the sidebar via the Communications entry. Minimum permission You need blog.view to read, like, bookmark and see comments. Other useful permissions blog.comment to write comments and...",
+                    "aliases": [
+                        "access communications",
+                        "blog permissions",
+                        "open communications"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment accéder au module Communications ?",
+                    "answer_markdown": "## Accès à Communications\nLe module s'ouvre depuis la barre latérale via l'entrée **Communications**.\n\n### Permission minimale\nIl faut `blog.view` pour lire, aimer, enregistrer et voir les commentaires.\n\n### Autres permissions utiles\n- `blog.comment` pour écrire des commentaires et réponses ;\n- `blog.write` pour créer, modifier et publier ses propres articles ;\n- `blog.comment.moderate` pour approuver/rejeter les commentaires et gérer la liste noire ;\n- `blog.admin` pour administrer articles, catégories, tags et actions groupées.\n\n### Si vous ne voyez pas l'entrée dans le menu\nCela signifie généralement que votre rôle n'inclut pas la permission minimale de lecture.",
+                    "excerpt": "Accès à Communications Le module s'ouvre depuis la barre latérale via l'entrée Communications. Permission minimale Il faut blog.view pour lire, aimer, enregistrer et voir les commentaires. Autres permissions utiles blog.comment...",
+                    "aliases": [
+                        "accès communications",
+                        "permissions blog",
+                        "ouvrir communications"
+                    ]
+                },
+                "de": {
+                    "question": "Wie greife ich auf das Modul Kommunikation zu?",
+                    "answer_markdown": "## Zugriff auf Kommunikation\nDas Modul öffnen Sie über den Sidebar-Eintrag **Kommunikation**.\n\n### Mindestberechtigung\nSie benötigen `blog.view` zum Lesen, Liken, Speichern und Ansehen von Kommentaren.\n\n### Weitere nützliche Berechtigungen\n- `blog.comment`, um Kommentare und Antworten zu schreiben;\n- `blog.write`, um eigene Artikel zu erstellen, zu bearbeiten und zu veröffentlichen;\n- `blog.comment.moderate`, um Kommentare zu genehmigen/abzulehnen und die Sperrliste zu verwalten;\n- `blog.admin`, um Artikel, Kategorien, Tags und Sammelaktionen zu verwalten.\n\n### Wenn der Menüpunkt fehlt\nDas bedeutet meist, dass Ihre Rolle nicht die Mindestberechtigung zum Lesen enthält.",
+                    "excerpt": "Zugriff auf Kommunikation Das Modul öffnen Sie über den Sidebar-Eintrag Kommunikation. Mindestberechtigung Sie benötigen blog.view zum Lesen, Liken, Speichern und Ansehen von Kommentaren. Weitere nützliche Berechtigungen...",
+                    "aliases": [
+                        "zugriff kommunikation",
+                        "blog berechtigungen",
+                        "kommunikation öffnen"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo accedo al módulo Comunicaciones?",
+                    "answer_markdown": "## Acceso a Comunicaciones\nEl módulo se abre desde la barra lateral mediante la entrada **Comunicaciones**.\n\n### Permiso mínimo\nNecesitas `blog.view` para leer, dar me gusta, guardar y ver comentarios.\n\n### Otros permisos útiles\n- `blog.comment` para escribir comentarios y respuestas;\n- `blog.write` para crear, editar y publicar tus propios artículos;\n- `blog.comment.moderate` para aprobar/rechazar comentarios y gestionar la lista negra;\n- `blog.admin` para administrar artículos, categorías, etiquetas y acciones masivas.\n\n### Si no ves la entrada en el menú\nSuele significar que tu rol no incluye el permiso mínimo de lectura.",
+                    "excerpt": "Acceso a Comunicaciones El módulo se abre desde la barra lateral mediante la entrada Comunicaciones. Permiso mínimo Necesitas blog.view para leer, dar me gusta, guardar y ver comentarios. Otros permisos útiles blog.comment para...",
+                    "aliases": [
+                        "acceso comunicaciones",
+                        "permisos blog",
+                        "abrir comunicaciones"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "blog.create",
+            "permission_slug": "blog.write",
+            "ranking_weight": 0,
+            "sort_order": 3,
+            "locales": {
+                "it": {
+                    "question": "Come creo un nuovo articolo?",
+                    "answer_markdown": "## Creare un articolo\nDalla pagina **I miei articoli** clicca su **Nuovo articolo** (richiede `blog.write`).\n\n### Campi principali\n- **titolo** (obbligatorio) ed **estratto**;\n- **contenuto** con editor ricco;\n- **categoria** e **tag** (i tag nuovi vengono creati automaticamente);\n- **immagine di copertina**;\n- data di **pianificazione pubblicazione** opzionale.\n\n### Cosa succede al salvataggio\nSenza data di pianificazione l'articolo resta in **bozza**; con una data futura diventa **schedulato**.",
+                    "excerpt": "Creare un articolo Dalla pagina I miei articoli clicca su Nuovo articolo (richiede blog.write). Campi principali titolo (obbligatorio) ed estratto; contenuto con editor ricco; categoria e tag (i tag nuovi vengono creati...",
+                    "aliases": [
+                        "creare articolo",
+                        "nuovo articolo",
+                        "scrivere articolo blog"
+                    ]
+                },
+                "en": {
+                    "question": "How do I create a new article?",
+                    "answer_markdown": "## Creating an article\nFrom the **My articles** page click **New article** (requires `blog.write`).\n\n### Main fields\n- **title** (required) and **excerpt**;\n- **content** with a rich editor;\n- **category** and **tags** (new tags are created automatically);\n- **cover image**;\n- optional **schedule publication** date.\n\n### What happens on save\nWithout a scheduling date the article stays a **draft**; with a future date it becomes **scheduled**.",
+                    "excerpt": "Creating an article From the My articles page click New article (requires blog.write). Main fields title (required) and excerpt; content with a rich editor; category and tags (new tags are created automatically); cover image;...",
+                    "aliases": [
+                        "create article",
+                        "new article",
+                        "write blog article"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment créer un nouvel article ?",
+                    "answer_markdown": "## Créer un article\nDepuis la page **Mes articles**, cliquez sur **Nouvel article** (nécessite `blog.write`).\n\n### Champs principaux\n- **titre** (obligatoire) et **extrait** ;\n- **contenu** avec éditeur riche ;\n- **catégorie** et **tags** (les nouveaux tags sont créés automatiquement) ;\n- **image de couverture** ;\n- date de **publication planifiée** optionnelle.\n\n### Que se passe-t-il à l'enregistrement\nSans date de planification, l'article reste en **brouillon** ; avec une date future, il devient **planifié**.",
+                    "excerpt": "Créer un article Depuis la page Mes articles, cliquez sur Nouvel article (nécessite blog.write). Champs principaux titre (obligatoire) et extrait ; contenu avec éditeur riche ; catégorie et tags (les nouveaux tags sont créés...",
+                    "aliases": [
+                        "créer article",
+                        "nouvel article",
+                        "écrire article blog"
+                    ]
+                },
+                "de": {
+                    "question": "Wie erstelle ich einen neuen Artikel?",
+                    "answer_markdown": "## Einen Artikel erstellen\nKlicken Sie auf der Seite **Meine Artikel** auf **Neuer Artikel** (erfordert `blog.write`).\n\n### Hauptfelder\n- **Titel** (Pflichtfeld) und **Auszug**;\n- **Inhalt** mit Rich-Text-Editor;\n- **Kategorie** und **Tags** (neue Tags werden automatisch erstellt);\n- **Titelbild**;\n- optionales Datum für die **geplante Veröffentlichung**.\n\n### Was beim Speichern passiert\nOhne Planungsdatum bleibt der Artikel ein **Entwurf**; mit einem zukünftigen Datum wird er **geplant**.",
+                    "excerpt": "Einen Artikel erstellen Klicken Sie auf der Seite Meine Artikel auf Neuer Artikel (erfordert blog.write). Hauptfelder Titel (Pflichtfeld) und Auszug; Inhalt mit Rich-Text-Editor; Kategorie und Tags (neue Tags werden automatisch...",
+                    "aliases": [
+                        "artikel erstellen",
+                        "neuer artikel",
+                        "blog artikel schreiben"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo creo un nuevo artículo?",
+                    "answer_markdown": "## Crear un artículo\nDesde la página **Mis artículos** haz clic en **Nuevo artículo** (requiere `blog.write`).\n\n### Campos principales\n- **título** (obligatorio) y **extracto**;\n- **contenido** con editor enriquecido;\n- **categoría** y **etiquetas** (las etiquetas nuevas se crean automáticamente);\n- **imagen de portada**;\n- fecha de **publicación programada** opcional.\n\n### Qué ocurre al guardar\nSin fecha de programación el artículo queda como **borrador**; con una fecha futura pasa a **programado**.",
+                    "excerpt": "Crear un artículo Desde la página Mis artículos haz clic en Nuevo artículo (requiere blog.write). Campos principales título (obligatorio) y extracto; contenido con editor enriquecido; categoría y etiquetas (las etiquetas nuevas...",
+                    "aliases": [
+                        "crear artículo",
+                        "nuevo artículo",
+                        "escribir artículo blog"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "blog.author.index",
+            "permission_slug": "blog.write",
+            "ranking_weight": 0,
+            "sort_order": 4,
+            "locales": {
+                "it": {
+                    "question": "Quali sono gli stati di un articolo?",
+                    "answer_markdown": "## Stati dell'articolo\nOgni articolo ha uno dei tre stati: **Bozza**, **Schedulato**, **Pubblicato**.\n\n### Passaggi\n- **Bozza**: visibile solo a te e agli amministratori;\n- **Schedulato**: ha una data di pubblicazione futura impostata;\n- **Pubblicato**: visibile secondo le regole di visibilità.\n\n### Tornare in bozza\nUn articolo pubblicato può essere riportato in bozza in qualsiasi momento; lo slug resta invariato per non rompere i link esistenti.",
+                    "excerpt": "Stati dell'articolo Ogni articolo ha uno dei tre stati: Bozza, Schedulato, Pubblicato. Passaggi Bozza: visibile solo a te e agli amministratori; Schedulato: ha una data di pubblicazione futura impostata; Pubblicato: visibile...",
+                    "aliases": [
+                        "stati articolo",
+                        "bozza schedulato pubblicato",
+                        "stato blog"
+                    ]
+                },
+                "en": {
+                    "question": "What are the possible article states?",
+                    "answer_markdown": "## Article states\nEvery article has one of three states: **Draft**, **Scheduled**, **Published**.\n\n### Meaning\n- **Draft**: visible only to you and administrators;\n- **Scheduled**: has a future publish date set;\n- **Published**: visible according to the visibility rules.\n\n### Going back to draft\nA published article can be reverted to draft at any time; its slug stays unchanged so existing links don't break.",
+                    "excerpt": "Article states Every article has one of three states: Draft, Scheduled, Published. Meaning Draft: visible only to you and administrators; Scheduled: has a future publish date set; Published: visible according to the visibility...",
+                    "aliases": [
+                        "article states",
+                        "draft scheduled published",
+                        "blog status"
+                    ]
+                },
+                "fr": {
+                    "question": "Quels sont les statuts possibles d'un article ?",
+                    "answer_markdown": "## Statuts de l'article\nChaque article a l'un des trois statuts : **Brouillon**, **Planifié**, **Publié**.\n\n### Signification\n- **Brouillon** : visible seulement par vous et les administrateurs ;\n- **Planifié** : a une date de publication future définie ;\n- **Publié** : visible selon les règles de visibilité.\n\n### Revenir en brouillon\nUn article publié peut être remis en brouillon à tout moment ; son slug reste inchangé pour ne pas casser les liens existants.",
+                    "excerpt": "Statuts de l'article Chaque article a l'un des trois statuts : Brouillon, Planifié, Publié. Signification Brouillon : visible seulement par vous et les administrateurs ; Planifié : a une date de publication future définie ;...",
+                    "aliases": [
+                        "statuts article",
+                        "brouillon planifié publié",
+                        "statut blog"
+                    ]
+                },
+                "de": {
+                    "question": "Welche Status kann ein Artikel haben?",
+                    "answer_markdown": "## Artikelstatus\nJeder Artikel hat einen von drei Status: **Entwurf**, **Geplant**, **Veröffentlicht**.\n\n### Bedeutung\n- **Entwurf**: nur für Sie und Administratoren sichtbar;\n- **Geplant**: hat ein zukünftiges Veröffentlichungsdatum;\n- **Veröffentlicht**: sichtbar gemäß den Sichtbarkeitsregeln.\n\n### Zurück zu Entwurf\nEin veröffentlichter Artikel kann jederzeit auf Entwurf zurückgesetzt werden; der Slug bleibt unverändert, damit bestehende Links nicht brechen.",
+                    "excerpt": "Artikelstatus Jeder Artikel hat einen von drei Status: Entwurf, Geplant, Veröffentlicht. Bedeutung Entwurf: nur für Sie und Administratoren sichtbar; Geplant: hat ein zukünftiges Veröffentlichungsdatum; Veröffentlicht: sichtbar...",
+                    "aliases": [
+                        "artikelstatus",
+                        "entwurf geplant veröffentlicht",
+                        "blog status"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cuáles son los estados posibles de un artículo?",
+                    "answer_markdown": "## Estados del artículo\nCada artículo tiene uno de tres estados: **Borrador**, **Programado**, **Publicado**.\n\n### Significado\n- **Borrador**: visible solo para ti y los administradores;\n- **Programado**: tiene una fecha de publicación futura configurada;\n- **Publicado**: visible según las reglas de visibilidad.\n\n### Volver a borrador\nUn artículo publicado puede devolverse a borrador en cualquier momento; su slug no cambia para no romper enlaces existentes.",
+                    "excerpt": "Estados del artículo Cada artículo tiene uno de tres estados: Borrador, Programado, Publicado. Significado Borrador: visible solo para ti y los administradores; Programado: tiene una fecha de publicación futura configurada;...",
+                    "aliases": [
+                        "estados artículo",
+                        "borrador programado publicado",
+                        "estado blog"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "blog.author.index",
+            "permission_slug": "blog.write",
+            "ranking_weight": 0,
+            "sort_order": 5,
+            "locales": {
+                "it": {
+                    "question": "Come funziona la pubblicazione pianificata?",
+                    "answer_markdown": "## Pubblicazione pianificata\nImposta una data futura in **Pianifica pubblicazione**: l'articolo passa allo stato **Schedulato**.\n\n### Come avviene la pubblicazione automatica\nIl comando pianificato `blog:publish-scheduled` (di norma ogni 5 minuti) cerca gli articoli schedulati con data raggiunta e li porta a **Pubblicato**, inviando la relativa notifica.\n\n### Pubblicare subito\nPuoi comunque pubblicare manually prima della data prevista con **Pubblica ora**, ignorando la pianificazione.",
+                    "excerpt": "Pubblicazione pianificata Imposta una data futura in Pianifica pubblicazione: l'articolo passa allo stato Schedulato. Come avviene la pubblicazione automatica Il comando pianificato blog:publish-scheduled (di norma ogni 5 minuti)...",
+                    "aliases": [
+                        "pubblicazione pianificata",
+                        "articolo schedulato",
+                        "pubblicare in automatico"
+                    ]
+                },
+                "en": {
+                    "question": "How does scheduled publishing work?",
+                    "answer_markdown": "## Scheduled publishing\nSet a future date in **Schedule publication**: the article moves to the **Scheduled** state.\n\n### How automatic publishing happens\nThe scheduled command `blog:publish-scheduled` (typically every 5 minutes) looks for scheduled articles whose date has arrived and moves them to **Published**, sending the related notification.\n\n### Publishing right away\nYou can still publish manually before the planned date with **Publish now**, ignoring the schedule.",
+                    "excerpt": "Scheduled publishing Set a future date in Schedule publication: the article moves to the Scheduled state. How automatic publishing happens The scheduled command blog:publish-scheduled (typically every 5 minutes) looks for...",
+                    "aliases": [
+                        "scheduled publishing",
+                        "scheduled article",
+                        "automatic publishing"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment fonctionne la publication planifiée ?",
+                    "answer_markdown": "## Publication planifiée\nDéfinissez une date future dans **Planifier la publication** : l'article passe au statut **Planifié**.\n\n### Comment se déroule la publication automatique\nLa tâche planifiée `blog:publish-scheduled` (généralement toutes les 5 minutes) recherche les articles planifiés dont la date est atteinte et les fait passer à **Publié**, en envoyant la notification correspondante.\n\n### Publier immédiatement\nVous pouvez toujours publier manuellement avant la date prévue avec **Publier maintenant**, en ignorant la planification.",
+                    "excerpt": "Publication planifiée Définissez une date future dans Planifier la publication : l'article passe au statut Planifié. Comment se déroule la publication automatique La tâche planifiée blog:publish-scheduled (généralement toutes les...",
+                    "aliases": [
+                        "publication planifiée",
+                        "article planifié",
+                        "publication automatique"
+                    ]
+                },
+                "de": {
+                    "question": "Wie funktioniert die geplante Veröffentlichung?",
+                    "answer_markdown": "## Geplante Veröffentlichung\nLegen Sie unter **Veröffentlichung planen** ein zukünftiges Datum fest: Der Artikel wechselt in den Status **Geplant**.\n\n### Wie die automatische Veröffentlichung abläuft\nDer geplante Befehl `blog:publish-scheduled` (in der Regel alle 5 Minuten) sucht geplante Artikel, deren Datum erreicht ist, und setzt sie auf **Veröffentlicht**, wobei die zugehörige Benachrichtigung gesendet wird.\n\n### Sofort veröffentlichen\nSie können vor dem geplanten Datum trotzdem manuell mit **Jetzt veröffentlichen** veröffentlichen und die Planung ignorieren.",
+                    "excerpt": "Geplante Veröffentlichung Legen Sie unter Veröffentlichung planen ein zukünftiges Datum fest: Der Artikel wechselt in den Status Geplant. Wie die automatische Veröffentlichung abläuft Der geplante Befehl blog:publish-scheduled...",
+                    "aliases": [
+                        "geplante veröffentlichung",
+                        "geplanter artikel",
+                        "automatische veröffentlichung"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo funciona la publicación programada?",
+                    "answer_markdown": "## Publicación programada\nEstablece una fecha futura en **Programar publicación**: el artículo pasa al estado **Programado**.\n\n### Cómo ocurre la publicación automática\nEl comando programado `blog:publish-scheduled` (normalmente cada 5 minutos) busca artículos programados cuya fecha ya llegó y los pasa a **Publicado**, enviando la notificación correspondiente.\n\n### Publicar de inmediato\nAún puedes publicar manualmente antes de la fecha prevista con **Publicar ahora**, ignorando la programación.",
+                    "excerpt": "Publicación programada Establece una fecha futura en Programar publicación: el artículo pasa al estado Programado. Cómo ocurre la publicación automática El comando programado blog:publish-scheduled (normalmente cada 5 minutos)...",
+                    "aliases": [
+                        "publicación programada",
+                        "artículo programado",
+                        "publicación automática"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "blog.author.index",
+            "permission_slug": "blog.write",
+            "ranking_weight": 0,
+            "sort_order": 6,
+            "locales": {
+                "it": {
+                    "question": "Come gestisco i miei articoli?",
+                    "answer_markdown": "## I miei articoli\nLa pagina **I miei articoli** elenca tutti i tuoi articoli con filtro per stato (bozza/schedulato/pubblicato) e ricerca.\n\n### Azioni disponibili\n- **Modifica**: cambia contenuto, categoria, tag o data di pianificazione;\n- **Pubblica ora** / **Riporta in bozza**;\n- **Elimina**: sposta l'articolo nel cestino (soft-delete).",
+                    "excerpt": "I miei articoli La pagina I miei articoli elenca tutti i tuoi articoli con filtro per stato (bozza/schedulato/pubblicato) e ricerca. Azioni disponibili Modifica: cambia contenuto, categoria, tag o data di pianificazione; Pubblica...",
+                    "aliases": [
+                        "i miei articoli",
+                        "gestire articoli",
+                        "bozze articoli"
+                    ]
+                },
+                "en": {
+                    "question": "How do I manage my articles?",
+                    "answer_markdown": "## My articles\nThe **My articles** page lists all your articles with a status filter (draft/scheduled/published) and search.\n\n### Available actions\n- **Edit**: change content, category, tags or scheduling date;\n- **Publish now** / **Revert to draft**;\n- **Delete**: moves the article to the trash (soft-delete).",
+                    "excerpt": "My articles The My articles page lists all your articles with a status filter (draft/scheduled/published) and search. Available actions Edit: change content, category, tags or scheduling date; Publish now / Revert to draft;...",
+                    "aliases": [
+                        "my articles",
+                        "manage articles",
+                        "article drafts"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment gérer mes articles ?",
+                    "answer_markdown": "## Mes articles\nLa page **Mes articles** liste tous vos articles avec un filtre par statut (brouillon/planifié/publié) et une recherche.\n\n### Actions disponibles\n- **Modifier** : changer le contenu, la catégorie, les tags ou la date de planification ;\n- **Publier maintenant** / **Remettre en brouillon** ;\n- **Supprimer** : déplace l'article dans la corbeille (suppression douce).",
+                    "excerpt": "Mes articles La page Mes articles liste tous vos articles avec un filtre par statut (brouillon/planifié/publié) et une recherche. Actions disponibles Modifier : changer le contenu, la catégorie, les tags ou la date de...",
+                    "aliases": [
+                        "mes articles",
+                        "gérer articles",
+                        "brouillons articles"
+                    ]
+                },
+                "de": {
+                    "question": "Wie verwalte ich meine Artikel?",
+                    "answer_markdown": "## Meine Artikel\nDie Seite **Meine Artikel** listet alle Ihre Artikel mit Statusfilter (Entwurf/Geplant/Veröffentlicht) und Suche auf.\n\n### Verfügbare Aktionen\n- **Bearbeiten**: Inhalt, Kategorie, Tags oder Planungsdatum ändern;\n- **Jetzt veröffentlichen** / **Zurück zu Entwurf**;\n- **Löschen**: verschiebt den Artikel in den Papierkorb (Soft-Delete).",
+                    "excerpt": "Meine Artikel Die Seite Meine Artikel listet alle Ihre Artikel mit Statusfilter (Entwurf/Geplant/Veröffentlicht) und Suche auf. Verfügbare Aktionen Bearbeiten: Inhalt, Kategorie, Tags oder Planungsdatum ändern; Jetzt...",
+                    "aliases": [
+                        "meine artikel",
+                        "artikel verwalten",
+                        "artikel entwürfe"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo gestiono mis artículos?",
+                    "answer_markdown": "## Mis artículos\nLa página **Mis artículos** lista todos tus artículos con filtro por estado (borrador/programado/publicado) y búsqueda.\n\n### Acciones disponibles\n- **Editar**: cambiar contenido, categoría, etiquetas o fecha de programación;\n- **Publicar ahora** / **Volver a borrador**;\n- **Eliminar**: mueve el artículo a la papelera (borrado suave).",
+                    "excerpt": "Mis artículos La página Mis artículos lista todos tus artículos con filtro por estado (borrador/programado/publicado) y búsqueda. Acciones disponibles Editar: cambiar contenido, categoría, etiquetas o fecha de programación;...",
+                    "aliases": [
+                        "mis artículos",
+                        "gestionar artículos",
+                        "borradores artículos"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "blog.admin.categories",
+            "permission_slug": "blog.admin",
+            "ranking_weight": 0,
+            "sort_order": 7,
+            "locales": {
+                "it": {
+                    "question": "Come funzionano categorie e tag?",
+                    "answer_markdown": "## Tassonomia\nOgni articolo ha al massimo **una categoria** e più **tag** liberi.\n\n### Categorie\nGestite dall'amministrazione (richiede `blog.admin`): nome, slug e ordinamento. Se elimini una categoria con articoli assegnati ricevi un avviso preventivo.\n\n### Tag\nI tag sono a selezione multipla e vengono creati automaticamente al primo utilizzo; l'amministrazione può comunque ripulire il catalogo.",
+                    "excerpt": "Tassonomia Ogni articolo ha al massimo una categoria e più tag liberi. Categorie Gestite dall'amministrazione (richiede blog.admin): nome, slug e ordinamento. Se elimini una categoria con articoli assegnati ricevi un avviso...",
+                    "aliases": [
+                        "categorie blog",
+                        "tag blog",
+                        "tassonomia comunicazioni"
+                    ]
+                },
+                "en": {
+                    "question": "How do categories and tags work?",
+                    "answer_markdown": "## Taxonomy\nEvery article has at most **one category** and any number of free-form **tags**.\n\n### Categories\nManaged from administration (requires `blog.admin`): name, slug and ordering. Deleting a category with assigned articles shows a warning first.\n\n### Tags\nTags are multi-select and are created automatically on first use; administration can still clean up the catalog.",
+                    "excerpt": "Taxonomy Every article has at most one category and any number of free-form tags. Categories Managed from administration (requires blog.admin): name, slug and ordering. Deleting a category with assigned articles shows a warning...",
+                    "aliases": [
+                        "blog categories",
+                        "blog tags",
+                        "communications taxonomy"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment fonctionnent les catégories et les tags ?",
+                    "answer_markdown": "## Taxonomie\nChaque article a au maximum **une catégorie** et plusieurs **tags** libres.\n\n### Catégories\nGérées depuis l'administration (nécessite `blog.admin`) : nom, slug et ordre. Supprimer une catégorie avec des articles assignés affiche d'abord un avertissement.\n\n### Tags\nLes tags sont à sélection multiple et créés automatiquement à la première utilisation ; l'administration peut néanmoins nettoyer le catalogue.",
+                    "excerpt": "Taxonomie Chaque article a au maximum une catégorie et plusieurs tags libres. Catégories Gérées depuis l'administration (nécessite blog.admin) : nom, slug et ordre. Supprimer une catégorie avec des articles assignés affiche...",
+                    "aliases": [
+                        "catégories blog",
+                        "tags blog",
+                        "taxonomie communications"
+                    ]
+                },
+                "de": {
+                    "question": "Wie funktionieren Kategorien und Tags?",
+                    "answer_markdown": "## Taxonomie\nJeder Artikel hat höchstens **eine Kategorie** und beliebig viele freie **Tags**.\n\n### Kategorien\nÜber die Administration verwaltet (erfordert `blog.admin`): Name, Slug und Reihenfolge. Beim Löschen einer Kategorie mit zugewiesenen Artikeln erscheint zuerst eine Warnung.\n\n### Tags\nTags sind mehrfach auswählbar und werden bei der ersten Verwendung automatisch erstellt; die Administration kann den Katalog dennoch bereinigen.",
+                    "excerpt": "Taxonomie Jeder Artikel hat höchstens eine Kategorie und beliebig viele freie Tags. Kategorien Über die Administration verwaltet (erfordert blog.admin): Name, Slug und Reihenfolge. Beim Löschen einer Kategorie mit zugewiesenen...",
+                    "aliases": [
+                        "blog kategorien",
+                        "blog tags",
+                        "kommunikation taxonomie"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo funcionan las categorías y las etiquetas?",
+                    "answer_markdown": "## Taxonomía\nCada artículo tiene como máximo **una categoría** y varias **etiquetas** libres.\n\n### Categorías\nGestionadas desde la administración (requiere `blog.admin`): nombre, slug y orden. Eliminar una categoría con artículos asignados muestra antes un aviso.\n\n### Etiquetas\nLas etiquetas son de selección múltiple y se crean automáticamente al usarlas por primera vez; la administración puede igualmente depurar el catálogo.",
+                    "excerpt": "Taxonomía Cada artículo tiene como máximo una categoría y varias etiquetas libres. Categorías Gestionadas desde la administración (requiere blog.admin): nombre, slug y orden. Eliminar una categoría con artículos asignados muestra...",
+                    "aliases": [
+                        "categorías blog",
+                        "etiquetas blog",
+                        "taxonomía comunicaciones"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "blog.admin.articles",
+            "permission_slug": "blog.admin",
+            "ranking_weight": 0,
+            "sort_order": 8,
+            "locales": {
+                "it": {
+                    "question": "Come metto in evidenza (pin) un articolo?",
+                    "answer_markdown": "## Articoli in evidenza\nUn amministratore può fissare un articolo in cima al blog (richiede `blog.admin`).\n\n### Dove appare\nGli articoli fissati vengono mostrati in una sezione **In evidenza** separata, visibile solo nella prima pagina.\n\n### Rimuovere il pin\nSi applica anche in blocco tramite le azioni massive sugli articoli.",
+                    "excerpt": "Articoli in evidenza Un amministratore può fissare un articolo in cima al blog (richiede blog.admin). Dove appare Gli articoli fissati vengono mostrati in una sezione In evidenza separata, visibile solo nella prima pagina....",
+                    "aliases": [
+                        "pin articolo",
+                        "articoli in evidenza",
+                        "fissare articolo"
+                    ]
+                },
+                "en": {
+                    "question": "How do I pin an article?",
+                    "answer_markdown": "## Pinned articles\nAn administrator can pin an article to the top of the blog (requires `blog.admin`).\n\n### Where it appears\nPinned articles are shown in a separate **Featured** section, visible only on the first page.\n\n### Unpinning\nThis can also be applied in bulk through the article batch actions.",
+                    "excerpt": "Pinned articles An administrator can pin an article to the top of the blog (requires blog.admin). Where it appears Pinned articles are shown in a separate Featured section, visible only on the first page. Unpinning This can also...",
+                    "aliases": [
+                        "pin article",
+                        "featured articles",
+                        "pin post"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment épingler un article ?",
+                    "answer_markdown": "## Articles épinglés\nUn administrateur peut épingler un article en haut du blog (nécessite `blog.admin`).\n\n### Où il apparaît\nLes articles épinglés sont affichés dans une section **En vedette** séparée, visible uniquement sur la première page.\n\n### Désépingler\nCela peut aussi s'appliquer en masse via les actions groupées sur les articles.",
+                    "excerpt": "Articles épinglés Un administrateur peut épingler un article en haut du blog (nécessite blog.admin). Où il apparaît Les articles épinglés sont affichés dans une section En vedette séparée, visible uniquement sur la première page....",
+                    "aliases": [
+                        "épingler article",
+                        "articles en vedette",
+                        "épingler publication"
+                    ]
+                },
+                "de": {
+                    "question": "Wie hefte ich einen Artikel an?",
+                    "answer_markdown": "## Angeheftete Artikel\nEin Administrator kann einen Artikel oben im Blog anheften (erfordert `blog.admin`).\n\n### Wo er erscheint\nAngeheftete Artikel werden in einem separaten Bereich **Hervorgehoben** angezeigt, nur auf der ersten Seite sichtbar.\n\n### Lösen\nDies kann auch über die Sammelaktionen für Artikel im Batch erfolgen.",
+                    "excerpt": "Angeheftete Artikel Ein Administrator kann einen Artikel oben im Blog anheften (erfordert blog.admin). Wo er erscheint Angeheftete Artikel werden in einem separaten Bereich Hervorgehoben angezeigt, nur auf der ersten Seite...",
+                    "aliases": [
+                        "artikel anheften",
+                        "hervorgehobene artikel",
+                        "beitrag anheften"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo destaco (pin) un artículo?",
+                    "answer_markdown": "## Artículos destacados\nUn administrador puede fijar un artículo en la parte superior del blog (requiere `blog.admin`).\n\n### Dónde aparece\nLos artículos fijados se muestran en una sección **Destacados** separada, visible solo en la primera página.\n\n### Quitar el fijado\nEsto también se puede aplicar en bloque mediante las acciones masivas sobre artículos.",
+                    "excerpt": "Artículos destacados Un administrador puede fijar un artículo en la parte superior del blog (requiere blog.admin). Dónde aparece Los artículos fijados se muestran en una sección Destacados separada, visible solo en la primera...",
+                    "aliases": [
+                        "fijar artículo",
+                        "artículos destacados",
+                        "pin publicación"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "blog.edit",
+            "permission_slug": "blog.write",
+            "ranking_weight": 0,
+            "sort_order": 9,
+            "locales": {
+                "it": {
+                    "question": "Come funziona la visibilità per ruolo di un articolo?",
+                    "answer_markdown": "## Visibilità\nDi norma un articolo pubblicato è visibile a **tutti** i dipendenti.\n\n### Visibilità personalizzata\nPuoi selezionare uno o più ruoli specifici: solo quei ruoli vedranno l'articolo una volta pubblicato. La visibilità è modificabile finché l'articolo è in bozza o schedulato.\n\nRichiede `blog.write`.",
+                    "excerpt": "Visibilità Di norma un articolo pubblicato è visibile a tutti i dipendenti. Visibilità personalizzata Puoi selezionare uno o più ruoli specifici: solo quei ruoli vedranno l'articolo una volta pubblicato. La visibilità è...",
+                    "aliases": [
+                        "visibilita articolo",
+                        "ruoli articolo blog",
+                        "articolo riservato"
+                    ]
+                },
+                "en": {
+                    "question": "How does role-based article visibility work?",
+                    "answer_markdown": "## Visibility\nBy default a published article is visible to **all** employees.\n\n### Custom visibility\nYou can select one or more specific roles: only those roles will see the article once published. Visibility can be changed while the article is still draft or scheduled.\n\nRequires `blog.write`.",
+                    "excerpt": "Visibility By default a published article is visible to all employees. Custom visibility You can select one or more specific roles: only those roles will see the article once published. Visibility can be changed while the article...",
+                    "aliases": [
+                        "article visibility",
+                        "blog article roles",
+                        "restricted article"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment fonctionne la visibilité par rôle d'un article ?",
+                    "answer_markdown": "## Visibilité\nPar défaut, un article publié est visible par **tous** les employés.\n\n### Visibilité personnalisée\nVous pouvez sélectionner un ou plusieurs rôles spécifiques : seuls ces rôles verront l'article une fois publié. La visibilité peut être modifiée tant que l'article est en brouillon ou planifié.\n\nNécessite `blog.write`.",
+                    "excerpt": "Visibilité Par défaut, un article publié est visible par tous les employés. Visibilité personnalisée Vous pouvez sélectionner un ou plusieurs rôles spécifiques : seuls ces rôles verront l'article une fois publié. La visibilité...",
+                    "aliases": [
+                        "visibilité article",
+                        "rôles article blog",
+                        "article réservé"
+                    ]
+                },
+                "de": {
+                    "question": "Wie funktioniert die rollenbasierte Sichtbarkeit eines Artikels?",
+                    "answer_markdown": "## Sichtbarkeit\nStandardmäßig ist ein veröffentlichter Artikel für **alle** Mitarbeiter sichtbar.\n\n### Benutzerdefinierte Sichtbarkeit\nSie können eine oder mehrere bestimmte Rollen auswählen: Nur diese Rollen sehen den Artikel nach der Veröffentlichung. Die Sichtbarkeit kann geändert werden, solange der Artikel noch Entwurf oder geplant ist.\n\nErfordert `blog.write`.",
+                    "excerpt": "Sichtbarkeit Standardmäßig ist ein veröffentlichter Artikel für alle Mitarbeiter sichtbar. Benutzerdefinierte Sichtbarkeit Sie können eine oder mehrere bestimmte Rollen auswählen: Nur diese Rollen sehen den Artikel nach der...",
+                    "aliases": [
+                        "artikel sichtbarkeit",
+                        "blog artikel rollen",
+                        "eingeschränkter artikel"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo funciona la visibilidad por rol de un artículo?",
+                    "answer_markdown": "## Visibilidad\nPor defecto un artículo publicado es visible para **todos** los empleados.\n\n### Visibilidad personalizada\nPuedes seleccionar uno o varios roles específicos: solo esos roles verán el artículo una vez publicado. La visibilidad se puede cambiar mientras el artículo esté en borrador o programado.\n\nRequiere `blog.write`.",
+                    "excerpt": "Visibilidad Por defecto un artículo publicado es visible para todos los empleados. Visibilidad personalizada Puedes seleccionar uno o varios roles específicos: solo esos roles verán el artículo una vez publicado. La visibilidad...",
+                    "aliases": [
+                        "visibilidad artículo",
+                        "roles artículo blog",
+                        "artículo restringido"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "blog.edit",
+            "permission_slug": "blog.write",
+            "ranking_weight": 0,
+            "sort_order": 10,
+            "locales": {
+                "it": {
+                    "question": "Come funzionano SEO e condivisione social?",
+                    "answer_markdown": "## Metadati SEO\nOgni articolo ha campi opzionali per **meta description**, **meta keywords** e **immagine OG** per la condivisione social.\n\n### Valori di fallback\nSe non compili la meta description, viene usato l'estratto o un riassunto generato automaticamente. Se non imposti un'immagine OG, viene usata l'immagine di copertina.",
+                    "excerpt": "Metadati SEO Ogni articolo ha campi opzionali per meta description, meta keywords e immagine OG per la condivisione social. Valori di fallback Se non compili la meta description, viene usato l'estratto o un riassunto generato...",
+                    "aliases": [
+                        "seo articolo",
+                        "meta description blog",
+                        "condivisione social articolo"
+                    ]
+                },
+                "en": {
+                    "question": "How do SEO fields and social sharing work?",
+                    "answer_markdown": "## SEO metadata\nEvery article has optional fields for **meta description**, **meta keywords** and an **OG image** for social sharing.\n\n### Fallback values\nIf you don't fill in the meta description, the excerpt or an auto-generated summary is used instead. If you don't set an OG image, the cover image is used.",
+                    "excerpt": "SEO metadata Every article has optional fields for meta description, meta keywords and an OG image for social sharing. Fallback values If you don't fill in the meta description, the excerpt or an auto-generated summary is used...",
+                    "aliases": [
+                        "article seo",
+                        "blog meta description",
+                        "article social sharing"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment fonctionnent le SEO et le partage social ?",
+                    "answer_markdown": "## Métadonnées SEO\nChaque article a des champs optionnels pour **meta description**, **mots-clés** et **image OG** pour le partage social.\n\n### Valeurs de repli\nSi vous ne renseignez pas la meta description, l'extrait ou un résumé généré automatiquement est utilisé. Si vous ne définissez pas d'image OG, l'image de couverture est utilisée.",
+                    "excerpt": "Métadonnées SEO Chaque article a des champs optionnels pour meta description, mots-clés et image OG pour le partage social. Valeurs de repli Si vous ne renseignez pas la meta description, l'extrait ou un résumé généré...",
+                    "aliases": [
+                        "seo article",
+                        "meta description blog",
+                        "partage social article"
+                    ]
+                },
+                "de": {
+                    "question": "Wie funktionieren SEO-Felder und Social Sharing?",
+                    "answer_markdown": "## SEO-Metadaten\nJeder Artikel hat optionale Felder für **Meta-Beschreibung**, **Meta-Keywords** und ein **OG-Bild** für Social Sharing.\n\n### Fallback-Werte\nWenn Sie die Meta-Beschreibung nicht ausfüllen, wird stattdessen der Auszug oder eine automatisch erzeugte Zusammenfassung verwendet. Ohne OG-Bild wird das Titelbild verwendet.",
+                    "excerpt": "SEO-Metadaten Jeder Artikel hat optionale Felder für Meta-Beschreibung, Meta-Keywords und ein OG-Bild für Social Sharing. Fallback-Werte Wenn Sie die Meta-Beschreibung nicht ausfüllen, wird stattdessen der Auszug oder eine...",
+                    "aliases": [
+                        "artikel seo",
+                        "blog meta beschreibung",
+                        "artikel social sharing"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo funcionan el SEO y el uso compartido en redes sociales?",
+                    "answer_markdown": "## Metadatos SEO\nCada artículo tiene campos opcionales para **meta description**, **palabras clave** e **imagen OG** para compartir en redes sociales.\n\n### Valores de respaldo\nSi no rellenas la meta description, se usa el extracto o un resumen generado automáticamente. Si no defines una imagen OG, se usa la imagen de portada.",
+                    "excerpt": "Metadatos SEO Cada artículo tiene campos opcionales para meta description, palabras clave e imagen OG para compartir en redes sociales. Valores de respaldo Si no rellenas la meta description, se usa el extracto o un resumen...",
+                    "aliases": [
+                        "seo artículo",
+                        "meta description blog",
+                        "compartir artículo redes"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "blog.show",
+            "permission_slug": "blog.view",
+            "ranking_weight": 0,
+            "sort_order": 11,
+            "locales": {
+                "it": {
+                    "question": "Come vengono calcolati tempo di lettura e visualizzazioni?",
+                    "answer_markdown": "## Tempo di lettura\nViene calcolato automaticamente in base alla lunghezza del contenuto e mostrato in cima all'articolo.\n\n### Visualizzazioni\nOgni visualizzazione viene conteggiata **una sola volta per utente al giorno**, per evitare di gonfiare il contatore con ricariche ripetute della stessa pagina.",
+                    "excerpt": "Tempo di lettura Viene calcolato automaticamente in base alla lunghezza del contenuto e mostrato in cima all'articolo. Visualizzazioni Ogni visualizzazione viene conteggiata una sola volta per utente al giorno, per evitare di...",
+                    "aliases": [
+                        "tempo di lettura",
+                        "visualizzazioni articolo",
+                        "view count blog"
+                    ]
+                },
+                "en": {
+                    "question": "How are reading time and views calculated?",
+                    "answer_markdown": "## Reading time\nIt's calculated automatically based on content length and shown at the top of the article.\n\n### Views\nEach view is counted **only once per user per day**, to avoid inflating the counter with repeated page reloads.",
+                    "excerpt": "Reading time It's calculated automatically based on content length and shown at the top of the article. Views Each view is counted only once per user per day, to avoid inflating the counter with repeated page reloads.",
+                    "aliases": [
+                        "reading time",
+                        "article views",
+                        "blog view count"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment sont calculés le temps de lecture et les vues ?",
+                    "answer_markdown": "## Temps de lecture\nIl est calculé automatiquement en fonction de la longueur du contenu et affiché en haut de l'article.\n\n### Vues\nChaque vue est comptée **une seule fois par utilisateur et par jour**, pour éviter de gonfler le compteur avec des rechargements répétés de la page.",
+                    "excerpt": "Temps de lecture Il est calculé automatiquement en fonction de la longueur du contenu et affiché en haut de l'article. Vues Chaque vue est comptée une seule fois par utilisateur et par jour, pour éviter de gonfler le compteur...",
+                    "aliases": [
+                        "temps de lecture",
+                        "vues article",
+                        "compteur vues blog"
+                    ]
+                },
+                "de": {
+                    "question": "Wie werden Lesezeit und Aufrufe berechnet?",
+                    "answer_markdown": "## Lesezeit\nSie wird automatisch anhand der Inhaltslänge berechnet und oben im Artikel angezeigt.\n\n### Aufrufe\nJeder Aufruf wird **nur einmal pro Benutzer und Tag** gezählt, um eine Aufblähung des Zählers durch wiederholtes Neuladen der Seite zu vermeiden.",
+                    "excerpt": "Lesezeit Sie wird automatisch anhand der Inhaltslänge berechnet und oben im Artikel angezeigt. Aufrufe Jeder Aufruf wird nur einmal pro Benutzer und Tag gezählt, um eine Aufblähung des Zählers durch wiederholtes Neuladen der...",
+                    "aliases": [
+                        "lesezeit",
+                        "artikel aufrufe",
+                        "blog aufrufzähler"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo se calculan el tiempo de lectura y las visualizaciones?",
+                    "answer_markdown": "## Tiempo de lectura\nSe calcula automáticamente según la longitud del contenido y se muestra en la parte superior del artículo.\n\n### Visualizaciones\nCada visualización se cuenta **solo una vez por usuario al día**, para evitar inflar el contador con recargas repetidas de la página.",
+                    "excerpt": "Tiempo de lectura Se calcula automáticamente según la longitud del contenido y se muestra en la parte superior del artículo. Visualizaciones Cada visualización se cuenta solo una vez por usuario al día, para evitar inflar el...",
+                    "aliases": [
+                        "tiempo de lectura",
+                        "visualizaciones artículo",
+                        "contador vistas blog"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "blog.comments.store",
+            "permission_slug": "blog.comment",
+            "ranking_weight": 0,
+            "sort_order": 12,
+            "locales": {
+                "it": {
+                    "question": "Come commento un articolo?",
+                    "answer_markdown": "## Scrivere un commento\nSotto l'articolo trovi il campo **Scrivi un commento...** (richiede `blog.comment`).\n\n### Risposte\nPuoi rispondere a un commento esistente; le risposte formano un solo livello (non è possibile rispondere a una risposta).\n\n### Moderazione\nA seconda della configurazione, il commento viene pubblicato subito oppure resta **in attesa** finché un moderatore non lo approva.\n\n### Limite\nMassimo 2000 caratteri per commento.",
+                    "excerpt": "Scrivere un commento Sotto l'articolo trovi il campo Scrivi un commento... (richiede blog.comment). Risposte Puoi rispondere a un commento esistente; le risposte formano un solo livello (non è possibile rispondere a una...",
+                    "aliases": [
+                        "commentare articolo",
+                        "scrivere commento",
+                        "rispondere commento blog"
+                    ]
+                },
+                "en": {
+                    "question": "How do I comment on an article?",
+                    "answer_markdown": "## Writing a comment\nBelow the article you'll find the **Write a comment...** field (requires `blog.comment`).\n\n### Replies\nYou can reply to an existing comment; replies form a single level (you can't reply to a reply).\n\n### Moderation\nDepending on configuration, the comment is published right away or stays **pending** until a moderator approves it.\n\n### Limit\nMaximum 2000 characters per comment.",
+                    "excerpt": "Writing a comment Below the article you'll find the Write a comment... field (requires blog.comment). Replies You can reply to an existing comment; replies form a single level (you can't reply to a reply). Moderation Depending on...",
+                    "aliases": [
+                        "comment on article",
+                        "write comment",
+                        "reply to blog comment"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment commenter un article ?",
+                    "answer_markdown": "## Écrire un commentaire\nSous l'article, vous trouvez le champ **Écrire un commentaire...** (nécessite `blog.comment`).\n\n### Réponses\nVous pouvez répondre à un commentaire existant ; les réponses forment un seul niveau (impossible de répondre à une réponse).\n\n### Modération\nSelon la configuration, le commentaire est publié immédiatement ou reste **en attente** jusqu'à approbation par un modérateur.\n\n### Limite\n2000 caractères maximum par commentaire.",
+                    "excerpt": "Écrire un commentaire Sous l'article, vous trouvez le champ Écrire un commentaire... (nécessite blog.comment). Réponses Vous pouvez répondre à un commentaire existant ; les réponses forment un seul niveau (impossible de répondre...",
+                    "aliases": [
+                        "commenter article",
+                        "écrire commentaire",
+                        "répondre commentaire blog"
+                    ]
+                },
+                "de": {
+                    "question": "Wie kommentiere ich einen Artikel?",
+                    "answer_markdown": "## Einen Kommentar schreiben\nUnter dem Artikel finden Sie das Feld **Kommentar schreiben...** (erfordert `blog.comment`).\n\n### Antworten\nSie können auf einen bestehenden Kommentar antworten; Antworten bilden nur eine Ebene (auf eine Antwort kann nicht geantwortet werden).\n\n### Moderation\nJe nach Konfiguration wird der Kommentar sofort veröffentlicht oder bleibt **ausstehend**, bis ein Moderator ihn genehmigt.\n\n### Grenze\nMaximal 2000 Zeichen pro Kommentar.",
+                    "excerpt": "Einen Kommentar schreiben Unter dem Artikel finden Sie das Feld Kommentar schreiben... (erfordert blog.comment). Antworten Sie können auf einen bestehenden Kommentar antworten; Antworten bilden nur eine Ebene (auf eine Antwort...",
+                    "aliases": [
+                        "artikel kommentieren",
+                        "kommentar schreiben",
+                        "blog kommentar antworten"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo comento un artículo?",
+                    "answer_markdown": "## Escribir un comentario\nDebajo del artículo encontrarás el campo **Escribe un comentario...** (requiere `blog.comment`).\n\n### Respuestas\nPuedes responder a un comentario existente; las respuestas forman un único nivel (no se puede responder a una respuesta).\n\n### Moderación\nSegún la configuración, el comentario se publica de inmediato o queda **pendiente** hasta que un moderador lo apruebe.\n\n### Límite\nMáximo 2000 caracteres por comentario.",
+                    "excerpt": "Escribir un comentario Debajo del artículo encontrarás el campo Escribe un comentario... (requiere blog.comment). Respuestas Puedes responder a un comentario existente; las respuestas forman un único nivel (no se puede responder...",
+                    "aliases": [
+                        "comentar artículo",
+                        "escribir comentario",
+                        "responder comentario blog"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "blog.admin.comments",
+            "permission_slug": "blog.comment.moderate",
+            "ranking_weight": 0,
+            "sort_order": 13,
+            "locales": {
+                "it": {
+                    "question": "Come funziona la moderazione dei commenti?",
+                    "answer_markdown": "## Moderazione\nI moderatori (richiede `blog.comment.moderate`) vedono una coda di commenti **in attesa**, approvati e rifiutati.\n\n### Azioni disponibili\n- **Approva**: il commento diventa visibile;\n- **Rifiuta**: resta nascosto ma conservato per audit;\n- **Elimina**: soft-delete del commento.\n\n### Notifiche\nQuando un commento entra in coda di approvazione, i moderatori ricevono una notifica dedicata.",
+                    "excerpt": "Moderazione I moderatori (richiede blog.comment.moderate) vedono una coda di commenti in attesa, approvati e rifiutati. Azioni disponibili Approva: il commento diventa visibile; Rifiuta: resta nascosto ma conservato per audit;...",
+                    "aliases": [
+                        "moderazione commenti",
+                        "approvare commento",
+                        "coda commenti blog"
+                    ]
+                },
+                "en": {
+                    "question": "How does comment moderation work?",
+                    "answer_markdown": "## Moderation\nModerators (requires `blog.comment.moderate`) see a queue of **pending**, approved and rejected comments.\n\n### Available actions\n- **Approve**: the comment becomes visible;\n- **Reject**: stays hidden but kept for audit;\n- **Delete**: soft-deletes the comment.\n\n### Notifications\nWhen a comment enters the approval queue, moderators receive a dedicated notification.",
+                    "excerpt": "Moderation Moderators (requires blog.comment.moderate) see a queue of pending, approved and rejected comments. Available actions Approve: the comment becomes visible; Reject: stays hidden but kept for audit; Delete: soft-deletes...",
+                    "aliases": [
+                        "comment moderation",
+                        "approve comment",
+                        "blog comment queue"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment fonctionne la modération des commentaires ?",
+                    "answer_markdown": "## Modération\nLes modérateurs (nécessite `blog.comment.moderate`) voient une file de commentaires **en attente**, approuvés et rejetés.\n\n### Actions disponibles\n- **Approuver** : le commentaire devient visible ;\n- **Rejeter** : reste masqué mais conservé pour l'audit ;\n- **Supprimer** : suppression douce du commentaire.\n\n### Notifications\nLorsqu'un commentaire entre dans la file d'approbation, les modérateurs reçoivent une notification dédiée.",
+                    "excerpt": "Modération Les modérateurs (nécessite blog.comment.moderate) voient une file de commentaires en attente, approuvés et rejetés. Actions disponibles Approuver : le commentaire devient visible ; Rejeter : reste masqué mais conservé...",
+                    "aliases": [
+                        "modération commentaires",
+                        "approuver commentaire",
+                        "file commentaires blog"
+                    ]
+                },
+                "de": {
+                    "question": "Wie funktioniert die Kommentarmoderation?",
+                    "answer_markdown": "## Moderation\nModeratoren (erfordert `blog.comment.moderate`) sehen eine Warteschlange mit **ausstehenden**, genehmigten und abgelehnten Kommentaren.\n\n### Verfügbare Aktionen\n- **Genehmigen**: der Kommentar wird sichtbar;\n- **Ablehnen**: bleibt verborgen, aber für Audits erhalten;\n- **Löschen**: Soft-Delete des Kommentars.\n\n### Benachrichtigungen\nWenn ein Kommentar in die Genehmigungswarteschlange gelangt, erhalten Moderatoren eine eigene Benachrichtigung.",
+                    "excerpt": "Moderation Moderatoren (erfordert blog.comment.moderate) sehen eine Warteschlange mit ausstehenden, genehmigten und abgelehnten Kommentaren. Verfügbare Aktionen Genehmigen: der Kommentar wird sichtbar; Ablehnen: bleibt verborgen,...",
+                    "aliases": [
+                        "kommentar moderation",
+                        "kommentar genehmigen",
+                        "blog kommentar warteschlange"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo funciona la moderación de comentarios?",
+                    "answer_markdown": "## Moderación\nLos moderadores (requiere `blog.comment.moderate`) ven una cola de comentarios **pendientes**, aprobados y rechazados.\n\n### Acciones disponibles\n- **Aprobar**: el comentario se hace visible;\n- **Rechazar**: queda oculto pero se conserva para auditoría;\n- **Eliminar**: borrado suave del comentario.\n\n### Notificaciones\nCuando un comentario entra en la cola de aprobación, los moderadores reciben una notificación dedicada.",
+                    "excerpt": "Moderación Los moderadores (requiere blog.comment.moderate) ven una cola de comentarios pendientes, aprobados y rechazados. Acciones disponibles Aprobar: el comentario se hace visible; Rechazar: queda oculto pero se conserva para...",
+                    "aliases": [
+                        "moderación comentarios",
+                        "aprobar comentario",
+                        "cola comentarios blog"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "blog.admin.blacklist",
+            "permission_slug": "blog.comment.moderate",
+            "ranking_weight": 0,
+            "sort_order": 14,
+            "locales": {
+                "it": {
+                    "question": "Come funziona la blacklist dei commenti?",
+                    "answer_markdown": "## Blacklist\nUn moderatore può **bannare** un utente dai commenti indicando un motivo opzionale (richiede `blog.comment.moderate`).\n\n### Effetto del ban\nUn utente bannato non può più inviare commenti: riceve un errore di permesso negato se ci prova.\n\n### Rimozione del ban\nIl moderatore può **riattivare** l'utente in qualsiasi momento dalla stessa pagina.",
+                    "excerpt": "Blacklist Un moderatore può bannare un utente dai commenti indicando un motivo opzionale (richiede blog.comment.moderate). Effetto del ban Un utente bannato non può più inviare commenti: riceve un errore di permesso negato se ci...",
+                    "aliases": [
+                        "blacklist commenti",
+                        "bannare utente blog",
+                        "utenti bannati"
+                    ]
+                },
+                "en": {
+                    "question": "How does the comment blacklist work?",
+                    "answer_markdown": "## Blacklist\nA moderator can **ban** a user from commenting, with an optional reason (requires `blog.comment.moderate`).\n\n### Effect of the ban\nA banned user can no longer post comments: they get a permission-denied error if they try.\n\n### Removing the ban\nThe moderator can **unban** the user at any time from the same page.",
+                    "excerpt": "Blacklist A moderator can ban a user from commenting, with an optional reason (requires blog.comment.moderate). Effect of the ban A banned user can no longer post comments: they get a permission-denied error if they try. Removing...",
+                    "aliases": [
+                        "comment blacklist",
+                        "ban blog user",
+                        "banned users"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment fonctionne la liste noire des commentaires ?",
+                    "answer_markdown": "## Liste noire\nUn modérateur peut **bannir** un utilisateur des commentaires avec un motif optionnel (nécessite `blog.comment.moderate`).\n\n### Effet du bannissement\nUn utilisateur banni ne peut plus poster de commentaires : il reçoit une erreur d'autorisation refusée s'il essaie.\n\n### Lever le bannissement\nLe modérateur peut **débannir** l'utilisateur à tout moment depuis la même page.",
+                    "excerpt": "Liste noire Un modérateur peut bannir un utilisateur des commentaires avec un motif optionnel (nécessite blog.comment.moderate). Effet du bannissement Un utilisateur banni ne peut plus poster de commentaires : il reçoit une...",
+                    "aliases": [
+                        "liste noire commentaires",
+                        "bannir utilisateur blog",
+                        "utilisateurs bannis"
+                    ]
+                },
+                "de": {
+                    "question": "Wie funktioniert die Kommentar-Sperrliste?",
+                    "answer_markdown": "## Sperrliste\nEin Moderator kann einen Benutzer mit optionaler Begründung vom Kommentieren **sperren** (erfordert `blog.comment.moderate`).\n\n### Auswirkung der Sperre\nEin gesperrter Benutzer kann keine Kommentare mehr posten: bei einem Versuch erhält er einen Fehler wegen fehlender Berechtigung.\n\n### Sperre aufheben\nDer Moderator kann den Benutzer jederzeit über dieselbe Seite **entsperren**.",
+                    "excerpt": "Sperrliste Ein Moderator kann einen Benutzer mit optionaler Begründung vom Kommentieren sperren (erfordert blog.comment.moderate). Auswirkung der Sperre Ein gesperrter Benutzer kann keine Kommentare mehr posten: bei einem Versuch...",
+                    "aliases": [
+                        "kommentar sperrliste",
+                        "blog benutzer sperren",
+                        "gesperrte benutzer"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo funciona la lista negra de comentarios?",
+                    "answer_markdown": "## Lista negra\nUn moderador puede **banear** a un usuario para que no comente, con un motivo opcional (requiere `blog.comment.moderate`).\n\n### Efecto del baneo\nUn usuario baneado ya no puede publicar comentarios: recibe un error de permiso denegado si lo intenta.\n\n### Quitar el baneo\nEl moderador puede **desbanear** al usuario en cualquier momento desde la misma página.",
+                    "excerpt": "Lista negra Un moderador puede banear a un usuario para que no comente, con un motivo opcional (requiere blog.comment.moderate). Efecto del baneo Un usuario baneado ya no puede publicar comentarios: recibe un error de permiso...",
+                    "aliases": [
+                        "lista negra comentarios",
+                        "banear usuario blog",
+                        "usuarios baneados"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "blog.admin.articles.batch",
+            "permission_slug": "blog.admin",
+            "ranking_weight": 0,
+            "sort_order": 15,
+            "locales": {
+                "it": {
+                    "question": "Come funzionano le azioni massive sugli articoli?",
+                    "answer_markdown": "## Azioni massive\nDal pannello admin puoi selezionare più articoli e applicare un'azione a tutti insieme (richiede `blog.admin`).\n\n### Azioni disponibili\nPubblica, riporta in bozza, metti/rimuovi in evidenza, elimina.\n\n### Comportamento\nUn contatore mostra in anteprima quanti articoli verranno modificati; quelli già nello stato di destinazione vengono saltati automaticamente.",
+                    "excerpt": "Azioni massive Dal pannello admin puoi selezionare più articoli e applicare un'azione a tutti insieme (richiede blog.admin). Azioni disponibili Pubblica, riporta in bozza, metti/rimuovi in evidenza, elimina. Comportamento Un...",
+                    "aliases": [
+                        "azioni massive articoli",
+                        "batch blog",
+                        "pubblicazione multipla"
+                    ]
+                },
+                "en": {
+                    "question": "How do batch actions on articles work?",
+                    "answer_markdown": "## Batch actions\nFrom the admin panel you can select multiple articles and apply one action to all of them at once (requires `blog.admin`).\n\n### Available actions\nPublish, revert to draft, pin/unpin, delete.\n\n### Behavior\nA counter previews how many articles will be affected; ones already in the target state are automatically skipped.",
+                    "excerpt": "Batch actions From the admin panel you can select multiple articles and apply one action to all of them at once (requires blog.admin). Available actions Publish, revert to draft, pin/unpin, delete. Behavior A counter previews how...",
+                    "aliases": [
+                        "batch article actions",
+                        "blog batch",
+                        "bulk publish"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment fonctionnent les actions groupées sur les articles ?",
+                    "answer_markdown": "## Actions groupées\nDepuis le panneau admin, vous pouvez sélectionner plusieurs articles et appliquer une action à tous en même temps (nécessite `blog.admin`).\n\n### Actions disponibles\nPublier, remettre en brouillon, épingler/désépingler, supprimer.\n\n### Comportement\nUn compteur affiche en aperçu combien d'articles seront affectés ; ceux déjà dans l'état cible sont automatiquement ignorés.",
+                    "excerpt": "Actions groupées Depuis le panneau admin, vous pouvez sélectionner plusieurs articles et appliquer une action à tous en même temps (nécessite blog.admin). Actions disponibles Publier, remettre en brouillon, épingler/désépingler,...",
+                    "aliases": [
+                        "actions groupées articles",
+                        "batch blog",
+                        "publication en masse"
+                    ]
+                },
+                "de": {
+                    "question": "Wie funktionieren Sammelaktionen für Artikel?",
+                    "answer_markdown": "## Sammelaktionen\nÜber das Admin-Panel können Sie mehrere Artikel auswählen und eine Aktion auf alle gleichzeitig anwenden (erfordert `blog.admin`).\n\n### Verfügbare Aktionen\nVeröffentlichen, zurück zu Entwurf, anheften/lösen, löschen.\n\n### Verhalten\nEin Zähler zeigt vorab, wie viele Artikel betroffen sind; solche, die bereits im Zielstatus sind, werden automatisch übersprungen.",
+                    "excerpt": "Sammelaktionen Über das Admin-Panel können Sie mehrere Artikel auswählen und eine Aktion auf alle gleichzeitig anwenden (erfordert blog.admin). Verfügbare Aktionen Veröffentlichen, zurück zu Entwurf, anheften/lösen, löschen....",
+                    "aliases": [
+                        "artikel sammelaktionen",
+                        "blog batch",
+                        "massenveröffentlichung"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo funcionan las acciones masivas sobre artículos?",
+                    "answer_markdown": "## Acciones masivas\nDesde el panel admin puedes seleccionar varios artículos y aplicar una acción a todos a la vez (requiere `blog.admin`).\n\n### Acciones disponibles\nPublicar, volver a borrador, fijar/quitar destacado, eliminar.\n\n### Comportamiento\nUn contador muestra en vista previa cuántos artículos se verán afectados; los que ya estén en el estado de destino se omiten automáticamente.",
+                    "excerpt": "Acciones masivas Desde el panel admin puedes seleccionar varios artículos y aplicar una acción a todos a la vez (requiere blog.admin). Acciones disponibles Publicar, volver a borrador, fijar/quitar destacado, eliminar....",
+                    "aliases": [
+                        "acciones masivas artículos",
+                        "batch blog",
+                        "publicación masiva"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "blog.admin.trash",
+            "permission_slug": "blog.admin",
+            "ranking_weight": 0,
+            "sort_order": 16,
+            "locales": {
+                "it": {
+                    "question": "Come funzionano cestino ed eliminazione definitiva degli articoli?",
+                    "answer_markdown": "## Cestino\nEliminare un articolo (dall'autore o dall'admin) è un'operazione di **soft-delete**: finisce nel cestino.\n\n### Ripristino\nUn amministratore (richiede `blog.admin`) può **ripristinare** un articolo, che torna allo stato precedente all'eliminazione.\n\n### Eliminazione definitiva\nIl **purge** rimuove l'articolo in modo permanente e cancella anche l'immagine di copertina se caricata direttamente (non se è un riferimento alla libreria file).",
+                    "excerpt": "Cestino Eliminare un articolo (dall'autore o dall'admin) è un'operazione di soft-delete: finisce nel cestino. Ripristino Un amministratore (richiede blog.admin) può ripristinare un articolo, che torna allo stato precedente...",
+                    "aliases": [
+                        "cestino articoli",
+                        "ripristinare articolo",
+                        "eliminare articolo definitivamente"
+                    ]
+                },
+                "en": {
+                    "question": "How do the articles trash and permanent deletion work?",
+                    "answer_markdown": "## Trash\nDeleting an article (by the author or an admin) is a **soft-delete** operation: it goes to the trash.\n\n### Restoring\nAn administrator (requires `blog.admin`) can **restore** an article, which returns to the state it had before deletion.\n\n### Permanent deletion\n**Purging** removes the article permanently and also deletes the cover image if it was directly uploaded (not if it's a reference to the file library).",
+                    "excerpt": "Trash Deleting an article (by the author or an admin) is a soft-delete operation: it goes to the trash. Restoring An administrator (requires blog.admin) can restore an article, which returns to the state it had before deletion....",
+                    "aliases": [
+                        "articles trash",
+                        "restore article",
+                        "permanently delete article"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment fonctionnent la corbeille et la suppression définitive des articles ?",
+                    "answer_markdown": "## Corbeille\nSupprimer un article (par l'auteur ou un admin) est une opération de **suppression douce** : il va dans la corbeille.\n\n### Restauration\nUn administrateur (nécessite `blog.admin`) peut **restaurer** un article, qui revient à l'état précédant sa suppression.\n\n### Suppression définitive\nLa **purge** supprime l'article de façon permanente et efface aussi l'image de couverture si elle a été directement chargée (pas si c'est une référence à la bibliothèque de fichiers).",
+                    "excerpt": "Corbeille Supprimer un article (par l'auteur ou un admin) est une opération de suppression douce : il va dans la corbeille. Restauration Un administrateur (nécessite blog.admin) peut restaurer un article, qui revient à l'état...",
+                    "aliases": [
+                        "corbeille articles",
+                        "restaurer article",
+                        "supprimer article définitivement"
+                    ]
+                },
+                "de": {
+                    "question": "Wie funktionieren Papierkorb und endgültiges Löschen von Artikeln?",
+                    "answer_markdown": "## Papierkorb\nDas Löschen eines Artikels (durch den Autor oder einen Admin) ist ein **Soft-Delete**: er landet im Papierkorb.\n\n### Wiederherstellen\nEin Administrator (erfordert `blog.admin`) kann einen Artikel **wiederherstellen**, der dann in den Zustand vor der Löschung zurückkehrt.\n\n### Endgültiges Löschen\nDas **Purge** entfernt den Artikel dauerhaft und löscht auch das Titelbild, falls es direkt hochgeladen wurde (nicht, wenn es ein Verweis auf die Dateibibliothek ist).",
+                    "excerpt": "Papierkorb Das Löschen eines Artikels (durch den Autor oder einen Admin) ist ein Soft-Delete: er landet im Papierkorb. Wiederherstellen Ein Administrator (erfordert blog.admin) kann einen Artikel wiederherstellen, der dann in den...",
+                    "aliases": [
+                        "artikel papierkorb",
+                        "artikel wiederherstellen",
+                        "artikel endgültig löschen"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo funcionan la papelera y la eliminación definitiva de artículos?",
+                    "answer_markdown": "## Papelera\nEliminar un artículo (por el autor o un admin) es una operación de **borrado suave**: va a la papelera.\n\n### Restauración\nUn administrador (requiere `blog.admin`) puede **restaurar** un artículo, que vuelve al estado anterior a la eliminación.\n\n### Eliminación definitiva\nEl **purgado** elimina el artículo de forma permanente y también borra la imagen de portada si se subió directamente (no si es una referencia a la biblioteca de archivos).",
+                    "excerpt": "Papelera Eliminar un artículo (por el autor o un admin) es una operación de borrado suave: va a la papelera. Restauración Un administrador (requiere blog.admin) puede restaurar un artículo, que vuelve al estado anterior a la...",
+                    "aliases": [
+                        "papelera artículos",
+                        "restaurar artículo",
+                        "eliminar artículo definitivamente"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "blog.saved",
+            "permission_slug": "blog.view",
+            "ranking_weight": 0,
+            "sort_order": 17,
+            "locales": {
+                "it": {
+                    "question": "Come funzionano mi piace, salvati ed esportazione PDF?",
+                    "answer_markdown": "## Mi piace e salvati\nOgni articolo pubblicato può ricevere un **mi piace** (contatore visibile) e essere aggiunto ai **salvati** personali, consultabili dalla pagina dedicata.\n\n### Esportazione PDF\nDalla pagina dell'articolo puoi scaricare una versione **PDF** con titolo, contenuto e metadati principali.\n\nTutte queste azioni richiedono solo `blog.view`.",
+                    "excerpt": "Mi piace e salvati Ogni articolo pubblicato può ricevere un mi piace (contatore visibile) e essere aggiunto ai salvati personali, consultabili dalla pagina dedicata. Esportazione PDF Dalla pagina dell'articolo puoi scaricare una...",
+                    "aliases": [
+                        "mi piace articolo",
+                        "salvare articolo",
+                        "esportare pdf blog"
+                    ]
+                },
+                "en": {
+                    "question": "How do likes, bookmarks and PDF export work?",
+                    "answer_markdown": "## Likes and bookmarks\nEvery published article can receive a **like** (visible counter) and be added to your personal **saved** list, viewable from the dedicated page.\n\n### PDF export\nFrom the article page you can download a **PDF** version with the title, content and main metadata.\n\nAll of these actions only require `blog.view`.",
+                    "excerpt": "Likes and bookmarks Every published article can receive a like (visible counter) and be added to your personal saved list, viewable from the dedicated page. PDF export From the article page you can download a PDF version with the...",
+                    "aliases": [
+                        "like article",
+                        "bookmark article",
+                        "blog pdf export"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment fonctionnent les j'aime, les favoris et l'export PDF ?",
+                    "answer_markdown": "## J'aime et favoris\nChaque article publié peut recevoir un **j'aime** (compteur visible) et être ajouté à vos **favoris** personnels, consultables depuis la page dédiée.\n\n### Export PDF\nDepuis la page de l'article, vous pouvez télécharger une version **PDF** avec le titre, le contenu et les principales métadonnées.\n\nToutes ces actions nécessitent seulement `blog.view`.",
+                    "excerpt": "J'aime et favoris Chaque article publié peut recevoir un j'aime (compteur visible) et être ajouté à vos favoris personnels, consultables depuis la page dédiée. Export PDF Depuis la page de l'article, vous pouvez télécharger une...",
+                    "aliases": [
+                        "aimer article",
+                        "sauvegarder article",
+                        "export pdf blog"
+                    ]
+                },
+                "de": {
+                    "question": "Wie funktionieren Likes, gespeicherte Artikel und PDF-Export?",
+                    "answer_markdown": "## Likes und Favoriten\nJeder veröffentlichte Artikel kann ein **Like** erhalten (sichtbarer Zähler) und zu Ihren persönlichen **Favoriten** hinzugefügt werden, einsehbar über die entsprechende Seite.\n\n### PDF-Export\nAuf der Artikelseite können Sie eine **PDF**-Version mit Titel, Inhalt und den wichtigsten Metadaten herunterladen.\n\nAll diese Aktionen erfordern nur `blog.view`.",
+                    "excerpt": "Likes und Favoriten Jeder veröffentlichte Artikel kann ein Like erhalten (sichtbarer Zähler) und zu Ihren persönlichen Favoriten hinzugefügt werden, einsehbar über die entsprechende Seite. PDF-Export Auf der Artikelseite können...",
+                    "aliases": [
+                        "artikel liken",
+                        "artikel speichern",
+                        "blog pdf export"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo funcionan los me gusta, los guardados y la exportación a PDF?",
+                    "answer_markdown": "## Me gusta y guardados\nCada artículo publicado puede recibir un **me gusta** (contador visible) y añadirse a tus **guardados** personales, consultables desde la página dedicada.\n\n### Exportación a PDF\nDesde la página del artículo puedes descargar una versión en **PDF** con el título, el contenido y los principales metadatos.\n\nTodas estas acciones solo requieren `blog.view`.",
+                    "excerpt": "Me gusta y guardados Cada artículo publicado puede recibir un me gusta (contador visible) y añadirse a tus guardados personales, consultables desde la página dedicada. Exportación a PDF Desde la página del artículo puedes...",
+                    "aliases": [
+                        "me gusta artículo",
+                        "guardar artículo",
+                        "exportar pdf blog"
+                    ]
+                }
+            }
+        }
+    ]
+}

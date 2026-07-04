@@ -1,0 +1,516 @@
+<?php
+
+/**
+ * JS-facing strings — Italian (canonical).
+ * Flattened and exposed to the browser as window.__I18N by
+ * app/Views/layouts/main.php + auth.php, consumed via the JS t(key, fallback)
+ * helper in public/assets/js/app.js. Keep in sync across it/en/fr/de/es.
+ */
+return [
+    'common' => [
+        'close'   => 'Chiudi',
+        'confirm' => 'Conferma',
+        'cancel'  => 'Annulla',
+        'edit'    => 'Modifica',
+        'delete'  => 'Elimina',
+    ],
+
+    'feedback' => [
+        'retry' => [
+            'now'             => 'Puoi riprovare adesso.',
+            'countdown_one'   => 'Riprova tra :n secondo.',
+            'countdown_other' => 'Riprova tra :n secondi.',
+        ],
+
+        'title' => [
+            'rate_limit'   => 'Attendi un momento',
+            'server_error' => 'Operazione non completata',
+            'network'      => 'Connessione non disponibile',
+            'timeout'      => 'Risposta troppo lenta',
+        ],
+
+        'message' => [
+            'rate_limit'   => 'Troppe richieste. Riprova tra poco.',
+            'server_error' => 'Errore di comunicazione con il server.',
+            'network'      => 'La richiesta non è partita correttamente. Verifica la rete e riprova.',
+            'timeout'      => 'Il server ha impiegato troppo tempo a rispondere. Riprova tra poco.',
+        ],
+    ],
+
+    'sidebar' => [
+        'expand'          => 'Espandi sidebar',
+        'collapse'        => 'Comprimi sidebar',
+        'state_collapsed' => 'Compressa',
+        'state_expanded'  => 'Espansa',
+        'pref_saved'      => 'Preferenza sidebar salvata',
+    ],
+
+    'file_input' => [
+        'none_selected' => 'Nessun file selezionato',
+    ],
+
+    'confirm' => [
+        'default_body' => 'Sei sicuro?',
+    ],
+
+    'debug' => [
+        'badge_title' => 'Modalità debug attiva — disattivala dalle impostazioni di sistema',
+    ],
+
+    'impersonation' => [
+        'banner_prefix' => 'Stai impersonando ',
+        'back_link'     => 'Torna al tuo account',
+    ],
+
+    'reports' => [
+        'designer_not_loaded' => 'GrapeJS non caricato. Ricarica la pagina.',
+        'preview_title'       => 'Anteprima Report',
+
+        'save' => [
+            'saved'          => 'Salvato',
+            'cleared'        => 'Svuotato',
+            'field_inserted' => 'Campo inserito',
+            'imported'       => 'Importato',
+            'applied'        => 'Applicato',
+        ],
+
+        'category' => [
+            'base'             => 'Base',
+            'layout'           => 'Layout',
+            'data'             => 'Dati',
+            'content'          => 'Contenuto',
+            'full_templates'   => 'Template Completi',
+            'smart_components' => 'Smart Components',
+        ],
+
+        'block' => [
+            'text'              => 'Testo',
+            'heading1'          => 'Titolo H1',
+            'heading2'          => 'Titolo H2',
+            'heading3'          => 'Titolo H3',
+            'link'              => 'Link',
+            'image'             => 'Immagine',
+            'list_ul'           => 'Elenco puntato',
+            'list_ol'           => 'Elenco numerato',
+            'divider'           => 'Separatore',
+            'spacer'            => 'Spazio',
+            'quote'             => 'Citazione',
+            'code'              => 'Codice',
+            'section'           => 'Sezione',
+            'container'         => 'Contenitore',
+            'two_columns'       => '2 Colonne',
+            'three_columns'     => '3 Colonne',
+            'sidebar_layout'    => 'Sidebar + Contenuto',
+            'grid_2x2'          => 'Griglia 2x2',
+            'hero'              => 'Hero Banner',
+            'card'              => 'Card',
+            'table_simple'      => 'Tabella Semplice',
+            'table_striped'     => 'Tabella Zebrata',
+            'data_list'         => 'Lista Dati',
+            'metric'            => 'Metrica KPI',
+            'metric_row'        => 'Metriche in riga',
+            'badge'             => 'Badge Stato',
+            'progress'          => 'Barra Progresso',
+            'note'              => 'Nota / Callout',
+            'warning'           => 'Avviso',
+            'success'           => 'Successo',
+            'signature'         => 'Firma',
+            'page_break'        => 'Interruzione Pagina',
+            'header_block'      => 'Intestazione Report',
+            'footer'            => 'Pie di Pagina',
+            'toc'               => 'Indice',
+            'template_invoice'  => 'Template Fattura',
+            'template_report'   => 'Template Report',
+            'sc_data_table'     => 'Tabella dati (auto)',
+            'sc_calculated'     => 'Campo calcolato',
+            'sc_system_date'    => 'Data report',
+            'sc_system_user'    => 'Utente corrente',
+            'sc_system_company' => 'Nome azienda',
+            'sc_filters'        => 'Riepilogo filtri',
+            'sc_logo'           => 'Logo azienda',
+        ],
+
+        'style_sector' => [
+            'layout'     => 'Layout',
+            'flex_grid'  => 'Flex / Grid',
+            'dimensions' => 'Dimensioni',
+            'typography' => 'Tipografia',
+            'background' => 'Sfondo',
+            'borders'    => 'Bordi',
+            'effects'    => 'Effetti',
+            'extra'      => 'Extra',
+        ],
+
+        'style_prop' => [
+            'display'       => 'Display',
+            'weight'        => 'Peso',
+            'alignment'     => 'Allineamento',
+            'decoration'    => 'Decorazione',
+            'transform'     => 'Trasformazione',
+            'bg_color'      => 'Colore Sfondo',
+            'bg_size'       => 'Dimensione BG',
+            'border_style'  => 'Stile Bordo',
+            'border_color'  => 'Colore Bordo',
+            'box_shadow'    => 'Ombra Box',
+            'shadow_x'      => 'X',
+            'shadow_y'      => 'Y',
+            'blur'          => 'Blur',
+            'spread'        => 'Spread',
+            'color'         => 'Colore',
+            'type'          => 'Tipo',
+            'outer'         => 'Esterna',
+            'inner'         => 'Interna',
+            'cursor'        => 'Cursore',
+        ],
+
+        'align' => [
+            'left'    => 'Sx',
+            'center'  => 'Centro',
+            'right'   => 'Dx',
+            'justify' => 'Giust.',
+        ],
+
+        'decoration_opt' => [
+            'none'      => 'No',
+            'underline' => 'U',
+            'strike'    => 'S',
+        ],
+
+        'transform_opt' => [
+            'none'       => 'Nessuna',
+            'uppercase'  => 'MAIUSCOLO',
+            'lowercase'  => 'minuscolo',
+            'capitalize' => 'Capitalizzato',
+        ],
+
+        'toolbar' => [
+            'select_parent' => 'Seleziona Genitore',
+            'move'          => 'Sposta',
+            'duplicate'     => 'Duplica',
+        ],
+
+        'rte' => [
+            'bold'           => 'Grassetto (Ctrl+B)',
+            'italic'         => 'Corsivo (Ctrl+I)',
+            'underline'      => 'Sottolineato (Ctrl+U)',
+            'strikethrough'  => 'Barrato',
+            'align_left'     => 'Allinea a sinistra',
+            'align_center'   => 'Centra',
+            'align_right'    => 'Allinea a destra',
+            'insert_link'    => 'Inserisci link',
+            'remove_format'  => 'Rimuovi formattazione',
+            'link_prompt'    => 'URL del link:',
+        ],
+
+        'fullscreen' => [
+            'exit'  => 'Esci da schermo intero (Esc)',
+            'enter' => 'Schermo intero',
+        ],
+
+        'clear_designer' => [
+            'title'         => 'Svuota designer',
+            'body'          => 'Vuoi svuotare tutto il contenuto del designer?',
+            'confirm_label' => 'Svuota',
+        ],
+
+        'code_modal' => [
+            'title_import' => 'Importa HTML',
+            'title_export' => 'Esporta HTML',
+            'title_edit'   => 'Modifica Codice HTML',
+            'copy'         => 'Copia',
+            'copied'       => 'Copiato!',
+            'apply'        => 'Applica',
+        ],
+
+        'style_preset' => [
+            'new_title'            => 'Nuovo stile',
+            'select_first'         => 'Seleziona prima uno stile da modificare.',
+            'edit_title_prefix'    => 'Modifica stile — ',
+            'invalid_response'     => 'Risposta non valida',
+            'load_failed_prefix'   => 'Impossibile caricare lo stile. ',
+            'load_failed_title'    => 'Stile non caricato',
+            'save_error'           => 'Errore durante il salvataggio.',
+            'network_error_prefix' => 'Errore di rete: ',
+        ],
+
+        'bindings' => [
+            'new_title'          => 'Nuovo collegamento',
+            'edit_title'         => 'Modifica collegamento',
+            'load_failed'        => 'Impossibile caricare i dati del collegamento.',
+            'network_error'      => 'Errore di rete nel caricamento.',
+            'delete_title'       => 'Elimina collegamento',
+            'delete_body'        => 'Eliminare questo collegamento?',
+            'delete_error'       => 'Errore durante l\'eliminazione.',
+            'delete_failed_title' => 'Eliminazione non riuscita',
+            'empty_row'          => 'Nessun collegamento. Aggiungi il primo per mostrare un pulsante "Genera PDF" nel modulo.',
+        ],
+    ],
+
+    'issue_report' => [
+        'copied'      => 'Report copiato negli appunti. Incollalo pure nel tuo assistente.',
+        'copy_failed' => 'Copia non riuscita. Seleziona e copia manualmente.',
+
+        'summary' => [
+            'page'         => 'Pagina:',
+            'url'          => 'URL:',
+            'errors'       => 'Errori catturati:',
+            'actions'      => 'Azioni registrate:',
+            'dom'          => 'Snapshot DOM:',
+            'dom_included' => 'incluso (campi mascherati)',
+        ],
+
+        'sent'                       => 'Segnalazione inviata. Grazie!',
+        'send_failed'                => 'Invio non riuscito. Riprova.',
+        'send_error'                 => 'Impossibile inviare la segnalazione in questo momento.',
+        'default_js_error'           => 'Errore script',
+        'unhandled_rejection_prefix' => 'Promise non gestita: ',
+    ],
+
+    'contacts' => [
+        'avatar' => [
+            'too_large'                => 'L\'immagine non può superare 2 MB.',
+            'invalid_title'            => 'File non valido',
+            'unsupported_format'       => 'Formato immagine non supportato.',
+            'unsupported_format_title' => 'Formato non supportato',
+            'cropping'                 => 'Ritaglio...',
+            'crop_error'               => 'Errore nel ritaglio dell\'immagine.',
+            'crop_error_title'         => 'Ritaglio non completato',
+        ],
+
+        'recurrence' => [
+            'type_birthday'    => 'Compleanno',
+            'type_anniversary' => 'Anniversario',
+            'title_template'   => ':type di :name',
+        ],
+
+        'osm' => [
+            'geo_status_template' => 'Geolocalizzazione: :status',
+            'geo_manual'          => 'manuale',
+            'geo_available'       => 'disponibile',
+            'geo_selected'        => 'selezionata da OpenStreetMap',
+            'map_title'           => 'Mappa OpenStreetMap',
+            'map_unreachable'     => 'Mappa non raggiungibile al momento.',
+            'invalid_coords'      => 'Coordinate OSM non valide per il risultato selezionato.',
+            'address_selected'    => 'Indirizzo selezionato da OpenStreetMap. Puoi comunque modificarlo manualmente.',
+            'no_results'          => 'Nessun risultato trovato. Inserisci l\'indirizzo manualmente.',
+            'use_address_tooltip' => 'Usa questo indirizzo',
+            'no_description'      => 'Risultato senza descrizione',
+            'empty_query'         => 'Inserisci un indirizzo da cercare su OpenStreetMap.',
+            'fetch_unsupported'   => 'Ricerca mappa non supportata dal browser. Usa inserimento manuale.',
+            'offline_manual'      => 'Sei offline: continua con indirizzo manuale.',
+            'searching'           => 'Ricerca in corso su OpenStreetMap...',
+            'unreachable_manual'  => 'OpenStreetMap non raggiungibile. Usa inserimento manuale.',
+            'map_offline'         => 'Mappa non disponibile offline.',
+        ],
+    ],
+
+    'helponline' => [
+        'unreachable'         => 'Help Online non risponde in questo momento.',
+        'loading'             => 'Caricamento guida...',
+        'load_error'          => 'Impossibile caricare il pannello help.',
+        'related'             => 'Correlati',
+        'open_module'         => 'Apri modulo',
+        'open_full_guide'     => 'Guida completa',
+        'rate_answer_aria'    => 'Valuta la risposta',
+        'was_helpful'         => 'Ti è stata utile?',
+        'helpful_aria'        => 'Risposta utile',
+        'not_helpful_aria'    => 'Risposta non utile',
+        'confidence_title'    => 'Confidenza della risposta',
+        'answer_unavailable'  => 'Risposta non disponibile.',
+        'feedback_removed'    => 'Feedback rimosso.',
+        'feedback_saved'      => 'Feedback registrato.',
+        'feedback_not_saved'  => 'Feedback non registrato.',
+    ],
+
+    'calendar' => [
+        'move_error'    => 'Errore nello spostamento',
+        'moved'         => 'Evento spostato!',
+        'network_error' => 'Errore di rete',
+
+        'holiday' => [
+            'new_year'              => 'Capodanno',
+            'epiphany'              => 'Epifania',
+            'easter'                => 'Pasqua',
+            'easter_monday'         => 'Lunedì dell\'Angelo',
+            'liberation_day'        => 'Festa della Liberazione',
+            'labour_day'            => 'Festa dei Lavoratori',
+            'republic_day'          => 'Festa della Repubblica',
+            'ferragosto'            => 'Ferragosto',
+            'all_saints'            => 'Ognissanti',
+            'immaculate_conception' => 'Immacolata Concezione',
+            'christmas'             => 'Natale',
+            'st_stephen'            => 'Santo Stefano',
+        ],
+
+        'national_holiday_suffix' => ' — Festività nazionale',
+        'shared_by_role'          => 'Condiviso per ruolo',
+
+        'toolbar' => [
+            'prev'  => 'Precedente',
+            'next'  => 'Successivo',
+            'today' => 'Vai ad oggi',
+            'month' => 'Vista mensile',
+            'week'  => 'Vista settimanale',
+            'day'   => 'Vista giornaliera',
+            'list'  => 'Vista lista',
+        ],
+
+        'unit' => [
+            'daily'   => 'giorno/i',
+            'weekly'  => 'settimana/e',
+            'monthly' => 'mese/i',
+        ],
+    ],
+
+    'profile' => [
+        'password_strength' => [
+            'weak' => 'Debole',
+            'fair' => 'Discreta',
+            'good' => 'Forte',
+        ],
+
+        'passwords_match'            => 'Le password corrispondono',
+        'passwords_mismatch'         => 'Le password non corrispondono',
+        'avatar_alt'                 => 'Foto profilo',
+        'avatar_updated'             => 'Foto profilo aggiornata con successo.',
+        'avatar_upload_failed_title' => 'Upload avatar non riuscito',
+        'file_too_large'             => 'Il file supera il limite di 2 MB.',
+        'file_too_large_title'       => 'File troppo grande',
+        'unsupported_format'         => 'Formato non supportato. Usa JPG, PNG, GIF o WebP.',
+        'unsupported_format_title'   => 'Formato non supportato',
+    ],
+
+    'avatar_cropper' => [
+        'saving'            => 'Salvataggio...',
+        'generate_error'    => 'Errore nella generazione dell\'immagine.',
+        'save_error'        => 'Errore durante il salvataggio.',
+        'network_error'     => 'Errore di rete. Riprova.',
+    ],
+
+    'tasks' => [
+        'move_error'      => 'Errore nello spostamento',
+        'network_error'   => 'Errore di rete',
+        'saving'          => 'Salvo...',
+        'saved'           => 'Attività salvata!',
+        'save_error'      => 'Errore nel salvataggio',
+        'delete_confirm'  => 'Eliminare questa attività?',
+        'delete_title'    => 'Elimina attività',
+        'deleted'         => 'Attività eliminata.',
+        'delete_error'    => 'Errore nella cancellazione',
+        'completed'       => 'Completata!',
+        'reopened'        => 'Riaperta',
+        'generic_error'   => 'Errore',
+    ],
+
+    'scheduler' => [
+        'running_job_fallback'         => 'il job in corso',
+        'jobs_running'                 => ':count job in esecuzione',
+        'job_fallback_name'            => 'Job #:id',
+        'run_label'                    => 'Esegui',
+        'sequence_completed_with_count' => 'Sequenza completata. :count job avviati.',
+        'sequence_completed'           => 'Sequenza completata.',
+        'waiting_for'                  => 'In attesa che termini :label.',
+        'started_waiting'              => 'Avviati :done/:total. Attendo :label.',
+        'skipping'                     => 'Salto :name: azione non disponibile.',
+        'starting'                     => 'Avvio :name (:done/:total)...',
+        'empty_message'                => 'Nessun job disponibile da avviare.',
+        'confirm_title'                => 'Eseguire i job?',
+        'confirm_label'                => 'Avvia',
+        'queue_ready'                  => 'Coda pronta: :count job.',
+        'start_failed'                 => 'Avvio non riuscito per :name.',
+        'selected_job_fallback'        => 'il job selezionato',
+        'network_error_starting'       => 'Errore di rete durante l\'avvio di :name.',
+        'a_job_fallback'               => 'un job',
+    ],
+
+    'notifications' => [
+        'select_at_least_one' => 'Seleziona almeno una notifica.',
+    ],
+
+    'progetti' => [
+        'tasks_word'              => 'attivita',
+        'completed_word'          => 'completate',
+        'total_label'             => 'Totale',
+        'hours_word'              => 'Ore',
+        'checklist_tooltip'       => 'Checklist: :done/:total voci completate',
+        'checklist_stat_short'    => ':done/:total completate',
+        'load_projects_error'     => 'Errore nel caricamento dei progetti.',
+        'load_generic_error'      => 'Errore nel caricamento.',
+        'load_edit_form_error'    => 'Errore nel caricamento del form di modifica.',
+        'move_error'              => 'Errore spostamento',
+        'network_error'           => 'Errore di rete',
+        'generic_error'           => 'Errore',
+        'generic_error_dot'       => 'Errore.',
+        'network_error_dot'       => 'Errore di rete.',
+        'project_updated'        => 'Progetto aggiornato.',
+        'project_update_error'   => "Errore durante l'aggiornamento del progetto.",
+        'project_deleted'        => 'Progetto eliminato.',
+        'project_delete_error'   => "Errore durante l'eliminazione del progetto.",
+        'milestone_updated'      => 'Milestone aggiornata.',
+        'milestone_update_error' => 'Errore durante aggiornamento milestone.',
+        'task_updated'           => 'Attivita aggiornata.',
+        'task_update_error'      => "Errore durante l'aggiornamento dell'attivita.",
+        'operation_completed'    => 'Operazione completata.',
+        'operation_error'        => "Errore durante l'operazione.",
+        'dependency_added'       => 'Dipendenza aggiunta.',
+        'dependency_removed'     => 'Dipendenza rimossa.',
+        'reorder_error'          => 'Errore nel riordinamento.',
+        'checklist_load_error'   => 'Errore caricamento checklist.',
+        'checklist_add_error'    => 'Errore aggiunta voce.',
+        'select_template'        => 'Seleziona un modello.',
+        'apply_template_error'   => "Errore nell'applicazione del modello.",
+        'template_applied'       => 'Modello applicato.',
+        'comment_required_placeholder' => "Commento obbligatorio per l'ultima voce...",
+        'comment_optional_placeholder' => 'Commento (facoltativo)...',
+        'comment_required_toast' => "Il commento è obbligatorio per l'ultima voce.",
+        'confirm_error'          => 'Errore conferma.',
+        'delete_error'           => 'Errore eliminazione.',
+        'status_change_error'    => 'Errore cambio stato.',
+        'task_marked_done'       => 'Attivita segnata come completata!',
+        'template_name_required' => 'Il nome del modello e obbligatorio.',
+        'template_item_required' => 'Aggiungi almeno una voce al modello.',
+        'save_error'             => 'Errore durante il salvataggio.',
+        'template_saved'         => 'Modello salvato.',
+        'delete_template_error'  => "Errore durante l'eliminazione.",
+        'template_deleted'       => 'Modello eliminato.',
+        'no_items_added'         => 'Nessuna voce aggiunta.',
+        'new_template'           => ' Nuovo modello',
+        'edit_template'          => ' Modifica modello',
+    ],
+
+    'teams' => [
+        'new_message_one'              => '1 nuovo messaggio',
+        'new_messages_many'            => '{count} nuovi messaggi',
+        'hide_hidden_conversations'    => 'Nascondi conversazioni nascoste',
+        'show_hidden_conversations'    => 'Mostra conversazioni nascoste',
+        'loading'                      => 'Caricamento...',
+        'avatar_updated'               => 'Avatar del gruppo aggiornato.',
+        'default_user_name'            => 'Utente',
+        'invalid_attachment'           => 'Allegato non valido.',
+        'image_preview_aria'           => 'Anteprima immagine',
+        'close'                        => 'Chiudi',
+    ],
+
+    'documenti' => [
+        'caricamento_completato'       => 'Caricamento completato.',
+        'errore_caricamento'           => 'Errore caricamento ({status}).',
+        'errore_rete'                  => 'Errore di rete.',
+        'file_troppo_grande'           => 'File troppo grande. Max {max} MB.',
+        'cerca_placeholder'            => 'Cerca…',
+        'nessun_risultato'             => 'Nessun risultato',
+        'copiato_appunti'              => 'Copiato negli appunti.',
+        'impossibile_copiare'          => 'Impossibile copiare.',
+        'clipboard_non_disponibile'    => 'Clipboard non disponibile.',
+        'errore_server'                => 'Errore server ({status}).',
+        'errore_creazione_categoria'   => 'Errore nella creazione della categoria.',
+        'categoria_creata_selezionata' => 'Categoria «{nome}» creata e selezionata.',
+        'errore_imprevisto'            => 'Errore imprevisto.',
+    ],
+    'blog' => [
+        'editor_placeholder'  => 'Scrivi il tuo articolo...',
+        'file_too_large'      => 'Il file supera 2 MB.',
+        'toc_title'           => 'Indice',
+        'batch_select_action' => 'Seleziona un\'azione.',
+        'batch_confirm'       => 'Eseguire l\'azione su {count} articoli?',
+    ],
+];

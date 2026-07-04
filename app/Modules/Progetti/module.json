@@ -1,0 +1,193 @@
+{
+    "name": "Progetti",
+    "icon": "fa-solid fa-diagram-project",
+    "version": "2.0.0",
+    "description": "Gestione progetti per PMI con milestone, task, gantt, timesheet e controllo budget",
+    "author": "Prometeo",
+    "framework_min": "1.0",
+    "database": "shared",
+    "tables": [
+        "projects",
+        "project_milestones",
+        "project_tasks",
+        "project_task_dependencies",
+        "project_members",
+        "project_timesheets",
+        "project_files",
+        "project_checklist_templates",
+        "project_checklist_template_items",
+        "project_task_checklist_items"
+    ],
+    "dependencies": ["Notifications"],
+    "optional_dependencies": ["Teams", "Calendar", "Files"],
+    "dashboard_provider": "App\\Modules\\Progetti\\Providers\\ProgettiDashboardProvider",
+    "search_provider": "App\\Modules\\Progetti\\Providers\\ProgettiSearchProvider",
+    "export_provider": "App\\Modules\\Progetti\\Providers\\ProgettiExportProvider",
+    "services": ["NotificationService", "AuditService"],
+    "assets": {
+        "css": ["progetti.css"],
+        "js": ["progetti.js"]
+    },
+    "notification_events": [
+        {
+            "slug": "progetti.task_assigned",
+            "name": "Task assegnato",
+            "description": "Notifica quando viene assegnato un task di progetto",
+            "default_level": "info",
+            "icon": "fa-solid fa-user-check",
+            "context_variables": {
+                "project_id": "ID progetto",
+                "project_name": "Nome progetto",
+                "task_id": "ID task",
+                "task_title": "Titolo task"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Nuovo task: {{task_title}}",
+                    "body": "Ti è stato assegnato il task {{task_title}} nel progetto {{project_name}}"
+                },
+                "email": {
+                    "subject": "Task assegnato: {{task_title}}",
+                    "body": "<h2>Task assegnato</h2><p>Progetto: <strong>{{project_name}}</strong></p><p>Task: {{task_title}}</p><p><a href=\"{{link}}\">Apri progetto</a></p>"
+                },
+                "telegram": {
+                    "body": "📌 Nuovo task: {{task_title}} ({{project_name}})\n{{link}}"
+                }
+            }
+        },
+        {
+            "slug": "progetti.task_due_soon",
+            "name": "Task in scadenza",
+            "description": "Notifica quando un task sta per scadere",
+            "default_level": "warning",
+            "icon": "fa-solid fa-clock",
+            "context_variables": {
+                "project_id": "ID progetto",
+                "project_name": "Nome progetto",
+                "task_id": "ID task",
+                "task_title": "Titolo task",
+                "due_date": "Data scadenza"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Scadenza vicina: {{task_title}}",
+                    "body": "Il task {{task_title}} del progetto {{project_name}} scade il {{due_date}}"
+                },
+                "email": {
+                    "subject": "Scadenza task: {{task_title}}",
+                    "body": "<h2>Scadenza task</h2><p>{{task_title}} ({{project_name}}) scade il {{due_date}}</p><p><a href=\"{{link}}\">Apri task</a></p>"
+                },
+                "telegram": {
+                    "body": "⏰ Scadenza task: {{task_title}} ({{due_date}})\n{{link}}"
+                }
+            }
+        },
+        {
+            "slug": "progetti.budget_alert",
+            "name": "Alert budget progetto",
+            "description": "Notifica quando il costo attuale supera l'80% o il 100% del budget pianificato",
+            "default_level": "warning",
+            "icon": "fa-solid fa-triangle-exclamation",
+            "context_variables": {
+                "project_id": "ID progetto",
+                "project_name": "Nome progetto",
+                "budget_burn_pct": "Percentuale budget consumata",
+                "threshold": "Soglia raggiunta (80 o 100)"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "⚠️ Budget {{threshold}}% consumato: {{project_name}}",
+                    "body": "Il progetto {{project_name}} ha consumato il {{budget_burn_pct}}% del budget pianificato."
+                },
+                "email": {
+                    "subject": "Alert budget: {{project_name}} al {{budget_burn_pct}}%",
+                    "body": "<h2>Alert budget progetto</h2><p>Il progetto <strong>{{project_name}}</strong> ha consumato il <strong>{{budget_burn_pct}}%</strong> del budget pianificato.</p><p><a href=\"{{link}}\">Apri progetto</a></p>"
+                },
+                "telegram": {
+                    "body": "⚠️ Budget {{budget_burn_pct}}% consumato — {{project_name}}\n{{link}}"
+                }
+            }
+        },
+        {
+            "slug": "progetti.task_status_changed",
+            "name": "Cambio stato task",
+            "description": "Notifica al project owner quando un task passa in revisione o completato",
+            "default_level": "info",
+            "icon": "fa-solid fa-arrow-right-arrow-left",
+            "context_variables": {
+                "project_id": "ID progetto",
+                "project_name": "Nome progetto",
+                "task_title": "Titolo task",
+                "status_label": "Stato del task"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Task {{status_label}}: {{task_title}}",
+                    "body": "\"{{task_title}}\" del progetto \"{{project_name}}\" è ora {{status_label}}."
+                },
+                "email": {
+                    "subject": "Task {{status_label}}: {{task_title}}",
+                    "body": "<h2>Cambio stato task</h2><p>Il task <strong>{{task_title}}</strong> del progetto <strong>{{project_name}}</strong> è ora <em>{{status_label}}</em>.</p><p><a href=\"{{link}}\">Apri progetto</a></p>"
+                },
+                "telegram": {
+                    "body": "🔄 Task {{status_label}}: {{task_title}} ({{project_name}})\n{{link}}"
+                }
+            }
+        }
+    ],
+    "navigation": [
+        {
+            "id": "projects.index",
+            "label": "Progetti",
+            "icon": "fa-diagram-project",
+            "route": "projects.index",
+            "permission": "progetti.view",
+            "order": 5,
+            "surfaces": ["sidebar", "quick_access"],
+            "children": []
+        },
+        {
+            "id": "projects.my_tasks",
+            "label": "Attività assegnate",
+            "icon": "fa-circle-check",
+            "route": "projects.my_tasks",
+            "permission": "progetti.view",
+            "order": 6,
+            "surfaces": ["quick_access"]
+        }
+    ],
+    "admin_panel": {
+        "section": "Pannelli admin dei moduli",
+        "eyebrow": "Moduli attivi",
+        "groups": [
+            {
+                "title": "Progetti",
+                "description": "Console di governo per cestino progetti e manutenzione record.",
+                "icon": "fa-solid fa-diagram-project",
+                "flows": [
+                    "Sposta nel cestino",
+                    "Ripristina progetto",
+                    "Purge definitivo"
+                ],
+                "links": [
+                    {
+                        "label": "Admin progetti",
+                        "route": "projects.admin.index",
+                        "permission": "progetti.manage_all",
+                        "description": "Gestione centralizzata dei progetti archiviabili.",
+                        "icon": "fa-solid fa-diagram-project",
+                        "keywords": "projects admin gestione"
+                    },
+                    {
+                        "label": "Cestino progetti",
+                        "route": "projects.admin.trash",
+                        "permission": "progetti.manage_all",
+                        "description": "Ripristino e purge dei progetti cestinati.",
+                        "icon": "fa-solid fa-trash",
+                        "keywords": "trash cestino progetti"
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,7 @@
+# Foto contatti (visibilità per owner/ruoli): l'accesso passa SOLO dalla
+# route applicativa con ACL (contatti.foto). No serving diretto.
+Require all denied
+
+# Difesa in profondità se il deny venisse mai allentato: niente esecuzione PHP.
+Options -ExecCGI -Indexes
+php_flag engine off

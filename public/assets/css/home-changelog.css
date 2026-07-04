@@ -1,0 +1,111 @@
+/* Home Changelog --------------------------------------------------------- */
+.hc-page {
+    --hc-glow: color-mix(in srgb, var(--accent-color) 25%, transparent);
+    --hc-surface: color-mix(in srgb, var(--accent-color) 8%, var(--bg-surface));
+}
+
+.hc-highlight {
+    background:
+        radial-gradient(circle at 88% 15%, var(--hc-glow), transparent 36%),
+        linear-gradient(130deg, var(--hc-surface), var(--bs-body-bg));
+    border: 1px solid color-mix(in srgb, var(--accent-color) 24%, transparent);
+}
+
+.hc-kicker {
+    letter-spacing: .08em;
+    color: color-mix(in srgb, var(--accent-color) 75%, var(--bs-secondary-color));
+}
+
+.hc-stat-box {
+    background: color-mix(in srgb, var(--accent-color) 12%, var(--bs-tertiary-bg));
+    border: 1px solid color-mix(in srgb, var(--accent-color) 28%, transparent);
+}
+
+.hc-badge {
+    color: var(--bs-body-color);
+    border: 1px solid var(--bs-border-color);
+    background: var(--bs-body-bg);
+}
+
+.hc-version-pill {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: .24rem .58rem;
+    font-size: .78rem;
+    font-weight: 700;
+    color: color-mix(in srgb, var(--accent-color) 78%, var(--text-primary));
+    background: color-mix(in srgb, var(--accent-color) 18%, var(--bs-body-bg));
+    border: 1px solid color-mix(in srgb, var(--accent-color) 42%, var(--bs-border-color));
+}
+
+.hc-timeline::before {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    top: .75rem;
+    bottom: .75rem;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent-color), transparent);
+    opacity: .4;
+}
+
+.hc-item {
+    position: relative;
+    margin-left: 1.5rem;
+    animation: hc-rise .36s ease both;
+    animation-delay: 0ms;
+}
+
+.hc-item:nth-child(2) { animation-delay: 40ms; }
+.hc-item:nth-child(3) { animation-delay: 80ms; }
+.hc-item:nth-child(4) { animation-delay: 120ms; }
+.hc-item:nth-child(5) { animation-delay: 160ms; }
+.hc-item:nth-child(6) { animation-delay: 200ms; }
+.hc-item:nth-child(7) { animation-delay: 240ms; }
+.hc-item:nth-child(8) { animation-delay: 280ms; }
+.hc-item:nth-child(9) { animation-delay: 320ms; }
+.hc-item:nth-child(10) { animation-delay: 360ms; }
+
+.hc-bullet {
+    width: .72rem;
+    height: .72rem;
+    border-radius: 50%;
+    background: var(--accent-color);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-color) 24%, transparent);
+}
+
+.hc-version {
+    font-size: .82rem;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.hc-notes {
+    line-height: 1.6;
+    color: var(--text-primary);
+    opacity: .95;
+}
+
+@keyframes hc-rise {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 767.98px) {
+    .hc-timeline::before {
+        left: .7rem;
+    }
+
+    .hc-item {
+        margin-left: .95rem;
+    }
+}

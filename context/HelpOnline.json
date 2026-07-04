@@ -1,0 +1,832 @@
+{
+    "module": "HelpOnline",
+    "generated_at": "2026-07-04T09:48:34+02:00",
+    "routes": [
+        {
+            "method": "GET",
+            "uri": "/admin/help-online/",
+            "name": "helponline.admin.index",
+            "controller": "HelpOnlineController@adminIndex",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:helponline.admin"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/help-online/modules",
+            "name": "helponline.admin.modules",
+            "controller": "HelpOnlineController@adminModules",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:helponline.admin"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/help-online/modules/create",
+            "name": "helponline.admin.modules.create",
+            "controller": "HelpOnlineController@adminModuleCreate",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:helponline.admin"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/help-online/modules/{id}/edit",
+            "name": "helponline.admin.modules.edit",
+            "controller": "HelpOnlineController@adminModuleEdit",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:helponline.admin"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/help-online/modules/{id}/update",
+            "name": "helponline.admin.modules.update",
+            "controller": "HelpOnlineController@adminModuleUpdate",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:helponline.admin"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/help-online/modules/{id}/delete",
+            "name": "helponline.admin.modules.delete",
+            "controller": "HelpOnlineController@adminModuleDelete",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:helponline.admin"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/help-online/entries",
+            "name": "helponline.admin.entries",
+            "controller": "HelpOnlineController@adminEntries",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:helponline.admin"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/help-online/entries/create",
+            "name": "helponline.admin.entries.create",
+            "controller": "HelpOnlineController@adminEntryCreate",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:helponline.admin"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/help-online/entries/{id}/edit",
+            "name": "helponline.admin.entries.edit",
+            "controller": "HelpOnlineController@adminEntryEdit",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:helponline.admin"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/help-online/entries/{id}/update",
+            "name": "helponline.admin.entries.update",
+            "controller": "HelpOnlineController@adminEntryUpdate",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:helponline.admin"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/help-online/entries/{id}/delete",
+            "name": "helponline.admin.entries.delete",
+            "controller": "HelpOnlineController@adminEntryDelete",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:helponline.admin"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/help-online/entries/{id}/aliases",
+            "name": "helponline.admin.entries.aliases.save",
+            "controller": "HelpOnlineController@adminEntryAliasesSave",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:helponline.admin"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/help-online/queries",
+            "name": "helponline.admin.queries",
+            "controller": "HelpOnlineController@adminQueries",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:helponline.admin"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/help-online/sync",
+            "name": "helponline.admin.sync",
+            "controller": "HelpOnlineController@sync",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:helponline.admin"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/help",
+            "name": "helponline.index",
+            "controller": "HelpOnlineController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/help/panel",
+            "name": "helponline.panel",
+            "controller": "HelpOnlineController@panel",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/help/ask",
+            "name": "helponline.ask",
+            "controller": "HelpOnlineController@ask",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/help/feedback",
+            "name": "helponline.feedback",
+            "controller": "HelpOnlineController@feedback",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware"
+            ]
+        }
+    ],
+    "tables": [
+        {
+            "name": "help_modules",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "module_key",
+                    "type": "varchar(100)",
+                    "nullable": false
+                },
+                {
+                    "name": "module_name",
+                    "type": "varchar(100)",
+                    "nullable": false
+                },
+                {
+                    "name": "label",
+                    "type": "varchar(150)",
+                    "nullable": false
+                },
+                {
+                    "name": "description",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "audience_default",
+                    "type": "varchar(50)",
+                    "nullable": false,
+                    "default": "'user'"
+                },
+                {
+                    "name": "locale_default",
+                    "type": "varchar(10)",
+                    "nullable": false,
+                    "default": "'it'"
+                },
+                {
+                    "name": "route_name",
+                    "type": "varchar(150)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "permission_slug",
+                    "type": "varchar(120)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "is_active",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "1"
+                },
+                {
+                    "name": "sort_order",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_help_modules_active",
+                    "columns": [
+                        "is_active"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_help_modules_name",
+                    "columns": [
+                        "module_name"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "uk_help_modules_key",
+                    "columns": [
+                        "module_key"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": []
+        },
+        {
+            "name": "help_entries",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "module_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "source_entry_id",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "question",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "normalized_question",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "answer_markdown",
+                    "type": "mediumtext",
+                    "nullable": false
+                },
+                {
+                    "name": "answer_plain",
+                    "type": "mediumtext",
+                    "nullable": false
+                },
+                {
+                    "name": "answer_html",
+                    "type": "mediumtext",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "excerpt",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "audience",
+                    "type": "varchar(50)",
+                    "nullable": false,
+                    "default": "'user'"
+                },
+                {
+                    "name": "locale",
+                    "type": "varchar(10)",
+                    "nullable": false,
+                    "default": "'it'"
+                },
+                {
+                    "name": "route_name",
+                    "type": "varchar(150)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "permission_slug",
+                    "type": "varchar(120)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "ranking_weight",
+                    "type": "smallint(5)",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "is_active",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "1"
+                },
+                {
+                    "name": "sort_order",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "indexed_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_help_entries_active",
+                    "columns": [
+                        "is_active"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_help_entries_audience_locale",
+                    "columns": [
+                        "audience",
+                        "locale"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_help_entries_module",
+                    "columns": [
+                        "module_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_help_entries_permission",
+                    "columns": [
+                        "permission_slug"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_help_entries_question",
+                    "columns": [
+                        "normalized_question"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_help_entries_route",
+                    "columns": [
+                        "route_name"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_help_entries_source_locale",
+                    "columns": [
+                        "source_entry_id",
+                        "locale"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_help_entries_source",
+                    "column": "source_entry_id",
+                    "references": "help_entries.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "help_entries_ibfk_1",
+                    "column": "module_id",
+                    "references": "help_modules.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "help_entry_aliases",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "entry_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "alias",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "normalized_alias",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "weight_bonus",
+                    "type": "smallint(5)",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_help_entry_aliases_alias",
+                    "columns": [
+                        "normalized_alias"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "uk_help_entry_aliases_entry_alias",
+                    "columns": [
+                        "entry_id",
+                        "normalized_alias"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "help_entry_aliases_ibfk_1",
+                    "column": "entry_id",
+                    "references": "help_entries.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "help_search_terms",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "entry_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "term",
+                    "type": "varchar(120)",
+                    "nullable": false
+                },
+                {
+                    "name": "normalized_term",
+                    "type": "varchar(120)",
+                    "nullable": false
+                },
+                {
+                    "name": "term_type",
+                    "type": "enum('question','answer','alias','module')",
+                    "nullable": false,
+                    "default": "'answer'"
+                },
+                {
+                    "name": "term_weight",
+                    "type": "tinyint(3) unsigned",
+                    "nullable": false,
+                    "default": "10"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_help_search_terms_term",
+                    "columns": [
+                        "normalized_term"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "uk_help_search_terms_entry_term",
+                    "columns": [
+                        "entry_id",
+                        "normalized_term",
+                        "term_type"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "help_search_terms_ibfk_1",
+                    "column": "entry_id",
+                    "references": "help_entries.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "help_queries",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "query_text",
+                    "type": "text",
+                    "nullable": false
+                },
+                {
+                    "name": "normalized_query",
+                    "type": "varchar(500)",
+                    "nullable": false
+                },
+                {
+                    "name": "context_path",
+                    "type": "varchar(500)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "context_module",
+                    "type": "varchar(100)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "matched_entry_id",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "confidence",
+                    "type": "tinyint(3) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "response_title",
+                    "type": "varchar(255)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "helpful",
+                    "type": "tinyint(1)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_help_queries_context",
+                    "columns": [
+                        "context_module"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_help_queries_created",
+                    "columns": [
+                        "created_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_help_queries_entry",
+                    "columns": [
+                        "matched_entry_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_help_queries_helpful",
+                    "columns": [
+                        "helpful"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_help_queries_user",
+                    "columns": [
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "help_queries_ibfk_1",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "help_queries_ibfk_3",
+                    "column": "matched_entry_id",
+                    "references": "help_entries.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        }
+    ],
+    "permissions": [
+        {
+            "slug": "helponline.admin",
+            "name": "Gestione Help Online"
+        }
+    ],
+    "services": [
+        "App\\Modules\\HelpOnline\\Services\\HelpAdminService",
+        "App\\Modules\\HelpOnline\\Services\\HelpOnlineService"
+    ],
+    "controllers": [
+        "App\\Modules\\HelpOnline\\Controllers\\HelpOnlineController"
+    ]
+}

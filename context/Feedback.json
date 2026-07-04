@@ -1,0 +1,337 @@
+{
+    "module": "Feedback",
+    "generated_at": "2026-07-04T09:48:34+02:00",
+    "routes": [
+        {
+            "method": "GET",
+            "uri": "/feedback/new",
+            "name": "feedback.new",
+            "controller": "FeedbackController@reportPage",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/feedback/",
+            "name": "feedback.store",
+            "controller": "FeedbackController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/feedback/admin",
+            "name": "feedback.admin.index",
+            "controller": "FeedbackController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:feedback.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/feedback/admin/{id}/export",
+            "name": "feedback.admin.export",
+            "controller": "FeedbackController@export",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:feedback.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/feedback/admin/{id}/dom",
+            "name": "feedback.admin.dom",
+            "controller": "FeedbackController@dom",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:feedback.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/feedback/admin/{id}",
+            "name": "feedback.admin.show",
+            "controller": "FeedbackController@show",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:feedback.view"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/feedback/admin/{id}/triage",
+            "name": "feedback.admin.triage",
+            "controller": "FeedbackController@triage",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:feedback.manage"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/feedback/admin/{id}",
+            "name": "feedback.admin.destroy",
+            "controller": "FeedbackController@destroy",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:feedback.manage"
+            ]
+        }
+    ],
+    "tables": [
+        {
+            "name": "feedback",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "ref_code",
+                    "type": "varchar(12)",
+                    "nullable": false
+                },
+                {
+                    "name": "tipo",
+                    "type": "enum('bug','funzionalita','domanda')",
+                    "nullable": false,
+                    "default": "'bug'"
+                },
+                {
+                    "name": "severita",
+                    "type": "enum('bassa','media','alta','critica')",
+                    "nullable": false,
+                    "default": "'media'"
+                },
+                {
+                    "name": "stato",
+                    "type": "enum('nuova','in_lavorazione','risolta','chiusa','non_risolvibile')",
+                    "nullable": false,
+                    "default": "'nuova'"
+                },
+                {
+                    "name": "titolo",
+                    "type": "varchar(200)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "descrizione",
+                    "type": "text",
+                    "nullable": false
+                },
+                {
+                    "name": "passi",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "pagina_url",
+                    "type": "varchar(1000)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "route_name",
+                    "type": "varchar(150)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "modulo",
+                    "type": "varchar(100)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "contesto_json",
+                    "type": "longtext",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "errori_console_json",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "dom_snapshot",
+                    "type": "longtext",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "user_agent",
+                    "type": "varchar(500)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "viewport",
+                    "type": "varchar(40)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "app_version",
+                    "type": "varchar(50)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "assegnata_a",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "note_admin",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                },
+                {
+                    "name": "deleted_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "fk_segnalazioni_assegnato",
+                    "columns": [
+                        "assegnata_a"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "fk_segnalazioni_creatore",
+                    "columns": [
+                        "created_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_segnalazioni_created",
+                    "columns": [
+                        "created_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_segnalazioni_modulo",
+                    "columns": [
+                        "modulo"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_segnalazioni_stato",
+                    "columns": [
+                        "stato",
+                        "deleted_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_segnalazioni_tipo",
+                    "columns": [
+                        "tipo",
+                        "deleted_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "ref_code",
+                    "columns": [
+                        "ref_code"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_segnalazioni_assegnato",
+                    "column": "assegnata_a",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "fk_segnalazioni_creatore",
+                    "column": "created_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        }
+    ],
+    "permissions": [
+        {
+            "slug": "feedback.manage",
+            "name": "Gestisci segnalazioni (triage)"
+        },
+        {
+            "slug": "feedback.view",
+            "name": "Visualizza segnalazioni"
+        }
+    ],
+    "services": [
+        "App\\Modules\\Feedback\\Services\\FeedbackReportBuilder",
+        "App\\Modules\\Feedback\\Services\\FeedbackService"
+    ],
+    "controllers": [
+        "App\\Modules\\Feedback\\Controllers\\FeedbackController"
+    ]
+}

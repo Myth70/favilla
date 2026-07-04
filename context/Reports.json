@@ -1,0 +1,980 @@
+{
+    "module": "Reports",
+    "generated_at": "2026-07-04T09:48:34+02:00",
+    "routes": [
+        {
+            "method": "GET",
+            "uri": "/reports/",
+            "name": "reports.index",
+            "controller": "ReportsController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/reports/sources",
+            "name": "reports.sources",
+            "controller": "ReportsController@sources",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/reports/source-fields",
+            "name": "reports.source_fields",
+            "controller": "ReportsController@sourceFields",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/reports/export/quick",
+            "name": "reports.export.quick",
+            "controller": "ExportController@quickExport",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.export"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/reports/export/{id}",
+            "name": "reports.export.generate",
+            "controller": "ExportController@generate",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.export"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/reports/templates/new",
+            "name": "reports.templates.new",
+            "controller": "TemplateController@wizard",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.create"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/reports/templates/create",
+            "name": "reports.templates.create",
+            "controller": "TemplateController@create",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.create"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/reports/templates/",
+            "name": "reports.templates.store",
+            "controller": "TemplateController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.create"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/reports/templates/{id}/duplicate",
+            "name": "reports.templates.duplicate",
+            "controller": "TemplateController@duplicate",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.create"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/reports/templates/",
+            "name": "reports.templates.index",
+            "controller": "TemplateController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/reports/templates/bundled",
+            "name": "reports.templates.bundled",
+            "controller": "TemplateController@bundled",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/reports/templates/{id}/preview",
+            "name": "reports.templates.preview",
+            "controller": "TemplateController@preview",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/reports/templates/{id}",
+            "name": "reports.templates.edit",
+            "controller": "TemplateController@edit",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.view"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/reports/templates/bundled/import",
+            "name": "reports.templates.import_bundled",
+            "controller": "TemplateController@importBundled",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.admin"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/reports/templates/{id}",
+            "name": "reports.templates.update",
+            "controller": "TemplateController@update",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.edit"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/reports/templates/{id}",
+            "name": "reports.templates.destroy",
+            "controller": "TemplateController@destroy",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.delete"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/reports/styles/create",
+            "name": "reports.styles.create",
+            "controller": "StyleController@create",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.styles"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/reports/styles/",
+            "name": "reports.styles.store",
+            "controller": "StyleController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.styles"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/reports/styles/{id}",
+            "name": "reports.styles.edit",
+            "controller": "StyleController@edit",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.styles"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/reports/styles/{id}/logo/{slot}",
+            "name": "reports.styles.logo",
+            "controller": "StyleController@logo",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.styles"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/reports/styles/{id}",
+            "name": "reports.styles.update",
+            "controller": "StyleController@update",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.styles"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/reports/styles/{id}",
+            "name": "reports.styles.destroy",
+            "controller": "StyleController@destroy",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.styles"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/reports/history/",
+            "name": "reports.history.index",
+            "controller": "HistoryController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.view"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/reports/history/cleanup",
+            "name": "reports.history.cleanup",
+            "controller": "HistoryController@cleanup",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/reports/history/{id}/download",
+            "name": "reports.history.download",
+            "controller": "HistoryController@download",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.view"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/reports/history/{id}",
+            "name": "reports.history.destroy",
+            "controller": "HistoryController@destroy",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/reports/documents/generate/{module}/{operation}/{recordId}",
+            "name": "reports.documents.generate",
+            "controller": "DocumentController@generate",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.view"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/reports/documents/",
+            "name": "reports.documents.store",
+            "controller": "DocumentController@storeBind",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.documents"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/reports/documents/{id}/edit",
+            "name": "reports.documents.edit",
+            "controller": "DocumentController@edit",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.documents"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/reports/documents/{id}",
+            "name": "reports.documents.update",
+            "controller": "DocumentController@update",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.documents"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/reports/documents/{id}",
+            "name": "reports.documents.destroy",
+            "controller": "DocumentController@destroyBind",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:reports.documents"
+            ]
+        }
+    ],
+    "tables": [
+        {
+            "name": "report_style_presets",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "name",
+                    "type": "varchar(100)",
+                    "nullable": false
+                },
+                {
+                    "name": "description",
+                    "type": "varchar(500)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "is_default",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "logo_path",
+                    "type": "varchar(255)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "logo_secondary_path",
+                    "type": "varchar(255)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "primary_color",
+                    "type": "varchar(7)",
+                    "nullable": false,
+                    "default": "'#3b82f6'"
+                },
+                {
+                    "name": "secondary_color",
+                    "type": "varchar(7)",
+                    "nullable": false,
+                    "default": "'#64748b'"
+                },
+                {
+                    "name": "accent_color",
+                    "type": "varchar(7)",
+                    "nullable": false,
+                    "default": "'#f97316'"
+                },
+                {
+                    "name": "header_bg_color",
+                    "type": "varchar(7)",
+                    "nullable": false,
+                    "default": "'#1e293b'"
+                },
+                {
+                    "name": "header_text_color",
+                    "type": "varchar(7)",
+                    "nullable": false,
+                    "default": "'#ffffff'"
+                },
+                {
+                    "name": "zebra_color",
+                    "type": "varchar(7)",
+                    "nullable": false,
+                    "default": "'#f8fafc'"
+                },
+                {
+                    "name": "font_family",
+                    "type": "varchar(100)",
+                    "nullable": false,
+                    "default": "'dejavusans'"
+                },
+                {
+                    "name": "font_size_base",
+                    "type": "tinyint(3) unsigned",
+                    "nullable": false,
+                    "default": "9"
+                },
+                {
+                    "name": "created_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "created_by",
+                    "columns": [
+                        "created_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_style_presets_default",
+                    "columns": [
+                        "is_default"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "report_style_presets_ibfk_1",
+                    "column": "created_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "report_templates",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "name",
+                    "type": "varchar(200)",
+                    "nullable": false
+                },
+                {
+                    "name": "description",
+                    "type": "varchar(500)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "module",
+                    "type": "varchar(50)",
+                    "nullable": false
+                },
+                {
+                    "name": "source_key",
+                    "type": "varchar(50)",
+                    "nullable": false
+                },
+                {
+                    "name": "output_format",
+                    "type": "enum('csv','excel','pdf')",
+                    "nullable": false,
+                    "default": "'pdf'"
+                },
+                {
+                    "name": "source_type",
+                    "type": "enum('list','document')",
+                    "nullable": false,
+                    "default": "'list'"
+                },
+                {
+                    "name": "template_html",
+                    "type": "longtext",
+                    "nullable": true,
+                    "default": "NULL",
+                    "comment": "GrapeJS HTML template"
+                },
+                {
+                    "name": "filters_config",
+                    "type": "longtext",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "sorting_config",
+                    "type": "longtext",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "style_preset_id",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "visibility",
+                    "type": "enum('private','role','global')",
+                    "nullable": false,
+                    "default": "'private'"
+                },
+                {
+                    "name": "visible_to_roles",
+                    "type": "longtext",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "max_rows",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "default": "10000"
+                },
+                {
+                    "name": "bundled_module",
+                    "type": "varchar(50)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_templates_bundled",
+                    "columns": [
+                        "bundled_module"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_templates_created_by",
+                    "columns": [
+                        "created_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_templates_has_html",
+                    "columns": [
+                        "template_html"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_templates_module",
+                    "columns": [
+                        "module"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_templates_module_source",
+                    "columns": [
+                        "module",
+                        "source_key"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_templates_visibility",
+                    "columns": [
+                        "visibility"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "style_preset_id",
+                    "columns": [
+                        "style_preset_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "report_templates_ibfk_1",
+                    "column": "style_preset_id",
+                    "references": "report_style_presets.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "report_templates_ibfk_2",
+                    "column": "created_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "report_history",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "template_id",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "template_name",
+                    "type": "varchar(200)",
+                    "nullable": false
+                },
+                {
+                    "name": "module",
+                    "type": "varchar(50)",
+                    "nullable": false
+                },
+                {
+                    "name": "source_key",
+                    "type": "varchar(50)",
+                    "nullable": false
+                },
+                {
+                    "name": "output_format",
+                    "type": "enum('csv','excel','pdf')",
+                    "nullable": false
+                },
+                {
+                    "name": "stored_filename",
+                    "type": "varchar(255)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "file_size",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "row_count",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "filters_used",
+                    "type": "longtext",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "generated_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "generated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "expires_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_history_expires_at",
+                    "columns": [
+                        "expires_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_history_generated_by",
+                    "columns": [
+                        "generated_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_history_template_id",
+                    "columns": [
+                        "template_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "report_history_ibfk_1",
+                    "column": "template_id",
+                    "references": "report_templates.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "report_history_ibfk_2",
+                    "column": "generated_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "document_bindings",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "module",
+                    "type": "varchar(50)",
+                    "nullable": false
+                },
+                {
+                    "name": "operation",
+                    "type": "varchar(50)",
+                    "nullable": false
+                },
+                {
+                    "name": "label",
+                    "type": "varchar(200)",
+                    "nullable": false
+                },
+                {
+                    "name": "template_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "created_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "created_by",
+                    "columns": [
+                        "created_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_document_bindings_module",
+                    "columns": [
+                        "module"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "template_id",
+                    "columns": [
+                        "template_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "uq_document_bindings_module_op",
+                    "columns": [
+                        "module",
+                        "operation"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "document_bindings_ibfk_1",
+                    "column": "template_id",
+                    "references": "report_templates.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "document_bindings_ibfk_2",
+                    "column": "created_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        }
+    ],
+    "permissions": [
+        {
+            "slug": "reports.admin",
+            "name": "Amministrazione report"
+        },
+        {
+            "slug": "reports.create",
+            "name": "Crea template report"
+        },
+        {
+            "slug": "reports.delete",
+            "name": "Elimina template report"
+        },
+        {
+            "slug": "reports.documents",
+            "name": "Gestisci modelli documento"
+        },
+        {
+            "slug": "reports.edit",
+            "name": "Modifica template report"
+        },
+        {
+            "slug": "reports.export",
+            "name": "Esporta dati"
+        },
+        {
+            "slug": "reports.styles",
+            "name": "Gestisci stili report"
+        },
+        {
+            "slug": "reports.view",
+            "name": "Visualizza Report"
+        }
+    ],
+    "services": [
+        "App\\Modules\\Reports\\Services\\BundledTemplateService",
+        "App\\Modules\\Reports\\Services\\DocumentService",
+        "App\\Modules\\Reports\\Services\\ExportProviderService",
+        "App\\Modules\\Reports\\Services\\HistoryService",
+        "App\\Modules\\Reports\\Services\\ReportsDashboardService",
+        "App\\Modules\\Reports\\Services\\ReportsDocumentBindingService",
+        "App\\Modules\\Reports\\Services\\ReportsHistoryQueryService",
+        "App\\Modules\\Reports\\Services\\ReportsTemplateQueryService",
+        "App\\Modules\\Reports\\Services\\SmartComponentResolver",
+        "App\\Modules\\Reports\\Services\\StyleService",
+        "App\\Modules\\Reports\\Services\\TemplateHtmlSanitizer",
+        "App\\Modules\\Reports\\Services\\TemplateService"
+    ],
+    "controllers": [
+        "App\\Modules\\Reports\\Controllers\\DocumentController",
+        "App\\Modules\\Reports\\Controllers\\ExportController",
+        "App\\Modules\\Reports\\Controllers\\HistoryController",
+        "App\\Modules\\Reports\\Controllers\\ReportsController",
+        "App\\Modules\\Reports\\Controllers\\StyleController",
+        "App\\Modules\\Reports\\Controllers\\TemplateController"
+    ]
+}

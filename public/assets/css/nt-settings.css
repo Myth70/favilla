@@ -1,0 +1,304 @@
+/* ============================================================
+   nt-settings.css — Preferenze Notifiche Utente
+   Prefisso classi: .nts-
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   Telegram banner
+   ---------------------------------------------------------- */
+.nts-tg-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 0.65rem 1rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--bs-border-color);
+    background: var(--bs-tertiary-bg);
+    font-size: 0.85rem;
+}
+
+.nts-tg-bar--linked {
+    border-color: color-mix(in srgb, #22c55e 35%, var(--bs-border-color));
+    background: color-mix(in srgb, #22c55e 7%, var(--bs-body-bg));
+}
+
+.nts-tg-icon {
+    color: #0088cc;
+    flex-shrink: 0;
+}
+
+.nts-tg-label {
+    font-weight: 600;
+    color: var(--bs-body-color);
+}
+
+/* ----------------------------------------------------------
+   Module rows
+   ---------------------------------------------------------- */
+.nts-module-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    padding: 0.875rem 1.25rem;
+}
+
+.nts-module-row + .nts-module-row,
+.nts-events-panel + .nts-module-row {
+    border-top: 1px solid var(--bs-border-color);
+}
+
+.nts-events-panel + .nts-module-row {
+    border-top-width: 2px;
+    border-top-style: solid;
+}
+
+.nts-module-meta {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    flex: 1;
+    min-width: 0;
+}
+
+.nts-module-icon {
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    background: color-mix(in srgb, var(--accent-color) 12%, var(--bs-tertiary-bg));
+}
+
+.nts-module-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--bs-body-color);
+    line-height: 1.3;
+}
+
+.nts-module-desc {
+    font-size: 0.775rem;
+    color: var(--bs-secondary-color);
+    margin-top: 0.1rem;
+}
+
+/* ----------------------------------------------------------
+   Channel toggles (pill shape)
+   ---------------------------------------------------------- */
+.nts-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+.nts-channel-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.28rem 0.7rem 0.28rem 0.55rem;
+    border-radius: 999px;
+    border: 1px solid var(--bs-border-color);
+    background: var(--bs-body-bg);
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+    user-select: none;
+}
+
+.nts-channel-pill:has(.form-check-input:checked) {
+    border-color: color-mix(in srgb, var(--accent-color) 55%, var(--bs-border-color));
+    background: color-mix(in srgb, var(--accent-color) 9%, var(--bs-body-bg));
+}
+
+.nts-channel-pill--disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.nts-channel-pill .form-check-input {
+    margin-top: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.nts-pill-label {
+    font-size: 0.775rem;
+    font-weight: 500;
+    color: var(--bs-body-color);
+    white-space: nowrap;
+}
+
+/* ----------------------------------------------------------
+   "Personalizza eventi" toggle button
+   ---------------------------------------------------------- */
+.nts-ev-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.775rem;
+    font-weight: 500;
+    color: var(--bs-secondary-color);
+    text-decoration: none;
+    border: none;
+    background: none;
+    padding: 0.28rem 0;
+    transition: color 0.15s;
+}
+
+.nts-ev-toggle:hover {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+.nts-ev-toggle-arrow {
+    font-size: 0.6rem;
+    transition: transform 0.2s ease;
+}
+
+.nts-ev-toggle.is-open .nts-ev-toggle-arrow {
+    transform: rotate(180deg);
+}
+
+/* ----------------------------------------------------------
+   Events panel (collapsible)
+   ---------------------------------------------------------- */
+.nts-events-panel {
+    border-top: 1px dashed color-mix(in srgb, var(--accent-color) 20%, var(--bs-border-color));
+    background: color-mix(in srgb, var(--accent-color) 3%, var(--bs-tertiary-bg));
+}
+
+.nts-events-inner {
+    padding: 0.5rem 1.25rem 0.75rem;
+}
+
+.nts-events-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--bs-secondary-color);
+    padding: 0.5rem 0 0.5rem;
+}
+
+.nts-event-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--bs-border-color) 50%, transparent);
+}
+
+.nts-event-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.nts-event-meta {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+    flex: 1;
+    min-width: 0;
+}
+
+.nts-event-icon {
+    width: 26px;
+    height: 26px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+    font-size: 0.7rem;
+    color: var(--bs-secondary-color);
+    background: var(--bs-secondary-bg);
+}
+
+.nts-event-name {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--bs-body-color);
+    line-height: 1.3;
+}
+
+.nts-event-desc {
+    font-size: 0.74rem;
+    color: var(--bs-secondary-color);
+    margin-top: 0.1rem;
+}
+
+.nts-sys-badge {
+    font-size: 0.62rem;
+    padding: 0.18rem 0.45rem;
+    border-radius: 999px;
+    vertical-align: middle;
+}
+
+/* ----------------------------------------------------------
+   Per-event channel controls
+   ---------------------------------------------------------- */
+.nts-event-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+}
+
+.nts-event-ch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15rem;
+    min-width: 68px;
+}
+
+.nts-event-ch--disabled {
+    opacity: 0.55;
+}
+
+.nts-event-ch-label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--bs-secondary-color);
+    white-space: nowrap;
+}
+
+.nts-event-ch .form-check-input {
+    cursor: pointer;
+}
+
+/* ----------------------------------------------------------
+   Responsive
+   ---------------------------------------------------------- */
+@media (max-width: 575.98px) {
+    .nts-module-row {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .nts-controls {
+        width: 100%;
+    }
+
+    .nts-event-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nts-event-controls {
+        width: 100%;
+    }
+}

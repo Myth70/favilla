@@ -1,0 +1,475 @@
+{
+    "module_key": "home",
+    "module_name": "Home",
+    "label": "Home",
+    "description": "Cruscotto personale di Favilla con dashboard configurabile, ricerca globale, pagina Oggi, changelog e preferenze interfaccia.",
+    "audience_default": "user",
+    "locale_default": "it",
+    "route_name": "home.index",
+    "permission_slug": null,
+    "sort_order": 1,
+    "entries": [
+        {
+            "audience": "user",
+            "route_name": "home.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 1,
+            "locales": {
+                "it": {
+                    "question": "Navigazione",
+                    "answer_markdown": "Le voci di menu compaiono nella sidebar laterale. L'elenco dipende dai moduli attivi nella tua installazione e dai permessi del tuo ruolo. Alcune voci possono comparire anche nel menu utente in alto a destra o come accessi rapidi nella Home.",
+                    "excerpt": "Le voci di menu compaiono nella sidebar laterale. L'elenco dipende dai moduli attivi nella tua installazione e dai permessi del tuo ruolo. Alcune voci possono comparire anche nel menu utente in alto a destra o come acce…",
+                    "aliases": [
+                        "come navigazione",
+                        "come orientarsi nell applicazione",
+                        "come orientarsi nell applicazione navigazione",
+                        "home navigazione",
+                        "navigazione"
+                    ]
+                },
+                "en": {
+                    "question": "Navigation",
+                    "answer_markdown": "The menu entries appear in the side sidebar. The list depends on the modules active in your installation and on your role's permissions. Some entries may also appear in the user menu at the top right or as quick links on the Home.",
+                    "excerpt": "The menu entries appear in the side sidebar. The list depends on the modules active in your installation and on your role's permissions. Some entries may also appear in the user menu at the top right ...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Navigation",
+                    "answer_markdown": "Les entrées de menu apparaissent dans la barre latérale. La liste dépend des modules actifs dans votre installation et des autorisations de votre rôle. Certaines entrées peuvent aussi apparaître dans le menu utilisateur en haut à droite ou comme accès rapides sur l'Accueil.",
+                    "excerpt": "Les entrées de menu apparaissent dans la barre latérale. La liste dépend des modules actifs dans votre installation et des autorisations de votre rôle. Certaines entrées peuvent aussi apparaître dans ...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Navigation",
+                    "answer_markdown": "Die Menüeinträge erscheinen in der seitlichen Sidebar. Die Liste hängt von den in Ihrer Installation aktiven Modulen und den Berechtigungen Ihrer Rolle ab. Einige Einträge können auch im Benutzermenü oben rechts oder als Schnellzugriffe auf der Startseite erscheinen.",
+                    "excerpt": "Die Menüeinträge erscheinen in der seitlichen Sidebar. Die Liste hängt von den in Ihrer Installation aktiven Modulen und den Berechtigungen Ihrer Rolle ab. Einige Einträge können auch im Benutzermenü ...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Navegación",
+                    "answer_markdown": "Las entradas de menú aparecen en la barra lateral. La lista depende de los módulos activos en tu instalación y de los permisos de tu rol. Algunas entradas también pueden aparecer en el menú de usuario en la parte superior derecha o como accesos rápidos en la Home.",
+                    "excerpt": "Las entradas de menú aparecen en la barra lateral. La lista depende de los módulos activos en tu instalación y de los permisos de tu rol. Algunas entradas también pueden aparecer en el menú de usuario...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "home.index",
+            "permission_slug": null,
+            "ranking_weight": 22,
+            "sort_order": 1,
+            "locales": {
+                "it": {
+                    "question": "Come funziona la dashboard Home?",
+                    "answer_markdown": "## Dashboard Home\r\nLa dashboard Home è il cruscotto personale di Favilla. È il punto di ingresso migliore per avere una vista rapida della giornata, dei moduli più usati e delle informazioni che richiedono attenzione.\r\n\r\n### Cosa mostra\r\n- widget personalizzabili con dati provenienti dai moduli attivi;\r\n- accessi rapidi alle aree principali;\r\n- riepiloghi come notifiche, attività, eventi o altri indicatori disponibili per il tuo profilo;\r\n- collegamenti a ricerca globale, changelog e pagina Oggi.\r\n\r\n### Come si aggiorna\r\nI contenuti vengono aggiornati automaticamente in background. Se un widget dipende da un modulo non attivo o da un permesso che non possiedi, quel blocco può non comparire oppure mostrarsi vuoto.\r\n\r\n### Home e Oggi non sono la stessa cosa\r\n- **Home**: visione d'insieme e accesso rapido.\r\n- **Oggi**: briefing operativo focalizzato su scadenze, attività ed eventi della giornata.\r\n\r\n### Personalizzazione\r\nDal pannello impostazioni widget puoi cambiare l'ordine, mostrare o nascondere blocchi e ripristinare il layout predefinito.",
+                    "excerpt": "Dashboard Home La dashboard Home è il cruscotto personale di Favilla. È il punto di ingresso migliore per avere una vista rapida della giornata, dei moduli più usati e delle informazioni che richiedono attenzione. Cosa...",
+                    "aliases": [
+                        "home e dashboard",
+                        "dashboard home",
+                        "come funziona la dashboard",
+                        "widget home",
+                        "cruscotto home"
+                    ]
+                },
+                "en": {
+                    "question": "How does the Home dashboard work?",
+                    "answer_markdown": "## Home dashboard\nThe Home dashboard is Favilla's personal dashboard. It is the best entry point for a quick view of your day, the most-used modules and the information that needs attention.\n\n### What it shows\n- customizable widgets with data from the active modules;\n- quick access to the main areas;\n- summaries such as notifications, tasks, events or other indicators available for your profile;\n- links to global search, changelog and the Today page.\n\n### How it updates\nThe content is refreshed automatically in the background. If a widget depends on an inactive module or a permission you don't have, that block may not appear or may show empty.\n\n### Home and Today are not the same thing\n- **Home**: overview and quick access.\n- **Today**: an operational briefing focused on the day's deadlines, tasks and events.\n\n### Customization\nFrom the widget settings panel you can change the order, show or hide blocks and reset the default layout.",
+                    "excerpt": "Home dashboard The Home dashboard is Favilla's personal dashboard. It is the best entry point for a quick view of your day, the most-used modules and the information that needs attention. What it show...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment fonctionne le tableau de bord Accueil ?",
+                    "answer_markdown": "## Tableau de bord Accueil\nLe tableau de bord Accueil est le tableau de bord personnel de Favilla. C'est le meilleur point d'entrée pour avoir une vue rapide de votre journée, des modules les plus utilisés et des informations qui demandent de l'attention.\n\n### Ce qu'il affiche\n- des widgets personnalisables avec des données provenant des modules actifs ;\n- un accès rapide aux zones principales ;\n- des récapitulatifs comme les notifications, les tâches, les événements ou d'autres indicateurs disponibles pour votre profil ;\n- des liens vers la recherche globale, le changelog et la page Aujourd'hui.\n\n### Comment il se met à jour\nLe contenu est actualisé automatiquement en arrière-plan. Si un widget dépend d'un module inactif ou d'une autorisation que vous n'avez pas, ce bloc peut ne pas apparaître ou s'afficher vide.\n\n### Accueil et Aujourd'hui ne sont pas la même chose\n- **Accueil** : vue d'ensemble et accès rapide.\n- **Aujourd'hui** : un briefing opérationnel centré sur les échéances, tâches et événements de la journée.\n\n### Personnalisation\nDepuis le panneau de paramètres des widgets, vous pouvez changer l'ordre, afficher ou masquer des blocs et réinitialiser la disposition par défaut.",
+                    "excerpt": "Tableau de bord Accueil Le tableau de bord Accueil est le tableau de bord personnel de Favilla. C'est le meilleur point d'entrée pour avoir une vue rapide de votre journée, des modules les plus utilis...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie funktioniert das Home-Dashboard?",
+                    "answer_markdown": "## Home-Dashboard\nDas Home-Dashboard ist das persönliche Dashboard von Favilla. Es ist der beste Einstiegspunkt für einen schnellen Überblick über Ihren Tag, die am häufigsten genutzten Module und die Informationen, die Aufmerksamkeit erfordern.\n\n### Was es anzeigt\n- anpassbare Widgets mit Daten aus den aktiven Modulen;\n- Schnellzugriff auf die Hauptbereiche;\n- Zusammenfassungen wie Benachrichtigungen, Aufgaben, Ereignisse oder andere für Ihr Profil verfügbare Indikatoren;\n- Links zur globalen Suche, zum Changelog und zur Heute-Seite.\n\n### Wie es sich aktualisiert\nDie Inhalte werden automatisch im Hintergrund aktualisiert. Wenn ein Widget von einem inaktiven Modul oder einer Berechtigung abhängt, die Sie nicht haben, erscheint dieser Block möglicherweise nicht oder zeigt sich leer.\n\n### Home und Heute sind nicht dasselbe\n- **Home**: Überblick und Schnellzugriff.\n- **Heute**: ein operatives Briefing mit Fokus auf die Fälligkeiten, Aufgaben und Ereignisse des Tages.\n\n### Anpassung\nÜber das Widget-Einstellungs-Panel können Sie die Reihenfolge ändern, Blöcke ein- oder ausblenden und das Standardlayout zurücksetzen.",
+                    "excerpt": "Home-Dashboard Das Home-Dashboard ist das persönliche Dashboard von Favilla. Es ist der beste Einstiegspunkt für einen schnellen Überblick über Ihren Tag, die am häufigsten genutzten Module und die In...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo funciona el panel Home?",
+                    "answer_markdown": "## Panel Home\nEl panel Home es el panel personal de Favilla. Es el mejor punto de entrada para tener una vista rápida del día, de los módulos más usados y de la información que requiere atención.\n\n### Qué muestra\n- widgets personalizables con datos de los módulos activos;\n- accesos rápidos a las áreas principales;\n- resúmenes como notificaciones, tareas, eventos u otros indicadores disponibles para tu perfil;\n- enlaces a la búsqueda global, el changelog y la página Hoy.\n\n### Cómo se actualiza\nEl contenido se actualiza automáticamente en segundo plano. Si un widget depende de un módulo inactivo o de un permiso que no tienes, ese bloque puede no aparecer o mostrarse vacío.\n\n### Home y Hoy no son lo mismo\n- **Home**: visión de conjunto y acceso rápido.\n- **Hoy**: un briefing operativo centrado en los vencimientos, tareas y eventos del día.\n\n### Personalización\nDesde el panel de ajustes de widgets puedes cambiar el orden, mostrar u ocultar bloques y restablecer el diseño predeterminado.",
+                    "excerpt": "Panel Home El panel Home es el panel personal de Favilla. Es el mejor punto de entrada para tener una vista rápida del día, de los módulos más usados y de la información que requiere atención. Qué mue...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "home.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 2,
+            "locales": {
+                "it": {
+                    "question": "Ricerca globale",
+                    "answer_markdown": "La barra di ricerca globale è disponibile dalla Home e dall'header. Digitando nella barra si ottiene immediatamente un dropdown con i primi risultati per categoria (attività, eventi, contatti, file, notifiche, report), aggiornato in tempo reale senza ricaricare la pagina. Premi Invio o clicca \"Tutti i risultati\" per aprire la pagina di ricerca completa, che mostra fino a dieci risultati per modulo raggruppati per tipo. I risultati rispettano i permessi del tuo ruolo: vedi solo gli elementi a cui hai accesso.",
+                    "excerpt": "La barra di ricerca globale è disponibile dalla Home e dall'header. Digitando nella barra si ottiene immediatamente un dropdown con i primi risultati per categoria (attività, eventi, contatti, file, notifiche, report),…",
+                    "aliases": [
+                        "come orientarsi nell applicazione",
+                        "come orientarsi nell applicazione ricerca globale",
+                        "come ricerca globale",
+                        "home ricerca globale",
+                        "ricerca globale"
+                    ]
+                },
+                "en": {
+                    "question": "Global search",
+                    "answer_markdown": "The global search bar is available from the Home and the header. Typing in the bar immediately gives you a dropdown with the top results by category (tasks, events, contacts, files, notifications, reports), updated in real time without reloading the page. Press Enter or click \"All results\" to open the full search page, which shows up to ten results per module grouped by type. The results respect your role's permissions: you only see the items you have access to.",
+                    "excerpt": "The global search bar is available from the Home and the header. Typing in the bar immediately gives you a dropdown with the top results by category (tasks, events, contacts, files, notifications, rep...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Recherche globale",
+                    "answer_markdown": "La barre de recherche globale est disponible depuis l'Accueil et l'en-tête. En saisissant dans la barre, vous obtenez immédiatement un menu déroulant avec les premiers résultats par catégorie (tâches, événements, contacts, fichiers, notifications, rapports), mis à jour en temps réel sans recharger la page. Appuyez sur Entrée ou cliquez sur « Tous les résultats » pour ouvrir la page de recherche complète, qui affiche jusqu'à dix résultats par module regroupés par type. Les résultats respectent les autorisations de votre rôle : vous ne voyez que les éléments auxquels vous avez accès.",
+                    "excerpt": "La barre de recherche globale est disponible depuis l'Accueil et l'en-tête. En saisissant dans la barre, vous obtenez immédiatement un menu déroulant avec les premiers résultats par catégorie (tâches,...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Globale Suche",
+                    "answer_markdown": "Die globale Suchleiste ist auf der Startseite und in der Kopfzeile verfügbar. Beim Tippen in die Leiste erhalten Sie sofort ein Dropdown mit den ersten Ergebnissen nach Kategorie (Aufgaben, Ereignisse, Kontakte, Dateien, Benachrichtigungen, Berichte), das in Echtzeit ohne Neuladen der Seite aktualisiert wird. Drücken Sie die Eingabetaste oder klicken Sie auf „Alle Ergebnisse“, um die vollständige Suchseite zu öffnen, die bis zu zehn Ergebnisse pro Modul nach Typ gruppiert anzeigt. Die Ergebnisse berücksichtigen die Berechtigungen Ihrer Rolle: Sie sehen nur die Elemente, auf die Sie Zugriff haben.",
+                    "excerpt": "Die globale Suchleiste ist auf der Startseite und in der Kopfzeile verfügbar. Beim Tippen in die Leiste erhalten Sie sofort ein Dropdown mit den ersten Ergebnissen nach Kategorie (Aufgaben, Ereignisse...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Búsqueda global",
+                    "answer_markdown": "La barra de búsqueda global está disponible desde la Home y la cabecera. Al escribir en la barra se obtiene de inmediato un desplegable con los primeros resultados por categoría (tareas, eventos, contactos, archivos, notificaciones, informes), actualizado en tiempo real sin recargar la página. Pulsa Intro o haz clic en «Todos los resultados» para abrir la página de búsqueda completa, que muestra hasta diez resultados por módulo agrupados por tipo. Los resultados respetan los permisos de tu rol: solo ves los elementos a los que tienes acceso.",
+                    "excerpt": "La barra de búsqueda global está disponible desde la Home y la cabecera. Al escribir en la barra se obtiene de inmediato un desplegable con los primeros resultados por categoría (tareas, eventos, cont...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "home.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 2,
+            "locales": {
+                "it": {
+                    "question": "Cosa trovi",
+                    "answer_markdown": "- **Striscia di benvenuto (hero)**: mostra il tuo nome, eventuali contatori rapidi (notifiche non lette, eventi in agenda, contatti con anniversari imminenti) e la data corrente.\n- **Widget configurabili**: blocchi di informazione riordinabili che puoi personalizzare. I widget si aggiornano automaticamente ogni 60 secondi in background. I widget disponibili dipendono dai moduli attivi.\n- **Accesso rapido**: collegamento diretto ai moduli più frequenti.\n- **Ricerca globale**: barra di ricerca unificata con suggerimenti in tempo reale.\n- **Changelog**: se esposto nella tua installazione, riepiloga le novità recenti dell'applicazione con versione, data di rilascio e descrizione delle modifiche.",
+                    "excerpt": "Striscia di benvenuto (hero): mostra il tuo nome, eventuali contatori rapidi (notifiche non lette, eventi in agenda, contatti con anniversari imminenti) e la data corrente. Widget configurabili: blocchi di informazione…",
+                    "aliases": [
+                        "come cosa trovi",
+                        "cosa trovi",
+                        "home cosa trovi",
+                        "home e dashboard",
+                        "home e dashboard cosa trovi"
+                    ]
+                },
+                "en": {
+                    "question": "What you find",
+                    "answer_markdown": "- **Welcome strip (hero)**: shows your name, any quick counters (unread notifications, scheduled events, contacts with upcoming anniversaries) and the current date.\n- **Configurable widgets**: reorderable information blocks that you can customize. The widgets update automatically every 60 seconds in the background. The available widgets depend on the active modules.\n- **Quick access**: a direct link to the most frequent modules.\n- **Global search**: a unified search bar with real-time suggestions.\n- **Changelog**: if exposed in your installation, it summarizes the application's recent news with version, release date and a description of the changes.",
+                    "excerpt": "Welcome strip (hero): shows your name, any quick counters (unread notifications, scheduled events, contacts with upcoming anniversaries) and the current date. Configurable widgets: reorderable informa...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Ce que vous trouvez",
+                    "answer_markdown": "- **Bandeau de bienvenue (hero)** : affiche votre nom, d'éventuels compteurs rapides (notifications non lues, événements à l'agenda, contacts avec anniversaires imminents) et la date du jour.\n- **Widgets configurables** : blocs d'information réorganisables que vous pouvez personnaliser. Les widgets se mettent à jour automatiquement toutes les 60 secondes en arrière-plan. Les widgets disponibles dépendent des modules actifs.\n- **Accès rapide** : lien direct vers les modules les plus fréquents.\n- **Recherche globale** : barre de recherche unifiée avec suggestions en temps réel.\n- **Changelog** : s'il est exposé dans votre installation, il récapitule les nouveautés récentes de l'application avec version, date de sortie et description des modifications.",
+                    "excerpt": "Bandeau de bienvenue (hero) : affiche votre nom, d'éventuels compteurs rapides (notifications non lues, événements à l'agenda, contacts avec anniversaires imminents) et la date du jour. Widgets config...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Was Sie finden",
+                    "answer_markdown": "- **Willkommensleiste (Hero)**: zeigt Ihren Namen, eventuelle Schnellzähler (ungelesene Benachrichtigungen, anstehende Termine, Kontakte mit bevorstehenden Jahrestagen) und das aktuelle Datum.\n- **Konfigurierbare Widgets**: umsortierbare Informationsblöcke, die Sie anpassen können. Die Widgets aktualisieren sich automatisch alle 60 Sekunden im Hintergrund. Die verfügbaren Widgets hängen von den aktiven Modulen ab.\n- **Schnellzugriff**: direkter Link zu den häufigsten Modulen.\n- **Globale Suche**: einheitliche Suchleiste mit Echtzeit-Vorschlägen.\n- **Changelog**: sofern in Ihrer Installation angezeigt, fasst es die jüngsten Neuigkeiten der Anwendung mit Version, Veröffentlichungsdatum und einer Beschreibung der Änderungen zusammen.",
+                    "excerpt": "Willkommensleiste (Hero): zeigt Ihren Namen, eventuelle Schnellzähler (ungelesene Benachrichtigungen, anstehende Termine, Kontakte mit bevorstehenden Jahrestagen) und das aktuelle Datum. Konfigurierba...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Qué encuentras",
+                    "answer_markdown": "- **Franja de bienvenida (hero)**: muestra tu nombre, posibles contadores rápidos (notificaciones no leídas, eventos en agenda, contactos con aniversarios próximos) y la fecha actual.\n- **Widgets configurables**: bloques de información reordenables que puedes personalizar. Los widgets se actualizan automáticamente cada 60 segundos en segundo plano. Los widgets disponibles dependen de los módulos activos.\n- **Acceso rápido**: enlace directo a los módulos más frecuentes.\n- **Búsqueda global**: barra de búsqueda unificada con sugerencias en tiempo real.\n- **Changelog**: si está expuesto en tu instalación, resume las novedades recientes de la aplicación con versión, fecha de lanzamiento y descripción de los cambios.",
+                    "excerpt": "Franja de bienvenida (hero): muestra tu nombre, posibles contadores rápidos (notificaciones no leídas, eventos en agenda, contactos con aniversarios próximos) y la fecha actual. Widgets configurables:...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "home.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 3,
+            "locales": {
+                "it": {
+                    "question": "Notifiche in Home",
+                    "answer_markdown": "L'icona a campanella nella barra in alto mostra il numero di notifiche non lette; il badge scompare quando non ci sono avvisi. Il contatore si aggiorna automaticamente ogni 60 secondi senza ricaricare la pagina. Cliccando la campanella si apre un pannello con gli ultimi avvisi non letti. Per vedere tutto lo storico o gestire le preferenze, usa il link \"Tutte le notifiche\" nel pannello oppure vai direttamente alla sezione Notifiche dal menu.",
+                    "excerpt": "L'icona a campanella nella barra in alto mostra il numero di notifiche non lette; il badge scompare quando non ci sono avvisi. Il contatore si aggiorna automaticamente ogni 60 secondi senza ricaricare la pagina. Cliccan…",
+                    "aliases": [
+                        "come notifiche",
+                        "come orientarsi nell applicazione",
+                        "come orientarsi nell applicazione notifiche",
+                        "home notifiche",
+                        "notifiche"
+                    ]
+                },
+                "en": {
+                    "question": "Notifications on the Home",
+                    "answer_markdown": "The bell icon in the top bar shows the number of unread notifications; the badge disappears when there are no alerts. The counter updates automatically every 60 seconds without reloading the page. Clicking the bell opens a panel with the latest unread alerts. To see the full history or manage preferences, use the \"All notifications\" link in the panel or go straight to the Notifications section from the menu.",
+                    "excerpt": "The bell icon in the top bar shows the number of unread notifications; the badge disappears when there are no alerts. The counter updates automatically every 60 seconds without reloading the page. Cli...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Notifications sur l'Accueil",
+                    "answer_markdown": "L'icône en forme de cloche dans la barre du haut affiche le nombre de notifications non lues ; le badge disparaît lorsqu'il n'y a aucune alerte. Le compteur se met à jour automatiquement toutes les 60 secondes sans recharger la page. En cliquant sur la cloche, un panneau s'ouvre avec les dernières alertes non lues. Pour voir tout l'historique ou gérer les préférences, utilisez le lien « Toutes les notifications » dans le panneau ou allez directement à la section Notifications depuis le menu.",
+                    "excerpt": "L'icône en forme de cloche dans la barre du haut affiche le nombre de notifications non lues ; le badge disparaît lorsqu'il n'y a aucune alerte. Le compteur se met à jour automatiquement toutes les 60...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Benachrichtigungen auf der Startseite",
+                    "answer_markdown": "Das Glockensymbol in der oberen Leiste zeigt die Anzahl der ungelesenen Benachrichtigungen an; das Abzeichen verschwindet, wenn keine Warnungen vorliegen. Der Zähler aktualisiert sich automatisch alle 60 Sekunden, ohne die Seite neu zu laden. Ein Klick auf die Glocke öffnet ein Panel mit den neuesten ungelesenen Warnungen. Um den gesamten Verlauf zu sehen oder die Einstellungen zu verwalten, verwenden Sie den Link „Alle Benachrichtigungen“ im Panel oder gehen Sie direkt über das Menü zum Bereich Benachrichtigungen.",
+                    "excerpt": "Das Glockensymbol in der oberen Leiste zeigt die Anzahl der ungelesenen Benachrichtigungen an; das Abzeichen verschwindet, wenn keine Warnungen vorliegen. Der Zähler aktualisiert sich automatisch alle...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Notificaciones en la Home",
+                    "answer_markdown": "El icono de campana en la barra superior muestra el número de notificaciones no leídas; la insignia desaparece cuando no hay avisos. El contador se actualiza automáticamente cada 60 segundos sin recargar la página. Al hacer clic en la campana se abre un panel con los últimos avisos no leídos. Para ver todo el historial o gestionar las preferencias, usa el enlace «Todas las notificaciones» del panel o ve directamente a la sección Notificaciones desde el menú.",
+                    "excerpt": "El icono de campana en la barra superior muestra el número de notificaciones no leídas; la insignia desaparece cuando no hay avisos. El contador se actualiza automáticamente cada 60 segundos sin recar...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "home.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 3,
+            "locales": {
+                "it": {
+                    "question": "Personalizzare la dashboard",
+                    "answer_markdown": "1. Clicca sull'icona delle impostazioni della dashboard (di solito in alto a destra nella Home).\n2. Si apre un pannello laterale (offcanvas) con l'elenco dei widget disponibili.\n3. Trascina i widget per cambiarne l'ordine oppure usa i controlli per mostrare o nascondere quelli che non ti servono.\n4. Le modifiche vengono salvate automaticamente.\n5. Se vuoi tornare alla disposizione originale, usa il pulsante \"Ripristina layout predefinito\": azzera la personalizzazione e riporta tutti i widget alla posizione e visibilità di default.",
+                    "excerpt": "Clicca sull'icona delle impostazioni della dashboard (di solito in alto a destra nella Home). Si apre un pannello laterale (offcanvas) con l'elenco dei widget disponibili. Trascina i widget per cambiarne l'ordine oppure…",
+                    "aliases": [
+                        "come personalizzare la dashboard",
+                        "home e dashboard",
+                        "home e dashboard personalizzare la dashboard",
+                        "home personalizzare la dashboard",
+                        "personalizzare la dashboard",
+                        "Come personalizzo i widget della home?",
+                        "Come personalizzo la dashboard?",
+                        "Come torno al layout dashboard predefinito?",
+                        "Come ripristino il layout della dashboard?",
+                        "Come riordino i widget della home?",
+                        "Come nascondo un widget della home?"
+                    ]
+                },
+                "en": {
+                    "question": "Customizing the dashboard",
+                    "answer_markdown": "1. Click the dashboard settings icon (usually at the top right of the Home).\n2. A side panel (offcanvas) opens with the list of available widgets.\n3. Drag the widgets to change their order or use the controls to show or hide the ones you don't need.\n4. The changes are saved automatically.\n5. If you want to return to the original arrangement, use the \"Reset default layout\" button: it clears the customization and brings all widgets back to their default position and visibility.",
+                    "excerpt": "1. Click the dashboard settings icon (usually at the top right of the Home). 2. A side panel (offcanvas) opens with the list of available widgets. 3. Drag the widgets to change their order or use the ...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Personnaliser le tableau de bord",
+                    "answer_markdown": "1. Cliquez sur l'icône des paramètres du tableau de bord (généralement en haut à droite de l'Accueil).\n2. Un panneau latéral (offcanvas) s'ouvre avec la liste des widgets disponibles.\n3. Faites glisser les widgets pour changer leur ordre ou utilisez les contrôles pour afficher ou masquer ceux dont vous n'avez pas besoin.\n4. Les modifications sont enregistrées automatiquement.\n5. Si vous voulez revenir à la disposition d'origine, utilisez le bouton « Réinitialiser la disposition par défaut » : il efface la personnalisation et ramène tous les widgets à leur position et visibilité par défaut.",
+                    "excerpt": "1. Cliquez sur l'icône des paramètres du tableau de bord (généralement en haut à droite de l'Accueil). 2. Un panneau latéral (offcanvas) s'ouvre avec la liste des widgets disponibles. 3. Faites glisse...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Das Dashboard anpassen",
+                    "answer_markdown": "1. Klicken Sie auf das Einstellungssymbol des Dashboards (normalerweise oben rechts auf der Startseite).\n2. Ein seitliches Panel (Offcanvas) öffnet sich mit der Liste der verfügbaren Widgets.\n3. Ziehen Sie die Widgets, um ihre Reihenfolge zu ändern, oder verwenden Sie die Steuerelemente, um nicht benötigte ein- oder auszublenden.\n4. Die Änderungen werden automatisch gespeichert.\n5. Wenn Sie zur ursprünglichen Anordnung zurückkehren möchten, verwenden Sie die Schaltfläche „Standardlayout zurücksetzen“: Sie löscht die Anpassung und bringt alle Widgets in ihre Standardposition und -sichtbarkeit zurück.",
+                    "excerpt": "1. Klicken Sie auf das Einstellungssymbol des Dashboards (normalerweise oben rechts auf der Startseite). 2. Ein seitliches Panel (Offcanvas) öffnet sich mit der Liste der verfügbaren Widgets. 3. Ziehe...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Personalizar el panel",
+                    "answer_markdown": "1. Haz clic en el icono de ajustes del panel (normalmente en la parte superior derecha de la Home).\n2. Se abre un panel lateral (offcanvas) con la lista de widgets disponibles.\n3. Arrastra los widgets para cambiar su orden o usa los controles para mostrar u ocultar los que no necesites.\n4. Los cambios se guardan automáticamente.\n5. Si quieres volver a la disposición original, usa el botón «Restablecer diseño predeterminado»: borra la personalización y devuelve todos los widgets a su posición y visibilidad por defecto.",
+                    "excerpt": "1. Haz clic en el icono de ajustes del panel (normalmente en la parte superior derecha de la Home). 2. Se abre un panel lateral (offcanvas) con la lista de widgets disponibles. 3. Arrastra los widgets...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "home.index",
+            "permission_slug": null,
+            "ranking_weight": 14,
+            "sort_order": 4,
+            "locales": {
+                "it": {
+                    "question": "Permessi",
+                    "answer_markdown": "## Permessi e visibilità in Home\r\nLa Home non mostra dati arbitrari: ogni widget dipende dai moduli attivi e dai permessi del tuo account.\r\n\r\n### Cosa significa in pratica\r\n- se non hai accesso a un modulo, il relativo widget può non comparire;\r\n- se il modulo è attivo ma non ci sono dati, il blocco può risultare vuoto o minimale;\r\n- alcune scorciatoie o card cambiano in base al ruolo e alle preferenze utente.\r\n\r\n### Se un widget manca\r\nControlla prima permessi, moduli attivi e configurazione del layout personale. In molti casi il comportamento è corretto e non indica un errore applicativo.",
+                    "excerpt": "Permessi e visibilità in Home La Home non mostra dati arbitrari: ogni widget dipende dai moduli attivi e dai permessi del tuo account. Cosa significa in pratica se non hai accesso a un modulo, il relativo widget può non...",
+                    "aliases": [
+                        "come orientarsi nell applicazione",
+                        "come orientarsi nell applicazione permessi",
+                        "come permessi",
+                        "home permessi",
+                        "permessi"
+                    ]
+                },
+                "en": {
+                    "question": "Permissions",
+                    "answer_markdown": "## Permissions and visibility on the Home\nThe Home does not show arbitrary data: each widget depends on the active modules and your account's permissions.\n\n### What this means in practice\n- if you don't have access to a module, its widget may not appear;\n- if the module is active but there is no data, the block may be empty or minimal;\n- some shortcuts or cards change based on role and user preferences.\n\n### If a widget is missing\nFirst check permissions, active modules and your personal layout configuration. In many cases the behavior is correct and does not indicate an application error.",
+                    "excerpt": "Permissions and visibility on the Home The Home does not show arbitrary data: each widget depends on the active modules and your account's permissions. What this means in practice if you don't have ac...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Autorisations",
+                    "answer_markdown": "## Autorisations et visibilité sur l'Accueil\nL'Accueil n'affiche pas de données arbitraires : chaque widget dépend des modules actifs et des autorisations de votre compte.\n\n### Ce que cela signifie en pratique\n- si vous n'avez pas accès à un module, son widget peut ne pas apparaître ;\n- si le module est actif mais qu'il n'y a pas de données, le bloc peut être vide ou minimal ;\n- certains raccourcis ou cartes changent selon le rôle et les préférences de l'utilisateur.\n\n### Si un widget manque\nVérifiez d'abord les autorisations, les modules actifs et la configuration de votre disposition personnelle. Dans de nombreux cas, le comportement est correct et n'indique pas une erreur applicative.",
+                    "excerpt": "Autorisations et visibilité sur l'Accueil L'Accueil n'affiche pas de données arbitraires : chaque widget dépend des modules actifs et des autorisations de votre compte. Ce que cela signifie en pratiqu...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Berechtigungen",
+                    "answer_markdown": "## Berechtigungen und Sichtbarkeit auf der Startseite\nDie Startseite zeigt keine beliebigen Daten an: Jedes Widget hängt von den aktiven Modulen und den Berechtigungen Ihres Kontos ab.\n\n### Was das in der Praxis bedeutet\n- wenn Sie keinen Zugriff auf ein Modul haben, erscheint dessen Widget möglicherweise nicht;\n- wenn das Modul aktiv ist, aber keine Daten vorhanden sind, kann der Block leer oder minimal sein;\n- einige Verknüpfungen oder Karten ändern sich je nach Rolle und Benutzereinstellungen.\n\n### Wenn ein Widget fehlt\nPrüfen Sie zuerst die Berechtigungen, die aktiven Module und die Konfiguration Ihres persönlichen Layouts. In vielen Fällen ist das Verhalten korrekt und weist nicht auf einen Anwendungsfehler hin.",
+                    "excerpt": "Berechtigungen und Sichtbarkeit auf der Startseite Die Startseite zeigt keine beliebigen Daten an: Jedes Widget hängt von den aktiven Modulen und den Berechtigungen Ihres Kontos ab. Was das in der Pra...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Permisos",
+                    "answer_markdown": "## Permisos y visibilidad en la Home\nLa Home no muestra datos arbitrarios: cada widget depende de los módulos activos y de los permisos de tu cuenta.\n\n### Qué significa en la práctica\n- si no tienes acceso a un módulo, su widget puede no aparecer;\n- si el módulo está activo pero no hay datos, el bloque puede quedar vacío o mínimo;\n- algunos atajos o tarjetas cambian según el rol y las preferencias del usuario.\n\n### Si falta un widget\nComprueba primero los permisos, los módulos activos y la configuración de tu diseño personal. En muchos casos el comportamiento es correcto y no indica un error de la aplicación.",
+                    "excerpt": "Permisos y visibilidad en la Home La Home no muestra datos arbitrarios: cada widget depende de los módulos activos y de los permisos de tu cuenta. Qué significa en la práctica si no tienes acceso a un...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "home.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 4,
+            "locales": {
+                "it": {
+                    "question": "Preferenze interfaccia",
+                    "answer_markdown": "Le preferenze grafiche personali si gestiscono dal pannello preferenze accessibile dalla sidebar (icona ingranaggio in basso) e si applicano a tutta l'applicazione. Ogni modifica viene salvata in tempo reale senza bisogno di confermare:\n\n| Preferenza | Descrizione |\n|---|---|\n| **Tema** | Chiaro o scuro; si applica immediatamente a tutta l'interfaccia |\n| **Skin** | Stile visivo generale (default, soft, sharp, compact) |\n| **Colore accento** | Tinta usata per elementi interattivi, link e badge |\n| **Pattern** | Texture di sfondo opzionale per arricchire l'interfaccia |\n| **Font** | Famiglia tipografica (sistema, Inter, IBM Plex Sans, Lora) |\n| **Sidebar** | Espansa o compressa |\n| **Stile sidebar** | Default, chiara o accentata |",
+                    "excerpt": "Le preferenze grafiche personali si gestiscono dal pannello preferenze accessibile dalla sidebar (icona ingranaggio in basso) e si applicano a tutta l'applicazione. Ogni modifica viene salvata in tempo reale senza bisog…",
+                    "aliases": [
+                        "come preferenze interfaccia",
+                        "home e dashboard",
+                        "home e dashboard preferenze interfaccia",
+                        "home preferenze interfaccia",
+                        "preferenze interfaccia",
+                        "Dove cambio tema e preferenze?",
+                        "Come cambio tema e preferenze?",
+                        "Dove cambio tema?",
+                        "Dove trovo le preferenze interfaccia?",
+                        "Come cambio skin e colore accento?"
+                    ]
+                },
+                "en": {
+                    "question": "Interface preferences",
+                    "answer_markdown": "Personal graphic preferences are managed from the preferences panel accessible from the sidebar (gear icon at the bottom) and apply to the whole application. Each change is saved in real time without needing to confirm:\n\n| Preference | Description |\n|---|---|\n| **Theme** | Light or dark; applies immediately to the whole interface |\n| **Skin** | General visual style (default, soft, sharp, compact) |\n| **Accent color** | Tint used for interactive elements, links and badges |\n| **Pattern** | Optional background texture to enrich the interface |\n| **Font** | Typographic family (system, Inter, IBM Plex Sans, Lora) |\n| **Sidebar** | Expanded or collapsed |\n| **Sidebar style** | Default, light or accented |",
+                    "excerpt": "Personal graphic preferences are managed from the preferences panel accessible from the sidebar (gear icon at the bottom) and apply to the whole application. Each change is saved in real time without ...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Préférences d'interface",
+                    "answer_markdown": "Les préférences graphiques personnelles se gèrent depuis le panneau de préférences accessible depuis la barre latérale (icône engrenage en bas) et s'appliquent à toute l'application. Chaque modification est enregistrée en temps réel sans besoin de confirmer :\n\n| Préférence | Description |\n|---|---|\n| **Thème** | Clair ou sombre ; s'applique immédiatement à toute l'interface |\n| **Skin** | Style visuel général (default, soft, sharp, compact) |\n| **Couleur d'accent** | Teinte utilisée pour les éléments interactifs, les liens et les badges |\n| **Pattern** | Texture de fond facultative pour enrichir l'interface |\n| **Police** | Famille typographique (système, Inter, IBM Plex Sans, Lora) |\n| **Barre latérale** | Étendue ou réduite |\n| **Style de barre latérale** | Default, claire ou accentuée |",
+                    "excerpt": "Les préférences graphiques personnelles se gèrent depuis le panneau de préférences accessible depuis la barre latérale (icône engrenage en bas) et s'appliquent à toute l'application. Chaque modificati...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Oberflächeneinstellungen",
+                    "answer_markdown": "Persönliche grafische Einstellungen werden über das Einstellungs-Panel verwaltet, das über die Sidebar zugänglich ist (Zahnradsymbol unten), und gelten für die gesamte Anwendung. Jede Änderung wird in Echtzeit gespeichert, ohne dass eine Bestätigung erforderlich ist:\n\n| Einstellung | Beschreibung |\n|---|---|\n| **Theme** | Hell oder dunkel; wird sofort auf die gesamte Oberfläche angewendet |\n| **Skin** | Allgemeiner visueller Stil (default, soft, sharp, compact) |\n| **Akzentfarbe** | Farbton für interaktive Elemente, Links und Abzeichen |\n| **Pattern** | Optionale Hintergrundtextur zur Bereicherung der Oberfläche |\n| **Schriftart** | Schriftfamilie (System, Inter, IBM Plex Sans, Lora) |\n| **Sidebar** | Erweitert oder reduziert |\n| **Sidebar-Stil** | Default, hell oder akzentuiert |",
+                    "excerpt": "Persönliche grafische Einstellungen werden über das Einstellungs-Panel verwaltet, das über die Sidebar zugänglich ist (Zahnradsymbol unten), und gelten für die gesamte Anwendung. Jede Änderung wird in...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Preferencias de interfaz",
+                    "answer_markdown": "Las preferencias gráficas personales se gestionan desde el panel de preferencias accesible desde la barra lateral (icono de engranaje abajo) y se aplican a toda la aplicación. Cada cambio se guarda en tiempo real sin necesidad de confirmar:\n\n| Preferencia | Descripción |\n|---|---|\n| **Tema** | Claro u oscuro; se aplica de inmediato a toda la interfaz |\n| **Skin** | Estilo visual general (default, soft, sharp, compact) |\n| **Color de acento** | Tono usado para elementos interactivos, enlaces e insignias |\n| **Pattern** | Textura de fondo opcional para enriquecer la interfaz |\n| **Fuente** | Familia tipográfica (sistema, Inter, IBM Plex Sans, Lora) |\n| **Barra lateral** | Expandida o contraída |\n| **Estilo de barra lateral** | Default, clara o acentuada |",
+                    "excerpt": "Las preferencias gráficas personales se gestionan desde el panel de preferencias accesible desde la barra lateral (icono de engranaje abajo) y se aplican a toda la aplicación. Cada cambio se guarda en...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "home.changelog",
+            "permission_slug": null,
+            "ranking_weight": 12,
+            "sort_order": 5,
+            "locales": {
+                "it": {
+                    "question": "Changelog applicativo",
+                    "answer_markdown": "## Changelog in Home\r\nIl collegamento al changelog ti porta all'elenco delle note di rilascio pubblicate.\r\n\r\n### Cosa trovi\r\n- versione o rilascio;\r\n- data di pubblicazione;\r\n- elenco sintetico di novità, fix e cambiamenti operativi.\r\n\r\n### Quando usarlo\r\nApri il changelog quando vuoi capire cosa è cambiato dopo un aggiornamento o verificare se una funzionalità nuova è già stata rilasciata.",
+                    "excerpt": "Changelog in Home Il collegamento al changelog ti porta all'elenco delle note di rilascio pubblicate. Cosa trovi versione o rilascio; data di pubblicazione; elenco sintetico di novità, fix e cambiamenti operativi...",
+                    "aliases": [
+                        "changelog",
+                        "come changelog",
+                        "home changelog",
+                        "home e dashboard",
+                        "home e dashboard changelog"
+                    ]
+                },
+                "en": {
+                    "question": "Application changelog",
+                    "answer_markdown": "## Changelog on the Home\nThe changelog link takes you to the list of published release notes.\n\n### What you find\n- the version or release;\n- the publication date;\n- a concise list of new features, fixes and operational changes.\n\n### When to use it\nOpen the changelog when you want to understand what changed after an update or check whether a new feature has already been released.",
+                    "excerpt": "Changelog on the Home The changelog link takes you to the list of published release notes. What you find the version or release; the publication date; a concise list of new features, fixes and operati...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Changelog de l'application",
+                    "answer_markdown": "## Changelog sur l'Accueil\nLe lien du changelog vous amène à la liste des notes de version publiées.\n\n### Ce que vous trouvez\n- la version ou la release ;\n- la date de publication ;\n- une liste synthétique des nouveautés, corrections et changements opérationnels.\n\n### Quand l'utiliser\nOuvrez le changelog lorsque vous voulez comprendre ce qui a changé après une mise à jour ou vérifier si une nouvelle fonctionnalité a déjà été publiée.",
+                    "excerpt": "Changelog sur l'Accueil Le lien du changelog vous amène à la liste des notes de version publiées. Ce que vous trouvez la version ou la release ; la date de publication ; une liste synthétique des nouv...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Anwendungs-Changelog",
+                    "answer_markdown": "## Changelog auf der Startseite\nDer Changelog-Link führt Sie zur Liste der veröffentlichten Versionshinweise.\n\n### Was Sie finden\n- die Version oder das Release;\n- das Veröffentlichungsdatum;\n- eine zusammenfassende Liste von Neuerungen, Korrekturen und betrieblichen Änderungen.\n\n### Wann Sie es verwenden\nÖffnen Sie das Changelog, wenn Sie verstehen möchten, was sich nach einem Update geändert hat, oder prüfen möchten, ob eine neue Funktion bereits veröffentlicht wurde.",
+                    "excerpt": "Changelog auf der Startseite Der Changelog-Link führt Sie zur Liste der veröffentlichten Versionshinweise. Was Sie finden die Version oder das Release; das Veröffentlichungsdatum; eine zusammenfassend...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Changelog de la aplicación",
+                    "answer_markdown": "## Changelog en la Home\nEl enlace del changelog te lleva a la lista de notas de versión publicadas.\n\n### Qué encuentras\n- la versión o release;\n- la fecha de publicación;\n- una lista sintética de novedades, correcciones y cambios operativos.\n\n### Cuándo usarlo\nAbre el changelog cuando quieras entender qué ha cambiado tras una actualización o comprobar si una nueva funcionalidad ya se ha publicado.",
+                    "excerpt": "Changelog en la Home El enlace del changelog te lleva a la lista de notas de versión publicadas. Qué encuentras la versión o release; la fecha de publicación; una lista sintética de novedades, correcc...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "home.today",
+            "permission_slug": null,
+            "ranking_weight": 20,
+            "sort_order": 6,
+            "locales": {
+                "it": {
+                    "question": "Come funziona la pagina Oggi?",
+                    "answer_markdown": "La **Pagina Oggi** (`/oggi`) è il briefing giornaliero personale di Favilla. Raccoglie in un'unica vista tutto ciò che è rilevante per la giornata corrente.\r\n\r\n#### Come accedervi\r\nDal menu laterale voce **Oggi** (o dal pulsante \"Vai a Oggi\" nella dashboard Home).\r\n\r\n#### Cosa mostra\r\n\r\n**Hero** in cima alla pagina:\r\n- Saluto personalizzato con il tuo nome.\r\n- Statistiche del giorno: attività completate oggi, aperte, scadute, percentuale di avanzamento con barra di progresso colorata.\r\n\r\n**Card \"Azioni di oggi\"** — aggregazione di:\r\n- **Attività** con scadenza odierna o già scadute (da Attività, se permesso `tasks.view`).\r\n- **Eventi del giorno** (da Calendario, se permesso `calendar.view`).\r\n- **Ricorrenze contatti** imminenti, ad es. compleanni e anniversari (da Contatti, se permesso `contacts.view`).\r\n- **Notifiche non lette** (da Notifiche, se attive).\r\n\r\nOgni elemento mostra il tipo di fonte (badge colorato) e le azioni rapide contestuali.\r\n\r\n**Quick-add task** — pulsante per creare un'attività direttamente dalla pagina (richiede permesso `tasks.create`).\r\n\r\n**Filtri per fonte** — tab o toggle per vedere solo Attività, solo Eventi, solo Contatti, solo Notifiche o tutti insieme.\r\n\r\n**Toggle viste** — passa tra visualizzazione a **Timeline** (ordine cronologico) e **Urgenza** (scadute prima, poi per priorità).\r\n\r\n**Sezione \"Completate oggi\"** — attività chiuse nella giornata corrente.\r\n\r\n**Auto-refresh** — la pagina si aggiorna automaticamente ogni 60 secondi per mostrare nuovi elementi senza ricaricare manualmente.",
+                    "excerpt": "La Pagina Oggi (/oggi) è il briefing giornaliero personale di Favilla. Raccoglie in un'unica vista tutto ciò che è rilevante per la giornata corrente.\r\n\r\nCome accedervi\r\nDal menu laterale voce Oggi (o dal pulsante \"Vai...",
+                    "aliases": [
+                        "pagina oggi",
+                        "briefing giornaliero",
+                        "oggi",
+                        "home oggi",
+                        "agenda del giorno",
+                        "cosa trovo oggi"
+                    ]
+                },
+                "en": {
+                    "question": "How does the Today page work?",
+                    "answer_markdown": "The **Today page** (`/oggi`) is Favilla's personal daily briefing. It gathers in a single view everything relevant to the current day.\n\n#### How to access it\nFrom the side menu, the **Today** entry (or from the \"Go to Today\" button in the Home dashboard).\n\n#### What it shows\n\n**Hero** at the top of the page:\n- A personalized greeting with your name.\n- The day's statistics: tasks completed today, open, overdue, the progress percentage with a colored progress bar.\n\n**\"Today's actions\" card** — an aggregation of:\n- **Tasks** due today or already overdue (from Tasks, if you have the `tasks.view` permission).\n- **Events of the day** (from Calendar, if you have the `calendar.view` permission).\n- Upcoming **contact recurrences**, e.g. birthdays and anniversaries (from Contacts, if you have the `contacts.view` permission).\n- **Unread notifications** (from Notifications, if active).\n\nEach item shows the source type (colored badge) and the contextual quick actions.\n\n**Quick-add task** — a button to create a task directly from the page (requires the `tasks.create` permission).\n\n**Filters by source** — tabs or toggles to see only Tasks, only Events, only Contacts, only Notifications or all together.\n\n**View toggle** — switch between **Timeline** view (chronological order) and **Urgency** view (overdue first, then by priority).\n\n**\"Completed today\" section** — tasks closed during the current day.\n\n**Auto-refresh** — the page refreshes automatically every 60 seconds to show new items without reloading manually.",
+                    "excerpt": "The Today page (/oggi) is Favilla's personal daily briefing. It gathers in a single view everything relevant to the current day. How to access it From the side menu, the Today entry (or from the \"Go t...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment fonctionne la page Aujourd'hui ?",
+                    "answer_markdown": "La **page Aujourd'hui** (`/oggi`) est le briefing quotidien personnel de Favilla. Elle rassemble dans une seule vue tout ce qui est pertinent pour la journée en cours.\n\n#### Comment y accéder\nDepuis le menu latéral, l'entrée **Aujourd'hui** (ou depuis le bouton « Aller à Aujourd'hui » dans le tableau de bord Accueil).\n\n#### Ce qu'elle affiche\n\n**Hero** en haut de la page :\n- Une salutation personnalisée avec votre nom.\n- Les statistiques du jour : tâches terminées aujourd'hui, ouvertes, en retard, le pourcentage d'avancement avec une barre de progression colorée.\n\n**Carte « Actions d'aujourd'hui »** — une agrégation de :\n- **Tâches** à échéance aujourd'hui ou déjà en retard (depuis Tâches, si vous avez l'autorisation `tasks.view`).\n- **Événements du jour** (depuis Calendrier, si vous avez l'autorisation `calendar.view`).\n- **Récurrences de contacts** imminentes, par ex. anniversaires (depuis Contacts, si vous avez l'autorisation `contacts.view`).\n- **Notifications non lues** (depuis Notifications, si actives).\n\nChaque élément affiche le type de source (badge coloré) et les actions rapides contextuelles.\n\n**Ajout rapide de tâche** — un bouton pour créer une tâche directement depuis la page (nécessite l'autorisation `tasks.create`).\n\n**Filtres par source** — onglets ou bascules pour voir uniquement les Tâches, uniquement les Événements, uniquement les Contacts, uniquement les Notifications ou tout ensemble.\n\n**Bascule de vues** — passez entre la vue **Chronologie** (ordre chronologique) et la vue **Urgence** (en retard d'abord, puis par priorité).\n\n**Section « Terminées aujourd'hui »** — tâches clôturées dans la journée en cours.\n\n**Actualisation automatique** — la page se met à jour automatiquement toutes les 60 secondes pour afficher les nouveaux éléments sans recharger manuellement.",
+                    "excerpt": "La page Aujourd'hui (/oggi) est le briefing quotidien personnel de Favilla. Elle rassemble dans une seule vue tout ce qui est pertinent pour la journée en cours. Comment y accéder Depuis le menu latér...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie funktioniert die Heute-Seite?",
+                    "answer_markdown": "Die **Heute-Seite** (`/oggi`) ist das persönliche tägliche Briefing von Favilla. Sie fasst in einer einzigen Ansicht alles zusammen, was für den aktuellen Tag relevant ist.\n\n#### Wie man darauf zugreift\nÜber das Seitenmenü, den Eintrag **Heute** (oder über die Schaltfläche „Zu Heute gehen“ im Home-Dashboard).\n\n#### Was sie anzeigt\n\n**Hero** oben auf der Seite:\n- Eine personalisierte Begrüßung mit Ihrem Namen.\n- Die Statistiken des Tages: heute erledigte, offene und überfällige Aufgaben, der Fortschrittsprozentsatz mit einem farbigen Fortschrittsbalken.\n\n**Karte „Aktionen von heute“** — eine Aggregation von:\n- **Aufgaben**, die heute fällig oder bereits überfällig sind (aus Aufgaben, wenn Sie die Berechtigung `tasks.view` haben).\n- **Ereignissen des Tages** (aus Kalender, wenn Sie die Berechtigung `calendar.view` haben).\n- bevorstehenden **Kontakt-Wiederholungen**, z. B. Geburtstagen und Jahrestagen (aus Kontakte, wenn Sie die Berechtigung `contacts.view` haben).\n- **ungelesenen Benachrichtigungen** (aus Benachrichtigungen, falls aktiv).\n\nJedes Element zeigt den Quellentyp (farbiges Abzeichen) und die kontextbezogenen Schnellaktionen.\n\n**Schnelles Hinzufügen von Aufgaben** — eine Schaltfläche zum Erstellen einer Aufgabe direkt von der Seite (erfordert die Berechtigung `tasks.create`).\n\n**Filter nach Quelle** — Registerkarten oder Schalter, um nur Aufgaben, nur Ereignisse, nur Kontakte, nur Benachrichtigungen oder alles zusammen anzuzeigen.\n\n**Ansichtsumschalter** — wechseln Sie zwischen der Ansicht **Zeitleiste** (chronologische Reihenfolge) und **Dringlichkeit** (überfällige zuerst, dann nach Priorität).\n\n**Abschnitt „Heute erledigt“** — im aktuellen Tag abgeschlossene Aufgaben.\n\n**Automatische Aktualisierung** — die Seite aktualisiert sich automatisch alle 60 Sekunden, um neue Elemente ohne manuelles Neuladen anzuzeigen.",
+                    "excerpt": "Die Heute-Seite (/oggi) ist das persönliche tägliche Briefing von Favilla. Sie fasst in einer einzigen Ansicht alles zusammen, was für den aktuellen Tag relevant ist. Wie man darauf zugreift Über das ...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo funciona la página Hoy?",
+                    "answer_markdown": "La **página Hoy** (`/oggi`) es el briefing diario personal de Favilla. Reúne en una sola vista todo lo relevante para el día actual.\n\n#### Cómo acceder\nDesde el menú lateral, la entrada **Hoy** (o desde el botón «Ir a Hoy» en el panel Home).\n\n#### Qué muestra\n\n**Hero** en la parte superior de la página:\n- Un saludo personalizado con tu nombre.\n- Las estadísticas del día: tareas completadas hoy, abiertas, vencidas, el porcentaje de avance con una barra de progreso de color.\n\n**Tarjeta «Acciones de hoy»** — una agregación de:\n- **Tareas** que vencen hoy o ya vencidas (de Tareas, si tienes el permiso `tasks.view`).\n- **Eventos del día** (de Calendario, si tienes el permiso `calendar.view`).\n- **Recurrencias de contactos** próximas, p. ej. cumpleaños y aniversarios (de Contactos, si tienes el permiso `contacts.view`).\n- **Notificaciones no leídas** (de Notificaciones, si están activas).\n\nCada elemento muestra el tipo de fuente (insignia de color) y las acciones rápidas contextuales.\n\n**Añadir tarea rápida** — un botón para crear una tarea directamente desde la página (requiere el permiso `tasks.create`).\n\n**Filtros por fuente** — pestañas o conmutadores para ver solo Tareas, solo Eventos, solo Contactos, solo Notificaciones o todo junto.\n\n**Conmutador de vistas** — alterna entre la vista **Cronología** (orden cronológico) y **Urgencia** (vencidas primero, luego por prioridad).\n\n**Sección «Completadas hoy»** — tareas cerradas durante el día actual.\n\n**Actualización automática** — la página se actualiza automáticamente cada 60 segundos para mostrar nuevos elementos sin recargar manualmente.",
+                    "excerpt": "La página Hoy (/oggi) es el briefing diario personal de Favilla. Reúne en una sola vista todo lo relevante para el día actual. Cómo acceder Desde el menú lateral, la entrada Hoy (o desde el botón «Ir ...",
+                    "aliases": []
+                }
+            }
+        }
+    ]
+}

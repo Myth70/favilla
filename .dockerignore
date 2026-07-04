@@ -1,0 +1,34 @@
+# Version control & CI
+.git
+.gitattributes
+.gitignore
+.github
+
+# Local env & secrets (config comes from compose `environment:`)
+.env
+storage/.setup_complete
+
+# Dependencies are reinstalled in the build's vendor stage
+vendor
+
+# Runtime state — must not be baked into the image (named volumes at runtime)
+storage/sessions/*
+storage/logs/*
+storage/cache/*
+storage/tmp/*
+storage/backups/*
+storage/imports/*
+storage/module_exports/*
+storage/reports/*
+public/uploads/*
+
+# Dev tooling & analysis artifacts
+phpstan.phar
+.phpunit.result.cache
+.phpunit.cache
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea
+.vscode

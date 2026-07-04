@@ -1,0 +1,401 @@
+/*
+ * Documenti module stylesheet — .dc- prefix
+ * Supports Prometeo light/dark themes via CSS variables.
+ */
+
+/* ── Dropzone ─────────────────────────────────────────────── */
+.dc-dropzone {
+    --dc-drop-border: var(--bs-border-color);
+    --dc-drop-bg: var(--bs-body-bg);
+    --dc-drop-hover-bg: var(--bs-primary-bg-subtle);
+}
+
+.dc-drop-area {
+    border: 2px dashed var(--dc-drop-border);
+    border-radius: var(--bs-border-radius-lg);
+    background: var(--dc-drop-bg);
+    transition: background 0.2s, border-color 0.2s;
+    cursor: pointer;
+    position: relative;
+}
+
+.dc-drop-area:hover,
+.dc-drop-area.dc-dragging {
+    background: var(--dc-drop-hover-bg);
+    border-color: var(--bs-primary);
+}
+
+.dc-drop-area:focus-within {
+    outline: 2px solid var(--bs-primary);
+    outline-offset: 2px;
+}
+
+.dc-progress-wrap {
+    height: 6px;
+    background: var(--bs-secondary-bg);
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.dc-progress-bar {
+    height: 100%;
+    width: 0;
+    background: var(--bs-primary);
+    transition: width 0.15s ease;
+}
+
+/* ── Timeline versioni ────────────────────────────────────── */
+.dc-timeline {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0;
+}
+
+.dc-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.4rem;
+    top: 0.6rem;
+    bottom: 0.6rem;
+    width: 2px;
+    background: var(--bs-border-color);
+}
+
+.dc-timeline-item {
+    position: relative;
+    padding: 0.5rem 0 0.75rem 0.75rem;
+}
+
+.dc-timeline-marker {
+    position: absolute;
+    left: -1.15rem;
+    top: 0.75rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--bs-secondary);
+    border: 2px solid var(--bs-body-bg);
+}
+
+.dc-timeline-current .dc-timeline-marker {
+    background: var(--bs-success);
+    width: 14px;
+    height: 14px;
+    left: -1.3rem;
+    top: 0.6rem;
+}
+
+.dc-timeline-body {
+    background: var(--bs-tertiary-bg);
+    border-radius: var(--bs-border-radius);
+    padding: 0.6rem 0.85rem;
+    border: 1px solid var(--bs-border-color);
+}
+
+.dc-timeline-current .dc-timeline-body {
+    border-color: var(--bs-success-border-subtle, var(--bs-success));
+}
+
+/* ── Utility (rimpiazza inline style) ─────────────────────── */
+.dc-note-input    { max-width: 200px; }
+.dc-select-owner  { min-width: 160px; }
+.dc-clickable     { cursor: pointer; }
+.dc-code          { font-family: var(--bs-font-monospace); font-size: 0.85em; padding: 0.15em 0.4em; background: var(--bs-secondary-bg); border-radius: 4px; }
+
+/* ── Stato badge extensions ───────────────────────────────── */
+.dc-stato {
+    font-weight: 500;
+    letter-spacing: 0.01em;
+}
+.dc-stato-in_approvazione,
+.dc-stato-in_controllo {
+    color: #000 !important;
+}
+
+/* ── Urgenza scadenza ─────────────────────────────────────── */
+.dc-urgent-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.15rem 0.55rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    border: 1px solid transparent;
+}
+.dc-urgent-overdue {
+    background: var(--bs-danger-bg-subtle);
+    color: var(--bs-danger-text-emphasis);
+    border-color: var(--bs-danger-border-subtle);
+}
+.dc-urgent-now {
+    background: var(--bs-danger-bg-subtle);
+    color: var(--bs-danger-text-emphasis);
+    border-color: var(--bs-danger-border-subtle);
+    animation: dc-pulse 1.6s ease-in-out infinite;
+}
+.dc-urgent-soon {
+    background: var(--bs-warning-bg-subtle);
+    color: var(--bs-warning-text-emphasis);
+    border-color: var(--bs-warning-border-subtle);
+}
+.dc-urgent-watch {
+    background: var(--bs-info-bg-subtle);
+    color: var(--bs-info-text-emphasis);
+    border-color: var(--bs-info-border-subtle);
+}
+@keyframes dc-pulse {
+    0%,100% { opacity: 1; }
+    50%     { opacity: 0.65; }
+}
+
+/* ── Albero categorie ─────────────────────────────────────── */
+.dc-tree {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+.dc-tree .dc-tree {
+    padding-left: 1.25rem;
+    border-left: 1px dashed var(--bs-border-color);
+    margin-left: 0.6rem;
+}
+.dc-tree-node {
+    padding: 0.4rem 0.6rem;
+    border-radius: var(--bs-border-radius);
+    transition: background 0.12s;
+}
+.dc-tree-node:hover {
+    background: var(--bs-tertiary-bg);
+}
+.dc-tree-toggle {
+    display: inline-block;
+    width: 1.2rem;
+    text-align: center;
+    cursor: pointer;
+    color: var(--bs-secondary-color);
+    transition: transform 0.15s;
+    user-select: none;
+}
+details[open] > summary > .dc-tree-toggle {
+    transform: rotate(90deg);
+}
+.dc-tree details > summary {
+    list-style: none;
+    cursor: pointer;
+}
+.dc-tree details > summary::-webkit-details-marker { display: none; }
+.dc-tree-leaf {
+    color: var(--bs-secondary-color);
+    width: 1.2rem;
+    text-align: center;
+    display: inline-block;
+}
+.dc-tree-count {
+    font-size: 0.7rem;
+    margin-left: 0.4rem;
+    color: var(--bs-secondary-color);
+}
+
+/* ── Empty state ──────────────────────────────────────────── */
+.dc-empty-state .dc-empty-state-icon {
+    font-size: 3rem;
+    color: var(--bs-secondary-color);
+    opacity: 0.6;
+}
+
+/* ── Bulk actions bar ─────────────────────────────────────── */
+.dc-actions-bar {
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+    background: var(--bs-body-bg);
+    border-top: 1px solid var(--bs-border-color);
+    padding: 0.5rem 1rem;
+    display: none;
+    align-items: center;
+    gap: 0.75rem;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.05);
+}
+.dc-actions-bar.dc-visible { display: flex; }
+.dc-actions-bar .dc-bulk-count {
+    font-weight: 600;
+    color: var(--bs-primary);
+}
+
+/* ── Riga soft-deleted (trash) ────────────────────────────── */
+.dc-row-deleted {
+    opacity: 0.7;
+}
+.dc-row-deleted td {
+    background: var(--bs-secondary-bg);
+}
+.dc-row-deleted .dc-deleted-strike {
+    text-decoration: line-through;
+    text-decoration-color: var(--bs-danger);
+}
+
+/* ── Searchable select ────────────────────────────────────── */
+.dc-searchable-wrap {
+    position: relative;
+}
+.dc-searchable-input {
+    width: 100%;
+}
+.dc-searchable-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1050;
+    max-height: 16rem;
+    overflow-y: auto;
+    background: var(--bs-body-bg);
+    border: 1px solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: none;
+    margin-top: 2px;
+}
+.dc-searchable-dropdown.dc-open { display: block; }
+.dc-searchable-option {
+    padding: 0.45rem 0.75rem;
+    cursor: pointer;
+    transition: background 0.1s;
+}
+.dc-searchable-option:hover,
+.dc-searchable-option.dc-active {
+    background: var(--bs-tertiary-bg);
+}
+.dc-searchable-option-depth {
+    display: inline-block;
+    color: var(--bs-secondary-color);
+    margin-right: 0.4rem;
+}
+
+/* ── Sortable table headers ───────────────────────────────── */
+.dc-sort {
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+}
+.dc-sort:hover {
+    color: var(--bs-primary);
+}
+.dc-sort i.dc-sort-icon {
+    margin-left: 0.3rem;
+    opacity: 0.4;
+    font-size: 0.85em;
+}
+.dc-sort[data-sort-active] i.dc-sort-icon {
+    opacity: 1;
+    color: var(--bs-primary);
+}
+
+/* ── Diff JSON (audit dettaglio) ──────────────────────────── */
+.dc-diff {
+    font-family: var(--bs-font-monospace);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    background: var(--bs-tertiary-bg);
+    border-radius: var(--bs-border-radius);
+    padding: 0.75rem;
+    border: 1px solid var(--bs-border-color);
+    overflow-x: auto;
+}
+.dc-diff-line { padding: 0.05rem 0.4rem; border-radius: 3px; white-space: pre; }
+.dc-diff-add  { background: var(--bs-success-bg-subtle); color: var(--bs-success-text-emphasis); }
+.dc-diff-del  { background: var(--bs-danger-bg-subtle);  color: var(--bs-danger-text-emphasis);  }
+.dc-diff-key  { color: var(--bs-info-text-emphasis); font-weight: 600; }
+
+/* ── Filtri stack mobile ──────────────────────────────────── */
+.dc-filters .form-control,
+.dc-filters .form-select {
+    min-height: calc(1.5em + 0.6rem + 2px);
+}
+
+/* ── Hero header counter pill ─────────────────────────────── */
+.dc-hero-pill {
+    background: var(--bs-primary-bg-subtle);
+    color: var(--bs-primary-text-emphasis);
+    border-radius: 999px;
+    padding: 0.15rem 0.7rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+/* ── Pannello approvazione mobile ─────────────────────────── */
+.dc-approval-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+.dc-approval-actions > form {
+    background: var(--bs-tertiary-bg);
+    border: 1px solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+    padding: 0.75rem;
+}
+@media (min-width: 768px) {
+    .dc-approval-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    .dc-approval-actions > form {
+        flex: 1 1 240px;
+    }
+}
+
+/* ── Spinner inline HTMX ──────────────────────────────────── */
+.dc-spinner {
+    display: none;
+}
+.htmx-request .dc-spinner,
+.htmx-request.dc-spinner {
+    display: inline-block;
+}
+
+/* ── Stampa ───────────────────────────────────────────────── */
+@media print {
+    .dc-no-print,
+    .pf-hero-actions,
+    .dc-actions-bar,
+    .app-breadcrumb-strip,
+    nav.pagination,
+    .pagination {
+        display: none !important;
+    }
+    .card { border: none; box-shadow: none; }
+}
+
+/* ── Dark mode overrides ──────────────────────────────────── */
+[data-bs-theme="dark"] .dc-drop-area {
+    --dc-drop-bg: var(--bs-dark-bg-subtle);
+    --dc-drop-border: var(--bs-secondary-border-subtle);
+}
+
+[data-bs-theme="dark"] .dc-timeline-body {
+    background: var(--bs-dark-bg-subtle);
+    border-color: var(--bs-secondary-border-subtle);
+}
+
+[data-bs-theme="dark"] .dc-searchable-dropdown {
+    background: var(--bs-dark-bg-subtle);
+    border-color: var(--bs-secondary-border-subtle);
+}
+
+[data-bs-theme="dark"] .dc-row-deleted td {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+[data-bs-theme="dark"] .dc-diff {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+[data-bs-theme="dark"] .dc-actions-bar {
+    background: var(--bs-dark-bg-subtle);
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.3);
+}

@@ -1,0 +1,1305 @@
+{
+    "module": "Blog",
+    "generated_at": "2026-07-04T09:48:34+02:00",
+    "routes": [
+        {
+            "method": "GET",
+            "uri": "/admin/blog/",
+            "name": "blog.admin.index",
+            "controller": "BlogAdminController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.admin"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/blog/articles",
+            "name": "blog.admin.articles",
+            "controller": "BlogAdminController@articles",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.admin"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/blog/trash",
+            "name": "blog.admin.trash",
+            "controller": "BlogAdminController@trash",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.admin"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/blog/trash/{id}/restore",
+            "name": "blog.admin.trash.restore",
+            "controller": "BlogAdminController@restoreArticle",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.admin"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/admin/blog/trash/{id}",
+            "name": "blog.admin.trash.destroy",
+            "controller": "BlogAdminController@forceDestroy",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.admin"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/blog/articles/batch",
+            "name": "blog.admin.articles.batch",
+            "controller": "BlogAdminController@batchAction",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.admin"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/blog/articles/{id}/pin",
+            "name": "blog.admin.articles.pin",
+            "controller": "BlogAdminController@pin",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.admin"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/blog/articles/{id}/unpin",
+            "name": "blog.admin.articles.unpin",
+            "controller": "BlogAdminController@unpin",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.admin"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/blog/categories",
+            "name": "blog.admin.categories",
+            "controller": "BlogAdminController@categories",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.admin"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/blog/categories",
+            "name": "blog.admin.categories.store",
+            "controller": "BlogAdminController@storeCategory",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.admin"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/admin/blog/categories/{id}",
+            "name": "blog.admin.categories.update",
+            "controller": "BlogAdminController@updateCategory",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.admin"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/admin/blog/categories/{id}",
+            "name": "blog.admin.categories.destroy",
+            "controller": "BlogAdminController@destroyCategory",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.admin"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/blog/tags",
+            "name": "blog.admin.tags",
+            "controller": "BlogAdminController@tags",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.admin"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/blog/tags",
+            "name": "blog.admin.tags.store",
+            "controller": "BlogAdminController@storeTag",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.admin"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/admin/blog/tags/{id}",
+            "name": "blog.admin.tags.destroy",
+            "controller": "BlogAdminController@destroyTag",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.admin"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/blog/comments",
+            "name": "blog.admin.comments",
+            "controller": "BlogAdminController@comments",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.comment.moderate"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/blog/comments/{id}/approve",
+            "name": "blog.admin.comments.approve",
+            "controller": "BlogAdminController@approveComment",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.comment.moderate"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/blog/comments/{id}/reject",
+            "name": "blog.admin.comments.reject",
+            "controller": "BlogAdminController@rejectComment",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.comment.moderate"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/admin/blog/comments/{id}",
+            "name": "blog.admin.comments.delete",
+            "controller": "BlogAdminController@deleteComment",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.comment.moderate"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/blog/blacklist",
+            "name": "blog.admin.blacklist",
+            "controller": "BlogAdminController@blacklist",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.comment.moderate"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/blog/blacklist/ban",
+            "name": "blog.admin.blacklist.ban",
+            "controller": "BlogAdminController@ban",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.comment.moderate"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/blog/blacklist/{userId}/unban",
+            "name": "blog.admin.blacklist.unban",
+            "controller": "BlogAdminController@unban",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.comment.moderate"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/blog/saved",
+            "name": "blog.saved",
+            "controller": "BlogInteractionController@saved",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.view"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/blog/{slug}/like",
+            "name": "blog.like",
+            "controller": "BlogInteractionController@toggleLike",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.view"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/blog/{slug}/bookmark",
+            "name": "blog.bookmark",
+            "controller": "BlogInteractionController@toggleBookmark",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/blog/my",
+            "name": "blog.author.index",
+            "controller": "BlogAuthorController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.write"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/blog/create",
+            "name": "blog.create",
+            "controller": "BlogAuthorController@create",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.write"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/blog/store",
+            "name": "blog.store",
+            "controller": "BlogAuthorController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.write"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/blog/{id}/edit",
+            "name": "blog.edit",
+            "controller": "BlogAuthorController@edit",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.write"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/blog/{id}",
+            "name": "blog.update",
+            "controller": "BlogAuthorController@update",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.write"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/blog/{id}",
+            "name": "blog.destroy",
+            "controller": "BlogAuthorController@destroy",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.write"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/blog/{id}/publish",
+            "name": "blog.publish",
+            "controller": "BlogAuthorController@publish",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.write"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/blog/{id}/unpublish",
+            "name": "blog.unpublish",
+            "controller": "BlogAuthorController@unpublish",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.write"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/blog/{slug}/comments",
+            "name": "blog.comments.store",
+            "controller": "BlogCommentController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.comment"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/blog/{slug}/comments/{id}/reply",
+            "name": "blog.comments.reply",
+            "controller": "BlogCommentController@reply",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.comment"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/blog/",
+            "name": "blog.index",
+            "controller": "BlogPublicController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/blog/search",
+            "name": "blog.search",
+            "controller": "BlogPublicController@search",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/blog/category/{slug}",
+            "name": "blog.category",
+            "controller": "BlogPublicController@category",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/blog/tag/{slug}",
+            "name": "blog.tag",
+            "controller": "BlogPublicController@tag",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/blog/author/{id}",
+            "name": "blog.author",
+            "controller": "BlogPublicController@author",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/blog/{slug}/pdf",
+            "name": "blog.pdf",
+            "controller": "BlogPublicController@pdf",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/blog/{slug}",
+            "name": "blog.show",
+            "controller": "BlogPublicController@show",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:blog.view"
+            ]
+        }
+    ],
+    "tables": [
+        {
+            "name": "blog_categories",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "name",
+                    "type": "varchar(100)",
+                    "nullable": false
+                },
+                {
+                    "name": "slug",
+                    "type": "varchar(120)",
+                    "nullable": false
+                },
+                {
+                    "name": "description",
+                    "type": "varchar(500)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "sort_order",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "created_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "fk_blog_cat_user",
+                    "columns": [
+                        "created_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "slug",
+                    "columns": [
+                        "slug"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_blog_cat_user",
+                    "column": "created_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "blog_tags",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "name",
+                    "type": "varchar(80)",
+                    "nullable": false
+                },
+                {
+                    "name": "slug",
+                    "type": "varchar(100)",
+                    "nullable": false
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "slug",
+                    "columns": [
+                        "slug"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": []
+        },
+        {
+            "name": "blog_articles",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "title",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "slug",
+                    "type": "varchar(280)",
+                    "nullable": false
+                },
+                {
+                    "name": "excerpt",
+                    "type": "varchar(500)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "meta_description",
+                    "type": "varchar(300)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "meta_keywords",
+                    "type": "varchar(255)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "og_image",
+                    "type": "varchar(255)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "content",
+                    "type": "longtext",
+                    "nullable": false
+                },
+                {
+                    "name": "cover_image",
+                    "type": "varchar(255)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "category_id",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "status",
+                    "type": "enum('draft','scheduled','published')",
+                    "nullable": false,
+                    "default": "'draft'"
+                },
+                {
+                    "name": "is_pinned",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "visibility",
+                    "type": "varchar(500)",
+                    "nullable": false,
+                    "default": "'all'"
+                },
+                {
+                    "name": "reading_time",
+                    "type": "smallint(5) unsigned",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "view_count",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "published_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "publish_at",
+                    "type": "datetime",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                },
+                {
+                    "name": "deleted_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "fk_blog_art_cat",
+                    "columns": [
+                        "category_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "fk_blog_art_user",
+                    "columns": [
+                        "created_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_blog_articles_publish_at",
+                    "columns": [
+                        "publish_at",
+                        "status"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_blog_art_pinned",
+                    "columns": [
+                        "is_pinned",
+                        "status",
+                        "deleted_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_blog_art_published",
+                    "columns": [
+                        "published_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_blog_art_status",
+                    "columns": [
+                        "status",
+                        "deleted_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "slug",
+                    "columns": [
+                        "slug"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_blog_art_cat",
+                    "column": "category_id",
+                    "references": "blog_categories.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "fk_blog_art_user",
+                    "column": "created_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "blog_article_tags",
+            "columns": [
+                {
+                    "name": "article_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "tag_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "fk_blog_at_tag",
+                    "columns": [
+                        "tag_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "article_id",
+                        "tag_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_blog_at_art",
+                    "column": "article_id",
+                    "references": "blog_articles.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "fk_blog_at_tag",
+                    "column": "tag_id",
+                    "references": "blog_tags.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "blog_comments",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "article_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "parent_id",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "body",
+                    "type": "text",
+                    "nullable": false
+                },
+                {
+                    "name": "status",
+                    "type": "enum('pending','approved','rejected')",
+                    "nullable": false,
+                    "default": "'approved'"
+                },
+                {
+                    "name": "moderated_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "moderated_at",
+                    "type": "datetime",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                },
+                {
+                    "name": "deleted_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "fk_blog_com_mod",
+                    "columns": [
+                        "moderated_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "fk_blog_com_parent",
+                    "columns": [
+                        "parent_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "fk_blog_com_user",
+                    "columns": [
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_blog_com_article",
+                    "columns": [
+                        "article_id",
+                        "deleted_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_blog_com_status",
+                    "columns": [
+                        "article_id",
+                        "status",
+                        "deleted_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_blog_com_art",
+                    "column": "article_id",
+                    "references": "blog_articles.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "fk_blog_com_mod",
+                    "column": "moderated_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "fk_blog_com_parent",
+                    "column": "parent_id",
+                    "references": "blog_comments.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "fk_blog_com_user",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "blog_comment_blacklist",
+            "columns": [
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "reason",
+                    "type": "varchar(500)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "banned_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "fk_blog_bl_banned",
+                    "columns": [
+                        "banned_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_blog_bl_banned",
+                    "column": "banned_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "fk_blog_bl_user",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "blog_article_likes",
+            "columns": [
+                {
+                    "name": "article_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "fk_bal_user",
+                    "columns": [
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "article_id",
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_bal_article",
+                    "column": "article_id",
+                    "references": "blog_articles.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "fk_bal_user",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "blog_article_bookmarks",
+            "columns": [
+                {
+                    "name": "article_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "fk_bab_user",
+                    "columns": [
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "article_id",
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_bab_article",
+                    "column": "article_id",
+                    "references": "blog_articles.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "fk_bab_user",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "blog_article_views",
+            "columns": [
+                {
+                    "name": "article_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "viewed_on",
+                    "type": "date",
+                    "nullable": false
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "fk_bav_user",
+                    "columns": [
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_bav_article_date",
+                    "columns": [
+                        "article_id",
+                        "viewed_on"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "article_id",
+                        "user_id",
+                        "viewed_on"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_bav_article",
+                    "column": "article_id",
+                    "references": "blog_articles.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "fk_bav_user",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        }
+    ],
+    "permissions": [
+        {
+            "slug": "blog.admin",
+            "name": "Amministra Blog"
+        },
+        {
+            "slug": "blog.comment",
+            "name": "Commenta articoli Blog"
+        },
+        {
+            "slug": "blog.comment.moderate",
+            "name": "Modera commenti Blog"
+        },
+        {
+            "slug": "blog.view",
+            "name": "Visualizza Blog"
+        },
+        {
+            "slug": "blog.write",
+            "name": "Scrivi articoli Blog"
+        }
+    ],
+    "services": [
+        "App\\Modules\\Blog\\Services\\BlogAdminService",
+        "App\\Modules\\Blog\\Services\\BlogArticleService",
+        "App\\Modules\\Blog\\Services\\BlogAuthorService",
+        "App\\Modules\\Blog\\Services\\BlogCommentService",
+        "App\\Modules\\Blog\\Services\\BlogContentSanitizer",
+        "App\\Modules\\Blog\\Services\\BlogInteractionService",
+        "App\\Modules\\Blog\\Services\\BlogPublicService",
+        "App\\Modules\\Blog\\Services\\BlogSlugService"
+    ],
+    "controllers": [
+        "App\\Modules\\Blog\\Controllers\\BlogAdminController",
+        "App\\Modules\\Blog\\Controllers\\BlogAuthorController",
+        "App\\Modules\\Blog\\Controllers\\BlogCommentController",
+        "App\\Modules\\Blog\\Controllers\\BlogInteractionController",
+        "App\\Modules\\Blog\\Controllers\\BlogPublicController"
+    ]
+}

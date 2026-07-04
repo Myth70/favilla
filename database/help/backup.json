@@ -1,0 +1,385 @@
+{
+    "module_key": "backup",
+    "module_name": "Backup",
+    "label": "Backup",
+    "description": "Backup database SQL con creazione manuale, download, ripristino controllato, cifratura opzionale, lock anti-concorrenza e rotazione automatica.",
+    "audience_default": "admin",
+    "locale_default": "it",
+    "route_name": "backup.index",
+    "permission_slug": "backup.manage",
+    "sort_order": 44,
+    "entries": [
+        {
+            "audience": "admin",
+            "route_name": "backup.index",
+            "permission_slug": "backup.manage",
+            "ranking_weight": 60,
+            "sort_order": 10,
+            "locales": {
+                "it": {
+                    "question": "Come funziona il modulo Backup?",
+                    "answer_markdown": "## Modulo Backup\r\nIl modulo Backup consente di creare e gestire dump del database direttamente da Favilla.\r\n\r\n### Cosa trovi nella pagina\r\n- elenco dei backup disponibili con dati essenziali del file;\r\n- azioni separate per creare, scaricare o ripristinare;\r\n- stato di blocco se è già in corso un backup o un restore.\r\n\r\n### Comportamento importante\r\nIl backup usa un lock per evitare esecuzioni concorrenti. Se la cifratura è configurata, il file viene protetto prima del salvataggio finale. La rotazione elimina i file più vecchi quando si supera il limite previsto.\r\n\r\n### Permessi\r\n- `backup.manage`: entrare nella sezione e creare backup;\r\n- `backup.download`: scaricare file esistenti;\r\n- `backup.restore`: avviare un ripristino.",
+                    "excerpt": "Modulo Backup Il modulo Backup consente di creare e gestire dump del database direttamente da Favilla. Cosa trovi nella pagina elenco dei backup disponibili con dati essenziali del file; azioni separate per creare...",
+                    "aliases": [
+                        "backup database",
+                        "modulo backup",
+                        "gestione backup"
+                    ]
+                },
+                "en": {
+                    "question": "How does the Backup module work?",
+                    "answer_markdown": "## Backup module\nThe Backup module lets you create and manage database dumps directly from Favilla.\n\n### What you find on the page\n- a list of available backups with the file's essential details;\n- separate actions to create, download or restore;\n- a lock status if a backup or restore is already in progress.\n\n### Important behavior\nThe backup uses a lock to prevent concurrent runs. If encryption is configured, the file is protected before the final save. Rotation removes the oldest files when the configured limit is exceeded.\n\n### Permissions\n- `backup.manage`: enter the section and create backups;\n- `backup.download`: download existing files;\n- `backup.restore`: start a restore.",
+                    "excerpt": "Backup module The Backup module lets you create and manage database dumps directly from Favilla. What you find on the page a list of available backups with the file's essential details; separate actio...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment fonctionne le module Sauvegarde ?",
+                    "answer_markdown": "## Module Sauvegarde\nLe module Sauvegarde permet de créer et de gérer des dumps de la base de données directement depuis Favilla.\n\n### Ce que vous trouvez sur la page\n- une liste des sauvegardes disponibles avec les informations essentielles du fichier ;\n- des actions séparées pour créer, télécharger ou restaurer ;\n- un état de verrouillage si une sauvegarde ou une restauration est déjà en cours.\n\n### Comportement important\nLa sauvegarde utilise un verrou pour éviter les exécutions concurrentes. Si le chiffrement est configuré, le fichier est protégé avant l'enregistrement final. La rotation supprime les fichiers les plus anciens lorsque la limite prévue est dépassée.\n\n### Autorisations\n- `backup.manage` : accéder à la section et créer des sauvegardes ;\n- `backup.download` : télécharger les fichiers existants ;\n- `backup.restore` : lancer une restauration.",
+                    "excerpt": "Module Sauvegarde Le module Sauvegarde permet de créer et de gérer des dumps de la base de données directement depuis Favilla. Ce que vous trouvez sur la page une liste des sauvegardes disponibles ave...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie funktioniert das Backup-Modul?",
+                    "answer_markdown": "## Backup-Modul\nMit dem Backup-Modul können Sie Datenbank-Dumps direkt aus Favilla erstellen und verwalten.\n\n### Was Sie auf der Seite finden\n- eine Liste der verfügbaren Backups mit den wesentlichen Dateiangaben;\n- getrennte Aktionen zum Erstellen, Herunterladen oder Wiederherstellen;\n- einen Sperrstatus, wenn bereits ein Backup oder eine Wiederherstellung läuft.\n\n### Wichtiges Verhalten\nDas Backup verwendet eine Sperre, um gleichzeitige Ausführungen zu verhindern. Wenn die Verschlüsselung konfiguriert ist, wird die Datei vor dem endgültigen Speichern geschützt. Die Rotation entfernt die ältesten Dateien, wenn das vorgesehene Limit überschritten wird.\n\n### Berechtigungen\n- `backup.manage`: den Bereich betreten und Backups erstellen;\n- `backup.download`: vorhandene Dateien herunterladen;\n- `backup.restore`: eine Wiederherstellung starten.",
+                    "excerpt": "Backup-Modul Mit dem Backup-Modul können Sie Datenbank-Dumps direkt aus Favilla erstellen und verwalten. Was Sie auf der Seite finden eine Liste der verfügbaren Backups mit den wesentlichen Dateiangab...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo funciona el módulo Backup?",
+                    "answer_markdown": "## Módulo Backup\nEl módulo Backup permite crear y gestionar volcados de la base de datos directamente desde Favilla.\n\n### Qué encuentras en la página\n- una lista de las copias de seguridad disponibles con los datos esenciales del archivo;\n- acciones separadas para crear, descargar o restaurar;\n- un estado de bloqueo si ya hay una copia de seguridad o una restauración en curso.\n\n### Comportamiento importante\nLa copia de seguridad usa un bloqueo para evitar ejecuciones concurrentes. Si el cifrado está configurado, el archivo se protege antes del guardado final. La rotación elimina los archivos más antiguos cuando se supera el límite previsto.\n\n### Permisos\n- `backup.manage`: entrar en la sección y crear copias de seguridad;\n- `backup.download`: descargar archivos existentes;\n- `backup.restore`: iniciar una restauración.",
+                    "excerpt": "Módulo Backup El módulo Backup permite crear y gestionar volcados de la base de datos directamente desde Favilla. Qué encuentras en la página una lista de las copias de seguridad disponibles con los d...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "backup.index",
+            "permission_slug": "backup.manage",
+            "ranking_weight": 28,
+            "sort_order": 20,
+            "locales": {
+                "it": {
+                    "question": "Come creo un backup manuale?",
+                    "answer_markdown": "## Creare un backup manuale\r\nApri la sezione Backup e avvia l'azione di creazione dalla pagina indice.\r\n\r\n### Cosa succede\r\nFavilla genera un dump SQL compresso del database e lo salva nell'area backup. Se la cifratura è attiva, il file viene protetto prima di essere reso disponibile.\r\n\r\n### Prima di partire\r\nVerifica di non avere già un'operazione in corso. Se il lock è presente, attendi la fine del processo attivo invece di rilanciare.",
+                    "excerpt": "Creare un backup manuale Apri la sezione Backup e avvia l'azione di creazione dalla pagina indice. Cosa succede Favilla genera un dump SQL compresso del database e lo salva nell'area backup. Se la cifratura è attiva...",
+                    "aliases": [
+                        "creare backup",
+                        "fare un backup manuale",
+                        "nuovo backup",
+                        "Come faccio un backup manuale del database?",
+                        "Come creo un backup?"
+                    ]
+                },
+                "en": {
+                    "question": "How do I create a manual backup?",
+                    "answer_markdown": "## Creating a manual backup\nOpen the Backup section and start the create action from the index page.\n\n### What happens\nFavilla generates a compressed SQL dump of the database and saves it in the backup area. If encryption is enabled, the file is protected before being made available.\n\n### Before you start\nMake sure you don't already have an operation in progress. If the lock is present, wait for the active process to finish instead of restarting it.",
+                    "excerpt": "Creating a manual backup Open the Backup section and start the create action from the index page. What happens Favilla generates a compressed SQL dump of the database and saves it in the backup area. ...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment créer une sauvegarde manuelle ?",
+                    "answer_markdown": "## Créer une sauvegarde manuelle\nOuvrez la section Sauvegarde et lancez l'action de création depuis la page d'index.\n\n### Ce qui se passe\nFavilla génère un dump SQL compressé de la base de données et l'enregistre dans l'espace de sauvegarde. Si le chiffrement est activé, le fichier est protégé avant d'être rendu disponible.\n\n### Avant de commencer\nAssurez-vous de ne pas déjà avoir une opération en cours. Si le verrou est présent, attendez la fin du processus actif au lieu de relancer.",
+                    "excerpt": "Créer une sauvegarde manuelle Ouvrez la section Sauvegarde et lancez l'action de création depuis la page d'index. Ce qui se passe Favilla génère un dump SQL compressé de la base de données et l'enregi...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie erstelle ich ein manuelles Backup?",
+                    "answer_markdown": "## Ein manuelles Backup erstellen\nÖffnen Sie den Backup-Bereich und starten Sie die Erstellungsaktion auf der Indexseite.\n\n### Was passiert\nFavilla erzeugt einen komprimierten SQL-Dump der Datenbank und speichert ihn im Backup-Bereich. Wenn die Verschlüsselung aktiviert ist, wird die Datei geschützt, bevor sie bereitgestellt wird.\n\n### Bevor Sie beginnen\nStellen Sie sicher, dass nicht bereits ein Vorgang läuft. Wenn die Sperre vorhanden ist, warten Sie auf das Ende des aktiven Prozesses, anstatt neu zu starten.",
+                    "excerpt": "Ein manuelles Backup erstellen Öffnen Sie den Backup-Bereich und starten Sie die Erstellungsaktion auf der Indexseite. Was passiert Favilla erzeugt einen komprimierten SQL-Dump der Datenbank und speic...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo creo una copia de seguridad manual?",
+                    "answer_markdown": "## Crear una copia de seguridad manual\nAbre la sección Backup e inicia la acción de creación desde la página de índice.\n\n### Qué ocurre\nFavilla genera un volcado SQL comprimido de la base de datos y lo guarda en el área de copias de seguridad. Si el cifrado está activado, el archivo se protege antes de ponerse a disposición.\n\n### Antes de empezar\nAsegúrate de no tener ya una operación en curso. Si el bloqueo está presente, espera a que termine el proceso activo en lugar de relanzar.",
+                    "excerpt": "Crear una copia de seguridad manual Abre la sección Backup e inicia la acción de creación desde la página de índice. Qué ocurre Favilla genera un volcado SQL comprimido de la base de datos y lo guarda...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "backup.index",
+            "permission_slug": "backup.download",
+            "ranking_weight": 24,
+            "sort_order": 30,
+            "locales": {
+                "it": {
+                    "question": "Come scarico un backup esistente?",
+                    "answer_markdown": "## Scaricare un backup\r\nDal modulo Backup scegli il file desiderato e usa l'azione di download.\r\n\r\n### Requisito\r\nPer il download serve il permesso `backup.download`, distinto da quello di gestione generale.\r\n\r\n### Suggerimento operativo\r\nPrima di condividere o archiviare il file, controlla data, dimensione e contesto del backup per evitare di usare uno snapshot sbagliato.",
+                    "excerpt": "Scaricare un backup Dal modulo Backup scegli il file desiderato e usa l'azione di download. Requisito Per il download serve il permesso backup.download, distinto da quello di gestione generale. Suggerimento operativo...",
+                    "aliases": [
+                        "download backup",
+                        "scaricare dump database",
+                        "esportare backup"
+                    ]
+                },
+                "en": {
+                    "question": "How do I download an existing backup?",
+                    "answer_markdown": "## Downloading a backup\nFrom the Backup module, choose the file you want and use the download action.\n\n### Requirement\nDownloading requires the `backup.download` permission, separate from the general management one.\n\n### Operational tip\nBefore sharing or archiving the file, check the backup's date, size and context to avoid using the wrong snapshot.",
+                    "excerpt": "Downloading a backup From the Backup module, choose the file you want and use the download action. Requirement Downloading requires the backup.download permission, separate from the general management...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment télécharger une sauvegarde existante ?",
+                    "answer_markdown": "## Télécharger une sauvegarde\nDepuis le module Sauvegarde, choisissez le fichier souhaité et utilisez l'action de téléchargement.\n\n### Prérequis\nLe téléchargement nécessite l'autorisation `backup.download`, distincte de celle de gestion générale.\n\n### Conseil opérationnel\nAvant de partager ou d'archiver le fichier, vérifiez la date, la taille et le contexte de la sauvegarde pour éviter d'utiliser un mauvais instantané.",
+                    "excerpt": "Télécharger une sauvegarde Depuis le module Sauvegarde, choisissez le fichier souhaité et utilisez l'action de téléchargement. Prérequis Le téléchargement nécessite l'autorisation backup.download, dis...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie lade ich ein vorhandenes Backup herunter?",
+                    "answer_markdown": "## Ein Backup herunterladen\nWählen Sie im Backup-Modul die gewünschte Datei aus und verwenden Sie die Download-Aktion.\n\n### Voraussetzung\nDer Download erfordert die Berechtigung `backup.download`, getrennt von der allgemeinen Verwaltung.\n\n### Praktischer Tipp\nPrüfen Sie vor dem Teilen oder Archivieren der Datei Datum, Größe und Kontext des Backups, um die Verwendung des falschen Snapshots zu vermeiden.",
+                    "excerpt": "Ein Backup herunterladen Wählen Sie im Backup-Modul die gewünschte Datei aus und verwenden Sie die Download-Aktion. Voraussetzung Der Download erfordert die Berechtigung backup.download, getrennt von ...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo descargo una copia de seguridad existente?",
+                    "answer_markdown": "## Descargar una copia de seguridad\nDesde el módulo Backup, elige el archivo deseado y usa la acción de descarga.\n\n### Requisito\nLa descarga requiere el permiso `backup.download`, distinto del de gestión general.\n\n### Consejo operativo\nAntes de compartir o archivar el archivo, comprueba la fecha, el tamaño y el contexto de la copia para evitar usar una instantánea equivocada.",
+                    "excerpt": "Descargar una copia de seguridad Desde el módulo Backup, elige el archivo deseado y usa la acción de descarga. Requisito La descarga requiere el permiso backup.download, distinto del de gestión genera...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "backup.index",
+            "permission_slug": "backup.restore",
+            "ranking_weight": 30,
+            "sort_order": 40,
+            "locales": {
+                "it": {
+                    "question": "Come ripristino un backup in sicurezza?",
+                    "answer_markdown": "## Ripristinare un backup\r\nIl restore è un'operazione sensibile e richiede `backup.restore`.\r\n\r\n### Prima di confermare\r\n- verifica di avere selezionato il file corretto;\r\n- informa chi usa l'ambiente se il ripristino impatta la continuità operativa;\r\n- valuta l'effetto del restore sui dati correnti.\r\n\r\n### Protezione aggiuntiva\r\nDurante il ripristino Favilla può creare un backup di sicurezza pre-restore, utile se devi tornare rapidamente allo stato precedente.",
+                    "excerpt": "Ripristinare un backup Il restore è un'operazione sensibile e richiede backup.restore. Prima di confermare verifica di avere selezionato il file corretto; informa chi usa l'ambiente se il ripristino impatta la...",
+                    "aliases": [
+                        "restore backup",
+                        "ripristinare database",
+                        "ripristino backup",
+                        "Come testo un restore in sicurezza?"
+                    ]
+                },
+                "en": {
+                    "question": "How do I restore a backup safely?",
+                    "answer_markdown": "## Restoring a backup\nThe restore is a sensitive operation and requires `backup.restore`.\n\n### Before confirming\n- make sure you have selected the correct file;\n- inform those using the environment if the restore affects business continuity;\n- assess the effect of the restore on current data.\n\n### Extra protection\nDuring the restore, Favilla can create a pre-restore safety backup, useful if you need to quickly return to the previous state.",
+                    "excerpt": "Restoring a backup The restore is a sensitive operation and requires backup.restore. Before confirming make sure you have selected the correct file; inform those using the environment if the restore a...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment restaurer une sauvegarde en toute sécurité ?",
+                    "answer_markdown": "## Restaurer une sauvegarde\nLa restauration est une opération sensible et nécessite `backup.restore`.\n\n### Avant de confirmer\n- vérifiez d'avoir sélectionné le bon fichier ;\n- informez les utilisateurs de l'environnement si la restauration impacte la continuité opérationnelle ;\n- évaluez l'effet de la restauration sur les données actuelles.\n\n### Protection supplémentaire\nPendant la restauration, Favilla peut créer une sauvegarde de sécurité pré-restauration, utile si vous devez revenir rapidement à l'état précédent.",
+                    "excerpt": "Restaurer une sauvegarde La restauration est une opération sensible et nécessite backup.restore. Avant de confirmer vérifiez d'avoir sélectionné le bon fichier ; informez les utilisateurs de l'environ...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie stelle ich ein Backup sicher wieder her?",
+                    "answer_markdown": "## Ein Backup wiederherstellen\nDie Wiederherstellung ist ein sensibler Vorgang und erfordert `backup.restore`.\n\n### Vor dem Bestätigen\n- stellen Sie sicher, dass Sie die richtige Datei ausgewählt haben;\n- informieren Sie die Nutzer der Umgebung, wenn die Wiederherstellung die Betriebskontinuität beeinträchtigt;\n- bewerten Sie die Auswirkung der Wiederherstellung auf die aktuellen Daten.\n\n### Zusätzlicher Schutz\nWährend der Wiederherstellung kann Favilla ein Sicherheits-Backup vor der Wiederherstellung erstellen, nützlich, wenn Sie schnell zum vorherigen Zustand zurückkehren müssen.",
+                    "excerpt": "Ein Backup wiederherstellen Die Wiederherstellung ist ein sensibler Vorgang und erfordert backup.restore. Vor dem Bestätigen stellen Sie sicher, dass Sie die richtige Datei ausgewählt haben; informier...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo restauro una copia de seguridad de forma segura?",
+                    "answer_markdown": "## Restaurar una copia de seguridad\nLa restauración es una operación sensible y requiere `backup.restore`.\n\n### Antes de confirmar\n- asegúrate de haber seleccionado el archivo correcto;\n- informa a quienes usan el entorno si la restauración afecta a la continuidad operativa;\n- evalúa el efecto de la restauración sobre los datos actuales.\n\n### Protección adicional\nDurante la restauración, Favilla puede crear una copia de seguridad previa, útil si necesitas volver rápidamente al estado anterior.",
+                    "excerpt": "Restaurar una copia de seguridad La restauración es una operación sensible y requiere backup.restore. Antes de confirmar asegúrate de haber seleccionado el archivo correcto; informa a quienes usan el ...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "backup.index",
+            "permission_slug": "backup.manage",
+            "ranking_weight": 22,
+            "sort_order": 50,
+            "locales": {
+                "it": {
+                    "question": "Perché compare il messaggio di backup già in corso?",
+                    "answer_markdown": "## Backup già in corso\r\nQuando compare questo messaggio significa che il lock del modulo è attivo.\r\n\r\n### Perché esiste il lock\r\nServe a impedire che due processi di backup o restore lavorino contemporaneamente sugli stessi dati.\r\n\r\n### Cosa fare\r\n- attendi la fine del processo attuale;\r\n- controlla se un'operazione precedente si è interrotta in modo anomalo;\r\n- evita di forzare nuove esecuzioni finché il lock non è stato gestito correttamente.",
+                    "excerpt": "Backup già in corso Quando compare questo messaggio significa che il lock del modulo è attivo. Perché esiste il lock Serve a impedire che due processi di backup o restore lavorino contemporaneamente sugli stessi dati...",
+                    "aliases": [
+                        "backup in corso",
+                        "lock backup",
+                        "processo backup bloccato",
+                        "Come verifico se il backup e in corso?"
+                    ]
+                },
+                "en": {
+                    "question": "Why does the 'backup already in progress' message appear?",
+                    "answer_markdown": "## Backup already in progress\nWhen this message appears, it means the module lock is active.\n\n### Why the lock exists\nIt prevents two backup or restore processes from working on the same data at the same time.\n\n### What to do\n- wait for the current process to finish;\n- check whether a previous operation stopped abnormally;\n- avoid forcing new runs until the lock has been handled correctly.",
+                    "excerpt": "Backup already in progress When this message appears, it means the module lock is active. Why the lock exists It prevents two backup or restore processes from working on the same data at the same time...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Pourquoi le message « sauvegarde déjà en cours » apparaît-il ?",
+                    "answer_markdown": "## Sauvegarde déjà en cours\nLorsque ce message apparaît, cela signifie que le verrou du module est actif.\n\n### Pourquoi le verrou existe\nIl empêche que deux processus de sauvegarde ou de restauration travaillent simultanément sur les mêmes données.\n\n### Que faire\n- attendez la fin du processus en cours ;\n- vérifiez si une opération précédente s'est interrompue de manière anormale ;\n- évitez de forcer de nouvelles exécutions tant que le verrou n'a pas été géré correctement.",
+                    "excerpt": "Sauvegarde déjà en cours Lorsque ce message apparaît, cela signifie que le verrou du module est actif. Pourquoi le verrou existe Il empêche que deux processus de sauvegarde ou de restauration travaill...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Warum erscheint die Meldung „Backup bereits in Bearbeitung“?",
+                    "answer_markdown": "## Backup bereits in Bearbeitung\nWenn diese Meldung erscheint, ist die Modulsperre aktiv.\n\n### Warum die Sperre existiert\nSie verhindert, dass zwei Backup- oder Wiederherstellungsprozesse gleichzeitig auf denselben Daten arbeiten.\n\n### Was zu tun ist\n- warten Sie auf das Ende des aktuellen Prozesses;\n- prüfen Sie, ob ein vorheriger Vorgang anomal abgebrochen ist;\n- vermeiden Sie es, neue Ausführungen zu erzwingen, bis die Sperre korrekt behandelt wurde.",
+                    "excerpt": "Backup bereits in Bearbeitung Wenn diese Meldung erscheint, ist die Modulsperre aktiv. Warum die Sperre existiert Sie verhindert, dass zwei Backup- oder Wiederherstellungsprozesse gleichzeitig auf den...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Por qué aparece el mensaje de copia de seguridad ya en curso?",
+                    "answer_markdown": "## Copia de seguridad ya en curso\nCuando aparece este mensaje significa que el bloqueo del módulo está activo.\n\n### Por qué existe el bloqueo\nSirve para impedir que dos procesos de copia de seguridad o restauración trabajen a la vez sobre los mismos datos.\n\n### Qué hacer\n- espera a que termine el proceso actual;\n- comprueba si una operación anterior se interrumpió de forma anómala;\n- evita forzar nuevas ejecuciones hasta que el bloqueo se haya gestionado correctamente.",
+                    "excerpt": "Copia de seguridad ya en curso Cuando aparece este mensaje significa que el bloqueo del módulo está activo. Por qué existe el bloqueo Sirve para impedir que dos procesos de copia de seguridad o restau...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "backup.index",
+            "permission_slug": "backup.manage",
+            "ranking_weight": 18,
+            "sort_order": 60,
+            "locales": {
+                "it": {
+                    "question": "Come funzionano cifratura e rotazione dei backup?",
+                    "answer_markdown": "## Cifratura e rotazione\r\nIl modulo può proteggere i file di backup con cifratura applicativa e mantenere solo un numero limitato di copie.\r\n\r\n### Cifratura\r\nSe l'ambiente è configurato con la chiave dedicata, il file non resta in chiaro come semplice dump scaricabile.\r\n\r\n### Rotazione\r\nQuando il numero massimo di backup viene superato, Favilla elimina i file più vecchi secondo la politica prevista. Questo evita crescita incontrollata dello storage.",
+                    "excerpt": "Cifratura e rotazione Il modulo può proteggere i file di backup con cifratura applicativa e mantenere solo un numero limitato di copie. Cifratura Se l'ambiente è configurato con la chiave dedicata, il file non resta in...",
+                    "aliases": [
+                        "backup cifrati",
+                        "rotazione backup",
+                        "retention backup",
+                        "Come funziona la rotazione dei backup?"
+                    ]
+                },
+                "en": {
+                    "question": "How do backup encryption and rotation work?",
+                    "answer_markdown": "## Encryption and rotation\nThe module can protect backup files with application encryption and keep only a limited number of copies.\n\n### Encryption\nIf the environment is configured with the dedicated key, the file is not left in plain text as a simple downloadable dump.\n\n### Rotation\nWhen the maximum number of backups is exceeded, Favilla removes the oldest files according to the configured policy. This prevents uncontrolled storage growth.",
+                    "excerpt": "Encryption and rotation The module can protect backup files with application encryption and keep only a limited number of copies. Encryption If the environment is configured with the dedicated key, th...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment fonctionnent le chiffrement et la rotation des sauvegardes ?",
+                    "answer_markdown": "## Chiffrement et rotation\nLe module peut protéger les fichiers de sauvegarde avec un chiffrement applicatif et ne conserver qu'un nombre limité de copies.\n\n### Chiffrement\nSi l'environnement est configuré avec la clé dédiée, le fichier ne reste pas en clair sous la forme d'un simple dump téléchargeable.\n\n### Rotation\nLorsque le nombre maximal de sauvegardes est dépassé, Favilla supprime les fichiers les plus anciens selon la politique prévue. Cela évite une croissance incontrôlée du stockage.",
+                    "excerpt": "Chiffrement et rotation Le module peut protéger les fichiers de sauvegarde avec un chiffrement applicatif et ne conserver qu'un nombre limité de copies. Chiffrement Si l'environnement est configuré av...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie funktionieren Verschlüsselung und Rotation der Backups?",
+                    "answer_markdown": "## Verschlüsselung und Rotation\nDas Modul kann Backup-Dateien mit Anwendungsverschlüsselung schützen und nur eine begrenzte Anzahl von Kopien aufbewahren.\n\n### Verschlüsselung\nWenn die Umgebung mit dem dedizierten Schlüssel konfiguriert ist, bleibt die Datei nicht als einfacher herunterladbarer Dump im Klartext.\n\n### Rotation\nWenn die maximale Anzahl von Backups überschritten wird, entfernt Favilla die ältesten Dateien gemäß der vorgesehenen Richtlinie. Dies verhindert unkontrolliertes Wachstum des Speichers.",
+                    "excerpt": "Verschlüsselung und Rotation Das Modul kann Backup-Dateien mit Anwendungsverschlüsselung schützen und nur eine begrenzte Anzahl von Kopien aufbewahren. Verschlüsselung Wenn die Umgebung mit dem dedizi...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo funcionan el cifrado y la rotación de las copias de seguridad?",
+                    "answer_markdown": "## Cifrado y rotación\nEl módulo puede proteger los archivos de copia de seguridad con cifrado de la aplicación y mantener solo un número limitado de copias.\n\n### Cifrado\nSi el entorno está configurado con la clave dedicada, el archivo no queda en texto plano como un simple volcado descargable.\n\n### Rotación\nCuando se supera el número máximo de copias, Favilla elimina los archivos más antiguos según la política prevista. Esto evita un crecimiento incontrolado del almacenamiento.",
+                    "excerpt": "Cifrado y rotación El módulo puede proteger los archivos de copia de seguridad con cifrado de la aplicación y mantener solo un número limitado de copias. Cifrado Si el entorno está configurado con la ...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "backup.index",
+            "permission_slug": "backup.manage",
+            "ranking_weight": 15,
+            "sort_order": 61,
+            "locales": {
+                "it": {
+                    "question": "Come elimino un backup esistente?",
+                    "answer_markdown": "## Eliminare un backup\nDall'elenco backup seleziona il file e scegli **Elimina** (richiede `backup.manage`).\n\n### Attenzione\nL'eliminazione rimuove il file dal disco: se non hai una copia altrove, non potrai più usarlo per un ripristino.",
+                    "excerpt": "Eliminare un backup Dall'elenco backup seleziona il file e scegli Elimina (richiede backup.manage). Attenzione L'eliminazione rimuove il file dal disco: se non hai una copia altrove, non potrai più usarlo per un ripristino.",
+                    "aliases": [
+                        "eliminare backup",
+                        "cancellare backup",
+                        "rimuovere backup"
+                    ]
+                },
+                "en": {
+                    "question": "How do I delete an existing backup?",
+                    "answer_markdown": "## Deleting a backup\nFrom the backup list select the file and choose **Delete** (requires `backup.manage`).\n\n### Warning\nDeletion removes the file from disk: if you don't have a copy elsewhere, you won't be able to use it for a restore anymore.",
+                    "excerpt": "Deleting a backup From the backup list select the file and choose Delete (requires backup.manage). Warning Deletion removes the file from disk: if you don't have a copy elsewhere, you won't be able to use it for a restore anymore.",
+                    "aliases": [
+                        "delete backup",
+                        "remove backup"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment supprimer un backup existant ?",
+                    "answer_markdown": "## Supprimer un backup\nDepuis la liste des backups, sélectionnez le fichier et choisissez **Supprimer** (nécessite `backup.manage`).\n\n### Attention\nLa suppression retire le fichier du disque : sans copie ailleurs, vous ne pourrez plus l'utiliser pour une restauration.",
+                    "excerpt": "Supprimer un backup Depuis la liste des backups, sélectionnez le fichier et choisissez Supprimer (nécessite backup.manage). Attention La suppression retire le fichier du disque : sans copie ailleurs, vous ne pourrez plus...",
+                    "aliases": [
+                        "supprimer backup",
+                        "retirer backup"
+                    ]
+                },
+                "de": {
+                    "question": "Wie lösche ich einen bestehenden Backup?",
+                    "answer_markdown": "## Backup löschen\nWählen Sie in der Backup-Liste die Datei aus und klicken Sie auf **Löschen** (erfordert `backup.manage`).\n\n### Achtung\nDas Löschen entfernt die Datei von der Festplatte: ohne eine Kopie an anderer Stelle können Sie sie nicht mehr für eine Wiederherstellung nutzen.",
+                    "excerpt": "Backup löschen Wählen Sie in der Backup-Liste die Datei aus und klicken Sie auf Löschen (erfordert backup.manage). Achtung Das Löschen entfernt die Datei von der Festplatte: ohne eine Kopie an anderer Stelle können Sie sie nicht...",
+                    "aliases": [
+                        "backup löschen",
+                        "backup entfernen"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo elimino una copia de seguridad existente?",
+                    "answer_markdown": "## Eliminar una copia de seguridad\nDesde la lista de copias selecciona el archivo y elige **Eliminar** (requiere `backup.manage`).\n\n### Atención\nLa eliminación quita el archivo del disco: si no tienes una copia en otro lugar, ya no podrás usarlo para restaurar.",
+                    "excerpt": "Eliminar una copia de seguridad Desde la lista de copias selecciona el archivo y elige Eliminar (requiere backup.manage). Atención La eliminación quita el archivo del disco: si no tienes una copia en otro lugar, ya no podrás...",
+                    "aliases": [
+                        "eliminar backup",
+                        "borrar copia de seguridad"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "backup.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 62,
+            "locales": {
+                "it": {
+                    "question": "Che differenza c'è tra i permessi di Backup?",
+                    "answer_markdown": "## Permessi distinti\nBackup separa tre permessi indipendenti:\n- `backup.manage`: crea, elimina e amministra i backup;\n- `backup.download`: scarica un backup esistente;\n- `backup.restore`: ripristina il database da un backup.\n\n### Perché separati\nCosì puoi dare a un ruolo la possibilità di scaricare i backup per un audit esterno senza concedere anche la possibilità di ripristinarli o eliminarli.",
+                    "excerpt": "Permessi distinti Backup separa tre permessi indipendenti: backup.manage: crea, elimina e amministra i backup; backup.download: scarica un backup esistente; backup.restore: ripristina il database da un backup. Perché separati...",
+                    "aliases": [
+                        "permessi backup",
+                        "backup manage download restore"
+                    ]
+                },
+                "en": {
+                    "question": "What's the difference between the Backup permissions?",
+                    "answer_markdown": "## Separate permissions\nBackup splits three independent permissions:\n- `backup.manage`: create, delete and administer backups;\n- `backup.download`: download an existing backup;\n- `backup.restore`: restore the database from a backup.\n\n### Why separate\nThis lets you give a role the ability to download backups for an external audit without also granting the ability to restore or delete them.",
+                    "excerpt": "Separate permissions Backup splits three independent permissions: backup.manage: create, delete and administer backups; backup.download: download an existing backup; backup.restore: restore the database from a backup. Why...",
+                    "aliases": [
+                        "backup permissions",
+                        "backup manage download restore"
+                    ]
+                },
+                "fr": {
+                    "question": "Quelle est la différence entre les permissions de Backup ?",
+                    "answer_markdown": "## Permissions distinctes\nBackup sépare trois permissions indépendantes :\n- `backup.manage` : créer, supprimer et administrer les backups ;\n- `backup.download` : télécharger un backup existant ;\n- `backup.restore` : restaurer la base de données à partir d'un backup.\n\n### Pourquoi séparées\nCela permet de donner à un rôle la possibilité de télécharger les backups pour un audit externe sans lui accorder aussi la possibilité de les restaurer ou de les supprimer.",
+                    "excerpt": "Permissions distinctes Backup sépare trois permissions indépendantes : backup.manage : créer, supprimer et administrer les backups ; backup.download : télécharger un backup existant ; backup.restore : restaurer la base de données...",
+                    "aliases": [
+                        "permissions backup",
+                        "backup manage download restore"
+                    ]
+                },
+                "de": {
+                    "question": "Was ist der Unterschied zwischen den Backup-Berechtigungen?",
+                    "answer_markdown": "## Getrennte Berechtigungen\nBackup unterteilt drei unabhängige Berechtigungen:\n- `backup.manage`: Backups erstellen, löschen und verwalten;\n- `backup.download`: einen bestehenden Backup herunterladen;\n- `backup.restore`: die Datenbank aus einem Backup wiederherstellen.\n\n### Warum getrennt\nSo können Sie einer Rolle erlauben, Backups für ein externes Audit herunterzuladen, ohne ihr auch die Wiederherstellung oder Löschung zu gestatten.",
+                    "excerpt": "Getrennte Berechtigungen Backup unterteilt drei unabhängige Berechtigungen: backup.manage: Backups erstellen, löschen und verwalten; backup.download: einen bestehenden Backup herunterladen; backup.restore: die Datenbank aus einem...",
+                    "aliases": [
+                        "backup berechtigungen",
+                        "backup manage download restore"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cuál es la diferencia entre los permisos de Backup?",
+                    "answer_markdown": "## Permisos independientes\nBackup separa tres permisos independientes:\n- `backup.manage`: crear, eliminar y administrar copias de seguridad;\n- `backup.download`: descargar una copia existente;\n- `backup.restore`: restaurar la base de datos desde una copia.\n\n### Por qué separados\nEsto permite dar a un rol la posibilidad de descargar copias para una auditoría externa sin concederle también la posibilidad de restaurarlas o eliminarlas.",
+                    "excerpt": "Permisos independientes Backup separa tres permisos independientes: backup.manage: crear, eliminar y administrar copias de seguridad; backup.download: descargar una copia existente; backup.restore: restaurar la base de datos...",
+                    "aliases": [
+                        "permisos backup",
+                        "backup manage download restore"
+                    ]
+                }
+            }
+        }
+    ]
+}

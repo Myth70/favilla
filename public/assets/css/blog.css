@@ -1,0 +1,846 @@
+/* ============================================================
+   Blog module styles — prefix: .bl-
+   Professional intranet knowledge base design
+   ============================================================ */
+
+/* --- Article card --- */
+.bl-card {
+    border: none;
+    border-radius: .75rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+    transition: box-shadow .2s ease, transform .2s ease;
+}
+
+.bl-card:hover {
+    box-shadow: 0 6px 16px rgba(0,0,0,.1);
+    transform: translateY(-2px);
+}
+
+.bl-card-cover {
+    height: 220px;
+    object-fit: cover;
+    border-radius: .75rem .75rem 0 0;
+}
+
+.bl-card-meta {
+    font-size: .85rem;
+}
+
+.bl-card .card-title a {
+    transition: color .15s;
+}
+
+.bl-card .card-title a:hover {
+    color: var(--bs-primary) !important;
+}
+
+/* --- Card stats bar --- */
+.bl-card-stats {
+    font-size: .82rem;
+}
+
+.bl-stat-item {
+    color: #64748b;
+}
+
+/* --- Avatar XS (24px, for cards) --- */
+.bl-avatar-xs {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bs-primary);
+    color: #fff;
+    font-size: .65rem;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+/* --- Hero cover image (show page) --- */
+.bl-cover-hero {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem 1rem 0 0;
+    max-height: 400px;
+}
+.bl-cover-hero-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+}
+.bl-cover-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(0,0,0,.25) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+/* --- Article paper container (show page) --- */
+.bl-article-paper {
+    background: #fff;
+    border-radius: 0 0 1rem 1rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,.07), 0 1px 4px rgba(0,0,0,.04);
+    padding: 2.5rem 3rem;
+}
+.bl-article-paper.bl-has-cover {
+    border-radius: 0 0 1rem 1rem;
+    margin-top: 0;
+}
+.bl-article:not(:has(.bl-cover-hero)) .bl-article-paper {
+    border-radius: 1rem;
+}
+
+@media (max-width: 576px) {
+    .bl-article-paper {
+        padding: 1.5rem 1.25rem;
+        border-radius: 0 0 .75rem .75rem;
+    }
+    .bl-cover-hero {
+        border-radius: .75rem .75rem 0 0;
+        max-height: 240px;
+    }
+    .bl-cover-hero-img {
+        height: 240px;
+    }
+}
+@media (min-width: 577px) and (max-width: 991px) {
+    .bl-article-paper {
+        padding: 2rem 2rem;
+    }
+}
+
+/* --- Author hero profile --- */
+.bl-hero-profile {
+    background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+    border: 1px solid #e2e8f0;
+    border-radius: .75rem;
+    padding: 1.75rem 2rem;
+}
+
+.bl-hero-avatar-wrap {
+    flex-shrink: 0;
+}
+
+.bl-hero-avatar {
+    width: 88px;
+    height: 88px;
+    object-fit: cover;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,.1);
+}
+
+.bl-hero-avatar-placeholder {
+    width: 88px;
+    height: 88px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bs-primary);
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,.1);
+}
+
+.bl-hero-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 60px;
+}
+
+.bl-hero-stat-value {
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.bl-hero-stat-label {
+    font-size: .72rem;
+    color: #64748b;
+    font-weight: 500;
+    margin-top: .1rem;
+}
+
+@media (max-width: 576px) {
+    .bl-hero-profile {
+        padding: 1.25rem 1rem;
+    }
+    .bl-hero-avatar,
+    .bl-hero-avatar-placeholder {
+        width: 64px;
+        height: 64px;
+        font-size: 1.5rem;
+    }
+    .bl-hero-stat-value {
+        font-size: 1.1rem;
+    }
+}
+
+/* --- Author stat cards --- */
+.bl-stat-card {
+    border: none;
+    border-radius: .75rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+
+    /* Override pf-hero-stats for blog author page with row/col layout */
+.bl-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,.1);
+}
+
+.bl-stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.bl-stat-label {
+    font-size: .78rem;
+    color: #64748b;
+    font-weight: 500;
+    margin-top: .15rem;
+}
+
+/* --- Author table utilities --- */
+.bl-col-status {
+    width: 90px;
+}
+
+.bl-col-stat {
+    width: 80px;
+}
+
+.bl-col-actions {
+    width: 120px;
+}
+
+.bl-cover-preview-img {
+    max-height: 200px;
+}
+
+.bl-publish-at-input {
+    max-width: 280px;
+}
+
+.bl-category-badge {
+    font-size: .72rem;
+}
+
+/* --- Pinned badge --- */
+.bl-pinned-badge {
+    background-color: #f59e0b;
+    color: #fff;
+    font-weight: 600;
+    font-size: .75rem;
+}
+
+/* --- Pinned section --- */
+.bl-pinned-section {
+    padding-bottom: .5rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* --- Reading time --- */
+.bl-reading-time {
+    font-size: .82rem;
+    color: #64748b;
+}
+
+/* --- Reading progress bar --- */
+.bl-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--bs-primary), #60a5fa);
+    z-index: 1050;
+    transition: width .1s linear;
+    border-radius: 0 2px 2px 0;
+}
+
+/* --- Article header --- */
+.bl-article-header {
+    padding-bottom: 1.75rem;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+/* --- Meta chips (stats in header) --- */
+.bl-meta-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: .25rem .65rem;
+    font-size: .8rem;
+    background: #f1f5f9;
+    border-radius: 2rem;
+    color: #64748b;
+    transition: background .15s;
+}
+.bl-meta-chip:hover {
+    background: #e2e8f0;
+    color: #475569;
+}
+a.bl-meta-chip {
+    color: #64748b;
+}
+a.bl-meta-chip:hover {
+    color: #475569;
+}
+
+/* --- Actions bar (like/bookmark) --- */
+.bl-actions-bar {
+    padding: 1rem 0;
+    margin: 0;
+    border-bottom: 2px solid #f1f5f9;
+    margin-bottom: 1.5rem;
+}
+
+/* --- Category pill --- */
+.bl-category-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: .3rem .75rem;
+    font-size: .8rem;
+    font-weight: 600;
+    color: var(--bs-primary);
+    background: rgba(59, 130, 246, .08);
+    border: 1px solid rgba(59, 130, 246, .2);
+    border-radius: 2rem;
+    transition: all .15s ease;
+}
+.bl-category-pill:hover {
+    background: rgba(59, 130, 246, .15);
+    color: var(--bs-primary);
+}
+
+/* --- Article show --- */
+.bl-article-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
+    color: #0f172a;
+}
+
+.bl-article-excerpt {
+    font-size: 1.2rem;
+    line-height: 1.65;
+    color: #475569;
+    margin-top: .75rem;
+    margin-bottom: 0;
+}
+
+/* --- Meta info --- */
+.bl-article-meta {
+    font-size: .88rem;
+}
+
+.bl-avatar-sm {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bs-primary);
+    color: #fff;
+    font-size: .8rem;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.bl-avatar-lg {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bs-primary);
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.bl-meta-details {
+    font-size: .85rem;
+}
+
+/* --- Cover image --- */
+.bl-cover-figure {
+    margin: 0;
+}
+
+.bl-article-cover {
+    max-height: 480px;
+    object-fit: cover;
+    width: 100%;
+    border-radius: .75rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,.08);
+}
+
+/* --- Article content typography --- */
+.bl-article-content {
+    font-size: 1.08rem;
+    line-height: 1.85;
+    word-wrap: break-word;
+    color: #1e293b;
+}
+
+.bl-article-content p {
+    margin-bottom: 1.15rem;
+}
+
+.bl-article-content .ql-editor h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: .75rem;
+    padding-bottom: .4rem;
+    border-bottom: 2px solid #e2e8f0;
+    color: #0f172a;
+}
+
+.bl-article-content .ql-editor h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: .5rem;
+    color: #1e293b;
+}
+
+.bl-article-content .ql-editor blockquote {
+    border-left: 4px solid var(--bs-primary);
+    margin: 1.5rem 0;
+    padding: .75rem 1.25rem;
+    background: #f8fafc;
+    border-radius: 0 .5rem .5rem 0;
+    color: #475569;
+    font-style: italic;
+}
+
+.bl-article-content .ql-editor pre.ql-syntax {
+    border-radius: .5rem;
+    margin: 1.25rem 0;
+}
+
+.bl-article-content .ql-editor img {
+    border-radius: .5rem;
+    max-width: 100%;
+    height: auto;
+    margin: 1rem 0;
+}
+
+.bl-article-content .ql-editor a {
+    color: var(--bs-primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+/* --- Tags --- */
+.bl-article-tags {
+    border-top: 1px solid #e2e8f0;
+}
+
+.bl-tag-pill {
+    display: inline-block;
+    padding: .3rem .7rem;
+    font-size: .82rem;
+    font-weight: 500;
+    color: #475569;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 2rem;
+    transition: all .15s ease;
+}
+.bl-tag-pill:hover {
+    background: #e2e8f0;
+    color: #1e293b;
+    border-color: #cbd5e1;
+}
+
+/* --- Author card --- */
+.bl-author-card {
+    padding: 1.5rem 1.75rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+    border-radius: .75rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0,0,0,.04);
+}
+
+.bl-author-avatar {
+    box-shadow: 0 2px 12px rgba(0,0,0,.12);
+    border: 2px solid #fff;
+}
+
+.ls-wide {
+    letter-spacing: .06em;
+}
+
+/* --- Comment count badge --- */
+.bl-comment-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.5rem;
+    height: 1.5rem;
+    padding: 0 .4rem;
+    font-size: .75rem;
+    font-weight: 600;
+    color: #fff;
+    background: var(--bs-primary);
+    border-radius: 2rem;
+    margin-left: .5rem;
+    vertical-align: middle;
+}
+
+/* --- Comment form --- */
+.bl-comment-form {
+    padding: 1.25rem;
+    background: #f8fafc;
+    border-radius: .75rem;
+    border: 1px solid #e2e8f0;
+}
+.bl-comment-form textarea {
+    border-radius: .5rem;
+    resize: vertical;
+    border-color: #e2e8f0;
+}
+.bl-comment-form textarea:focus {
+    border-color: var(--bs-primary);
+    box-shadow: 0 0 0 .2rem rgba(59,130,246,.12);
+}
+
+/* --- Table of contents --- */
+.bl-toc {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: .5rem;
+    padding: 1rem 1.25rem;
+}
+
+.bl-toc-title {
+    font-size: .85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: #64748b;
+    margin-bottom: .75rem;
+}
+
+.bl-toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.bl-toc-list li {
+    padding: .25rem 0;
+}
+
+.bl-toc-list a {
+    text-decoration: none;
+    font-size: .9rem;
+    color: #475569;
+    transition: color .15s;
+}
+
+.bl-toc-list a:hover {
+    color: var(--bs-primary);
+}
+
+.bl-toc-list .bl-toc-h3 {
+    padding-left: 1rem;
+    font-size: .85rem;
+}
+
+/* --- Comments --- */
+.bl-comment {
+    padding: 1rem;
+    margin-bottom: .75rem;
+    background: #f8fafc;
+    border-radius: .75rem;
+    border: 1px solid #f1f5f9;
+    transition: border-color .15s;
+}
+.bl-comment:hover {
+    border-color: #e2e8f0;
+}
+
+.bl-comment-initials {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bs-primary);
+    color: #fff;
+    font-size: .85rem;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.bl-comment-initials-sm {
+    width: 30px;
+    height: 30px;
+    font-size: .72rem;
+}
+
+.bl-comment-header {
+    font-size: .9rem;
+}
+
+.bl-comment-body {
+    line-height: 1.65;
+    color: #334155;
+}
+
+.bl-reply-toggle {
+    font-size: .8rem;
+}
+
+.bl-replies {
+    border-color: #e2e8f0 !important;
+    margin-top: .5rem;
+    padding-left: 1rem;
+}
+.bl-replies .bl-comment {
+    background: #fff;
+    border-color: #e2e8f0;
+}
+
+.bl-quill-editor {
+    min-height: 320px;
+}
+
+.bl-cover-current {
+    max-height: 200px;
+}
+
+.bl-cover-input {
+    max-width: 320px;
+}
+
+.bl-col-check {
+    width: 2rem;
+}
+
+.bl-comment-snippet {
+    max-width: 300px;
+}
+
+.bl-batch-action-select {
+    width: auto;
+}
+
+/* --- Dark theme adjustments --- */
+[data-bs-theme="dark"] .bl-card {
+    background: var(--bs-body-bg);
+    border: 1px solid var(--bs-border-color);
+}
+
+[data-bs-theme="dark"] .bl-card:hover {
+    box-shadow: 0 6px 16px rgba(0,0,0,.3);
+}
+
+[data-bs-theme="dark"] .bl-article-paper {
+    background: var(--bs-body-bg);
+    border: 1px solid var(--bs-border-color);
+    box-shadow: 0 4px 24px rgba(0,0,0,.3);
+}
+[data-bs-theme="dark"] .bl-cover-overlay {
+    background: linear-gradient(0deg, rgba(0,0,0,.45) 0%, transparent 60%);
+}
+[data-bs-theme="dark"] .bl-meta-chip {
+    background: rgba(255,255,255,.06);
+    color: #94a3b8;
+}
+[data-bs-theme="dark"] .bl-meta-chip:hover,
+[data-bs-theme="dark"] a.bl-meta-chip:hover {
+    background: rgba(255,255,255,.1);
+    color: #cbd5e1;
+}
+[data-bs-theme="dark"] .bl-actions-bar {
+    border-color: var(--bs-border-color);
+}
+[data-bs-theme="dark"] .bl-comment {
+    background: rgba(255,255,255,.03);
+    border-color: var(--bs-border-color);
+}
+[data-bs-theme="dark"] .bl-comment:hover {
+    border-color: rgba(255,255,255,.15);
+}
+[data-bs-theme="dark"] .bl-comment-body {
+    color: #cbd5e1;
+}
+[data-bs-theme="dark"] .bl-replies .bl-comment {
+    background: rgba(255,255,255,.02);
+}
+[data-bs-theme="dark"] .bl-comment-form {
+    background: rgba(255,255,255,.03);
+    border-color: var(--bs-border-color);
+}
+
+[data-bs-theme="dark"] .bl-stat-item {
+    color: #94a3b8;
+}
+
+[data-bs-theme="dark"] .bl-avatar-xs {
+    background: var(--bs-primary);
+}
+
+[data-bs-theme="dark"] .bl-hero-profile {
+    background: linear-gradient(135deg, var(--bs-body-bg) 0%, rgba(59,130,246,.06) 100%);
+    border-color: var(--bs-border-color);
+}
+
+[data-bs-theme="dark"] .bl-hero-avatar,
+[data-bs-theme="dark"] .bl-hero-avatar-placeholder {
+    border-color: var(--bs-border-color);
+    box-shadow: 0 2px 12px rgba(0,0,0,.25);
+}
+
+[data-bs-theme="dark"] .bl-hero-stat-label {
+    color: #94a3b8;
+}
+
+[data-bs-theme="dark"] .bl-stat-card {
+    background: var(--bs-body-bg);
+    border: 1px solid var(--bs-border-color);
+}
+
+[data-bs-theme="dark"] .bl-stat-label {
+    color: #94a3b8;
+}
+
+[data-bs-theme="dark"] .bl-comment-initials,
+[data-bs-theme="dark"] .bl-avatar-sm,
+[data-bs-theme="dark"] .bl-avatar-lg {
+    background: var(--bs-primary);
+}
+
+[data-bs-theme="dark"] .bl-article-title {
+    color: #f1f5f9;
+}
+
+[data-bs-theme="dark"] .bl-article-excerpt {
+    color: #94a3b8;
+}
+
+[data-bs-theme="dark"] .bl-article-header {
+    border-color: var(--bs-border-color);
+}
+
+[data-bs-theme="dark"] .bl-article-content {
+    color: #cbd5e1;
+}
+
+[data-bs-theme="dark"] .bl-article-content .ql-editor h2 {
+    color: #f1f5f9;
+    border-bottom-color: var(--bs-border-color);
+}
+
+[data-bs-theme="dark"] .bl-article-content .ql-editor h3 {
+    color: #e2e8f0;
+}
+
+[data-bs-theme="dark"] .bl-article-cover {
+    box-shadow: 0 4px 16px rgba(0,0,0,.25);
+}
+
+[data-bs-theme="dark"] .bl-category-pill {
+    background: rgba(59, 130, 246, .15);
+    border-color: rgba(59, 130, 246, .3);
+}
+
+[data-bs-theme="dark"] .bl-tag-pill {
+    background: var(--bs-body-bg);
+    border-color: var(--bs-border-color);
+    color: #94a3b8;
+}
+[data-bs-theme="dark"] .bl-tag-pill:hover {
+    background: var(--bs-border-color);
+    color: #e2e8f0;
+}
+
+[data-bs-theme="dark"] .bl-article-tags {
+    border-color: var(--bs-border-color);
+}
+
+[data-bs-theme="dark"] .bl-author-card {
+    background: linear-gradient(135deg, var(--bs-body-bg) 0%, rgba(59,130,246,.06) 100%);
+    border-color: var(--bs-border-color);
+}
+[data-bs-theme="dark"] .bl-author-avatar {
+    border-color: var(--bs-border-color);
+}
+[data-bs-theme="dark"] .bl-article-header {
+    border-color: var(--bs-border-color);
+}
+
+[data-bs-theme="dark"] .bl-toc {
+    background: var(--bs-body-bg);
+    border-color: var(--bs-border-color);
+}
+
+[data-bs-theme="dark"] .bl-toc-list a {
+    color: #94a3b8;
+}
+
+[data-bs-theme="dark"] .bl-pinned-section {
+    border-color: var(--bs-border-color);
+}
+
+[data-bs-theme="dark"] .bl-reading-time {
+    color: #94a3b8;
+}
+
+/* ============================================================
+   Quill editor overrides — evita scrollbar indesiderati
+   nel layout flex di Prometeo
+   ============================================================ */
+
+/* --- Form: editor di scrittura ---
+   Il .ql-container di Quill usa height:100% di default;
+   lo forziamo ad altezza automatica così il container
+   cresce col contenuto senza creare scrollbar di pagina.       */
+#bl-quill-editor .ql-container {
+    height: auto;
+}
+#bl-quill-editor .ql-editor {
+    height: auto;
+    min-height: 280px;
+    overflow-y: auto;   /* scrollbar solo dentro l'editor  */
+    max-height: 520px;  /* limite ragionevole prima di scrollare */
+}
+
+/* --- Vista articolo: contenuto in sola lettura ---
+   Rimuoviamo overflow/height fissi di Quill; il testo
+   deve fluire normalmente nella pagina come qualsiasi div.    */
+.bl-article-content .ql-editor {
+    height: auto !important;
+    overflow: visible !important;
+    padding: 0 !important;
+}
+
+/* Dark mode: font color per il contenuto Quill in lettura */
+[data-bs-theme="dark"] .bl-article-content .ql-editor {
+    color: #cbd5e1;
+}
+[data-bs-theme="dark"] .bl-article-content .ql-editor a {
+    color: #60a5fa;
+}
+[data-bs-theme="dark"] .bl-article-content .ql-editor blockquote {
+    border-left-color: var(--bs-primary);
+    background: rgba(30, 41, 59, .5);
+    color: #94a3b8;
+}
+[data-bs-theme="dark"] .bl-article-content .ql-editor pre.ql-syntax {
+    background: #0f172a;
+    color: #e2e8f0;
+}

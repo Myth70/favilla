@@ -1,0 +1,119 @@
+/* ============================================================
+   Segnalazioni — stile modulo (prefisso .sg-)
+   Light + dark via CSS tokens condivisi. Niente colori hardcoded.
+   ============================================================ */
+
+/* ── Footer: raggruppa l'icona Bug e "Torna su" nell'ultima colonna ── */
+.sg-footer-actions {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+/* Pulsante Bug nel footer: stessa base di .app-footer-top-btn, accento neutro */
+.sg-footer-btn {
+    color: var(--text-secondary, var(--bs-secondary-color));
+}
+
+.sg-footer-btn:hover {
+    color: var(--bs-danger);
+}
+
+/* ── Offcanvas di segnalazione ── */
+.sg-offcanvas {
+    width: 420px;
+    max-width: 100%;
+    background-color: var(--bg-surface);
+    color: var(--text-primary);
+}
+
+.sg-context-disclosure summary {
+    cursor: pointer;
+    user-select: none;
+}
+
+.sg-context-summary {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm, .375rem);
+    padding: .5rem .75rem;
+    background-color: var(--bg-primary);
+}
+
+.sg-context-summary > div + div {
+    margin-top: .15rem;
+}
+
+/* ── Console admin: dettaglio ── */
+.sg-pre {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm, .375rem);
+    padding: .75rem;
+    margin: 0;
+    max-height: 360px;
+    overflow: auto;
+    font-size: .8rem;
+    line-height: 1.45;
+    white-space: pre-wrap;
+    word-break: break-word;
+    color: var(--text-primary);
+}
+
+.sg-meta-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sg-meta-list > li {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: .35rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sg-meta-list > li:last-child {
+    border-bottom: 0;
+}
+
+.sg-meta-list .sg-meta-label {
+    color: var(--text-muted, var(--bs-secondary-color));
+    flex: 0 0 auto;
+}
+
+.sg-meta-list .sg-meta-value {
+    text-align: right;
+    word-break: break-word;
+}
+
+/* ── Timeline breadcrumb interazioni ── */
+.sg-timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: .82rem;
+}
+
+.sg-timeline > li {
+    position: relative;
+    padding: .25rem 0 .25rem 1.1rem;
+    border-left: 2px solid var(--border-color);
+}
+
+.sg-timeline > li::before {
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: .55rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--accent-color, var(--bs-primary));
+}
+
+.sg-timeline .sg-crumb-ts {
+    color: var(--text-muted, var(--bs-secondary-color));
+    font-variant-numeric: tabular-nums;
+}

@@ -1,0 +1,630 @@
+{
+    "module_key": "tasks",
+    "module_name": "Attività",
+    "label": "Attività",
+    "description": "Gestione attivita personali e condivise con vista lista o Kanban, priorita, scadenze, checklist, tag e collegamenti al calendario.",
+    "audience_default": "user",
+    "locale_default": "it",
+    "route_name": "tasks.index",
+    "permission_slug": "tasks.view",
+    "sort_order": 20,
+    "entries": [
+        {
+            "audience": "user",
+            "route_name": "tasks.index",
+            "permission_slug": "tasks.view",
+            "ranking_weight": 24,
+            "sort_order": 1,
+            "locales": {
+                "it": {
+                    "question": "Come funziona il modulo Attività?",
+                    "answer_markdown": "## Modulo Attività\r\nAttività è il modulo per gestire task personali e operativi nel quotidiano.\r\n\r\n### Cosa puoi fare\r\n- lavorare in **lista** o in **board Kanban**;\r\n- creare, modificare e completare attività;\r\n- usare **checklist**, **tag**, scadenze e priorità;\r\n- filtrare e cercare rapidamente le attività più rilevanti;\r\n- collegare le scadenze al Calendario quando serve una vista temporale più forte.\r\n\r\n### Quando usarlo\r\nUsa Attività quando hai bisogno di gestire il lavoro operativo personale o condiviso per stato, urgenza e prossime scadenze.\r\n\r\n### Differenza rispetto a Progetti\r\nAttività è adatto al lavoro puntuale o personale. Quando devi governare un insieme strutturato di task, milestone, membri e budget, il perimetro corretto è Progetti.",
+                    "excerpt": "Modulo Attività Attività è il modulo per gestire task personali e operativi nel quotidiano. Cosa puoi fare lavorare in lista o in board Kanban; creare, modificare e completare attività; usare checklist, tag, scadenze e...",
+                    "aliases": [
+                        "modulo attivita",
+                        "task personali",
+                        "kanban attivita",
+                        "to do",
+                        "gestione attivita"
+                    ]
+                },
+                "en": {
+                    "question": "How does the Tasks module work?",
+                    "answer_markdown": "## Tasks module\nTasks is the module for managing personal and operational to-dos in your daily work.\n\n### What you can do\n- work in a **list** or in a **Kanban board**;\n- create, edit and complete tasks;\n- use **checklists**, **tags**, due dates and priorities;\n- filter and quickly search the most relevant tasks;\n- link due dates to the Calendar when you need a stronger time-based view.\n\n### When to use it\nUse Tasks when you need to manage personal or shared operational work by status, urgency and upcoming deadlines.\n\n### Difference from Projects\nTasks is suited to one-off or personal work. When you need to govern a structured set of tasks, milestones, members and budget, the right scope is Projects.",
+                    "excerpt": "Tasks module Tasks is the module for managing personal and operational to-dos in your daily work. What you can do work in a list or in a Kanban board; create, edit and complete tasks; use checklists, ...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment fonctionne le module Tâches ?",
+                    "answer_markdown": "## Module Tâches\nTâches est le module pour gérer les tâches personnelles et opérationnelles au quotidien.\n\n### Ce que vous pouvez faire\n- travailler en **liste** ou en **tableau Kanban** ;\n- créer, modifier et terminer des tâches ;\n- utiliser des **listes de contrôle**, des **étiquettes**, des échéances et des priorités ;\n- filtrer et rechercher rapidement les tâches les plus pertinentes ;\n- lier les échéances au Calendrier quand vous avez besoin d'une vue temporelle plus forte.\n\n### Quand l'utiliser\nUtilisez Tâches lorsque vous devez gérer un travail opérationnel personnel ou partagé par statut, urgence et prochaines échéances.\n\n### Différence avec Projets\nTâches convient au travail ponctuel ou personnel. Lorsque vous devez gérer un ensemble structuré de tâches, de jalons, de membres et de budget, le bon périmètre est Projets.",
+                    "excerpt": "Module Tâches Tâches est le module pour gérer les tâches personnelles et opérationnelles au quotidien. Ce que vous pouvez faire travailler en liste ou en tableau Kanban ; créer, modifier et terminer d...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie funktioniert das Aufgaben-Modul?",
+                    "answer_markdown": "## Aufgaben-Modul\nAufgaben ist das Modul zur Verwaltung persönlicher und operativer To-dos im Alltag.\n\n### Was Sie tun können\n- in einer **Liste** oder einem **Kanban-Board** arbeiten;\n- Aufgaben erstellen, bearbeiten und abschließen;\n- **Checklisten**, **Tags**, Fälligkeiten und Prioritäten verwenden;\n- die relevantesten Aufgaben filtern und schnell durchsuchen;\n- Fälligkeiten mit dem Kalender verknüpfen, wenn Sie eine stärkere zeitbasierte Ansicht benötigen.\n\n### Wann Sie es verwenden\nVerwenden Sie Aufgaben, wenn Sie persönliche oder geteilte operative Arbeit nach Status, Dringlichkeit und anstehenden Fälligkeiten verwalten müssen.\n\n### Unterschied zu Projekte\nAufgaben eignet sich für einmalige oder persönliche Arbeit. Wenn Sie eine strukturierte Menge von Aufgaben, Meilensteinen, Mitgliedern und Budget steuern müssen, ist der richtige Bereich Projekte.",
+                    "excerpt": "Aufgaben-Modul Aufgaben ist das Modul zur Verwaltung persönlicher und operativer To-dos im Alltag. Was Sie tun können in einer Liste oder einem Kanban-Board arbeiten; Aufgaben erstellen, bearbeiten un...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo funciona el módulo Tareas?",
+                    "answer_markdown": "## Módulo Tareas\nTareas es el módulo para gestionar las tareas personales y operativas del día a día.\n\n### Qué puedes hacer\n- trabajar en **lista** o en **tablero Kanban**;\n- crear, editar y completar tareas;\n- usar **listas de verificación**, **etiquetas**, vencimientos y prioridades;\n- filtrar y buscar rápidamente las tareas más relevantes;\n- vincular los vencimientos al Calendario cuando necesitas una vista temporal más fuerte.\n\n### Cuándo usarlo\nUsa Tareas cuando necesitas gestionar trabajo operativo personal o compartido por estado, urgencia y próximos vencimientos.\n\n### Diferencia con Proyectos\nTareas es adecuado para el trabajo puntual o personal. Cuando necesitas gobernar un conjunto estructurado de tareas, hitos, miembros y presupuesto, el ámbito correcto es Proyectos.",
+                    "excerpt": "Módulo Tareas Tareas es el módulo para gestionar las tareas personales y operativas del día a día. Qué puedes hacer trabajar en lista o en tablero Kanban; crear, editar y completar tareas; usar listas...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "tasks.index",
+            "permission_slug": "tasks.view",
+            "ranking_weight": 18,
+            "sort_order": 2,
+            "locales": {
+                "it": {
+                    "question": "Come accedo al modulo Attività?",
+                    "answer_markdown": "## Accesso ad Attività\r\nIl modulo Attività si apre dalla sidebar tramite la voce **Attività**.\r\n\r\n### Permesso minimo\r\nPer entrare nel modulo serve `tasks.view`.\r\n\r\n### Altri permessi utili\r\n- `tasks.create` per creare nuove attività;\r\n- `tasks.edit` per modificarle;\r\n- `tasks.delete` per eliminarle.\r\n\r\n### Se non vedi la voce nel menu\r\nDi solito significa che il tuo ruolo non include il permesso minimo di visualizzazione oppure che la navigazione disponibile per il tuo profilo è stata ridotta.",
+                    "excerpt": "Accesso ad Attività Il modulo Attività si apre dalla sidebar tramite la voce Attività. Permesso minimo Per entrare nel modulo serve tasks.view. Altri permessi utili tasks.create per creare nuove attività...",
+                    "aliases": [
+                        "accesso attivita",
+                        "aprire attivita",
+                        "dove trovo attivita",
+                        "entrare in attivita"
+                    ]
+                },
+                "en": {
+                    "question": "How do I access the Tasks module?",
+                    "answer_markdown": "## Accessing Tasks\nThe Tasks module opens from the sidebar via the **Tasks** entry.\n\n### Minimum permission\nTo enter the module you need `tasks.view`.\n\n### Other useful permissions\n- `tasks.create` to create new tasks;\n- `tasks.edit` to edit them;\n- `tasks.delete` to delete them.\n\n### If you don't see the entry in the menu\nUsually it means your role does not include the minimum view permission, or the navigation available for your profile has been reduced.",
+                    "excerpt": "Accessing Tasks The Tasks module opens from the sidebar via the Tasks entry. Minimum permission To enter the module you need tasks.view. Other useful permissions tasks.create to create new tasks...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment accéder au module Tâches ?",
+                    "answer_markdown": "## Accès aux Tâches\nLe module Tâches s'ouvre depuis la barre latérale via l'entrée **Tâches**.\n\n### Autorisation minimale\nPour entrer dans le module, il faut `tasks.view`.\n\n### Autres autorisations utiles\n- `tasks.create` pour créer de nouvelles tâches ;\n- `tasks.edit` pour les modifier ;\n- `tasks.delete` pour les supprimer.\n\n### Si vous ne voyez pas l'entrée dans le menu\nGénéralement, cela signifie que votre rôle n'inclut pas l'autorisation minimale de consultation, ou que la navigation disponible pour votre profil a été réduite.",
+                    "excerpt": "Accès aux Tâches Le module Tâches s'ouvre depuis la barre latérale via l'entrée Tâches. Autorisation minimale Pour entrer dans le module, il faut tasks.view. Autres autorisations utiles tasks.cr...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie greife ich auf das Aufgaben-Modul zu?",
+                    "answer_markdown": "## Zugriff auf Aufgaben\nDas Aufgaben-Modul öffnet sich über die Sidebar mit dem Eintrag **Aufgaben**.\n\n### Mindestberechtigung\nUm das Modul zu betreten, benötigen Sie `tasks.view`.\n\n### Weitere nützliche Berechtigungen\n- `tasks.create`, um neue Aufgaben zu erstellen;\n- `tasks.edit`, um sie zu bearbeiten;\n- `tasks.delete`, um sie zu löschen.\n\n### Wenn Sie den Eintrag im Menü nicht sehen\nNormalerweise bedeutet es, dass Ihre Rolle die Mindest-Anzeigeberechtigung nicht enthält oder die für Ihr Profil verfügbare Navigation reduziert wurde.",
+                    "excerpt": "Zugriff auf Aufgaben Das Aufgaben-Modul öffnet sich über die Sidebar mit dem Eintrag Aufgaben. Mindestberechtigung Um das Modul zu betreten, benötigen Sie tasks.view. Weitere nützliche Berechtigung...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo accedo al módulo Tareas?",
+                    "answer_markdown": "## Acceso a Tareas\nEl módulo Tareas se abre desde la barra lateral mediante la entrada **Tareas**.\n\n### Permiso mínimo\nPara entrar en el módulo necesitas `tasks.view`.\n\n### Otros permisos útiles\n- `tasks.create` para crear nuevas tareas;\n- `tasks.edit` para editarlas;\n- `tasks.delete` para eliminarlas.\n\n### Si no ves la entrada en el menú\nNormalmente significa que tu rol no incluye el permiso mínimo de visualización, o que la navegación disponible para tu perfil se ha reducido.",
+                    "excerpt": "Acceso a Tareas El módulo Tareas se abre desde la barra lateral mediante la entrada Tareas. Permiso mínimo Para entrar en el módulo necesitas tasks.view. Otros permisos útiles tasks.create para ...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "tasks.index",
+            "permission_slug": "tasks.view",
+            "ranking_weight": 0,
+            "sort_order": 3,
+            "locales": {
+                "it": {
+                    "question": "Viste disponibili in Attività",
+                    "answer_markdown": "| Vista | Descrizione |\n|---|---|\n| **Board Kanban** (predefinita) | Cinque colonne per stato; trascinamento per cambiare stato o riordinare |\n| **Lista** | Tabella con filtri, ordinamento e paginazione |\n\nPer passare da una vista all'altra usa i pulsanti in alto a destra nell'intestazione del modulo.",
+                    "excerpt": "Vista Descrizione --- --- Board Kanban (predefinita) Cinque colonne per stato; trascinamento per cambiare stato o riordinare Lista Tabella con filtri, ordinamento e paginazione Per passare da una vista all'altra usa i p…",
+                    "aliases": [
+                        "attivita",
+                        "attivita viste disponibili",
+                        "come viste disponibili",
+                        "viste disponibili"
+                    ]
+                },
+                "en": {
+                    "question": "Available views in Tasks",
+                    "answer_markdown": "| View | Description |\n|---|---|\n| **Kanban board** (default) | Five columns by status; drag to change status or reorder |\n| **List** | Table with filters, sorting and pagination |\n\nTo switch between views, use the buttons at the top right in the module header.",
+                    "excerpt": "| View | Description | |---|---| | Kanban board (default) | Five columns by status; drag to change status or reorder | | List | Table with filters, sorting and pagination | To switch between views, us...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Vues disponibles dans Tâches",
+                    "answer_markdown": "| Vue | Description |\n|---|---|\n| **Tableau Kanban** (par défaut) | Cinq colonnes par statut ; glisser pour changer de statut ou réordonner |\n| **Liste** | Tableau avec filtres, tri et pagination |\n\nPour passer d'une vue à l'autre, utilisez les boutons en haut à droite dans l'en-tête du module.",
+                    "excerpt": "| Vue | Description | |---|---| | Tableau Kanban (par défaut) | Cinq colonnes par statut ; glisser pour changer de statut ou réordonner | | Liste | Tableau avec filtres, tri et pagination | Pour passe...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Verfügbare Ansichten in Aufgaben",
+                    "answer_markdown": "| Ansicht | Beschreibung |\n|---|---|\n| **Kanban-Board** (Standard) | Fünf Spalten nach Status; ziehen, um den Status zu ändern oder neu zu ordnen |\n| **Liste** | Tabelle mit Filtern, Sortierung und Paginierung |\n\nUm zwischen den Ansichten zu wechseln, verwenden Sie die Schaltflächen oben rechts in der Modulkopfzeile.",
+                    "excerpt": "| Ansicht | Beschreibung | |---|---| | Kanban-Board (Standard) | Fünf Spalten nach Status; ziehen, um den Status zu ändern oder neu zu ordnen | | Liste | Tabelle mit Filtern, Sortierung und Paginierun...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Vistas disponibles en Tareas",
+                    "answer_markdown": "| Vista | Descripción |\n|---|---|\n| **Tablero Kanban** (predeterminada) | Cinco columnas por estado; arrastra para cambiar de estado o reordenar |\n| **Lista** | Tabla con filtros, ordenación y paginación |\n\nPara cambiar de una vista a otra, usa los botones en la parte superior derecha del encabezado del módulo.",
+                    "excerpt": "| Vista | Descripción | |---|---| | Tablero Kanban (predeterminada) | Cinco columnas por estado; arrastra para cambiar de estado o reordenar | | Lista | Tabla con filtros, ordenación y paginación | Pa...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "tasks.index",
+            "permission_slug": "tasks.view",
+            "ranking_weight": 0,
+            "sort_order": 4,
+            "locales": {
+                "it": {
+                    "question": "Colonne della board",
+                    "answer_markdown": "La board è organizzata in cinque colonne che rappresentano il ciclo di vita di un task:\n\n| Colonna | Significato |\n|---|---|\n| **Backlog** | Idee e attività non ancora pianificate |\n| **Da fare** | Attività pianificate, non ancora iniziate |\n| **In corso** | Attività in lavorazione |\n| **In revisione** | Attività completate in attesa di verifica |\n| **Completato** | Attività concluse |",
+                    "excerpt": "La board è organizzata in cinque colonne che rappresentano il ciclo di vita di un task: Colonna Significato --- --- Backlog Idee e attività non ancora pianificate Da fare Attività pianificate, non ancora iniziate In…",
+                    "aliases": [
+                        "attivita",
+                        "attivita colonne della board",
+                        "colonne della board",
+                        "come colonne della board"
+                    ]
+                },
+                "en": {
+                    "question": "Board columns",
+                    "answer_markdown": "The board is organized in five columns that represent a task's lifecycle:\n\n| Column | Meaning |\n|---|---|\n| **Backlog** | Ideas and tasks not yet planned |\n| **To do** | Planned tasks, not yet started |\n| **In progress** | Tasks being worked on |\n| **In review** | Completed tasks awaiting verification |\n| **Done** | Finished tasks |",
+                    "excerpt": "The board is organized in five columns that represent a task's lifecycle: | Column | Meaning | |---|---| | Backlog | Ideas and tasks not yet planned | | To do | Planned tasks, not yet started | | In p...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Colonnes du tableau",
+                    "answer_markdown": "Le tableau est organisé en cinq colonnes qui représentent le cycle de vie d'une tâche :\n\n| Colonne | Signification |\n|---|---|\n| **Backlog** | Idées et tâches pas encore planifiées |\n| **À faire** | Tâches planifiées, pas encore commencées |\n| **En cours** | Tâches en cours de réalisation |\n| **En revue** | Tâches terminées en attente de vérification |\n| **Terminé** | Tâches achevées |",
+                    "excerpt": "Le tableau est organisé en cinq colonnes qui représentent le cycle de vie d'une tâche : | Colonne | Signification | |---|---| | Backlog | Idées et tâches pas encore planifiées | | À faire | Tâches pla...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Board-Spalten",
+                    "answer_markdown": "Das Board ist in fünf Spalten gegliedert, die den Lebenszyklus einer Aufgabe darstellen:\n\n| Spalte | Bedeutung |\n|---|---|\n| **Backlog** | Ideen und noch nicht geplante Aufgaben |\n| **Zu erledigen** | Geplante, noch nicht begonnene Aufgaben |\n| **In Bearbeitung** | Aufgaben in Arbeit |\n| **In Prüfung** | Abgeschlossene Aufgaben, die auf Überprüfung warten |\n| **Erledigt** | Fertiggestellte Aufgaben |",
+                    "excerpt": "Das Board ist in fünf Spalten gegliedert, die den Lebenszyklus einer Aufgabe darstellen: | Spalte | Bedeutung | |---|---| | Backlog | Ideen und noch nicht geplante Aufgaben | | Zu erledigen | Geplante...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Columnas del tablero",
+                    "answer_markdown": "El tablero se organiza en cinco columnas que representan el ciclo de vida de una tarea:\n\n| Columna | Significado |\n|---|---|\n| **Backlog** | Ideas y tareas aún no planificadas |\n| **Por hacer** | Tareas planificadas, aún no iniciadas |\n| **En curso** | Tareas en proceso |\n| **En revisión** | Tareas completadas a la espera de verificación |\n| **Completado** | Tareas finalizadas |",
+                    "excerpt": "El tablero se organiza en cinco columnas que representan el ciclo de vida de una tarea: | Columna | Significado | |---|---| | Backlog | Ideas y tareas aún no planificadas | | Por hacer | Tareas planif...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "tasks.create",
+            "permission_slug": "tasks.create",
+            "ranking_weight": 0,
+            "sort_order": 5,
+            "locales": {
+                "it": {
+                    "question": "Creare un'attività",
+                    "answer_markdown": "1. Clicca \"Nuova attività\" (o il pulsante \"+\") oppure usa il pulsante \"+\" nella colonna desiderata sulla board: in questo caso lo stato è precompilato con quello della colonna.\n2. Compila il modulo:\n   - **Titolo** (obbligatorio);\n   - **Descrizione**: testo libero per aggiungere contesto;\n   - **Stato**: colonna di destinazione;\n   - **Priorità**: bassa, media, alta o urgente;\n   - **Scadenza**: data (e ora facoltativa) entro cui completare il task;\n   - **Tag**: etichette tra quelle personali;\n   - **Note**: informazioni aggiuntive non incluse nella descrizione.\n3. Salva. Il task compare nella lista e nella board.",
+                    "excerpt": "Clicca \"Nuova attività\" (o il pulsante \"+\") oppure usa il pulsante \"+\" nella colonna desiderata sulla board: in questo caso lo stato è precompilato con quello della colonna. Compila il modulo: - Titolo (obbligatorio);…",
+                    "aliases": [
+                        "attivita",
+                        "attivita creare un attivita",
+                        "come creare un attivita",
+                        "creare un attivita"
+                    ]
+                },
+                "en": {
+                    "question": "Creating a task",
+                    "answer_markdown": "1. Click \"New task\" (or the \"+\" button) or use the \"+\" button in the desired column on the board: in this case the status is pre-filled with the column's.\n2. Fill in the form:\n   - **Title** (required);\n   - **Description**: free text to add context;\n   - **Status**: the target column;\n   - **Priority**: low, medium, high or urgent;\n   - **Due date**: the date (and optional time) by which to complete the task;\n   - **Tags**: labels from your personal ones;\n   - **Notes**: additional information not included in the description.\n3. Save. The task appears in the list and on the board.",
+                    "excerpt": "1. Click \"New task\" (or the \"+\" button) or use the \"+\" button in the desired column on the board: in this case the status is pre-filled with the column's. 2. Fill in the form: - Title (required); - De...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Créer une tâche",
+                    "answer_markdown": "1. Cliquez sur « Nouvelle tâche » (ou le bouton « + ») ou utilisez le bouton « + » dans la colonne souhaitée sur le tableau : dans ce cas, le statut est prérempli avec celui de la colonne.\n2. Remplissez le formulaire :\n   - **Titre** (obligatoire) ;\n   - **Description** : texte libre pour ajouter du contexte ;\n   - **Statut** : la colonne de destination ;\n   - **Priorité** : faible, moyenne, élevée ou urgente ;\n   - **Échéance** : la date (et l'heure facultative) avant laquelle terminer la tâche ;\n   - **Étiquettes** : libellés parmi les vôtres ;\n   - **Notes** : informations supplémentaires non incluses dans la description.\n3. Enregistrez. La tâche apparaît dans la liste et sur le tableau.",
+                    "excerpt": "1. Cliquez sur « Nouvelle tâche » (ou le bouton « + ») ou utilisez le bouton « + » dans la colonne souhaitée sur le tableau : dans ce cas, le statut est prérempli avec celui de la colonne. 2. Rempliss...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Eine Aufgabe erstellen",
+                    "answer_markdown": "1. Klicken Sie auf „Neue Aufgabe“ (oder die Schaltfläche „+“) oder verwenden Sie die Schaltfläche „+“ in der gewünschten Spalte auf dem Board: In diesem Fall ist der Status mit dem der Spalte vorausgefüllt.\n2. Füllen Sie das Formular aus:\n   - **Titel** (erforderlich);\n   - **Beschreibung**: Freitext, um Kontext hinzuzufügen;\n   - **Status**: die Zielspalte;\n   - **Priorität**: niedrig, mittel, hoch oder dringend;\n   - **Fälligkeit**: das Datum (und die optionale Uhrzeit), bis zu dem die Aufgabe abgeschlossen werden soll;\n   - **Tags**: Labels aus Ihren persönlichen;\n   - **Notizen**: zusätzliche Informationen, die nicht in der Beschreibung enthalten sind.\n3. Speichern. Die Aufgabe erscheint in der Liste und auf dem Board.",
+                    "excerpt": "1. Klicken Sie auf „Neue Aufgabe“ (oder die Schaltfläche „+“) oder verwenden Sie die Schaltfläche „+“ in der gewünschten Spalte auf dem Board: In diesem Fall ist der Status mit dem der Spalte vorausge...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Crear una tarea",
+                    "answer_markdown": "1. Haz clic en «Nueva tarea» (o el botón «+») o usa el botón «+» en la columna deseada del tablero: en este caso el estado se rellena previamente con el de la columna.\n2. Rellena el formulario:\n   - **Título** (obligatorio);\n   - **Descripción**: texto libre para añadir contexto;\n   - **Estado**: la columna de destino;\n   - **Prioridad**: baja, media, alta o urgente;\n   - **Vencimiento**: la fecha (y hora opcional) en la que completar la tarea;\n   - **Etiquetas**: etiquetas entre las tuyas;\n   - **Notas**: información adicional no incluida en la descripción.\n3. Guarda. La tarea aparece en la lista y en el tablero.",
+                    "excerpt": "1. Haz clic en «Nueva tarea» (o el botón «+») o usa el botón «+» en la columna deseada del tablero: en este caso el estado se rellena previamente con el de la columna. 2. Rellena el formulario: - Títu...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "tasks.index",
+            "permission_slug": "tasks.view",
+            "ranking_weight": 0,
+            "sort_order": 6,
+            "locales": {
+                "it": {
+                    "question": "Modificare un'attività",
+                    "answer_markdown": "- Dalla lista: clicca sul titolo per aprire il dettaglio, poi \"Modifica\".\n- Dalla board: clicca sulla card per aprire il dettaglio, poi \"Modifica\".\n- In alternativa, usa il menu contestuale (tre punti) accanto al task.",
+                    "excerpt": "Dalla lista: clicca sul titolo per aprire il dettaglio, poi \"Modifica\". Dalla board: clicca sulla card per aprire il dettaglio, poi \"Modifica\". In alternativa, usa il menu contestuale (tre punti) accanto al task.",
+                    "aliases": [
+                        "attivita",
+                        "attivita modificare un attivita",
+                        "come modificare un attivita",
+                        "modificare un attivita"
+                    ]
+                },
+                "en": {
+                    "question": "Editing a task",
+                    "answer_markdown": "- From the list: click the title to open the detail, then \"Edit\".\n- From the board: click the card to open the detail, then \"Edit\".\n- Alternatively, use the context menu (three dots) next to the task.",
+                    "excerpt": "From the list: click the title to open the detail, then \"Edit\". From the board: click the card to open the detail, then \"Edit\". Alternatively, use the context menu (three dots) next to the task.",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Modifier une tâche",
+                    "answer_markdown": "- Depuis la liste : cliquez sur le titre pour ouvrir le détail, puis « Modifier ».\n- Depuis le tableau : cliquez sur la carte pour ouvrir le détail, puis « Modifier ».\n- Sinon, utilisez le menu contextuel (trois points) à côté de la tâche.",
+                    "excerpt": "Depuis la liste : cliquez sur le titre pour ouvrir le détail, puis « Modifier ». Depuis le tableau : cliquez sur la carte pour ouvrir le détail, puis « Modifier ». Sinon, utilisez le menu contextuel (...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Eine Aufgabe bearbeiten",
+                    "answer_markdown": "- Aus der Liste: Klicken Sie auf den Titel, um das Detail zu öffnen, dann auf „Bearbeiten“.\n- Aus dem Board: Klicken Sie auf die Karte, um das Detail zu öffnen, dann auf „Bearbeiten“.\n- Alternativ verwenden Sie das Kontextmenü (drei Punkte) neben der Aufgabe.",
+                    "excerpt": "Aus der Liste: Klicken Sie auf den Titel, um das Detail zu öffnen, dann auf „Bearbeiten“. Aus dem Board: Klicken Sie auf die Karte, um das Detail zu öffnen, dann auf „Bearbeiten“. Alternativ verwenden...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Editar una tarea",
+                    "answer_markdown": "- Desde la lista: haz clic en el título para abrir el detalle, luego «Editar».\n- Desde el tablero: haz clic en la tarjeta para abrir el detalle, luego «Editar».\n- Como alternativa, usa el menú contextual (tres puntos) junto a la tarea.",
+                    "excerpt": "Desde la lista: haz clic en el título para abrir el detalle, luego «Editar». Desde el tablero: haz clic en la tarjeta para abrir el detalle, luego «Editar». Como alternativa, usa el menú contextual (t...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "tasks.index",
+            "permission_slug": "tasks.view",
+            "ranking_weight": 0,
+            "sort_order": 7,
+            "locales": {
+                "it": {
+                    "question": "Cambiare stato sulla board",
+                    "answer_markdown": "Trascina la card dell'attività da una colonna all'altra. Lo stato si aggiorna immediatamente. Puoi anche riordinare le card all'interno della stessa colonna trascinandole su o giù; la posizione viene salvata automaticamente. Se non riesci a trascinare, verifica di avere il permesso di modifica.",
+                    "excerpt": "Trascina la card dell'attività da una colonna all'altra. Lo stato si aggiorna immediatamente. Puoi anche riordinare le card all'interno della stessa colonna trascinandole su o giù; la posizione viene salvata automatic…",
+                    "aliases": [
+                        "attivita",
+                        "attivita cambiare stato sulla board",
+                        "cambiare stato sulla board",
+                        "come cambiare stato sulla board"
+                    ]
+                },
+                "en": {
+                    "question": "Changing status on the board",
+                    "answer_markdown": "Drag the task card from one column to another. The status updates immediately. You can also reorder cards within the same column by dragging them up or down; the position is saved automatically. If you can't drag, check that you have the edit permission.",
+                    "excerpt": "Drag the task card from one column to another. The status updates immediately. You can also reorder cards within the same column by dragging them up or down; the position is saved automatically. If yo...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Changer de statut sur le tableau",
+                    "answer_markdown": "Faites glisser la carte de la tâche d'une colonne à l'autre. Le statut se met à jour immédiatement. Vous pouvez aussi réordonner les cartes au sein de la même colonne en les faisant glisser vers le haut ou le bas ; la position est enregistrée automatiquement. Si vous n'arrivez pas à glisser, vérifiez que vous avez l'autorisation de modification.",
+                    "excerpt": "Faites glisser la carte de la tâche d'une colonne à l'autre. Le statut se met à jour immédiatement. Vous pouvez aussi réordonner les cartes au sein de la même colonne en les faisant glisser vers le ha...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Status auf dem Board ändern",
+                    "answer_markdown": "Ziehen Sie die Aufgabenkarte von einer Spalte in eine andere. Der Status wird sofort aktualisiert. Sie können die Karten auch innerhalb derselben Spalte neu anordnen, indem Sie sie nach oben oder unten ziehen; die Position wird automatisch gespeichert. Wenn Sie nicht ziehen können, prüfen Sie, ob Sie die Bearbeitungsberechtigung haben.",
+                    "excerpt": "Ziehen Sie die Aufgabenkarte von einer Spalte in eine andere. Der Status wird sofort aktualisiert. Sie können die Karten auch innerhalb derselben Spalte neu anordnen, indem Sie sie nach oben oder unte...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Cambiar de estado en el tablero",
+                    "answer_markdown": "Arrastra la tarjeta de la tarea de una columna a otra. El estado se actualiza de inmediato. También puedes reordenar las tarjetas dentro de la misma columna arrastrándolas hacia arriba o abajo; la posición se guarda automáticamente. Si no consigues arrastrar, comprueba que tienes el permiso de edición.",
+                    "excerpt": "Arrastra la tarjeta de la tarea de una columna a otra. El estado se actualiza de inmediato. También puedes reordenar las tarjetas dentro de la misma columna arrastrándolas hacia arriba o abajo; la pos...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "tasks.index",
+            "permission_slug": "tasks.view",
+            "ranking_weight": 0,
+            "sort_order": 8,
+            "locales": {
+                "it": {
+                    "question": "Completamento rapido dalla board",
+                    "answer_markdown": "Ogni card sulla board ha un controllo di completamento rapido: cliccandolo si sposta istantaneamente il task nella colonna \"Completato\" (o lo riporta allo stato precedente se era già completato), senza aprire il dettaglio.",
+                    "excerpt": "Ogni card sulla board ha un controllo di completamento rapido: cliccandolo si sposta istantaneamente il task nella colonna \"Completato\" (o lo riporta allo stato precedente se era già completato), senza aprire il dettag…",
+                    "aliases": [
+                        "attivita",
+                        "attivita completamento rapido dalla board",
+                        "come completamento rapido dalla board",
+                        "completamento rapido dalla board"
+                    ]
+                },
+                "en": {
+                    "question": "Quick completion from the board",
+                    "answer_markdown": "Each card on the board has a quick-complete control: clicking it instantly moves the task to the \"Done\" column (or returns it to the previous status if it was already completed), without opening the detail.",
+                    "excerpt": "Each card on the board has a quick-complete control: clicking it instantly moves the task to the \"Done\" column (or returns it to the previous status if it was already completed), without opening the d...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Achèvement rapide depuis le tableau",
+                    "answer_markdown": "Chaque carte du tableau a un contrôle d'achèvement rapide : en cliquant dessus, la tâche est instantanément déplacée vers la colonne « Terminé » (ou ramenée au statut précédent si elle était déjà terminée), sans ouvrir le détail.",
+                    "excerpt": "Chaque carte du tableau a un contrôle d'achèvement rapide : en cliquant dessus, la tâche est instantanément déplacée vers la colonne « Terminé » (ou ramenée au statut précédent si elle était déjà term...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Schnellabschluss vom Board",
+                    "answer_markdown": "Jede Karte auf dem Board hat ein Schnellabschluss-Steuerelement: Ein Klick darauf verschiebt die Aufgabe sofort in die Spalte „Erledigt“ (oder bringt sie in den vorherigen Status zurück, wenn sie bereits abgeschlossen war), ohne das Detail zu öffnen.",
+                    "excerpt": "Jede Karte auf dem Board hat ein Schnellabschluss-Steuerelement: Ein Klick darauf verschiebt die Aufgabe sofort in die Spalte „Erledigt“ (oder bringt sie in den vorherigen Status zurück, wenn sie bere...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Completar rápido desde el tablero",
+                    "answer_markdown": "Cada tarjeta del tablero tiene un control de completado rápido: al hacer clic, la tarea se mueve al instante a la columna «Completado» (o vuelve al estado anterior si ya estaba completada), sin abrir el detalle.",
+                    "excerpt": "Cada tarjeta del tablero tiene un control de completado rápido: al hacer clic, la tarea se mueve al instante a la columna «Completado» (o vuelve al estado anterior si ya estaba completada), sin abrir ...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "tasks.index",
+            "permission_slug": "tasks.view",
+            "ranking_weight": 0,
+            "sort_order": 9,
+            "locales": {
+                "it": {
+                    "question": "Segna come completata",
+                    "answer_markdown": "- Dalla lista: clicca il pulsante o la casella nella colonna \"Completata\".\n- Dal dettaglio: usa il pulsante \"Segna come completata\".\n- Dalla board: trascina nella colonna \"Completato\" o usa il completamento rapido sulla card.",
+                    "excerpt": "Dalla lista: clicca il pulsante o la casella nella colonna \"Completata\". Dal dettaglio: usa il pulsante \"Segna come completata\". Dalla board: trascina nella colonna \"Completato\" o usa il completamento rapido sulla card.",
+                    "aliases": [
+                        "attivita",
+                        "attivita segna come completata",
+                        "come segna come completata",
+                        "segna come completata"
+                    ]
+                },
+                "en": {
+                    "question": "Mark as completed",
+                    "answer_markdown": "- From the list: click the button or checkbox in the \"Completed\" column.\n- From the detail: use the \"Mark as completed\" button.\n- From the board: drag to the \"Done\" column or use the quick completion on the card.",
+                    "excerpt": "From the list: click the button or checkbox in the \"Completed\" column. From the detail: use the \"Mark as completed\" button. From the board: drag to the \"Done\" column or use the quick completion on the...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Marquer comme terminée",
+                    "answer_markdown": "- Depuis la liste : cliquez sur le bouton ou la case dans la colonne « Terminée ».\n- Depuis le détail : utilisez le bouton « Marquer comme terminée ».\n- Depuis le tableau : faites glisser vers la colonne « Terminé » ou utilisez l'achèvement rapide sur la carte.",
+                    "excerpt": "Depuis la liste : cliquez sur le bouton ou la case dans la colonne « Terminée ». Depuis le détail : utilisez le bouton « Marquer comme terminée ». Depuis le tableau : faites glisser vers la colonne « ...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Als erledigt markieren",
+                    "answer_markdown": "- Aus der Liste: Klicken Sie auf die Schaltfläche oder das Kontrollkästchen in der Spalte „Erledigt“.\n- Aus dem Detail: Verwenden Sie die Schaltfläche „Als erledigt markieren“.\n- Aus dem Board: Ziehen Sie in die Spalte „Erledigt“ oder verwenden Sie den Schnellabschluss auf der Karte.",
+                    "excerpt": "Aus der Liste: Klicken Sie auf die Schaltfläche oder das Kontrollkästchen in der Spalte „Erledigt“. Aus dem Detail: Verwenden Sie die Schaltfläche „Als erledigt markieren“. Aus dem Board: Ziehen Sie i...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Marcar como completada",
+                    "answer_markdown": "- Desde la lista: haz clic en el botón o la casilla en la columna «Completada».\n- Desde el detalle: usa el botón «Marcar como completada».\n- Desde el tablero: arrastra a la columna «Completado» o usa el completado rápido en la tarjeta.",
+                    "excerpt": "Desde la lista: haz clic en el botón o la casilla en la columna «Completada». Desde el detalle: usa el botón «Marcar como completada». Desde el tablero: arrastra a la columna «Completado» o usa el com...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "tasks.index",
+            "permission_slug": "tasks.view",
+            "ranking_weight": 0,
+            "sort_order": 10,
+            "locales": {
+                "it": {
+                    "question": "Checklist",
+                    "answer_markdown": "Dentro il dettaglio di un'attività puoi aggiungere una checklist di sotto-task:\n\n1. Nella sezione \"Checklist\" clicca \"Aggiungi voce\".\n2. Scrivi il testo e salva.\n3. Spunta le voci man mano che le completi. Una barra di avanzamento mostra la percentuale completata.\n4. Puoi rimuovere singole voci con il pulsante elimina accanto ad esse.\n\nTutte le operazioni sulla checklist avvengono in modo inline senza ricaricare la pagina.",
+                    "excerpt": "Dentro il dettaglio di un'attività puoi aggiungere una checklist di sotto-task: Nella sezione \"Checklist\" clicca \"Aggiungi voce\". Scrivi il testo e salva. Spunta le voci man mano che le completi. Una barra di avanzamen…",
+                    "aliases": [
+                        "attivita",
+                        "attivita checklist",
+                        "checklist",
+                        "come checklist"
+                    ]
+                },
+                "en": {
+                    "question": "Checklist",
+                    "answer_markdown": "Inside a task's detail you can add a checklist of sub-tasks:\n\n1. In the \"Checklist\" section, click \"Add item\".\n2. Write the text and save.\n3. Check off the items as you complete them. A progress bar shows the completed percentage.\n4. You can remove single items with the delete button next to them.\n\nAll checklist operations happen inline without reloading the page.",
+                    "excerpt": "Inside a task's detail you can add a checklist of sub-tasks: 1. In the \"Checklist\" section, click \"Add item\". 2. Write the text and save. 3. Check off the items as you complete them. A progress bar sh...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Liste de contrôle",
+                    "answer_markdown": "Dans le détail d'une tâche, vous pouvez ajouter une liste de contrôle de sous-tâches :\n\n1. Dans la section « Liste de contrôle », cliquez sur « Ajouter un élément ».\n2. Écrivez le texte et enregistrez.\n3. Cochez les éléments au fur et à mesure que vous les terminez. Une barre de progression affiche le pourcentage terminé.\n4. Vous pouvez retirer des éléments individuels avec le bouton de suppression à côté d'eux.\n\nToutes les opérations sur la liste de contrôle se font en ligne sans recharger la page.",
+                    "excerpt": "Dans le détail d'une tâche, vous pouvez ajouter une liste de contrôle de sous-tâches : 1. Dans la section « Liste de contrôle », cliquez sur « Ajouter un élément ». 2. Écrivez le texte et enregistrez....",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Checkliste",
+                    "answer_markdown": "Im Detail einer Aufgabe können Sie eine Checkliste von Teilaufgaben hinzufügen:\n\n1. Klicken Sie im Abschnitt „Checkliste“ auf „Element hinzufügen“.\n2. Schreiben Sie den Text und speichern Sie.\n3. Haken Sie die Elemente ab, während Sie sie abschließen. Ein Fortschrittsbalken zeigt den abgeschlossenen Prozentsatz.\n4. Sie können einzelne Elemente mit der Löschen-Schaltfläche daneben entfernen.\n\nAlle Checklisten-Vorgänge erfolgen inline, ohne die Seite neu zu laden.",
+                    "excerpt": "Im Detail einer Aufgabe können Sie eine Checkliste von Teilaufgaben hinzufügen: 1. Klicken Sie im Abschnitt „Checkliste“ auf „Element hinzufügen“. 2. Schreiben Sie den Text und speichern Sie. 3. Haken...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Lista de verificación",
+                    "answer_markdown": "Dentro del detalle de una tarea puedes añadir una lista de verificación de subtareas:\n\n1. En la sección «Lista de verificación», haz clic en «Añadir elemento».\n2. Escribe el texto y guarda.\n3. Marca los elementos a medida que los completas. Una barra de progreso muestra el porcentaje completado.\n4. Puedes eliminar elementos individuales con el botón de eliminar junto a ellos.\n\nTodas las operaciones de la lista de verificación se realizan en línea sin recargar la página.",
+                    "excerpt": "Dentro del detalle de una tarea puedes añadir una lista de verificación de subtareas: 1. En la sección «Lista de verificación», haz clic en «Añadir elemento». 2. Escribe el texto y guarda. 3. Marca lo...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "tasks.index",
+            "permission_slug": "tasks.view",
+            "ranking_weight": 0,
+            "sort_order": 11,
+            "locales": {
+                "it": {
+                    "question": "Tag",
+                    "answer_markdown": "I tag aiutano a raggruppare attività trasversalmente e sono personali: ogni utente gestisce il proprio insieme di etichette. La gestione completa (creazione e eliminazione) avviene nella pagina \"Tag\" raggiungibile dall'intestazione del modulo. Puoi:\n\n- assegnare uno o più tag al momento della creazione o della modifica;\n- creare nuovi tag dalla pagina dedicata (se hai il permesso di creazione);\n- eliminare tag non più usati: i task ad essi associati non vengono cancellati, perdono solo l'etichetta.",
+                    "excerpt": "I tag aiutano a raggruppare attività trasversalmente e sono personali: ogni utente gestisce il proprio insieme di etichette. La gestione completa (creazione e eliminazione) avviene nella pagina \"Tag\" raggiungibile dall…",
+                    "aliases": [
+                        "attivita",
+                        "attivita tag",
+                        "come tag",
+                        "tag"
+                    ]
+                },
+                "en": {
+                    "question": "Tags",
+                    "answer_markdown": "Tags help group tasks across the board and are personal: each user manages their own set of labels. Full management (creation and deletion) happens on the \"Tags\" page reachable from the module header. You can:\n\n- assign one or more tags when creating or editing;\n- create new tags from the dedicated page (if you have the create permission);\n- delete tags no longer used: the tasks associated with them are not deleted, they only lose the label.",
+                    "excerpt": "Tags help group tasks across the board and are personal: each user manages their own set of labels. Full management (creation and deletion) happens on the \"Tags\" page reachable from the module header....",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Étiquettes",
+                    "answer_markdown": "Les étiquettes aident à regrouper les tâches de manière transversale et sont personnelles : chaque utilisateur gère son propre jeu d'étiquettes. La gestion complète (création et suppression) se fait sur la page « Étiquettes » accessible depuis l'en-tête du module. Vous pouvez :\n\n- assigner une ou plusieurs étiquettes au moment de la création ou de la modification ;\n- créer de nouvelles étiquettes depuis la page dédiée (si vous avez l'autorisation de création) ;\n- supprimer des étiquettes qui ne sont plus utilisées : les tâches qui leur sont associées ne sont pas supprimées, elles perdent seulement l'étiquette.",
+                    "excerpt": "Les étiquettes aident à regrouper les tâches de manière transversale et sont personnelles : chaque utilisateur gère son propre jeu d'étiquettes. La gestion complète (création et suppression) se fait s...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Tags",
+                    "answer_markdown": "Tags helfen, Aufgaben übergreifend zu gruppieren, und sind persönlich: Jeder Benutzer verwaltet seinen eigenen Satz von Labels. Die vollständige Verwaltung (Erstellung und Löschung) erfolgt auf der Seite „Tags“, die über die Modulkopfzeile erreichbar ist. Sie können:\n\n- beim Erstellen oder Bearbeiten ein oder mehrere Tags zuweisen;\n- neue Tags auf der dedizierten Seite erstellen (wenn Sie die Erstellungsberechtigung haben);\n- nicht mehr verwendete Tags löschen: Die damit verknüpften Aufgaben werden nicht gelöscht, sie verlieren nur das Label.",
+                    "excerpt": "Tags helfen, Aufgaben übergreifend zu gruppieren, und sind persönlich: Jeder Benutzer verwaltet seinen eigenen Satz von Labels. Die vollständige Verwaltung (Erstellung und Löschung) erfolgt auf der Se...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Etiquetas",
+                    "answer_markdown": "Las etiquetas ayudan a agrupar tareas de forma transversal y son personales: cada usuario gestiona su propio conjunto de etiquetas. La gestión completa (creación y eliminación) se realiza en la página «Etiquetas» accesible desde el encabezado del módulo. Puedes:\n\n- asignar una o más etiquetas al crear o editar;\n- crear nuevas etiquetas desde la página dedicada (si tienes el permiso de creación);\n- eliminar etiquetas que ya no se usan: las tareas asociadas a ellas no se eliminan, solo pierden la etiqueta.",
+                    "excerpt": "Las etiquetas ayudan a agrupar tareas de forma transversal y son personales: cada usuario gestiona su propio conjunto de etiquetas. La gestión completa (creación y eliminación) se realiza en la página...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "tasks.index",
+            "permission_slug": "tasks.view",
+            "ranking_weight": 0,
+            "sort_order": 12,
+            "locales": {
+                "it": {
+                    "question": "Scadenze e avvisi",
+                    "answer_markdown": "Le attività con scadenza compaiono in evidenza quando la data si avvicina o è già passata. Le attività scadute sono evidenziate visivamente nella lista (badge rosso) e nella board. Il modulo Notifiche, se attivo, invia avvisi automatici:\n\n| Evento | Quando |\n|---|---|\n| **Scadenza oggi** | Nella giornata della scadenza |\n| **Attività scaduta** | Per i task non completati oltre la scadenza |",
+                    "excerpt": "Le attività con scadenza compaiono in evidenza quando la data si avvicina o è già passata. Le attività scadute sono evidenziate visivamente nella lista (badge rosso) e nella board. Il modulo Notifiche, se attivo, in…",
+                    "aliases": [
+                        "attivita",
+                        "attivita scadenze e avvisi",
+                        "come scadenze e avvisi",
+                        "scadenze e avvisi"
+                    ]
+                },
+                "en": {
+                    "question": "Due dates and alerts",
+                    "answer_markdown": "Tasks with a due date appear highlighted when the date approaches or has already passed. Overdue tasks are visually highlighted in the list (red badge) and on the board. The Notifications module, if active, sends automatic alerts:\n\n| Event | When |\n|---|---|\n| **Due today** | On the day of the deadline |\n| **Overdue task** | For tasks not completed past the due date |",
+                    "excerpt": "Tasks with a due date appear highlighted when the date approaches or has already passed. Overdue tasks are visually highlighted in the list (red badge) and on the board. The Notifications module, if a...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Échéances et alertes",
+                    "answer_markdown": "Les tâches avec une échéance apparaissent en évidence lorsque la date approche ou est déjà passée. Les tâches en retard sont mises en évidence visuellement dans la liste (badge rouge) et sur le tableau. Le module Notifications, s'il est actif, envoie des alertes automatiques :\n\n| Événement | Quand |\n|---|---|\n| **Échéance aujourd'hui** | Le jour de l'échéance |\n| **Tâche en retard** | Pour les tâches non terminées au-delà de l'échéance |",
+                    "excerpt": "Les tâches avec une échéance apparaissent en évidence lorsque la date approche ou est déjà passée. Les tâches en retard sont mises en évidence visuellement dans la liste (badge rouge) et sur le tablea...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Fälligkeiten und Warnungen",
+                    "answer_markdown": "Aufgaben mit einer Fälligkeit werden hervorgehoben, wenn das Datum näher rückt oder bereits verstrichen ist. Überfällige Aufgaben werden in der Liste (rotes Abzeichen) und auf dem Board visuell hervorgehoben. Das Benachrichtigungen-Modul sendet, falls aktiv, automatische Warnungen:\n\n| Ereignis | Wann |\n|---|---|\n| **Heute fällig** | Am Tag der Fälligkeit |\n| **Überfällige Aufgabe** | Für nicht abgeschlossene Aufgaben nach der Fälligkeit |",
+                    "excerpt": "Aufgaben mit einer Fälligkeit werden hervorgehoben, wenn das Datum näher rückt oder bereits verstrichen ist. Überfällige Aufgaben werden in der Liste (rotes Abzeichen) und auf dem Board visuell hervor...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Vencimientos y avisos",
+                    "answer_markdown": "Las tareas con vencimiento aparecen destacadas cuando la fecha se acerca o ya ha pasado. Las tareas vencidas se destacan visualmente en la lista (insignia roja) y en el tablero. El módulo Notificaciones, si está activo, envía avisos automáticos:\n\n| Evento | Cuándo |\n|---|---|\n| **Vence hoy** | El día del vencimiento |\n| **Tarea vencida** | Para las tareas no completadas pasado el vencimiento |",
+                    "excerpt": "Las tareas con vencimiento aparecen destacadas cuando la fecha se acerca o ya ha pasado. Las tareas vencidas se destacan visualmente en la lista (insignia roja) y en el tablero. El módulo Notificacion...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "tasks.index",
+            "permission_slug": "tasks.view",
+            "ranking_weight": 0,
+            "sort_order": 13,
+            "locales": {
+                "it": {
+                    "question": "Integrazione con il Calendario",
+                    "answer_markdown": "Se il modulo Calendario è attivo e hai il permesso `calendar.view`, puoi filtrare la lista con la voce \"In calendario\" per vedere solo le attività collegate a un evento di calendario. Il dettaglio di un'attività con evento collegato mostra il pulsante \"Calendario\" per navigare direttamente all'evento. Se l'evento viene eliminato dal Calendario, il collegamento scompare automaticamente.",
+                    "excerpt": "Se il modulo Calendario è attivo e hai il permesso calendar.view, puoi filtrare la lista con la voce \"In calendario\" per vedere solo le attività collegate a un evento di calendario. Il dettaglio di un'attività con…",
+                    "aliases": [
+                        "attivita",
+                        "attivita integrazione con il calendario",
+                        "come integrazione con il calendario",
+                        "integrazione con il calendario"
+                    ]
+                },
+                "en": {
+                    "question": "Integration with the Calendar",
+                    "answer_markdown": "If the Calendar module is active and you have the `calendar.view` permission, you can filter the list with the \"In calendar\" entry to see only the tasks linked to a calendar event. The detail of a task with a linked event shows the \"Calendar\" button to navigate straight to the event. If the event is deleted from the Calendar, the link disappears automatically.",
+                    "excerpt": "If the Calendar module is active and you have the calendar.view permission, you can filter the list with the \"In calendar\" entry to see only the tasks linked to a calendar event. The detail of a tas...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Intégration avec le Calendrier",
+                    "answer_markdown": "Si le module Calendrier est actif et que vous avez l'autorisation `calendar.view`, vous pouvez filtrer la liste avec l'entrée « Dans le calendrier » pour ne voir que les tâches liées à un événement de calendrier. Le détail d'une tâche avec un événement lié affiche le bouton « Calendrier » pour naviguer directement vers l'événement. Si l'événement est supprimé du Calendrier, le lien disparaît automatiquement.",
+                    "excerpt": "Si le module Calendrier est actif et que vous avez l'autorisation calendar.view, vous pouvez filtrer la liste avec l'entrée « Dans le calendrier » pour ne voir que les tâches liées à un événement de...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Integration mit dem Kalender",
+                    "answer_markdown": "Wenn das Kalender-Modul aktiv ist und Sie die Berechtigung `calendar.view` haben, können Sie die Liste mit dem Eintrag „Im Kalender“ filtern, um nur die mit einem Kalenderereignis verknüpften Aufgaben zu sehen. Das Detail einer Aufgabe mit einem verknüpften Ereignis zeigt die Schaltfläche „Kalender“, um direkt zum Ereignis zu navigieren. Wenn das Ereignis aus dem Kalender gelöscht wird, verschwindet die Verknüpfung automatisch.",
+                    "excerpt": "Wenn das Kalender-Modul aktiv ist und Sie die Berechtigung calendar.view haben, können Sie die Liste mit dem Eintrag „Im Kalender“ filtern, um nur die mit einem Kalenderereignis verknüpften Aufgaben...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Integración con el Calendario",
+                    "answer_markdown": "Si el módulo Calendario está activo y tienes el permiso `calendar.view`, puedes filtrar la lista con la entrada «En calendario» para ver solo las tareas vinculadas a un evento de calendario. El detalle de una tarea con un evento vinculado muestra el botón «Calendario» para navegar directamente al evento. Si el evento se elimina del Calendario, el vínculo desaparece automáticamente.",
+                    "excerpt": "Si el módulo Calendario está activo y tienes el permiso calendar.view, puedes filtrar la lista con la entrada «En calendario» para ver solo las tareas vinculadas a un evento de calendario. El detall...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "tasks.index",
+            "permission_slug": "tasks.view",
+            "ranking_weight": 0,
+            "sort_order": 14,
+            "locales": {
+                "it": {
+                    "question": "Filtri e ricerca attività",
+                    "answer_markdown": "Nella vista lista:\n\n- **Ambito rapido**: pulsanti in cima per filtrare tra Tutte, Attive, Completate, Scadute e In calendario (task collegati a un evento di calendario, solo se il modulo è attivo).\n- **Ricerca testuale**: filtra per parola chiave nel titolo e nella descrizione.\n- **Stato e priorità**: selettori a tendina per restringere i risultati.\n- **Ordinamento**: clicca sulle intestazioni di colonna per ordinare per titolo, priorità o scadenza.\n\n---",
+                    "excerpt": "Nella vista lista: Ambito rapido: pulsanti in cima per filtrare tra Tutte, Attive, Completate, Scadute e In calendario (task collegati a un evento di calendario, solo se il modulo è attivo). Ricerca testuale: filtra pe…",
+                    "aliases": [
+                        "attivita",
+                        "attivita filtri e ricerca",
+                        "come filtri e ricerca",
+                        "filtri e ricerca"
+                    ]
+                },
+                "en": {
+                    "question": "Task filters and search",
+                    "answer_markdown": "In the list view:\n\n- **Quick scope**: buttons at the top to filter between All, Active, Completed, Overdue and In calendar (tasks linked to a calendar event, only if the module is active).\n- **Text search**: filter by keyword in the title and description.\n- **Status and priority**: dropdown selectors to narrow the results.\n- **Sorting**: click the column headers to sort by title, priority or due date.\n\n---",
+                    "excerpt": "In the list view: Quick scope: buttons at the top to filter between All, Active, Completed, Overdue and In calendar (tasks linked to a calendar event, only if the module is active). Text search: filte...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Filtres et recherche des tâches",
+                    "answer_markdown": "Dans la vue liste :\n\n- **Portée rapide** : boutons en haut pour filtrer entre Toutes, Actives, Terminées, En retard et Dans le calendrier (tâches liées à un événement de calendrier, uniquement si le module est actif).\n- **Recherche textuelle** : filtre par mot-clé dans le titre et la description.\n- **Statut et priorité** : sélecteurs déroulants pour restreindre les résultats.\n- **Tri** : cliquez sur les en-têtes de colonne pour trier par titre, priorité ou échéance.\n\n---",
+                    "excerpt": "Dans la vue liste : Portée rapide : boutons en haut pour filtrer entre Toutes, Actives, Terminées, En retard et Dans le calendrier (tâches liées à un événement de calendrier, uniquement si le module e...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Aufgabenfilter und -suche",
+                    "answer_markdown": "In der Listenansicht:\n\n- **Schnellbereich**: Schaltflächen oben, um zwischen Alle, Aktiv, Erledigt, Überfällig und Im Kalender zu filtern (mit einem Kalenderereignis verknüpfte Aufgaben, nur wenn das Modul aktiv ist).\n- **Textsuche**: Filtern nach Stichwort im Titel und in der Beschreibung.\n- **Status und Priorität**: Dropdown-Auswahl, um die Ergebnisse einzugrenzen.\n- **Sortierung**: Klicken Sie auf die Spaltenüberschriften, um nach Titel, Priorität oder Fälligkeit zu sortieren.\n\n---",
+                    "excerpt": "In der Listenansicht: Schnellbereich: Schaltflächen oben, um zwischen Alle, Aktiv, Erledigt, Überfällig und Im Kalender zu filtern (mit einem Kalenderereignis verknüpfte Aufgaben, nur wenn das Modul a...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Filtros y búsqueda de tareas",
+                    "answer_markdown": "En la vista de lista:\n\n- **Ámbito rápido**: botones en la parte superior para filtrar entre Todas, Activas, Completadas, Vencidas y En calendario (tareas vinculadas a un evento de calendario, solo si el módulo está activo).\n- **Búsqueda textual**: filtra por palabra clave en el título y la descripción.\n- **Estado y prioridad**: selectores desplegables para acotar los resultados.\n- **Ordenación**: haz clic en los encabezados de columna para ordenar por título, prioridad o vencimiento.\n\n---",
+                    "excerpt": "En la vista de lista: Ámbito rápido: botones en la parte superior para filtrar entre Todas, Activas, Completadas, Vencidas y En calendario (tareas vinculadas a un evento de calendario, solo si el módu...",
+                    "aliases": []
+                }
+            }
+        }
+    ]
+}

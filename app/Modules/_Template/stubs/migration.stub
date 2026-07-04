@@ -1,0 +1,27 @@
+-- ================================================================
+-- 001_{{module_name}}.sql — Modulo {{ModuleName}}
+-- ================================================================
+
+CREATE TABLE IF NOT EXISTS {{TableName}} (
+    id          INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name        VARCHAR(200) NOT NULL,
+    description TEXT NULL,
+    status      ENUM('active','inactive','archived') NOT NULL DEFAULT 'active',
+    created_by  INT UNSIGNED NULL,
+    created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deleted_at  TIMESTAMP NULL DEFAULT NULL,
+    FOREIGN KEY (created_by) REFERENCES users(id) ON DELETE SET NULL,
+    INDEX idx_{{TableName}}_status  (status),
+    INDEX idx_{{TableName}}_created (created_at)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT IGNORE INTO permissions (name, slug, module) VALUES
+    ('Visualizza {{ModuleName}}', '{{module_name}}.view',   '{{ModuleName}}'),
+    ('Crea {{ModuleName}}',       '{{module_name}}.create', '{{ModuleName}}'),
+    ('Modifica {{ModuleName}}',   '{{module_name}}.edit',   '{{ModuleName}}'),
+    ('Elimina {{ModuleName}}',    '{{module_name}}.delete', '{{ModuleName}}');
+
+-- Assegna permessi all'admin (role_id=1)
+INSERT IGNORE INTO role_permission (role_id, permission_id)
+    SELECT 1, id FROM permissions WHERE module = '{{ModuleName}}';

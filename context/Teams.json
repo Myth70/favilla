@@ -1,0 +1,1320 @@
+{
+    "module": "Teams",
+    "generated_at": "2026-07-04T09:48:34+02:00",
+    "routes": [
+        {
+            "method": "GET",
+            "uri": "/admin/teams/",
+            "name": "teams.admin.index",
+            "controller": "AdminTeamsController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.admin"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/teams/conversations",
+            "name": "teams.admin.conversations",
+            "controller": "AdminTeamsController@conversationTable",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.admin"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/admin/teams/cleanup-preview",
+            "name": "teams.admin.cleanup_preview",
+            "controller": "AdminTeamsController@cleanupPreview",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.admin"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/teams/cleanup",
+            "name": "teams.admin.cleanup",
+            "controller": "AdminTeamsController@triggerCleanup",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.admin"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/teams/{id}/archive",
+            "name": "teams.admin.archive",
+            "controller": "AdminTeamsController@archiveConversation",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.admin"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/admin/teams/{id}",
+            "name": "teams.admin.destroy",
+            "controller": "AdminTeamsController@destroy",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.admin"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/teams/",
+            "name": "teams.index",
+            "controller": "TeamsController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/teams/search",
+            "name": "teams.search",
+            "controller": "TeamsController@search",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/teams/conversations",
+            "name": "teams.conversations",
+            "controller": "TeamsController@conversationList",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/teams/unread-count",
+            "name": "teams.unread-count",
+            "controller": "TeamsController@unreadCount",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/teams/users/search",
+            "name": "teams.users.search",
+            "controller": "TeamsController@userSearch",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/teams/attachments/{attachmentId}",
+            "name": "teams.attachments.show",
+            "controller": "MessageController@attachment",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.view"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/teams/conversations",
+            "name": "teams.conversations.store",
+            "controller": "TeamsController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.create"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/teams/conversations/direct",
+            "name": "teams.conversations.store-direct",
+            "controller": "TeamsController@storeDirect",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.create"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/teams/presence/heartbeat",
+            "name": "teams.presence.heartbeat",
+            "controller": "TeamsController@heartbeat",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.view"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/teams/typing",
+            "name": "teams.typing",
+            "controller": "TeamsController@typing",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/teams/{id}",
+            "name": "teams.show",
+            "controller": "TeamsController@show",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/teams/{id}/state",
+            "name": "teams.state",
+            "controller": "TeamsController@pollState",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/teams/{id}/messages",
+            "name": "teams.messages.index",
+            "controller": "MessageController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/teams/{id}/messages/search",
+            "name": "teams.messages.search",
+            "controller": "TeamsController@searchMessagesInConversation",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/teams/{id}/members",
+            "name": "teams.members.index",
+            "controller": "MemberController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/teams/{id}/mentions/autocomplete",
+            "name": "teams.mentions.autocomplete",
+            "controller": "TeamsController@mentionAutocomplete",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/teams/{id}/messages/{messageId}/history",
+            "name": "teams.messages.history",
+            "controller": "MessageController@history",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/teams/{id}/messages/{messageId}/readers",
+            "name": "teams.messages.readers",
+            "controller": "MessageController@readers",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/teams/{id}/pinned",
+            "name": "teams.pinned.list",
+            "controller": "MessageController@pinnedList",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/teams/{id}/panel/header",
+            "name": "teams.panel.header",
+            "controller": "GroupPanelController@header",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/teams/{id}/media",
+            "name": "teams.panel.media",
+            "controller": "GroupPanelController@media",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/teams/{id}/files",
+            "name": "teams.panel.files",
+            "controller": "GroupPanelController@files",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/teams/{id}/links",
+            "name": "teams.panel.links",
+            "controller": "GroupPanelController@links",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.view"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/teams/{id}/messages",
+            "name": "teams.messages.store",
+            "controller": "MessageController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.create"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/teams/{id}/messages/{messageId}",
+            "name": "teams.messages.update",
+            "controller": "MessageController@update",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.delete"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/teams/{id}/messages/{messageId}",
+            "name": "teams.messages.destroy",
+            "controller": "MessageController@destroy",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.delete"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/teams/{id}/messages/{messageId}/reactions",
+            "name": "teams.messages.reactions.toggle",
+            "controller": "ReactionController@toggle",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.create"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/teams/{id}/messages/{messageId}/pin",
+            "name": "teams.messages.pin",
+            "controller": "MessageController@togglePin",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.create"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/teams/{id}",
+            "name": "teams.conversations.update",
+            "controller": "TeamsController@update",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.create"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/teams/{id}/archive",
+            "name": "teams.conversations.archive",
+            "controller": "TeamsController@archive",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.create"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/teams/{id}/leave",
+            "name": "teams.conversations.leave",
+            "controller": "TeamsController@leave",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.delete"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/teams/{id}/mute",
+            "name": "teams.conversations.mute",
+            "controller": "TeamsController@toggleMute",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.view"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/teams/{id}/hide",
+            "name": "teams.conversations.hide",
+            "controller": "TeamsController@hide",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.view"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/teams/{id}/unhide",
+            "name": "teams.conversations.unhide",
+            "controller": "TeamsController@unhide",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.view"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/teams/{id}/members",
+            "name": "teams.members.store",
+            "controller": "MemberController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.create"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/teams/{id}/members/{userId}",
+            "name": "teams.members.destroy",
+            "controller": "MemberController@destroy",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.create"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/teams/{id}/avatar",
+            "name": "teams.conversations.avatar",
+            "controller": "TeamsController@uploadAvatar",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:teams.create"
+            ]
+        }
+    ],
+    "tables": [
+        {
+            "name": "teams_conversations",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "type",
+                    "type": "enum('direct','group')",
+                    "nullable": false,
+                    "default": "'direct'"
+                },
+                {
+                    "name": "name",
+                    "type": "varchar(255)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "description",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "avatar_path",
+                    "type": "varchar(255)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                },
+                {
+                    "name": "archived_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "created_by",
+                    "columns": [
+                        "created_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_teams_conv_archived",
+                    "columns": [
+                        "archived_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_teams_conv_type",
+                    "columns": [
+                        "type"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "teams_conversations_ibfk_1",
+                    "column": "created_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "teams_conversation_members",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "conversation_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "role",
+                    "type": "enum('admin','member')",
+                    "nullable": false,
+                    "default": "'member'"
+                },
+                {
+                    "name": "joined_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "last_read_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "notifications_muted",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "hidden_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "left_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_teams_member_hidden",
+                    "columns": [
+                        "hidden_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_teams_member_left",
+                    "columns": [
+                        "left_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_teams_member_user",
+                    "columns": [
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "uq_teams_conv_member",
+                    "columns": [
+                        "conversation_id",
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "teams_conversation_members_ibfk_1",
+                    "column": "conversation_id",
+                    "references": "teams_conversations.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "teams_conversation_members_ibfk_2",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "teams_messages",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "conversation_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "reply_to_id",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "body",
+                    "type": "text",
+                    "nullable": false
+                },
+                {
+                    "name": "type",
+                    "type": "enum('text','system')",
+                    "nullable": false,
+                    "default": "'text'"
+                },
+                {
+                    "name": "edited_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "deleted_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "pinned_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "pinned_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "state_updated_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "fk_teams_msg_pinned_by",
+                    "columns": [
+                        "pinned_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "ft_teams_msg_body",
+                    "columns": [
+                        "body"
+                    ],
+                    "unique": false,
+                    "type": "FULLTEXT"
+                },
+                {
+                    "name": "idx_teams_msg_conv_created",
+                    "columns": [
+                        "conversation_id",
+                        "created_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_teams_msg_conv_deleted_created",
+                    "columns": [
+                        "conversation_id",
+                        "deleted_at",
+                        "created_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_teams_msg_created_deleted",
+                    "columns": [
+                        "created_at",
+                        "deleted_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_teams_msg_deleted",
+                    "columns": [
+                        "deleted_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_teams_msg_pinned",
+                    "columns": [
+                        "conversation_id",
+                        "pinned_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_teams_msg_reply",
+                    "columns": [
+                        "reply_to_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_teams_msg_state",
+                    "columns": [
+                        "conversation_id",
+                        "state_updated_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_teams_msg_user",
+                    "columns": [
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_teams_msg_pinned_by",
+                    "column": "pinned_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "fk_teams_msg_reply",
+                    "column": "reply_to_id",
+                    "references": "teams_messages.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "teams_messages_ibfk_1",
+                    "column": "conversation_id",
+                    "references": "teams_conversations.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "teams_messages_ibfk_2",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "teams_user_presence",
+            "columns": [
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "last_seen_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                },
+                {
+                    "name": "active_conversation_id",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_teams_presence_seen",
+                    "columns": [
+                        "last_seen_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "teams_user_presence_ibfk_1",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "teams_typing",
+            "columns": [
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "conversation_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "started_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_teams_typing_conv",
+                    "columns": [
+                        "conversation_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "user_id",
+                        "conversation_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "teams_typing_ibfk_1",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "teams_typing_ibfk_2",
+                    "column": "conversation_id",
+                    "references": "teams_conversations.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "teams_message_edits",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "message_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "old_body",
+                    "type": "text",
+                    "nullable": false
+                },
+                {
+                    "name": "edited_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "edited_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "edited_by",
+                    "columns": [
+                        "edited_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_tme_message",
+                    "columns": [
+                        "message_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "teams_message_edits_ibfk_1",
+                    "column": "message_id",
+                    "references": "teams_messages.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "teams_message_edits_ibfk_2",
+                    "column": "edited_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "teams_message_reactions",
+            "columns": [
+                {
+                    "name": "message_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "emoji",
+                    "type": "varchar(10)",
+                    "nullable": false
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "fk_tmr_user",
+                    "columns": [
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "message_id",
+                        "user_id",
+                        "emoji"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_tmr_message",
+                    "column": "message_id",
+                    "references": "teams_messages.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "fk_tmr_user",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "teams_message_attachments",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "message_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "original_name",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "stored_name",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "mime_type",
+                    "type": "varchar(150)",
+                    "nullable": false
+                },
+                {
+                    "name": "size_bytes",
+                    "type": "bigint(20) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "extension",
+                    "type": "varchar(20)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_tma_created",
+                    "columns": [
+                        "created_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_tma_message",
+                    "columns": [
+                        "message_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "teams_message_attachments_ibfk_1",
+                    "column": "message_id",
+                    "references": "teams_messages.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "teams_message_mentions",
+            "columns": [
+                {
+                    "name": "message_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "mentioned_user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_tmm_user",
+                    "columns": [
+                        "mentioned_user_id",
+                        "created_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "message_id",
+                        "mentioned_user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "teams_message_mentions_ibfk_1",
+                    "column": "message_id",
+                    "references": "teams_messages.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "teams_message_mentions_ibfk_2",
+                    "column": "mentioned_user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        }
+    ],
+    "permissions": [
+        {
+            "slug": "teams.admin",
+            "name": "Amministra Teams (pannello, cleanup, override)"
+        },
+        {
+            "slug": "teams.create",
+            "name": "Invia messaggi, gestisci gruppi e membri"
+        },
+        {
+            "slug": "teams.delete",
+            "name": "Modifica/elimina i propri messaggi, esci dai gruppi"
+        },
+        {
+            "slug": "teams.view",
+            "name": "Accesso Teams (lettura, presence, mute/hide)"
+        }
+    ],
+    "services": [
+        "App\\Modules\\Teams\\Services\\AdminTeamsService",
+        "App\\Modules\\Teams\\Services\\GroupPanelService",
+        "App\\Modules\\Teams\\Services\\TeamsMemberService",
+        "App\\Modules\\Teams\\Services\\TeamsMessageService",
+        "App\\Modules\\Teams\\Services\\TeamsNotificationService",
+        "App\\Modules\\Teams\\Services\\TeamsReactionService",
+        "App\\Modules\\Teams\\Services\\TeamsService"
+    ],
+    "controllers": [
+        "App\\Modules\\Teams\\Controllers\\AdminTeamsController",
+        "App\\Modules\\Teams\\Controllers\\GroupPanelController",
+        "App\\Modules\\Teams\\Controllers\\MemberController",
+        "App\\Modules\\Teams\\Controllers\\MessageController",
+        "App\\Modules\\Teams\\Controllers\\ReactionController",
+        "App\\Modules\\Teams\\Controllers\\TeamsController"
+    ]
+}

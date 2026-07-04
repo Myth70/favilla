@@ -1,0 +1,1142 @@
+/* ===========================================================
+ * HelpOnline — launcher + offcanvas panel
+ * Design system: Bootstrap 5.3 + Favilla CSS variables
+ * =========================================================== */
+
+/* --- Header launcher (icon between search and dark-mode) ----- */
+.app-header-help-btn {
+    line-height: 1;
+    transition: color .15s ease;
+}
+
+/* Override app.css `.app-header .btn-link > .fa-solid` (1.125rem)
+   to match the accent picker dot size (20px). */
+.app-header .btn-link.app-header-help-btn > .fa-solid {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+    line-height: 1;
+}
+
+.app-header-help-btn:hover,
+.app-header-help-btn:focus-visible {
+    color: var(--accent-color) !important;
+    outline: none;
+}
+
+/* --- Offcanvas shell ----------------------------------------- */
+.ho-offcanvas {
+    --bs-offcanvas-width: min(560px, calc(100vw - 1rem));
+    width: var(--bs-offcanvas-width);
+    background: var(--bg-surface);
+    color: var(--text-primary);
+    border-left: 1px solid var(--border-color);
+}
+
+.ho-panel-host {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.ho-panel-loading {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.ho-panel-spinner {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+    border: 3px solid color-mix(in srgb, var(--accent-color) 25%, var(--border-color));
+    border-top-color: var(--accent-color);
+    animation: ho-spin 0.9s linear infinite;
+}
+
+@keyframes ho-spin { to { transform: rotate(360deg); } }
+
+/* --- Panel structure ----------------------------------------- */
+.ho-panel {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-surface);
+}
+
+.ho-panel-header {
+    position: relative;
+    padding: 1.1rem 1.1rem 0.9rem;
+    background: linear-gradient(135deg,
+        color-mix(in srgb, var(--accent-color) 22%, var(--bg-surface)) 0%,
+        color-mix(in srgb, var(--accent-color) 6%, var(--bg-surface)) 100%);
+    border-bottom: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.ho-panel-header-glow {
+    position: absolute;
+    top: -55%;
+    right: -25%;
+    width: 18rem;
+    height: 18rem;
+    background: radial-gradient(circle at center,
+        color-mix(in srgb, var(--accent-color) 30%, transparent) 0%,
+        transparent 65%);
+    pointer-events: none;
+    filter: blur(8px);
+}
+
+.ho-panel-header-row {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+}
+
+.ho-panel-identity {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    min-width: 0;
+}
+
+.ho-panel-avatar {
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 999px;
+    background: linear-gradient(135deg,
+        color-mix(in srgb, var(--accent-color) 90%, #fff) 0%,
+        color-mix(in srgb, var(--accent-color) 65%, var(--bg-surface)) 100%);
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.15rem;
+    box-shadow: 0 8px 18px rgba(15, 23, 42, 0.18);
+    flex-shrink: 0;
+}
+
+.ho-panel-titles {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.ho-panel-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+}
+
+.ho-panel-title {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--text-primary);
+}
+
+.ho-panel-close.btn-close {
+    margin-top: 0.15rem;
+}
+
+.ho-panel-header-actions {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-shrink: 0;
+}
+
+.ho-panel-iconbtn {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--border-color) 80%, transparent);
+    background: color-mix(in srgb, var(--bg-surface) 80%, transparent);
+    color: var(--text-secondary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color .15s ease, color .15s ease, border-color .15s ease, transform .15s ease;
+}
+
+.ho-panel-iconbtn:hover,
+.ho-panel-iconbtn:focus-visible {
+    background: color-mix(in srgb, var(--accent-color) 12%, var(--bg-surface));
+    border-color: color-mix(in srgb, var(--accent-color) 45%, var(--border-color));
+    color: var(--accent-color);
+    outline: none;
+    transform: translateY(-1px);
+}
+
+.ho-panel-context {
+    position: relative;
+    margin-top: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    background: color-mix(in srgb, var(--bg-surface) 85%, transparent);
+    border: 1px solid color-mix(in srgb, var(--border-color) 80%, transparent);
+    border-radius: 0.75rem;
+    padding: 0.45rem 0.75rem;
+    max-width: 100%;
+}
+
+.ho-panel-context i { color: var(--accent-color); }
+.ho-panel-context span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ho-panel-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+/* --- Chat area ------------------------------------------------ */
+.ho-chat-scroll {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 1rem 1.1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    scroll-behavior: smooth;
+}
+
+.ho-chat-scroll::-webkit-scrollbar { width: 8px; }
+.ho-chat-scroll::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--text-secondary) 25%, transparent);
+    border-radius: 999px;
+}
+.ho-chat-scroll::-webkit-scrollbar-thumb:hover {
+    background: color-mix(in srgb, var(--text-secondary) 40%, transparent);
+}
+
+.ho-chat-messages {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.ho-message {
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-end;
+}
+
+.ho-message-assistant { justify-content: flex-start; }
+.ho-message-user      { justify-content: flex-end; }
+
+.ho-message-avatar {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    background: linear-gradient(135deg,
+        color-mix(in srgb, var(--accent-color) 80%, #fff) 0%,
+        color-mix(in srgb, var(--accent-color) 55%, var(--bg-surface)) 100%);
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(15, 23, 42, 0.12);
+}
+
+.ho-message-card {
+    max-width: 82%;
+    border-radius: 1rem;
+    padding: 0.75rem 0.95rem;
+    border: 1px solid var(--border-color);
+    background: var(--bg-surface);
+    color: var(--text-primary);
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+    line-height: 1.45;
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+}
+
+.ho-message-assistant .ho-message-card {
+    border-top-left-radius: 0.35rem;
+}
+
+.ho-message-user .ho-message-card {
+    background: linear-gradient(135deg,
+        color-mix(in srgb, var(--accent-color) 18%, var(--bg-surface)) 0%,
+        color-mix(in srgb, var(--accent-color) 8%, var(--bg-surface)) 100%);
+    border-color: color-mix(in srgb, var(--accent-color) 30%, var(--border-color));
+    border-top-right-radius: 0.35rem;
+}
+
+.ho-message-title {
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+    color: var(--text-primary);
+}
+
+.ho-message-body {
+    font-size: 0.92rem;
+    color: var(--text-primary);
+}
+
+.ho-message-body p:last-child,
+.ho-answer-html p:last-child {
+    margin-bottom: 0;
+}
+
+.ho-message-body ul,
+.ho-message-body ol,
+.ho-answer-html ul,
+.ho-answer-html ol {
+    margin-bottom: 0.6rem;
+    padding-left: 1.2rem;
+}
+
+.ho-message-body li,
+.ho-answer-html li {
+    margin-bottom: 0.15rem;
+}
+
+.ho-message-body code,
+.ho-answer-html code {
+    background: color-mix(in srgb, var(--text-primary) 9%, var(--bg-surface));
+    border-radius: 0.3rem;
+    padding: 0.05rem 0.3rem;
+    font-size: 0.85em;
+}
+
+/* --- Markdown extras ----------------------------------------- */
+.ho-md-heading {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin: 0.85rem 0 0.4rem;
+    color: var(--text-primary);
+}
+
+.ho-message-body .ho-md-heading:first-child,
+.ho-answer-html .ho-md-heading:first-child {
+    margin-top: 0;
+}
+
+.ho-md-table {
+    margin-bottom: 0.75rem;
+    font-size: 0.85rem;
+}
+
+.ho-quote {
+    border-left: 3px solid color-mix(in srgb, var(--accent-color) 45%, var(--border-color));
+    padding: 0.4rem 0.75rem;
+    margin: 0.5rem 0;
+    color: var(--text-secondary);
+    background: color-mix(in srgb, var(--accent-color) 6%, var(--bg-surface));
+    border-radius: 0.4rem;
+    font-style: italic;
+}
+
+.ho-code {
+    background: color-mix(in srgb, var(--text-primary) 7%, var(--bg-surface));
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 0.55rem 0.7rem;
+    margin: 0.55rem 0 0.85rem;
+    overflow-x: auto;
+    font-size: 0.8rem;
+    line-height: 1.45;
+}
+
+.ho-code code {
+    color: var(--text-primary);
+    background: transparent;
+    padding: 0;
+}
+
+/* --- Typing indicator ---------------------------------------- */
+.ho-typing {
+    display: inline-flex;
+    gap: 0.3rem;
+    padding: 0.15rem 0.1rem;
+}
+
+.ho-typing span {
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--accent-color) 70%, var(--text-secondary));
+    animation: ho-bounce 1s infinite ease-in-out;
+}
+
+.ho-typing span:nth-child(2) { animation-delay: 0.12s; }
+.ho-typing span:nth-child(3) { animation-delay: 0.24s; }
+
+@keyframes ho-bounce {
+    0%, 80%, 100% { transform: translateY(0); opacity: 0.5; }
+    40%           { transform: translateY(-4px); opacity: 1; }
+}
+
+/* --- Section eyebrow + suggestions --------------------------- */
+.ho-section-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.ho-section-eyebrow i { color: var(--accent-color); }
+
+.ho-suggestions { margin-top: 0.25rem; }
+
+.ho-suggestion-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.ho-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-surface);
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color .15s ease, border-color .15s ease, transform .15s ease, color .15s ease;
+}
+
+.ho-chip i { color: var(--accent-color); font-size: 0.8rem; }
+
+.ho-chip:hover,
+.ho-chip:focus-visible {
+    background: color-mix(in srgb, var(--accent-color) 10%, var(--bg-surface));
+    border-color: color-mix(in srgb, var(--accent-color) 40%, var(--border-color));
+    transform: translateY(-1px);
+    outline: none;
+}
+
+.ho-chip:active { transform: translateY(0); }
+
+/* --- Topics list --------------------------------------------- */
+.ho-topics { margin-top: 0.25rem; }
+
+.ho-topic-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.ho-topic {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.65rem 0.8rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--border-color);
+    background: var(--bg-surface);
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: background-color .15s ease, border-color .15s ease, transform .15s ease;
+}
+
+.ho-topic:hover,
+.ho-topic:focus-visible {
+    background: color-mix(in srgb, var(--accent-color) 7%, var(--bg-surface));
+    border-color: color-mix(in srgb, var(--accent-color) 40%, var(--border-color));
+    color: var(--text-primary);
+    transform: translateY(-1px);
+    outline: none;
+}
+
+.ho-topic-icon {
+    width: 2.1rem;
+    height: 2.1rem;
+    border-radius: 0.55rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: color-mix(in srgb, var(--accent-color) 12%, var(--bg-surface));
+    color: var(--accent-color);
+    flex-shrink: 0;
+}
+
+.ho-topic-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.ho-topic-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--accent-color);
+    margin-bottom: 0.15rem;
+}
+
+.ho-topic-eyebrow i {
+    font-size: 0.65rem;
+    opacity: 0.85;
+}
+
+.ho-topic-title {
+    font-weight: 600;
+    font-size: 0.92rem;
+    line-height: 1.25;
+    color: var(--text-primary);
+}
+
+.ho-topic-sub {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    margin-top: 0.1rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.ho-topic-chevron {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    transition: transform .15s ease, color .15s ease;
+}
+
+.ho-topic:hover .ho-topic-chevron,
+.ho-topic:focus-visible .ho-topic-chevron {
+    color: var(--accent-color);
+    transform: translateX(2px);
+}
+
+/* --- Page-level topic cards (full guide view) ---------------- */
+.ho-topic-card,
+.ho-related-card,
+.ho-topic-strip-card {
+    transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+}
+
+.ho-topic-card:hover,
+.ho-related-card:hover,
+.ho-topic-strip-card:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--accent-color) 35%, var(--border-color));
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.1);
+}
+
+.ho-answer-card {
+    border-color: color-mix(in srgb, var(--accent-color) 22%, var(--border-color));
+}
+
+/* --- Feedback row -------------------------------------------- */
+.ho-feedback-row {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+    margin-top: 0.7rem;
+    padding-top: 0.6rem;
+    border-top: 1px dashed color-mix(in srgb, var(--border-color) 70%, transparent);
+}
+
+.ho-feedback-row .btn {
+    border-radius: 999px;
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ho-feedback-row .btn-outline-success.active {
+    background: var(--bs-success, #16a34a);
+    color: #fff;
+    border-color: var(--bs-success, #16a34a);
+}
+
+.ho-feedback-row .btn-outline-danger.active {
+    background: var(--bs-danger, #dc2626);
+    color: #fff;
+    border-color: var(--bs-danger, #dc2626);
+}
+
+/* --- Footer composer ----------------------------------------- */
+.ho-panel-footer {
+    border-top: 1px solid var(--border-color);
+    padding: 0.85rem 1.1rem 1rem;
+    background: color-mix(in srgb, var(--bg-surface) 96%, var(--accent-color));
+}
+
+.ho-chat-form { margin: 0; }
+
+.ho-chat-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    gap: 0.4rem;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+    padding: 0.4rem 0.4rem 0.4rem 0.85rem;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+    transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.ho-chat-input-wrap:focus-within {
+    border-color: color-mix(in srgb, var(--accent-color) 55%, var(--border-color));
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color) 18%, transparent),
+                0 4px 14px rgba(15, 23, 42, 0.06);
+}
+
+.ho-chat-input-icon {
+    color: var(--text-muted);
+    margin-bottom: 0.55rem;
+    font-size: 0.95rem;
+}
+
+.ho-chat-input {
+    flex: 1;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--text-primary);
+    resize: none;
+    line-height: 1.4;
+    padding: 0.45rem 0;
+    font-size: 0.95rem;
+    max-height: 8rem;
+    overflow-y: auto;
+}
+
+.ho-chat-input::placeholder { color: var(--text-muted); }
+
+.ho-chat-send {
+    flex-shrink: 0;
+    width: 2.3rem;
+    height: 2.3rem;
+    border-radius: 999px;
+    border: 0;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg,
+        color-mix(in srgb, var(--accent-color) 95%, #fff) 0%,
+        color-mix(in srgb, var(--accent-color) 70%, var(--bg-surface)) 100%);
+    color: #fff;
+    transition: filter .15s ease, transform .15s ease, box-shadow .15s ease;
+    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.18);
+}
+
+.ho-chat-send:hover:not(:disabled) {
+    filter: brightness(1.05);
+    transform: translateY(-1px);
+}
+
+.ho-chat-send:focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--accent-color) 55%, transparent);
+    outline-offset: 2px;
+}
+
+.ho-chat-send:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.ho-chat-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+}
+
+.ho-chat-hint kbd {
+    background: color-mix(in srgb, var(--text-primary) 8%, var(--bg-surface));
+    border: 1px solid var(--border-color);
+    border-radius: 0.25rem;
+    padding: 0 0.3rem;
+    font-size: 0.7em;
+    color: var(--text-secondary);
+}
+
+.ho-chat-counter {
+    font-variant-numeric: tabular-nums;
+    color: var(--text-muted);
+}
+
+.ho-chat-counter.is-warning { color: var(--bs-warning, #f59e0b); }
+.ho-chat-counter.is-danger  { color: var(--bs-danger, #ef4444); font-weight: 600; }
+
+.ho-chat-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-weight: 600;
+}
+
+.ho-chat-link:hover { text-decoration: underline; }
+.ho-chat-link i { font-size: 0.7rem; }
+
+/* --- Mobile -------------------------------------------------- */
+@media (max-width: 575.98px) {
+    .ho-offcanvas {
+        --bs-offcanvas-width: 100vw;
+    }
+
+    .ho-message-card { max-width: 88%; }
+    .ho-chat-meta { flex-direction: column; align-items: flex-start; }
+
+    .ho-page-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* --- Page-level (/help) -------------------------------------- */
+.ho-page-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    gap: 0.75rem;
+}
+
+.ho-stat {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.85rem 1rem;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 0.85rem;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+    transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+
+.ho-stat:hover {
+    transform: translateY(-1px);
+    border-color: color-mix(in srgb, var(--accent-color) 30%, var(--border-color));
+}
+
+.ho-stat-icon {
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 0.7rem;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: color-mix(in srgb, var(--accent-color) 14%, var(--bg-surface));
+    color: var(--accent-color);
+    font-size: 1rem;
+}
+
+.ho-stat-value {
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--text-primary);
+    font-variant-numeric: tabular-nums;
+}
+
+.ho-stat-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-top: 0.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.ho-page-search-card .card-body { padding: 1rem 1.1rem; }
+
+.ho-page-search-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 0.85rem;
+    padding: 0.45rem 0.45rem 0.45rem 0.85rem;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+    transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.ho-page-search-wrap:focus-within {
+    border-color: color-mix(in srgb, var(--accent-color) 55%, var(--border-color));
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color) 18%, transparent),
+                0 4px 14px rgba(15, 23, 42, 0.05);
+}
+
+.ho-page-search-icon {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+.ho-page-search-input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--text-primary);
+    font-size: 1rem;
+    padding: 0.5rem 0;
+}
+
+.ho-page-search-input::placeholder { color: var(--text-muted); }
+
+.ho-page-search-clear {
+    width: 1.85rem;
+    height: 1.85rem;
+    border-radius: 999px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    background: color-mix(in srgb, var(--text-primary) 6%, var(--bg-surface));
+    text-decoration: none;
+    transition: background-color .15s ease, color .15s ease;
+}
+
+.ho-page-search-clear:hover,
+.ho-page-search-clear:focus-visible {
+    color: #fff;
+    background: var(--accent-color);
+    outline: none;
+}
+
+.ho-page-search-btn {
+    flex-shrink: 0;
+    border-radius: 0.65rem;
+    padding-inline: 1rem;
+}
+
+.ho-page-search-hint kbd {
+    background: color-mix(in srgb, var(--text-primary) 8%, var(--bg-surface));
+    border: 1px solid var(--border-color);
+    border-radius: 0.3rem;
+    padding: 0.05rem 0.35rem;
+    font-size: 0.75em;
+    color: var(--text-secondary);
+}
+
+.ho-page-prompts .ho-suggestion-chips a.ho-chip {
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+/* --- Answer card --------------------------------------------- */
+.ho-answer-header {
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
+}
+
+.ho-answer-avatar {
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 999px;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    background: linear-gradient(135deg,
+        color-mix(in srgb, var(--accent-color) 80%, #fff) 0%,
+        color-mix(in srgb, var(--accent-color) 55%, var(--bg-surface)) 100%);
+    color: #fff;
+    box-shadow: 0 6px 14px rgba(15, 23, 42, 0.14);
+}
+
+.ho-answer-meta {
+    flex: 1;
+    min-width: 0;
+}
+
+.ho-answer-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+}
+
+.ho-answer-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-left: auto;
+}
+
+.ho-answer-related {
+    margin-top: 1.2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+@media (max-width: 575.98px) {
+    .ho-answer-header { flex-wrap: wrap; }
+    .ho-answer-actions { width: 100%; }
+}
+
+/* --- Results list -------------------------------------------- */
+.ho-results-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    counter-reset: ho-result;
+}
+
+.ho-result {
+    border-bottom: 1px solid var(--border-color);
+    counter-increment: ho-result;
+}
+
+.ho-result:last-child { border-bottom: 0; }
+
+.ho-result-link {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.85rem 1.1rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: background-color .15s ease;
+}
+
+.ho-result-link:hover,
+.ho-result-link:focus-visible {
+    background: color-mix(in srgb, var(--accent-color) 6%, var(--bg-surface));
+    color: var(--text-primary);
+    outline: none;
+}
+
+.ho-result-main {
+    flex: 1;
+    min-width: 0;
+}
+
+.ho-result-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-bottom: 0.25rem;
+    flex-wrap: wrap;
+}
+
+.ho-result-title {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+    color: var(--text-primary);
+}
+
+/* ===========================================================
+ * HelpOnline — Admin documents table
+ * =========================================================== */
+
+/* Sticky thead */
+.ho-documents-table .ho-sticky-thead th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: var(--bg-surface);
+    border-bottom: 2px solid var(--border-color);
+    white-space: nowrap;
+}
+
+/* Detail expansion row */
+.ho-detail-row > td.ho-detail-cell {
+    background: var(--bs-tertiary-bg, var(--bg-surface));
+    border-top: none;
+}
+
+[data-bs-theme="dark"] .ho-detail-row > td.ho-detail-cell {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+/* Chevron toggle button */
+.ho-doc-toggle {
+    padding: 0.2rem 0.45rem;
+    line-height: 1;
+}
+
+.ho-doc-toggle .ho-toggle-icon {
+    transition: transform 0.2s ease;
+}
+
+.ho-doc-toggle[aria-expanded="true"] .ho-toggle-icon {
+    transform: rotate(180deg);
+}
+
+.ho-result-path {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ho-answer-path {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.ho-result-title mark,
+.ho-result-excerpt mark {
+    background: color-mix(in srgb, var(--accent-color) 25%, transparent);
+    color: inherit;
+    padding: 0 0.15em;
+    border-radius: 0.2rem;
+}
+
+.ho-result-excerpt {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.ho-result-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
+.ho-result-chevron {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    transition: color .15s ease, transform .15s ease;
+}
+
+.ho-result-link:hover .ho-result-chevron,
+.ho-result-link:focus-visible .ho-result-chevron {
+    color: var(--accent-color);
+    transform: translateX(2px);
+}
+
+/* --- Empty state --------------------------------------------- */
+.ho-empty-state {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    color: var(--text-secondary);
+}
+
+/* --- Sidebar rail -------------------------------------------- */
+@media (min-width: 1200px) {
+    .ho-page-rail {
+        position: sticky;
+        top: calc(var(--header-height) + 1rem);
+    }
+}
+
+.ho-module-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.ho-module-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.65rem;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-surface);
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: background-color .15s ease, border-color .15s ease, transform .15s ease;
+}
+
+.ho-module-tag:hover,
+.ho-module-tag:focus-visible {
+    background: color-mix(in srgb, var(--accent-color) 10%, var(--bg-surface));
+    border-color: color-mix(in srgb, var(--accent-color) 40%, var(--border-color));
+    color: var(--text-primary);
+    outline: none;
+    transform: translateY(-1px);
+}
+
+.ho-module-tag-count {
+    background: color-mix(in srgb, var(--accent-color) 18%, var(--bg-surface));
+    color: var(--accent-color);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.05rem 0.4rem;
+    border-radius: 999px;
+}
+
+.ho-tips li {
+    padding: 0.3rem 0;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.ho-tips li kbd {
+    background: color-mix(in srgb, var(--text-primary) 8%, var(--bg-surface));
+    border: 1px solid var(--border-color);
+    border-radius: 0.25rem;
+    padding: 0 0.3rem;
+    font-size: 0.78em;
+    color: var(--text-secondary);
+}
+
+.ho-tips li i.fa-circle-question {
+    color: var(--accent-color);
+}
+
+/* --- Module section flash highlight ------------------------- */
+.ho-module-section.ho-module-flash {
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color) 35%, transparent),
+                0 12px 28px rgba(15, 23, 42, 0.1);
+    border-color: color-mix(in srgb, var(--accent-color) 50%, var(--border-color));
+    transition: box-shadow .25s ease, border-color .25s ease;
+}
+
+/* --- Admin sidebar card ------------------------------------- */
+.ho-admin-card {
+    background: linear-gradient(135deg,
+        color-mix(in srgb, var(--accent-color) 8%, var(--bg-surface)) 0%,
+        var(--bg-surface) 100%);
+    border-color: color-mix(in srgb, var(--accent-color) 25%, var(--border-color));
+}
+
+/* --- Dark mode polish ---------------------------------------- */
+[data-theme="dark"] .ho-message-card,
+.theme-dark .ho-message-card {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}

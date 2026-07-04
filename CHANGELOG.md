@@ -1,0 +1,66 @@
+# Changelog
+
+All notable changes to this project are documented here.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+Favilla is pre-1.0; until 1.0, minor versions may include breaking changes.
+
+## [Unreleased]
+
+## [2.0.2] — 2026-07-04
+
+First public release under the GNU AGPL-3.0-or-later.
+
+### Added
+- **Editions** — one codebase, three editions (Developer / Personal / Team)
+  chosen in the setup wizard or from Admin → Configurazione; release zips are
+  built from a git tag by `tools/build-editions.php` (Release workflow).
+- Four optional modules: **Progetti** (projects), **Teams**, **Documenti**
+  (managed documents with expiry and integrity checks) and **Blog** — enabled
+  by default in the Team edition, installable from Admin → Moduli in the others.
+- **Multilingual UI** — English, French, German and Spanish translations on top
+  of the canonical Italian, covering the PHP, database-overlay and JS layers;
+  completeness is enforced by `php favilla lang:check --strict` (blocking in CI).
+- `declare(strict_types=1)` across the application code layer.
+- Unified application logging via the `app_log()` helper (Monolog with a safe
+  `error_log` fallback).
+- HTTP-level testability seam: middleware and the router raise `HttpException` /
+  `HttpRedirectException` instead of `exit`, handled centrally in `Application`.
+- Security-invariant regression tests (CSRF rejection, route authorization audit
+  over all routes, dompdf SSRF config, ORDER BY whitelist, upload magic bytes).
+- Opt-in real-MariaDB integration suite (`RUN_DB_INTEGRATION=1`) + CI job.
+- Controller tests for the Feedback, Tasks, HealthCheck and HelpOnline modules.
+- CI: `composer audit`, code coverage (pcov/clover), a non-blocking code-style
+  check, and PHPStan result caching.
+- Tooling: `.editorconfig`, php-cs-fixer config, and composer `scripts`.
+- `CONTRIBUTING.md`, `CHANGELOG.md`, `CODE_OF_CONDUCT.md`, Dependabot config and
+  issue/PR templates.
+
+### Changed
+- `.env.example` now documents all configuration keys read by the application.
+- Static analysis raised to **PHPStan level 6** (parameter/return/property types
+  enforced; array-generics check deferred). The whole code tree is now PSR-12
+  conformant and the CI code-style check is blocking.
+- `flash()` / `flash_success()` / `flash_error()` helpers replace direct
+  `$_SESSION['_flash_*']` writes across the app.
+- Backup at-rest encryption extracted from `BackupService` into a focused
+  `BackupEncryptionService` (with an added encrypt→decrypt round-trip test).
+- `ResetPasswordController` no longer issues raw SQL: rate-limit checks go through
+  `RateLimiter`. `CalendarService` resolves its ICS helper via the container.
+- `SessionSecurityMiddleware` audits 403 denials synchronously (catching the
+  thrown `HttpException`) instead of via a shutdown function.
+
+### Security
+- Post-login and MFA redirects now share the hardened `isSafeRedirectTarget()`
+  guard (raw + decoded checks for `//`, `\`, `..`) instead of ad-hoc regexes.
+- Avatar cropping rejects oversized source image dimensions before GD decoding
+  (decompression-bomb guard) in `FileUploadService::saveCroppedAvatar()`.
+- Public Telegram webhook applies per-IP rate limiting on repeated wrong-secret
+  attempts (defence in depth on top of the timing-safe secret comparison).
+- Docker: `MARIADB_ROOT_PASSWORD` now requires an explicit `DB_ROOT_PASS` and no
+  longer silently falls back to the application DB password.
+- `WidgetDataCache` reads cache files with `allowed_classes: false` and sanitises
+  the cache key against path traversal.
+- TOTP anti-replay degradation is now logged loudly and actionably.
+- Defensive column whitelist in `NotificationEventRepository::hasEventTypeColumn()`.

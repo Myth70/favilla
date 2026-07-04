@@ -1,0 +1,196 @@
+<?php
+
+/**
+ * Tasks module — English.
+ */
+return [
+    'title'         => 'Tasks',
+    'subtitle'      => 'Operational planning on a Kanban board',
+    'list_title'    => 'Tasks — List',
+    'list_subtitle' => 'List view with filters and sorting',
+    'new_page_title'  => 'New task',
+    'edit_page_title' => 'Edit task',
+    'breadcrumb_list' => 'List',
+    'breadcrumb_new'  => 'New',
+    'breadcrumb_edit' => 'Edit',
+
+    'status' => [
+        'backlog'     => 'Backlog',
+        'todo'        => 'To do',
+        'in_progress' => 'In progress',
+        'review'      => 'In review',
+        'done'        => 'Done',
+    ],
+    'priority' => [
+        'low'    => 'Low',
+        'medium' => 'Medium',
+        'high'   => 'High',
+        'urgent' => 'Urgent',
+    ],
+
+    'stats' => [
+        'overdue' => 'Overdue',
+        'total'   => 'Total',
+        'active'  => 'Active',
+        'done'    => 'Done',
+    ],
+
+    'actions' => [
+        'kanban'      => 'Kanban',
+        'list'        => 'List',
+        'new'         => 'New task',
+        'in_calendar' => 'In calendar',
+        'detail'      => 'Details',
+        'calendar'    => 'Calendar',
+    ],
+    'tooltip' => [
+        'list_view'    => 'List view',
+        'kanban_view'  => 'Kanban view',
+        'new'          => 'New task',
+        'linked_tasks' => 'Tasks linked to the calendar',
+        'open_event'   => 'Open linked calendar event',
+        'add_in'       => 'Add in :status',
+        'add_task_in'  => 'Add task in :status',
+    ],
+
+    'fields' => [
+        'title'       => 'Title',
+        'description' => 'Description',
+        'status'      => 'Status',
+        'priority'    => 'Priority',
+        'due_date'    => 'Due date',
+        'due_time'    => 'Time',
+        'color'       => 'Color',
+        'tags'        => 'Tags',
+    ],
+    'form' => [
+        'title_placeholder'       => 'What do you need to do?',
+        'description_placeholder' => 'Details...',
+        'title_hint'              => 'Enter a title.',
+        'description_invalid'     => 'Invalid description.',
+        'fix_errors'              => 'Fix the errors.',
+        'new_heading'             => 'New',
+        'edit_heading'            => 'Edit',
+        'all_priorities'          => 'All priorities',
+    ],
+
+    'checklist' => [
+        'label'         => 'Checklist',
+        'add_placeholder' => 'Add item...',
+        'empty'         => 'No checklist items.',
+        'remove_item'   => 'Remove this item?',
+        'item_added'    => 'Checklist item added.',
+        'item_removed'  => 'Checklist item removed.',
+        'updated'       => 'Checklist updated.',
+        'meta'          => ':done of :total completed',
+    ],
+
+    'detail' => [
+        'created'         => 'Created',
+        'completed'       => 'Completed',
+        'no_link_warning' => 'This task has a due date but is not linked to a calendar event.',
+        'delete_confirm'  => 'Delete this task?',
+        'delete_confirm_calendar' => 'Delete this task and also remove the linked calendar event?',
+    ],
+
+    'list' => [
+        'filter_status'      => 'Filter by status',
+        'all'                => 'All',
+        'results'            => ':count results',
+        'search_placeholder' => 'Search by title or description…',
+        'reset_tooltip'      => 'Clear all filters',
+        'clear_search'       => 'Clear search',
+        'overdue_tooltip'    => 'Overdue uncompleted tasks',
+        'scope_all'          => 'All',
+        'scope_today'        => 'Today',
+        'scope_week'         => '7 days',
+        'scope_linked'       => 'In calendar',
+        'scope_overdue'      => 'Overdue',
+        'page_info'          => 'page :page of :pages',
+    ],
+
+    'table' => [
+        'col_task'      => 'Task',
+        'col_checklist' => 'Checklist',
+        'empty_title'   => 'No tasks found',
+        'empty_hint'    => 'Try changing the filters or create a new task.',
+        'checklist_done' => ':done of :total completed',
+        'open_calendar' => 'Open in calendar',
+        'open_calendar_link' => 'Open the linked calendar event',
+        'delete_confirm'         => 'Delete the task?',
+        'delete_confirm_calendar' => 'Delete the task and also remove the linked calendar event?',
+    ],
+
+    'search' => [
+        'no_results'     => 'No results for ":q".',
+        'type_to_search' => 'Type to search.',
+    ],
+
+    'flash' => [
+        'created'   => 'Task created.',
+        'updated'   => 'Task updated.',
+        'deleted'   => 'Task deleted.',
+        'not_found' => 'Task not found.',
+    ],
+
+    'validation' => [
+        'title_required'  => 'The title is required.',
+        'title_max'       => 'The title may not exceed 255 characters.',
+        'status_invalid'  => 'Invalid status.',
+        'priority_invalid' => 'Invalid priority.',
+        'due_date_invalid' => 'Invalid date format.',
+        'due_time_invalid' => 'Invalid time format.',
+        'color_invalid'   => 'Invalid color.',
+        'create_error'    => 'Error while creating the task.',
+        'update_error'    => 'Error while updating the task.',
+        'move_status_invalid' => 'Invalid status',
+        'tag_name_invalid' => 'Invalid tag name (max 50 characters)',
+        'tag_exists'      => 'Tag already exists',
+        'checklist_text_required' => 'Text is required.',
+        'checklist_text_max' => 'The checklist text may not exceed 500 characters.',
+        'checklist_save_error' => 'Error while saving the checklist.',
+        'checklist_update_error' => 'Error while updating the checklist.',
+        'checklist_remove_error' => 'Error while removing the checklist item.',
+    ],
+
+    'form_page' => [
+        'subtitle_new'                 => 'Fill in the fields to register a new task',
+        'back_to_list'                 => 'Back to list',
+        'some_invalid'                 => 'Some fields are invalid',
+        'section_details'              => 'Task details',
+        'section_planning'             => 'Planning',
+        'title_required_hint'          => 'Title required (max 255 characters).',
+        'description_placeholder_full' => 'Details, notes, links...',
+        'value_invalid'                => 'Invalid value.',
+        'color_aria'                   => 'Task color',
+    ],
+
+    'detail_page' => [
+        'subtitle'         => 'Task detail #:id',
+        'at'               => 'at',
+        'linked_event'     => 'Linked event',
+        'no_linked_event'  => 'No linked event',
+        'not_applicable'   => 'Not applicable',
+        'created_at'       => 'Created on',
+        'completed_at'     => 'Completed on',
+        'back_kanban'      => 'Back to Kanban',
+        'back_list'        => 'Back to list',
+        'open_event'       => 'Open linked event',
+        'no_description'   => 'No description.',
+        'no_link_warning2' => 'This task has a due date but is currently not linked to a calendar event.',
+    ],
+
+    'widget' => [
+        'active_label'     => 'Active tasks',
+        'upcoming_label'   => 'Upcoming deadlines',
+        'trend_label'      => 'Weekly completions',
+        'overdue_sub'      => ':count overdue',
+        'duesoon_sub'      => ':count due (7 days)',
+        'col_task'         => 'Task',
+        'col_priority'     => 'Priority',
+        'col_due'          => 'Due',
+        'due_prefix'       => 'Due',
+        'upcoming_empty'   => 'No imminent deadlines. All under control!',
+        'series_completed' => 'Completed',
+    ],
+];

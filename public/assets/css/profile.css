@@ -1,0 +1,1940 @@
+/* ============================================================
+   profile.css — Pagina profilo utente (redesign 2026-04)
+   Prefisso classi: .pf-
+   Layout: hero (invariato) + single-card workspace con 4 tab
+           (Profilo / Sicurezza / Aspetto / Notifiche)
+   ============================================================ */
+
+/* ----------------------------------------------------------
+   NOTE: .pf-card-header-icon e .pf-input-icon sono definite in
+   app.css come alias delle utility condivise .app-card-icon /
+   .app-input-icon. Qui non vengono ridefinite.
+   ---------------------------------------------------------- */
+
+
+/* ============================================================
+   1. Workspace shell — card unificata con tab pill
+   ============================================================ */
+.pf-ws {
+    position: relative;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+}
+
+/* Sottile alone accent sul bordo superiore, in continuita' con l'hero */
+.pf-ws::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 2px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        color-mix(in srgb, var(--accent-color) 35%, transparent) 18%,
+        color-mix(in srgb, var(--accent-color) 55%, transparent) 50%,
+        color-mix(in srgb, var(--accent-color) 35%, transparent) 82%,
+        transparent 100%);
+    border-top-left-radius: var(--radius-lg);
+    border-top-right-radius: var(--radius-lg);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* ----------------------------------------------------------
+   1.1 Nav pill tabs — segmented, accent glow sull'attivo
+   ---------------------------------------------------------- */
+.pf-ws-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    padding: 0.7rem 1rem;
+    margin: 0;
+    background: linear-gradient(135deg,
+        color-mix(in srgb, var(--accent-color) 7%, var(--bg-surface)) 0%,
+        color-mix(in srgb, var(--text-primary) 2%, var(--bg-surface)) 100%);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.pf-ws-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 38px;
+    padding: 0.45rem 0.95rem;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    color: var(--text-secondary);
+    font-size: 0.86rem;
+    font-weight: 500;
+    line-height: 1;
+    cursor: pointer;
+    transition: background-color 0.18s ease, color 0.18s ease,
+                border-color 0.18s ease, box-shadow 0.18s ease,
+                transform 0.18s ease;
+}
+
+.pf-ws-pill i {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    transition: color 0.18s ease;
+}
+
+.pf-ws-pill:hover,
+.pf-ws-pill:focus-visible {
+    color: var(--text-primary);
+    background-color: color-mix(in srgb, var(--accent-color) 6%, var(--bg-surface));
+}
+
+.pf-ws-pill:hover i,
+.pf-ws-pill:focus-visible i {
+    color: var(--accent-color);
+}
+
+.pf-ws-pill:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--accent-color) 50%, transparent);
+    outline-offset: 2px;
+}
+
+.pf-ws-pill.active {
+    background-color: var(--bg-surface);
+    color: var(--accent-color);
+    border-color: color-mix(in srgb, var(--accent-color) 25%, var(--border-color));
+    box-shadow:
+        0 1px 2px rgba(15, 23, 42, 0.04),
+        0 6px 18px color-mix(in srgb, var(--accent-color) 14%, transparent);
+}
+
+.pf-ws-pill.active i {
+    color: var(--accent-color);
+}
+
+/* Mobile: compatta il testo ma tieni le icone */
+@media (max-width: 575.98px) {
+    .pf-ws-nav {
+        gap: 0.25rem;
+        padding: 0.55rem 0.65rem;
+    }
+    .pf-ws-pill {
+        flex: 1 1 auto;
+        justify-content: center;
+        padding: 0.45rem 0.55rem;
+        font-size: 0.78rem;
+    }
+    .pf-ws-pill span {
+        display: none;
+    }
+}
+
+/* ----------------------------------------------------------
+   1.2 Panels — area contenuto tab
+   ---------------------------------------------------------- */
+.pf-ws-panels {
+    padding: 1.15rem 1.25rem 1.3rem;
+}
+
+.pf-ws-panel {
+    outline: 0;
+}
+
+@media (max-width: 575.98px) {
+    .pf-ws-panels {
+        padding: 0.85rem 0.85rem 1rem;
+    }
+}
+
+
+/* ============================================================
+   2. Tab Profilo — identita (avatar+upload) + info personali
+   ============================================================ */
+.pf-profile-grid {
+    display: grid;
+    grid-template-columns: minmax(260px, 340px) 1fr;
+    gap: 1.25rem;
+    align-items: start;
+}
+
+@media (max-width: 767.98px) {
+    .pf-profile-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* ---- Blocco identita (avatar + dropzone + actions) ---- */
+.pf-identity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 1.1rem 0.9rem;
+    background:
+        radial-gradient(120% 80% at 50% 0%,
+            color-mix(in srgb, var(--accent-color) 12%, transparent) 0%,
+            transparent 60%),
+        linear-gradient(180deg,
+            color-mix(in srgb, var(--accent-color) 5%, var(--bg-surface)) 0%,
+            var(--bg-surface) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+}
+
+.pf-identity-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.45rem;
+    border-radius: 50%;
+    background: conic-gradient(from 140deg,
+        color-mix(in srgb, var(--accent-color) 55%, transparent) 0%,
+        color-mix(in srgb, var(--accent-color) 20%, transparent) 50%,
+        color-mix(in srgb, var(--accent-color) 55%, transparent) 100%);
+    box-shadow: 0 8px 28px color-mix(in srgb, var(--accent-color) 22%, transparent);
+}
+
+.pf-identity-img {
+    display: block;
+    width: 104px;
+    height: 104px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: var(--bg-surface);
+    border: 3px solid var(--bg-surface);
+}
+
+.pf-identity-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: var(--accent-color);
+    background-color: color-mix(in srgb, var(--accent-color) 8%, var(--bg-surface));
+    text-transform: uppercase;
+}
+
+/* Dropzone nel pannello identita */
+.pf-identity-drop {
+    width: 100%;
+}
+
+.pf-identity-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    justify-content: center;
+    width: 100%;
+}
+
+/* ---- Form info personali ---- */
+.pf-info-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.pf-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.pf-field .form-label {
+    margin-bottom: 0;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+}
+
+.pf-field .form-text {
+    font-size: 0.76rem;
+    color: var(--text-muted);
+}
+
+.pf-field-readonly {
+    background-color: color-mix(in srgb, var(--text-primary) 3%, var(--bg-surface)) !important;
+    cursor: default;
+}
+
+.pf-info-actions {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 0.4rem;
+    border-top: 1px dashed var(--border-color);
+}
+
+.pf-profile-toolbar-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    padding-top: 0.85rem;
+    border-top: 1px dashed var(--border-color);
+}
+
+.pf-profile-toolbar-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.pf-profile-toolbar-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.pf-profile-toolbar-label i {
+    color: var(--accent-color);
+}
+
+.pf-profile-toolbar-hint {
+    font-size: 0.76rem;
+    color: var(--text-muted);
+}
+
+.pf-profile-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+}
+
+.pf-profile-toolbar-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.28rem;
+    background-color: color-mix(in srgb, var(--accent-color) 4%, var(--bg-surface));
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+}
+
+.pf-profile-toolbar-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.3rem;
+    height: 2.3rem;
+    border-radius: 999px;
+    background-color: var(--bg-surface);
+    border: 1px solid transparent;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: transform 0.18s ease, color 0.18s ease, border-color 0.18s ease, background-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.pf-profile-toolbar-btn i {
+    font-size: 0.95rem;
+}
+
+.pf-profile-toolbar-btn:hover,
+.pf-profile-toolbar-btn:focus-visible {
+    color: var(--accent-color);
+    border-color: color-mix(in srgb, var(--accent-color) 28%, var(--border-color));
+    background-color: color-mix(in srgb, var(--accent-color) 7%, var(--bg-surface));
+    box-shadow: 0 6px 16px color-mix(in srgb, var(--accent-color) 12%, transparent);
+    transform: translateY(-1px);
+}
+
+.pf-profile-toolbar-btn:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--accent-color) 35%, transparent);
+    outline-offset: 2px;
+}
+
+.pf-profile-toolbar-btn-secondary {
+    width: 2rem;
+    height: 2rem;
+    background-color: color-mix(in srgb, var(--accent-color) 8%, var(--bg-surface));
+}
+
+@media (max-width: 575.98px) {
+    .pf-profile-toolbar {
+        gap: 0.45rem;
+    }
+
+    .pf-profile-toolbar-group {
+        gap: 0.3rem;
+        padding: 0.24rem;
+    }
+}
+
+
+/* ============================================================
+   3. Upload avatar — dropzone interna
+   (usa le utility condivise .pf-drop-zone / .app-dropzone)
+   ============================================================ */
+.pf-drop-icon {
+    font-size: 1.6rem;
+    color: var(--accent-color);
+    opacity: 0.8;
+    display: block;
+    margin-bottom: 0.35rem;
+}
+
+.pf-drop-text {
+    font-size: 0.84rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.2rem;
+}
+
+.pf-drop-browse {
+    color: var(--accent-color);
+    font-size: 0.84rem;
+    text-decoration: underline;
+    vertical-align: baseline;
+}
+
+.pf-drop-hint {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+.pf-drop-filename {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    margin-top: 0.35rem;
+    word-break: break-all;
+}
+
+
+/* ============================================================
+   4. Tab Sicurezza
+   ============================================================ */
+
+/* ---- Password: show/hide eye button ---- */
+.pf-pw-eye {
+    border-color: var(--border-color);
+    color: var(--text-muted);
+    transition: color 0.15s ease, background-color 0.15s ease;
+}
+
+.pf-pw-eye:hover {
+    color: var(--text-primary);
+}
+
+/* ---- Password strength meter ---- */
+.pf-pw-strength {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-top: 0.35rem;
+}
+
+.pf-pw-bar {
+    flex: 1 1 auto;
+    height: 4px;
+    background-color: color-mix(in srgb, var(--text-primary) 8%, var(--bg-surface));
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.pf-pw-fill {
+    display: block;
+    height: 100%;
+    width: 0;
+    background-color: transparent;
+    border-radius: inherit;
+    transition: width 0.2s ease, background-color 0.2s ease;
+}
+
+.pf-pw-fill.pf-weak   { width: 33%; background-color: #ef4444; }
+.pf-pw-fill.pf-medium { width: 66%; background-color: #f59e0b; }
+.pf-pw-fill.pf-strong { width: 100%; background-color: #22c55e; }
+
+.pf-pw-label {
+    flex-shrink: 0;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.pf-pw-label.pf-weak   { color: #ef4444; }
+.pf-pw-label.pf-medium { color: #b45309; }
+.pf-pw-label.pf-strong { color: #15803d; }
+
+[data-bs-theme="dark"] .pf-pw-label.pf-medium { color: #fbbf24; }
+[data-bs-theme="dark"] .pf-pw-label.pf-strong { color: #4ade80; }
+
+/* ---- Password match indicator ---- */
+.pf-pw-match {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0.35rem;
+    font-size: 0.76rem;
+    font-weight: 500;
+}
+
+.pf-pw-match.pf-ok   { color: #15803d; }
+.pf-pw-match.pf-fail { color: #b91c1c; }
+
+[data-bs-theme="dark"] .pf-pw-match.pf-ok   { color: #4ade80; }
+[data-bs-theme="dark"] .pf-pw-match.pf-fail { color: #f87171; }
+
+/* ---- Collapsibili (sessioni / cronologia / attivita) ---- */
+.pf-sec-collapsible {
+    margin: 0;
+}
+
+.pf-collapsibles {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.pf-collapsible {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background-color: var(--bg-surface);
+    overflow: hidden;
+    transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.pf-collapsible[open] {
+    border-color: color-mix(in srgb, var(--accent-color) 35%, var(--border-color));
+    box-shadow: 0 2px 8px color-mix(in srgb, var(--accent-color) 10%, transparent);
+}
+
+.pf-collapsible-head {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.65rem 0.9rem;
+    list-style: none;
+    cursor: pointer;
+    user-select: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.pf-collapsible-head::-webkit-details-marker,
+.pf-collapsible-head::marker {
+    display: none;
+}
+
+.pf-collapsible-head:hover {
+    background-color: color-mix(in srgb, var(--accent-color) 5%, var(--bg-surface));
+    color: var(--accent-color);
+}
+
+.pf-collapsible-head:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--accent-color) 45%, transparent);
+    outline-offset: -2px;
+}
+
+.pf-collapsible-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius-sm);
+    background-color: color-mix(in srgb, var(--accent-color) 10%, var(--bg-surface));
+    color: var(--accent-color);
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+.pf-collapsible-label {
+    flex: 0 0 auto;
+}
+
+.pf-collapsible-hint {
+    flex: 1 1 auto;
+    font-size: 0.74rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-right: 0.3rem;
+}
+
+.pf-collapsible[open] .pf-collapsible-icon {
+    background-color: color-mix(in srgb, var(--accent-color) 18%, var(--bg-surface));
+}
+
+.pf-collapsible[open] > .pf-collapsible-head .pf-sec-chevron {
+    transform: rotate(180deg);
+    color: var(--accent-color);
+}
+
+.pf-sec-chevron {
+    margin-left: auto;
+    color: var(--text-muted);
+    font-size: 0.75rem !important;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.pf-collapsible-body {
+    padding: 0.85rem 0.95rem 0.95rem;
+    border-top: 1px solid var(--border-color);
+    background-color: color-mix(in srgb, var(--text-primary) 1.5%, var(--bg-surface));
+}
+
+@media (max-width: 575.98px) {
+    .pf-collapsible-head {
+        flex-wrap: wrap;
+    }
+    .pf-collapsible-hint {
+        flex-basis: 100%;
+        margin-left: 37px;
+        margin-right: 0;
+    }
+}
+
+
+/* ============================================================
+   5. Shared — preferenze/sezioni con subhead discreto
+   (riuso anche nella tab Sicurezza)
+   ============================================================ */
+.pf-prefs-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+}
+
+.pf-prefs-section {
+    display: block;
+}
+
+.pf-prefs-subhead {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.7rem;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.pf-prefs-subhead i {
+    color: var(--accent-color);
+    font-size: 0.85rem;
+}
+
+.pf-prefs-subhead-hint {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--text-muted);
+    opacity: 0.85;
+}
+
+/* Variante "inline" senza bordo in basso (usata in header notifiche) */
+.pf-prefs-subhead-inline {
+    border-bottom: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+
+/* ============================================================
+   6. Tab Aspetto — grid di "preference groups"
+   ============================================================ */
+.pf-ws-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+}
+
+.pf-ws-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    padding: 0.9rem 0.95rem;
+    background-color: color-mix(in srgb, var(--text-primary) 2%, var(--bg-surface));
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pf-ws-group:hover {
+    border-color: color-mix(in srgb, var(--accent-color) 22%, var(--border-color));
+    box-shadow: var(--shadow-sm);
+}
+
+.pf-ws-group-wide {
+    grid-column: 1 / -1;
+}
+
+.pf-ws-group-head {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    min-height: 28px;
+}
+
+.pf-ws-group-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: var(--radius-sm);
+    background-color: color-mix(in srgb, var(--accent-color) 12%, var(--bg-surface));
+    color: var(--accent-color);
+    font-size: 0.82rem;
+    flex-shrink: 0;
+}
+
+.pf-ws-group-title {
+    margin: 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--text-primary);
+}
+
+@media (max-width: 767.98px) {
+    .pf-ws-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* ----------------------------------------------------------
+   6.1 Riga 4-up: Tema | Colore principale | Menu laterale | Colore menu
+   I primi due conservano i tile ricchi; gli ultimi due usano la
+   variante compatta `.pf-mini-list` (vedi sez. 7.1) per stare
+   nello spazio rimanente.
+   ---------------------------------------------------------- */
+.pf-ws-row-aspect {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns:
+        minmax(0, 1.1fr)   /* Tema */
+        minmax(0, 1.6fr)   /* Colore principale */
+        minmax(0, 1fr)     /* Menu laterale (compatto) */
+        minmax(0, 1.1fr);  /* Colore menu (compatto) */
+    gap: 0.85rem;
+    align-items: stretch;
+}
+
+@media (max-width: 1199.98px) {
+    .pf-ws-row-aspect {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 575.98px) {
+    .pf-ws-row-aspect {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* ----------------------------------------------------------
+   6.2 Riga 2-up: Stile pagina | Carattere
+   Sfondo intestazioni resta su riga propria (pf-ws-group-wide).
+   ---------------------------------------------------------- */
+.pf-ws-row-design {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+    align-items: stretch;
+}
+
+@media (max-width: 1199.98px) {
+    .pf-ws-row-design {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* Variante "compact" del gruppo: padding identico, gap interno ridotto */
+.pf-ws-group-compact {
+    gap: 0.55rem;
+}
+
+
+/* ============================================================
+   7. Option tile — base condivisa (tema chiaro/scuro, sidebar, ...)
+   ============================================================ */
+.pf-option-grid {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.pf-option-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.pf-option-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.pf-option-tile {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding: 0.4rem;
+    background-color: var(--bg-surface);
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    cursor: pointer;
+    text-align: center;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.pf-option-tile:hover {
+    border-color: color-mix(in srgb, var(--accent-color) 45%, var(--border-color));
+    transform: translateY(-1px);
+}
+
+.pf-option-tile.active {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-color) 20%, transparent);
+}
+
+.pf-option-tile-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+}
+
+.pf-option-preview {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 36px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+}
+
+/* Preview tema chiaro / scuro */
+.pf-option-preview-theme-light {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    color: #f59e0b;
+}
+
+.pf-option-preview-theme-dark {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    color: #e2e8f0;
+}
+
+.pf-option-preview-theme-light i,
+.pf-option-preview-theme-dark i {
+    font-size: 1.15rem;
+}
+
+/* Preview sidebar — schema rail verticale + area main */
+.pf-option-preview-sidebar {
+    display: flex;
+    align-items: stretch;
+    gap: 3px;
+    padding: 5px;
+    background-color: color-mix(in srgb, var(--text-primary) 2%, var(--bg-surface));
+    border: 1px solid var(--border-color);
+}
+
+.pf-pv-rail {
+    flex-shrink: 0;
+    height: 100%;
+    min-height: 36px;
+    background-color: var(--accent-color);
+    border-radius: 2px;
+    opacity: 0.85;
+}
+
+.pf-pv-rail-wide   { width: 18px; }
+.pf-pv-rail-narrow { width: 8px;  }
+
+.pf-pv-main {
+    position: relative;
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    background-color: color-mix(in srgb, var(--text-primary) 2%, transparent);
+    border-radius: 2px;
+    min-height: 36px;
+}
+
+.pf-pv-main::before {
+    content: '';
+    position: absolute;
+    inset: 6px 38% 6px 5px;
+    border-radius: 2px;
+    background:
+        linear-gradient(180deg,
+            color-mix(in srgb, var(--text-primary) 6%, transparent) 0%,
+            color-mix(in srgb, var(--text-primary) 2%, transparent) 100%),
+        repeating-linear-gradient(180deg,
+            transparent 0,
+            transparent 5px,
+            color-mix(in srgb, var(--text-primary) 12%, transparent) 5px,
+            color-mix(in srgb, var(--text-primary) 12%, transparent) 7px);
+}
+
+.pf-pv-main::after {
+    content: '';
+    position: absolute;
+    top: 6px;
+    right: 5px;
+    bottom: 6px;
+    width: 28%;
+    border-radius: 2px;
+    background: linear-gradient(180deg,
+        color-mix(in srgb, var(--text-primary) 10%, var(--bg-surface)) 0%,
+        color-mix(in srgb, var(--text-primary) 3%, var(--bg-surface)) 100%);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--text-primary) 8%, transparent);
+}
+
+/* Preview tile sidebar-style (default|light|accent) */
+.pf-option-preview-sidebar-style {
+    display: flex;
+    align-items: stretch;
+    gap: 3px;
+    padding: 6px;
+    background-color: color-mix(in srgb, var(--text-primary) 2%, var(--bg-surface));
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    min-height: 48px;
+    overflow: hidden;
+}
+
+.pf-option-preview-sidebar-style .pf-pv-rail {
+    width: 18px;
+    opacity: 1;
+    border-radius: 2px;
+}
+
+.pf-option-preview-sidebar-style .pf-pv-main {
+    background-color: color-mix(in srgb, var(--text-primary) 1%, transparent);
+}
+
+.pf-option-preview-sidebar-style .pf-pv-main::after {
+    width: 30%;
+}
+
+.pf-option-preview-sidebar-style-default .pf-pv-rail {
+    background-color: var(--sidebar-default-bg);
+}
+
+.pf-option-preview-sidebar-style-light .pf-pv-rail {
+    background-color: var(--bg-surface);
+    box-shadow: inset 2px 0 0 var(--accent-color), inset 0 0 0 1px var(--border-color-strong);
+}
+
+.pf-option-preview-sidebar-style-accent .pf-pv-rail {
+    position: relative;
+    background:
+        radial-gradient(120% 60% at 100% 0%,
+            color-mix(in srgb, var(--accent-color) 36%, transparent) 0%,
+            transparent 60%),
+        linear-gradient(180deg,
+            color-mix(in srgb, var(--accent-color) 18%, var(--bg-surface)) 0%,
+            color-mix(in srgb, var(--accent-color) 6%, var(--bg-surface)) 100%);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent-color) 25%, var(--border-color));
+}
+
+
+/* ----------------------------------------------------------
+   7.1 Mini list — variante compatta a impilamento verticale
+   Usata in "Menu laterale" e "Colore menu" all'interno della
+   riga 4-up `.pf-ws-row-aspect`. Conserva le classi JS
+   `.pf-sidebar-tile` e `.pf-sidebar-style-tile` (vedi profile.js).
+   ---------------------------------------------------------- */
+.pf-mini-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.pf-mini-option {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    width: 100%;
+    min-height: 32px;
+    padding: 0.35rem 0.55rem;
+    background-color: var(--bg-surface);
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.15s ease, transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.pf-mini-option:hover {
+    border-color: color-mix(in srgb, var(--accent-color) 45%, var(--border-color));
+    transform: translateX(1px);
+}
+
+.pf-mini-option.active {
+    border-color: var(--accent-color);
+    background-color: color-mix(in srgb, var(--accent-color) 7%, var(--bg-surface));
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-color) 18%, transparent);
+}
+
+.pf-mini-rail {
+    flex-shrink: 0;
+    width: 14px;
+    height: 18px;
+    border-radius: 2px;
+    background-color: var(--accent-color);
+    opacity: 0.85;
+}
+
+/* Slot a larghezza fissa per "Compatto": il rail e' piu' stretto ma
+   resta centrato in un box di 14px cosi' le label sono tutte allineate. */
+.pf-mini-rail-wide {
+    width: 14px;
+}
+
+.pf-mini-rail-narrow {
+    width: 6px;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+/* Varianti rail per "Colore menu" (default | light | accent) */
+.pf-mini-rail-style-default {
+    background-color: var(--sidebar-default-bg);
+    opacity: 1;
+}
+
+.pf-mini-rail-style-light {
+    background-color: var(--bg-surface);
+    box-shadow: inset 2px 0 0 var(--accent-color),
+                inset 0 0 0 1px var(--border-color-strong);
+    opacity: 1;
+}
+
+.pf-mini-rail-style-accent {
+    background:
+        radial-gradient(120% 60% at 100% 0%,
+            color-mix(in srgb, var(--accent-color) 40%, transparent) 0%,
+            transparent 60%),
+        linear-gradient(180deg,
+            color-mix(in srgb, var(--accent-color) 22%, var(--bg-surface)) 0%,
+            color-mix(in srgb, var(--accent-color) 8%, var(--bg-surface)) 100%);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent-color) 30%, var(--border-color));
+    opacity: 1;
+}
+
+.pf-mini-label {
+    flex: 1 1 auto;
+    min-width: 0;
+    font-size: 0.78rem;
+    font-weight: 500;
+    line-height: 1.1;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* ============================================================
+   8. Skin picker — 4 tile con preview del card
+   ============================================================ */
+.pf-skin-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+}
+
+@media (max-width: 767.98px) {
+    .pf-skin-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.pf-skin-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.3rem;
+    padding: 0.4rem;
+    background-color: var(--bg-surface);
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    color: var(--text-primary);
+}
+
+.pf-skin-tile:hover {
+    border-color: var(--border-color-strong);
+    transform: translateY(-1px);
+}
+
+.pf-skin-tile.active {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color) 18%, transparent);
+}
+
+.pf-skin-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: 0.35rem;
+    background-color: color-mix(in srgb, var(--text-primary) 4%, var(--bg-surface));
+    border-radius: var(--radius-sm);
+}
+
+.pf-skin-preview-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    width: 100%;
+    padding: 0.35rem 0.45rem;
+    background-color: var(--bg-surface);
+    border: var(--card-border-width) solid var(--border-color);
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+}
+
+.pf-skin-preview-head {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.pf-skin-preview-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background-color: var(--accent-color);
+    flex-shrink: 0;
+}
+
+.pf-skin-preview-line {
+    flex: 1;
+    height: calc(4px * var(--density-scale, 1));
+    background-color: var(--border-color);
+    border-radius: 999px;
+}
+
+.pf-skin-preview-btn {
+    align-self: flex-start;
+    padding: calc(0.16rem * var(--font-size-scale, 1)) calc(0.5rem * var(--font-size-scale, 1));
+    font-size: calc(0.62rem * var(--font-size-scale, 1));
+    font-weight: var(--btn-font-weight);
+    font-family: var(--font-family-heading);
+    color: #fff;
+    background-color: var(--accent-color);
+    border-radius: var(--btn-radius);
+    line-height: 1.1;
+}
+
+.pf-skin-tile-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+
+/* ============================================================
+   9. Font picker — griglia 5 tile
+   ============================================================ */
+.pf-font-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.5rem;
+}
+
+@media (max-width: 991.98px) {
+    .pf-font-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 575.98px) {
+    .pf-font-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.pf-font-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.25rem;
+    padding: 0.4rem;
+    background-color: var(--bg-surface);
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+    color: var(--text-primary);
+}
+
+.pf-font-tile:hover {
+    border-color: var(--border-color-strong);
+    transform: translateY(-1px);
+}
+
+.pf-font-tile.active {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color) 18%, transparent);
+}
+
+.pf-font-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0.3rem;
+    font-size: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    background-color: color-mix(in srgb, var(--text-primary) 4%, var(--bg-surface));
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.pf-font-tile-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+
+/* ============================================================
+   10. Accent swatches — selezione colore principale
+   ============================================================ */
+.pf-accent-grid {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 0.35rem;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: color-mix(in srgb, var(--text-primary) 3%, var(--bg-surface));
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    min-height: auto;
+}
+
+@media (max-width: 575.98px) {
+    .pf-accent-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.pf-accent-swatch {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    max-width: 30px;
+    height: auto;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.pf-accent-swatch:hover {
+    transform: scale(1.08);
+}
+
+.pf-accent-swatch.active {
+    border-color: var(--bg-surface);
+    box-shadow: 0 0 0 2px var(--accent-color);
+}
+
+[data-bs-theme="dark"] .pf-accent-swatch:not(.active) {
+    outline: 1px solid color-mix(in srgb, var(--text-muted, #94a3b8) 40%, transparent);
+    outline-offset: -1px;
+}
+
+.pf-swatch-blue   { background-color: #3b82f6; }
+.pf-swatch-violet { background-color: #8b5cf6; }
+.pf-swatch-pink   { background-color: #ec4899; }
+.pf-swatch-red    { background-color: #ef4444; }
+.pf-swatch-orange { background-color: #f97316; }
+.pf-swatch-green  { background-color: #22c55e; }
+.pf-swatch-teal   { background-color: #14b8a6; }
+.pf-swatch-slate  { background-color: #64748b; }
+
+
+/* ============================================================
+   11. Pattern tiles — sfondo intestazioni (miniature 10x)
+   ============================================================ */
+.pf-pattern-grid {
+    display: grid;
+    /* 10 colonne sopra xl: tutti i pattern stanno su una riga sola */
+    grid-template-columns: repeat(10, minmax(0, 1fr));
+    gap: 0.4rem;
+}
+
+@media (max-width: 1199.98px) {
+    .pf-pattern-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+}
+
+@media (max-width: 575.98px) {
+    .pf-pattern-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* Quando la griglia e' a 10 colonne le tile sono piu' strette: stringo
+   un filo padding/label e abbasso il min-height per mantenere un'aspect
+   ratio vagamente landscape invece di tile quadre. */
+@media (min-width: 1200px) {
+    .pf-pattern-tile {
+        min-height: 60px;
+    }
+    .pf-pattern-tile-label {
+        padding: 0.35rem 0.45rem 0.3rem;
+        font-size: 0.64rem;
+        letter-spacing: -0.005em;
+    }
+}
+
+.pf-pattern-btn {
+    padding: 0;
+    display: inline-flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.pf-pattern-tile {
+    position: relative;
+    width: 100%;
+    min-height: 72px;
+    background-color: var(--bg-surface);
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+    overflow: hidden;
+}
+
+.pf-pattern-tile:hover {
+    border-color: color-mix(in srgb, var(--accent-color) 45%, var(--border-color));
+    transform: translateY(-1px);
+}
+
+.pf-pattern-tile.active {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent-color) 20%, transparent);
+}
+
+.pf-pattern-preview {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    background-color: color-mix(in srgb, var(--accent-color) 8%, var(--bg-surface));
+    overflow: hidden;
+}
+
+.pf-pattern-preview::before,
+.pf-pattern-preview::after {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+}
+
+.pf-pattern-tile-label {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding: 0.5rem 0.55rem 0.45rem;
+    background: linear-gradient(180deg, transparent 0%, rgba(15, 23, 42, 0.1) 38%, rgba(15, 23, 42, 0.64) 100%);
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 500;
+    line-height: 1.1;
+    text-align: left;
+}
+
+[data-bs-theme="light"] .pf-pattern-tile-label {
+    background: linear-gradient(180deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.46) 42%,
+        rgba(255, 255, 255, 0.92) 100%);
+    color: var(--text-primary);
+}
+
+/* --- Miniature dei 10 pattern --- */
+
+/* 1. Boreale — tende di luce dall'alto */
+.pf-pattern-preview.pf-pattern-circles::before {
+    inset: 0;
+    background:
+        radial-gradient(ellipse 30% 100% at 22% 0%, color-mix(in srgb, var(--accent-color) 22%, transparent), transparent 70%),
+        radial-gradient(ellipse 26% 100% at 72% 0%, color-mix(in srgb, var(--accent-color) 18%, transparent), transparent 60%);
+}
+
+.pf-pattern-preview.pf-pattern-circles::after {
+    inset: 0;
+    background:
+        linear-gradient(180deg,
+            color-mix(in srgb, var(--accent-color) 30%, transparent) 0%,
+            color-mix(in srgb, var(--accent-color) 16%, transparent) 20%,
+            transparent 50%),
+        radial-gradient(ellipse 100% 2px at 50% 26%, color-mix(in srgb, var(--accent-color) 22%, transparent) 0 78%, transparent 80%),
+        radial-gradient(ellipse 70% 1.5px at 50% 40%, color-mix(in srgb, var(--accent-color) 18%, transparent) 0 78%, transparent 80%);
+}
+
+/* 2. Onde — creste d'onda stratificate */
+.pf-pattern-preview.pf-pattern-triangles::before {
+    inset: 0;
+    background:
+        radial-gradient(ellipse 50% 6px at 24% 100%, color-mix(in srgb, var(--accent-color) 18%, transparent) 0 82%, transparent 84%),
+        radial-gradient(ellipse 44% 5px at 68% 100%, color-mix(in srgb, var(--accent-color) 16%, transparent) 0 82%, transparent 84%);
+}
+
+.pf-pattern-preview.pf-pattern-triangles::after {
+    inset: 0;
+    background:
+        radial-gradient(ellipse 38% 5px at 12% 100%, color-mix(in srgb, var(--accent-color) 42%, transparent) 0 82%, transparent 84%),
+        radial-gradient(ellipse 32% 6px at 36% 100%, color-mix(in srgb, var(--accent-color) 38%, transparent) 0 82%, transparent 84%),
+        radial-gradient(ellipse 40% 4px at 58% 100%, color-mix(in srgb, var(--accent-color) 44%, transparent) 0 82%, transparent 84%),
+        radial-gradient(ellipse 28% 5px at 82% 100%, color-mix(in srgb, var(--accent-color) 34%, transparent) 0 82%, transparent 84%),
+        radial-gradient(ellipse 52% 4px at 28% 72%, color-mix(in srgb, var(--accent-color) 26%, transparent) 0 82%, transparent 84%),
+        radial-gradient(ellipse 46% 4px at 68% 68%, color-mix(in srgb, var(--accent-color) 28%, transparent) 0 82%, transparent 84%),
+        radial-gradient(ellipse 56% 3px at 48% 50%, color-mix(in srgb, var(--accent-color) 18%, transparent) 0 82%, transparent 84%);
+}
+
+/* 3. Cosmo — nubi nebulose morbide */
+.pf-pattern-preview.pf-pattern-hexagons::before {
+    inset: 0;
+    background:
+        radial-gradient(circle 1.5px at 18% 32%, color-mix(in srgb, var(--accent-color) 52%, transparent), transparent 2.5px),
+        radial-gradient(circle 1px at 50% 22%, color-mix(in srgb, var(--accent-color) 40%, transparent), transparent 2px),
+        radial-gradient(circle 1px at 78% 70%, color-mix(in srgb, var(--accent-color) 44%, transparent), transparent 2px),
+        radial-gradient(circle 1px at 38% 76%, color-mix(in srgb, var(--accent-color) 36%, transparent), transparent 1.5px);
+}
+
+.pf-pattern-preview.pf-pattern-hexagons::after {
+    inset: 0;
+    background:
+        radial-gradient(ellipse 14px 10px at 72% 56%, color-mix(in srgb, var(--accent-color) 24%, transparent), transparent),
+        radial-gradient(ellipse 10px 12px at 22% 38%, color-mix(in srgb, var(--accent-color) 20%, transparent), transparent),
+        radial-gradient(ellipse 8px 7px at 52% 78%, color-mix(in srgb, var(--accent-color) 16%, transparent), transparent);
+}
+
+/* 4. Cristallo — facce geometriche sfaccettate */
+.pf-pattern-preview.pf-pattern-diamonds::before {
+    inset: 0;
+    background:
+        linear-gradient(128deg, transparent 0%, transparent 28%, color-mix(in srgb, var(--accent-color) 20%, transparent) 30%, color-mix(in srgb, var(--accent-color) 10%, transparent) 46%, transparent 48%),
+        linear-gradient(52deg, transparent 0%, transparent 52%, color-mix(in srgb, var(--accent-color) 16%, transparent) 54%, color-mix(in srgb, var(--accent-color) 8%, transparent) 70%, transparent 72%);
+}
+
+.pf-pattern-preview.pf-pattern-diamonds::after {
+    inset: 0;
+    background:
+        linear-gradient(142deg, transparent 0%, transparent 10%, color-mix(in srgb, var(--accent-color) 30%, transparent) 12%, color-mix(in srgb, var(--accent-color) 12%, transparent) 28%, transparent 30%),
+        linear-gradient(38deg, transparent 0%, transparent 40%, color-mix(in srgb, var(--accent-color) 26%, transparent) 42%, color-mix(in srgb, var(--accent-color) 8%, transparent) 58%, transparent 60%),
+        linear-gradient(205deg, transparent 0%, transparent 58%, color-mix(in srgb, var(--accent-color) 22%, transparent) 60%, color-mix(in srgb, var(--accent-color) 6%, transparent) 76%, transparent 78%);
+}
+
+/* 5. Fiamma — lingue di fuoco dal basso */
+.pf-pattern-preview.pf-pattern-pentagons::before {
+    inset: 0;
+    background:
+        radial-gradient(ellipse 55% 50% at 50% 110%, color-mix(in srgb, var(--accent-color) 28%, transparent), transparent);
+}
+
+.pf-pattern-preview.pf-pattern-pentagons::after {
+    inset: 0;
+    background:
+        radial-gradient(ellipse 18% 52% at 32% 108%, color-mix(in srgb, var(--accent-color) 46%, transparent), transparent),
+        radial-gradient(ellipse 14% 64% at 50% 110%, color-mix(in srgb, var(--accent-color) 40%, transparent), transparent),
+        radial-gradient(ellipse 20% 46% at 66% 106%, color-mix(in srgb, var(--accent-color) 44%, transparent), transparent),
+        radial-gradient(ellipse 10% 34% at 44% 94%, color-mix(in srgb, var(--accent-color) 32%, transparent), transparent);
+}
+
+/* 6. Raggi — fasci di luce radianti */
+.pf-pattern-preview.pf-pattern-lines::before {
+    inset: 0;
+    background:
+        radial-gradient(ellipse 70% 80% at 0% 0%, color-mix(in srgb, var(--accent-color) 30%, transparent), transparent 60%);
+}
+
+.pf-pattern-preview.pf-pattern-lines::after {
+    inset: 0;
+    background:
+        conic-gradient(from 215deg at 0% 0%,
+            transparent 0deg,
+            color-mix(in srgb, var(--accent-color) 36%, transparent) 8deg,
+            transparent 18deg,
+            transparent 28deg,
+            color-mix(in srgb, var(--accent-color) 28%, transparent) 36deg,
+            transparent 48deg,
+            transparent 56deg,
+            color-mix(in srgb, var(--accent-color) 32%, transparent) 64deg,
+            transparent 76deg,
+            transparent 84deg,
+            color-mix(in srgb, var(--accent-color) 22%, transparent) 92deg,
+            transparent 104deg,
+            transparent 145deg
+        );
+}
+
+/* 7. Vortice — spirale ipnotica */
+.pf-pattern-preview.pf-pattern-curves::before {
+    inset: 0;
+    background:
+        radial-gradient(circle at 62% 48%, color-mix(in srgb, var(--accent-color) 32%, transparent), transparent 40%);
+}
+
+.pf-pattern-preview.pf-pattern-curves::after {
+    inset: 0;
+    background:
+        conic-gradient(from 0deg at 62% 48%,
+            transparent 0deg,
+            color-mix(in srgb, var(--accent-color) 38%, transparent) 18deg,
+            transparent 42deg,
+            transparent 90deg,
+            color-mix(in srgb, var(--accent-color) 30%, transparent) 108deg,
+            transparent 132deg,
+            transparent 180deg,
+            color-mix(in srgb, var(--accent-color) 34%, transparent) 198deg,
+            transparent 222deg,
+            transparent 270deg,
+            color-mix(in srgb, var(--accent-color) 26%, transparent) 288deg,
+            transparent 312deg,
+            transparent 360deg),
+        radial-gradient(circle at 62% 48%, transparent 14%, color-mix(in srgb, var(--accent-color) 12%, transparent) 32%, transparent 50%);
+}
+
+/* 8. Eclissi — cerchi concentrici */
+.pf-pattern-preview.pf-pattern-grid::before {
+    inset: 0;
+    background:
+        radial-gradient(circle at 72% 50%, color-mix(in srgb, var(--accent-color) 28%, transparent), transparent 40%);
+}
+
+.pf-pattern-preview.pf-pattern-grid::after {
+    inset: 0;
+    background:
+        radial-gradient(circle at 72% 50%, transparent 10%, color-mix(in srgb, var(--accent-color) 32%, transparent) 11%, transparent 14%),
+        radial-gradient(circle at 72% 50%, transparent 20%, color-mix(in srgb, var(--accent-color) 26%, transparent) 21%, transparent 24%),
+        radial-gradient(circle at 72% 50%, transparent 32%, color-mix(in srgb, var(--accent-color) 20%, transparent) 33%, transparent 36%),
+        radial-gradient(circle at 72% 50%, transparent 46%, color-mix(in srgb, var(--accent-color) 14%, transparent) 47%, transparent 50%);
+}
+
+/* 9. Duna — collinette sabbiose */
+.pf-pattern-preview.pf-pattern-chevrons::before {
+    inset: 0;
+    background: linear-gradient(0deg, color-mix(in srgb, var(--accent-color) 18%, transparent) 0%, transparent 50%);
+}
+
+.pf-pattern-preview.pf-pattern-chevrons::after {
+    inset: 0;
+    background:
+        radial-gradient(ellipse 48% 8px at 15% 100%, color-mix(in srgb, var(--accent-color) 38%, transparent) 0 82%, transparent 83%),
+        radial-gradient(ellipse 40% 10px at 42% 100%, color-mix(in srgb, var(--accent-color) 32%, transparent) 0 82%, transparent 83%),
+        radial-gradient(ellipse 52% 7px at 70% 100%, color-mix(in srgb, var(--accent-color) 40%, transparent) 0 82%, transparent 83%),
+        radial-gradient(ellipse 36% 9px at 90% 100%, color-mix(in srgb, var(--accent-color) 28%, transparent) 0 82%, transparent 83%),
+        radial-gradient(ellipse 58% 6px at 30% 72%, color-mix(in srgb, var(--accent-color) 22%, transparent) 0 82%, transparent 83%),
+        radial-gradient(ellipse 42% 7px at 68% 68%, color-mix(in srgb, var(--accent-color) 26%, transparent) 0 82%, transparent 83%);
+}
+
+/* 10. Prisma — fasce diagonali prismatiche */
+.pf-pattern-preview.pf-pattern-mesh::before {
+    inset: 0;
+    background:
+        linear-gradient(135deg,
+            transparent 0%, transparent 14%,
+            color-mix(in srgb, var(--accent-color) 28%, transparent) 15%,
+            color-mix(in srgb, var(--accent-color) 16%, transparent) 24%,
+            transparent 25%, transparent 38%,
+            color-mix(in srgb, var(--accent-color) 22%, transparent) 39%,
+            color-mix(in srgb, var(--accent-color) 14%, transparent) 50%,
+            transparent 51%, transparent 100%),
+        linear-gradient(45deg,
+            transparent 0%, transparent 54%,
+            color-mix(in srgb, var(--accent-color) 20%, transparent) 55%,
+            color-mix(in srgb, var(--accent-color) 12%, transparent) 68%,
+            transparent 69%, transparent 100%);
+}
+
+.pf-pattern-preview.pf-pattern-mesh::after {
+    inset: 0;
+    background:
+        linear-gradient(135deg,
+            transparent 0%, transparent 60%,
+            color-mix(in srgb, var(--accent-color) 34%, transparent) 61%,
+            color-mix(in srgb, var(--accent-color) 20%, transparent) 72%,
+            transparent 73%, transparent 80%,
+            color-mix(in srgb, var(--accent-color) 26%, transparent) 81%,
+            color-mix(in srgb, var(--accent-color) 14%, transparent) 92%,
+            transparent 93%, transparent 100%),
+        linear-gradient(45deg,
+            transparent 0%, transparent 8%,
+            color-mix(in srgb, var(--accent-color) 26%, transparent) 9%,
+            color-mix(in srgb, var(--accent-color) 14%, transparent) 22%,
+            transparent 23%, transparent 32%,
+            color-mix(in srgb, var(--accent-color) 20%, transparent) 33%,
+            color-mix(in srgb, var(--accent-color) 12%, transparent) 46%,
+            transparent 47%, transparent 100%);
+}
+
+
+/* ============================================================
+   12. Tab Notifiche
+   ============================================================ */
+.pf-notif-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    padding-bottom: 0.7rem;
+    margin-bottom: 0.85rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.pf-notif-actions {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+.pf-notif-list {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background-color: var(--bg-surface);
+}
+
+/* Override vincoli dropdown per contesto profilo */
+#profile-notif-list .nt-dropdown-body {
+    max-height: none;
+    overflow-y: visible;
+}
+
+#profile-notif-list .nt-dropdown-footer {
+    padding: 0.65rem 1rem;
+    font-size: 0.82rem;
+}
+
+
+/* ============================================================
+   13. Activity / Sessions shared (usati dai partial HTMX)
+   ============================================================ */
+.pf-activity-row {
+    transition: background-color 0.15s;
+}
+
+.pf-activity-row:hover {
+    background-color: color-mix(in srgb, var(--accent-color) 4%, var(--bg-surface));
+}
+
+.pf-activity-dot {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.pf-activity-icon {
+    font-size: 0.65rem;
+}
+
+.pf-activity-label {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.pf-session-current {
+    background-color: color-mix(in srgb, var(--accent-color) 6%, var(--bg-surface)) !important;
+}
+
+
+/* ============================================================
+   14. Notification settings (pagina /notifications/settings)
+   Usano classi .pf-notify-* condivise — lasciate intatte.
+   ============================================================ */
+.pf-notify-topbar {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.pf-notify-title {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.2rem;
+}
+
+.pf-notify-lead {
+    max-width: 62ch;
+    font-size: 0.84rem;
+    color: var(--text-secondary);
+}
+
+.pf-telegram-status {
+    min-width: 250px;
+    padding: 0.8rem 0.95rem;
+    border-radius: var(--radius-md);
+    border: 1px solid color-mix(in srgb, var(--accent-color) 12%, var(--border-color));
+    background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color) 7%, var(--bg-surface)) 0%, var(--bg-surface) 100%);
+}
+
+.pf-telegram-status.is-linked {
+    border-color: color-mix(in srgb, #22c55e 38%, var(--border-color));
+    background: linear-gradient(135deg, color-mix(in srgb, #22c55e 10%, var(--bg-surface)) 0%, var(--bg-surface) 100%);
+}
+
+.pf-telegram-status-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    margin-bottom: 0.2rem;
+}
+
+.pf-telegram-status-value {
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.pf-notify-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+}
+
+.pf-telegram-wizard {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 1rem;
+    border: 1px dashed color-mix(in srgb, var(--accent-color) 24%, var(--border-color));
+    border-radius: var(--radius-lg);
+    background-color: color-mix(in srgb, var(--accent-color) 4%, var(--bg-surface));
+}
+
+.pf-telegram-wizard-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.28rem;
+}
+
+.pf-telegram-steps {
+    margin: 0;
+    padding-left: 1.1rem;
+    color: var(--text-secondary);
+    font-size: 0.82rem;
+}
+
+.pf-telegram-wizard-actions {
+    min-width: min(100%, 360px);
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.pf-telegram-token-wrap { width: 100%; }
+
+.pf-notify-module-card {
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1rem;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--accent-color) 4%, var(--bg-surface)) 0%, var(--bg-surface) 100%);
+}
+
+.pf-notify-module-head {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 0.8rem;
+    align-items: start;
+    margin-bottom: 0.9rem;
+}
+
+.pf-notify-module-icon {
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    color: var(--accent-color);
+    background-color: color-mix(in srgb, var(--accent-color) 12%, var(--bg-surface));
+}
+
+.pf-notify-module-title {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.pf-notify-module-desc {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    margin-top: 0.18rem;
+}
+
+.pf-notify-event-badge {
+    font-size: 0.72rem;
+    line-height: 1;
+    white-space: nowrap;
+    padding: 0.42rem 0.55rem;
+    border-radius: 999px;
+    color: var(--text-secondary);
+    background-color: color-mix(in srgb, var(--accent-color) 10%, var(--bg-surface));
+}
+
+.pf-notify-channel-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+}
+
+.pf-notify-channel {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.72rem 0.8rem;
+    border-radius: var(--radius-md);
+    border: 1px solid color-mix(in srgb, var(--accent-color) 8%, var(--border-color));
+    background-color: color-mix(in srgb, var(--accent-color) 3%, var(--bg-surface));
+}
+
+.pf-notify-channel.is-disabled { opacity: 0.68; }
+
+.pf-notify-channel-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.pf-notify-channel-name {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.pf-notify-channel-desc {
+    font-size: 0.74rem;
+    color: var(--text-secondary);
+}
+
+.pf-notify-channel-note {
+    display: block;
+    margin-top: 0.24rem;
+    color: var(--text-primary);
+}
+
+.pf-notify-section-label {
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+}
+
+.pf-notify-event-list {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px dashed color-mix(in srgb, var(--accent-color) 18%, var(--border-color));
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.pf-notify-event-card {
+    border: 1px solid color-mix(in srgb, var(--accent-color) 10%, var(--border-color));
+    border-radius: var(--radius-lg);
+    padding: 0.85rem;
+    background-color: color-mix(in srgb, var(--accent-color) 4%, var(--bg-surface));
+}
+
+.pf-notify-event-head {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 0.75rem;
+    align-items: start;
+    margin-bottom: 0.85rem;
+}
+
+.pf-notify-event-icon {
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    color: var(--accent-color);
+    background-color: color-mix(in srgb, var(--accent-color) 14%, var(--bg-surface));
+}
+
+.pf-notify-event-title {
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.pf-notify-event-desc {
+    font-size: 0.74rem;
+    color: var(--text-secondary);
+    margin-top: 0.16rem;
+}
+
+.pf-notify-event-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    justify-content: flex-end;
+}
+
+.pf-notify-system-badge {
+    font-size: 0.72rem;
+    line-height: 1;
+    white-space: nowrap;
+    padding: 0.42rem 0.55rem;
+    border-radius: 999px;
+    color: #8a5a00;
+    background-color: color-mix(in srgb, #f59e0b 18%, var(--bg-surface));
+}
+
+.pf-notify-event-channel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.6rem;
+}
+
+.pf-notify-event-channel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    padding: 0.75rem;
+    border-radius: var(--radius-md);
+    border: 1px solid color-mix(in srgb, var(--accent-color) 8%, var(--border-color));
+    background-color: color-mix(in srgb, var(--accent-color) 2%, var(--bg-surface));
+}
+
+.pf-notify-event-channel.is-disabled { opacity: 0.68; }
+
+@media (max-width: 575.98px) {
+    .pf-notify-module-head { grid-template-columns: auto 1fr; }
+    .pf-notify-event-badge { grid-column: 1 / -1; justify-self: start; }
+    .pf-notify-channel { align-items: center; }
+    .pf-notify-event-head { grid-template-columns: auto 1fr; }
+    .pf-notify-event-badges { grid-column: 1 / -1; justify-content: flex-start; }
+}

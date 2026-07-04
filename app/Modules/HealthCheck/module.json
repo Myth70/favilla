@@ -1,0 +1,50 @@
+{
+    "name": "HealthCheck",
+    "icon": "fa-solid fa-heart-pulse",
+    "version": "3.0.0",
+    "description": "Stato di salute dell'installazione (PHP, database, filesystem, sicurezza ISO 27001, prestazioni). Check rapidi sul dashboard e scansione approfondita (DNS email, esposizione .env, vulnerabilità dipendenze), CLI 'health:check' per CI/deploy, storico run, export CSV, notifiche admin.",
+    "database": "shared",
+    "tables": ["healthcheck_runs"],
+    "notification_events": [
+        {
+            "slug": "health_check.failures_detected",
+            "name": "Errori Health Check rilevati",
+            "description": "Inviata quando vengono rilevati check falliti",
+            "default_level": "danger",
+            "icon": "fa-solid fa-heart-pulse",
+            "context_variables": {
+                "failure_count": "Numero check falliti",
+                "failed_checks_text": "Elenco sintetico check falliti"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Health Check: {{failure_count}} errori",
+                    "body": "Check falliti: {{failed_checks_text}}"
+                },
+                "email": {
+                    "subject": "Health Check: {{failure_count}} errori",
+                    "body": "<h2>Health Check fallito</h2><p>Numero errori: {{failure_count}}</p><p>{{failed_checks_text}}</p><p><a href=\"{{link}}\">Apri pannello</a></p>"
+                },
+                "telegram": {
+                    "body": "🚨 Health Check: {{failure_count}} errori\n{{failed_checks_text}}\n{{link}}"
+                }
+            }
+        }
+    ],
+    "dependencies": ["Notifications"],
+    "changelog": {
+        "3.0.0": "Refactor: god class spezzata in check per dominio (App\\Modules\\HealthCheck\\Checks), layering allineato (SoD/incidenti/file via servizi proprietari, query diagnostiche in SystemDiagnosticsRepository), separazione fast/deep, comando CLI health:check, composer audit rianimato, suite di test ampliata",
+        "2.0.0": "Nuovi check (disco, MariaDB, connessioni, HTTPS, estensioni consigliate), HTMX refresh, storico run, export CSV, notifiche admin, test unitari",
+        "1.0.0": "Versione iniziale"
+    },
+    "menu": [
+        {
+            "label": "Health Check",
+            "icon": "fa-heart-pulse",
+            "route": "healthcheck.index",
+            "permission": "healthcheck.view",
+            "order": 88,
+            "children": []
+        }
+    ]
+}

@@ -1,0 +1,49 @@
+{
+    "name": "Admin",
+    "icon": "fa-solid fa-gear",
+    "version": "2.0.0",
+    "description": "Pannello di amministrazione: utenti, ruoli, permessi, moduli, impostazioni, email, log e changelog",
+    "database": "shared",
+    "tables": [
+        "roles",
+        "permissions",
+        "user_role",
+        "role_permission",
+        "audit_logs",
+        "app_settings",
+        "mail_templates",
+        "mail_log",
+        "changelog_versions"
+    ],
+    "dependencies": [],
+    "changelog": {
+        "1.0.0": "Versione iniziale"
+    },
+    "notification_events": [
+        {
+            "slug": "admin.user_reactivated",
+            "name": "Utente riattivato",
+            "description": "Inviata quando un amministratore riattiva un account utente",
+            "default_level": "success",
+            "icon": "fa-solid fa-user-check",
+            "context_variables": {
+                "user_id": "ID utente riattivato",
+                "activated_by": "ID admin che ha riattivato"
+            },
+            "default_templates": {
+                "in_app": {
+                    "subject": "Account riattivato",
+                    "body": "Il tuo account e stato riattivato."
+                },
+                "email": {
+                    "subject": "Account riattivato",
+                    "body": "<h2>Account riattivato</h2><p>Il tuo account e stato riattivato da un amministratore.</p><p><a href=\"{{link}}\">Apri piattaforma</a></p>"
+                },
+                "telegram": {
+                    "body": "✅ Il tuo account e stato riattivato.\n{{link}}"
+                }
+            }
+        }
+    ],
+    "menu": []
+}

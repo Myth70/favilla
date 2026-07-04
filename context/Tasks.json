@@ -1,0 +1,571 @@
+{
+    "module": "Tasks",
+    "generated_at": "2026-07-04T09:48:34+02:00",
+    "routes": [
+        {
+            "method": "GET",
+            "uri": "/tasks/",
+            "name": "tasks.index",
+            "controller": "TasksController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:tasks.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/tasks/list",
+            "name": "tasks.list",
+            "controller": "TasksController@list",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:tasks.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/tasks/board",
+            "name": "tasks.board",
+            "controller": "TasksController@board",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:tasks.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/tasks/search",
+            "name": "tasks.search",
+            "controller": "TasksController@search",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:tasks.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/tasks/create",
+            "name": "tasks.create",
+            "controller": "TasksController@create",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:tasks.create"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/tasks/",
+            "name": "tasks.store",
+            "controller": "TasksController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:tasks.create"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/tasks/tags",
+            "name": "tasks.tags",
+            "controller": "TasksController@tags",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:tasks.create"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/tasks/tags",
+            "name": "tasks.tags.store",
+            "controller": "TasksController@storeTag",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:tasks.create"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/tasks/tags/{id}",
+            "name": "tasks.tags.destroy",
+            "controller": "TasksController@destroyTag",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:tasks.create"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/tasks/{id}",
+            "name": "tasks.show",
+            "controller": "TasksController@show",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:tasks.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/tasks/{id}/edit",
+            "name": "tasks.edit",
+            "controller": "TasksController@edit",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:tasks.edit"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/tasks/{id}",
+            "name": "tasks.update",
+            "controller": "TasksController@update",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:tasks.edit"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/tasks/{id}/move",
+            "name": "tasks.move",
+            "controller": "TasksController@move",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:tasks.edit"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/tasks/{id}/toggle",
+            "name": "tasks.toggle",
+            "controller": "TasksController@toggle",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:tasks.edit"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/tasks/{id}/checklist",
+            "name": "tasks.checklist.store",
+            "controller": "TasksController@addChecklist",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:tasks.edit"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/tasks/{id}/checklist/{cid}",
+            "name": "tasks.checklist.toggle",
+            "controller": "TasksController@toggleChecklist",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:tasks.edit"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/tasks/{id}/checklist/{cid}",
+            "name": "tasks.checklist.destroy",
+            "controller": "TasksController@deleteChecklist",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:tasks.edit"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/tasks/{id}",
+            "name": "tasks.destroy",
+            "controller": "TasksController@destroy",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:tasks.delete"
+            ]
+        }
+    ],
+    "tables": [
+        {
+            "name": "tasks",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "title",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "description",
+                    "type": "text",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "status",
+                    "type": "enum('backlog','todo','in_progress','review','done')",
+                    "nullable": false,
+                    "default": "'todo'"
+                },
+                {
+                    "name": "priority",
+                    "type": "enum('low','medium','high','urgent')",
+                    "nullable": false,
+                    "default": "'medium'"
+                },
+                {
+                    "name": "due_date",
+                    "type": "date",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "due_time",
+                    "type": "time",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "color",
+                    "type": "varchar(20)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "position",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "completed_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "calendar_event_id",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                },
+                {
+                    "name": "deleted_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "last_reminded_date",
+                    "type": "date",
+                    "nullable": true,
+                    "default": "NULL"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_att_calendar",
+                    "columns": [
+                        "calendar_event_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_att_due_date",
+                    "columns": [
+                        "due_date"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_att_position",
+                    "columns": [
+                        "position"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_att_user_status",
+                    "columns": [
+                        "user_id",
+                        "status"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_task_user_board",
+                    "columns": [
+                        "user_id",
+                        "deleted_at",
+                        "position"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "tasks_ibfk_1",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "task_checklist",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "task_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "text",
+                    "type": "varchar(500)",
+                    "nullable": false
+                },
+                {
+                    "name": "is_done",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "position",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_acl_attivita",
+                    "columns": [
+                        "task_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "task_checklist_ibfk_1",
+                    "column": "task_id",
+                    "references": "tasks.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "task_tags",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "name",
+                    "type": "varchar(50)",
+                    "nullable": false
+                },
+                {
+                    "name": "color",
+                    "type": "varchar(20)",
+                    "nullable": false,
+                    "default": "'#6c757d'"
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_att_tag_unique",
+                    "columns": [
+                        "name",
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "user_id",
+                    "columns": [
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "task_tags_ibfk_1",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "task_tag_map",
+            "columns": [
+                {
+                    "name": "task_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "tag_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "task_id",
+                        "tag_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "tag_id",
+                    "columns": [
+                        "tag_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "task_tag_map_ibfk_1",
+                    "column": "task_id",
+                    "references": "tasks.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                },
+                {
+                    "constraint": "task_tag_map_ibfk_2",
+                    "column": "tag_id",
+                    "references": "task_tags.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        }
+    ],
+    "permissions": [
+        {
+            "slug": "tasks.create",
+            "name": "Crea Attività"
+        },
+        {
+            "slug": "tasks.delete",
+            "name": "Elimina Attività"
+        },
+        {
+            "slug": "tasks.edit",
+            "name": "Modifica Attività"
+        },
+        {
+            "slug": "tasks.view",
+            "name": "Visualizza Attività"
+        }
+    ],
+    "services": [
+        "App\\Modules\\Tasks\\Services\\TasksService"
+    ],
+    "controllers": [
+        "App\\Modules\\Tasks\\Controllers\\TasksController"
+    ]
+}

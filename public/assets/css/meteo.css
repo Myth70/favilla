@@ -1,0 +1,617 @@
+/* ============================================================
+   Pagina Meteo — prefisso .mt- (Home / Meteo)
+   Redesign atmosferico: cielo animato reattivo, layout bento,
+   arco solare, gauge UV, bussola vento. Light + dark, token
+   condivisi, prefers-reduced-motion, responsive.
+   ============================================================ */
+
+.mt-page {
+    position: relative;
+    padding-bottom: 2rem;
+    --mt-radius: 1.15rem;
+    /* "Mood" del cielo (fallback blu); h/s arrivano inline dalla view, l dal tema. */
+    --mt-mood-h: 218;
+    --mt-mood-s: 78%;
+    --mt-mood-l: 50%;
+    --mt-mood: hsl(var(--mt-mood-h) var(--mt-mood-s) var(--mt-mood-l));
+}
+/* Wash di sfondo tenue, intonato al mood del cielo, per profondità "organica". */
+.mt-page::before {
+    content: "";
+    position: absolute;
+    inset: -1rem -1rem auto -1rem;
+    height: 440px;
+    z-index: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(42rem 24rem at 100% -18%, hsl(var(--mt-mood-h) var(--mt-mood-s) var(--mt-mood-l) / .14), transparent 60%),
+        radial-gradient(34rem 22rem at -4% -12%, rgba(251, 146, 60, .07), transparent 55%);
+}
+.mt-page > * { position: relative; z-index: 1; }
+
+/* ── Toolbar ──────────────────────────────────────────────── */
+.mt-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+}
+.mt-updated { font-size: .85rem; color: var(--text-muted, #6c757d); }
+
+.mt-locsearch { position: relative; min-width: 260px; flex: 0 1 320px; }
+.mt-locsearch-icon {
+    position: absolute; left: .85rem; top: 50%; transform: translateY(-50%);
+    color: var(--text-muted, #94a3b8); font-size: .85rem; pointer-events: none;
+}
+.mt-locsearch-input {
+    width: 100%;
+    height: 42px;
+    padding: 0 1rem 0 2.4rem;
+    border-radius: 999px;
+    border: 1px solid var(--bs-border-color-translucent, rgba(0,0,0,.1));
+    background: var(--bs-body-bg, #fff);
+    color: var(--bs-body-color, #212529);
+    font-size: .9rem;
+    transition: box-shadow .2s ease, border-color .2s ease;
+}
+.mt-locsearch-input:focus {
+    outline: none;
+    border-color: rgba(var(--bs-primary-rgb, 13,110,253), .5);
+    box-shadow: 0 0 0 .2rem rgba(var(--bs-primary-rgb, 13,110,253), .15);
+}
+.mt-locsearch-results { left: auto; right: 0; min-width: 100%; }
+
+/* Risultati ricerca (riusa il partial weather_search_results) */
+.hm-weather-loc-results {
+    position: absolute; right: 0; top: calc(100% + 6px); z-index: 40;
+    min-width: 260px; max-height: 300px; overflow-y: auto;
+    background: var(--bs-body-bg, #fff);
+    border: 1px solid var(--bs-border-color-translucent, rgba(0,0,0,.1));
+    border-radius: var(--radius-md, .6rem);
+    box-shadow: 0 12px 32px rgba(0,0,0,.16);
+    padding: 4px;
+}
+.hm-weather-loc-results:empty { display: none; }
+.hm-weather-loc-item {
+    display: flex; align-items: center; gap: .55rem; width: 100%; text-align: left;
+    border: 0; background: transparent; color: var(--bs-body-color, #212529);
+    padding: .5rem .65rem; border-radius: var(--radius-sm, .4rem); font-size: .85rem; cursor: pointer;
+}
+.hm-weather-loc-item:hover { background: rgba(var(--bs-primary-rgb, 13,110,253), .1); }
+.hm-weather-loc-item i { color: var(--bs-info, #0dcaf0); }
+.hm-weather-loc-empty { padding: .6rem .65rem; font-size: .82rem; color: var(--text-muted, #6c757d); }
+
+/* ── Condizioni attuali (showcase) ────────────────────────── */
+.mt-current {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--mt-radius, 1.15rem);
+    padding: clamp(1.25rem, 3vw, 2.25rem);
+    margin-bottom: 1.75rem;
+    color: #fff;
+    /* Gradiente cielo via token (impostati dalle classi .mt-sky-* / fasi .mt-phase-*) */
+    --sky-1: #3a6df0; --sky-2: #5b8def; --sky-3: #7fa6f5;
+    background: linear-gradient(135deg, var(--sky-1), var(--sky-2) 58%, var(--sky-3));
+    box-shadow: 0 18px 48px rgba(2, 32, 71, .25), inset 0 -70px 90px -50px rgba(0, 0, 0, .5);
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 1.5rem;
+    align-items: center;
+    isolation: isolate;
+    transition: background .8s ease;
+}
+.mt-current::after {
+    /* velo per leggibilità del testo (sopra gli effetti, sotto il contenuto) */
+    content: ""; position: absolute; inset: 0; z-index: -1;
+    background: linear-gradient(105deg, rgba(0,0,0,.22), rgba(0,0,0,0) 62%);
+}
+/* Profondità: grana monocromatica finissima in soft-light (texture "premium").
+   La vignetta in basso (box-shadow inset) e lo --sky-3 caldo del gradiente danno
+   già il senso d'orizzonte, quindi qui basta il grain. */
+.mt-current::before {
+    content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    border-radius: inherit;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 140px 140px;
+    opacity: .12;
+    mix-blend-mode: soft-light;
+}
+.mt-current-glow {
+    position: absolute; z-index: -1; width: 360px; height: 360px; border-radius: 50%;
+    right: -80px; top: -140px;
+    background: radial-gradient(circle, rgba(255,255,255,.32), rgba(255,255,255,0) 70%);
+    filter: blur(6px);
+}
+.mt-current-main { display: flex; align-items: center; gap: 1.25rem; min-width: 0; }
+.mt-current-icon {
+    font-size: clamp(3.2rem, 7vw, 5.5rem);
+    line-height: 1;
+    text-shadow: 0 8px 24px rgba(0,0,0,.25);
+    animation: mt-float 6s ease-in-out infinite;
+}
+.mt-current-headline { min-width: 0; }
+.mt-current-temp {
+    font-size: clamp(3rem, 8vw, 5rem);
+    font-weight: 700; line-height: .95; letter-spacing: -2px;
+    font-variant-numeric: tabular-nums;
+    text-shadow: 0 4px 18px rgba(0,0,0,.2);
+}
+.mt-current-temp .mt-deg { font-size: .4em; font-weight: 600; vertical-align: super; margin-left: .1em; opacity: .9; }
+.mt-current-desc { font-size: 1.25rem; font-weight: 600; margin-top: .25rem; text-shadow: 0 2px 10px rgba(0,0,0,.25); }
+.mt-current-sub { font-size: .95rem; opacity: .92; margin-top: .15rem; }
+
+.mt-current-stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: .65rem;
+}
+.mt-now {
+    display: flex; flex-direction: column; gap: .15rem;
+    padding: .7rem .8rem;
+    background: rgba(255, 255, 255, .14);
+    border: 1px solid rgba(255, 255, 255, .22);
+    border-radius: var(--radius-md, .7rem);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, .18);
+    transition: transform .18s ease, background-color .18s ease;
+}
+.mt-now:hover { transform: translateY(-2px); background: rgba(255, 255, 255, .2); }
+.mt-now-ic { position: relative; font-size: 1.1rem; opacity: .95; width: 1.4rem; }
+.mt-wind-arrow { position: absolute; left: 0; top: 0; font-size: .6rem; opacity: .85; }
+.mt-now-lab { font-size: .72rem; text-transform: uppercase; letter-spacing: .04em; opacity: .85; }
+.mt-now-val { font-size: 1rem; font-weight: 700; }
+
+/* Temi cielo — impostano i token --sky-* consumati da .mt-current */
+.mt-sky-clear   { --sky-1: #2b7fff; --sky-2: #57b0ff; --sky-3: #8fd0ff; }
+.mt-sky-default { --sky-1: #3a6df0; --sky-2: #5b8def; --sky-3: #7fa6f5; }
+.mt-sky-cloud   { --sky-1: #5b6b85; --sky-2: #7d8ca5; --sky-3: #9aa7bd; }
+.mt-sky-rain    { --sky-1: #3b4a63; --sky-2: #51647f; --sky-3: #6b7d96; }
+.mt-sky-snow    { --sky-1: #6da8d8; --sky-2: #9cc6e8; --sky-3: #d4ebf8; }
+.mt-sky-storm   { --sky-1: #2a3344; --sky-2: #3b475e; --sky-3: #4a5772; }
+.mt-sky-night   { --sky-1: #161e2e; --sky-2: #232f47; --sky-3: #33405d; }
+
+/* Fasi orarie del cielo — applicate solo ai cieli "sereni" (gli altri restano coperti):
+   alba calda, ora d'oro dorata, crepuscolo viola-arancio. */
+.mt-sky-clear.mt-phase-dawn,
+.mt-sky-default.mt-phase-dawn   { --sky-1: #3b5a8c; --sky-2: #c97d8c; --sky-3: #ffb27a; }
+.mt-sky-clear.mt-phase-golden,
+.mt-sky-default.mt-phase-golden { --sky-1: #5b8fd6; --sky-2: #f0a85f; --sky-3: #ffcf87; }
+.mt-sky-clear.mt-phase-dusk,
+.mt-sky-default.mt-phase-dusk   { --sky-1: #2a3b66; --sky-2: #7d5a9e; --sky-3: #ff8e63; }
+
+/* ── Cielo animato (effetti CSS-only, reattivi alla classe cielo) ── */
+.mt-sky-fx {
+    position: absolute; inset: 0; z-index: -1; overflow: hidden;
+    border-radius: inherit; pointer-events: none;
+}
+.mt-sky-fx > span { position: absolute; display: block; opacity: 0; }
+
+/* Sole (sereno) */
+.mt-sky-clear .mt-fx-sun,
+.mt-sky-default .mt-fx-sun {
+    opacity: 1; top: -130px; right: -90px; width: 380px; height: 380px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 244, 214, .55), rgba(255, 244, 214, 0) 66%);
+}
+.mt-sky-clear .mt-fx-sun::before,
+.mt-sky-default .mt-fx-sun::before {
+    content: ""; position: absolute; inset: 14%;
+    border-radius: 50%;
+    background: repeating-conic-gradient(from 0deg, rgba(255,255,255,.14) 0 3deg, transparent 3deg 20deg);
+    -webkit-mask: radial-gradient(circle, transparent 36%, #000 37%);
+            mask: radial-gradient(circle, transparent 36%, #000 37%);
+    animation: mt-spin 70s linear infinite;
+}
+
+/* Nubi (variabile / pioggia / neve / temporale) */
+.mt-fx-cloud {
+    height: 72px; border-radius: 100px; top: 10%; left: 0;
+    background:
+        radial-gradient(58px 58px at 28% 62%, rgba(255,255,255,.55), transparent 70%),
+        radial-gradient(82px 70px at 52% 44%, rgba(255,255,255,.6),  transparent 72%),
+        radial-gradient(60px 54px at 76% 64%, rgba(255,255,255,.5),  transparent 70%);
+    filter: blur(3px);
+}
+.mt-sky-cloud .mt-fx-cloud,
+.mt-sky-rain .mt-fx-cloud,
+.mt-sky-snow .mt-fx-cloud,
+.mt-sky-storm .mt-fx-cloud { opacity: 1; }
+.mt-fx-cloud--1 { top: 8%;  width: 240px; opacity: 1;   animation: mt-drift 36s linear infinite; }
+.mt-fx-cloud--2 { top: 30%; width: 170px; opacity: .6;  animation: mt-drift 50s linear infinite; animation-delay: -16s; }
+.mt-fx-cloud--3 { top: 3%;  width: 130px; opacity: .45; animation: mt-drift 66s linear infinite; animation-delay: -38s; }
+.mt-sky-storm .mt-fx-cloud { filter: blur(3px) brightness(.7); }
+
+/* Pioggia (striature) */
+.mt-sky-rain .mt-fx-precip,
+.mt-sky-storm .mt-fx-precip {
+    opacity: 1; inset: 0;
+    background-image: repeating-linear-gradient(118deg, transparent 0 6px, rgba(255,255,255,.22) 6px 7px, transparent 7px 9px);
+    background-size: 24px 24px;
+    animation: mt-rain .65s linear infinite;
+}
+
+/* Neve (fiocchi su più livelli) */
+.mt-sky-snow .mt-fx-precip {
+    opacity: .92; inset: 0;
+    background-image:
+        radial-gradient(2px 2px at 18% 8%,  #fff, transparent),
+        radial-gradient(2px 2px at 48% 24%, #fff, transparent),
+        radial-gradient(3px 3px at 78% 16%, #fff, transparent),
+        radial-gradient(2px 2px at 32% 54%, #fff, transparent),
+        radial-gradient(2px 2px at 64% 66%, #fff, transparent),
+        radial-gradient(2px 2px at 88% 48%, #fff, transparent);
+    background-size: 200px 200px;
+    animation: mt-snow 7s linear infinite;
+}
+
+/* Stelle + luna (notte) */
+.mt-sky-night .mt-fx-stars {
+    opacity: 1; inset: 0;
+    background-image:
+        radial-gradient(1.5px 1.5px at 15% 20%, rgba(255,255,255,.95), transparent),
+        radial-gradient(1px 1px   at 30% 52%, rgba(255,255,255,.75), transparent),
+        radial-gradient(2px 2px   at 58% 26%, rgba(255,255,255,.95), transparent),
+        radial-gradient(1px 1px   at 74% 60%, rgba(255,255,255,.7),  transparent),
+        radial-gradient(1.5px 1.5px at 86% 32%, rgba(255,255,255,.85), transparent),
+        radial-gradient(1px 1px   at 44% 72%, rgba(255,255,255,.6),  transparent);
+    background-repeat: no-repeat;
+    animation: mt-twinkle 4s ease-in-out infinite;
+}
+.mt-sky-night .mt-fx-sun {
+    opacity: 1; top: 12%; right: 9%; width: 64px; height: 64px; border-radius: 50%;
+    background: radial-gradient(circle at 36% 34%, #f1f5f9, #cbd5e1 72%);
+    box-shadow: 0 0 44px rgba(226, 232, 240, .45);
+}
+
+/* Lampo (temporale) */
+.mt-sky-storm .mt-fx-flash {
+    opacity: 0; inset: 0; background: rgba(255, 255, 255, .85);
+    animation: mt-flash 9s linear infinite;
+}
+
+/* ── Intestazioni sezione ─────────────────────────────────── */
+.mt-section-head {
+    display: flex; align-items: center; gap: .85rem;
+    margin: 1.75rem 0 1rem;
+}
+.mt-section-ic {
+    flex: 0 0 auto;
+    width: 42px; height: 42px; border-radius: 12px;
+    display: grid; place-items: center;
+    background: hsl(var(--mt-mood-h) var(--mt-mood-s) var(--mt-mood-l) / .14);
+    color: var(--mt-mood);
+    font-size: 1.05rem;
+    transition: background-color .8s ease, color .8s ease;
+}
+.mt-section-head h2 { font-size: 1.15rem; font-weight: 700; margin: 0; color: var(--bs-body-color, #212529); }
+.mt-section-head p { margin: 0; font-size: .85rem; color: var(--text-muted, #6c757d); }
+
+/* ── Card generica ────────────────────────────────────────── */
+.mt-card {
+    background: var(--bs-body-bg, #fff);
+    border: 1px solid var(--bs-border-color-translucent, rgba(0,0,0,.07));
+    border-radius: var(--mt-radius, .9rem);
+    box-shadow: var(--shadow-sm, 0 1px 2px rgba(0,0,0,.06));
+}
+.mt-card-ic {
+    flex: 0 0 auto; width: 46px; height: 46px; border-radius: 14px;
+    display: grid; place-items: center; font-size: 1.2rem;
+    background: linear-gradient(135deg, rgba(var(--bs-primary-rgb,13,110,253),.16), rgba(var(--bs-primary-rgb,13,110,253),.05));
+    color: var(--bs-primary, #0d6efd);
+}
+.mt-card-body { display: flex; flex-direction: column; min-width: 0; }
+.mt-card-lab { font-size: .73rem; text-transform: uppercase; letter-spacing: .04em; color: var(--text-muted, #6c757d); }
+.mt-card-val { font-size: 1.25rem; font-weight: 700; line-height: 1.15; color: var(--bs-body-color, #212529); }
+.mt-card-sub { font-size: .78rem; color: var(--text-muted, #6c757d); margin-top: .1rem; }
+
+/* ── Oggi in dettaglio (bento) ────────────────────────────── */
+.mt-today-bento {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: .9rem;
+    margin-bottom: .5rem;
+}
+.mt-bento { padding: 1rem 1.1rem; transition: transform .18s ease, box-shadow .18s ease; }
+.mt-bento:hover { transform: translateY(-3px); box-shadow: var(--shadow-md, 0 8px 24px rgba(0,0,0,.1)); }
+/* 5 card su una riga: il sole (con arco+durate) prende più spazio degli altri. */
+.mt-bento-sun   { grid-column: span 4; display: flex; flex-direction: column; }
+.mt-bento-uv    { grid-column: span 2; display: flex; flex-direction: column; }
+.mt-bento-wind  { grid-column: span 2; display: flex; flex-direction: column; }
+.mt-bento-range { grid-column: span 2; display: flex; flex-direction: column; justify-content: space-between; }
+.mt-bento-rain  { grid-column: span 2; display: flex; flex-direction: column; justify-content: space-between; }
+
+.mt-bento-head {
+    display: flex; align-items: center; gap: .5rem;
+    font-size: .76rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase;
+    color: var(--text-muted, #6c757d); margin-bottom: .5rem;
+}
+.mt-bento-head i { color: var(--bs-primary, #0d6efd); }
+.mt-bento-foot {
+    display: flex; justify-content: space-between; gap: .5rem;
+    font-size: .78rem; color: var(--text-muted, #6c757d); margin-top: .6rem;
+}
+.mt-bento-foot span { display: inline-flex; align-items: center; gap: .35rem; min-width: 0; }
+.mt-bento-foot i { opacity: .8; }
+
+/* Arco solare — arco + griglia di 4 statistiche; la griglia riempie la larghezza
+   e l'intero corpo va a capo (arco sopra, tessere sotto) se la card è stretta. */
+.mt-sun-body { flex: 1; display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.4rem; }
+.mt-arc { position: relative; flex: 1 1 185px; min-width: 168px; max-width: 240px; display: flex; flex-direction: column; justify-content: center; }
+.mt-arc-svg { width: 100%; height: auto; display: block; overflow: visible; }
+.mt-sun-stats {
+    flex: 1 1 230px; min-width: 200px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(106px, 1fr));
+    gap: .6rem 1rem; align-content: center;
+}
+.mt-sun-stat { display: flex; align-items: center; gap: .55rem; min-width: 0; }
+.mt-sun-stat > i { font-size: 1.05rem; width: 1.4rem; text-align: center; color: #f59e0b; flex: 0 0 auto; }
+.mt-sun-stat-txt { display: flex; flex-direction: column; line-height: 1.12; min-width: 0; }
+.mt-sun-lab { font-size: .7rem; text-transform: uppercase; letter-spacing: .03em; color: var(--text-muted, #6c757d); white-space: nowrap; }
+.mt-sun-val { font-size: 1rem; font-weight: 700; color: var(--bs-body-color, #212529); }
+.mt-arc-track { fill: none; stroke: var(--border-color, rgba(0,0,0,.14)); stroke-width: 2.5; stroke-linecap: round; stroke-dasharray: 0.5 6; }
+.mt-arc-elapsed { fill: none; stroke: url(#mtArcGrad); stroke-width: 3.5; stroke-linecap: round; }
+.mt-arc-sun { fill: #fbbf24; stroke: #fff; stroke-width: 1.4; filter: drop-shadow(0 0 6px rgba(251,191,36,.85)); animation: mt-pulse 3.5s ease-in-out infinite; }
+.mt-arc-moon { fill: #e2e8f0; filter: drop-shadow(0 0 7px rgba(226,232,240,.6)); }
+.mt-arc-ends {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: .82rem; font-weight: 600; color: var(--bs-body-color, #334155); margin-top: -.1rem;
+}
+.mt-arc-ends i { opacity: .65; margin: 0 .3rem; }
+.mt-bento-sun--night .mt-arc-track { opacity: .45; }
+
+/* Gauge UV */
+.mt-bento-uv { justify-content: space-between; }
+.mt-uv-readout { display: flex; align-items: baseline; gap: .5rem; margin: .15rem 0 .7rem; }
+.mt-uv-num { font-size: 2.1rem; font-weight: 800; line-height: 1; color: var(--bs-body-color, #212529); }
+.mt-uv-risk { font-size: .85rem; font-weight: 600; color: var(--text-muted, #6c757d); }
+.mt-uv-bar {
+    position: relative; height: 10px; border-radius: 99px;
+    background: linear-gradient(90deg, #22c55e, #eab308 35%, #f97316 60%, #ef4444 80%, #a855f7);
+    margin-bottom: .4rem;
+}
+.mt-uv-marker {
+    position: absolute; top: 50%;
+    left: clamp(7px, calc(var(--uv, 0) * 100%), calc(100% - 7px));
+    width: 14px; height: 14px; border-radius: 50%;
+    background: #fff; border: 2px solid rgba(0,0,0,.28);
+    transform: translate(-50%, -50%);
+    box-shadow: 0 1px 4px rgba(0,0,0,.3);
+}
+.mt-uv-scale { display: flex; justify-content: space-between; font-size: .68rem; color: var(--text-muted, #6c757d); }
+
+/* Bussola vento */
+.mt-bento-wind { align-items: center; justify-content: space-between; }
+.mt-compass {
+    position: relative; width: 128px; height: 128px; margin: .15rem auto .1rem;
+    border-radius: 50%;
+    border: 2px solid var(--bs-border-color-translucent, rgba(0,0,0,.12));
+    background: radial-gradient(circle at 50% 50%, rgba(var(--bs-primary-rgb,13,110,253), .08), transparent 70%);
+    display: grid; place-items: center;
+}
+.mt-compass-rose { position: absolute; inset: 12px; border-radius: 50%; border: 1px dashed var(--bs-border-color-translucent, rgba(0,0,0,.12)); }
+.mt-compass-tick { position: absolute; font-size: .68rem; font-weight: 700; color: var(--text-muted, #6c757d); }
+.mt-compass-tick--n { top: 5px; left: 50%; transform: translateX(-50%); color: var(--bs-danger, #ef4444); }
+.mt-compass-tick--s { bottom: 5px; left: 50%; transform: translateX(-50%); }
+.mt-compass-tick--e { right: 7px; top: 50%; transform: translateY(-50%); }
+.mt-compass-tick--o { left: 7px; top: 50%; transform: translateY(-50%); }
+.mt-compass-needle {
+    position: absolute; top: 50%; left: 50%; width: 5px; height: 48px;
+    transform-origin: 50% 100%;
+    transform: translate(-50%, -100%) rotate(var(--wind-deg, 0deg));
+    background: linear-gradient(to top, rgba(56,189,248,0) 0%, #38bdf8 45%, #0ea5e9 100%);
+    border-radius: 5px;
+}
+.mt-compass-needle::after {
+    content: ""; position: absolute; top: -3px; left: 50%; transform: translateX(-50%);
+    border-left: 5px solid transparent; border-right: 5px solid transparent;
+    border-bottom: 8px solid #0ea5e9;
+}
+.mt-compass-core {
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    width: 56px; height: 56px; border-radius: 50%; line-height: 1;
+    background: var(--bs-body-bg, #fff); box-shadow: var(--shadow-sm, 0 1px 3px rgba(0,0,0,.18));
+}
+.mt-compass-core strong { font-size: 1.15rem; font-weight: 800; color: var(--bs-body-color, #212529); }
+.mt-compass-core small { font-size: .6rem; color: var(--text-muted, #6c757d); }
+
+/* Escursione termica + Pioggia — stile "strumento" (header + valore + barra + footer) */
+.mt-range-readout { display: flex; align-items: baseline; gap: .5rem; margin: .15rem 0 .2rem; }
+.mt-range-min { font-size: 1.35rem; font-weight: 700; color: var(--text-muted, #6c757d); }
+.mt-range-arrow { font-size: .8rem; color: var(--text-muted, #94a3b8); align-self: center; }
+.mt-range-max { font-size: 1.9rem; font-weight: 800; line-height: 1; color: var(--bs-body-color, #212529); }
+.mt-range-bar, .mt-rain-bar {
+    position: relative; height: 8px; border-radius: 99px;
+    background: rgba(var(--bs-primary-rgb, 13,110,253), .1); overflow: hidden;
+}
+.mt-range-fill { position: absolute; top: 0; height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--c1, #38bdf8), var(--c2, #fb7185)); }
+.mt-rain-readout { display: flex; align-items: baseline; gap: .35rem; margin: .15rem 0 .2rem; }
+.mt-rain-num { font-size: 2.1rem; font-weight: 800; line-height: 1; color: var(--bs-body-color, #212529); }
+.mt-rain-unit { font-size: .9rem; color: var(--text-muted, #6c757d); }
+.mt-rain-fill { position: absolute; left: 0; top: 0; height: 100%; border-radius: 99px; background: linear-gradient(90deg, #38bdf8, #0ea5e9); }
+
+/* ── Grafico 24h + striscia oraria ────────────────────────── */
+.mt-chart-card { padding: 1rem 1.1rem 0.4rem; margin-bottom: .5rem; }
+#mt-hourly-chart { min-height: 240px; }
+.mt-hourly-strip {
+    display: flex; gap: .4rem; overflow-x: auto; padding: .75rem .1rem 1rem;
+    scrollbar-width: thin;
+    border-top: 1px solid var(--bs-border-color-translucent, rgba(0,0,0,.06));
+    margin-top: .25rem;
+}
+.mt-hour {
+    flex: 0 0 auto; width: 76px;
+    display: flex; flex-direction: column; align-items: center; gap: .28rem;
+    padding: .65rem .35rem; border-radius: var(--radius-md, .7rem);
+    /* Tinta termica per-ora → la striscia legge come un'unica banda di trend. */
+    background: hsl(var(--t-hue, 210) 70% 50% / .08);
+    border: 1px solid hsl(var(--t-hue, 210) 70% 50% / .16);
+    transition: transform .15s ease;
+}
+.mt-hour:hover { transform: translateY(-2px); }
+.mt-hour--now {
+    background: hsl(var(--mt-mood-h) var(--mt-mood-s) var(--mt-mood-l) / .16);
+    border-color: hsl(var(--mt-mood-h) var(--mt-mood-s) var(--mt-mood-l) / .42);
+    box-shadow: inset 0 0 0 1px hsl(var(--mt-mood-h) var(--mt-mood-s) var(--mt-mood-l) / .32);
+}
+.mt-hour--now .mt-hour-time { color: var(--mt-mood); }
+.mt-hour-time { font-size: .74rem; font-weight: 600; color: var(--text-muted, #6c757d); }
+.mt-hour-icon { font-size: 1.2rem; color: var(--bs-primary, #0d6efd); }
+.mt-hour-temp { font-size: 1.05rem; font-weight: 700; color: hsl(var(--t-hue, 210) 70% 42%); }
+.mt-hour-meta { font-size: .72rem; color: var(--text-muted, #6c757d); display: inline-flex; align-items: center; gap: .25rem; }
+.mt-hour-meta i { font-size: .65rem; opacity: .7; }
+
+/* Colori icona semantici (ora + giorno) — sfrutta le classi FontAwesome */
+.mt-hour-icon.fa-sun,                 .mt-drow-sky > i.fa-sun                  { color: #f59e0b; }
+.mt-hour-icon.fa-cloud-sun,           .mt-drow-sky > i.fa-cloud-sun            { color: #f6a93b; }
+.mt-hour-icon.fa-cloud,               .mt-drow-sky > i.fa-cloud                { color: #94a3b8; }
+.mt-hour-icon.fa-smog,                .mt-drow-sky > i.fa-smog                 { color: #9ca3af; }
+.mt-hour-icon.fa-cloud-rain,          .mt-drow-sky > i.fa-cloud-rain,
+.mt-hour-icon.fa-cloud-showers-heavy, .mt-drow-sky > i.fa-cloud-showers-heavy  { color: #38bdf8; }
+.mt-hour-icon.fa-snowflake,           .mt-drow-sky > i.fa-snowflake            { color: #7dd3fc; }
+.mt-hour-icon.fa-cloud-bolt,          .mt-drow-sky > i.fa-cloud-bolt           { color: #a78bfa; }
+
+/* ── Previsione 7 giorni: curva del trend + righe compatte ──── */
+.mt-trend { padding: .85rem 1rem .35rem; margin-bottom: .9rem; overflow: hidden; }
+.mt-trend-svg {
+    width: 100%; height: auto; display: block; overflow: visible;
+    max-height: 230px; /* sicurezza per monitor molto larghi */
+    color: var(--bs-body-color, #1e293b);
+}
+.mt-trend-band { stroke: none; }
+/* non-scaling-stroke: linee a spessore costante a qualsiasi larghezza di viewBox */
+.mt-trend-line { fill: none; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.mt-trend-now { stroke: var(--mt-mood); stroke-width: 1.4; stroke-dasharray: 3 4; opacity: .5; vector-effect: non-scaling-stroke; }
+.mt-trend-dot { stroke: var(--bs-body-bg, #fff); stroke-width: 1.4; vector-effect: non-scaling-stroke; }
+.mt-trend-vmax, .mt-trend-vmin, .mt-trend-day { text-anchor: middle; fill: currentColor; }
+.mt-trend-vmax { font-size: 8px; font-weight: 700; }
+.mt-trend-vmin { font-size: 7px; font-weight: 600; opacity: .6; }
+.mt-trend-day  { font-size: 7px; font-weight: 600; opacity: .55; text-transform: uppercase; letter-spacing: .03em; }
+.mt-trend-day--today { opacity: 1; fill: var(--mt-mood); font-weight: 800; }
+
+.mt-week { padding: .3rem .4rem; }
+.mt-drow {
+    display: grid; align-items: center;
+    grid-template-columns: minmax(64px, .85fr) minmax(108px, 1.5fr) 2.4rem minmax(60px, 3fr) 2.4rem minmax(116px, 1fr);
+    gap: .55rem .85rem;
+    padding: .62rem .8rem;
+    border-radius: var(--radius-md, .7rem);
+    transition: background-color .15s ease;
+}
+.mt-drow + .mt-drow { border-top: 1px solid var(--bs-border-color-translucent, rgba(0,0,0,.06)); }
+.mt-drow:hover { background: rgba(var(--bs-primary-rgb, 13,110,253), .04); }
+.mt-drow--today { background: hsl(var(--mt-mood-h) var(--mt-mood-s) var(--mt-mood-l) / .09); }
+.mt-drow-day { display: flex; flex-direction: column; line-height: 1.12; }
+.mt-drow-day strong { font-size: .95rem; color: var(--bs-body-color, #212529); }
+.mt-drow-day span { font-size: .76rem; color: var(--text-muted, #6c757d); }
+.mt-drow-sky { display: flex; align-items: center; gap: .55rem; min-width: 0; }
+.mt-drow-sky > i { font-size: 1.25rem; width: 1.6rem; text-align: center; color: var(--bs-primary, #0d6efd); }
+.mt-drow-desc { font-size: .85rem; color: var(--text-muted, #6c757d); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mt-drow-min { font-size: .9rem; color: var(--text-muted, #6c757d); text-align: right; font-variant-numeric: tabular-nums; }
+.mt-drow-max { font-size: .98rem; font-weight: 700; color: var(--bs-body-color, #212529); text-align: left; font-variant-numeric: tabular-nums; }
+.mt-drow-track { position: relative; height: 7px; border-radius: 99px; background: rgba(var(--bs-primary-rgb,13,110,253),.1); overflow: hidden; }
+.mt-drow-bar { position: absolute; top: 0; height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--c1, #38bdf8), var(--c2, #fb7185)); }
+.mt-drow-extra { display: flex; align-items: center; justify-content: flex-end; gap: .7rem; font-size: .78rem; color: var(--text-muted, #6c757d); }
+.mt-drow-extra span { display: inline-flex; align-items: center; gap: .3rem; }
+.mt-drow-extra i { font-size: .72rem; opacity: .7; width: .9rem; text-align: center; }
+
+@media (max-width: 860px) {
+    .mt-drow { grid-template-columns: minmax(56px, .9fr) 1.7rem 2.2rem minmax(48px, 3fr) 2.2rem auto; gap: .45rem .6rem; }
+    .mt-drow-desc { display: none; }
+}
+@media (max-width: 640px) {
+    .mt-trend-vmax, .mt-trend-vmin, .mt-trend-day { display: none; }
+}
+@media (max-width: 560px) {
+    .mt-drow { grid-template-columns: minmax(50px, 1fr) 1.5rem 1.9rem minmax(40px, 3fr) 1.9rem; }
+    .mt-drow-extra { display: none; }
+}
+
+/* ── Scroll-reveal (progressive enhancement) ──────────────────
+   Lo stato nascosto vale SOLO se .mt-anim-ready è presente: la classe
+   viene aggiunta dal JS unicamente quando le animazioni sono ammesse
+   (no reduced-motion, IntersectionObserver disponibile). */
+.mt-anim-ready .mt-reveal { opacity: 0; transform: translateY(14px); }
+.mt-anim-ready .mt-reveal.is-visible {
+    opacity: 1; transform: none;
+    transition: opacity .5s ease, transform .5s cubic-bezier(.22, 1, .36, 1);
+    transition-delay: calc(var(--mt-reveal-i, 0) * 60ms);
+}
+
+/* ── Footer fonte ─────────────────────────────────────────── */
+.mt-source { margin-top: 1.5rem; text-align: center; font-size: .8rem; color: var(--text-muted, #94a3b8); }
+
+/* ── Offline ──────────────────────────────────────────────── */
+.mt-offline { text-align: center; padding: 3.5rem 1rem; }
+.mt-offline-icon { font-size: 3.5rem; color: var(--text-muted, #94a3b8); margin-bottom: 1rem; }
+.mt-offline h3 { font-weight: 700; }
+.mt-offline p { color: var(--text-muted, #6c757d); }
+
+/* ── Animazioni ───────────────────────────────────────────── */
+@keyframes mt-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes mt-spin { to { transform: rotate(360deg); } }
+@keyframes mt-drift { from { transform: translateX(-280px); } to { transform: translateX(1500px); } }
+@keyframes mt-rain { from { background-position: 0 0; } to { background-position: -24px 60px; } }
+@keyframes mt-snow {
+    from { background-position: 0 0, 0 0, 0 0, 0 0, 0 0, 0 0; }
+    to   { background-position: 0 200px, 14px 200px, -12px 200px, 8px 200px, -8px 200px, 4px 200px; }
+}
+@keyframes mt-twinkle { 0%,100% { opacity: .5; } 50% { opacity: 1; } }
+@keyframes mt-pulse { 0%,100% { filter: drop-shadow(0 0 4px rgba(251,191,36,.7)); } 50% { filter: drop-shadow(0 0 9px rgba(251,191,36,1)); } }
+@keyframes mt-flash {
+    0%, 1.5%, 4%, 100% { opacity: 0; }
+    2%   { opacity: .7; }
+    3%   { opacity: .15; }
+    3.6% { opacity: .55; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .mt-current-icon,
+    .mt-fx-sun, .mt-fx-sun::before, .mt-fx-cloud, .mt-fx-precip, .mt-fx-stars, .mt-arc-sun { animation: none !important; }
+    .mt-fx-flash { animation: none !important; opacity: 0 !important; }
+    .mt-today-card, .mt-drow, .mt-bento, .mt-now, .mt-hour { transition: none; }
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 992px) {
+    .mt-bento-sun  { grid-column: span 12; }
+    .mt-bento-uv, .mt-bento-wind, .mt-bento-range, .mt-bento-rain { grid-column: span 6; }
+}
+@media (max-width: 860px) {
+    .mt-current { grid-template-columns: 1fr; }
+    .mt-current-stats { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 576px) {
+    .mt-current-stats { grid-template-columns: repeat(2, 1fr); }
+    .mt-current-main { flex-direction: column; text-align: center; }
+    .mt-today-bento { grid-template-columns: repeat(2, 1fr); }
+    .mt-bento-sun { grid-column: span 2; }
+    .mt-bento-uv, .mt-bento-wind, .mt-bento-range, .mt-bento-rain { grid-column: span 1; }
+}
+
+/* ── Dark mode ────────────────────────────────────────────── */
+[data-bs-theme="dark"] .mt-card { background: #1b2230; border-color: rgba(255,255,255,.07); }
+[data-bs-theme="dark"] .mt-locsearch-input { background: #1b2230; border-color: rgba(255,255,255,.12); }
+[data-bs-theme="dark"] .hm-weather-loc-results { background: #1b2230; border-color: rgba(255,255,255,.12); }
+[data-bs-theme="dark"] .mt-page { --mt-mood-l: 66%; }
+[data-bs-theme="dark"] .mt-hour { background: hsl(var(--t-hue, 210) 70% 62% / .10); border-color: hsl(var(--t-hue, 210) 70% 62% / .18); }
+[data-bs-theme="dark"] .mt-hour--now { background: hsl(var(--mt-mood-h) var(--mt-mood-s) var(--mt-mood-l) / .24); border-color: hsl(var(--mt-mood-h) var(--mt-mood-s) var(--mt-mood-l) / .55); }
+[data-bs-theme="dark"] .mt-hour-temp { color: hsl(var(--t-hue, 210) 75% 64%); }
+[data-bs-theme="dark"] .mt-compass-core { background: #1b2230; }
+[data-bs-theme="dark"] .mt-page::before { opacity: .55; }
+[data-bs-theme="dark"] .mt-section-head h2,
+[data-bs-theme="dark"] .mt-card-val,
+[data-bs-theme="dark"] .mt-uv-num,
+[data-bs-theme="dark"] .mt-sun-val,
+[data-bs-theme="dark"] .mt-range-max,
+[data-bs-theme="dark"] .mt-rain-num,
+[data-bs-theme="dark"] .mt-arc-ends,
+[data-bs-theme="dark"] .mt-compass-core strong,
+[data-bs-theme="dark"] .mt-drow-day strong,
+[data-bs-theme="dark"] .mt-drow-max { color: #e9eef6; }
+[data-bs-theme="dark"] .mt-drow-track,
+[data-bs-theme="dark"] .mt-range-bar,
+[data-bs-theme="dark"] .mt-rain-bar { background: rgba(255,255,255,.08); }
+[data-bs-theme="dark"] .mt-drow + .mt-drow { border-color: rgba(255,255,255,.07); }
+[data-bs-theme="dark"] .mt-drow:hover { background: rgba(255,255,255,.04); }

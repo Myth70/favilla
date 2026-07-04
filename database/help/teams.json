@@ -1,0 +1,982 @@
+{
+    "module_key": "teams",
+    "module_name": "Messaggi",
+    "label": "Messaggi",
+    "description": "Messaggistica interna con chat 1:1 e di gruppo, presenza online, reazioni e messaggi in evidenza.",
+    "audience_default": "user",
+    "locale_default": "it",
+    "route_name": "teams.index",
+    "permission_slug": "teams.view",
+    "sort_order": 22,
+    "entries": [
+        {
+            "audience": "user",
+            "route_name": "teams.index",
+            "permission_slug": "teams.view",
+            "ranking_weight": 24,
+            "sort_order": 1,
+            "locales": {
+                "it": {
+                    "question": "Come funziona il modulo Messaggi (Teams)?",
+                    "answer_markdown": "## Modulo Messaggi\nMessaggi è la messaggistica interna dell'azienda: chat dirette 1:1 e conversazioni di gruppo.\n\n### Cosa puoi fare\n- avviare **chat dirette** o creare **gruppi**;\n- inviare messaggi con menzioni e allegati;\n- usare **reazioni**, **risposte** e **messaggi in evidenza**;\n- vedere chi è **online** e chi sta scrivendo;\n- **cercare** tra le conversazioni e i messaggi.\n\n### Quando usarlo\nUsa Messaggi per comunicare rapidamente con colleghi o team di lavoro senza uscire dall'applicazione.",
+                    "excerpt": "Modulo Messaggi Messaggi è la messaggistica interna dell'azienda: chat dirette 1:1 e conversazioni di gruppo. Cosa puoi fare avviare chat dirette o creare gruppi; inviare messaggi con menzioni e allegati; usare reazioni, risposte...",
+                    "aliases": [
+                        "modulo messaggi",
+                        "modulo teams",
+                        "chat interna",
+                        "messaggistica aziendale"
+                    ]
+                },
+                "en": {
+                    "question": "How does the Messages (Teams) module work?",
+                    "answer_markdown": "## Messages module\nMessages is the company's internal messaging: 1:1 direct chats and group conversations.\n\n### What you can do\n- start **direct chats** or create **groups**;\n- send messages with mentions and attachments;\n- use **reactions**, **replies** and **pinned messages**;\n- see who's **online** and who's typing;\n- **search** across conversations and messages.\n\n### When to use it\nUse Messages to quickly communicate with colleagues or teams without leaving the application.",
+                    "excerpt": "Messages module Messages is the company's internal messaging: 1:1 direct chats and group conversations. What you can do start direct chats or create groups; send messages with mentions and attachments; use reactions, replies and...",
+                    "aliases": [
+                        "messages module",
+                        "teams module",
+                        "internal chat",
+                        "company messaging"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment fonctionne le module Messages (Teams) ?",
+                    "answer_markdown": "## Module Messages\nMessages est la messagerie interne de l'entreprise : chats directs 1:1 et conversations de groupe.\n\n### Ce que vous pouvez faire\n- démarrer des **chats directs** ou créer des **groupes** ;\n- envoyer des messages avec mentions et pièces jointes ;\n- utiliser **réactions**, **réponses** et **messages épinglés** ;\n- voir qui est **en ligne** et qui est en train d'écrire ;\n- **rechercher** dans les conversations et les messages.\n\n### Quand l'utiliser\nUtilisez Messages pour communiquer rapidement avec des collègues ou des équipes sans quitter l'application.",
+                    "excerpt": "Module Messages Messages est la messagerie interne de l'entreprise : chats directs 1:1 et conversations de groupe. Ce que vous pouvez faire démarrer des chats directs ou créer des groupes ; envoyer des messages avec mentions et...",
+                    "aliases": [
+                        "module messages",
+                        "module teams",
+                        "chat interne",
+                        "messagerie entreprise"
+                    ]
+                },
+                "de": {
+                    "question": "Wie funktioniert das Modul Nachrichten (Teams)?",
+                    "answer_markdown": "## Modul Nachrichten\nNachrichten ist die interne Messaging-Funktion des Unternehmens: 1:1-Direktchats und Gruppenunterhaltungen.\n\n### Was Sie tun können\n- **Direktchats** starten oder **Gruppen** erstellen;\n- Nachrichten mit Erwähnungen und Anhängen senden;\n- **Reaktionen**, **Antworten** und **angeheftete Nachrichten** nutzen;\n- sehen, wer **online** ist und wer gerade schreibt;\n- Unterhaltungen und Nachrichten **durchsuchen**.\n\n### Wann einsetzen\nNutzen Sie Nachrichten, um schnell mit Kollegen oder Teams zu kommunizieren, ohne die Anwendung zu verlassen.",
+                    "excerpt": "Modul Nachrichten Nachrichten ist die interne Messaging-Funktion des Unternehmens: 1:1-Direktchats und Gruppenunterhaltungen. Was Sie tun können Direktchats starten oder Gruppen erstellen; Nachrichten mit Erwähnungen und Anhängen...",
+                    "aliases": [
+                        "modul nachrichten",
+                        "modul teams",
+                        "interner chat",
+                        "unternehmens-messaging"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo funciona el módulo Mensajes (Teams)?",
+                    "answer_markdown": "## Módulo Mensajes\nMensajes es la mensajería interna de la empresa: chats directos 1:1 y conversaciones de grupo.\n\n### Qué puedes hacer\n- iniciar **chats directos** o crear **grupos**;\n- enviar mensajes con menciones y archivos adjuntos;\n- usar **reacciones**, **respuestas** y **mensajes destacados**;\n- ver quién está **en línea** y quién está escribiendo;\n- **buscar** en conversaciones y mensajes.\n\n### Cuándo usarlo\nUsa Mensajes para comunicarte rápidamente con compañeros o equipos sin salir de la aplicación.",
+                    "excerpt": "Módulo Mensajes Mensajes es la mensajería interna de la empresa: chats directos 1:1 y conversaciones de grupo. Qué puedes hacer iniciar chats directos o crear grupos; enviar mensajes con menciones y archivos adjuntos; usar...",
+                    "aliases": [
+                        "módulo mensajes",
+                        "módulo teams",
+                        "chat interno",
+                        "mensajería empresa"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "teams.index",
+            "permission_slug": "teams.view",
+            "ranking_weight": 18,
+            "sort_order": 2,
+            "locales": {
+                "it": {
+                    "question": "Come accedo al modulo Messaggi?",
+                    "answer_markdown": "## Accesso a Messaggi\nIl modulo si apre dalla sidebar tramite la voce **Messaggi**.\n\n### Permesso minimo\nPer entrare serve `teams.view` (lettura, presenza, silenziare/nascondere conversazioni).\n\n### Altri permessi utili\n- `teams.create` per inviare messaggi, creare e gestire gruppi e membri;\n- `teams.delete` per modificare/eliminare i propri messaggi e uscire dai gruppi;\n- `teams.admin` per amministrare tutte le conversazioni.\n\n### Se non vedi la voce nel menu\nDi solito significa che il tuo ruolo non include il permesso minimo di accesso.",
+                    "excerpt": "Accesso a Messaggi Il modulo si apre dalla sidebar tramite la voce Messaggi. Permesso minimo Per entrare serve teams.view (lettura, presenza, silenziare/nascondere conversazioni). Altri permessi utili teams.create per inviare...",
+                    "aliases": [
+                        "accesso messaggi",
+                        "permessi teams",
+                        "aprire messaggi",
+                        "dove trovo messaggi"
+                    ]
+                },
+                "en": {
+                    "question": "How do I access the Messages module?",
+                    "answer_markdown": "## Access to Messages\nThe module opens from the sidebar via the **Messages** entry.\n\n### Minimum permission\nYou need `teams.view` to enter (read, presence, mute/hide conversations).\n\n### Other useful permissions\n- `teams.create` to send messages, create and manage groups and members;\n- `teams.delete` to edit/delete your own messages and leave groups;\n- `teams.admin` to administer every conversation.\n\n### If you don't see the menu entry\nThis usually means your role doesn't include the minimum access permission.",
+                    "excerpt": "Access to Messages The module opens from the sidebar via the Messages entry. Minimum permission You need teams.view to enter (read, presence, mute/hide conversations). Other useful permissions teams.create to send messages,...",
+                    "aliases": [
+                        "access messages",
+                        "teams permissions",
+                        "open messages",
+                        "where is messages"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment accéder au module Messages ?",
+                    "answer_markdown": "## Accès à Messages\nLe module s'ouvre depuis la barre latérale via l'entrée **Messages**.\n\n### Permission minimale\nIl faut `teams.view` pour entrer (lecture, présence, silencieux/masquer des conversations).\n\n### Autres permissions utiles\n- `teams.create` pour envoyer des messages, créer et gérer des groupes et des membres ;\n- `teams.delete` pour modifier/supprimer ses propres messages et quitter des groupes ;\n- `teams.admin` pour administrer toutes les conversations.\n\n### Si vous ne voyez pas l'entrée dans le menu\nCela signifie généralement que votre rôle n'inclut pas la permission minimale d'accès.",
+                    "excerpt": "Accès à Messages Le module s'ouvre depuis la barre latérale via l'entrée Messages. Permission minimale Il faut teams.view pour entrer (lecture, présence, silencieux/masquer des conversations). Autres permissions utiles...",
+                    "aliases": [
+                        "accès messages",
+                        "permissions teams",
+                        "ouvrir messages",
+                        "où trouver messages"
+                    ]
+                },
+                "de": {
+                    "question": "Wie greife ich auf das Modul Nachrichten zu?",
+                    "answer_markdown": "## Zugriff auf Nachrichten\nDas Modul öffnen Sie über den Sidebar-Eintrag **Nachrichten**.\n\n### Mindestberechtigung\nSie benötigen `teams.view` (Lesen, Präsenz, Unterhaltungen stummschalten/ausblenden).\n\n### Weitere nützliche Berechtigungen\n- `teams.create`, um Nachrichten zu senden und Gruppen sowie Mitglieder zu verwalten;\n- `teams.delete`, um eigene Nachrichten zu bearbeiten/löschen und Gruppen zu verlassen;\n- `teams.admin`, um alle Unterhaltungen zu verwalten.\n\n### Wenn der Menüpunkt fehlt\nDas bedeutet meist, dass Ihre Rolle nicht die Mindestberechtigung zum Zugriff enthält.",
+                    "excerpt": "Zugriff auf Nachrichten Das Modul öffnen Sie über den Sidebar-Eintrag Nachrichten. Mindestberechtigung Sie benötigen teams.view (Lesen, Präsenz, Unterhaltungen stummschalten/ausblenden). Weitere nützliche Berechtigungen...",
+                    "aliases": [
+                        "zugriff nachrichten",
+                        "teams berechtigungen",
+                        "nachrichten öffnen",
+                        "wo finde ich nachrichten"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo accedo al módulo Mensajes?",
+                    "answer_markdown": "## Acceso a Mensajes\nEl módulo se abre desde la barra lateral mediante la entrada **Mensajes**.\n\n### Permiso mínimo\nNecesitas `teams.view` para entrar (lectura, presencia, silenciar/ocultar conversaciones).\n\n### Otros permisos útiles\n- `teams.create` para enviar mensajes, crear y gestionar grupos y miembros;\n- `teams.delete` para editar/eliminar tus propios mensajes y salir de grupos;\n- `teams.admin` para administrar todas las conversaciones.\n\n### Si no ves la entrada en el menú\nSuele significar que tu rol no incluye el permiso mínimo de acceso.",
+                    "excerpt": "Acceso a Mensajes El módulo se abre desde la barra lateral mediante la entrada Mensajes. Permiso mínimo Necesitas teams.view para entrar (lectura, presencia, silenciar/ocultar conversaciones). Otros permisos útiles teams.create...",
+                    "aliases": [
+                        "acceso mensajes",
+                        "permisos teams",
+                        "abrir mensajes",
+                        "dónde está mensajes"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "teams.index",
+            "permission_slug": "teams.create",
+            "ranking_weight": 0,
+            "sort_order": 3,
+            "locales": {
+                "it": {
+                    "question": "Come avvio una chat diretta 1:1?",
+                    "answer_markdown": "## Chat diretta\nDalla lista conversazioni clicca su **Nuova conversazione** e cerca la persona da contattare.\n\n### Comportamento\nSe esiste già una chat diretta con quella persona, viene riaperta invece di crearne una nuova.\n\nRichiede `teams.create`.",
+                    "excerpt": "Chat diretta Dalla lista conversazioni clicca su Nuova conversazione e cerca la persona da contattare. Comportamento Se esiste già una chat diretta con quella persona, viene riaperta invece di crearne una nuova. Richiede...",
+                    "aliases": [
+                        "chat 1:1",
+                        "chat diretta",
+                        "nuova conversazione",
+                        "messaggio privato"
+                    ]
+                },
+                "en": {
+                    "question": "How do I start a 1:1 direct chat?",
+                    "answer_markdown": "## Direct chat\nFrom the conversation list click **New conversation** and search for the person to contact.\n\n### Behavior\nIf a direct chat with that person already exists, it's reopened instead of creating a new one.\n\nRequires `teams.create`.",
+                    "excerpt": "Direct chat From the conversation list click New conversation and search for the person to contact. Behavior If a direct chat with that person already exists, it's reopened instead of creating a new one. Requires teams.create.",
+                    "aliases": [
+                        "direct chat",
+                        "1:1 chat",
+                        "new conversation",
+                        "private message"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment démarrer un chat direct 1:1 ?",
+                    "answer_markdown": "## Chat direct\nDepuis la liste des conversations, cliquez sur **Nouvelle conversation** et recherchez la personne à contacter.\n\n### Comportement\nSi un chat direct avec cette personne existe déjà, il est rouvert au lieu d'en créer un nouveau.\n\nNécessite `teams.create`.",
+                    "excerpt": "Chat direct Depuis la liste des conversations, cliquez sur Nouvelle conversation et recherchez la personne à contacter. Comportement Si un chat direct avec cette personne existe déjà, il est rouvert au lieu d'en créer un nouveau....",
+                    "aliases": [
+                        "chat direct",
+                        "chat 1:1",
+                        "nouvelle conversation",
+                        "message privé"
+                    ]
+                },
+                "de": {
+                    "question": "Wie starte ich einen 1:1-Direktchat?",
+                    "answer_markdown": "## Direktchat\nKlicken Sie in der Unterhaltungsliste auf **Neue Unterhaltung** und suchen Sie die zu kontaktierende Person.\n\n### Verhalten\nWenn bereits ein Direktchat mit dieser Person existiert, wird dieser wieder geöffnet, statt einen neuen zu erstellen.\n\nErfordert `teams.create`.",
+                    "excerpt": "Direktchat Klicken Sie in der Unterhaltungsliste auf Neue Unterhaltung und suchen Sie die zu kontaktierende Person. Verhalten Wenn bereits ein Direktchat mit dieser Person existiert, wird dieser wieder geöffnet, statt einen neuen...",
+                    "aliases": [
+                        "direktchat",
+                        "1:1 chat",
+                        "neue unterhaltung",
+                        "private nachricht"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo inicio un chat directo 1:1?",
+                    "answer_markdown": "## Chat directo\nDesde la lista de conversaciones haz clic en **Nueva conversación** y busca a la persona a contactar.\n\n### Comportamiento\nSi ya existe un chat directo con esa persona, se reabre en lugar de crear uno nuevo.\n\nRequiere `teams.create`.",
+                    "excerpt": "Chat directo Desde la lista de conversaciones haz clic en Nueva conversación y busca a la persona a contactar. Comportamiento Si ya existe un chat directo con esa persona, se reabre en lugar de crear uno nuevo. Requiere...",
+                    "aliases": [
+                        "chat directo",
+                        "chat 1:1",
+                        "nueva conversación",
+                        "mensaje privado"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "teams.index",
+            "permission_slug": "teams.create",
+            "ranking_weight": 0,
+            "sort_order": 4,
+            "locales": {
+                "it": {
+                    "question": "Come creo un gruppo?",
+                    "answer_markdown": "## Creare un gruppo\nDalla lista conversazioni clicca su **Nuova conversazione**, scegli **Gruppo**, dai un nome e aggiungi i membri iniziali (richiede `teams.create`).\n\n### Dopo la creazione\nPuoi impostare un **avatar** e una descrizione del gruppo dal pannello informazioni.",
+                    "excerpt": "Creare un gruppo Dalla lista conversazioni clicca su Nuova conversazione, scegli Gruppo, dai un nome e aggiungi i membri iniziali (richiede teams.create). Dopo la creazione Puoi impostare un avatar e una descrizione del gruppo...",
+                    "aliases": [
+                        "creare gruppo",
+                        "nuovo gruppo",
+                        "gruppo messaggi"
+                    ]
+                },
+                "en": {
+                    "question": "How do I create a group?",
+                    "answer_markdown": "## Creating a group\nFrom the conversation list click **New conversation**, choose **Group**, give it a name and add the initial members (requires `teams.create`).\n\n### After creation\nYou can set a group **avatar** and description from the info panel.",
+                    "excerpt": "Creating a group From the conversation list click New conversation, choose Group, give it a name and add the initial members (requires teams.create). After creation You can set a group avatar and description from the info panel.",
+                    "aliases": [
+                        "create group",
+                        "new group",
+                        "messages group"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment créer un groupe ?",
+                    "answer_markdown": "## Créer un groupe\nDepuis la liste des conversations, cliquez sur **Nouvelle conversation**, choisissez **Groupe**, donnez-lui un nom et ajoutez les membres initiaux (nécessite `teams.create`).\n\n### Après la création\nVous pouvez définir un **avatar** et une description du groupe depuis le panneau d'informations.",
+                    "excerpt": "Créer un groupe Depuis la liste des conversations, cliquez sur Nouvelle conversation, choisissez Groupe, donnez-lui un nom et ajoutez les membres initiaux (nécessite teams.create). Après la création Vous pouvez définir un avatar...",
+                    "aliases": [
+                        "créer groupe",
+                        "nouveau groupe",
+                        "groupe messages"
+                    ]
+                },
+                "de": {
+                    "question": "Wie erstelle ich eine Gruppe?",
+                    "answer_markdown": "## Eine Gruppe erstellen\nKlicken Sie in der Unterhaltungsliste auf **Neue Unterhaltung**, wählen Sie **Gruppe**, geben Sie einen Namen ein und fügen Sie die ersten Mitglieder hinzu (erfordert `teams.create`).\n\n### Nach der Erstellung\nSie können über das Info-Panel ein Gruppen-**Avatar** und eine Beschreibung festlegen.",
+                    "excerpt": "Eine Gruppe erstellen Klicken Sie in der Unterhaltungsliste auf Neue Unterhaltung, wählen Sie Gruppe, geben Sie einen Namen ein und fügen Sie die ersten Mitglieder hinzu (erfordert teams.create). Nach der Erstellung Sie können...",
+                    "aliases": [
+                        "gruppe erstellen",
+                        "neue gruppe",
+                        "nachrichtengruppe"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo creo un grupo?",
+                    "answer_markdown": "## Crear un grupo\nDesde la lista de conversaciones haz clic en **Nueva conversación**, elige **Grupo**, ponle un nombre y añade los miembros iniciales (requiere `teams.create`).\n\n### Después de crearlo\nPuedes definir un **avatar** y una descripción del grupo desde el panel de información.",
+                    "excerpt": "Crear un grupo Desde la lista de conversaciones haz clic en Nueva conversación, elige Grupo, ponle un nombre y añade los miembros iniciales (requiere teams.create). Después de crearlo Puedes definir un avatar y una descripción...",
+                    "aliases": [
+                        "crear grupo",
+                        "nuevo grupo",
+                        "grupo mensajes"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "teams.members.index",
+            "permission_slug": "teams.create",
+            "ranking_weight": 0,
+            "sort_order": 5,
+            "locales": {
+                "it": {
+                    "question": "Come aggiungo o rimuovo membri da un gruppo?",
+                    "answer_markdown": "## Membri del gruppo\nDal pannello informazioni del gruppo puoi vedere l'elenco membri con il relativo ruolo.\n\n### Chi può gestirli\nSolo gli **amministratori** del gruppo possono aggiungere o rimuovere membri (richiede `teams.create`).\n\n### Ruoli\n- **Amministratore**: gestisce membri, messaggi in evidenza e impostazioni;\n- **Membro**: partecipa alla conversazione.",
+                    "excerpt": "Membri del gruppo Dal pannello informazioni del gruppo puoi vedere l'elenco membri con il relativo ruolo. Chi può gestirli Solo gli amministratori del gruppo possono aggiungere o rimuovere membri (richiede teams.create). Ruoli...",
+                    "aliases": [
+                        "membri gruppo",
+                        "aggiungere membri",
+                        "rimuovere membri",
+                        "amministratore gruppo"
+                    ]
+                },
+                "en": {
+                    "question": "How do I add or remove group members?",
+                    "answer_markdown": "## Group members\nFrom the group info panel you can see the member list with their role.\n\n### Who can manage them\nOnly group **admins** can add or remove members (requires `teams.create`).\n\n### Roles\n- **Admin**: manages members, pinned messages and settings;\n- **Member**: participates in the conversation.",
+                    "excerpt": "Group members From the group info panel you can see the member list with their role. Who can manage them Only group admins can add or remove members (requires teams.create). Roles Admin: manages members, pinned messages and...",
+                    "aliases": [
+                        "group members",
+                        "add members",
+                        "remove members",
+                        "group admin"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment ajouter ou retirer des membres d'un groupe ?",
+                    "answer_markdown": "## Membres du groupe\nDepuis le panneau d'informations du groupe, vous voyez la liste des membres avec leur rôle.\n\n### Qui peut les gérer\nSeuls les **administrateurs** du groupe peuvent ajouter ou retirer des membres (nécessite `teams.create`).\n\n### Rôles\n- **Administrateur** : gère les membres, les messages épinglés et les paramètres ;\n- **Membre** : participe à la conversation.",
+                    "excerpt": "Membres du groupe Depuis le panneau d'informations du groupe, vous voyez la liste des membres avec leur rôle. Qui peut les gérer Seuls les administrateurs du groupe peuvent ajouter ou retirer des membres (nécessite teams.create)....",
+                    "aliases": [
+                        "membres groupe",
+                        "ajouter membres",
+                        "retirer membres",
+                        "administrateur groupe"
+                    ]
+                },
+                "de": {
+                    "question": "Wie füge ich Gruppenmitglieder hinzu oder entferne sie?",
+                    "answer_markdown": "## Gruppenmitglieder\nÜber das Gruppen-Info-Panel sehen Sie die Mitgliederliste mit der jeweiligen Rolle.\n\n### Wer sie verwalten kann\nNur Gruppen-**Admins** können Mitglieder hinzufügen oder entfernen (erfordert `teams.create`).\n\n### Rollen\n- **Admin**: verwaltet Mitglieder, angeheftete Nachrichten und Einstellungen;\n- **Mitglied**: nimmt an der Unterhaltung teil.",
+                    "excerpt": "Gruppenmitglieder Über das Gruppen-Info-Panel sehen Sie die Mitgliederliste mit der jeweiligen Rolle. Wer sie verwalten kann Nur Gruppen-Admins können Mitglieder hinzufügen oder entfernen (erfordert teams.create). Rollen Admin:...",
+                    "aliases": [
+                        "gruppenmitglieder",
+                        "mitglieder hinzufügen",
+                        "mitglieder entfernen",
+                        "gruppen admin"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo añado o quito miembros de un grupo?",
+                    "answer_markdown": "## Miembros del grupo\nDesde el panel de información del grupo puedes ver la lista de miembros y su rol.\n\n### Quién puede gestionarlos\nSolo los **administradores** del grupo pueden añadir o quitar miembros (requiere `teams.create`).\n\n### Roles\n- **Administrador**: gestiona miembros, mensajes destacados y ajustes;\n- **Miembro**: participa en la conversación.",
+                    "excerpt": "Miembros del grupo Desde el panel de información del grupo puedes ver la lista de miembros y su rol. Quién puede gestionarlos Solo los administradores del grupo pueden añadir o quitar miembros (requiere teams.create). Roles...",
+                    "aliases": [
+                        "miembros grupo",
+                        "añadir miembros",
+                        "quitar miembros",
+                        "administrador grupo"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "teams.messages.index",
+            "permission_slug": "teams.create",
+            "ranking_weight": 0,
+            "sort_order": 6,
+            "locales": {
+                "it": {
+                    "question": "Come invio messaggi con menzioni e allegati?",
+                    "answer_markdown": "## Inviare messaggi\nScrivi nel campo messaggio e premi Invio (richiede `teams.create`).\n\n### Menzioni\nDigita **@** seguito dal nome per menzionare un membro: riceverà una notifica dedicata.\n\n### Allegati\nPuoi allegare file al messaggio; ogni allegato viene verificato per formato e dimensione.\n\n### Limiti\nMassimo 5000 caratteri per messaggio; almeno 1 secondo di attesa tra un invio e l'altro.",
+                    "excerpt": "Inviare messaggi Scrivi nel campo messaggio e premi Invio (richiede teams.create). Menzioni Digita @ seguito dal nome per menzionare un membro: riceverà una notifica dedicata. Allegati Puoi allegare file al messaggio; ogni...",
+                    "aliases": [
+                        "inviare messaggi",
+                        "menzioni chat",
+                        "allegati messaggi",
+                        "scrivere messaggio"
+                    ]
+                },
+                "en": {
+                    "question": "How do I send messages with mentions and attachments?",
+                    "answer_markdown": "## Sending messages\nType in the message field and press Enter (requires `teams.create`).\n\n### Mentions\nType **@** followed by a name to mention a member: they'll get a dedicated notification.\n\n### Attachments\nYou can attach files to a message; each attachment is checked for format and size.\n\n### Limits\nMaximum 5000 characters per message; at least 1 second between sends.",
+                    "excerpt": "Sending messages Type in the message field and press Enter (requires teams.create). Mentions Type @ followed by a name to mention a member: they'll get a dedicated notification. Attachments You can attach files to a message; each...",
+                    "aliases": [
+                        "send messages",
+                        "chat mentions",
+                        "message attachments",
+                        "write message"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment envoyer des messages avec mentions et pièces jointes ?",
+                    "answer_markdown": "## Envoyer des messages\nÉcrivez dans le champ de message et appuyez sur Entrée (nécessite `teams.create`).\n\n### Mentions\nTapez **@** suivi d'un nom pour mentionner un membre : il recevra une notification dédiée.\n\n### Pièces jointes\nVous pouvez joindre des fichiers à un message ; chaque pièce jointe est vérifiée en format et taille.\n\n### Limites\n5000 caractères maximum par message ; au moins 1 seconde entre deux envois.",
+                    "excerpt": "Envoyer des messages Écrivez dans le champ de message et appuyez sur Entrée (nécessite teams.create). Mentions Tapez @ suivi d'un nom pour mentionner un membre : il recevra une notification dédiée. Pièces jointes Vous pouvez...",
+                    "aliases": [
+                        "envoyer messages",
+                        "mentions chat",
+                        "pièces jointes",
+                        "écrire message"
+                    ]
+                },
+                "de": {
+                    "question": "Wie sende ich Nachrichten mit Erwähnungen und Anhängen?",
+                    "answer_markdown": "## Nachrichten senden\nSchreiben Sie in das Nachrichtenfeld und drücken Sie Enter (erfordert `teams.create`).\n\n### Erwähnungen\nGeben Sie **@** gefolgt vom Namen ein, um ein Mitglied zu erwähnen: es erhält eine eigene Benachrichtigung.\n\n### Anhänge\nSie können Dateien an eine Nachricht anhängen; jeder Anhang wird auf Format und Größe geprüft.\n\n### Grenzen\nMaximal 5000 Zeichen pro Nachricht; mindestens 1 Sekunde zwischen zwei Sendungen.",
+                    "excerpt": "Nachrichten senden Schreiben Sie in das Nachrichtenfeld und drücken Sie Enter (erfordert teams.create). Erwähnungen Geben Sie @ gefolgt vom Namen ein, um ein Mitglied zu erwähnen: es erhält eine eigene Benachrichtigung. Anhänge...",
+                    "aliases": [
+                        "nachrichten senden",
+                        "chat erwähnungen",
+                        "nachrichten anhänge",
+                        "nachricht schreiben"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo envío mensajes con menciones y archivos adjuntos?",
+                    "answer_markdown": "## Enviar mensajes\nEscribe en el campo de mensaje y pulsa Intro (requiere `teams.create`).\n\n### Menciones\nEscribe **@** seguido del nombre para mencionar a un miembro: recibirá una notificación dedicada.\n\n### Archivos adjuntos\nPuedes adjuntar archivos a un mensaje; cada adjunto se verifica por formato y tamaño.\n\n### Límites\nMáximo 5000 caracteres por mensaje; al menos 1 segundo entre envíos.",
+                    "excerpt": "Enviar mensajes Escribe en el campo de mensaje y pulsa Intro (requiere teams.create). Menciones Escribe @ seguido del nombre para mencionar a un miembro: recibirá una notificación dedicada. Archivos adjuntos Puedes adjuntar...",
+                    "aliases": [
+                        "enviar mensajes",
+                        "menciones chat",
+                        "archivos adjuntos",
+                        "escribir mensaje"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "teams.messages.index",
+            "permission_slug": "teams.delete",
+            "ranking_weight": 0,
+            "sort_order": 7,
+            "locales": {
+                "it": {
+                    "question": "Come modifico o elimino un mio messaggio?",
+                    "answer_markdown": "## Modifica ed eliminazione\nPuoi modificare o eliminare solo i **tuoi** messaggi (richiede `teams.delete`); un amministratore del gruppo può farlo su qualsiasi messaggio.\n\n### Cronologia modifiche\nOgni modifica resta tracciata nella cronologia del messaggio, consultabile da chi ha i permessi adeguati.\n\n### Eliminazione\nI messaggi eliminati non vengono cancellati fisicamente: restano come segnaposto \"messaggio eliminato\".",
+                    "excerpt": "Modifica ed eliminazione Puoi modificare o eliminare solo i tuoi messaggi (richiede teams.delete); un amministratore del gruppo può farlo su qualsiasi messaggio. Cronologia modifiche Ogni modifica resta tracciata nella cronologia...",
+                    "aliases": [
+                        "modificare messaggio",
+                        "eliminare messaggio",
+                        "cronologia modifiche"
+                    ]
+                },
+                "en": {
+                    "question": "How do I edit or delete my own message?",
+                    "answer_markdown": "## Editing and deleting\nYou can only edit or delete your **own** messages (requires `teams.delete`); a group admin can do it on any message.\n\n### Edit history\nEvery edit stays tracked in the message history, viewable by those with the right permissions.\n\n### Deletion\nDeleted messages aren't physically removed: they remain as a \"deleted message\" placeholder.",
+                    "excerpt": "Editing and deleting You can only edit or delete your own messages (requires teams.delete); a group admin can do it on any message. Edit history Every edit stays tracked in the message history, viewable by those with the right...",
+                    "aliases": [
+                        "edit message",
+                        "delete message",
+                        "message edit history"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment modifier ou supprimer mon propre message ?",
+                    "answer_markdown": "## Modification et suppression\nVous ne pouvez modifier ou supprimer que **vos** messages (nécessite `teams.delete`) ; un administrateur du groupe peut le faire sur n'importe quel message.\n\n### Historique des modifications\nChaque modification reste tracée dans l'historique du message, consultable par ceux qui ont les permissions adéquates.\n\n### Suppression\nLes messages supprimés ne sont pas physiquement effacés : ils restent affichés comme \"message supprimé\".",
+                    "excerpt": "Modification et suppression Vous ne pouvez modifier ou supprimer que vos messages (nécessite teams.delete) ; un administrateur du groupe peut le faire sur n'importe quel message. Historique des modifications Chaque modification...",
+                    "aliases": [
+                        "modifier message",
+                        "supprimer message",
+                        "historique modifications"
+                    ]
+                },
+                "de": {
+                    "question": "Wie bearbeite oder lösche ich meine eigene Nachricht?",
+                    "answer_markdown": "## Bearbeiten und Löschen\nSie können nur **Ihre eigenen** Nachrichten bearbeiten oder löschen (erfordert `teams.delete`); ein Gruppen-Admin kann dies bei jeder Nachricht tun.\n\n### Bearbeitungsverlauf\nJede Änderung wird im Nachrichtenverlauf festgehalten und ist für Berechtigte einsehbar.\n\n### Löschen\nGelöschte Nachrichten werden nicht physisch entfernt: sie bleiben als Platzhalter \"Nachricht gelöscht\" bestehen.",
+                    "excerpt": "Bearbeiten und Löschen Sie können nur Ihre eigenen Nachrichten bearbeiten oder löschen (erfordert teams.delete); ein Gruppen-Admin kann dies bei jeder Nachricht tun. Bearbeitungsverlauf Jede Änderung wird im Nachrichtenverlauf...",
+                    "aliases": [
+                        "nachricht bearbeiten",
+                        "nachricht löschen",
+                        "bearbeitungsverlauf"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo edito o elimino mi propio mensaje?",
+                    "answer_markdown": "## Edición y eliminación\nSolo puedes editar o eliminar **tus** mensajes (requiere `teams.delete`); un administrador del grupo puede hacerlo con cualquier mensaje.\n\n### Historial de cambios\nCada edición queda registrada en el historial del mensaje, consultable por quien tenga los permisos adecuados.\n\n### Eliminación\nLos mensajes eliminados no se borran físicamente: quedan como marcador \"mensaje eliminado\".",
+                    "excerpt": "Edición y eliminación Solo puedes editar o eliminar tus mensajes (requiere teams.delete); un administrador del grupo puede hacerlo con cualquier mensaje. Historial de cambios Cada edición queda registrada en el historial del...",
+                    "aliases": [
+                        "editar mensaje",
+                        "eliminar mensaje",
+                        "historial de cambios"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "teams.messages.index",
+            "permission_slug": "teams.create",
+            "ranking_weight": 0,
+            "sort_order": 8,
+            "locales": {
+                "it": {
+                    "question": "Come uso le reazioni ai messaggi?",
+                    "answer_markdown": "## Reazioni\nPassa sopra un messaggio e scegli un'emoji per reagire (richiede `teams.create`).\n\n### Emoji disponibili\nLe reazioni sono limitate a un set di 20 emoji predefinite, sempre uguale per tutte le conversazioni.\n\n### Rimuovere una reazione\nClicca di nuovo sulla stessa emoji per toglierla.",
+                    "excerpt": "Reazioni Passa sopra un messaggio e scegli un'emoji per reagire (richiede teams.create). Emoji disponibili Le reazioni sono limitate a un set di 20 emoji predefinite, sempre uguale per tutte le conversazioni. Rimuovere una...",
+                    "aliases": [
+                        "reazioni messaggi",
+                        "emoji chat",
+                        "like messaggio"
+                    ]
+                },
+                "en": {
+                    "question": "How do I use message reactions?",
+                    "answer_markdown": "## Reactions\nHover over a message and pick an emoji to react (requires `teams.create`).\n\n### Available emoji\nReactions are limited to a fixed set of 20 predefined emoji, the same across every conversation.\n\n### Removing a reaction\nClick the same emoji again to remove it.",
+                    "excerpt": "Reactions Hover over a message and pick an emoji to react (requires teams.create). Available emoji Reactions are limited to a fixed set of 20 predefined emoji, the same across every conversation. Removing a reaction Click the...",
+                    "aliases": [
+                        "message reactions",
+                        "chat emoji",
+                        "like message"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment utiliser les réactions aux messages ?",
+                    "answer_markdown": "## Réactions\nSurvolez un message et choisissez un emoji pour réagir (nécessite `teams.create`).\n\n### Emoji disponibles\nLes réactions sont limitées à un ensemble fixe de 20 emoji prédéfinis, identique dans toutes les conversations.\n\n### Retirer une réaction\nCliquez à nouveau sur le même emoji pour la retirer.",
+                    "excerpt": "Réactions Survolez un message et choisissez un emoji pour réagir (nécessite teams.create). Emoji disponibles Les réactions sont limitées à un ensemble fixe de 20 emoji prédéfinis, identique dans toutes les conversations. Retirer...",
+                    "aliases": [
+                        "réactions messages",
+                        "emoji chat",
+                        "aimer un message"
+                    ]
+                },
+                "de": {
+                    "question": "Wie benutze ich Reaktionen auf Nachrichten?",
+                    "answer_markdown": "## Reaktionen\nFahren Sie mit der Maus über eine Nachricht und wählen Sie ein Emoji zum Reagieren (erfordert `teams.create`).\n\n### Verfügbare Emojis\nReaktionen sind auf ein festes Set von 20 vordefinierten Emojis begrenzt, gleich in allen Unterhaltungen.\n\n### Eine Reaktion entfernen\nKlicken Sie erneut auf dasselbe Emoji, um sie zu entfernen.",
+                    "excerpt": "Reaktionen Fahren Sie mit der Maus über eine Nachricht und wählen Sie ein Emoji zum Reagieren (erfordert teams.create). Verfügbare Emojis Reaktionen sind auf ein festes Set von 20 vordefinierten Emojis begrenzt, gleich in allen...",
+                    "aliases": [
+                        "nachrichten reaktionen",
+                        "chat emoji",
+                        "nachricht liken"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo uso las reacciones a los mensajes?",
+                    "answer_markdown": "## Reacciones\nPasa el cursor sobre un mensaje y elige un emoji para reaccionar (requiere `teams.create`).\n\n### Emojis disponibles\nLas reacciones se limitan a un conjunto fijo de 20 emojis predefinidos, igual en todas las conversaciones.\n\n### Quitar una reacción\nHaz clic de nuevo en el mismo emoji para quitarla.",
+                    "excerpt": "Reacciones Pasa el cursor sobre un mensaje y elige un emoji para reaccionar (requiere teams.create). Emojis disponibles Las reacciones se limitan a un conjunto fijo de 20 emojis predefinidos, igual en todas las conversaciones....",
+                    "aliases": [
+                        "reacciones mensajes",
+                        "emoji chat",
+                        "me gusta mensaje"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "teams.pinned.list",
+            "permission_slug": "teams.create",
+            "ranking_weight": 0,
+            "sort_order": 9,
+            "locales": {
+                "it": {
+                    "question": "Come metto in evidenza (pin) un messaggio importante?",
+                    "answer_markdown": "## Messaggi in evidenza\nDal menu del messaggio scegli **Aggiungi ai messaggi importanti** (richiede `teams.create`).\n\n### Consultare i messaggi in evidenza\nSono raccolti in una lista dedicata nel pannello informazioni della conversazione, per ritrovarli senza scorrere la cronologia.\n\n### Rimuovere il pin\nScegli **Rimuovi dai messaggi importanti** dal menu del messaggio.",
+                    "excerpt": "Messaggi in evidenza Dal menu del messaggio scegli Aggiungi ai messaggi importanti (richiede teams.create). Consultare i messaggi in evidenza Sono raccolti in una lista dedicata nel pannello informazioni della conversazione, per...",
+                    "aliases": [
+                        "pin messaggio",
+                        "messaggi in evidenza",
+                        "messaggi importanti"
+                    ]
+                },
+                "en": {
+                    "question": "How do I pin an important message?",
+                    "answer_markdown": "## Pinned messages\nFrom the message menu choose **Pin message** (requires `teams.create`).\n\n### Viewing pinned messages\nThey're collected in a dedicated list in the conversation's info panel, so you can find them without scrolling through history.\n\n### Unpinning\nChoose **Unpin message** from the message menu.",
+                    "excerpt": "Pinned messages From the message menu choose Pin message (requires teams.create). Viewing pinned messages They're collected in a dedicated list in the conversation's info panel, so you can find them without scrolling through...",
+                    "aliases": [
+                        "pin message",
+                        "pinned messages",
+                        "important messages"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment épingler un message important ?",
+                    "answer_markdown": "## Messages épinglés\nDepuis le menu du message, choisissez **Épingler le message** (nécessite `teams.create`).\n\n### Consulter les messages épinglés\nIls sont regroupés dans une liste dédiée du panneau d'informations de la conversation, pour les retrouver sans faire défiler l'historique.\n\n### Désépingler\nChoisissez **Désépingler le message** dans le menu du message.",
+                    "excerpt": "Messages épinglés Depuis le menu du message, choisissez Épingler le message (nécessite teams.create). Consulter les messages épinglés Ils sont regroupés dans une liste dédiée du panneau d'informations de la conversation, pour les...",
+                    "aliases": [
+                        "épingler message",
+                        "messages épinglés",
+                        "messages importants"
+                    ]
+                },
+                "de": {
+                    "question": "Wie hefte ich eine wichtige Nachricht an?",
+                    "answer_markdown": "## Angeheftete Nachrichten\nWählen Sie im Nachrichtenmenü **Nachricht anheften** (erfordert `teams.create`).\n\n### Angeheftete Nachrichten ansehen\nSie werden in einer eigenen Liste im Info-Panel der Unterhaltung gesammelt, damit Sie sie finden, ohne den Verlauf zu durchsuchen.\n\n### Lösen\nWählen Sie **Anheften aufheben** im Nachrichtenmenü.",
+                    "excerpt": "Angeheftete Nachrichten Wählen Sie im Nachrichtenmenü Nachricht anheften (erfordert teams.create). Angeheftete Nachrichten ansehen Sie werden in einer eigenen Liste im Info-Panel der Unterhaltung gesammelt, damit Sie sie finden,...",
+                    "aliases": [
+                        "nachricht anheften",
+                        "angeheftete nachrichten",
+                        "wichtige nachrichten"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo destaco (pin) un mensaje importante?",
+                    "answer_markdown": "## Mensajes destacados\nDesde el menú del mensaje elige **Destacar mensaje** (requiere `teams.create`).\n\n### Consultar los mensajes destacados\nSe agrupan en una lista dedicada en el panel de información de la conversación, para encontrarlos sin desplazarte por el historial.\n\n### Quitar el destacado\nElige **Quitar de destacados** en el menú del mensaje.",
+                    "excerpt": "Mensajes destacados Desde el menú del mensaje elige Destacar mensaje (requiere teams.create). Consultar los mensajes destacados Se agrupan en una lista dedicada en el panel de información de la conversación, para encontrarlos sin...",
+                    "aliases": [
+                        "destacar mensaje",
+                        "mensajes destacados",
+                        "mensajes importantes"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "teams.panel.header",
+            "permission_slug": "teams.view",
+            "ranking_weight": 0,
+            "sort_order": 10,
+            "locales": {
+                "it": {
+                    "question": "Cosa mostra il pannello informazioni del gruppo?",
+                    "answer_markdown": "## Pannello informazioni\nApri l'intestazione della conversazione per vedere nome, avatar, descrizione e numero di membri del gruppo.\n\n### Sezioni disponibili\n- **Membri**: elenco con ruoli;\n- **Media**: immagini e video condivisi;\n- **File**: documenti, archivi e audio condivisi;\n- **Link**: URL estratti automaticamente dai messaggi.",
+                    "excerpt": "Pannello informazioni Apri l'intestazione della conversazione per vedere nome, avatar, descrizione e numero di membri del gruppo. Sezioni disponibili Membri: elenco con ruoli; Media: immagini e video condivisi; File: documenti,...",
+                    "aliases": [
+                        "pannello gruppo",
+                        "informazioni gruppo",
+                        "media file link gruppo"
+                    ]
+                },
+                "en": {
+                    "question": "What does the group info panel show?",
+                    "answer_markdown": "## Info panel\nOpen the conversation header to see the group's name, avatar, description and member count.\n\n### Available sections\n- **Members**: list with roles;\n- **Media**: shared images and videos;\n- **Files**: shared documents, archives and audio;\n- **Links**: URLs automatically extracted from messages.",
+                    "excerpt": "Info panel Open the conversation header to see the group's name, avatar, description and member count. Available sections Members: list with roles; Media: shared images and videos; Files: shared documents, archives and audio;...",
+                    "aliases": [
+                        "group panel",
+                        "group info",
+                        "group media files links"
+                    ]
+                },
+                "fr": {
+                    "question": "Que montre le panneau d'informations du groupe ?",
+                    "answer_markdown": "## Panneau d'informations\nOuvrez l'en-tête de la conversation pour voir le nom, l'avatar, la description et le nombre de membres du groupe.\n\n### Sections disponibles\n- **Membres** : liste avec les rôles ;\n- **Médias** : images et vidéos partagées ;\n- **Fichiers** : documents, archives et audio partagés ;\n- **Liens** : URL extraites automatiquement des messages.",
+                    "excerpt": "Panneau d'informations Ouvrez l'en-tête de la conversation pour voir le nom, l'avatar, la description et le nombre de membres du groupe. Sections disponibles Membres : liste avec les rôles ; Médias : images et vidéos partagées ;...",
+                    "aliases": [
+                        "panneau groupe",
+                        "informations groupe",
+                        "médias fichiers liens groupe"
+                    ]
+                },
+                "de": {
+                    "question": "Was zeigt das Gruppen-Info-Panel?",
+                    "answer_markdown": "## Info-Panel\nÖffnen Sie den Kopfbereich der Unterhaltung, um Name, Avatar, Beschreibung und Mitgliederzahl der Gruppe zu sehen.\n\n### Verfügbare Bereiche\n- **Mitglieder**: Liste mit Rollen;\n- **Medien**: geteilte Bilder und Videos;\n- **Dateien**: geteilte Dokumente, Archive und Audio;\n- **Links**: automatisch aus Nachrichten extrahierte URLs.",
+                    "excerpt": "Info-Panel Öffnen Sie den Kopfbereich der Unterhaltung, um Name, Avatar, Beschreibung und Mitgliederzahl der Gruppe zu sehen. Verfügbare Bereiche Mitglieder: Liste mit Rollen; Medien: geteilte Bilder und Videos; Dateien: geteilte...",
+                    "aliases": [
+                        "gruppen panel",
+                        "gruppeninformationen",
+                        "gruppe medien dateien links"
+                    ]
+                },
+                "es": {
+                    "question": "¿Qué muestra el panel de información del grupo?",
+                    "answer_markdown": "## Panel de información\nAbre el encabezado de la conversación para ver nombre, avatar, descripción y número de miembros del grupo.\n\n### Secciones disponibles\n- **Miembros**: lista con roles;\n- **Multimedia**: imágenes y vídeos compartidos;\n- **Archivos**: documentos, comprimidos y audio compartidos;\n- **Enlaces**: URL extraídas automáticamente de los mensajes.",
+                    "excerpt": "Panel de información Abre el encabezado de la conversación para ver nombre, avatar, descripción y número de miembros del grupo. Secciones disponibles Miembros: lista con roles; Multimedia: imágenes y vídeos compartidos; Archivos:...",
+                    "aliases": [
+                        "panel grupo",
+                        "información grupo",
+                        "grupo multimedia archivos enlaces"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "teams.index",
+            "permission_slug": "teams.view",
+            "ranking_weight": 0,
+            "sort_order": 11,
+            "locales": {
+                "it": {
+                    "question": "Come funzionano presenza online e indicatore di digitazione?",
+                    "answer_markdown": "## Presenza e digitazione\nAccanto al nome di ogni persona vedi un indicatore che segnala se è online.\n\n### Indicatore di digitazione\nQuando qualcuno sta scrivendo in una conversazione, appare un indicatore \"sta scrivendo...\" che scompare automaticamente dopo pochi secondi di inattività.",
+                    "excerpt": "Presenza e digitazione Accanto al nome di ogni persona vedi un indicatore che segnala se è online. Indicatore di digitazione Quando qualcuno sta scrivendo in una conversazione, appare un indicatore \"sta scrivendo...\" che scompare...",
+                    "aliases": [
+                        "presenza online",
+                        "indicatore digitazione",
+                        "sta scrivendo"
+                    ]
+                },
+                "en": {
+                    "question": "How do online presence and the typing indicator work?",
+                    "answer_markdown": "## Presence and typing\nNext to each person's name you see an indicator showing whether they're online.\n\n### Typing indicator\nWhen someone is typing in a conversation, a \"typing...\" indicator appears and disappears automatically after a few seconds of inactivity.",
+                    "excerpt": "Presence and typing Next to each person's name you see an indicator showing whether they're online. Typing indicator When someone is typing in a conversation, a \"typing...\" indicator appears and disappears automatically after a...",
+                    "aliases": [
+                        "online presence",
+                        "typing indicator",
+                        "is typing"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment fonctionnent la présence en ligne et l'indicateur de saisie ?",
+                    "answer_markdown": "## Présence et saisie\nÀ côté du nom de chaque personne, un indicateur signale si elle est en ligne.\n\n### Indicateur de saisie\nLorsqu'une personne écrit dans une conversation, un indicateur \"est en train d'écrire...\" apparaît et disparaît automatiquement après quelques secondes d'inactivité.",
+                    "excerpt": "Présence et saisie À côté du nom de chaque personne, un indicateur signale si elle est en ligne. Indicateur de saisie Lorsqu'une personne écrit dans une conversation, un indicateur \"est en train d'écrire...\" apparaît et disparaît...",
+                    "aliases": [
+                        "présence en ligne",
+                        "indicateur saisie",
+                        "en train d'écrire"
+                    ]
+                },
+                "de": {
+                    "question": "Wie funktionieren Online-Präsenz und Tippanzeige?",
+                    "answer_markdown": "## Präsenz und Tippen\nNeben dem Namen jeder Person sehen Sie eine Anzeige, ob diese online ist.\n\n### Tippanzeige\nWenn jemand in einer Unterhaltung schreibt, erscheint eine Anzeige \"schreibt gerade...\", die nach wenigen Sekunden Inaktivität automatisch verschwindet.",
+                    "excerpt": "Präsenz und Tippen Neben dem Namen jeder Person sehen Sie eine Anzeige, ob diese online ist. Tippanzeige Wenn jemand in einer Unterhaltung schreibt, erscheint eine Anzeige \"schreibt gerade...\", die nach wenigen Sekunden...",
+                    "aliases": [
+                        "online präsenz",
+                        "tippanzeige",
+                        "schreibt gerade"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo funcionan la presencia en línea y el indicador de escritura?",
+                    "answer_markdown": "## Presencia y escritura\nJunto al nombre de cada persona verás un indicador que muestra si está en línea.\n\n### Indicador de escritura\nCuando alguien está escribiendo en una conversación, aparece un indicador \"escribiendo...\" que desaparece automáticamente tras unos segundos de inactividad.",
+                    "excerpt": "Presencia y escritura Junto al nombre de cada persona verás un indicador que muestra si está en línea. Indicador de escritura Cuando alguien está escribiendo en una conversación, aparece un indicador \"escribiendo...\" que...",
+                    "aliases": [
+                        "presencia en línea",
+                        "indicador escritura",
+                        "escribiendo"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "teams.index",
+            "permission_slug": "teams.view",
+            "ranking_weight": 0,
+            "sort_order": 12,
+            "locales": {
+                "it": {
+                    "question": "Come silenzio o nascondo una conversazione?",
+                    "answer_markdown": "## Silenziare e nascondere\nDal menu della conversazione puoi **silenziare** le notifiche (richiede solo `teams.view`) senza uscire dal gruppo o dalla chat.\n\n### Nascondere\nPuoi **nascondere** una conversazione dalla tua lista: resta comunque disponibile e riappare automaticamente al primo nuovo messaggio.",
+                    "excerpt": "Silenziare e nascondere Dal menu della conversazione puoi silenziare le notifiche (richiede solo teams.view) senza uscire dal gruppo o dalla chat. Nascondere Puoi nascondere una conversazione dalla tua lista: resta comunque...",
+                    "aliases": [
+                        "silenziare conversazione",
+                        "nascondere conversazione",
+                        "notifiche teams"
+                    ]
+                },
+                "en": {
+                    "question": "How do I mute or hide a conversation?",
+                    "answer_markdown": "## Muting and hiding\nFrom the conversation menu you can **mute** notifications (requires only `teams.view`) without leaving the group or chat.\n\n### Hiding\nYou can **hide** a conversation from your list: it stays available and reappears automatically on the first new message.",
+                    "excerpt": "Muting and hiding From the conversation menu you can mute notifications (requires only teams.view) without leaving the group or chat. Hiding You can hide a conversation from your list: it stays available and reappears...",
+                    "aliases": [
+                        "mute conversation",
+                        "hide conversation",
+                        "teams notifications"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment mettre en sourdine ou masquer une conversation ?",
+                    "answer_markdown": "## Sourdine et masquage\nDepuis le menu de la conversation, vous pouvez **mettre en sourdine** les notifications (nécessite seulement `teams.view`) sans quitter le groupe ou le chat.\n\n### Masquer\nVous pouvez **masquer** une conversation de votre liste : elle reste disponible et réapparaît automatiquement au premier nouveau message.",
+                    "excerpt": "Sourdine et masquage Depuis le menu de la conversation, vous pouvez mettre en sourdine les notifications (nécessite seulement teams.view) sans quitter le groupe ou le chat. Masquer Vous pouvez masquer une conversation de votre...",
+                    "aliases": [
+                        "sourdine conversation",
+                        "masquer conversation",
+                        "notifications teams"
+                    ]
+                },
+                "de": {
+                    "question": "Wie stelle ich eine Unterhaltung stumm oder blende sie aus?",
+                    "answer_markdown": "## Stummschalten und Ausblenden\nÜber das Unterhaltungsmenü können Sie Benachrichtigungen **stummschalten** (erfordert nur `teams.view`), ohne die Gruppe oder den Chat zu verlassen.\n\n### Ausblenden\nSie können eine Unterhaltung aus Ihrer Liste **ausblenden**: sie bleibt verfügbar und erscheint bei der ersten neuen Nachricht automatisch wieder.",
+                    "excerpt": "Stummschalten und Ausblenden Über das Unterhaltungsmenü können Sie Benachrichtigungen stummschalten (erfordert nur teams.view), ohne die Gruppe oder den Chat zu verlassen. Ausblenden Sie können eine Unterhaltung aus Ihrer Liste...",
+                    "aliases": [
+                        "unterhaltung stummschalten",
+                        "unterhaltung ausblenden",
+                        "teams benachrichtigungen"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo silencio u oculto una conversación?",
+                    "answer_markdown": "## Silenciar y ocultar\nDesde el menú de la conversación puedes **silenciar** las notificaciones (requiere solo `teams.view`) sin salir del grupo o del chat.\n\n### Ocultar\nPuedes **ocultar** una conversación de tu lista: sigue disponible y reaparece automáticamente con el primer mensaje nuevo.",
+                    "excerpt": "Silenciar y ocultar Desde el menú de la conversación puedes silenciar las notificaciones (requiere solo teams.view) sin salir del grupo o del chat. Ocultar Puedes ocultar una conversación de tu lista: sigue disponible y reaparece...",
+                    "aliases": [
+                        "silenciar conversación",
+                        "ocultar conversación",
+                        "notificaciones teams"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "teams.messages.search",
+            "permission_slug": "teams.view",
+            "ranking_weight": 0,
+            "sort_order": 13,
+            "locales": {
+                "it": {
+                    "question": "Come cerco messaggi in una conversazione o in tutte?",
+                    "answer_markdown": "## Ricerca messaggi\nUsa la ricerca globale per trovare messaggi in **tutte** le tue conversazioni, oppure la ricerca all'interno della singola chat per restringere il risultato.\n\n### Come funziona\nLa ricerca usa un indice full-text sul testo dei messaggi.",
+                    "excerpt": "Ricerca messaggi Usa la ricerca globale per trovare messaggi in tutte le tue conversazioni, oppure la ricerca all'interno della singola chat per restringere il risultato. Come funziona La ricerca usa un indice full-text sul testo...",
+                    "aliases": [
+                        "cercare messaggi",
+                        "ricerca chat",
+                        "trovare messaggio"
+                    ]
+                },
+                "en": {
+                    "question": "How do I search messages in one conversation or across all of them?",
+                    "answer_markdown": "## Message search\nUse global search to find messages across **all** your conversations, or in-conversation search to narrow the results to a single chat.\n\n### How it works\nSearch uses a full-text index on message content.",
+                    "excerpt": "Message search Use global search to find messages across all your conversations, or in-conversation search to narrow the results to a single chat. How it works Search uses a full-text index on message content.",
+                    "aliases": [
+                        "search messages",
+                        "chat search",
+                        "find message"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment rechercher des messages dans une conversation ou dans toutes ?",
+                    "answer_markdown": "## Recherche de messages\nUtilisez la recherche globale pour trouver des messages dans **toutes** vos conversations, ou la recherche dans la conversation pour restreindre les résultats à un seul chat.\n\n### Fonctionnement\nLa recherche utilise un index full-text sur le contenu des messages.",
+                    "excerpt": "Recherche de messages Utilisez la recherche globale pour trouver des messages dans toutes vos conversations, ou la recherche dans la conversation pour restreindre les résultats à un seul chat. Fonctionnement La recherche utilise...",
+                    "aliases": [
+                        "rechercher messages",
+                        "recherche chat",
+                        "trouver message"
+                    ]
+                },
+                "de": {
+                    "question": "Wie suche ich Nachrichten in einer Unterhaltung oder in allen?",
+                    "answer_markdown": "## Nachrichtensuche\nNutzen Sie die globale Suche, um Nachrichten in **allen** Ihren Unterhaltungen zu finden, oder die Suche innerhalb der Unterhaltung, um die Ergebnisse auf einen Chat einzugrenzen.\n\n### Funktionsweise\nDie Suche verwendet einen Volltextindex über den Nachrichteninhalt.",
+                    "excerpt": "Nachrichtensuche Nutzen Sie die globale Suche, um Nachrichten in allen Ihren Unterhaltungen zu finden, oder die Suche innerhalb der Unterhaltung, um die Ergebnisse auf einen Chat einzugrenzen. Funktionsweise Die Suche verwendet...",
+                    "aliases": [
+                        "nachrichten suchen",
+                        "chat suche",
+                        "nachricht finden"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo busco mensajes en una conversación o en todas?",
+                    "answer_markdown": "## Búsqueda de mensajes\nUsa la búsqueda global para encontrar mensajes en **todas** tus conversaciones, o la búsqueda dentro de la conversación para acotar los resultados a un solo chat.\n\n### Cómo funciona\nLa búsqueda usa un índice de texto completo sobre el contenido de los mensajes.",
+                    "excerpt": "Búsqueda de mensajes Usa la búsqueda global para encontrar mensajes en todas tus conversaciones, o la búsqueda dentro de la conversación para acotar los resultados a un solo chat. Cómo funciona La búsqueda usa un índice de texto...",
+                    "aliases": [
+                        "buscar mensajes",
+                        "búsqueda chat",
+                        "encontrar mensaje"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "teams.index",
+            "permission_slug": "teams.delete",
+            "ranking_weight": 0,
+            "sort_order": 14,
+            "locales": {
+                "it": {
+                    "question": "Come archivio o esco da una conversazione?",
+                    "answer_markdown": "## Archiviare e uscire\nPuoi **archiviare** una conversazione per toglierla dalla lista attiva mantenendola consultabile.\n\n### Uscire da un gruppo\nDal menu della conversazione scegli **Esci dal gruppo** (richiede `teams.delete`): resterai visibile nella cronologia dei messaggi precedenti ma non riceverai più i nuovi.",
+                    "excerpt": "Archiviare e uscire Puoi archiviare una conversazione per toglierla dalla lista attiva mantenendola consultabile. Uscire da un gruppo Dal menu della conversazione scegli Esci dal gruppo (richiede teams.delete): resterai visibile...",
+                    "aliases": [
+                        "archiviare conversazione",
+                        "uscire dal gruppo",
+                        "lasciare gruppo"
+                    ]
+                },
+                "en": {
+                    "question": "How do I archive or leave a conversation?",
+                    "answer_markdown": "## Archiving and leaving\nYou can **archive** a conversation to remove it from the active list while keeping it available to consult.\n\n### Leaving a group\nFrom the conversation menu choose **Leave group** (requires `teams.delete`): you'll remain visible in the previous message history but won't receive new ones.",
+                    "excerpt": "Archiving and leaving You can archive a conversation to remove it from the active list while keeping it available to consult. Leaving a group From the conversation menu choose Leave group (requires teams.delete): you'll remain...",
+                    "aliases": [
+                        "archive conversation",
+                        "leave group",
+                        "exit group"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment archiver ou quitter une conversation ?",
+                    "answer_markdown": "## Archiver et quitter\nVous pouvez **archiver** une conversation pour la retirer de la liste active tout en la gardant consultable.\n\n### Quitter un groupe\nDepuis le menu de la conversation, choisissez **Quitter le groupe** (nécessite `teams.delete`) : vous resterez visible dans l'historique des messages précédents mais ne recevrez plus les nouveaux.",
+                    "excerpt": "Archiver et quitter Vous pouvez archiver une conversation pour la retirer de la liste active tout en la gardant consultable. Quitter un groupe Depuis le menu de la conversation, choisissez Quitter le groupe (nécessite...",
+                    "aliases": [
+                        "archiver conversation",
+                        "quitter groupe",
+                        "sortir du groupe"
+                    ]
+                },
+                "de": {
+                    "question": "Wie archiviere ich eine Unterhaltung oder verlasse sie?",
+                    "answer_markdown": "## Archivieren und Verlassen\nSie können eine Unterhaltung **archivieren**, um sie aus der aktiven Liste zu entfernen, während sie weiterhin einsehbar bleibt.\n\n### Eine Gruppe verlassen\nWählen Sie im Unterhaltungsmenü **Gruppe verlassen** (erfordert `teams.delete`): Sie bleiben im bisherigen Nachrichtenverlauf sichtbar, erhalten aber keine neuen Nachrichten mehr.",
+                    "excerpt": "Archivieren und Verlassen Sie können eine Unterhaltung archivieren, um sie aus der aktiven Liste zu entfernen, während sie weiterhin einsehbar bleibt. Eine Gruppe verlassen Wählen Sie im Unterhaltungsmenü Gruppe verlassen...",
+                    "aliases": [
+                        "unterhaltung archivieren",
+                        "gruppe verlassen",
+                        "gruppe austreten"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo archivo o salgo de una conversación?",
+                    "answer_markdown": "## Archivar y salir\nPuedes **archivar** una conversación para quitarla de la lista activa mientras sigue disponible para consultarla.\n\n### Salir de un grupo\nDesde el menú de la conversación elige **Salir del grupo** (requiere `teams.delete`): seguirás viendo el historial de mensajes anteriores pero no recibirás los nuevos.",
+                    "excerpt": "Archivar y salir Puedes archivar una conversación para quitarla de la lista activa mientras sigue disponible para consultarla. Salir de un grupo Desde el menú de la conversación elige Salir del grupo (requiere teams.delete):...",
+                    "aliases": [
+                        "archivar conversación",
+                        "salir del grupo",
+                        "abandonar grupo"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "teams.admin.index",
+            "permission_slug": "teams.admin",
+            "ranking_weight": 0,
+            "sort_order": 15,
+            "locales": {
+                "it": {
+                    "question": "Come amministro le conversazioni (pannello admin Messaggi)?",
+                    "answer_markdown": "## Amministrazione Messaggi\nIl pannello admin permette di governare tutte le conversazioni aziendali.\n\n### Permesso richiesto\nServe `teams.admin`.\n\n### Cosa puoi fare\n- consultare statistiche e cercare tra tutte le conversazioni;\n- **archiviare forzatamente** una conversazione;\n- **eliminare definitivamente** una conversazione archiviata e tutti i suoi messaggi.",
+                    "excerpt": "Amministrazione Messaggi Il pannello admin permette di governare tutte le conversazioni aziendali. Permesso richiesto Serve teams.admin. Cosa puoi fare consultare statistiche e cercare tra tutte le conversazioni; archiviare...",
+                    "aliases": [
+                        "amministrazione teams",
+                        "pannello admin messaggi",
+                        "archiviare conversazione admin"
+                    ]
+                },
+                "en": {
+                    "question": "How do I administer conversations (Messages admin panel)?",
+                    "answer_markdown": "## Messages administration\nThe admin panel lets you govern every company conversation.\n\n### Required permission\nYou need `teams.admin`.\n\n### What you can do\n- view statistics and search across every conversation;\n- **force-archive** a conversation;\n- **permanently delete** an archived conversation and all its messages.",
+                    "excerpt": "Messages administration The admin panel lets you govern every company conversation. Required permission You need teams.admin. What you can do view statistics and search across every conversation; force-archive a conversation;...",
+                    "aliases": [
+                        "teams administration",
+                        "messages admin panel",
+                        "force archive conversation"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment administrer les conversations (panneau admin Messages) ?",
+                    "answer_markdown": "## Administration de Messages\nLe panneau d'administration permet de piloter toutes les conversations de l'entreprise.\n\n### Permission requise\nIl faut `teams.admin`.\n\n### Ce que vous pouvez faire\n- consulter les statistiques et rechercher dans toutes les conversations ;\n- **forcer l'archivage** d'une conversation ;\n- **supprimer définitivement** une conversation archivée et tous ses messages.",
+                    "excerpt": "Administration de Messages Le panneau d'administration permet de piloter toutes les conversations de l'entreprise. Permission requise Il faut teams.admin. Ce que vous pouvez faire consulter les statistiques et rechercher dans...",
+                    "aliases": [
+                        "administration teams",
+                        "panneau admin messages",
+                        "forcer archivage"
+                    ]
+                },
+                "de": {
+                    "question": "Wie verwalte ich Unterhaltungen (Admin-Panel Nachrichten)?",
+                    "answer_markdown": "## Verwaltung von Nachrichten\nDas Admin-Panel ermöglicht die Steuerung aller Unternehmensunterhaltungen.\n\n### Erforderliche Berechtigung\nSie benötigen `teams.admin`.\n\n### Was Sie tun können\n- Statistiken einsehen und in allen Unterhaltungen suchen;\n- eine Unterhaltung **zwangsweise archivieren**;\n- eine archivierte Unterhaltung samt aller Nachrichten **endgültig löschen**.",
+                    "excerpt": "Verwaltung von Nachrichten Das Admin-Panel ermöglicht die Steuerung aller Unternehmensunterhaltungen. Erforderliche Berechtigung Sie benötigen teams.admin. Was Sie tun können Statistiken einsehen und in allen Unterhaltungen...",
+                    "aliases": [
+                        "teams verwaltung",
+                        "admin panel nachrichten",
+                        "unterhaltung zwangsarchivieren"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo administro las conversaciones (panel admin Mensajes)?",
+                    "answer_markdown": "## Administración de Mensajes\nEl panel de administración permite gobernar todas las conversaciones de la empresa.\n\n### Permiso requerido\nSe necesita `teams.admin`.\n\n### Qué puedes hacer\n- consultar estadísticas y buscar en todas las conversaciones;\n- **forzar el archivado** de una conversación;\n- **eliminar definitivamente** una conversación archivada y todos sus mensajes.",
+                    "excerpt": "Administración de Mensajes El panel de administración permite gobernar todas las conversaciones de la empresa. Permiso requerido Se necesita teams.admin. Qué puedes hacer consultar estadísticas y buscar en todas las...",
+                    "aliases": [
+                        "administración teams",
+                        "panel admin mensajes",
+                        "forzar archivado"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "admin",
+            "route_name": "teams.admin.cleanup_preview",
+            "permission_slug": "teams.admin",
+            "ranking_weight": 0,
+            "sort_order": 16,
+            "locales": {
+                "it": {
+                    "question": "Come funziona la pulizia automatica dei messaggi vecchi?",
+                    "answer_markdown": "## Pulizia messaggi\nDal pannello admin puoi vedere un'**anteprima** di quanti messaggi più vecchi di N mesi verrebbero eliminati, prima di eseguire l'operazione.\n\n### Esecuzione\nLa pulizia è un'eliminazione (soft-delete): i messaggi vengono nascosti, non cancellati fisicamente. Serve `teams.admin`.",
+                    "excerpt": "Pulizia messaggi Dal pannello admin puoi vedere un'anteprima di quanti messaggi più vecchi di N mesi verrebbero eliminati, prima di eseguire l'operazione. Esecuzione La pulizia è un'eliminazione (soft-delete): i messaggi vengono...",
+                    "aliases": [
+                        "pulizia messaggi",
+                        "cleanup teams",
+                        "eliminare messaggi vecchi"
+                    ]
+                },
+                "en": {
+                    "question": "How does automatic cleanup of old messages work?",
+                    "answer_markdown": "## Message cleanup\nFrom the admin panel you can see a **preview** of how many messages older than N months would be removed, before running the operation.\n\n### Running it\nCleanup is a soft-delete: messages are hidden, not physically removed. Requires `teams.admin`.",
+                    "excerpt": "Message cleanup From the admin panel you can see a preview of how many messages older than N months would be removed, before running the operation. Running it Cleanup is a soft-delete: messages are hidden, not physically removed....",
+                    "aliases": [
+                        "message cleanup",
+                        "teams cleanup",
+                        "delete old messages"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment fonctionne le nettoyage automatique des anciens messages ?",
+                    "answer_markdown": "## Nettoyage des messages\nDepuis le panneau admin, vous pouvez voir un **aperçu** du nombre de messages de plus de N mois qui seraient supprimés, avant d'exécuter l'opération.\n\n### Exécution\nLe nettoyage est une suppression douce : les messages sont masqués, pas physiquement effacés. Nécessite `teams.admin`.",
+                    "excerpt": "Nettoyage des messages Depuis le panneau admin, vous pouvez voir un aperçu du nombre de messages de plus de N mois qui seraient supprimés, avant d'exécuter l'opération. Exécution Le nettoyage est une suppression douce : les...",
+                    "aliases": [
+                        "nettoyage messages",
+                        "cleanup teams",
+                        "supprimer anciens messages"
+                    ]
+                },
+                "de": {
+                    "question": "Wie funktioniert die automatische Bereinigung alter Nachrichten?",
+                    "answer_markdown": "## Nachrichtenbereinigung\nIm Admin-Panel sehen Sie eine **Vorschau**, wie viele Nachrichten, die älter als N Monate sind, entfernt würden, bevor Sie den Vorgang ausführen.\n\n### Ausführung\nDie Bereinigung ist ein Soft-Delete: Nachrichten werden ausgeblendet, nicht physisch gelöscht. Erfordert `teams.admin`.",
+                    "excerpt": "Nachrichtenbereinigung Im Admin-Panel sehen Sie eine Vorschau, wie viele Nachrichten, die älter als N Monate sind, entfernt würden, bevor Sie den Vorgang ausführen. Ausführung Die Bereinigung ist ein Soft-Delete: Nachrichten...",
+                    "aliases": [
+                        "nachrichten bereinigung",
+                        "teams cleanup",
+                        "alte nachrichten löschen"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo funciona la limpieza automática de mensajes antiguos?",
+                    "answer_markdown": "## Limpieza de mensajes\nDesde el panel admin puedes ver una **vista previa** de cuántos mensajes con más de N meses se eliminarían, antes de ejecutar la operación.\n\n### Ejecución\nLa limpieza es un borrado suave: los mensajes se ocultan, no se eliminan físicamente. Requiere `teams.admin`.",
+                    "excerpt": "Limpieza de mensajes Desde el panel admin puedes ver una vista previa de cuántos mensajes con más de N meses se eliminarían, antes de ejecutar la operación. Ejecución La limpieza es un borrado suave: los mensajes se ocultan, no...",
+                    "aliases": [
+                        "limpieza mensajes",
+                        "cleanup teams",
+                        "eliminar mensajes antiguos"
+                    ]
+                }
+            }
+        }
+    ]
+}

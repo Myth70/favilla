@@ -1,0 +1,1325 @@
+{
+    "module_key": "helponline",
+    "module_name": "HelpOnline",
+    "label": "Help Online",
+    "description": "Guida contestuale di Favilla: ricerca semantica, domande in linguaggio naturale, pannello inline per modulo e raccolta feedback sugli aiuti.",
+    "audience_default": "user",
+    "locale_default": "it",
+    "route_name": "helponline.index",
+    "permission_slug": null,
+    "sort_order": 95,
+    "entries": [
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 50,
+            "sort_order": 0,
+            "locales": {
+                "it": {
+                    "question": "Cos'è Help Online?",
+                    "answer_markdown": "Help Online è la guida contestuale integrata di Favilla. Permette di porre domande in linguaggio naturale e ricevere risposte dalla knowledge base locale senza mai uscire dall'applicazione.\n\nNon serve conoscere nomi tecnici, voci di menu o percorsi: basta descrivere cosa vuoi fare. Il sistema riconosce la pagina in cui ti trovi e mostra prima le risposte più pertinenti al contesto.\n\nDue modi di usarlo:\n\n- **Pannello contestuale** — icona `?` (punto interrogativo) nella barra superiore: si apre un offcanvas laterale con domande rapide e topic del modulo corrente.\n- **Guida completa** — pagina `/help` con ricerca completa, indice argomenti e dettaglio risposta.",
+                    "excerpt": "Guida contestuale integrata: domande in linguaggio naturale, riconosce la pagina corrente, due punti d'accesso (pannello laterale e /help).",
+                    "aliases": [
+                        "help online",
+                        "guida",
+                        "help contestuale",
+                        "knowledge base",
+                        "faq"
+                    ]
+                },
+                "en": {
+                    "question": "What is Help Online?",
+                    "answer_markdown": "Help Online is Favilla's integrated contextual guide. It lets you ask questions in natural language and receive answers from the local knowledge base without ever leaving the application.\n\nYou don't need to know technical names, menu entries or paths: just describe what you want to do. The system recognizes the page you are on and shows the answers most relevant to the context first.\n\nTwo ways to use it:\n\n- **Contextual panel** — the `?` (question mark) icon in the top bar: an offcanvas side panel opens with quick questions and topics for the current module.\n- **Full guide** — the `/help` page with full search, topic index and answer detail.",
+                    "excerpt": "Help Online is Favilla's integrated contextual guide. It lets you ask questions in natural language and receive answers from the local knowledge base without ever leaving the application. You don't ne...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Qu'est-ce que l'Aide en ligne ?",
+                    "answer_markdown": "L'Aide en ligne est le guide contextuel intégré de Favilla. Elle permet de poser des questions en langage naturel et de recevoir des réponses de la base de connaissances locale sans jamais quitter l'application.\n\nPas besoin de connaître les noms techniques, les entrées de menu ou les chemins : il suffit de décrire ce que vous voulez faire. Le système reconnaît la page sur laquelle vous êtes et affiche d'abord les réponses les plus pertinentes pour le contexte.\n\nDeux façons de l'utiliser :\n\n- **Panneau contextuel** — l'icône `?` (point d'interrogation) dans la barre supérieure : un panneau latéral offcanvas s'ouvre avec des questions rapides et des sujets du module courant.\n- **Guide complet** — la page `/help` avec recherche complète, index des sujets et détail des réponses.",
+                    "excerpt": "L'Aide en ligne est le guide contextuel intégré de Favilla. Elle permet de poser des questions en langage naturel et de recevoir des réponses de la base de connaissances locale sans jamais quitter l'a...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Was ist Help Online?",
+                    "answer_markdown": "Help Online ist der integrierte kontextbezogene Leitfaden von Favilla. Damit können Sie Fragen in natürlicher Sprache stellen und Antworten aus der lokalen Wissensdatenbank erhalten, ohne die Anwendung jemals zu verlassen.\n\nSie müssen keine technischen Namen, Menüeinträge oder Pfade kennen: Beschreiben Sie einfach, was Sie tun möchten. Das System erkennt die Seite, auf der Sie sich befinden, und zeigt zuerst die für den Kontext relevantesten Antworten an.\n\nZwei Möglichkeiten der Nutzung:\n\n- **Kontextpanel** — das `?`-Symbol (Fragezeichen) in der oberen Leiste: Ein seitliches Offcanvas-Panel öffnet sich mit schnellen Fragen und Themen des aktuellen Moduls.\n- **Vollständiger Leitfaden** — die Seite `/help` mit vollständiger Suche, Themenverzeichnis und Antwortdetail.",
+                    "excerpt": "Help Online ist der integrierte kontextbezogene Leitfaden von Favilla. Damit können Sie Fragen in natürlicher Sprache stellen und Antworten aus der lokalen Wissensdatenbank erhalten, ohne die Anwendun...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Qué es la Ayuda en línea?",
+                    "answer_markdown": "La Ayuda en línea es la guía contextual integrada de Favilla. Permite formular preguntas en lenguaje natural y recibir respuestas de la base de conocimientos local sin salir nunca de la aplicación.\n\nNo necesitas conocer nombres técnicos, entradas de menú o rutas: basta con describir lo que quieres hacer. El sistema reconoce la página en la que estás y muestra primero las respuestas más pertinentes al contexto.\n\nDos maneras de usarla:\n\n- **Panel contextual** — el icono `?` (signo de interrogación) en la barra superior: se abre un panel lateral offcanvas con preguntas rápidas y temas del módulo actual.\n- **Guía completa** — la página `/help` con búsqueda completa, índice de temas y detalle de la respuesta.",
+                    "excerpt": "La Ayuda en línea es la guía contextual integrada de Favilla. Permite formular preguntas en lenguaje natural y recibir respuestas de la base de conocimientos local sin salir nunca de la aplicación. No...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 30,
+            "sort_order": 10,
+            "locales": {
+                "it": {
+                    "question": "Come uso il pannello contestuale (icona ?)",
+                    "answer_markdown": "Clicca l'icona `?` nella barra superiore. Si apre un offcanvas laterale che resta sopra la pagina corrente. Il pannello mostra:\n\n1. Una **barra di ricerca** dove digitare la domanda.\n2. **Suggerimenti rapidi** — domande pre-impostate per il modulo in cui ti trovi (cambiano da pagina a pagina).\n3. **Topic principali** del modulo corrente con anteprima del contenuto.\n4. Pulsante **Apri guida completa** per passare a `/help` con la ricerca conservata.\n\nDopo aver posto una domanda, la risposta compare nello stesso pannello con titolo, modulo di provenienza, barra di confidenza e voto Utile/Non utile.",
+                    "excerpt": "Offcanvas laterale con ricerca, suggerimenti contestuali, topic del modulo corrente e link alla guida completa.",
+                    "aliases": [
+                        "pannello help",
+                        "officanvas",
+                        "icona ?",
+                        "pannello laterale"
+                    ]
+                },
+                "en": {
+                    "question": "How do I use the contextual panel (? icon)?",
+                    "answer_markdown": "Click the `?` icon in the top bar. An offcanvas side panel opens that stays on top of the current page. The panel shows:\n\n1. A **search bar** where you type your question.\n2. **Quick suggestions** — pre-set questions for the module you are in (they change from page to page).\n3. **Main topics** of the current module with a content preview.\n4. An **Open full guide** button to switch to `/help` with the search preserved.\n\nAfter you ask a question, the answer appears in the same panel with a title, the source module, a confidence bar and a Helpful/Not helpful vote.",
+                    "excerpt": "Click the ? icon in the top bar. An offcanvas side panel opens that stays on top of the current page. The panel shows: 1. A search bar where you type your question. 2. Quick suggestions — pre-set ques...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment utiliser le panneau contextuel (icône ?) ?",
+                    "answer_markdown": "Cliquez sur l'icône `?` dans la barre supérieure. Un panneau latéral offcanvas s'ouvre et reste au-dessus de la page courante. Le panneau affiche :\n\n1. Une **barre de recherche** où saisir la question.\n2. Des **suggestions rapides** — questions préétablies pour le module dans lequel vous êtes (elles changent de page en page).\n3. Les **sujets principaux** du module courant avec un aperçu du contenu.\n4. Un bouton **Ouvrir le guide complet** pour passer à `/help` en conservant la recherche.\n\nAprès avoir posé une question, la réponse apparaît dans le même panneau avec un titre, le module d'origine, une barre de confiance et un vote Utile/Pas utile.",
+                    "excerpt": "Cliquez sur l'icône ? dans la barre supérieure. Un panneau latéral offcanvas s'ouvre et reste au-dessus de la page courante. Le panneau affiche : 1. Une barre de recherche où saisir la question. 2. De...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie verwende ich das Kontextpanel (?-Symbol)?",
+                    "answer_markdown": "Klicken Sie auf das `?`-Symbol in der oberen Leiste. Ein seitliches Offcanvas-Panel öffnet sich und bleibt über der aktuellen Seite. Das Panel zeigt:\n\n1. Eine **Suchleiste**, in die Sie Ihre Frage eingeben.\n2. **Schnellvorschläge** — voreingestellte Fragen für das Modul, in dem Sie sich befinden (sie ändern sich von Seite zu Seite).\n3. Die **Hauptthemen** des aktuellen Moduls mit einer Inhaltsvorschau.\n4. Eine Schaltfläche **Vollständigen Leitfaden öffnen**, um unter Beibehaltung der Suche zu `/help` zu wechseln.\n\nNachdem Sie eine Frage gestellt haben, erscheint die Antwort im selben Panel mit Titel, Herkunftsmodul, Konfidenzbalken und einer Bewertung Hilfreich/Nicht hilfreich.",
+                    "excerpt": "Klicken Sie auf das ?-Symbol in der oberen Leiste. Ein seitliches Offcanvas-Panel öffnet sich und bleibt über der aktuellen Seite. Das Panel zeigt: 1. Eine Suchleiste, in die Sie Ihre Frage eingeben. ...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo uso el panel contextual (icono ?)?",
+                    "answer_markdown": "Haz clic en el icono `?` en la barra superior. Se abre un panel lateral offcanvas que permanece sobre la página actual. El panel muestra:\n\n1. Una **barra de búsqueda** donde escribir la pregunta.\n2. **Sugerencias rápidas** — preguntas preestablecidas para el módulo en el que estás (cambian de página a página).\n3. Los **temas principales** del módulo actual con una vista previa del contenido.\n4. Un botón **Abrir guía completa** para pasar a `/help` conservando la búsqueda.\n\nDespués de formular una pregunta, la respuesta aparece en el mismo panel con un título, el módulo de origen, una barra de confianza y una votación Útil/No útil.",
+                    "excerpt": "Haz clic en el icono ? en la barra superior. Se abre un panel lateral offcanvas que permanece sobre la página actual. El panel muestra: 1. Una barra de búsqueda donde escribir la pregunta. 2. Sugerenc...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 20,
+            "locales": {
+                "it": {
+                    "question": "Come formulo una buona domanda?",
+                    "answer_markdown": "Più la domanda è specifica, più la risposta sarà precisa. Linee guida:\n\n- **Verbo + oggetto**: \"come creo un evento\", \"come elimino un file\", \"come cambio password\".\n- **Aggiungi il contesto** quando ambiguo: \"come condivido un contatto con un ruolo\" è migliore di \"come condivido\".\n- **Non serve ortografia perfetta**: accenti, maiuscole e parole-stop (il, lo, la, di, per...) sono ignorate.\n- **Usa parole del dominio Favilla** quando le conosci (\"attivita\", \"calendario\", \"contatti\"), ma non sono obbligatorie.\n- **Una domanda alla volta**: per flussi complessi (es. \"come passo da contatto a appuntamento a report\") fai 2-3 domande sequenziali e verifica passo-passo.",
+                    "excerpt": "Verbo + oggetto, aggiungi contesto quando ambiguo, una domanda per volta. Ortografia e accenti non contano.",
+                    "aliases": [
+                        "domanda",
+                        "query",
+                        "formulare",
+                        "ricerca naturale"
+                    ]
+                },
+                "en": {
+                    "question": "How do I phrase a good question?",
+                    "answer_markdown": "The more specific the question, the more precise the answer. Guidelines:\n\n- **Verb + object**: \"how do I create an event\", \"how do I delete a file\", \"how do I change my password\".\n- **Add context** when ambiguous: \"how do I share a contact with a role\" is better than \"how do I share\".\n- **Perfect spelling is not needed**: accents, capitals and stop words (the, a, of, for...) are ignored.\n- **Use Favilla domain words** when you know them (\"tasks\", \"calendar\", \"contacts\"), but they are not mandatory.\n- **One question at a time**: for complex flows (e.g. \"how do I go from contact to appointment to report\") ask 2-3 sequential questions and verify step by step.",
+                    "excerpt": "The more specific the question, the more precise the answer. Guidelines: Verb + object: \"how do I create an event\", \"how do I delete a file\", \"how do I change my password\". Add context when ambiguous:...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment formuler une bonne question ?",
+                    "answer_markdown": "Plus la question est spécifique, plus la réponse sera précise. Lignes directrices :\n\n- **Verbe + objet** : « comment créer un événement », « comment supprimer un fichier », « comment changer mon mot de passe ».\n- **Ajoutez le contexte** quand c'est ambigu : « comment partager un contact avec un rôle » est meilleur que « comment partager ».\n- **Pas besoin d'orthographe parfaite** : accents, majuscules et mots vides (le, la, de, pour...) sont ignorés.\n- **Utilisez les mots du domaine Favilla** quand vous les connaissez (« tâches », « calendrier », « contacts »), mais ils ne sont pas obligatoires.\n- **Une question à la fois** : pour les flux complexes (ex. « comment passer de contact à rendez-vous à rapport »), posez 2-3 questions successives et vérifiez étape par étape.",
+                    "excerpt": "Plus la question est spécifique, plus la réponse sera précise. Lignes directrices : Verbe + objet : « comment créer un événement », « comment supprimer un fichier », « comment changer mon mot de passe...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie formuliere ich eine gute Frage?",
+                    "answer_markdown": "Je spezifischer die Frage, desto präziser die Antwort. Richtlinien:\n\n- **Verb + Objekt**: „wie erstelle ich ein Ereignis“, „wie lösche ich eine Datei“, „wie ändere ich mein Passwort“.\n- **Fügen Sie Kontext hinzu**, wenn es mehrdeutig ist: „wie teile ich einen Kontakt mit einer Rolle“ ist besser als „wie teile ich“.\n- **Perfekte Rechtschreibung ist nicht nötig**: Akzente, Großbuchstaben und Stoppwörter (der, die, das, von, für...) werden ignoriert.\n- **Verwenden Sie Favilla-Fachbegriffe**, wenn Sie sie kennen („Aufgaben“, „Kalender“, „Kontakte“), aber sie sind nicht zwingend.\n- **Eine Frage nach der anderen**: Stellen Sie bei komplexen Abläufen (z. B. „wie gehe ich von Kontakt zu Termin zu Bericht“) 2-3 aufeinanderfolgende Fragen und prüfen Sie Schritt für Schritt.",
+                    "excerpt": "Je spezifischer die Frage, desto präziser die Antwort. Richtlinien: Verb + Objekt: „wie erstelle ich ein Ereignis“, „wie lösche ich eine Datei“, „wie ändere ich mein Passwort“. Fügen Sie Kontext hinzu...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo formulo una buena pregunta?",
+                    "answer_markdown": "Cuanto más específica sea la pregunta, más precisa será la respuesta. Pautas:\n\n- **Verbo + objeto**: «cómo creo un evento», «cómo elimino un archivo», «cómo cambio mi contraseña».\n- **Añade el contexto** cuando sea ambiguo: «cómo comparto un contacto con un rol» es mejor que «cómo comparto».\n- **No hace falta una ortografía perfecta**: acentos, mayúsculas y palabras vacías (el, la, de, para...) se ignoran.\n- **Usa palabras del dominio de Favilla** cuando las conozcas («tareas», «calendario», «contactos»), pero no son obligatorias.\n- **Una pregunta a la vez**: para flujos complejos (p. ej. «cómo paso de contacto a cita a informe») haz 2-3 preguntas secuenciales y verifica paso a paso.",
+                    "excerpt": "Cuanto más específica sea la pregunta, más precisa será la respuesta. Pautas: Verbo + objeto: «cómo creo un evento», «cómo elimino un archivo», «cómo cambio mi contraseña». Añade el contexto cuando se...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 30,
+            "locales": {
+                "it": {
+                    "question": "Cosa significa la barra di confidenza nella risposta?",
+                    "answer_markdown": "Ogni risposta del pannello mostra una **barra di confidenza** (0–100). È una stima di quanto la risposta è probabilmente coerente con quello che hai chiesto.\n\nIndicatori pratici:\n\n- **> 70** — la risposta è molto probabilmente quella giusta; il titolo e il modulo coincidono con la tua domanda.\n- **40–70** — la risposta potrebbe essere parzialmente pertinente; controlla titolo e modulo prima di seguirla.\n- **< 40** — match debole: prova a riformulare con parole più specifiche, oppure apri la guida completa e cerca direttamente.\n\nLa confidenza considera: corrispondenza esatta del titolo, presenza di alias, parole-chiave nel testo, modulo contestuale e ranking della voce.",
+                    "excerpt": "Stima 0-100 di quanto la risposta è coerente. >70 affidabile, 40-70 da verificare, <40 riformula la domanda.",
+                    "aliases": [
+                        "confidenza",
+                        "score",
+                        "affidabilita risposta"
+                    ]
+                },
+                "en": {
+                    "question": "What does the confidence bar in the answer mean?",
+                    "answer_markdown": "Each panel answer shows a **confidence bar** (0–100). It is an estimate of how likely the answer is consistent with what you asked.\n\nPractical indicators:\n\n- **> 70** — the answer is very likely the right one; the title and module match your question.\n- **40–70** — the answer may be partially relevant; check the title and module before following it.\n- **< 40** — weak match: try rephrasing with more specific words, or open the full guide and search directly.\n\nConfidence takes into account: exact title match, presence of aliases, keywords in the text, the contextual module and the entry's ranking.",
+                    "excerpt": "Each panel answer shows a confidence bar (0–100). It is an estimate of how likely the answer is consistent with what you asked. Practical indicators: 70 — the answer is very likely the right one; the ...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Que signifie la barre de confiance dans la réponse ?",
+                    "answer_markdown": "Chaque réponse du panneau affiche une **barre de confiance** (0–100). C'est une estimation de la probabilité que la réponse soit cohérente avec ce que vous avez demandé.\n\nIndicateurs pratiques :\n\n- **> 70** — la réponse est très probablement la bonne ; le titre et le module correspondent à votre question.\n- **40–70** — la réponse peut être partiellement pertinente ; vérifiez le titre et le module avant de la suivre.\n- **< 40** — correspondance faible : essayez de reformuler avec des mots plus spécifiques, ou ouvrez le guide complet et recherchez directement.\n\nLa confiance prend en compte : la correspondance exacte du titre, la présence d'alias, les mots-clés dans le texte, le module contextuel et le classement de l'entrée.",
+                    "excerpt": "Chaque réponse du panneau affiche une barre de confiance (0–100). C'est une estimation de la probabilité que la réponse soit cohérente avec ce que vous avez demandé. Indicateurs pratiques : 70 — la ré...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Was bedeutet der Konfidenzbalken in der Antwort?",
+                    "answer_markdown": "Jede Antwort im Panel zeigt einen **Konfidenzbalken** (0–100). Es ist eine Schätzung, wie wahrscheinlich die Antwort mit dem übereinstimmt, wonach Sie gefragt haben.\n\nPraktische Indikatoren:\n\n- **> 70** — die Antwort ist sehr wahrscheinlich die richtige; Titel und Modul stimmen mit Ihrer Frage überein.\n- **40–70** — die Antwort könnte teilweise relevant sein; prüfen Sie Titel und Modul, bevor Sie ihr folgen.\n- **< 40** — schwache Übereinstimmung: Versuchen Sie eine Umformulierung mit spezifischeren Wörtern oder öffnen Sie den vollständigen Leitfaden und suchen Sie direkt.\n\nDie Konfidenz berücksichtigt: exakte Titelübereinstimmung, Vorhandensein von Aliassen, Stichwörter im Text, das kontextbezogene Modul und das Ranking des Eintrags.",
+                    "excerpt": "Jede Antwort im Panel zeigt einen Konfidenzbalken (0–100). Es ist eine Schätzung, wie wahrscheinlich die Antwort mit dem übereinstimmt, wonach Sie gefragt haben. Praktische Indikatoren: 70 — die Antwo...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Qué significa la barra de confianza en la respuesta?",
+                    "answer_markdown": "Cada respuesta del panel muestra una **barra de confianza** (0–100). Es una estimación de cuán probable es que la respuesta sea coherente con lo que has preguntado.\n\nIndicadores prácticos:\n\n- **> 70** — la respuesta es muy probablemente la correcta; el título y el módulo coinciden con tu pregunta.\n- **40–70** — la respuesta puede ser parcialmente pertinente; comprueba el título y el módulo antes de seguirla.\n- **< 40** — coincidencia débil: prueba a reformular con palabras más específicas, o abre la guía completa y busca directamente.\n\nLa confianza tiene en cuenta: la coincidencia exacta del título, la presencia de alias, las palabras clave en el texto, el módulo contextual y la clasificación de la entrada.",
+                    "excerpt": "Cada respuesta del panel muestra una barra de confianza (0–100). Es una estimación de cuán probable es que la respuesta sea coherente con lo que has preguntado. Indicadores prácticos: 70 — la respuest...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 40,
+            "locales": {
+                "it": {
+                    "question": "Perché vedo risultati diversi rispetto a un collega?",
+                    "answer_markdown": "Help Online filtra le risposte in base ai **permessi del tuo account**. Se una voce richiede `admin.users.view` e tu non hai quel permesso, semplicemente non comparirà nei risultati.\n\nQuesto significa che:\n\n- Due utenti con ruoli diversi vedono knowledge base diverse, anche per la stessa query.\n- I topic del modulo corrente possono essere meno numerosi rispetto a un collega con permessi più alti.\n- Non puoi accidentalmente leggere procedure amministrative se non sei amministratore.\n\nSe sei sicuro che la funzione esista ma non vedi la voce, chiedi al referente di sistema di verificare i tuoi permessi.",
+                    "excerpt": "Le risposte sono filtrate per permesso utente: ognuno vede solo le voci che può effettivamente eseguire.",
+                    "aliases": [
+                        "permessi help",
+                        "filtro permessi",
+                        "risultati diversi"
+                    ]
+                },
+                "en": {
+                    "question": "Why do I see different results than a colleague?",
+                    "answer_markdown": "Help Online filters answers based on your **account's permissions**. If an entry requires `admin.users.view` and you don't have that permission, it simply won't appear in the results.\n\nThis means that:\n\n- Two users with different roles see different knowledge bases, even for the same query.\n- The topics of the current module may be fewer than for a colleague with higher permissions.\n- You cannot accidentally read administrative procedures if you are not an administrator.\n\nIf you are sure the feature exists but you don't see the entry, ask the system reference person to check your permissions.",
+                    "excerpt": "Help Online filters answers based on your account's permissions. If an entry requires admin.users.view and you don't have that permission, it simply won't appear in the results. This means that: Two u...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Pourquoi vois-je des résultats différents d'un collègue ?",
+                    "answer_markdown": "L'Aide en ligne filtre les réponses en fonction des **autorisations de votre compte**. Si une entrée nécessite `admin.users.view` et que vous n'avez pas cette autorisation, elle n'apparaîtra simplement pas dans les résultats.\n\nCela signifie que :\n\n- Deux utilisateurs avec des rôles différents voient des bases de connaissances différentes, même pour la même requête.\n- Les sujets du module courant peuvent être moins nombreux que pour un collègue avec des autorisations plus élevées.\n- Vous ne pouvez pas lire accidentellement des procédures administratives si vous n'êtes pas administrateur.\n\nSi vous êtes sûr que la fonctionnalité existe mais que vous ne voyez pas l'entrée, demandez au référent système de vérifier vos autorisations.",
+                    "excerpt": "L'Aide en ligne filtre les réponses en fonction des autorisations de votre compte. Si une entrée nécessite admin.users.view et que vous n'avez pas cette autorisation, elle n'apparaîtra simplement pas ...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Warum sehe ich andere Ergebnisse als ein Kollege?",
+                    "answer_markdown": "Help Online filtert die Antworten basierend auf den **Berechtigungen Ihres Kontos**. Wenn ein Eintrag `admin.users.view` erfordert und Sie diese Berechtigung nicht haben, erscheint er einfach nicht in den Ergebnissen.\n\nDas bedeutet:\n\n- Zwei Benutzer mit unterschiedlichen Rollen sehen unterschiedliche Wissensdatenbanken, selbst bei derselben Abfrage.\n- Die Themen des aktuellen Moduls können weniger sein als bei einem Kollegen mit höheren Berechtigungen.\n- Sie können nicht versehentlich administrative Verfahren lesen, wenn Sie kein Administrator sind.\n\nWenn Sie sicher sind, dass die Funktion existiert, Sie den Eintrag aber nicht sehen, bitten Sie die System-Bezugsperson, Ihre Berechtigungen zu prüfen.",
+                    "excerpt": "Help Online filtert die Antworten basierend auf den Berechtigungen Ihres Kontos. Wenn ein Eintrag admin.users.view erfordert und Sie diese Berechtigung nicht haben, erscheint er einfach nicht in den E...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Por qué veo resultados distintos a los de un compañero?",
+                    "answer_markdown": "La Ayuda en línea filtra las respuestas según los **permisos de tu cuenta**. Si una entrada requiere `admin.users.view` y no tienes ese permiso, simplemente no aparecerá en los resultados.\n\nEsto significa que:\n\n- Dos usuarios con roles diferentes ven bases de conocimientos diferentes, incluso para la misma consulta.\n- Los temas del módulo actual pueden ser menos numerosos que para un compañero con permisos más altos.\n- No puedes leer accidentalmente procedimientos administrativos si no eres administrador.\n\nSi estás seguro de que la función existe pero no ves la entrada, pide al responsable del sistema que compruebe tus permisos.",
+                    "excerpt": "La Ayuda en línea filtra las respuestas según los permisos de tu cuenta. Si una entrada requiere admin.users.view y no tienes ese permiso, simplemente no aparecerá en los resultados. Esto significa qu...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 50,
+            "locales": {
+                "it": {
+                    "question": "Come do feedback su una risposta?",
+                    "answer_markdown": "Sotto ogni risposta del pannello compaiono due pulsanti: **Utile** (👍) e **Non utile** (👎). Cliccando uno dei due:\n\n- Il voto viene salvato nello storico query.\n- Gli amministratori vedono i voti aggregati nel pannello admin di Help Online.\n- Le risposte ricorrenti con voti negativi vengono prioritizzate per la revisione editoriale.\n\nIl feedback è anonimo nel senso che non richiede di spiegare il motivo, ma è collegato al tuo account per evitare voti duplicati. Puoi cambiare idea premendo l'altro pulsante.",
+                    "excerpt": "Pulsanti Utile/Non utile sotto la risposta. Voto anonimo, collegato al tuo account per evitare duplicati.",
+                    "aliases": [
+                        "feedback",
+                        "voto utile",
+                        "valutazione risposta"
+                    ]
+                },
+                "en": {
+                    "question": "How do I give feedback on an answer?",
+                    "answer_markdown": "Below each panel answer two buttons appear: **Helpful** (👍) and **Not helpful** (👎). By clicking one of them:\n\n- The vote is saved in the query history.\n- Administrators see the aggregated votes in the Help Online admin panel.\n- Recurring answers with negative votes are prioritized for editorial review.\n\nThe feedback is anonymous in the sense that it doesn't require you to explain why, but it is linked to your account to avoid duplicate votes. You can change your mind by pressing the other button.",
+                    "excerpt": "Below each panel answer two buttons appear: Helpful (👍) and Not helpful (👎). By clicking one of them: The vote is saved in the query history. Administrators see the aggregated votes in the Help Online...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment donner mon avis sur une réponse ?",
+                    "answer_markdown": "Sous chaque réponse du panneau, deux boutons apparaissent : **Utile** (👍) et **Pas utile** (👎). En cliquant sur l'un d'eux :\n\n- Le vote est enregistré dans l'historique des requêtes.\n- Les administrateurs voient les votes agrégés dans le panneau admin de l'Aide en ligne.\n- Les réponses récurrentes avec des votes négatifs sont priorisées pour la révision éditoriale.\n\nL'avis est anonyme dans le sens où il ne vous demande pas d'expliquer pourquoi, mais il est lié à votre compte pour éviter les votes en double. Vous pouvez changer d'avis en appuyant sur l'autre bouton.",
+                    "excerpt": "Sous chaque réponse du panneau, deux boutons apparaissent : Utile (👍) et Pas utile (👎). En cliquant sur l'un d'eux : Le vote est enregistré dans l'historique des requêtes. Les administrateurs voient l...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie gebe ich Feedback zu einer Antwort?",
+                    "answer_markdown": "Unter jeder Antwort im Panel erscheinen zwei Schaltflächen: **Hilfreich** (👍) und **Nicht hilfreich** (👎). Durch Klicken auf eine davon:\n\n- Die Bewertung wird im Abfrageverlauf gespeichert.\n- Administratoren sehen die aggregierten Bewertungen im Help-Online-Admin-Panel.\n- Wiederkehrende Antworten mit negativen Bewertungen werden für die redaktionelle Überprüfung priorisiert.\n\nDas Feedback ist anonym in dem Sinne, dass Sie den Grund nicht erklären müssen, aber es ist mit Ihrem Konto verknüpft, um doppelte Bewertungen zu vermeiden. Sie können Ihre Meinung ändern, indem Sie die andere Schaltfläche drücken.",
+                    "excerpt": "Unter jeder Antwort im Panel erscheinen zwei Schaltflächen: Hilfreich (👍) und Nicht hilfreich (👎). Durch Klicken auf eine davon: Die Bewertung wird im Abfrageverlauf gespeichert. Administratoren sehen...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo doy feedback sobre una respuesta?",
+                    "answer_markdown": "Debajo de cada respuesta del panel aparecen dos botones: **Útil** (👍) y **No útil** (👎). Al hacer clic en uno de ellos:\n\n- El voto se guarda en el historial de consultas.\n- Los administradores ven los votos agregados en el panel de administración de la Ayuda en línea.\n- Las respuestas recurrentes con votos negativos se priorizan para la revisión editorial.\n\nEl feedback es anónimo en el sentido de que no te pide explicar el motivo, pero está vinculado a tu cuenta para evitar votos duplicados. Puedes cambiar de opinión pulsando el otro botón.",
+                    "excerpt": "Debajo de cada respuesta del panel aparecen dos botones: Útil (👍) y No útil (👎). Al hacer clic en uno de ellos: El voto se guarda en el historial de consultas. Los administradores ven los votos agrega...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 60,
+            "locales": {
+                "it": {
+                    "question": "Quando Help Online non risponde, cosa faccio?",
+                    "answer_markdown": "Se la risposta è \"Nessuna corrispondenza precisa\":\n\n1. **Riformula** con parole più specifiche o più generiche, a seconda di dove sospetti il problema.\n2. **Verifica il contesto**: se sei in /attivita ma la domanda è su Calendario, passa alla guida completa (`/help`) dove la ricerca è globale.\n3. **Apri la guida completa** e usa l'indice argomenti del modulo che ti interessa.\n4. **Controlla i permessi**: se è una funzione amministrativa e tu sei utente standard, semplicemente non vedrai la voce.\n\nSe il pannello mostra \"Schema HelpOnline non disponibile\", il modulo non è ancora migrato sull'installazione: contatta il referente di sistema.",
+                    "excerpt": "Riformula, passa alla guida completa /help, oppure usa l'indice argomenti. Schema non disponibile = problema infrastruttura.",
+                    "aliases": [
+                        "nessun risultato",
+                        "non trovo",
+                        "help non funziona"
+                    ]
+                },
+                "en": {
+                    "question": "When Help Online doesn't answer, what do I do?",
+                    "answer_markdown": "If the answer is \"No exact match\":\n\n1. **Rephrase** with more specific or more generic words, depending on where you suspect the problem.\n2. **Check the context**: if you are in /attivita but the question is about Calendar, switch to the full guide (`/help`) where the search is global.\n3. **Open the full guide** and use the topic index of the module you are interested in.\n4. **Check permissions**: if it is an administrative feature and you are a standard user, you simply won't see the entry.\n\nIf the panel shows \"HelpOnline schema not available\", the module has not yet been migrated on the installation: contact the system reference person.",
+                    "excerpt": "If the answer is \"No exact match\": 1. Rephrase with more specific or more generic words, depending on where you suspect the problem. 2. Check the context: if you are in /attivita but the question is a...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Quand l'Aide en ligne ne répond pas, que faire ?",
+                    "answer_markdown": "Si la réponse est « Aucune correspondance précise » :\n\n1. **Reformulez** avec des mots plus spécifiques ou plus génériques, selon l'endroit où vous soupçonnez le problème.\n2. **Vérifiez le contexte** : si vous êtes dans /attivita mais que la question porte sur le Calendrier, passez au guide complet (`/help`) où la recherche est globale.\n3. **Ouvrez le guide complet** et utilisez l'index des sujets du module qui vous intéresse.\n4. **Vérifiez les autorisations** : s'il s'agit d'une fonctionnalité administrative et que vous êtes un utilisateur standard, vous ne verrez simplement pas l'entrée.\n\nSi le panneau affiche « Schéma HelpOnline non disponible », le module n'a pas encore été migré sur l'installation : contactez le référent système.",
+                    "excerpt": "Si la réponse est « Aucune correspondance précise » : 1. Reformulez avec des mots plus spécifiques ou plus génériques, selon l'endroit où vous soupçonnez le problème. 2. Vérifiez le contexte : si vous...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wenn Help Online nicht antwortet, was tue ich?",
+                    "answer_markdown": "Wenn die Antwort „Keine genaue Übereinstimmung“ lautet:\n\n1. **Formulieren Sie um** mit spezifischeren oder allgemeineren Wörtern, je nachdem, wo Sie das Problem vermuten.\n2. **Prüfen Sie den Kontext**: Wenn Sie in /attivita sind, die Frage aber den Kalender betrifft, wechseln Sie zum vollständigen Leitfaden (`/help`), wo die Suche global ist.\n3. **Öffnen Sie den vollständigen Leitfaden** und verwenden Sie das Themenverzeichnis des Moduls, das Sie interessiert.\n4. **Prüfen Sie die Berechtigungen**: Wenn es sich um eine administrative Funktion handelt und Sie ein Standardbenutzer sind, sehen Sie den Eintrag einfach nicht.\n\nWenn das Panel „HelpOnline-Schema nicht verfügbar“ anzeigt, wurde das Modul auf der Installation noch nicht migriert: Wenden Sie sich an die System-Bezugsperson.",
+                    "excerpt": "Wenn die Antwort „Keine genaue Übereinstimmung“ lautet: 1. Formulieren Sie um mit spezifischeren oder allgemeineren Wörtern, je nachdem, wo Sie das Problem vermuten. 2. Prüfen Sie den Kontext: Wenn Si...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Cuando la Ayuda en línea no responde, ¿qué hago?",
+                    "answer_markdown": "Si la respuesta es «Sin coincidencia exacta»:\n\n1. **Reformula** con palabras más específicas o más genéricas, según dónde sospeches el problema.\n2. **Verifica el contexto**: si estás en /attivita pero la pregunta es sobre el Calendario, pasa a la guía completa (`/help`) donde la búsqueda es global.\n3. **Abre la guía completa** y usa el índice de temas del módulo que te interesa.\n4. **Comprueba los permisos**: si es una función administrativa y eres un usuario estándar, simplemente no verás la entrada.\n\nSi el panel muestra «Esquema de HelpOnline no disponible», el módulo aún no se ha migrado en la instalación: contacta con el responsable del sistema.",
+                    "excerpt": "Si la respuesta es «Sin coincidencia exacta»: 1. Reformula con palabras más específicas o más genéricas, según dónde sospeches el problema. 2. Verifica el contexto: si estás en /attivita pero la pregu...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 70,
+            "locales": {
+                "it": {
+                    "question": "Differenza tra pannello contestuale e guida completa (/help)?",
+                    "answer_markdown": "Sono due interfacce alla stessa knowledge base, pensate per usi diversi.\n\n| | Pannello contestuale | Guida completa (`/help`) |\n| --- | --- | --- |\n| Apertura | Icona `?` da qualsiasi pagina | URL diretto o link dal pannello |\n| Layout | Offcanvas laterale | Pagina dedicata |\n| Ricerca | Sì, focalizzata | Sì, completa con cronologia |\n| Topic | Solo modulo corrente | Tutti i moduli, organizzati |\n| Indice | No | Sì, navigabile |\n| Adatto a | Domanda rapida sulla pagina corrente | Esplorazione, studio, ricerca trasversale |\n\nUsa il pannello quando stai lavorando e ti serve una risposta veloce. Usa `/help` quando vuoi studiare una funzione, confrontare moduli o cercare qualcosa che non sai dove sia.",
+                    "excerpt": "Pannello = risposta veloce in contesto. /help = esplorazione completa con indice e ricerca globale.",
+                    "aliases": [
+                        "pannello vs help",
+                        "differenza guida",
+                        "quando usare"
+                    ]
+                },
+                "en": {
+                    "question": "Difference between the contextual panel and the full guide (/help)?",
+                    "answer_markdown": "They are two interfaces to the same knowledge base, designed for different uses.\n\n| | Contextual panel | Full guide (`/help`) |\n| --- | --- | --- |\n| Opening | `?` icon from any page | Direct URL or link from the panel |\n| Layout | Side offcanvas | Dedicated page |\n| Search | Yes, focused | Yes, full with history |\n| Topics | Current module only | All modules, organized |\n| Index | No | Yes, navigable |\n| Suited to | Quick question on the current page | Exploration, study, cross-cutting search |\n\nUse the panel when you are working and need a quick answer. Use `/help` when you want to study a feature, compare modules or look for something you don't know where it is.",
+                    "excerpt": "They are two interfaces to the same knowledge base, designed for different uses. | | Contextual panel | Full guide (/help) | | --- | --- | --- | | Opening | ? icon from any page | Direct URL or link f...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Différence entre le panneau contextuel et le guide complet (/help) ?",
+                    "answer_markdown": "Ce sont deux interfaces vers la même base de connaissances, conçues pour des usages différents.\n\n| | Panneau contextuel | Guide complet (`/help`) |\n| --- | --- | --- |\n| Ouverture | Icône `?` depuis n'importe quelle page | URL directe ou lien depuis le panneau |\n| Disposition | Offcanvas latéral | Page dédiée |\n| Recherche | Oui, focalisée | Oui, complète avec historique |\n| Sujets | Module courant uniquement | Tous les modules, organisés |\n| Index | Non | Oui, navigable |\n| Adapté à | Question rapide sur la page courante | Exploration, étude, recherche transversale |\n\nUtilisez le panneau lorsque vous travaillez et avez besoin d'une réponse rapide. Utilisez `/help` lorsque vous voulez étudier une fonctionnalité, comparer des modules ou chercher quelque chose dont vous ne savez pas où il se trouve.",
+                    "excerpt": "Ce sont deux interfaces vers la même base de connaissances, conçues pour des usages différents. | | Panneau contextuel | Guide complet (/help) | | --- | --- | --- | | Ouverture | Icône ? depuis n'impo...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Unterschied zwischen dem Kontextpanel und dem vollständigen Leitfaden (/help)?",
+                    "answer_markdown": "Es sind zwei Schnittstellen zur selben Wissensdatenbank, die für unterschiedliche Zwecke gedacht sind.\n\n| | Kontextpanel | Vollständiger Leitfaden (`/help`) |\n| --- | --- | --- |\n| Öffnen | `?`-Symbol von jeder Seite | Direkte URL oder Link aus dem Panel |\n| Layout | Seitliches Offcanvas | Dedizierte Seite |\n| Suche | Ja, fokussiert | Ja, vollständig mit Verlauf |\n| Themen | Nur aktuelles Modul | Alle Module, organisiert |\n| Index | Nein | Ja, navigierbar |\n| Geeignet für | Schnelle Frage zur aktuellen Seite | Erkundung, Studium, übergreifende Suche |\n\nVerwenden Sie das Panel, wenn Sie arbeiten und eine schnelle Antwort benötigen. Verwenden Sie `/help`, wenn Sie eine Funktion studieren, Module vergleichen oder etwas suchen möchten, von dem Sie nicht wissen, wo es ist.",
+                    "excerpt": "Es sind zwei Schnittstellen zur selben Wissensdatenbank, die für unterschiedliche Zwecke gedacht sind. | | Kontextpanel | Vollständiger Leitfaden (/help) | | --- | --- | --- | | Öffnen | ?-Symbol von ...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Diferencia entre el panel contextual y la guía completa (/help)?",
+                    "answer_markdown": "Son dos interfaces a la misma base de conocimientos, pensadas para usos diferentes.\n\n| | Panel contextual | Guía completa (`/help`) |\n| --- | --- | --- |\n| Apertura | Icono `?` desde cualquier página | URL directa o enlace desde el panel |\n| Diseño | Offcanvas lateral | Página dedicada |\n| Búsqueda | Sí, focalizada | Sí, completa con historial |\n| Temas | Solo módulo actual | Todos los módulos, organizados |\n| Índice | No | Sí, navegable |\n| Adecuado para | Pregunta rápida en la página actual | Exploración, estudio, búsqueda transversal |\n\nUsa el panel cuando estás trabajando y necesitas una respuesta rápida. Usa `/help` cuando quieres estudiar una función, comparar módulos o buscar algo que no sabes dónde está.",
+                    "excerpt": "Son dos interfaces a la misma base de conocimientos, pensadas para usos diferentes. | | Panel contextual | Guía completa (/help) | | --- | --- | --- | | Apertura | Icono ? desde cualquier página | URL...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 40,
+            "sort_order": 80,
+            "locales": {
+                "it": {
+                    "question": "Come orientarsi in Favilla: mappa dei moduli",
+                    "answer_markdown": "Favilla è strutturato per **moduli funzionali** indipendenti. Ogni modulo gestisce un dominio specifico ed è raggiungibile dalla barra laterale (a sinistra) o dalla ricerca globale (in alto).\r\n\r\n**Moduli per uso quotidiano**:\r\n\r\n- **Home** — dashboard di riepilogo personale.\r\n- **Attività** — task personali con board Kanban e checklist.\r\n- **Calendario** — eventi personali e condivisi.\r\n- **Contatti** — rubrica privata con categorie e ricorrenze.\r\n- **File** — libreria documentale personale.\r\n- **Progetti** — gestione progetti con milestone, gantt e timesheet (se abilitato).\r\n- **Comunicazioni** — articoli, aggiornamenti e commenti interni.\r\n- **Messaggi** — chat dirette e di gruppo con i colleghi.\r\n- **Notifiche** — centro avvisi multicanale.\r\n- **Report** — esportazioni e documenti generati.\r\n- **Help Online** — guida contestuale (questa).\r\n\r\nDal menu Profilo (in alto a destra) accedi a impostazioni personali, tema, password, MFA e logout.",
+                    "excerpt": "Favilla è strutturato per moduli funzionali indipendenti. Ogni modulo gestisce un dominio specifico ed è raggiungibile dalla barra laterale (a sinistra) o dalla ricerca globale (in alto). Moduli per uso quotidiano...",
+                    "aliases": [
+                        "mappa moduli",
+                        "orientamento",
+                        "menu",
+                        "struttura favilla"
+                    ]
+                },
+                "en": {
+                    "question": "Getting around Favilla: the module map",
+                    "answer_markdown": "Favilla is structured into independent **functional modules**. Each module manages a specific domain and is reachable from the sidebar (on the left) or from the global search (at the top).\n\n**Modules for daily use**:\n\n- **Home** — a personal summary dashboard.\n- **Tasks** — personal to-dos with a Kanban board and checklists.\n- **Calendar** — personal and shared events.\n- **Contacts** — a private address book with categories and recurrences.\n- **Files** — a personal document library.\n- **Projects** — project management with milestones, gantt and timesheet (if enabled).\n- **Announcements** — articles, updates and internal comments.\n- **Messages** — direct and group chats with colleagues.\n- **Notifications** — a multichannel alert center.\n- **Reports** — exports and generated documents.\n- **Help Online** — the contextual guide (this one).\n\nFrom the Profile menu (top right) you access personal settings, theme, password, MFA and logout.",
+                    "excerpt": "Favilla is structured into independent functional modules. Each module manages a specific domain and is reachable from the sidebar (on the left) or from the global search (at the top). Modules for dai...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "S'orienter dans Favilla : la carte des modules",
+                    "answer_markdown": "Favilla est structuré en **modules fonctionnels** indépendants. Chaque module gère un domaine spécifique et est accessible depuis la barre latérale (à gauche) ou depuis la recherche globale (en haut).\n\n**Modules pour un usage quotidien** :\n\n- **Accueil** — tableau de bord récapitulatif personnel.\n- **Tâches** — tâches personnelles avec tableau Kanban et listes de contrôle.\n- **Calendrier** — événements personnels et partagés.\n- **Contacts** — carnet d'adresses privé avec catégories et récurrences.\n- **Fichiers** — bibliothèque documentaire personnelle.\n- **Projets** — gestion de projets avec jalons, gantt et feuille de temps (si activé).\n- **Communications** — articles, mises à jour et commentaires internes.\n- **Messages** — discussions directes et de groupe avec les collègues.\n- **Notifications** — centre d'alertes multicanal.\n- **Rapports** — exports et documents générés.\n- **Aide en ligne** — le guide contextuel (celui-ci).\n\nDepuis le menu Profil (en haut à droite), vous accédez aux paramètres personnels, au thème, au mot de passe, au MFA et à la déconnexion.",
+                    "excerpt": "Favilla est structuré en modules fonctionnels indépendants. Chaque module gère un domaine spécifique et est accessible depuis la barre latérale (à gauche) ou depuis la recherche globale (en haut). Mod...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Sich in Favilla zurechtfinden: die Modulkarte",
+                    "answer_markdown": "Favilla ist in unabhängige **funktionale Module** gegliedert. Jedes Modul verwaltet einen bestimmten Bereich und ist über die Sidebar (links) oder die globale Suche (oben) erreichbar.\n\n**Module für den täglichen Gebrauch**:\n\n- **Home** — persönliches Übersichts-Dashboard.\n- **Aufgaben** — persönliche To-dos mit Kanban-Board und Checklisten.\n- **Kalender** — persönliche und geteilte Ereignisse.\n- **Kontakte** — privates Adressbuch mit Kategorien und Wiederholungen.\n- **Dateien** — persönliche Dokumentenbibliothek.\n- **Projekte** — Projektmanagement mit Meilensteinen, Gantt und Timesheet (falls aktiviert).\n- **Mitteilungen** — Artikel, Updates und interne Kommentare.\n- **Nachrichten** — Direkt- und Gruppenchats mit Kollegen.\n- **Benachrichtigungen** — Mehrkanal-Benachrichtigungszentrale.\n- **Berichte** — Exporte und erzeugte Dokumente.\n- **Help Online** — der kontextbezogene Leitfaden (dieser).\n\nÜber das Profilmenü (oben rechts) greifen Sie auf persönliche Einstellungen, Theme, Passwort, MFA und Abmelden zu.",
+                    "excerpt": "Favilla ist in unabhängige funktionale Module gegliedert. Jedes Modul verwaltet einen bestimmten Bereich und ist über die Sidebar (links) oder die globale Suche (oben) erreichbar. Module für den tägli...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "Orientarse en Favilla: el mapa de módulos",
+                    "answer_markdown": "Favilla está estructurado en **módulos funcionales** independientes. Cada módulo gestiona un dominio específico y es accesible desde la barra lateral (a la izquierda) o desde la búsqueda global (arriba).\n\n**Módulos para uso diario**:\n\n- **Home** — panel de resumen personal.\n- **Tareas** — tareas personales con tablero Kanban y listas de verificación.\n- **Calendario** — eventos personales y compartidos.\n- **Contactos** — agenda privada con categorías y recurrencias.\n- **Archivos** — biblioteca documental personal.\n- **Proyectos** — gestión de proyectos con hitos, gantt y parte de horas (si está habilitado).\n- **Comunicaciones** — artículos, actualizaciones y comentarios internos.\n- **Mensajes** — chats directos y de grupo con los compañeros.\n- **Notificaciones** — centro de avisos multicanal.\n- **Informes** — exportaciones y documentos generados.\n- **Ayuda en línea** — la guía contextual (esta).\n\nDesde el menú Perfil (arriba a la derecha) accedes a ajustes personales, tema, contraseña, MFA y cierre de sesión.",
+                    "excerpt": "Favilla está estructurado en módulos funcionales independientes. Cada módulo gestiona un dominio específico y es accesible desde la barra lateral (a la izquierda) o desde la búsqueda global (arriba). ...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 35,
+            "sort_order": 90,
+            "locales": {
+                "it": {
+                    "question": "Come uso la ricerca globale?",
+                    "answer_markdown": "La barra di ricerca in alto (o `Ctrl+K` da tastiera) cerca contemporaneamente tra:\n\n- Attività personali\n- Eventi calendario\n- Contatti\n- File e cartelle\n- Progetti, milestone e task progetto\n- Voci della guida (Help Online)\n- Pagine amministrative (se hai i permessi)\n\nDigita anche solo 2-3 caratteri: i risultati si aggiornano in tempo reale, raggruppati per modulo. Clicca un risultato per saltare direttamente al record corrispondente.\n\nLa ricerca **rispetta i permessi**: vedi solo quello che puoi effettivamente aprire. Non serve sapere in quale modulo si trova una cosa: la ricerca te lo dice.",
+                    "excerpt": "Barra in alto o Ctrl+K. Cerca trasversalmente tra moduli (attività, calendario, contatti, file, progetti, help). Rispetta i permessi.",
+                    "aliases": [
+                        "ricerca globale",
+                        "search",
+                        "cerca",
+                        "ctrl+k"
+                    ]
+                },
+                "en": {
+                    "question": "How do I use the global search?",
+                    "answer_markdown": "The search bar at the top (or `Ctrl+K` from the keyboard) searches simultaneously across:\n\n- Personal tasks\n- Calendar events\n- Contacts\n- Files and folders\n- Projects, milestones and project tasks\n- Guide entries (Help Online)\n- Administrative pages (if you have the permissions)\n\nType even just 2-3 characters: the results update in real time, grouped by module. Click a result to jump straight to the corresponding record.\n\nThe search **respects permissions**: you only see what you can actually open. You don't need to know which module something is in: the search tells you.",
+                    "excerpt": "The search bar at the top (or Ctrl+K from the keyboard) searches simultaneously across: Personal tasks Calendar events Contacts Files and folders Projects, milestones and project tasks Guide entries (...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment utiliser la recherche globale ?",
+                    "answer_markdown": "La barre de recherche en haut (ou `Ctrl+K` au clavier) recherche simultanément parmi :\n\n- Tâches personnelles\n- Événements du calendrier\n- Contacts\n- Fichiers et dossiers\n- Projets, jalons et tâches de projet\n- Entrées du guide (Aide en ligne)\n- Pages administratives (si vous avez les autorisations)\n\nSaisissez ne serait-ce que 2-3 caractères : les résultats se mettent à jour en temps réel, regroupés par module. Cliquez sur un résultat pour accéder directement à l'enregistrement correspondant.\n\nLa recherche **respecte les autorisations** : vous ne voyez que ce que vous pouvez réellement ouvrir. Pas besoin de savoir dans quel module se trouve une chose : la recherche vous le dit.",
+                    "excerpt": "La barre de recherche en haut (ou Ctrl+K au clavier) recherche simultanément parmi : Tâches personnelles Événements du calendrier Contacts Fichiers et dossiers Projets, jalons et tâches de projet Entr...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie verwende ich die globale Suche?",
+                    "answer_markdown": "Die Suchleiste oben (oder `Ctrl+K` über die Tastatur) durchsucht gleichzeitig:\n\n- Persönliche Aufgaben\n- Kalenderereignisse\n- Kontakte\n- Dateien und Ordner\n- Projekte, Meilensteine und Projektaufgaben\n- Leitfaden-Einträge (Help Online)\n- Administrative Seiten (wenn Sie die Berechtigungen haben)\n\nGeben Sie auch nur 2-3 Zeichen ein: Die Ergebnisse werden in Echtzeit aktualisiert, nach Modul gruppiert. Klicken Sie auf ein Ergebnis, um direkt zum entsprechenden Datensatz zu springen.\n\nDie Suche **berücksichtigt Berechtigungen**: Sie sehen nur, was Sie tatsächlich öffnen können. Sie müssen nicht wissen, in welchem Modul sich etwas befindet: Die Suche sagt es Ihnen.",
+                    "excerpt": "Die Suchleiste oben (oder Ctrl+K über die Tastatur) durchsucht gleichzeitig: Persönliche Aufgaben Kalenderereignisse Kontakte Dateien und Ordner Projekte, Meilensteine und Projektaufgaben Leitfaden-Ei...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo uso la búsqueda global?",
+                    "answer_markdown": "La barra de búsqueda de arriba (o `Ctrl+K` desde el teclado) busca simultáneamente entre:\n\n- Tareas personales\n- Eventos del calendario\n- Contactos\n- Archivos y carpetas\n- Proyectos, hitos y tareas de proyecto\n- Entradas de la guía (Ayuda en línea)\n- Páginas administrativas (si tienes los permisos)\n\nEscribe aunque sea solo 2-3 caracteres: los resultados se actualizan en tiempo real, agrupados por módulo. Haz clic en un resultado para saltar directamente al registro correspondiente.\n\nLa búsqueda **respeta los permisos**: solo ves lo que realmente puedes abrir. No necesitas saber en qué módulo está algo: la búsqueda te lo dice.",
+                    "excerpt": "La barra de búsqueda de arriba (o Ctrl+K desde el teclado) busca simultáneamente entre: Tareas personales Eventos del calendario Contactos Archivos y carpetas Proyectos, hitos y tareas de proyecto Ent...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 100,
+            "locales": {
+                "it": {
+                    "question": "Come gestisco profilo, password, avatar e MFA?",
+                    "answer_markdown": "Dal menu in alto a destra (avatar o iniziali) → voce **Profilo**.\n\n- **Dati personali**: nome, cognome, email, telefono.\n- **Avatar**: carica un'immagine (verrà ridimensionata automaticamente).\n- **Password**: cambio password con verifica complessità minima.\n- **MFA (Multi-Factor Authentication)**: attiva l'autenticazione a due fattori via app TOTP (Google Authenticator, Authy, ecc.). Salva i codici di recupero in un posto sicuro.\n- **Sessioni attive**: vedi tutti i dispositivi collegati al tuo account; puoi revocare quelle che non riconosci.\n- **Tema**: chiaro/scuro/auto (segue le impostazioni del sistema).\n- **Lingua**: dove disponibile.\n\nIl cambio password e l'attivazione MFA scrivono nel log di audit.",
+                    "excerpt": "Menu in alto a destra → Profilo. Dati, avatar, password, MFA, sessioni attive, tema, lingua.",
+                    "aliases": [
+                        "profilo",
+                        "password",
+                        "mfa",
+                        "avatar",
+                        "autenticazione"
+                    ]
+                },
+                "en": {
+                    "question": "How do I manage profile, password, avatar and MFA?",
+                    "answer_markdown": "From the menu at the top right (avatar or initials) → the **Profile** entry.\n\n- **Personal data**: first name, last name, email, phone.\n- **Avatar**: upload an image (it will be resized automatically).\n- **Password**: password change with minimum complexity verification.\n- **MFA (Multi-Factor Authentication)**: enable two-factor authentication via a TOTP app (Google Authenticator, Authy, etc.). Save the recovery codes in a safe place.\n- **Active sessions**: see all the devices connected to your account; you can revoke those you don't recognize.\n- **Theme**: light/dark/auto (follows the system settings).\n- **Language**: where available.\n\nThe password change and the MFA activation are written to the audit log.",
+                    "excerpt": "From the menu at the top right (avatar or initials) → the Profile entry. Personal data: first name, last name, email, phone. Avatar: upload an image (it will be resized automatically). Password: passw...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment gérer profil, mot de passe, avatar et MFA ?",
+                    "answer_markdown": "Depuis le menu en haut à droite (avatar ou initiales) → l'entrée **Profil**.\n\n- **Données personnelles** : prénom, nom, e-mail, téléphone.\n- **Avatar** : téléversez une image (elle sera redimensionnée automatiquement).\n- **Mot de passe** : changement de mot de passe avec vérification de la complexité minimale.\n- **MFA (authentification multifacteur)** : activez l'authentification à deux facteurs via une application TOTP (Google Authenticator, Authy, etc.). Enregistrez les codes de récupération dans un endroit sûr.\n- **Sessions actives** : voyez tous les appareils connectés à votre compte ; vous pouvez révoquer ceux que vous ne reconnaissez pas.\n- **Thème** : clair/sombre/auto (suit les paramètres du système).\n- **Langue** : où disponible.\n\nLe changement de mot de passe et l'activation du MFA sont inscrits dans le journal d'audit.",
+                    "excerpt": "Depuis le menu en haut à droite (avatar ou initiales) → l'entrée Profil. Données personnelles : prénom, nom, e-mail, téléphone. Avatar : téléversez une image (elle sera redimensionnée automatiquement)...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie verwalte ich Profil, Passwort, Avatar und MFA?",
+                    "answer_markdown": "Über das Menü oben rechts (Avatar oder Initialen) → der Eintrag **Profil**.\n\n- **Persönliche Daten**: Vorname, Nachname, E-Mail, Telefon.\n- **Avatar**: Laden Sie ein Bild hoch (es wird automatisch skaliert).\n- **Passwort**: Passwortänderung mit Überprüfung der Mindestkomplexität.\n- **MFA (Multi-Faktor-Authentifizierung)**: Aktivieren Sie die Zwei-Faktor-Authentifizierung über eine TOTP-App (Google Authenticator, Authy usw.). Bewahren Sie die Wiederherstellungscodes an einem sicheren Ort auf.\n- **Aktive Sitzungen**: Sehen Sie alle mit Ihrem Konto verbundenen Geräte; Sie können diejenigen widerrufen, die Sie nicht erkennen.\n- **Theme**: hell/dunkel/automatisch (folgt den Systemeinstellungen).\n- **Sprache**: sofern verfügbar.\n\nDie Passwortänderung und die MFA-Aktivierung werden in das Audit-Protokoll geschrieben.",
+                    "excerpt": "Über das Menü oben rechts (Avatar oder Initialen) → der Eintrag Profil. Persönliche Daten: Vorname, Nachname, E-Mail, Telefon. Avatar: Laden Sie ein Bild hoch (es wird automatisch skaliert). Passwort:...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo gestiono perfil, contraseña, avatar y MFA?",
+                    "answer_markdown": "Desde el menú de arriba a la derecha (avatar o iniciales) → la entrada **Perfil**.\n\n- **Datos personales**: nombre, apellido, correo, teléfono.\n- **Avatar**: sube una imagen (se redimensionará automáticamente).\n- **Contraseña**: cambio de contraseña con verificación de complejidad mínima.\n- **MFA (autenticación multifactor)**: activa la autenticación de dos factores mediante una app TOTP (Google Authenticator, Authy, etc.). Guarda los códigos de recuperación en un lugar seguro.\n- **Sesiones activas**: ve todos los dispositivos conectados a tu cuenta; puedes revocar los que no reconozcas.\n- **Tema**: claro/oscuro/automático (sigue los ajustes del sistema).\n- **Idioma**: donde esté disponible.\n\nEl cambio de contraseña y la activación de MFA se escriben en el registro de auditoría.",
+                    "excerpt": "Desde el menú de arriba a la derecha (avatar o iniciales) → la entrada Perfil. Datos personales: nombre, apellido, correo, teléfono. Avatar: sube una imagen (se redimensionará automáticamente). Contra...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "home.index",
+            "permission_slug": null,
+            "ranking_weight": 8,
+            "sort_order": 110,
+            "locales": {
+                "it": {
+                    "question": "Come cambio tema chiaro/scuro?",
+                    "answer_markdown": "## Tema chiaro, scuro e preferenze interfaccia\r\n\r\nLe preferenze grafiche personali non si gestiscono dal profilo: si aprono dal **pannello preferenze nella sidebar** (icona ingranaggio in basso) e si applicano a tutta l'applicazione.\r\n\r\n### Cosa puoi cambiare\r\n- **Tema**: chiaro o scuro;\r\n- **Skin**: variante visiva generale;\r\n- **Colore accento**: evidenziazioni, badge e link;\r\n- **Pattern**: texture di sfondo opzionale;\r\n- **Font**: famiglia tipografica dell'interfaccia;\r\n- **Sidebar**: compatta o estesa, con stile dedicato.\r\n\r\n### Come funziona\r\nOgni modifica viene salvata subito e resta associata al tuo utente. Non serve confermare con un pulsante finale.\r\n\r\n### Se cerchi il tema rapido\r\nApri il pannello preferenze dalla sidebar e cambia il valore **Tema**. Se nella tua installazione esiste un toggle rapido in header, quel comando agisce comunque sulle stesse preferenze utente.",
+                    "excerpt": "Tema chiaro, scuro e preferenze interfaccia Le preferenze grafiche personali non si gestiscono dal profilo: si aprono dal pannello preferenze nella sidebar (icona ingranaggio in basso) e si applicano a tutta...",
+                    "aliases": [
+                        "tema",
+                        "dark mode",
+                        "modalità scura",
+                        "colore"
+                    ]
+                },
+                "en": {
+                    "question": "How do I change the light/dark theme?",
+                    "answer_markdown": "## Light theme, dark theme and interface preferences\n\nPersonal graphic preferences are not managed from the profile: they open from the **preferences panel in the sidebar** (gear icon at the bottom) and apply to the whole application.\n\n### What you can change\n- **Theme**: light or dark;\n- **Skin**: general visual variant;\n- **Accent color**: highlights, badges and links;\n- **Pattern**: optional background texture;\n- **Font**: the interface's typographic family;\n- **Sidebar**: compact or expanded, with a dedicated style.\n\n### How it works\nEach change is saved immediately and stays associated with your user. There is no need to confirm with a final button.\n\n### If you're looking for the quick theme\nOpen the preferences panel from the sidebar and change the **Theme** value. If a quick toggle exists in the header in your installation, that command acts on the same user preferences anyway.",
+                    "excerpt": "Light theme, dark theme and interface preferences Personal graphic preferences are not managed from the profile: they open from the preferences panel in the sidebar (gear icon at the bottom) and apply...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment changer le thème clair/sombre ?",
+                    "answer_markdown": "## Thème clair, sombre et préférences d'interface\n\nLes préférences graphiques personnelles ne se gèrent pas depuis le profil : elles s'ouvrent depuis le **panneau de préférences dans la barre latérale** (icône engrenage en bas) et s'appliquent à toute l'application.\n\n### Ce que vous pouvez changer\n- **Thème** : clair ou sombre ;\n- **Skin** : variante visuelle générale ;\n- **Couleur d'accent** : mises en évidence, badges et liens ;\n- **Pattern** : texture de fond facultative ;\n- **Police** : famille typographique de l'interface ;\n- **Barre latérale** : compacte ou étendue, avec un style dédié.\n\n### Comment ça marche\nChaque modification est enregistrée immédiatement et reste associée à votre utilisateur. Pas besoin de confirmer avec un bouton final.\n\n### Si vous cherchez le thème rapide\nOuvrez le panneau de préférences depuis la barre latérale et changez la valeur **Thème**. Si un commutateur rapide existe dans l'en-tête de votre installation, cette commande agit de toute façon sur les mêmes préférences utilisateur.",
+                    "excerpt": "Thème clair, sombre et préférences d'interface Les préférences graphiques personnelles ne se gèrent pas depuis le profil : elles s'ouvrent depuis le panneau de préférences dans la barre latérale (icôn...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie ändere ich das helle/dunkle Theme?",
+                    "answer_markdown": "## Helles Theme, dunkles Theme und Oberflächeneinstellungen\n\nPersönliche grafische Einstellungen werden nicht über das Profil verwaltet: Sie öffnen sich über das **Einstellungs-Panel in der Sidebar** (Zahnradsymbol unten) und gelten für die gesamte Anwendung.\n\n### Was Sie ändern können\n- **Theme**: hell oder dunkel;\n- **Skin**: allgemeine visuelle Variante;\n- **Akzentfarbe**: Hervorhebungen, Abzeichen und Links;\n- **Pattern**: optionale Hintergrundtextur;\n- **Schriftart**: die typografische Familie der Oberfläche;\n- **Sidebar**: kompakt oder erweitert, mit einem dedizierten Stil.\n\n### Wie es funktioniert\nJede Änderung wird sofort gespeichert und bleibt mit Ihrem Benutzer verknüpft. Es ist keine Bestätigung mit einer abschließenden Schaltfläche erforderlich.\n\n### Wenn Sie das schnelle Theme suchen\nÖffnen Sie das Einstellungs-Panel über die Sidebar und ändern Sie den Wert **Theme**. Wenn in Ihrer Installation ein Schnellschalter in der Kopfzeile vorhanden ist, wirkt dieser Befehl ohnehin auf dieselben Benutzereinstellungen.",
+                    "excerpt": "Helles Theme, dunkles Theme und Oberflächeneinstellungen Persönliche grafische Einstellungen werden nicht über das Profil verwaltet: Sie öffnen sich über das Einstellungs-Panel in der Sidebar (Zahnrad...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo cambio el tema claro/oscuro?",
+                    "answer_markdown": "## Tema claro, oscuro y preferencias de interfaz\n\nLas preferencias gráficas personales no se gestionan desde el perfil: se abren desde el **panel de preferencias en la barra lateral** (icono de engranaje abajo) y se aplican a toda la aplicación.\n\n### Qué puedes cambiar\n- **Tema**: claro u oscuro;\n- **Skin**: variante visual general;\n- **Color de acento**: resaltados, insignias y enlaces;\n- **Pattern**: textura de fondo opcional;\n- **Fuente**: familia tipográfica de la interfaz;\n- **Barra lateral**: compacta o extendida, con un estilo dedicado.\n\n### Cómo funciona\nCada cambio se guarda de inmediato y queda asociado a tu usuario. No hace falta confirmar con un botón final.\n\n### Si buscas el tema rápido\nAbre el panel de preferencias desde la barra lateral y cambia el valor **Tema**. Si en tu instalación existe un conmutador rápido en la cabecera, ese comando actúa de todos modos sobre las mismas preferencias de usuario.",
+                    "excerpt": "Tema claro, oscuro y preferencias de interfaz Las preferencias gráficas personales no se gestionan desde el perfil: se abren desde el panel de preferencias en la barra lateral (icono de engranaje abaj...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 120,
+            "locales": {
+                "it": {
+                    "question": "Posso usare Favilla da mobile?",
+                    "answer_markdown": "Sì. L'interfaccia è **responsive** e si adatta a smartphone e tablet. Aspetti specifici mobile:\n\n- Il menu laterale diventa un menu hamburger (icona ☰ in alto).\n- Le tabelle ampie diventano scrollabili orizzontalmente.\n- Le board Kanban (Attività) restano usabili: trascinamento card supportato anche da touch.\n- Il caricamento file da mobile usa il selettore nativo del dispositivo (galleria, fotocamera, file system).\n- Le notifiche push tramite browser sono supportate (se abilitate dall'installazione).\n\nNon esiste un'app nativa: Favilla è una web app. Per un'esperienza simile a un'app, aggiungi il sito alla home screen (Aggiungi a schermata Home su iOS/Android).",
+                    "excerpt": "Interfaccia responsive, menu hamburger su mobile. Nessuna app nativa: aggiungi alla home screen per esperienza app-like.",
+                    "aliases": [
+                        "mobile",
+                        "responsive",
+                        "telefono",
+                        "smartphone",
+                        "tablet"
+                    ]
+                },
+                "en": {
+                    "question": "Can I use Favilla on mobile?",
+                    "answer_markdown": "Yes. The interface is **responsive** and adapts to smartphones and tablets. Mobile-specific aspects:\n\n- The side menu becomes a hamburger menu (☰ icon at the top).\n- Wide tables become horizontally scrollable.\n- Kanban boards (Tasks) remain usable: card dragging is supported by touch too.\n- File upload from mobile uses the device's native selector (gallery, camera, file system).\n- Browser push notifications are supported (if enabled by the installation).\n\nThere is no native app: Favilla is a web app. For an app-like experience, add the site to your home screen (Add to Home Screen on iOS/Android).",
+                    "excerpt": "Yes. The interface is responsive and adapts to smartphones and tablets. Mobile-specific aspects: The side menu becomes a hamburger menu (☰ icon at the top). Wide tables become horizontally scrollable....",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Puis-je utiliser Favilla sur mobile ?",
+                    "answer_markdown": "Oui. L'interface est **responsive** et s'adapte aux smartphones et tablettes. Aspects spécifiques au mobile :\n\n- Le menu latéral devient un menu hamburger (icône ☰ en haut).\n- Les tableaux larges deviennent défilables horizontalement.\n- Les tableaux Kanban (Tâches) restent utilisables : le glissement des cartes est pris en charge aussi au toucher.\n- Le téléversement de fichiers depuis le mobile utilise le sélecteur natif de l'appareil (galerie, appareil photo, système de fichiers).\n- Les notifications push via le navigateur sont prises en charge (si activées par l'installation).\n\nIl n'existe pas d'application native : Favilla est une application web. Pour une expérience proche d'une application, ajoutez le site à votre écran d'accueil (Ajouter à l'écran d'accueil sur iOS/Android).",
+                    "excerpt": "Oui. L'interface est responsive et s'adapte aux smartphones et tablettes. Aspects spécifiques au mobile : Le menu latéral devient un menu hamburger (icône ☰ en haut). Les tableaux larges deviennent dé...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Kann ich Favilla auf dem Mobilgerät verwenden?",
+                    "answer_markdown": "Ja. Die Oberfläche ist **responsiv** und passt sich Smartphones und Tablets an. Mobilspezifische Aspekte:\n\n- Das Seitenmenü wird zu einem Hamburger-Menü (☰-Symbol oben).\n- Breite Tabellen werden horizontal scrollbar.\n- Kanban-Boards (Aufgaben) bleiben nutzbar: Das Ziehen von Karten wird auch per Touch unterstützt.\n- Der Datei-Upload vom Mobilgerät verwendet die native Auswahl des Geräts (Galerie, Kamera, Dateisystem).\n- Browser-Push-Benachrichtigungen werden unterstützt (falls von der Installation aktiviert).\n\nEs gibt keine native App: Favilla ist eine Web-App. Für ein app-ähnliches Erlebnis fügen Sie die Website zu Ihrem Startbildschirm hinzu (Zum Startbildschirm hinzufügen unter iOS/Android).",
+                    "excerpt": "Ja. Die Oberfläche ist responsiv und passt sich Smartphones und Tablets an. Mobilspezifische Aspekte: Das Seitenmenü wird zu einem Hamburger-Menü (☰-Symbol oben). Breite Tabellen werden horizontal scr...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Puedo usar Favilla desde el móvil?",
+                    "answer_markdown": "Sí. La interfaz es **responsive** y se adapta a smartphones y tabletas. Aspectos específicos del móvil:\n\n- El menú lateral se convierte en un menú hamburguesa (icono ☰ arriba).\n- Las tablas anchas se vuelven desplazables horizontalmente.\n- Los tableros Kanban (Tareas) siguen siendo usables: el arrastre de tarjetas también funciona con el táctil.\n- La subida de archivos desde el móvil usa el selector nativo del dispositivo (galería, cámara, sistema de archivos).\n- Las notificaciones push del navegador son compatibles (si las habilita la instalación).\n\nNo existe una app nativa: Favilla es una aplicación web. Para una experiencia similar a una app, añade el sitio a tu pantalla de inicio (Añadir a pantalla de inicio en iOS/Android).",
+                    "excerpt": "Sí. La interfaz es responsive y se adapta a smartphones y tabletas. Aspectos específicos del móvil: El menú lateral se convierte en un menú hamburguesa (icono ☰ arriba). Las tablas anchas se vuelven d...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 130,
+            "locales": {
+                "it": {
+                    "question": "Dove vedo il changelog e le novità della versione?",
+                    "answer_markdown": "Pagina `/changelog` (raggiungibile dalla ricerca globale o da un link nel piè di pagina). Mostra le release dell'applicazione in ordine cronologico inverso con:\n\n- Versione e data di pubblicazione\n- Descrizione delle modifiche principali (in linguaggio comprensibile, non tecnico)\n- Categoria: nuova feature, miglioramento, bugfix, nota di sicurezza\n\nSolo le versioni **pubblicate** sono visibili agli utenti; le bozze restano interne ai redattori.",
+                    "excerpt": "Pagina /changelog: release in ordine cronologico inverso con descrizione e categoria. Solo versioni pubblicate sono visibili.",
+                    "aliases": [
+                        "changelog",
+                        "novita",
+                        "release",
+                        "versione"
+                    ]
+                },
+                "en": {
+                    "question": "Where do I see the changelog and the version news?",
+                    "answer_markdown": "The `/changelog` page (reachable from the global search or from a link in the footer). It shows the application's releases in reverse chronological order with:\n\n- Version and publication date\n- A description of the main changes (in understandable, non-technical language)\n- Category: new feature, improvement, bugfix, security note\n\nOnly **published** versions are visible to users; drafts remain internal to the editors.",
+                    "excerpt": "The /changelog page (reachable from the global search or from a link in the footer). It shows the application's releases in reverse chronological order with: Version and publication date A description...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Où voir le changelog et les nouveautés de la version ?",
+                    "answer_markdown": "La page `/changelog` (accessible depuis la recherche globale ou depuis un lien dans le pied de page). Elle affiche les versions de l'application par ordre chronologique inverse avec :\n\n- Version et date de publication\n- Une description des principales modifications (dans un langage compréhensible, non technique)\n- Catégorie : nouvelle fonctionnalité, amélioration, correction de bug, note de sécurité\n\nSeules les versions **publiées** sont visibles par les utilisateurs ; les brouillons restent internes aux rédacteurs.",
+                    "excerpt": "La page /changelog (accessible depuis la recherche globale ou depuis un lien dans le pied de page). Elle affiche les versions de l'application par ordre chronologique inverse avec : Version et date de...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wo sehe ich das Changelog und die Neuerungen der Version?",
+                    "answer_markdown": "Die Seite `/changelog` (erreichbar über die globale Suche oder über einen Link in der Fußzeile). Sie zeigt die Releases der Anwendung in umgekehrter chronologischer Reihenfolge mit:\n\n- Version und Veröffentlichungsdatum\n- einer Beschreibung der wichtigsten Änderungen (in verständlicher, nicht technischer Sprache)\n- Kategorie: neue Funktion, Verbesserung, Fehlerbehebung, Sicherheitshinweis\n\nNur **veröffentlichte** Versionen sind für Benutzer sichtbar; Entwürfe bleiben intern bei den Redakteuren.",
+                    "excerpt": "Die Seite /changelog (erreichbar über die globale Suche oder über einen Link in der Fußzeile). Sie zeigt die Releases der Anwendung in umgekehrter chronologischer Reihenfolge mit: Version und Veröffen...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Dónde veo el changelog y las novedades de la versión?",
+                    "answer_markdown": "La página `/changelog` (accesible desde la búsqueda global o desde un enlace en el pie de página). Muestra las versiones de la aplicación en orden cronológico inverso con:\n\n- Versión y fecha de publicación\n- Una descripción de los cambios principales (en lenguaje comprensible, no técnico)\n- Categoría: nueva función, mejora, corrección de errores, nota de seguridad\n\nSolo las versiones **publicadas** son visibles para los usuarios; los borradores permanecen internos para los redactores.",
+                    "excerpt": "La página /changelog (accesible desde la búsqueda global o desde un enlace en el pie de página). Muestra las versiones de la aplicación en orden cronológico inverso con: Versión y fecha de publicación...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 140,
+            "locales": {
+                "it": {
+                    "question": "Come capisco se manca un permesso o una funzione non esiste?",
+                    "answer_markdown": "Segnali utili:\n\n- **La voce non compare nel menu** ma esiste per altri colleghi → mancanza di permesso. Chiedi al referente di sistema di verificare il tuo ruolo.\n- **La voce compare ma cliccando ricevi un errore 403 o un messaggio di accesso negato** → permesso parziale (puoi vedere ma non agire). Stesso percorso: chiedi al referente.\n- **Help Online non trova la funzione anche cercandola con parole diverse** → la funzione non esiste o non è installata su questa installazione. Verifica con un amministratore.\n- **La voce è disabilitata o sbarrata** → il modulo è installato ma disattivato dagli amministratori. Va riattivato.\n\nPrima di concludere \"non esiste\", prova sempre due o tre formulazioni diverse in Help Online.",
+                    "excerpt": "Menu vuoto = permesso mancante. 403 cliccando = permesso parziale. Non trovata in Help = funzione assente. Sempre due-tre prove prima di concludere.",
+                    "aliases": [
+                        "permesso mancante",
+                        "funzione mancante",
+                        "non trovo",
+                        "403",
+                        "non vedo voce"
+                    ]
+                },
+                "en": {
+                    "question": "How do I tell if a permission is missing or a feature doesn't exist?",
+                    "answer_markdown": "Useful signals:\n\n- **The entry doesn't appear in the menu** but exists for other colleagues → missing permission. Ask the system reference person to check your role.\n- **The entry appears but clicking it gives a 403 error or an access-denied message** → partial permission (you can see but not act). Same path: ask the reference person.\n- **Help Online doesn't find the feature even searching with different words** → the feature doesn't exist or is not installed on this installation. Check with an administrator.\n- **The entry is disabled or crossed out** → the module is installed but deactivated by the administrators. It needs to be reactivated.\n\nBefore concluding \"it doesn't exist\", always try two or three different phrasings in Help Online.",
+                    "excerpt": "Useful signals: The entry doesn't appear in the menu but exists for other colleagues → missing permission. Ask the system reference person to check your role. The entry appears but clicking it gives a...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment savoir s'il manque une autorisation ou si une fonctionnalité n'existe pas ?",
+                    "answer_markdown": "Signaux utiles :\n\n- **L'entrée n'apparaît pas dans le menu** mais existe pour d'autres collègues → autorisation manquante. Demandez au référent système de vérifier votre rôle.\n- **L'entrée apparaît mais en cliquant vous recevez une erreur 403 ou un message d'accès refusé** → autorisation partielle (vous pouvez voir mais pas agir). Même chemin : demandez au référent.\n- **L'Aide en ligne ne trouve pas la fonctionnalité même en cherchant avec des mots différents** → la fonctionnalité n'existe pas ou n'est pas installée sur cette installation. Vérifiez avec un administrateur.\n- **L'entrée est désactivée ou barrée** → le module est installé mais désactivé par les administrateurs. Il doit être réactivé.\n\nAvant de conclure « ça n'existe pas », essayez toujours deux ou trois formulations différentes dans l'Aide en ligne.",
+                    "excerpt": "Signaux utiles : L'entrée n'apparaît pas dans le menu mais existe pour d'autres collègues → autorisation manquante. Demandez au référent système de vérifier votre rôle. L'entrée apparaît mais en cliqu...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie erkenne ich, ob eine Berechtigung fehlt oder eine Funktion nicht existiert?",
+                    "answer_markdown": "Nützliche Signale:\n\n- **Der Eintrag erscheint nicht im Menü**, existiert aber für andere Kollegen → fehlende Berechtigung. Bitten Sie die System-Bezugsperson, Ihre Rolle zu prüfen.\n- **Der Eintrag erscheint, aber beim Klicken erhalten Sie einen 403-Fehler oder eine Zugriff-verweigert-Meldung** → teilweise Berechtigung (Sie können sehen, aber nicht handeln). Gleicher Weg: Fragen Sie die Bezugsperson.\n- **Help Online findet die Funktion auch bei der Suche mit anderen Wörtern nicht** → die Funktion existiert nicht oder ist auf dieser Installation nicht installiert. Prüfen Sie es mit einem Administrator.\n- **Der Eintrag ist deaktiviert oder durchgestrichen** → das Modul ist installiert, aber von den Administratoren deaktiviert. Es muss reaktiviert werden.\n\nBevor Sie „existiert nicht“ schlussfolgern, versuchen Sie immer zwei oder drei verschiedene Formulierungen in Help Online.",
+                    "excerpt": "Nützliche Signale: Der Eintrag erscheint nicht im Menü, existiert aber für andere Kollegen → fehlende Berechtigung. Bitten Sie die System-Bezugsperson, Ihre Rolle zu prüfen. Der Eintrag erscheint, abe...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo sé si falta un permiso o si una función no existe?",
+                    "answer_markdown": "Señales útiles:\n\n- **La entrada no aparece en el menú** pero existe para otros compañeros → permiso faltante. Pide al responsable del sistema que compruebe tu rol.\n- **La entrada aparece pero al hacer clic recibes un error 403 o un mensaje de acceso denegado** → permiso parcial (puedes ver pero no actuar). Mismo camino: pide al responsable.\n- **La Ayuda en línea no encuentra la función aunque la busques con palabras diferentes** → la función no existe o no está instalada en esta instalación. Verifícalo con un administrador.\n- **La entrada está deshabilitada o tachada** → el módulo está instalado pero desactivado por los administradores. Hay que reactivarlo.\n\nAntes de concluir «no existe», prueba siempre dos o tres formulaciones diferentes en la Ayuda en línea.",
+                    "excerpt": "Señales útiles: La entrada no aparece en el menú pero existe para otros compañeros → permiso faltante. Pide al responsable del sistema que compruebe tu rol. La entrada aparece pero al hacer clic recib...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 150,
+            "locales": {
+                "it": {
+                    "question": "Come segnalo un problema o un bug?",
+                    "answer_markdown": "Favilla non ha (oggi) un canale di segnalazione integrato. Le pratiche consigliate:\n\n1. **Annota i dettagli**: pagina (URL), modulo, operazione che stavi facendo, messaggio di errore esatto.\n2. **Cattura uno screenshot**: utile soprattutto per errori visuali o di rendering.\n3. **Riproduci**: prova a ripetere l'operazione. Se l'errore non si ripresenta, indicalo (problema sporadico).\n4. **Contatta il referente di sistema** della tua organizzazione con queste informazioni.\n5. **Per problemi di accesso** (login fallito, MFA bloccato) non aspettare: contatta immediatamente l'amministratore per sblocco o reset.\n\nGli amministratori dispongono di log di errore e audit che permettono di ricostruire il contesto del problema.",
+                    "excerpt": "Niente canale integrato: annota URL+modulo+messaggio+screenshot e contatta il referente. Per problemi di accesso, contatto immediato.",
+                    "aliases": [
+                        "bug",
+                        "segnalazione",
+                        "problema",
+                        "errore"
+                    ]
+                },
+                "en": {
+                    "question": "How do I report a problem or a bug?",
+                    "answer_markdown": "Favilla does not (currently) have a built-in reporting channel. Recommended practices:\n\n1. **Note the details**: page (URL), module, operation you were performing, exact error message.\n2. **Take a screenshot**: especially useful for visual or rendering errors.\n3. **Reproduce it**: try repeating the operation. If the error doesn't reoccur, note that (sporadic issue).\n4. **Contact your organization's system reference person** with this information.\n5. **For access problems** (failed login, MFA locked out) don't wait: contact the administrator immediately for unlocking or a reset.\n\nAdministrators have error and audit logs that let them reconstruct the context of the problem.",
+                    "excerpt": "Favilla does not (currently) have a built-in reporting channel. Recommended practices: 1. Note the details: page (URL), module, operation you were performing, exact error message. 2. Take a screenshot...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment signaler un problème ou un bug ?",
+                    "answer_markdown": "Favilla n'a pas (actuellement) de canal de signalement intégré. Pratiques recommandées :\n\n1. **Notez les détails** : page (URL), module, opération en cours, message d'erreur exact.\n2. **Faites une capture d'écran** : utile surtout pour les erreurs visuelles ou de rendu.\n3. **Reproduisez** : essayez de répéter l'opération. Si l'erreur ne se reproduit pas, indiquez-le (problème sporadique).\n4. **Contactez le référent système** de votre organisation avec ces informations.\n5. **Pour les problèmes d'accès** (échec de connexion, MFA bloqué) n'attendez pas : contactez immédiatement l'administrateur pour un déblocage ou une réinitialisation.\n\nLes administrateurs disposent de journaux d'erreurs et d'audit qui permettent de reconstituer le contexte du problème.",
+                    "excerpt": "Favilla n'a pas (actuellement) de canal de signalement intégré. Pratiques recommandées : 1. Notez les détails : page (URL), module, opération en cours, message d'erreur exact. 2. Faites une capture d'...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie melde ich ein Problem oder einen Fehler?",
+                    "answer_markdown": "Favilla verfügt (derzeit) über keinen integrierten Meldekanal. Empfohlene Vorgehensweisen:\n\n1. **Notieren Sie die Details**: Seite (URL), Modul, durchgeführter Vorgang, genaue Fehlermeldung.\n2. **Erstellen Sie einen Screenshot**: besonders nützlich bei visuellen Fehlern oder Darstellungsfehlern.\n3. **Reproduzieren Sie es**: versuchen Sie, den Vorgang zu wiederholen. Wenn der Fehler nicht erneut auftritt, vermerken Sie dies (sporadisches Problem).\n4. **Kontaktieren Sie die System-Bezugsperson** Ihrer Organisation mit diesen Informationen.\n5. **Bei Zugriffsproblemen** (fehlgeschlagener Login, MFA gesperrt) warten Sie nicht: Kontaktieren Sie sofort den Administrator zur Entsperrung oder zum Zurücksetzen.\n\nAdministratoren verfügen über Fehler- und Audit-Protokolle, mit denen sich der Kontext des Problems rekonstruieren lässt.",
+                    "excerpt": "Favilla verfügt (derzeit) über keinen integrierten Meldekanal. Empfohlene Vorgehensweisen: 1. Notieren Sie die Details: Seite (URL), Modul, durchgeführter Vorgang, genaue Fehlermeldung. 2. Erstellen S...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo informo de un problema o un error?",
+                    "answer_markdown": "Favilla no dispone (actualmente) de un canal de reporte integrado. Prácticas recomendadas:\n\n1. **Anota los detalles**: página (URL), módulo, operación que estabas realizando, mensaje de error exacto.\n2. **Captura una pantalla**: útil sobre todo para errores visuales o de renderizado.\n3. **Reprodúcelo**: intenta repetir la operación. Si el error no se repite, indícalo (problema esporádico).\n4. **Contacta al responsable del sistema** de tu organización con esta información.\n5. **Para problemas de acceso** (inicio de sesión fallido, MFA bloqueado) no esperes: contacta de inmediato al administrador para desbloqueo o restablecimiento.\n\nLos administradores disponen de registros de errores y auditoría que permiten reconstruir el contexto del problema.",
+                    "excerpt": "Favilla no dispone (actualmente) de un canal de reporte integrado. Prácticas recomendadas: 1. Anota los detalles: página (URL), módulo, operación que estabas realizando, mensaje de error exacto. 2. Ca...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 160,
+            "locales": {
+                "it": {
+                    "question": "Come imposto una routine giornaliera con Home, Attività e Calendario?",
+                    "answer_markdown": "Una sequenza tipica al mattino:\r\n\r\n1. **Home** (5 min) — apri la dashboard. Controlla i widget: attività in scadenza oggi, prossimi eventi, notifiche non lette, riepilogo progetti.\r\n2. **Attività** (10 min) — apri il modulo. Filtro **Scadute**: chiudi o riprogramma quelle già passate. Poi scorri la lista ordinata per scadenza e scegli 2-3 task prioritari per la giornata: spostali a `In corso` sulla board.\r\n3. **Calendario** (5 min) — verifica eventi del giorno e di domani. Conferma promemoria, aggiungi note se utile.\r\n4. **Notifiche** (2 min) — segna come lette le informative, agisci sulle azioni richieste.\r\n\r\nA fine giornata: chiudi le attività completate, rimetti a `Da fare` quelle ferme con una nota nella descrizione, prendi appunto per il giorno dopo nel campo Note dell'attività più rilevante.",
+                    "excerpt": "Mattino: Home → Attività (scadute + 2-3 prioritarie) → Calendario → Notifiche. Sera: chiudi/blocca con motivo, prendi appunto per domani.",
+                    "aliases": [
+                        "routine",
+                        "start up giornata",
+                        "organizzare giornata",
+                        "mattino"
+                    ]
+                },
+                "en": {
+                    "question": "How do I set up a daily routine with Home, Tasks and Calendar?",
+                    "answer_markdown": "A typical morning sequence:\n\n1. **Home** (5 min) — open the dashboard. Check the widgets: tasks due today, upcoming events, unread notifications, project summary.\n2. **Tasks** (10 min) — open the module. **Overdue** filter: close or reschedule those already past due. Then scroll the list sorted by deadline and pick 2-3 priority tasks for the day: move them to `In progress` on the board.\n3. **Calendar** (5 min) — check today's and tomorrow's events. Confirm reminders, add notes if useful.\n4. **Notifications** (2 min) — mark informational ones as read, act on the ones requiring action.\n\nAt the end of the day: close completed tasks, move stalled ones back to `To do` with a note in the description, jot down a note for the next day in the Notes field of the most relevant task.",
+                    "excerpt": "A typical morning sequence: 1. Home (5 min) — open the dashboard. Check the widgets: tasks due today, upcoming events, unread notifications, project summary. 2. Tasks (10 min) — open the module. Overd...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment mettre en place une routine quotidienne avec Accueil, Tâches et Calendrier ?",
+                    "answer_markdown": "Une séquence matinale typique :\n\n1. **Accueil** (5 min) — ouvrez le tableau de bord. Vérifiez les widgets : tâches à échéance aujourd'hui, prochains événements, notifications non lues, résumé des projets.\n2. **Tâches** (10 min) — ouvrez le module. Filtre **En retard** : clôturez ou reprogrammez celles déjà dépassées. Puis parcourez la liste triée par échéance et choisissez 2-3 tâches prioritaires pour la journée : déplacez-les vers `En cours` sur le tableau.\n3. **Calendrier** (5 min) — vérifiez les événements du jour et de demain. Confirmez les rappels, ajoutez des notes si utile.\n4. **Notifications** (2 min) — marquez les informatives comme lues, agissez sur les actions requises.\n\nEn fin de journée : clôturez les tâches terminées, remettez à `À faire` celles bloquées avec une note dans la description, notez un aide-mémoire pour le lendemain dans le champ Notes de la tâche la plus pertinente.",
+                    "excerpt": "Une séquence matinale typique : 1. Accueil (5 min) — ouvrez le tableau de bord. Vérifiez les widgets : tâches à échéance aujourd'hui, prochains événements, notifications non lues, résumé des projets. ...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie richte ich eine tägliche Routine mit Start, Aufgaben und Kalender ein?",
+                    "answer_markdown": "Eine typische Morgensequenz:\n\n1. **Start** (5 Min.) — öffnen Sie das Dashboard. Prüfen Sie die Widgets: heute fällige Aufgaben, anstehende Termine, ungelesene Benachrichtigungen, Projektübersicht.\n2. **Aufgaben** (10 Min.) — öffnen Sie das Modul. Filter **Überfällig**: schließen oder verschieben Sie bereits abgelaufene. Durchsuchen Sie dann die nach Fälligkeit sortierte Liste und wählen Sie 2-3 prioritäre Aufgaben für den Tag: verschieben Sie sie auf dem Board zu `In Bearbeitung`.\n3. **Kalender** (5 Min.) — prüfen Sie die Termine von heute und morgen. Bestätigen Sie Erinnerungen, fügen Sie bei Bedarf Notizen hinzu.\n4. **Benachrichtigungen** (2 Min.) — markieren Sie informative als gelesen, handeln Sie bei erforderlichen Aktionen.\n\nAm Ende des Tages: schließen Sie erledigte Aufgaben ab, verschieben Sie ins Stocken geratene zurück zu `Zu erledigen` mit einer Notiz in der Beschreibung, notieren Sie sich einen Hinweis für den nächsten Tag im Notizfeld der wichtigsten Aufgabe.",
+                    "excerpt": "Eine typische Morgensequenz: 1. Start (5 Min.) — öffnen Sie das Dashboard. Prüfen Sie die Widgets: heute fällige Aufgaben, anstehende Termine, ungelesene Benachrichtigungen, Projektübersicht. 2. Aufga...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo establezco una rutina diaria con Inicio, Tareas y Calendario?",
+                    "answer_markdown": "Una secuencia matutina típica:\n\n1. **Inicio** (5 min) — abre el panel. Revisa los widgets: tareas que vencen hoy, próximos eventos, notificaciones no leídas, resumen de proyectos.\n2. **Tareas** (10 min) — abre el módulo. Filtro **Vencidas**: cierra o reprograma las ya pasadas. Luego recorre la lista ordenada por vencimiento y elige 2-3 tareas prioritarias para el día: muévelas a `En curso` en el tablero.\n3. **Calendario** (5 min) — comprueba los eventos de hoy y de mañana. Confirma recordatorios, añade notas si es útil.\n4. **Notificaciones** (2 min) — marca como leídas las informativas, actúa sobre las acciones requeridas.\n\nAl final del día: cierra las tareas completadas, devuelve a `Por hacer` las estancadas con una nota en la descripción, anota un recordatorio para el día siguiente en el campo Notas de la tarea más relevante.",
+                    "excerpt": "Una secuencia matutina típica: 1. Inicio (5 min) — abre el panel. Revisa los widgets: tareas que vencen hoy, próximos eventos, notificaciones no leídas, resumen de proyectos. 2. Tareas (10 min) — abre...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 170,
+            "locales": {
+                "it": {
+                    "question": "Come collego Attività e Calendario senza duplicare il lavoro?",
+                    "answer_markdown": "Regola pratica: **una sola fonte di verità per ogni elemento**.\n\n- **Task con scadenza ma senza orario** (\"finire report entro venerdì\") → Attività con campo `Scadenza`. Non duplicare in Calendario.\n- **Impegno con orario fisso** (\"riunione cliente martedì 15:00\") → Calendario. Se servono sotto-azioni preparatorie, creale come task figli con scadenza al giorno prima.\n- **Blocco di tempo per lavorare su un task** (\"mercoledì 9-11 lavoro sul report\") → Calendario, riferendo nel titolo il task: `[TASK-42] Lavoro su report Q3`. Il task in Attività resta lo stesso.\n\nUsa la ricerca globale per saltare da uno all'altro. Evita di creare lo stesso elemento in entrambi i moduli: due copie divergono nel tempo e producono confusione.",
+                    "excerpt": "Una sola fonte per ogni elemento: deadline → Attività, impegno orario → Calendario, time-block → Calendario con riferimento al task.",
+                    "aliases": [
+                        "attivita calendario",
+                        "collegare task evento",
+                        "integrazione"
+                    ]
+                },
+                "en": {
+                    "question": "How do I link Tasks and Calendar without duplicating work?",
+                    "answer_markdown": "Practical rule: **a single source of truth for each item**.\n\n- **Task with a deadline but no fixed time** (\"finish report by Friday\") → Tasks with the `Deadline` field. Don't duplicate it in Calendar.\n- **Commitment with a fixed time** (\"client meeting Tuesday 3pm\") → Calendar. If preparatory sub-actions are needed, create them as child tasks due the day before.\n- **Time block to work on a task** (\"Wednesday 9-11 work on the report\") → Calendar, referencing the task in the title: `[TASK-42] Work on Q3 report`. The task in Tasks stays the same.\n\nUse global search to jump from one to the other. Avoid creating the same item in both modules: two copies drift apart over time and create confusion.",
+                    "excerpt": "Practical rule: a single source of truth for each item. Task with a deadline but no fixed time (\"finish report by Friday\") → Tasks with the Deadline field. Don't duplicate it in Calendar. Commitment w...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment relier Tâches et Calendrier sans dupliquer le travail ?",
+                    "answer_markdown": "Règle pratique : **une seule source de vérité pour chaque élément**.\n\n- **Tâche avec échéance mais sans horaire** (« finir le rapport avant vendredi ») → Tâches avec le champ `Échéance`. Ne pas dupliquer dans Calendrier.\n- **Engagement à horaire fixe** (« réunion client mardi 15h00 ») → Calendrier. Si des sous-actions préparatoires sont nécessaires, créez-les comme tâches enfants avec échéance la veille.\n- **Plage horaire pour travailler sur une tâche** (« mercredi 9h-11h travail sur le rapport ») → Calendrier, en référençant la tâche dans le titre : `[TASK-42] Travail sur rapport T3`. La tâche dans Tâches reste la même.\n\nUtilisez la recherche globale pour passer de l'un à l'autre. Évitez de créer le même élément dans les deux modules : deux copies divergent avec le temps et créent de la confusion.",
+                    "excerpt": "Règle pratique : une seule source de vérité pour chaque élément. Tâche avec échéance mais sans horaire (« finir le rapport avant vendredi ») → Tâches avec le champ Échéance. Ne pas dupliquer dans Cale...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie verknüpfe ich Aufgaben und Kalender, ohne Arbeit zu duplizieren?",
+                    "answer_markdown": "Praktische Regel: **eine einzige Quelle der Wahrheit für jedes Element**.\n\n- **Aufgabe mit Frist, aber ohne feste Uhrzeit** („Bericht bis Freitag fertigstellen“) → Aufgaben mit dem Feld `Frist`. Nicht im Kalender duplizieren.\n- **Termin mit fester Uhrzeit** („Kundentermin Dienstag 15:00 Uhr“) → Kalender. Falls vorbereitende Teilschritte nötig sind, erstellen Sie diese als untergeordnete Aufgaben mit Frist am Vortag.\n- **Zeitblock zur Bearbeitung einer Aufgabe** („Mittwoch 9-11 Uhr Arbeit am Bericht“) → Kalender, mit Verweis auf die Aufgabe im Titel: `[TASK-42] Arbeit am Q3-Bericht`. Die Aufgabe in Aufgaben bleibt dieselbe.\n\nNutzen Sie die globale Suche, um zwischen beiden zu wechseln. Vermeiden Sie es, dasselbe Element in beiden Modulen anzulegen: zwei Kopien laufen mit der Zeit auseinander und erzeugen Verwirrung.",
+                    "excerpt": "Praktische Regel: eine einzige Quelle der Wahrheit für jedes Element. Aufgabe mit Frist, aber ohne feste Uhrzeit („Bericht bis Freitag fertigstellen“) → Aufgaben mit dem Feld Frist. Nicht im Kalender ...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo conecto Tareas y Calendario sin duplicar el trabajo?",
+                    "answer_markdown": "Regla práctica: **una única fuente de verdad para cada elemento**.\n\n- **Tarea con vencimiento pero sin horario fijo** (\"terminar el informe antes del viernes\") → Tareas con el campo `Vencimiento`. No lo dupliques en Calendario.\n- **Compromiso con horario fijo** (\"reunión con cliente martes 15:00\") → Calendario. Si hacen falta subacciones preparatorias, créalas como tareas hijas con vencimiento el día anterior.\n- **Bloque de tiempo para trabajar en una tarea** (\"miércoles 9-11 trabajo en el informe\") → Calendario, referenciando la tarea en el título: `[TASK-42] Trabajo en informe T3`. La tarea en Tareas sigue siendo la misma.\n\nUsa la búsqueda global para saltar de una a otra. Evita crear el mismo elemento en ambos módulos: dos copias divergen con el tiempo y generan confusión.",
+                    "excerpt": "Regla práctica: una única fuente de verdad para cada elemento. Tarea con vencimiento pero sin horario fijo (\"terminar el informe antes del viernes\") → Tareas con el campo Vencimiento. No lo dupliques ...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 180,
+            "locales": {
+                "it": {
+                    "question": "Come passo da un contatto a un appuntamento senza riscrivere i dati?",
+                    "answer_markdown": "Flusso ottimale:\n\n1. Apri il contatto in **Contatti**.\n2. Pulsante **Crea evento** (o analogo, secondo l'installazione): si apre il form Calendario con titolo e partecipante pre-compilati con i dati del contatto.\n3. Imposta data, ora, durata. Aggiungi luogo (se il contatto ha indirizzo registrato, viene proposto automaticamente).\n4. Salva. Nel contatto resta traccia dell'evento creato come collegamento.\n\nSe il flusso \"crea evento da contatto\" non è disponibile nella tua installazione, copia manualmente nome ed email del contatto nel titolo dell'evento Calendario per mantenere il collegamento tracciabile.",
+                    "excerpt": "Da Contatti, pulsante Crea evento: nome, email, indirizzo precompilati. Il contatto conserva il link all'evento creato.",
+                    "aliases": [
+                        "contatto evento",
+                        "contatto appuntamento",
+                        "link contatti calendario"
+                    ]
+                },
+                "en": {
+                    "question": "How do I go from a contact to an appointment without retyping the data?",
+                    "answer_markdown": "Optimal flow:\n\n1. Open the contact in **Contacts**.\n2. **Create event** button (or similar, depending on the installation): the Calendar form opens with the title and participant pre-filled from the contact's data.\n3. Set date, time, duration. Add a location (if the contact has a registered address, it is suggested automatically).\n4. Save. The contact keeps a trace of the created event as a link.\n\nIf the \"create event from contact\" flow is not available in your installation, manually copy the contact's name and email into the Calendar event title to keep the link traceable.",
+                    "excerpt": "Optimal flow: 1. Open the contact in Contacts. 2. Create event button (or similar, depending on the installation): the Calendar form opens with the title and participant pre-filled from the contact's ...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment passer d'un contact à un rendez-vous sans retaper les données ?",
+                    "answer_markdown": "Flux optimal :\n\n1. Ouvrez le contact dans **Contacts**.\n2. Bouton **Créer un événement** (ou équivalent, selon l'installation) : le formulaire Calendrier s'ouvre avec le titre et le participant pré-remplis avec les données du contact.\n3. Définissez la date, l'heure, la durée. Ajoutez un lieu (si le contact a une adresse enregistrée, elle est proposée automatiquement).\n4. Enregistrez. Le contact conserve une trace de l'événement créé sous forme de lien.\n\nSi le flux « créer un événement depuis un contact » n'est pas disponible dans votre installation, copiez manuellement le nom et l'e-mail du contact dans le titre de l'événement Calendrier pour garder le lien traçable.",
+                    "excerpt": "Flux optimal : 1. Ouvrez le contact dans Contacts. 2. Bouton Créer un événement (ou équivalent, selon l'installation) : le formulaire Calendrier s'ouvre avec le titre et le participant pré-remplis ave...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie wechsle ich von einem Kontakt zu einem Termin, ohne Daten neu einzugeben?",
+                    "answer_markdown": "Optimaler Ablauf:\n\n1. Öffnen Sie den Kontakt in **Kontakte**.\n2. Schaltfläche **Ereignis erstellen** (oder ähnlich, je nach Installation): Das Kalenderformular öffnet sich mit Titel und Teilnehmer, die bereits mit den Kontaktdaten vorausgefüllt sind.\n3. Legen Sie Datum, Uhrzeit und Dauer fest. Fügen Sie einen Ort hinzu (falls der Kontakt eine hinterlegte Adresse hat, wird diese automatisch vorgeschlagen).\n4. Speichern. Im Kontakt bleibt eine Spur des erstellten Ereignisses als Verknüpfung erhalten.\n\nWenn der Ablauf „Ereignis aus Kontakt erstellen“ in Ihrer Installation nicht verfügbar ist, kopieren Sie Name und E-Mail des Kontakts manuell in den Titel des Kalenderereignisses, um die Verknüpfung nachvollziehbar zu halten.",
+                    "excerpt": "Optimaler Ablauf: 1. Öffnen Sie den Kontakt in Kontakte. 2. Schaltfläche Ereignis erstellen (oder ähnlich, je nach Installation): Das Kalenderformular öffnet sich mit Titel und Teilnehmer, die bereits...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo paso de un contacto a una cita sin volver a escribir los datos?",
+                    "answer_markdown": "Flujo óptimo:\n\n1. Abre el contacto en **Contactos**.\n2. Botón **Crear evento** (o similar, según la instalación): se abre el formulario de Calendario con el título y el participante precompletados con los datos del contacto.\n3. Configura fecha, hora, duración. Añade ubicación (si el contacto tiene una dirección registrada, se propone automáticamente).\n4. Guarda. En el contacto queda constancia del evento creado como enlace.\n\nSi el flujo \"crear evento desde contacto\" no está disponible en tu instalación, copia manualmente el nombre y el correo del contacto en el título del evento de Calendario para mantener el enlace rastreable.",
+                    "excerpt": "Flujo óptimo: 1. Abre el contacto en Contactos. 2. Botón Crear evento (o similar, según la instalación): se abre el formulario de Calendario con el título y el participante precompletados con los dato...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 190,
+            "locales": {
+                "it": {
+                    "question": "Come preparo una riunione cliente usando più moduli?",
+                    "answer_markdown": "Sequenza tipica per una riunione fissata in Calendario:\n\n1. **Contatti** — verifica anagrafica cliente: email, telefono, indirizzo. Aggiorna ciò che è cambiato.\n2. **File** — raccogli documenti rilevanti in una cartella dedicata (es. `Clienti/AcmeCorp/RiunioneQ3-2026`). Allega l'ultimo report disponibile, contratto, brief precedenti.\n3. **Attività** — crea sotto-task preparatori con scadenza il giorno prima: \"Ripassare ultimo verbale\", \"Aggiornare slide\", \"Verificare offerta in corso\".\n4. **Reports** — se serve un documento da consegnare, genera la versione finale dal template (es. PDF stato avanzamento).\n5. **Calendario** — nell'evento, nelle Note aggiungi link ai file (incolla URL della cartella File) e ai task preparatori.\n6. Dopo la riunione: trascrivi note nelle Note dell'evento o in un nuovo file della cartella stessa, chiudi i task preparatori, crea task di follow-up se necessario.",
+                    "excerpt": "Anagrafica (Contatti) → docs (File, cartella dedicata) → preparativi (Attività con scadenza giorno prima) → documento (Reports) → link nell'evento Calendario.",
+                    "aliases": [
+                        "riunione cliente",
+                        "meeting preparazione",
+                        "flusso cliente"
+                    ]
+                },
+                "en": {
+                    "question": "How do I prepare a client meeting using multiple modules?",
+                    "answer_markdown": "Typical sequence for a meeting set up in Calendar:\n\n1. **Contacts** — check the client's details: email, phone, address. Update anything that has changed.\n2. **Files** — gather relevant documents in a dedicated folder (e.g. `Clients/AcmeCorp/Q3-2026-Meeting`). Attach the latest available report, contract, previous briefs.\n3. **Tasks** — create preparatory sub-tasks due the day before: \"Review last minutes\", \"Update slides\", \"Check ongoing quote\".\n4. **Reports** — if a document needs to be delivered, generate the final version from the template (e.g. progress-status PDF).\n5. **Calendar** — in the event's Notes, add links to the files (paste the Files folder URL) and to the preparatory tasks.\n6. After the meeting: write up notes in the event's Notes or a new file in the same folder, close the preparatory tasks, create follow-up tasks if needed.",
+                    "excerpt": "Typical sequence for a meeting set up in Calendar: 1. Contacts — check the client's details: email, phone, address. Update anything that has changed. 2. Files — gather relevant documents in a dedicate...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment préparer une réunion client en utilisant plusieurs modules ?",
+                    "answer_markdown": "Séquence typique pour une réunion fixée dans Calendrier :\n\n1. **Contacts** — vérifiez les coordonnées du client : e-mail, téléphone, adresse. Mettez à jour ce qui a changé.\n2. **Fichiers** — rassemblez les documents pertinents dans un dossier dédié (ex. `Clients/AcmeCorp/ReunionT3-2026`). Joignez le dernier rapport disponible, le contrat, les briefs précédents.\n3. **Tâches** — créez des sous-tâches préparatoires avec échéance la veille : « Relire le dernier compte-rendu », « Mettre à jour les diapositives », « Vérifier l'offre en cours ».\n4. **Rapports** — si un document doit être remis, générez la version finale à partir du modèle (ex. PDF d'état d'avancement).\n5. **Calendrier** — dans l'événement, ajoutez dans les Notes des liens vers les fichiers (collez l'URL du dossier Fichiers) et vers les tâches préparatoires.\n6. Après la réunion : retranscrivez les notes dans les Notes de l'événement ou dans un nouveau fichier du même dossier, clôturez les tâches préparatoires, créez des tâches de suivi si nécessaire.",
+                    "excerpt": "Séquence typique pour une réunion fixée dans Calendrier : 1. Contacts — vérifiez les coordonnées du client : e-mail, téléphone, adresse. Mettez à jour ce qui a changé. 2. Fichiers — rassemblez les doc...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie bereite ich ein Kundentreffen mithilfe mehrerer Module vor?",
+                    "answer_markdown": "Typischer Ablauf für einen im Kalender festgelegten Termin:\n\n1. **Kontakte** — prüfen Sie die Kundendaten: E-Mail, Telefon, Adresse. Aktualisieren Sie, was sich geändert hat.\n2. **Dateien** — sammeln Sie relevante Dokumente in einem eigenen Ordner (z. B. `Kunden/AcmeCorp/TreffenQ3-2026`). Hängen Sie den letzten verfügbaren Bericht, den Vertrag, frühere Briefings an.\n3. **Aufgaben** — erstellen Sie vorbereitende Teilaufgaben mit Frist am Vortag: „Letztes Protokoll durchgehen“, „Folien aktualisieren“, „Laufendes Angebot prüfen“.\n4. **Berichte** — falls ein Dokument übergeben werden muss, erzeugen Sie die endgültige Version aus der Vorlage (z. B. Fortschritts-PDF).\n5. **Kalender** — fügen Sie im Termin unter Notizen Links zu den Dateien (URL des Dateiordners einfügen) und zu den vorbereitenden Aufgaben hinzu.\n6. Nach dem Treffen: übertragen Sie Notizen in die Notizen des Termins oder in eine neue Datei im selben Ordner, schließen Sie die vorbereitenden Aufgaben ab, erstellen Sie bei Bedarf Folgeaufgaben.",
+                    "excerpt": "Typischer Ablauf für einen im Kalender festgelegten Termin: 1. Kontakte — prüfen Sie die Kundendaten: E-Mail, Telefon, Adresse. Aktualisieren Sie, was sich geändert hat. 2. Dateien — sammeln Sie relev...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo preparo una reunión con un cliente usando varios módulos?",
+                    "answer_markdown": "Secuencia típica para una reunión fijada en Calendario:\n\n1. **Contactos** — comprueba los datos del cliente: correo, teléfono, dirección. Actualiza lo que haya cambiado.\n2. **Archivos** — reúne los documentos relevantes en una carpeta dedicada (p. ej. `Clientes/AcmeCorp/ReunionT3-2026`). Adjunta el último informe disponible, contrato, briefs anteriores.\n3. **Tareas** — crea subtareas preparatorias con vencimiento el día anterior: \"Repasar la última acta\", \"Actualizar diapositivas\", \"Comprobar oferta en curso\".\n4. **Informes** — si hace falta entregar un documento, genera la versión final a partir de la plantilla (p. ej. PDF de estado de avance).\n5. **Calendario** — en el evento, añade en las Notas enlaces a los archivos (pega la URL de la carpeta de Archivos) y a las tareas preparatorias.\n6. Después de la reunión: transcribe notas en las Notas del evento o en un archivo nuevo de la misma carpeta, cierra las tareas preparatorias, crea tareas de seguimiento si es necesario.",
+                    "excerpt": "Secuencia típica para una reunión fijada en Calendario: 1. Contactos — comprueba los datos del cliente: correo, teléfono, dirección. Actualiza lo que haya cambiado. 2. Archivos — reúne los documentos ...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 200,
+            "locales": {
+                "it": {
+                    "question": "Come tengo insieme task, allegati e report di una stessa attività?",
+                    "answer_markdown": "Pattern consigliato — **convenzione di nomenclatura**:\n\n- Crea una cartella File con nome chiaro: `Progetto-X/Attivita-Y/`.\n- Nelle Attività, usa lo stesso codice nel titolo o in un tag: `[X.Y]` o `#progetto-x-attivita-y`.\n- I report generati salvali nella stessa cartella File, con suffisso data: `report-2026-05-21.pdf`.\n- Negli eventi Calendario correlati, riporta nel titolo lo stesso codice.\n\nQuando devi ricostruire il contesto di un'attività dopo settimane, la ricerca globale con quel codice riporta in un colpo solo: task, file, eventi, report.\n\nSe usi Progetti (modulo dedicato), il legame è strutturato: task di progetto e file allegati sono già correlati al record progetto senza convenzioni manuali.",
+                    "excerpt": "Convenzione nome: stesso codice nel titolo task / cartella file / evento calendario. Per legame strutturato, usa il modulo Progetti.",
+                    "aliases": [
+                        "organizzare lavoro",
+                        "legare moduli",
+                        "convenzione nomi"
+                    ]
+                },
+                "en": {
+                    "question": "How do I keep tasks, attachments and reports of the same activity together?",
+                    "answer_markdown": "Recommended pattern — **naming convention**:\n\n- Create a Files folder with a clear name: `Project-X/Task-Y/`.\n- In Tasks, use the same code in the title or in a tag: `[X.Y]` or `#project-x-task-y`.\n- Save generated reports in the same Files folder, with a date suffix: `report-2026-05-21.pdf`.\n- In related Calendar events, put the same code in the title.\n\nWhen you need to reconstruct the context of an activity after weeks, a global search with that code brings back task, files, events and reports in one go.\n\nIf you use Projects (dedicated module), the link is structured: project tasks and attached files are already related to the project record without manual conventions.",
+                    "excerpt": "Recommended pattern — naming convention: Create a Files folder with a clear name: Project-X/Task-Y/. In Tasks, use the same code in the title or in a tag: [X.Y] or #project-x-task-y. Save generated re...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment regrouper tâches, pièces jointes et rapports d'une même activité ?",
+                    "answer_markdown": "Modèle recommandé — **convention de nommage** :\n\n- Créez un dossier Fichiers avec un nom clair : `Projet-X/Tache-Y/`.\n- Dans Tâches, utilisez le même code dans le titre ou dans une étiquette : `[X.Y]` ou `#projet-x-tache-y`.\n- Enregistrez les rapports générés dans le même dossier Fichiers, avec un suffixe de date : `rapport-2026-05-21.pdf`.\n- Dans les événements Calendrier associés, indiquez le même code dans le titre.\n\nLorsque vous devez reconstituer le contexte d'une activité après plusieurs semaines, la recherche globale avec ce code retrouve d'un coup : tâches, fichiers, événements, rapports.\n\nSi vous utilisez Projets (module dédié), le lien est structuré : les tâches de projet et les fichiers joints sont déjà liés à la fiche projet sans convention manuelle.",
+                    "excerpt": "Modèle recommandé — convention de nommage : Créez un dossier Fichiers avec un nom clair : Projet-X/Tache-Y/. Dans Tâches, utilisez le même code dans le titre ou dans une étiquette : [X.Y] ou #projet-x...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie halte ich Aufgaben, Anhänge und Berichte einer Aktivität zusammen?",
+                    "answer_markdown": "Empfohlenes Muster — **Namenskonvention**:\n\n- Erstellen Sie einen Dateiordner mit klarem Namen: `Projekt-X/Aufgabe-Y/`.\n- Verwenden Sie in Aufgaben denselben Code im Titel oder in einem Tag: `[X.Y]` oder `#projekt-x-aufgabe-y`.\n- Speichern Sie erzeugte Berichte im selben Dateiordner mit Datumssuffix: `bericht-2026-05-21.pdf`.\n- Geben Sie in zugehörigen Kalenderterminen denselben Code im Titel an.\n\nWenn Sie den Kontext einer Aktivität nach Wochen rekonstruieren müssen, liefert die globale Suche mit diesem Code auf einen Schlag: Aufgaben, Dateien, Termine, Berichte.\n\nWenn Sie Projekte (eigenes Modul) verwenden, ist die Verknüpfung strukturiert: Projektaufgaben und angehängte Dateien sind bereits ohne manuelle Konventionen mit dem Projektdatensatz verknüpft.",
+                    "excerpt": "Empfohlenes Muster — Namenskonvention: Erstellen Sie einen Dateiordner mit klarem Namen: Projekt-X/Aufgabe-Y/. Verwenden Sie in Aufgaben denselben Code im Titel oder in einem Tag: [X.Y] oder #projekt-...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo mantengo juntos tareas, adjuntos e informes de una misma actividad?",
+                    "answer_markdown": "Patrón recomendado — **convención de nomenclatura**:\n\n- Crea una carpeta de Archivos con nombre claro: `Proyecto-X/Tarea-Y/`.\n- En Tareas, usa el mismo código en el título o en una etiqueta: `[X.Y]` o `#proyecto-x-tarea-y`.\n- Guarda los informes generados en la misma carpeta de Archivos, con sufijo de fecha: `informe-2026-05-21.pdf`.\n- En los eventos de Calendario relacionados, indica el mismo código en el título.\n\nCuando necesites reconstruir el contexto de una actividad después de varias semanas, la búsqueda global con ese código recupera de una vez: tareas, archivos, eventos, informes.\n\nSi usas Proyectos (módulo dedicado), el vínculo es estructurado: las tareas de proyecto y los archivos adjuntos ya están relacionados con el registro del proyecto sin convenciones manuales.",
+                    "excerpt": "Patrón recomendado — convención de nomenclatura: Crea una carpeta de Archivos con nombre claro: Proyecto-X/Tarea-Y/. En Tareas, usa el mismo código en el título o en una etiqueta: [X.Y] o #proyecto-x-...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 210,
+            "locales": {
+                "it": {
+                    "question": "Come faccio follow-up dopo un appuntamento?",
+                    "answer_markdown": "Dentro o subito dopo l'evento Calendario:\r\n\r\n1. **Note evento** — scrivi 3-5 righe: temi trattati, decisioni prese, prossime azioni.\r\n2. **Crea task di follow-up** in Attività per ogni azione richiesta: assegna scadenza concreta (no \"presto\", si \"venerdi 28\"), aggiungi tag con codice del cliente o progetto.\r\n3. **Aggiorna il contatto** in Contatti se sono emersi nuovi dati (nuovo telefono, nuovo referente, cambio ruolo).\r\n4. **Salva documenti** ricevuti in File, nella cartella dedicata.\r\n5. **Chiudi l'evento** marcandolo come completato (se l'installazione lo prevede) o sposta a un calendario \"Archivio\".\r\n6. **Notifica i partecipanti interni** in Messaggi con riassunto e link ai task creati.\r\n\r\nFare follow-up entro 24h riduce drasticamente il rischio di azioni dimenticate.",
+                    "excerpt": "Dentro o subito dopo l'evento Calendario: Note evento — scrivi 3-5 righe: temi trattati, decisioni prese, prossime azioni. Crea task di follow-up in Attività per ogni azione richiesta: assegna scadenza concreta (no...",
+                    "aliases": [
+                        "follow up",
+                        "dopo riunione",
+                        "azioni meeting",
+                        "post meeting"
+                    ]
+                },
+                "en": {
+                    "question": "How do I follow up after an appointment?",
+                    "answer_markdown": "Inside or right after the Calendar event:\n\n1. **Event notes** — write 3-5 lines: topics covered, decisions made, next actions.\n2. **Create follow-up tasks** in Tasks for each required action: assign a concrete deadline (not \"soon\", but \"Friday the 28th\"), add a tag with the client or project code.\n3. **Update the contact** in Contacts if new data emerged (new phone, new referent, role change).\n4. **Save received documents** in Files, in the dedicated folder.\n5. **Close the event** by marking it as completed (if the installation supports it) or move it to an \"Archive\" calendar.\n6. **Notify internal participants** in Messages with a summary and links to the created tasks.\n\nDoing follow-up within 24h drastically reduces the risk of forgotten actions.",
+                    "excerpt": "Inside or right after the Calendar event: 1. Event notes — write 3-5 lines: topics covered, decisions made, next actions. 2. Create follow-up tasks in Tasks for each required action: assign a concrete...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment faire un suivi après un rendez-vous ?",
+                    "answer_markdown": "Dans ou juste après l'événement Calendrier :\n\n1. **Notes de l'événement** — écrivez 3-5 lignes : sujets abordés, décisions prises, prochaines actions.\n2. **Créez des tâches de suivi** dans Tâches pour chaque action requise : attribuez une échéance concrète (pas « bientôt », mais « vendredi 28 »), ajoutez une étiquette avec le code du client ou du projet.\n3. **Mettez à jour le contact** dans Contacts si de nouvelles données sont apparues (nouveau téléphone, nouveau référent, changement de rôle).\n4. **Enregistrez les documents reçus** dans Fichiers, dans le dossier dédié.\n5. **Clôturez l'événement** en le marquant comme terminé (si l'installation le prévoit) ou déplacez-le vers un calendrier « Archive ».\n6. **Informez les participants internes** dans Messages avec un résumé et des liens vers les tâches créées.\n\nFaire le suivi dans les 24h réduit considérablement le risque d'actions oubliées.",
+                    "excerpt": "Dans ou juste après l'événement Calendrier : 1. Notes de l'événement — écrivez 3-5 lignes : sujets abordés, décisions prises, prochaines actions. 2. Créez des tâches de suivi dans Tâches pour chaque a...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie mache ich Follow-up nach einem Termin?",
+                    "answer_markdown": "Innerhalb oder direkt nach dem Kalenderereignis:\n\n1. **Termin-Notizen** — schreiben Sie 3-5 Zeilen: behandelte Themen, getroffene Entscheidungen, nächste Schritte.\n2. **Erstellen Sie Follow-up-Aufgaben** in Aufgaben für jede erforderliche Aktion: weisen Sie eine konkrete Frist zu (nicht „bald“, sondern „Freitag, den 28.“), fügen Sie ein Tag mit dem Kunden- oder Projektcode hinzu.\n3. **Aktualisieren Sie den Kontakt** in Kontakte, falls neue Daten aufgetaucht sind (neue Telefonnummer, neuer Ansprechpartner, Rollenwechsel).\n4. **Speichern Sie erhaltene Dokumente** in Dateien, im dafür vorgesehenen Ordner.\n5. **Schließen Sie den Termin ab**, indem Sie ihn als erledigt markieren (falls die Installation dies unterstützt), oder verschieben Sie ihn in einen „Archiv“-Kalender.\n6. **Benachrichtigen Sie interne Teilnehmer** in Nachrichten mit einer Zusammenfassung und Links zu den erstellten Aufgaben.\n\nEin Follow-up innerhalb von 24 Stunden reduziert das Risiko vergessener Aktionen drastisch.",
+                    "excerpt": "Innerhalb oder direkt nach dem Kalenderereignis: 1. Termin-Notizen — schreiben Sie 3-5 Zeilen: behandelte Themen, getroffene Entscheidungen, nächste Schritte. 2. Erstellen Sie Follow-up-Aufgaben in Au...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo hago seguimiento después de una cita?",
+                    "answer_markdown": "Dentro o inmediatamente después del evento de Calendario:\n\n1. **Notas del evento** — escribe 3-5 líneas: temas tratados, decisiones tomadas, próximas acciones.\n2. **Crea tareas de seguimiento** en Tareas para cada acción requerida: asigna un vencimiento concreto (no \"pronto\", sino \"viernes 28\"), añade una etiqueta con el código del cliente o proyecto.\n3. **Actualiza el contacto** en Contactos si surgieron nuevos datos (nuevo teléfono, nuevo referente, cambio de rol).\n4. **Guarda los documentos recibidos** en Archivos, en la carpeta dedicada.\n5. **Cierra el evento** marcándolo como completado (si la instalación lo permite) o muévelo a un calendario \"Archivo\".\n6. **Notifica a los participantes internos** en Mensajes con un resumen y enlaces a las tareas creadas.\n\nHacer el seguimiento dentro de las 24h reduce drásticamente el riesgo de acciones olvidadas.",
+                    "excerpt": "Dentro o inmediatamente después del evento de Calendario: 1. Notas del evento — escribe 3-5 líneas: temas tratados, decisiones tomadas, próximas acciones. 2. Crea tareas de seguimiento en Tareas para ...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 220,
+            "locales": {
+                "it": {
+                    "question": "Come faccio onboarding rapido di un nuovo collega sul perimetro utente?",
+                    "answer_markdown": "Checklist primo giorno collega utente (perimetro non-admin):\n\n1. **Account creato** dall'amministratore con ruolo appropriato.\n2. **Primo login** — il collega cambia la password temporanea, imposta MFA se richiesto.\n3. **Profilo** — completa nome, telefono, avatar.\n4. **Tour Home** — mostra widget dashboard, ricerca globale, notifiche.\n5. **Attività** — crea insieme un task di prova, mostra board, filtri, checklist.\n6. **Calendario** — crea insieme un evento, mostra promemoria.\n7. **Contatti** — importa contatti rilevanti se previsto.\n8. **File** — mostra cartelle condivise rilevanti al ruolo.\n9. **Notifiche** — apre Preferenze notifiche e adatta canali (email/in-app/Telegram).\n10. **Help Online** — mostra icona `?` e prova 2-3 domande tipiche del ruolo.\n\nTempo: 60-90 minuti accompagnato. Per i giorni successivi, il collega può proseguire in autonomia con Help Online.",
+                    "excerpt": "10 punti accompagnati in 60-90 min: account, password+MFA, profilo, Home, Attività, Calendario, Contatti, File, Notifiche, Help Online.",
+                    "aliases": [
+                        "onboarding",
+                        "nuovo collega",
+                        "formazione iniziale",
+                        "primo giorno"
+                    ]
+                },
+                "en": {
+                    "question": "How do I quickly onboard a new colleague in the user perimeter?",
+                    "answer_markdown": "Day-one checklist for a user-role colleague (non-admin perimeter):\n\n1. **Account created** by the administrator with the appropriate role.\n2. **First login** — the colleague changes the temporary password, sets up MFA if required.\n3. **Profile** — complete name, phone, avatar.\n4. **Home tour** — show dashboard widgets, global search, notifications.\n5. **Tasks** — create a test task together, show the board, filters, checklist.\n6. **Calendar** — create an event together, show reminders.\n7. **Contacts** — import relevant contacts if planned.\n8. **Files** — show shared folders relevant to the role.\n9. **Notifications** — open Notification preferences and adapt channels (email/in-app/Telegram).\n10. **Help Online** — show the `?` icon and try 2-3 questions typical of the role.\n\nTime: 60-90 minutes accompanied. For the following days, the colleague can proceed independently with Help Online.",
+                    "excerpt": "Day-one checklist for a user-role colleague (non-admin perimeter): 1. Account created by the administrator with the appropriate role. 2. First login — the colleague changes the temporary password, set...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment faire l'intégration rapide d'un nouveau collègue sur le périmètre utilisateur ?",
+                    "answer_markdown": "Liste de contrôle du premier jour pour un collègue avec rôle utilisateur (périmètre non-admin) :\n\n1. **Compte créé** par l'administrateur avec le rôle approprié.\n2. **Première connexion** — le collègue change le mot de passe temporaire, configure le MFA si requis.\n3. **Profil** — complétez nom, téléphone, avatar.\n4. **Visite guidée de l'Accueil** — montrez les widgets du tableau de bord, la recherche globale, les notifications.\n5. **Tâches** — créez ensemble une tâche de test, montrez le tableau, les filtres, la checklist.\n6. **Calendrier** — créez ensemble un événement, montrez les rappels.\n7. **Contacts** — importez les contacts pertinents si prévu.\n8. **Fichiers** — montrez les dossiers partagés pertinents pour le rôle.\n9. **Notifications** — ouvrez les Préférences de notification et adaptez les canaux (e-mail/in-app/Telegram).\n10. **Aide en ligne** — montrez l'icône `?` et essayez 2-3 questions typiques du rôle.\n\nDurée : 60-90 minutes accompagné. Pour les jours suivants, le collègue peut continuer en autonomie avec l'Aide en ligne.",
+                    "excerpt": "Liste de contrôle du premier jour pour un collègue avec rôle utilisateur (périmètre non-admin) : 1. Compte créé par l'administrateur avec le rôle approprié. 2. Première connexion — le collègue change ...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie führe ich einen neuen Kollegen im Benutzerbereich schnell ein?",
+                    "answer_markdown": "Checkliste für den ersten Tag eines Kollegen mit Benutzerrolle (Nicht-Admin-Bereich):\n\n1. **Konto erstellt** vom Administrator mit passender Rolle.\n2. **Erster Login** — der Kollege ändert das temporäre Passwort, richtet MFA ein, falls erforderlich.\n3. **Profil** — Name, Telefon, Avatar vervollständigen.\n4. **Start-Rundgang** — Dashboard-Widgets, globale Suche, Benachrichtigungen zeigen.\n5. **Aufgaben** — gemeinsam eine Testaufgabe erstellen, Board, Filter, Checkliste zeigen.\n6. **Kalender** — gemeinsam einen Termin erstellen, Erinnerungen zeigen.\n7. **Kontakte** — relevante Kontakte importieren, falls vorgesehen.\n8. **Dateien** — für die Rolle relevante gemeinsame Ordner zeigen.\n9. **Benachrichtigungen** — Benachrichtigungseinstellungen öffnen und Kanäle anpassen (E-Mail/In-App/Telegram).\n10. **Help Online** — das `?`-Symbol zeigen und 2-3 für die Rolle typische Fragen ausprobieren.\n\nZeitaufwand: 60-90 Minuten begleitet. An den Folgetagen kann der Kollege eigenständig mit Help Online fortfahren.",
+                    "excerpt": "Checkliste für den ersten Tag eines Kollegen mit Benutzerrolle (Nicht-Admin-Bereich): 1. Konto erstellt vom Administrator mit passender Rolle. 2. Erster Login — der Kollege ändert das temporäre Passwo...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo hago el onboarding rápido de un nuevo compañero en el perímetro de usuario?",
+                    "answer_markdown": "Checklist del primer día para un compañero con rol de usuario (perímetro no administrador):\n\n1. **Cuenta creada** por el administrador con el rol adecuado.\n2. **Primer inicio de sesión** — el compañero cambia la contraseña temporal, configura el MFA si se requiere.\n3. **Perfil** — completa nombre, teléfono, avatar.\n4. **Recorrido por Inicio** — muestra los widgets del panel, la búsqueda global, las notificaciones.\n5. **Tareas** — crea junto a él una tarea de prueba, muestra el tablero, filtros, checklist.\n6. **Calendario** — crea junto a él un evento, muestra los recordatorios.\n7. **Contactos** — importa contactos relevantes si está previsto.\n8. **Archivos** — muestra las carpetas compartidas relevantes para el rol.\n9. **Notificaciones** — abre Preferencias de notificaciones y adapta los canales (correo/en la app/Telegram).\n10. **Ayuda en línea** — muestra el icono `?` y prueba 2-3 preguntas típicas del rol.\n\nTiempo: 60-90 minutos acompañado. En los días siguientes, el compañero puede continuar de forma autónoma con la Ayuda en línea.",
+                    "excerpt": "Checklist del primer día para un compañero con rol de usuario (perímetro no administrador): 1. Cuenta creada por el administrador con el rol adecuado. 2. Primer inicio de sesión — el compañero cambia ...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 230,
+            "locales": {
+                "it": {
+                    "question": "Come faccio triage notifiche in due minuti?",
+                    "answer_markdown": "Apri **Notifiche** dalla campanella. Strategia rapida:\n\n1. **Filtra per livello** — mostra prima `Errore` e `Avviso`: sono le uniche che potrebbero richiedere azione immediata.\n2. **Apri ogni notifica** in ordine: se l'azione è ovvia (\"esegui X\"), fallo subito. Se serve più tempo, crea task in Attività con scadenza e segna la notifica come letta.\n3. **Notifiche `Successo` e `Info`** — \"Segna tutte come lette\" con un click. Sono conferme che non richiedono azione.\n4. **Notifiche ricorrenti dallo stesso modulo** — se ti accorgi di riceverne troppe, vai in **Notifiche → Preferenze** e disattiva il canale per quell'evento o spostalo al digest giornaliero.\n\nObiettivo: la campanella torna a zero (o quasi) in due minuti, senza perdere informazioni rilevanti.",
+                    "excerpt": "Filtra Errore/Avviso → azione immediata o task. Successo/Info → segna lette in blocco. Troppe ricorrenti = adatta preferenze.",
+                    "aliases": [
+                        "triage notifiche",
+                        "gestione notifiche",
+                        "badge campanella"
+                    ]
+                },
+                "en": {
+                    "question": "How do I triage notifications in two minutes?",
+                    "answer_markdown": "Open **Notifications** from the bell. Quick strategy:\n\n1. **Filter by level** — show `Error` and `Warning` first: they are the only ones that might require immediate action.\n2. **Open each notification** in order: if the action is obvious (\"run X\"), do it right away. If it needs more time, create a task in Tasks with a deadline and mark the notification as read.\n3. **`Success` and `Info` notifications** — \"Mark all as read\" with one click. They are confirmations that require no action.\n4. **Recurring notifications from the same module** — if you notice you're getting too many, go to **Notifications → Preferences** and disable the channel for that event or move it to the daily digest.\n\nGoal: the bell returns to zero (or close to it) within two minutes, without losing relevant information.",
+                    "excerpt": "Open Notifications from the bell. Quick strategy: 1. Filter by level — show Error and Warning first: they are the only ones that might require immediate action. 2. Open each notification in order: if ...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment trier les notifications en deux minutes ?",
+                    "answer_markdown": "Ouvrez **Notifications** depuis la cloche. Stratégie rapide :\n\n1. **Filtrez par niveau** — affichez d'abord `Erreur` et `Avertissement` : ce sont les seules qui pourraient nécessiter une action immédiate.\n2. **Ouvrez chaque notification** dans l'ordre : si l'action est évidente (« exécuter X »), faites-le tout de suite. Si cela demande plus de temps, créez une tâche dans Tâches avec échéance et marquez la notification comme lue.\n3. **Notifications `Succès` et `Info`** — « Tout marquer comme lu » en un clic. Ce sont des confirmations qui ne nécessitent aucune action.\n4. **Notifications récurrentes du même module** — si vous en recevez trop, allez dans **Notifications → Préférences** et désactivez le canal pour cet événement ou passez-le en résumé quotidien.\n\nObjectif : la cloche revient à zéro (ou presque) en deux minutes, sans perdre d'informations pertinentes.",
+                    "excerpt": "Ouvrez Notifications depuis la cloche. Stratégie rapide : 1. Filtrez par niveau — affichez d'abord Erreur et Avertissement : ce sont les seules qui pourraient nécessiter une action immédiate. 2. Ouvre...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie erledige ich die Benachrichtigungs-Triage in zwei Minuten?",
+                    "answer_markdown": "Öffnen Sie **Benachrichtigungen** über die Glocke. Schnelle Strategie:\n\n1. **Nach Stufe filtern** — zeigen Sie zuerst `Fehler` und `Warnung`: Nur diese könnten sofortiges Handeln erfordern.\n2. **Jede Benachrichtigung der Reihe nach öffnen**: Wenn die Aktion offensichtlich ist („X ausführen“), erledigen Sie sie sofort. Wenn mehr Zeit nötig ist, erstellen Sie eine Aufgabe in Aufgaben mit Frist und markieren Sie die Benachrichtigung als gelesen.\n3. **`Erfolg`- und `Info`-Benachrichtigungen** — mit einem Klick „Alle als gelesen markieren“. Es sind Bestätigungen, die keine Aktion erfordern.\n4. **Wiederkehrende Benachrichtigungen desselben Moduls** — wenn Sie zu viele davon erhalten, gehen Sie zu **Benachrichtigungen → Einstellungen** und deaktivieren Sie den Kanal für dieses Ereignis oder verschieben Sie es in die tägliche Zusammenfassung.\n\nZiel: Die Glocke kommt innerhalb von zwei Minuten auf null (oder fast null), ohne relevante Informationen zu verlieren.",
+                    "excerpt": "Öffnen Sie Benachrichtigungen über die Glocke. Schnelle Strategie: 1. Nach Stufe filtern — zeigen Sie zuerst Fehler und Warnung: Nur diese könnten sofortiges Handeln erfordern. 2. Jede Benachrichtigun...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo hago el triaje de notificaciones en dos minutos?",
+                    "answer_markdown": "Abre **Notificaciones** desde la campana. Estrategia rápida:\n\n1. **Filtra por nivel** — muestra primero `Error` y `Aviso`: son las únicas que podrían requerir acción inmediata.\n2. **Abre cada notificación** en orden: si la acción es obvia (\"ejecutar X\"), hazlo de inmediato. Si necesita más tiempo, crea una tarea en Tareas con vencimiento y marca la notificación como leída.\n3. **Notificaciones `Éxito` e `Info`** — \"Marcar todas como leídas\" con un clic. Son confirmaciones que no requieren acción.\n4. **Notificaciones recurrentes del mismo módulo** — si notas que recibes demasiadas, ve a **Notificaciones → Preferencias** y desactiva el canal para ese evento o muévelo al resumen diario.\n\nObjetivo: que la campana vuelva a cero (o casi) en dos minutos, sin perder información relevante.",
+                    "excerpt": "Abre Notificaciones desde la campana. Estrategia rápida: 1. Filtra por nivel — muestra primero Error y Aviso: son las únicas que podrían requerir acción inmediata. 2. Abre cada notificación en orden: ...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 240,
+            "locales": {
+                "it": {
+                    "question": "Come distinguo notifiche urgenti da informative?",
+                    "answer_markdown": "Favilla classifica le notifiche per **livello**:\n\n- **Errore** (rosso) — qualcosa è fallito o richiede azione immediata: backup fallito, login sospetto, scadenza superata, errore sistema. **Sempre da leggere subito.**\n- **Avviso** (giallo) — situazione da monitorare ma non bloccante: spazio disco oltre soglia, certificato in scadenza, attività in scadenza domani. **Leggi entro la giornata.**\n- **Successo** (verde) — conferma di operazione riuscita: backup completato, report generato, email inviata. **Lettura opzionale, archivio rapido.**\n- **Info** (blu) — informazione neutra: nuova versione disponibile, contatto aggiornato, modifica di un collega. **Lettura quando hai tempo.**\n\nIl colore e l'icona della campanella si adattano al livello più alto presente: badge rosso se c'è almeno un errore, giallo se c'è almeno un avviso, ecc.",
+                    "excerpt": "Errore (rosso) = subito. Avviso (giallo) = entro giornata. Successo/Info = archivio. Badge campanella si adatta al livello più alto.",
+                    "aliases": [
+                        "livello notifica",
+                        "urgenza",
+                        "rosso giallo verde",
+                        "priorita notifiche"
+                    ]
+                },
+                "en": {
+                    "question": "How do I tell urgent notifications apart from informational ones?",
+                    "answer_markdown": "Favilla classifies notifications by **level**:\n\n- **Error** (red) — something failed or requires immediate action: failed backup, suspicious login, missed deadline, system error. **Always read right away.**\n- **Warning** (yellow) — situation to monitor but not blocking: disk space above threshold, expiring certificate, task due tomorrow. **Read within the day.**\n- **Success** (green) — confirmation of a successful operation: backup completed, report generated, email sent. **Optional reading, quick archive.**\n- **Info** (blue) — neutral information: new version available, contact updated, a colleague's change. **Read when you have time.**\n\nThe bell's color and icon adapt to the highest level present: red badge if there's at least one error, yellow if there's at least one warning, etc.",
+                    "excerpt": "Favilla classifies notifications by level: Error (red) — something failed or requires immediate action: failed backup, suspicious login, missed deadline, system error. Always read right away. Warning ...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment distinguer les notifications urgentes des informatives ?",
+                    "answer_markdown": "Favilla classe les notifications par **niveau** :\n\n- **Erreur** (rouge) — quelque chose a échoué ou nécessite une action immédiate : sauvegarde échouée, connexion suspecte, échéance dépassée, erreur système. **Toujours à lire immédiatement.**\n- **Avertissement** (jaune) — situation à surveiller mais non bloquante : espace disque au-delà du seuil, certificat expirant, tâche à échéance demain. **À lire dans la journée.**\n- **Succès** (vert) — confirmation d'une opération réussie : sauvegarde terminée, rapport généré, e-mail envoyé. **Lecture facultative, archivage rapide.**\n- **Info** (bleu) — information neutre : nouvelle version disponible, contact mis à jour, modification d'un collègue. **Lecture quand vous avez le temps.**\n\nLa couleur et l'icône de la cloche s'adaptent au niveau le plus élevé présent : badge rouge s'il y a au moins une erreur, jaune s'il y a au moins un avertissement, etc.",
+                    "excerpt": "Favilla classe les notifications par niveau : Erreur (rouge) — quelque chose a échoué ou nécessite une action immédiate : sauvegarde échouée, connexion suspecte, échéance dépassée, erreur système. Tou...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie unterscheide ich dringende von informativen Benachrichtigungen?",
+                    "answer_markdown": "Favilla klassifiziert Benachrichtigungen nach **Stufe**:\n\n- **Fehler** (rot) — etwas ist fehlgeschlagen oder erfordert sofortiges Handeln: fehlgeschlagenes Backup, verdächtiger Login, überschrittene Frist, Systemfehler. **Immer sofort lesen.**\n- **Warnung** (gelb) — zu beobachtende, aber nicht blockierende Situation: Speicherplatz über Schwellenwert, ablaufendes Zertifikat, morgen fällige Aufgabe. **Innerhalb des Tages lesen.**\n- **Erfolg** (grün) — Bestätigung einer erfolgreichen Operation: Backup abgeschlossen, Bericht erstellt, E-Mail gesendet. **Lesen optional, schnell archivieren.**\n- **Info** (blau) — neutrale Information: neue Version verfügbar, Kontakt aktualisiert, Änderung eines Kollegen. **Lesen, wenn Sie Zeit haben.**\n\nFarbe und Symbol der Glocke passen sich der höchsten vorhandenen Stufe an: rotes Abzeichen, wenn mindestens ein Fehler vorliegt, gelb bei mindestens einer Warnung usw.",
+                    "excerpt": "Favilla klassifiziert Benachrichtigungen nach Stufe: Fehler (rot) — etwas ist fehlgeschlagen oder erfordert sofortiges Handeln: fehlgeschlagenes Backup, verdächtiger Login, überschrittene Frist, Syste...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo distingo las notificaciones urgentes de las informativas?",
+                    "answer_markdown": "Favilla clasifica las notificaciones por **nivel**:\n\n- **Error** (rojo) — algo falló o requiere acción inmediata: copia de seguridad fallida, inicio de sesión sospechoso, vencimiento superado, error del sistema. **Siempre hay que leerlo de inmediato.**\n- **Aviso** (amarillo) — situación que hay que vigilar pero no bloqueante: espacio en disco por encima del umbral, certificado por caducar, tarea que vence mañana. **Léelo durante el día.**\n- **Éxito** (verde) — confirmación de una operación exitosa: copia de seguridad completada, informe generado, correo enviado. **Lectura opcional, archivo rápido.**\n- **Info** (azul) — información neutra: nueva versión disponible, contacto actualizado, cambio de un compañero. **Léelo cuando tengas tiempo.**\n\nEl color y el icono de la campana se adaptan al nivel más alto presente: insignia roja si hay al menos un error, amarilla si hay al menos un aviso, etc.",
+                    "excerpt": "Favilla clasifica las notificaciones por nivel: Error (rojo) — algo falló o requiere acción inmediata: copia de seguridad fallida, inicio de sesión sospechoso, vencimiento superado, error del sistema....",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 250,
+            "locales": {
+                "it": {
+                    "question": "Quando esportare in PDF, Excel o CSV?",
+                    "answer_markdown": "Dipende dall'uso finale:\n\n- **PDF** — quando il documento deve essere **letto/firmato/archiviato** senza modifiche. Esempio: report inviato al cliente, verbale, conferma d'ordine, fattura. Conserva grafica e impaginazione.\n- **Excel (.xlsx)** — quando il destinatario deve **rielaborare i dati**: pivot, formule, grafici. Esempio: estrazione contatti per analisi commerciale, riepilogo ore lavorate per consolidamento, dati per consulente esterno.\n- **CSV** — quando i dati vanno **importati in un altro sistema** o aperti programmaticamente. Esempio: import in CRM esterno, alimentazione di uno script Python, allegato per script di backup. Formato grezzo, niente formattazione.\n\nIn Favilla (Reports e altri moduli), il selettore formato è solitamente nello stesso dropdown del pulsante Esporta. Se hai dubbi: PDF per leggere, Excel per rielaborare, CSV per importare.",
+                    "excerpt": "PDF = leggere/archiviare. Excel = rielaborare con pivot/formule. CSV = importare in altri sistemi.",
+                    "aliases": [
+                        "pdf excel csv",
+                        "esportazione formato",
+                        "quale formato"
+                    ]
+                },
+                "en": {
+                    "question": "When should I export to PDF, Excel or CSV?",
+                    "answer_markdown": "It depends on the final use:\n\n- **PDF** — when the document must be **read/signed/archived** without changes. Example: report sent to a client, minutes, order confirmation, invoice. Preserves graphics and layout.\n- **Excel (.xlsx)** — when the recipient needs to **rework the data**: pivots, formulas, charts. Example: contact export for sales analysis, hours summary for consolidation, data for an external consultant.\n- **CSV** — when the data needs to be **imported into another system** or opened programmatically. Example: import into an external CRM, feeding a Python script, attachment for a backup script. Raw format, no formatting.\n\nIn Favilla (Reports and other modules), the format selector is usually in the same dropdown as the Export button. If in doubt: PDF to read, Excel to rework, CSV to import.",
+                    "excerpt": "It depends on the final use: PDF — when the document must be read/signed/archived without changes. Example: report sent to a client, minutes, order confirmation, invoice. Preserves graphics and layout...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Quand exporter en PDF, Excel ou CSV ?",
+                    "answer_markdown": "Cela dépend de l'usage final :\n\n- **PDF** — quand le document doit être **lu/signé/archivé** sans modification. Exemple : rapport envoyé au client, compte-rendu, confirmation de commande, facture. Conserve la mise en forme et la mise en page.\n- **Excel (.xlsx)** — quand le destinataire doit **retravailler les données** : tableaux croisés, formules, graphiques. Exemple : extraction de contacts pour analyse commerciale, résumé des heures pour consolidation, données pour un consultant externe.\n- **CSV** — quand les données doivent être **importées dans un autre système** ou ouvertes de manière programmatique. Exemple : import dans un CRM externe, alimentation d'un script Python, pièce jointe pour un script de sauvegarde. Format brut, sans mise en forme.\n\nDans Favilla (Rapports et autres modules), le sélecteur de format se trouve généralement dans le même menu déroulant que le bouton Exporter. En cas de doute : PDF pour lire, Excel pour retravailler, CSV pour importer.",
+                    "excerpt": "Cela dépend de l'usage final : PDF — quand le document doit être lu/signé/archivé sans modification. Exemple : rapport envoyé au client, compte-rendu, confirmation de commande, facture. Conserve la mi...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wann exportiere ich nach PDF, Excel oder CSV?",
+                    "answer_markdown": "Das hängt von der endgültigen Verwendung ab:\n\n- **PDF** — wenn das Dokument **gelesen/unterschrieben/archiviert** werden muss, ohne Änderungen. Beispiel: an den Kunden gesendeter Bericht, Protokoll, Auftragsbestätigung, Rechnung. Bewahrt Grafik und Layout.\n- **Excel (.xlsx)** — wenn der Empfänger die Daten **weiterverarbeiten** muss: Pivot, Formeln, Diagramme. Beispiel: Kontaktexport für Vertriebsanalyse, Stundenübersicht zur Konsolidierung, Daten für einen externen Berater.\n- **CSV** — wenn die Daten in ein **anderes System importiert** oder programmatisch geöffnet werden müssen. Beispiel: Import in ein externes CRM, Versorgung eines Python-Skripts, Anhang für ein Backup-Skript. Rohformat, keine Formatierung.\n\nIn Favilla (Berichte und andere Module) befindet sich die Formatauswahl normalerweise im selben Dropdown wie die Schaltfläche Exportieren. Im Zweifel: PDF zum Lesen, Excel zum Weiterverarbeiten, CSV zum Importieren.",
+                    "excerpt": "Das hängt von der endgültigen Verwendung ab: PDF — wenn das Dokument gelesen/unterschrieben/archiviert werden muss, ohne Änderungen. Beispiel: an den Kunden gesendeter Bericht, Protokoll, Auftragsbest...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cuándo exportar a PDF, Excel o CSV?",
+                    "answer_markdown": "Depende del uso final:\n\n- **PDF** — cuando el documento debe **leerse/firmarse/archivarse** sin modificaciones. Ejemplo: informe enviado al cliente, acta, confirmación de pedido, factura. Conserva el formato y la maquetación.\n- **Excel (.xlsx)** — cuando el destinatario necesita **reelaborar los datos**: tablas dinámicas, fórmulas, gráficos. Ejemplo: extracción de contactos para análisis comercial, resumen de horas para consolidación, datos para un consultor externo.\n- **CSV** — cuando los datos deben **importarse a otro sistema** o abrirse mediante programación. Ejemplo: importación a un CRM externo, alimentación de un script de Python, adjunto para un script de copia de seguridad. Formato en bruto, sin formato visual.\n\nEn Favilla (Informes y otros módulos), el selector de formato suele estar en el mismo desplegable que el botón Exportar. Si tienes dudas: PDF para leer, Excel para reelaborar, CSV para importar.",
+                    "excerpt": "Depende del uso final: PDF — cuando el documento debe leerse/firmarse/archivarse sin modificaciones. Ejemplo: informe enviado al cliente, acta, confirmación de pedido, factura. Conserva el formato y l...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 260,
+            "locales": {
+                "it": {
+                    "question": "Come recupero il contesto dopo qualche giorno di assenza?",
+                    "answer_markdown": "Sequenza in ~15 minuti:\r\n\r\n1. **Home** — apri la dashboard. I widget riepilogo mostrano attività scadute durante l'assenza, eventi mancati, notifiche accumulate.\r\n2. **Notifiche** — fai triage rapido (vedi domanda dedicata): chiudi le informative, agisci sugli errori, crea task dalle azioni richieste.\r\n3. **Attività** — filtro **Scadute**: riprogramma con nuova scadenza realistica o chiudi se non più rilevanti.\r\n4. **Calendario** — controlla la settimana corrente e la successiva. Verifica che nessun evento ricorrente sia stato spostato durante l'assenza.\r\n5. **Messaggi** (se usato) — scorri conversazioni con badge non lette, segna lette quelle informative, rispondi a quelle che ti menzionano (@).\r\n6. **Email** (esterna a Favilla) — gestisci a parte secondo i tuoi tempi.\r\n\r\nObiettivo: riprendere il ritmo, non leggere tutto. Quello che è davvero importante è già diventato task o evento.",
+                    "excerpt": "Sequenza in ~15 minuti: Home — apri la dashboard. I widget riepilogo mostrano attività scadute durante l'assenza, eventi mancati, notifiche accumulate. Notifiche — fai triage rapido (vedi domanda dedicata): chiudi le...",
+                    "aliases": [
+                        "ritorno assenza",
+                        "ferie ritorno",
+                        "recuperare contesto"
+                    ]
+                },
+                "en": {
+                    "question": "How do I regain context after a few days away?",
+                    "answer_markdown": "~15-minute sequence:\n\n1. **Home** — open the dashboard. The summary widgets show tasks overdue during the absence, missed events, accumulated notifications.\n2. **Notifications** — do a quick triage (see the dedicated question): close the informational ones, act on errors, create tasks from the required actions.\n3. **Tasks** — **Overdue** filter: reschedule with a new realistic deadline or close if no longer relevant.\n4. **Calendar** — check the current and following week. Verify that no recurring event was moved during the absence.\n5. **Messages** (if used) — scroll conversations with unread badges, mark informational ones as read, reply to the ones that mention you (@).\n6. **Email** (external to Favilla) — handle separately according to your own schedule.\n\nGoal: regain the rhythm, not read everything. What is truly important has already become a task or event.",
+                    "excerpt": "~15-minute sequence: 1. Home — open the dashboard. The summary widgets show tasks overdue during the absence, missed events, accumulated notifications. 2. Notifications — do a quick triage (see the de...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment retrouver le contexte après quelques jours d'absence ?",
+                    "answer_markdown": "Séquence d'environ 15 minutes :\n\n1. **Accueil** — ouvrez le tableau de bord. Les widgets récapitulatifs montrent les tâches en retard pendant l'absence, les événements manqués, les notifications accumulées.\n2. **Notifications** — faites un tri rapide (voir la question dédiée) : clôturez les informatives, agissez sur les erreurs, créez des tâches à partir des actions requises.\n3. **Tâches** — filtre **En retard** : reprogrammez avec une nouvelle échéance réaliste ou clôturez si ce n'est plus pertinent.\n4. **Calendrier** — vérifiez la semaine en cours et la suivante. Vérifiez qu'aucun événement récurrent n'a été déplacé pendant l'absence.\n5. **Messages** (si utilisé) — parcourez les conversations avec badges non lus, marquez comme lues les informatives, répondez à celles qui vous mentionnent (@).\n6. **E-mail** (externe à Favilla) — gérez séparément selon votre propre rythme.\n\nObjectif : reprendre le rythme, pas tout lire. Ce qui est vraiment important est déjà devenu une tâche ou un événement.",
+                    "excerpt": "Séquence d'environ 15 minutes : 1. Accueil — ouvrez le tableau de bord. Les widgets récapitulatifs montrent les tâches en retard pendant l'absence, les événements manqués, les notifications accumulées...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie gewinne ich nach ein paar Tagen Abwesenheit den Kontext zurück?",
+                    "answer_markdown": "Ablauf in ca. 15 Minuten:\n\n1. **Start** — öffnen Sie das Dashboard. Die Übersichts-Widgets zeigen während der Abwesenheit überfällige Aufgaben, verpasste Termine, angesammelte Benachrichtigungen.\n2. **Benachrichtigungen** — machen Sie eine schnelle Triage (siehe die entsprechende Frage): schließen Sie informative ab, handeln Sie bei Fehlern, erstellen Sie Aufgaben aus den erforderlichen Aktionen.\n3. **Aufgaben** — Filter **Überfällig**: mit neuer, realistischer Frist verschieben oder schließen, falls nicht mehr relevant.\n4. **Kalender** — prüfen Sie die aktuelle und die folgende Woche. Stellen Sie sicher, dass kein wiederkehrender Termin während der Abwesenheit verschoben wurde.\n5. **Nachrichten** (falls genutzt) — gehen Sie Unterhaltungen mit Ungelesen-Abzeichen durch, markieren Sie informative als gelesen, antworten Sie auf jene, die Sie erwähnen (@).\n6. **E-Mail** (außerhalb von Favilla) — verwalten Sie getrennt nach Ihrem eigenen Zeitplan.\n\nZiel: den Rhythmus wiederfinden, nicht alles lesen. Was wirklich wichtig ist, ist bereits zu einer Aufgabe oder einem Termin geworden.",
+                    "excerpt": "Ablauf in ca. 15 Minuten: 1. Start — öffnen Sie das Dashboard. Die Übersichts-Widgets zeigen während der Abwesenheit überfällige Aufgaben, verpasste Termine, angesammelte Benachrichtigungen. 2. Benach...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo recupero el contexto después de unos días de ausencia?",
+                    "answer_markdown": "Secuencia de ~15 minutos:\n\n1. **Inicio** — abre el panel. Los widgets resumen muestran tareas vencidas durante la ausencia, eventos perdidos, notificaciones acumuladas.\n2. **Notificaciones** — haz un triaje rápido (ver la pregunta dedicada): cierra las informativas, actúa sobre los errores, crea tareas a partir de las acciones requeridas.\n3. **Tareas** — filtro **Vencidas**: reprograma con un nuevo vencimiento realista o cierra si ya no son relevantes.\n4. **Calendario** — revisa la semana actual y la siguiente. Comprueba que ningún evento recurrente se haya movido durante la ausencia.\n5. **Mensajes** (si se usa) — recorre las conversaciones con insignias de no leído, marca como leídas las informativas, responde a las que te mencionan (@).\n6. **Correo** (externo a Favilla) — gestiónalo aparte según tus propios tiempos.\n\nObjetivo: recuperar el ritmo, no leerlo todo. Lo que es realmente importante ya se ha convertido en una tarea o un evento.",
+                    "excerpt": "Secuencia de ~15 minutos: 1. Inicio — abre el panel. Los widgets resumen muestran tareas vencidas durante la ausencia, eventos perdidos, notificaciones acumuladas. 2. Notificaciones — haz un triaje rá...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 270,
+            "locales": {
+                "it": {
+                    "question": "Come gestisco un imprevisto urgente senza perdere il piano della giornata?",
+                    "answer_markdown": "Procedura rapida:\r\n\r\n1. **Salva il contesto attuale** — se stavi lavorando a un task, aggiungi una nota breve nel campo Descrizione o nelle Note (\"interrotto a pagina 3, riprendere da paragrafo X\").\r\n2. **Gestisci lo stato del task corrente** — lascialo `In corso` se prevedi di riprenderlo a breve, oppure spostalo a `Da fare` se non ci torni prima di fine giornata. In entrambi i casi aggiorna la nota con \"urgenza imprevista\".\r\n3. **Crea immediatamente il task per l'urgenza** in Attività con priorità `Alta` o `Urgente`, scadenza oggi. Aggiungi due righe di contesto.\r\n4. **Sposta in `In corso`** sulla board: è chiaro a te (e a colleghi che vedono la board) qual è il fuoco attivo.\r\n5. **Affronta l'urgenza** fino al completamento o a un punto di sospensione stabile.\r\n6. **Chiudi** il task urgenza, riprendi il task originale spostandolo a `In corso`.\r\n\r\nIl beneficio non è solo tecnico: il passaggio esplicito riduce l'ansia da context-switch e lascia traccia per il post-mortem.",
+                    "excerpt": "Salva contesto attuale (note + In pausa) → crea task urgenza priorità Alta → sposta In corso → affronta → riprendi originale.",
+                    "aliases": [
+                        "urgenza",
+                        "imprevisto",
+                        "context switch",
+                        "interruzione"
+                    ]
+                },
+                "en": {
+                    "question": "How do I handle an urgent unexpected issue without losing my day's plan?",
+                    "answer_markdown": "Quick procedure:\n\n1. **Save the current context** — if you were working on a task, add a short note in the Description field or in Notes (\"interrupted at page 3, resume from paragraph X\").\n2. **Manage the current task's status** — leave it `In progress` if you expect to resume it soon, or move it to `To do` if you won't get back to it before end of day. Either way, update the note with \"unexpected urgency\".\n3. **Immediately create the task for the emergency** in Tasks with `High` or `Urgent` priority, due today. Add two lines of context.\n4. **Move it to `In progress`** on the board: it's clear to you (and to colleagues who see the board) what the active fire is.\n5. **Handle the emergency** until completion or a stable pause point.\n6. **Close the emergency task**, resume the original task by moving it back to `In progress`.\n\nThe benefit isn't just technical: the explicit handoff reduces context-switch anxiety and leaves a trail for the post-mortem.",
+                    "excerpt": "Quick procedure: 1. Save the current context — if you were working on a task, add a short note in the Description field or in Notes (\"interrupted at page 3, resume from paragraph X\"). 2. Manage the cu...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment gérer un imprévu urgent sans perdre le plan de la journée ?",
+                    "answer_markdown": "Procédure rapide :\n\n1. **Sauvegardez le contexte actuel** — si vous travailliez sur une tâche, ajoutez une brève note dans le champ Description ou dans les Notes (« interrompu à la page 3, reprendre au paragraphe X »).\n2. **Gérez l'état de la tâche en cours** — laissez-la `En cours` si vous prévoyez de la reprendre bientôt, ou déplacez-la vers `À faire` si vous n'y revenez pas avant la fin de la journée. Dans les deux cas, mettez à jour la note avec « urgence imprévue ».\n3. **Créez immédiatement la tâche pour l'urgence** dans Tâches avec la priorité `Haute` ou `Urgente`, échéance aujourd'hui. Ajoutez deux lignes de contexte.\n4. **Déplacez-la vers `En cours`** sur le tableau : il est clair pour vous (et pour les collègues qui voient le tableau) quel est le feu actif.\n5. **Traitez l'urgence** jusqu'à son achèvement ou à un point de pause stable.\n6. **Clôturez la tâche d'urgence**, reprenez la tâche originale en la remettant à `En cours`.\n\nLe bénéfice n'est pas seulement technique : la transition explicite réduit l'anxiété du changement de contexte et laisse une trace pour le post-mortem.",
+                    "excerpt": "Procédure rapide : 1. Sauvegardez le contexte actuel — si vous travailliez sur une tâche, ajoutez une brève note dans le champ Description ou dans les Notes (« interrompu à la page 3, reprendre au par...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie bewältige ich einen dringenden Zwischenfall, ohne den Tagesplan zu verlieren?",
+                    "answer_markdown": "Schnelles Vorgehen:\n\n1. **Aktuellen Kontext sichern** — wenn Sie an einer Aufgabe gearbeitet haben, fügen Sie eine kurze Notiz im Feld Beschreibung oder in den Notizen hinzu („bei Seite 3 unterbrochen, ab Absatz X fortsetzen“).\n2. **Status der aktuellen Aufgabe verwalten** — lassen Sie sie auf `In Bearbeitung`, wenn Sie sie bald fortsetzen wollen, oder verschieben Sie sie zu `Zu erledigen`, wenn Sie nicht vor Tagesende zurückkehren. In beiden Fällen aktualisieren Sie die Notiz mit „unerwartete Dringlichkeit“.\n3. **Erstellen Sie sofort die Aufgabe für die Dringlichkeit** in Aufgaben mit Priorität `Hoch` oder `Dringend`, Frist heute. Fügen Sie zwei Zeilen Kontext hinzu.\n4. **Verschieben Sie sie auf dem Board zu `In Bearbeitung`**: So ist Ihnen (und Kollegen, die das Board sehen) klar, was gerade brennt.\n5. **Bearbeiten Sie die Dringlichkeit** bis zum Abschluss oder bis zu einem stabilen Unterbrechungspunkt.\n6. **Schließen Sie die Dringlichkeits-Aufgabe ab**, nehmen Sie die ursprüngliche Aufgabe wieder auf, indem Sie sie zurück zu `In Bearbeitung` verschieben.\n\nDer Nutzen ist nicht nur technischer Natur: Der explizite Übergang reduziert die Angst vor dem Kontextwechsel und hinterlässt eine Spur für die Nachbetrachtung.",
+                    "excerpt": "Schnelles Vorgehen: 1. Aktuellen Kontext sichern — wenn Sie an einer Aufgabe gearbeitet haben, fügen Sie eine kurze Notiz im Feld Beschreibung oder in den Notizen hinzu („bei Seite 3 unterbrochen, ab ...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo gestiono un imprevisto urgente sin perder el plan del día?",
+                    "answer_markdown": "Procedimiento rápido:\n\n1. **Guarda el contexto actual** — si estabas trabajando en una tarea, añade una nota breve en el campo Descripción o en las Notas (\"interrumpido en la página 3, retomar desde el párrafo X\").\n2. **Gestiona el estado de la tarea actual** — déjala en `En curso` si prevés retomarla pronto, o muévela a `Por hacer` si no volverás antes de que termine el día. En ambos casos, actualiza la nota con \"urgencia imprevista\".\n3. **Crea de inmediato la tarea para la urgencia** en Tareas con prioridad `Alta` o `Urgente`, vencimiento hoy. Añade dos líneas de contexto.\n4. **Muévela a `En curso`** en el tablero: queda claro para ti (y para los compañeros que ven el tablero) cuál es el asunto activo.\n5. **Atiende la urgencia** hasta completarla o hasta un punto de pausa estable.\n6. **Cierra la tarea de urgencia**, retoma la tarea original moviéndola de nuevo a `En curso`.\n\nEl beneficio no es solo técnico: la transición explícita reduce la ansiedad del cambio de contexto y deja constancia para el post-mortem.",
+                    "excerpt": "Procedimiento rápido: 1. Guarda el contexto actual — si estabas trabajando en una tarea, añade una nota breve en el campo Descripción o en las Notas (\"interrumpido en la página 3, retomar desde el pár...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 280,
+            "locales": {
+                "it": {
+                    "question": "Come mantengo coerenza dati quando lavoro in team multi-modulo?",
+                    "answer_markdown": "Principi pratici:\r\n\r\n1. **Una sola fonte per dato**. L'email cliente sta in Contatti, non duplicata nel titolo di task o nelle note di file. Aggiornandola in un posto solo si riflette ovunque sia referenziata.\r\n2. **Convenzioni di nome** condivise nel team: per cartelle File (`Cliente/Anno/Progetto/`), per tag attività (`#cliente-acme`, `#q3-2026`), per titoli evento.\r\n3. **Aggiornamento immediato**: se in riunione emerge un nuovo dato (telefono cambiato, ruolo nuovo), aggiornalo subito nei Contatti, non al \"poi quando ho tempo\".\r\n4. **Chi modifica notifica**: se cambi un dato significativo che impatta colleghi (es. data scadenza progetto), invia un messaggio in Messaggi o aggiungi una nota visibile.\r\n5. **Audit** — gli amministratori possono ricostruire la cronologia delle modifiche tramite log di audit. Non è un sostituto della comunicazione, ma una rete di sicurezza.\r\n6. **Verifica periodica**: una volta al mese, scorri la rubrica e i progetti attivi cercando duplicati o dati obsoleti.",
+                    "excerpt": "Principi pratici: Una sola fonte per dato. L'email cliente sta in Contatti, non duplicata nel titolo di task o nelle note di file. Aggiornandola in un posto solo si riflette ovunque sia referenziata. Convenzioni di nome...",
+                    "aliases": [
+                        "coerenza dati",
+                        "lavoro team",
+                        "convenzioni",
+                        "best practice multi modulo"
+                    ]
+                },
+                "en": {
+                    "question": "How do I keep data consistent when working in a multi-module team?",
+                    "answer_markdown": "Practical principles:\n\n1. **A single source per piece of data.** The client's email lives in Contacts, not duplicated in a task title or in file notes. Updating it in one place reflects it everywhere it's referenced.\n2. **Shared naming conventions** across the team: for Files folders (`Client/Year/Project/`), for task tags (`#client-acme`, `#q3-2026`), for event titles.\n3. **Immediate updates**: if new data emerges in a meeting (phone changed, new role), update it right away in Contacts, not \"later when I have time\".\n4. **Whoever changes it notifies**: if you change a significant piece of data that affects colleagues (e.g. a project deadline), send a message in Messages or add a visible note.\n5. **Audit** — administrators can reconstruct the history of changes via audit logs. It's not a substitute for communication, but a safety net.\n6. **Periodic check**: once a month, scroll through the address book and active projects looking for duplicates or stale data.",
+                    "excerpt": "Practical principles: 1. A single source per piece of data. The client's email lives in Contacts, not duplicated in a task title or in file notes. Updating it in one place reflects it everywhere it's ...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment maintenir la cohérence des données en travaillant en équipe multi-module ?",
+                    "answer_markdown": "Principes pratiques :\n\n1. **Une seule source par donnée.** L'e-mail du client se trouve dans Contacts, pas dupliqué dans le titre d'une tâche ou dans les notes d'un fichier. La mettre à jour à un seul endroit la répercute partout où elle est référencée.\n2. **Conventions de nommage partagées** dans l'équipe : pour les dossiers Fichiers (`Client/Annee/Projet/`), pour les étiquettes de tâches (`#client-acme`, `#t3-2026`), pour les titres d'événements.\n3. **Mise à jour immédiate** : si une nouvelle donnée apparaît en réunion (téléphone changé, nouveau rôle), mettez-la à jour tout de suite dans Contacts, pas « plus tard quand j'aurai le temps ».\n4. **Qui modifie notifie** : si vous changez une donnée significative qui impacte des collègues (ex. date d'échéance de projet), envoyez un message dans Messages ou ajoutez une note visible.\n5. **Audit** — les administrateurs peuvent reconstituer l'historique des modifications via les journaux d'audit. Ce n'est pas un substitut à la communication, mais un filet de sécurité.\n6. **Vérification périodique** : une fois par mois, parcourez le répertoire et les projets actifs à la recherche de doublons ou de données obsolètes.",
+                    "excerpt": "Principes pratiques : 1. Une seule source par donnée. L'e-mail du client se trouve dans Contacts, pas dupliqué dans le titre d'une tâche ou dans les notes d'un fichier. La mettre à jour à un seul endr...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie halte ich die Datenkonsistenz bei der Arbeit in einem modulübergreifenden Team aufrecht?",
+                    "answer_markdown": "Praktische Grundsätze:\n\n1. **Eine einzige Quelle pro Datum.** Die Kunden-E-Mail befindet sich in Kontakte, nicht dupliziert im Aufgabentitel oder in Dateinotizen. Wird sie an einer Stelle aktualisiert, spiegelt sich das überall wider, wo sie referenziert wird.\n2. **Gemeinsame Namenskonventionen** im Team: für Dateiordner (`Kunde/Jahr/Projekt/`), für Aufgaben-Tags (`#kunde-acme`, `#q3-2026`), für Terminüberschriften.\n3. **Sofortige Aktualisierung**: Wenn in einem Meeting neue Daten auftauchen (Telefonnummer geändert, neue Rolle), aktualisieren Sie diese sofort in Kontakte, nicht „später, wenn ich Zeit habe“.\n4. **Wer ändert, benachrichtigt**: Wenn Sie ein bedeutsames Datum ändern, das Kollegen betrifft (z. B. ein Projekttermin), senden Sie eine Nachricht in Nachrichten oder fügen Sie eine sichtbare Notiz hinzu.\n5. **Audit** — Administratoren können die Änderungshistorie über Audit-Protokolle rekonstruieren. Das ist kein Ersatz für Kommunikation, sondern ein Sicherheitsnetz.\n6. **Regelmäßige Überprüfung**: Gehen Sie einmal im Monat das Adressbuch und die aktiven Projekte durch, um Duplikate oder veraltete Daten zu finden.",
+                    "excerpt": "Praktische Grundsätze: 1. Eine einzige Quelle pro Datum. Die Kunden-E-Mail befindet sich in Kontakte, nicht dupliziert im Aufgabentitel oder in Dateinotizen. Wird sie an einer Stelle aktualisiert, spi...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo mantengo la coherencia de los datos cuando trabajo en un equipo multi-módulo?",
+                    "answer_markdown": "Principios prácticos:\n\n1. **Una única fuente por dato.** El correo del cliente está en Contactos, no duplicado en el título de una tarea o en las notas de un archivo. Actualizarlo en un solo lugar lo refleja en todos los sitios donde se referencia.\n2. **Convenciones de nombres compartidas** en el equipo: para carpetas de Archivos (`Cliente/Año/Proyecto/`), para etiquetas de tareas (`#cliente-acme`, `#t3-2026`), para títulos de eventos.\n3. **Actualización inmediata**: si en una reunión surge un dato nuevo (teléfono cambiado, nuevo rol), actualízalo de inmediato en Contactos, no \"luego cuando tenga tiempo\".\n4. **Quien modifica, notifica**: si cambias un dato significativo que afecta a compañeros (p. ej. la fecha de vencimiento de un proyecto), envía un mensaje en Mensajes o añade una nota visible.\n5. **Auditoría** — los administradores pueden reconstruir el historial de cambios mediante los registros de auditoría. No sustituye a la comunicación, pero es una red de seguridad.\n6. **Verificación periódica**: una vez al mes, revisa la agenda y los proyectos activos buscando duplicados o datos obsoletos.",
+                    "excerpt": "Principios prácticos: 1. Una única fuente por dato. El correo del cliente está en Contactos, no duplicado en el título de una tarea o en las notas de un archivo. Actualizarlo en un solo lugar lo refle...",
+                    "aliases": []
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "helponline.index",
+            "permission_slug": null,
+            "ranking_weight": 0,
+            "sort_order": 290,
+            "locales": {
+                "it": {
+                    "question": "Come trovo subito cosa devo fare appena apro Favilla?",
+                    "answer_markdown": "Apri **Home** (è il punto di ingresso suggerito): la dashboard mostra in un colpo d'occhio:\n\n- **Widget Attività** — task scaduti, in scadenza oggi, in scadenza questa settimana.\n- **Widget Calendario** — prossimi eventi (oggi e domani).\n- **Widget Notifiche** — conteggio per livello con accesso rapido alle non lette.\n- **Widget Progetti** (se abilitato) — progetti attivi con stato e percentuale completamento.\n- **Azioni rapide** — pulsanti per creare attività, evento, contatto, file in un click.\n\nSe la dashboard non riflette le tue priorità, personalizzala: pulsante **Impostazioni dashboard** (se previsto) permette di aggiungere, rimuovere, riordinare widget. La configurazione è per-utente.",
+                    "excerpt": "Apri Home. Widget Attività (scaduti + oggi), Calendario (oggi/domani), Notifiche, Progetti, Azioni rapide. Personalizzabile per utente.",
+                    "aliases": [
+                        "cosa fare",
+                        "dashboard",
+                        "home",
+                        "apertura"
+                    ]
+                },
+                "en": {
+                    "question": "How do I quickly find what I need to do as soon as I open Favilla?",
+                    "answer_markdown": "Open **Home** (it's the suggested entry point): the dashboard shows at a glance:\n\n- **Tasks widget** — overdue tasks, due today, due this week.\n- **Calendar widget** — upcoming events (today and tomorrow).\n- **Notifications widget** — count by level with quick access to unread ones.\n- **Projects widget** (if enabled) — active projects with status and completion percentage.\n- **Quick actions** — buttons to create a task, event, contact, file in one click.\n\nIf the dashboard doesn't reflect your priorities, customize it: the **Dashboard settings** button (if available) lets you add, remove, reorder widgets. The configuration is per-user.",
+                    "excerpt": "Open Home (it's the suggested entry point): the dashboard shows at a glance: Tasks widget — overdue tasks, due today, due this week. Calendar widget — upcoming events (today and tomorrow). Notificatio...",
+                    "aliases": []
+                },
+                "fr": {
+                    "question": "Comment savoir immédiatement ce que je dois faire dès que j'ouvre Favilla ?",
+                    "answer_markdown": "Ouvrez **Accueil** (c'est le point d'entrée suggéré) : le tableau de bord montre en un coup d'œil :\n\n- **Widget Tâches** — tâches en retard, à échéance aujourd'hui, à échéance cette semaine.\n- **Widget Calendrier** — prochains événements (aujourd'hui et demain).\n- **Widget Notifications** — compte par niveau avec accès rapide aux non lues.\n- **Widget Projets** (si activé) — projets actifs avec statut et pourcentage d'avancement.\n- **Actions rapides** — boutons pour créer une tâche, un événement, un contact, un fichier en un clic.\n\nSi le tableau de bord ne reflète pas vos priorités, personnalisez-le : le bouton **Paramètres du tableau de bord** (si prévu) permet d'ajouter, de supprimer, de réorganiser les widgets. La configuration est par utilisateur.",
+                    "excerpt": "Ouvrez Accueil (c'est le point d'entrée suggéré) : le tableau de bord montre en un coup d'œil : Widget Tâches — tâches en retard, à échéance aujourd'hui, à échéance cette semaine. Widget Calendrier — ...",
+                    "aliases": []
+                },
+                "de": {
+                    "question": "Wie finde ich sofort heraus, was ich tun muss, sobald ich Favilla öffne?",
+                    "answer_markdown": "Öffnen Sie **Start** (das ist der empfohlene Einstiegspunkt): Das Dashboard zeigt auf einen Blick:\n\n- **Aufgaben-Widget** — überfällige Aufgaben, heute fällig, diese Woche fällig.\n- **Kalender-Widget** — anstehende Termine (heute und morgen).\n- **Benachrichtigungs-Widget** — Anzahl nach Stufe mit schnellem Zugriff auf ungelesene.\n- **Projekte-Widget** (falls aktiviert) — aktive Projekte mit Status und Fertigstellungsgrad.\n- **Schnellaktionen** — Schaltflächen, um mit einem Klick Aufgabe, Termin, Kontakt, Datei zu erstellen.\n\nWenn das Dashboard nicht Ihre Prioritäten widerspiegelt, passen Sie es an: Die Schaltfläche **Dashboard-Einstellungen** (falls vorgesehen) ermöglicht das Hinzufügen, Entfernen und Neuanordnen von Widgets. Die Konfiguration ist benutzerbezogen.",
+                    "excerpt": "Öffnen Sie Start (das ist der empfohlene Einstiegspunkt): Das Dashboard zeigt auf einen Blick: Aufgaben-Widget — überfällige Aufgaben, heute fällig, diese Woche fällig. Kalender-Widget — anstehende Te...",
+                    "aliases": []
+                },
+                "es": {
+                    "question": "¿Cómo encuentro de inmediato lo que tengo que hacer nada más abrir Favilla?",
+                    "answer_markdown": "Abre **Inicio** (es el punto de entrada sugerido): el panel muestra de un vistazo:\n\n- **Widget de Tareas** — tareas vencidas, que vencen hoy, que vencen esta semana.\n- **Widget de Calendario** — próximos eventos (hoy y mañana).\n- **Widget de Notificaciones** — recuento por nivel con acceso rápido a las no leídas.\n- **Widget de Proyectos** (si está habilitado) — proyectos activos con estado y porcentaje de finalización.\n- **Acciones rápidas** — botones para crear una tarea, evento, contacto, archivo con un clic.\n\nSi el panel no refleja tus prioridades, personalízalo: el botón **Configuración del panel** (si está disponible) permite añadir, quitar, reordenar widgets. La configuración es por usuario.",
+                    "excerpt": "Abre Inicio (es el punto de entrada sugerido): el panel muestra de un vistazo: Widget de Tareas — tareas vencidas, que vencen hoy, que vencen esta semana. Widget de Calendario — próximos eventos (hoy ...",
+                    "aliases": []
+                }
+            }
+        }
+    ]
+}
