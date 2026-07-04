@@ -23,12 +23,19 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
-          extensions: mbstring, zip
+          # gd/intl: required by production deps (phpspreadsheet, dompdf) so
+          # the --no-dev install below resolves platform requirements.
+          extensions: mbstring, zip, gd, intl
           coverage: none
+
+      - name: Install production dependencies (bundled into Personal/Team zips)
+        run: composer install --no-dev --optimize-autoloader --no-interaction --no-progress
 
       - name: Build the 3 edition zips (Developer / Personal / Team)
         # ci.yml already gates every commit on tests/PHPStan/cs/lang:check
         # before it can be tagged — this job only packages, it doesn't re-test.
+        # build-editions.php bundles the vendor/ tree installed above into the
+        # Personal/Team zips (unzip-and-go) and aborts if it finds dev deps.
         run: php tools/build-editions.php "${{ github.ref_name }}"
 
       - name: Create GitHub release with the 3 zips as assets

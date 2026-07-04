@@ -117,16 +117,43 @@ with `app/Config/editions.php`'s default pre-set to the matching edition.
 
 ## Requirements
 
+Docker installs need nothing but Docker — the image ships everything. Native
+installs need:
+
 - PHP **8.2+** with `pdo_mysql`, `mbstring`, `openssl`, `gd`, `zip`
 - MariaDB 10.4+ (or MySQL 8)
-- [Composer](https://getcomposer.org/)
+- [Composer](https://getcomposer.org/) — only for git checkouts and the
+  Developer zip; the **Personal and Team release zips bundle `vendor/`**
 - Apache (the upload/storage `.htaccess` hardening assumes Apache; on Nginx you
   must reproduce the "deny script execution in upload dirs" rules at the
   web-server level — see [`SECURITY.md`](SECURITY.md))
 
 ## Quick start
 
-### Option A — local (XAMPP / native PHP)
+### Option A — Docker (recommended)
+
+One command, no clone required — the script generates the `.env` secrets and
+starts the stack (app + MariaDB + scheduler):
+
+```bash
+mkdir favilla && cd favilla
+curl -LO https://raw.githubusercontent.com/Myth70/favilla/main/quickstart.sh
+bash quickstart.sh        # add --auto for a hands-off first boot
+# app on http://localhost:8080 — the setup wizard finishes the install
+```
+
+On Windows, use `quickstart.ps1` the same way. The stack pulls the prebuilt
+multi-arch image [`ghcr.io/myth70/favilla`](https://github.com/Myth70/favilla/pkgs/container/favilla)
+(amd64 + arm64 — Raspberry Pi works). Prefer doing it manually? Create a `.env`
+with `APP_KEY`, `BACKUP_ENCRYPTION_KEY`, `DB_PASS` and `DB_ROOT_PASS` (see
+[`.env.example`](.env.example)) and run `docker compose up -d`. To build the
+image from source instead:
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build
+```
+
+### Option B — local (XAMPP / native PHP)
 
 ```bash
 git clone https://github.com/Myth70/favilla.git favilla
@@ -151,13 +178,6 @@ Alternatively, load the schema and required seed manually:
 php database/migrate.php
 ```
 
-### Option B — Docker
-
-```bash
-cp .env.example .env          # set APP_KEY, BACKUP_ENCRYPTION_KEY, DB_PASS
-docker compose up -d --build  # app on http://localhost:8080
-```
-
 ## First login
 
 The required seed creates a default administrator:
@@ -171,6 +191,12 @@ credentials to the public internet.
 
 > `database/seeds/test_users.sql` is an **optional development-only** seed with
 > deliberately weak, predictable credentials. Never load it in production.
+
+## Upgrading
+
+See [`UPGRADING.md`](UPGRADING.md). TL;DR: back up, replace the code, run
+`php database/migrate.php` — migrations are tracked and idempotent. Docker:
+`docker compose pull && docker compose up -d`.
 
 ## Development
 

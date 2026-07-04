@@ -1,15 +1,20 @@
 # Favilla — self-hosted workspace.
-# Quick start:
-#   cp .env.example .env   # then set APP_KEY, BACKUP_ENCRYPTION_KEY, DB_PASS
-#   docker compose up -d --build
+#
+# Quick start (no clone needed — quickstart generates .env keys for you):
+#   curl -LO https://raw.githubusercontent.com/Myth70/favilla/main/quickstart.sh
+#   bash quickstart.sh
 #   open http://localhost:8080   (web installer, unless AUTO_MIGRATE=true)
+#
+# Manual alternative: create a .env with APP_KEY, BACKUP_ENCRYPTION_KEY,
+# DB_PASS, DB_ROOT_PASS (see .env.example), then `docker compose up -d`.
+# Pin a version with FAVILLA_TAG (default: latest).
+#
+# Building from source instead of pulling ghcr.io images:
+#   docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build
 
 services:
   app:
-    build:
-      context: .
-      dockerfile: docker/Dockerfile
-    image: favilla/favilla:latest
+    image: ghcr.io/myth70/favilla:${FAVILLA_TAG:-latest}
     restart: unless-stopped
     depends_on:
       db:
@@ -44,10 +49,7 @@ services:
       retries: 5
 
   scheduler:
-    build:
-      context: .
-      dockerfile: docker/Dockerfile
-    image: favilla/favilla:latest
+    image: ghcr.io/myth70/favilla:${FAVILLA_TAG:-latest}
     restart: unless-stopped
     depends_on:
       db:

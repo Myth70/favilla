@@ -8,6 +8,26 @@ Favilla is pre-1.0; until 1.0, minor versions may include breaking changes.
 
 ## [Unreleased]
 
+### Added
+- Prebuilt **multi-arch Docker image** (amd64/arm64) published to
+  `ghcr.io/myth70/favilla` by the new Docker workflow (release tags +
+  manual dispatch).
+- **One-command quickstart**: `quickstart.sh` / `quickstart.ps1` generate the
+  `.env` secrets (APP_KEY, BACKUP_ENCRYPTION_KEY, DB passwords) and start the
+  Docker stack — no clone required, `--auto` for a hands-off first boot.
+- `docker-compose.dev.yml` override to build the image from local source.
+- **`UPGRADING.md`** — upgrade guide for zip, git and Docker installs.
+- The setup wizard pre-fills `APP_KEY` from the process environment when set
+  (Docker), instead of generating a decoy value.
+
+### Changed
+- `docker-compose.yml` now pulls the published ghcr.io image by default
+  (pin with `FAVILLA_TAG`) instead of building from source.
+- The Personal and Team release zips **bundle `vendor/`** — unzip-and-go, no
+  Composer needed on the target server (Developer zip unchanged);
+  `tools/build-editions.php` aborts if vendor/ is missing or contains dev
+  dependencies.
+
 ## [2.0.2] — 2026-07-04
 
 First public release under the GNU AGPL-3.0-or-later.

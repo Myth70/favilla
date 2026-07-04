@@ -19,7 +19,9 @@ $appName  = htmlspecialchars($app['appName'] ?? 'Favilla');
 $appUrl   = htmlspecialchars($app['appUrl']  ?? $autoUrl);
 $appBasePath = htmlspecialchars($app['appBasePath'] ?? $autoBasePath);
 $appEnv   = $app['appEnv']   ?? 'production';
-$appKey   = htmlspecialchars($app['appKey']  ?? bin2hex(random_bytes(32)));
+// In Docker APP_KEY arriva dal process env (compose) e vince sempre sul .env
+// scritto dal wizard: mostrare quella reale, non generarne una fittizia.
+$appKey   = htmlspecialchars($app['appKey']  ?? (getenv('APP_KEY') ?: bin2hex(random_bytes(32))));
 $timezone = $app['timezone'] ?? 'Europe/Rome';
 ?>
 <h2>Configurazione applicazione</h2>

@@ -65,8 +65,8 @@ php favilla help:import [--module=X] [--force]   # importa la KB Help Online da 
 php vendor/bin/phpstan analyse -c phpstan.neon    # or: composer stan
 
 # Docker (Apache+PHP 8.2 image, MariaDB, scheduler loop)
-cp .env.example .env              # set APP_KEY, BACKUP_ENCRYPTION_KEY, DB_PASS
-docker compose up -d --build      # app at http://localhost:8080
+bash quickstart.sh                # generates .env secrets, pulls ghcr.io/myth70/favilla, starts stack at http://localhost:8080
+docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d --build   # build image from local source instead
 ```
 
 After changing routes, permissions, module metadata, or schema → `php favilla context:generate`.

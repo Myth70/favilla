@@ -19,12 +19,16 @@
  *       apply .gitattributes export-ignore rules.
  *   dist/favilla-<version>-personal.zip  — `git archive` (export-ignore
  *       applied, so the paths above are absent) with app/Config/editions.php's
- *       `'default' => 'developer'` rewritten to `'personal'`.
+ *       `'default' => 'developer'` rewritten to `'personal'`, PLUS the local
+ *       vendor/ tree bundled in, so the zip is unzip-and-go (no Composer
+ *       required on the target server).
  *   dist/favilla-<version>-team.zip      — same, rewritten to `'team'`.
  *
- * vendor/ is intentionally excluded from all three archives (it is gitignored
- * and therefore absent from both git ls-files and git archive): installation
- * requires `composer install`, as documented in the README.
+ * vendor/ is excluded from the Developer zip only (contributors run
+ * `composer install` anyway). For Personal/Team the CALLER must have run
+ * `composer install --no-dev --optimize-autoloader` first — the script aborts
+ * if vendor/ is missing or still contains dev dependencies (override the dev
+ * check for local dry runs with --allow-dev-vendor).
  */
 
 $basePath = dirname(__DIR__);
@@ -37,10 +41,27 @@ if ($version === null || $version === '' || str_starts_with($version, '--')) {
 }
 
 $outDir = 'dist';
+$allowDevVendor = false;
 foreach (array_slice($argv, 2) as $arg) {
     if (str_starts_with($arg, '--out=')) {
         $outDir = substr($arg, strlen('--out='));
     }
+    if ($arg === '--allow-dev-vendor') {
+        $allowDevVendor = true;
+    }
+}
+
+// vendor/ finisce dentro ai zip Personal/Team: deve esistere e (salvo dry run
+// locale con --allow-dev-vendor) essere un install --no-dev, per non spedire
+// phpunit/phpstan/php-cs-fixer agli utenti finali.
+if (!is_file($basePath . '/vendor/autoload.php')) {
+    fwrite(STDERR, "vendor/autoload.php mancante: esegui `composer install --no-dev --optimize-autoloader` prima del build.\n");
+    exit(1);
+}
+if (!$allowDevVendor && is_dir($basePath . '/vendor/phpunit')) {
+    fwrite(STDERR, "vendor/ contiene dipendenze dev (vendor/phpunit): esegui `composer install --no-dev --optimize-autoloader`,\n"
+        . "oppure usa --allow-dev-vendor per un dry run locale.\n");
+    exit(1);
 }
 
 if (!is_dir($outDir) && !mkdir($outDir, 0755, true) && !is_dir($outDir)) {
@@ -61,6 +82,31 @@ function runGit(string $cmd): string
         exit(1);
     }
     return implode("\n", $output);
+}
+
+/**
+ * Add the whole vendor/ tree to an open zip, preserving relative paths.
+ * Returns the number of files added.
+ */
+function addVendorToZip(ZipArchive $zip, string $basePath): int
+{
+    $vendorPath = $basePath . '/vendor';
+    $iterator   = new RecursiveIteratorIterator(
+        new RecursiveDirectoryIterator($vendorPath, FilesystemIterator::SKIP_DOTS),
+        RecursiveIteratorIterator::LEAVES_ONLY
+    );
+
+    $added = 0;
+    foreach ($iterator as $file) {
+        if (!$file->isFile()) {
+            continue;
+        }
+        $relative = 'vendor/' . str_replace('\\', '/', substr($file->getPathname(), strlen($vendorPath) + 1));
+        if ($zip->addFile($file->getPathname(), $relative)) {
+            $added++;
+        }
+    }
+    return $added;
 }
 
 echo "== Favilla release build — versione {$version} ==\n\n";
@@ -138,9 +184,13 @@ foreach (['personal', 'team'] as $edition) {
     }
 
     $editionZip->addFromString($editionsConfigPath, $rewritten);
+
+    // Bundle vendor/ so the zip installs without Composer on the target server.
+    $vendorFiles = addVendorToZip($editionZip, $basePath);
+
     $editionZip->close();
 
-    echo "  OK: {$zipPath}\n\n";
+    echo "  OK: {$zipPath} (vendor: {$vendorFiles} file)\n\n";
 }
 
 echo "Fatto. Zip generati in {$outDir}/\n";
