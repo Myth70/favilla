@@ -32,7 +32,7 @@ jobs:
         run: php tools/build-editions.php "${{ github.ref_name }}"
 
       - name: Create GitHub release with the 3 zips as assets
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           files: dist/*.zip
           generate_release_notes: true
