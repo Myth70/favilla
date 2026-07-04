@@ -17,4 +17,5 @@
 - [ ] Mutating forms include `csrf_field()`; untrusted output uses `e()`
 - [ ] User-facing copy goes through `t()` (Italian canonical + en/fr/de/es); `php favilla lang:check` passes
 - [ ] Ran `php favilla context:generate` if routes/permissions/schema changed
+- [ ] Updated `FEATURES.md` if user-facing features were added or removed
 - [ ] Added/updated tests for the change

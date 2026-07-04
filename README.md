@@ -64,10 +64,10 @@ read, audit and extend end-to-end — no build step, no SPA, no magic.
 | **Calendar** | Personal and shared events, reminders, ICS export |
 | **Contacts** (*Contatti*) | Address book with map view, CSV import, role-based sharing, follow-up reminders |
 | **Files** | Uploads with sharing, previews and SHA-256 checksums |
-| **Progetti** | Project tracking with per-project reporting |
-| **Teams** | Group people into teams with roles and team-scoped views |
-| **Documenti** | Managed documents with publishing workflow, expiry dates and integrity verification |
-| **Blog** | Internal blog/news with scheduled publishing |
+| **Progetti** | Projects with milestones, kanban & Gantt views, task dependencies, timesheet and budget control |
+| **Teams** | Team messaging: 1:1 and group chats, mentions, reactions, presence |
+| **Documenti** | Managed documents: versioning, approval workflow, protocol numbers, expiry and integrity checks |
+| **Blog** | Internal news with scheduled publishing, role-based visibility and moderated comments |
 | **Reports** | GrapesJS template designer, PDF/Excel generation, document models |
 | **Notifications** | Multi-channel template-driven notification center |
 | **HelpOnline** | Contextual help + knowledge base with search analytics |
@@ -77,6 +77,9 @@ read, audit and extend end-to-end — no build step, no SPA, no magic.
 | **HealthCheck** | System diagnostics with history and export |
 | **Scheduler** | Recurring jobs with UI: cron expressions, timeouts, run history |
 | **Feedback** | In-app issue reporting with triage workflow |
+
+The complete capability list, module by module, is in
+[**FEATURES.md**](FEATURES.md).
 
 ## Editions
 
