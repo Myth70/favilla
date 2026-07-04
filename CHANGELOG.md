@@ -8,6 +8,11 @@ Favilla is pre-1.0; until 1.0, minor versions may include breaking changes.
 
 ## [Unreleased]
 
+## [2.0.3] — 2026-07-05
+
+Install-friction release: prebuilt Docker image, one-command quickstart,
+unzip-and-go release zips and an upgrade guide.
+
 ### Added
 - Prebuilt **multi-arch Docker image** (amd64/arm64) published to
   `ghcr.io/myth70/favilla` by the new Docker workflow (release tags +
