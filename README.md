@@ -18,6 +18,8 @@ read, audit and extend end-to-end — no build step, no SPA, no magic.
 > languages** — Italian (the canonical source), English, French, German and
 > Spanish — with a per-user language switcher.
 
+![Favilla dashboard](docs/screenshots/dashboard.png)
+
 ## Highlights
 
 - **A dashboard that's actually yours** — every module contributes live
@@ -45,6 +47,13 @@ read, audit and extend end-to-end — no build step, no SPA, no magic.
   (`php favilla`) for automation.
 - **Engineered, not just written** — 1,600+ automated tests, PHPStan level 6,
   PSR-12 enforced in CI, a 100-table schema installed by a guided setup wizard.
+
+## Screenshots
+
+| | |
+|---|---|
+| ![Configurable dashboard](docs/screenshots/dashboard-configure.png) <br>*Every widget is yours: drag to reorder, toggle to hide* | ![Contextual help](docs/screenshots/help-online.png) <br>*Contextual help with a searchable knowledge base, on every page* |
+| ![Kanban board](docs/screenshots/tasks-kanban.png) <br>*Tasks as list, calendar or kanban board* | ![Appearance settings](docs/screenshots/appearance.png) <br>*Per-user themes, colors, fonts and layout styles* |
 
 ## Modules
 

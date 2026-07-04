@@ -29,6 +29,7 @@ entrypoint.sh text eol=lf
 /.github               export-ignore
 /tests                 export-ignore
 /docs/contracts        export-ignore
+/docs/screenshots      export-ignore
 /.editorconfig         export-ignore
 /.php-cs-fixer.dist.php export-ignore
 /phpstan.neon          export-ignore
