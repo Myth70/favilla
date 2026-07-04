@@ -13,7 +13,7 @@ jobs:
     name: Build edition zips
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           # Full history so release-notes generation can diff against the
           # previous tag; the zips themselves only need the tagged tree.
