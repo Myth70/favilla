@@ -28,7 +28,7 @@ jobs:
         run: composer validate --strict
 
       - name: Cache Composer packages
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: vendor
           key: composer-${{ matrix.php }}-${{ hashFiles('**/composer.lock') }}
@@ -55,7 +55,7 @@ jobs:
           coverage: none
 
       - name: Cache Composer packages
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: vendor
           key: composer-phpstan-${{ hashFiles('**/composer.lock') }}
@@ -65,7 +65,7 @@ jobs:
         run: composer install --prefer-dist --no-progress
 
       - name: Cache PHPStan result cache
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: storage/tmp/phpstan-cache
           key: phpstan-${{ hashFiles('**/composer.lock') }}-${{ hashFiles('app/**/*.php') }}
@@ -90,7 +90,7 @@ jobs:
           coverage: pcov
 
       - name: Cache Composer packages
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: vendor
           key: composer-quality-${{ hashFiles('**/composer.lock') }}
@@ -147,7 +147,7 @@ jobs:
           coverage: none
 
       - name: Cache Composer packages
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: vendor
           key: composer-integration-${{ hashFiles('**/composer.lock') }}
