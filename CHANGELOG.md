@@ -8,6 +8,8 @@ Favilla is pre-1.0; until 1.0, minor versions may include breaking changes.
 
 ## [Unreleased]
 
+## [2.0.4] — 2026-07-05
+
 ### Added
 - **Loadable demo dataset** ("Aurora Studio"): sample tasks, calendar events,
   contacts, files, notifications and — when the modules are enabled — projects
