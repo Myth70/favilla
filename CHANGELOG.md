@@ -8,6 +8,8 @@ Favilla is pre-1.0; until 1.0, minor versions may include breaking changes.
 
 ## [Unreleased]
 
+## [2.1.0] — 2026-07-05
+
 ### Added
 - **Single Sign-On (OIDC)** for the Team and Developer editions: authorization
   code + PKCE against any standards-compliant Identity Provider, configured
