@@ -1,6 +1,6 @@
 {
     "module": "Tasks",
-    "generated_at": "2026-07-04T09:48:34+02:00",
+    "generated_at": "2026-07-05T23:05:01+02:00",
     "routes": [
         {
             "method": "GET",
@@ -303,7 +303,7 @@
             ],
             "indexes": [
                 {
-                    "name": "idx_att_calendar",
+                    "name": "idx_task_calendar",
                     "columns": [
                         "calendar_event_id"
                     ],
@@ -311,7 +311,7 @@
                     "type": "BTREE"
                 },
                 {
-                    "name": "idx_att_due_date",
+                    "name": "idx_task_due_date",
                     "columns": [
                         "due_date"
                     ],
@@ -319,18 +319,9 @@
                     "type": "BTREE"
                 },
                 {
-                    "name": "idx_att_position",
+                    "name": "idx_task_position",
                     "columns": [
                         "position"
-                    ],
-                    "unique": false,
-                    "type": "BTREE"
-                },
-                {
-                    "name": "idx_att_user_status",
-                    "columns": [
-                        "user_id",
-                        "status"
                     ],
                     "unique": false,
                     "type": "BTREE"
@@ -341,6 +332,15 @@
                         "user_id",
                         "deleted_at",
                         "position"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_task_user_status",
+                    "columns": [
+                        "user_id",
+                        "status"
                     ],
                     "unique": false,
                     "type": "BTREE"
@@ -404,7 +404,7 @@
             ],
             "indexes": [
                 {
-                    "name": "idx_acl_attivita",
+                    "name": "idx_task_checklist_task",
                     "columns": [
                         "task_id"
                     ],

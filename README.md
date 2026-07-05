@@ -33,7 +33,8 @@ read, audit and extend end-to-end — no build step, no SPA, no magic.
 - **Contextual help everywhere** — a help panel available on every page, backed
   by a searchable multilingual Q&A knowledge base with synonyms and admin
   analytics on what users search for and don't find.
-- **A real security suite** — TOTP two-factor auth, security dashboard with
+- **A real security suite** — **SSO (OIDC)** with PKCE, account linking and
+  optional JIT provisioning, TOTP two-factor auth, security dashboard with
   incident detection (brute force, CSRF), full audit log, data-retention
   policies, AES-256-GCM encrypted backups with in-app restore, session
   hardening, login rate limiting, password policy.
@@ -72,7 +73,7 @@ read, audit and extend end-to-end — no build step, no SPA, no magic.
 | **Notifications** | Multi-channel template-driven notification center |
 | **HelpOnline** | Contextual help + knowledge base with search analytics |
 | **Admin** | Users, roles & fine-grained permissions, impersonation, security area, app settings |
-| **Auth** | Login, registration with admin approval, 2FA, password recovery |
+| **Auth** | Login, SSO (OIDC), registration with admin approval, 2FA, password recovery |
 | **Backup** | Encrypted database backups, download and in-app restore |
 | **HealthCheck** | System diagnostics with history and export |
 | **Scheduler** | Recurring jobs with UI: cron expressions, timeouts, run history |

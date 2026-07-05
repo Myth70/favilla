@@ -1,5 +1,5 @@
 {
-    "generated_at": "2026-07-04T09:48:34+02:00",
+    "generated_at": "2026-07-05T23:05:01+02:00",
     "layout": {
         "index": "project_context.json",
         "detail_dir": "context/",
@@ -23,6 +23,7 @@
             "cerdic/css-tidy:^2.2",
             "dompdf/dompdf:^2.0",
             "ezyang/htmlpurifier:^4.18",
+            "firebase/php-jwt:^7.1",
             "monolog/monolog:^3.0",
             "phpmailer/phpmailer:^7.0",
             "phpoffice/phpspreadsheet:^5.6.1",
@@ -41,7 +42,7 @@
         "database": {
             "host": "localhost",
             "port": "3306",
-            "name": "favilla",
+            "name": "prometeo",
             "charset": "utf8mb4"
         }
     },
@@ -612,7 +613,7 @@
             "search_provider": null,
             "export_provider": null,
             "counts": {
-                "routes": 101,
+                "routes": 102,
                 "tables": 9,
                 "permissions": 20,
                 "services": 16,
@@ -691,8 +692,8 @@
         },
         {
             "name": "Auth",
-            "version": "2.0.0",
-            "description": "Autenticazione, sessioni, recupero password e profilo utente",
+            "version": "2.1.0",
+            "description": "Autenticazione, sessioni, recupero password, profilo utente e SSO OIDC",
             "core": true,
             "database_mode": "shared",
             "database_suggested_name": null,
@@ -704,17 +705,18 @@
             "search_provider": null,
             "export_provider": null,
             "counts": {
-                "routes": 33,
-                "tables": 4,
+                "routes": 35,
+                "tables": 5,
                 "permissions": 0,
-                "services": 0,
-                "controllers": 7
+                "services": 3,
+                "controllers": 8
             },
             "tables": [
                 "users",
                 "login_attempts",
                 "user_sessions",
-                "password_resets"
+                "password_resets",
+                "oidc_identities"
             ],
             "permissions": [],
             "controllers": [
@@ -722,11 +724,16 @@
                 "AvatarCropController",
                 "ForgotPasswordController",
                 "LocaleController",
+                "OidcController",
                 "RegistrazioneController",
                 "ResetPasswordController",
                 "TotpController"
             ],
-            "services": [],
+            "services": [
+                "OidcHttpClient",
+                "OidcService",
+                "OidcTransactionStore"
+            ],
             "detail": "context/Auth.json"
         },
         {
@@ -993,7 +1000,7 @@
                 "routes": 18,
                 "tables": 5,
                 "permissions": 1,
-                "services": 2,
+                "services": 3,
                 "controllers": 1
             },
             "tables": [
@@ -1011,6 +1018,7 @@
             ],
             "services": [
                 "HelpAdminService",
+                "HelpContentService",
                 "HelpOnlineService"
             ],
             "detail": "context/HelpOnline.json"
@@ -1513,7 +1521,7 @@
             "user_totp_secrets",
             "user_weather_preferences"
         ],
-        "services_count": 30,
+        "services_count": 31,
         "detail": "context/_core.json"
     }
 }

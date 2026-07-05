@@ -1,6 +1,6 @@
 {
     "module": "HelpOnline",
-    "generated_at": "2026-07-04T09:48:34+02:00",
+    "generated_at": "2026-07-05T23:05:01+02:00",
     "routes": [
         {
             "method": "GET",
@@ -824,6 +824,7 @@
     ],
     "services": [
         "App\\Modules\\HelpOnline\\Services\\HelpAdminService",
+        "App\\Modules\\HelpOnline\\Services\\HelpContentService",
         "App\\Modules\\HelpOnline\\Services\\HelpOnlineService"
     ],
     "controllers": [

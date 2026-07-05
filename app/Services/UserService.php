@@ -177,6 +177,35 @@ class UserService
     }
 
     /**
+     * Crea un utente per provisioning JIT da identità esterna (SSO): attivo,
+     * nessun cambio password forzato, password locale random inutilizzabile
+     * (l'accesso avviene sempre via IdP), ruolo assegnato per slug.
+     */
+    public function createExternalUser(string $name, string $username, string $email, string $roleSlug): int
+    {
+        $unusable = password_hash(bin2hex(random_bytes(32)), PASSWORD_ARGON2ID);
+
+        $stmt = $this->pdo->prepare(
+            'INSERT INTO users (name, username, email, password, is_active, must_change_password, created_at, updated_at)
+             VALUES (?, ?, ?, ?, 1, 0, NOW(), NOW())'
+        );
+        $stmt->execute([$name, $username, $email, $unusable]);
+        $userId = (int) $this->pdo->lastInsertId();
+
+        $role = $this->pdo->prepare('SELECT id FROM roles WHERE slug = ? LIMIT 1');
+        $role->execute([$roleSlug]);
+        $roleId = $role->fetchColumn();
+        if ($roleId) {
+            $this->pdo->prepare('INSERT INTO user_role (user_id, role_id) VALUES (?, ?)')
+                ->execute([$userId, (int) $roleId]);
+        }
+
+        EventDispatcher::getInstance()->dispatch(new UserCreated($userId, $email));
+
+        return $userId;
+    }
+
+    /**
      * Get user preferences.
      */
     public function getPreferences(int $userId): array

@@ -1,14 +1,15 @@
 {
     "name": "Auth",
     "icon": "fa-solid fa-lock",
-    "version": "2.0.0",
-    "description": "Autenticazione, sessioni, recupero password e profilo utente",
+    "version": "2.1.0",
+    "description": "Autenticazione, sessioni, recupero password, profilo utente e SSO OIDC",
     "database": "shared",
     "tables": [
         "users",
         "login_attempts",
         "user_sessions",
-        "password_resets"
+        "password_resets",
+        "oidc_identities"
     ],
     "dependencies": ["Notifications"],
     "optional_dependencies": [],
@@ -34,7 +35,8 @@
         }
     ],
     "changelog": {
-        "1.0.0": "Versione iniziale"
+        "1.0.0": "Versione iniziale",
+        "2.1.0": "Accesso SSO OIDC (authorization code + PKCE), collegamento identità esterne e provisioning JIT opzionale"
     },
     "menu": [],
     "navigation": [

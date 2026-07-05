@@ -87,6 +87,27 @@ class AuthService
     }
 
     /**
+     * Stabilisce la sessione per un utente autenticato ESTERNAMENTE (OIDC/LDAP).
+     * Stesso percorso di attempt() dopo la verifica password, ma senza
+     * rate-limiter (nessuna superficie di guessing) e senza flag MFA locale:
+     * il secondo fattore è delegato all'Identity Provider.
+     */
+    public function loginExternal(array $user, string $ip, string $userAgent): void
+    {
+        $this->createSession($user, $ip, $userAgent);
+
+        // ISO 27001 A.9.4.3 — Enforce concurrent session limit
+        try {
+            $sessionLimiter = app(SessionLimiterService::class);
+            $sessionLimiter->enforce($user['id'], $_SESSION['_db_session_id'] ?? 0);
+        } catch (\Throwable $e) {
+            app_log('error', '[AuthService] SessionLimiter fallito: ' . $e->getMessage());
+        }
+
+        EventDispatcher::getInstance()->dispatch(new UserLoggedIn($user['id'], $ip, $userAgent));
+    }
+
+    /**
      * Create PHP session and DB session record.
      */
     private function createSession(array $user, string $ip, string $userAgent): void

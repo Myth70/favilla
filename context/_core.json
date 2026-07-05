@@ -1,5 +1,5 @@
 {
-    "generated_at": "2026-07-04T09:48:34+02:00",
+    "generated_at": "2026-07-05T23:05:01+02:00",
     "tables": [
         {
             "name": "changelogs",
@@ -1316,6 +1316,7 @@
         "App\\Services\\DataRetentionService",
         "App\\Services\\DatabaseSessionHandler",
         "App\\Services\\EncryptionService",
+        "App\\Services\\ExternalIdentityService",
         "App\\Services\\FileUploadService",
         "App\\Services\\GlobalSearchService",
         "App\\Services\\KeyRotationService",

@@ -1,0 +1,6 @@
+# Config OpenSSL minimale per i test (openssl_pkey_new su Windows/XAMPP
+# richiede un file di configurazione esistente; su Linux non serve).
+# Vedi OidcServiceTest::setUp().
+distinguished_name = req_distinguished_name
+
+[req_distinguished_name]

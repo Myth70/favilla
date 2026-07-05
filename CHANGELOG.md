@@ -8,6 +8,18 @@ Favilla is pre-1.0; until 1.0, minor versions may include breaking changes.
 
 ## [Unreleased]
 
+### Added
+- **Single Sign-On (OIDC)** for the Team and Developer editions: authorization
+  code + PKCE against any standards-compliant Identity Provider, configured
+  from Admin → Impostazioni (new SSO tab with computed redirect URI and a
+  "test connection" button; client secret encrypted at rest). Existing users
+  are matched by verified e-mail on first login and permanently linked by
+  provider subject (`oidc_identities` table); optional JIT provisioning
+  creates new users with a configurable default role (never admin). "SSO only"
+  mode hides the password form, with an admin break-glass at `/login?local=1`.
+  SSO logins delegate MFA to the IdP. New dependency: `firebase/php-jwt`
+  (JWT/JWKS signature verification only).
+
 ## [2.0.4] — 2026-07-05
 
 ### Added

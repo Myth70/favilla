@@ -17,11 +17,18 @@ return [
         'submitting'           => 'Accesso in corso…',
         'no_account'           => 'Non hai un account?',
         'register'             => 'Registrati',
+        'sso_button'           => 'Accedi con SSO',
+        'sso_or'               => 'oppure',
+        'sso_only_hint'        => "L'accesso avviene tramite il sistema di autenticazione aziendale.",
+        'sso_redirecting'      => 'Accesso in corso…',
+        'sso_redirect_link'    => 'Continua se non vieni reindirizzato',
     ],
 
     'errors' => [
         'too_many_attempts'   => 'Troppi tentativi di accesso. Riprova tra qualche minuto.',
         'invalid_credentials' => 'Credenziali non valide. Tentativi rimasti: :remaining.',
+        'sso_failed'          => 'Accesso SSO non riuscito. Riprova o contatta un amministratore.',
+        'sso_denied'          => "Accesso SSO non consentito per questo account. Contatta un amministratore.",
     ],
 
     'profile' => [

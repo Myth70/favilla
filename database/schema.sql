@@ -1662,6 +1662,21 @@ CREATE TABLE IF NOT EXISTS `teams_message_mentions` (
   CONSTRAINT `teams_message_mentions_ibfk_1` FOREIGN KEY (`message_id`) REFERENCES `teams_messages` (`id`) ON DELETE CASCADE,
   CONSTRAINT `teams_message_mentions_ibfk_2` FOREIGN KEY (`mentioned_user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE IF NOT EXISTS `oidc_identities` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `provider` varchar(50) NOT NULL DEFAULT 'oidc',
+  `issuer` varchar(255) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `email_at_link` varchar(255) DEFAULT NULL,
+  `last_login_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uq_oidc_identity` (`provider`,`issuer`,`subject`),
+  UNIQUE KEY `uq_oidc_user_provider` (`user_id`,`provider`),
+  CONSTRAINT `fk_oidc_identities_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 CREATE TABLE IF NOT EXISTS `user_weather_preferences` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) unsigned NOT NULL,

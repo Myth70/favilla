@@ -17,11 +17,18 @@ return [
         'submitting'           => 'Accediendo…',
         'no_account'           => '¿No tienes una cuenta?',
         'register'             => 'Regístrate',
+        'sso_button'           => 'Iniciar sesión con SSO',
+        'sso_or'               => 'o',
+        'sso_only_hint'        => 'El acceso se realiza a través del sistema de autenticación de tu organización.',
+        'sso_redirecting'      => 'Iniciando sesión…',
+        'sso_redirect_link'    => 'Continúa si no eres redirigido',
     ],
 
     'errors' => [
         'too_many_attempts'   => 'Demasiados intentos de acceso. Inténtalo de nuevo en unos minutos.',
         'invalid_credentials' => 'Credenciales no válidas. Intentos restantes: :remaining.',
+        'sso_failed'          => 'Error al iniciar sesión con SSO. Inténtalo de nuevo o contacta con un administrador.',
+        'sso_denied'          => 'El acceso SSO no está permitido para esta cuenta. Contacta con un administrador.',
     ],
 
     'profile' => [

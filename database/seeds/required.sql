@@ -407,5 +407,22 @@ UPDATE `documenti_categorie`
    SET `path` = CONCAT('/', `id`, '/')
  WHERE `codice` = 'GEN' AND (`path` IS NULL OR `path` = '/');
 
+-- ============================================================================
+-- SSO OIDC (group 'sso'): configurazione provider esterno. Il client secret
+-- viene salvato CIFRATO (AES-256-GCM) dal pannello Admin. Speculare a
+-- database/migrations/001_oidc_sso.sql (che copre gli upgrade).
+-- ============================================================================
+
+INSERT IGNORE INTO `app_settings` (`key`, `value`, `type`, `group`, `label`) VALUES
+    ('sso_oidc_enabled',          '0',                    'bool',   'sso', 'Abilita accesso SSO (OIDC)'),
+    ('sso_oidc_issuer',           '',                     'string', 'sso', 'Issuer URL del provider'),
+    ('sso_oidc_client_id',        '',                     'string', 'sso', 'Client ID'),
+    ('sso_oidc_client_secret',    '',                     'string', 'sso', 'Client Secret'),
+    ('sso_oidc_scopes',           'openid profile email', 'string', 'sso', 'Scope richiesti'),
+    ('sso_oidc_button_label',     '',                     'string', 'sso', 'Etichetta pulsante login (vuoto = predefinita)'),
+    ('sso_oidc_jit_enabled',      '0',                    'bool',   'sso', 'Crea automaticamente i nuovi utenti (JIT)'),
+    ('sso_oidc_jit_default_role', 'user',                 'string', 'sso', 'Ruolo di default per utenti JIT'),
+    ('sso_only',                  '0',                    'bool',   'sso', 'Solo SSO (nasconde il login con password)');
+
 
 SET FOREIGN_KEY_CHECKS = 1;

@@ -185,8 +185,14 @@ In-app issue reporting.
 ## Account & Sign-in (*Auth*)
 
 - Login with rate limiting and lockout on repeated failures.
+- **Single Sign-On (OIDC)**: authorization code + PKCE against any standard
+  Identity Provider (Keycloak, Authentik, Entra ID…); account linking by
+  verified e-mail, optional JIT user provisioning with configurable default
+  role, "SSO only" mode with admin break-glass, encrypted client secret,
+  admin "test connection" — Team/Developer editions.
 - Self-registration with **admin approval** workflow (open/closed per edition).
-- **Two-factor authentication** (TOTP) with anti-replay.
+- **Two-factor authentication** (TOTP) with anti-replay; SSO logins delegate
+  MFA to the Identity Provider.
 - Password recovery by email; password policy enforcement.
 - Personal profile with avatar upload and cropping.
 - Active sessions list with remote revocation; sign-in history.

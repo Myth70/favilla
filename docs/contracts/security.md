@@ -44,3 +44,32 @@
 - `SHOULD`: application entities use `deleted_at` + Repository `$softDelete = true`.
 - `NOTE`: technical/compliance tables documented as exceptions keep hard delete by design.
 - → SQL conventions and Repository safety: [`data.md`](data.md).
+
+## 6. SSO (OIDC)
+- Flow: authorization code + **PKCE S256**; state/nonce/verifier travel in the
+  encrypted single-use cookie `favilla_oidc_txn` (SameSite=**Lax**, TTL 600s) —
+  NOT in the session: the session cookie is SameSite=**Strict** and is not sent
+  on the cross-site navigation back from the IdP. For the same reason the
+  callback never answers 302: it renders a same-origin interstitial that
+  navigates client-side (`Auth/Views/oidc-interstitial.php`).
+- ID token validation (`OidcService::validateIdToken`): alg whitelist
+  {RS256, ES256} checked BEFORE decoding, JWKS signature with one cache-busting
+  refetch on key rotation, `iss` ≡ configured ≡ discovery, `aud`/`azp`,
+  `nonce` (hash_equals), `exp` with 60s leeway, non-empty `sub`.
+- Session establishment reuses `AuthService::loginExternal()` (same
+  `createSession` as the password path: regenerated session id, CSRF, DB
+  session record, session limiter, `UserLoggedIn` event). **No local TOTP**:
+  MFA is delegated to the IdP.
+- Provisioning (`ExternalIdentityService::resolveUser`): sub match → verified
+  e-mail match (case-insensitive, `email_verified === true` required) → JIT if
+  enabled (default role never `admin`). `is_active`/`deleted_at` enforced on
+  EVERY SSO login. Client secret stored AES-256-GCM encrypted.
+- "SSO only" hides the password form; `/login?local=1` is a **break-glass**
+  (visibility only — POST /login keeps rate limiting, TOTP and password policy).
+- Audit actions: `sso_login`, `sso_login_failed` (+reason), `sso_identity_linked`,
+  `sso_user_provisioned`. UI errors are generic (`auth.errors.sso_*`); protocol
+  detail goes to logs only.
+- `MUST` (ops): on Windows/XAMPP set `curl.cainfo` in php.ini or discovery/token
+  HTTPS calls fail TLS verification. Pre-release smoke test against a real IdP
+  (Keycloak/Authentik in Docker): happy path, SSO-only + break-glass, JIT
+  on/off, deactivated user, realm key rotation, Strict-cookie interstitial.

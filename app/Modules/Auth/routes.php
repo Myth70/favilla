@@ -11,6 +11,7 @@ use App\Modules\Auth\Controllers\AuthController;
 use App\Modules\Auth\Controllers\AvatarCropController;
 use App\Modules\Auth\Controllers\ForgotPasswordController;
 use App\Modules\Auth\Controllers\LocaleController;
+use App\Modules\Auth\Controllers\OidcController;
 use App\Modules\Auth\Controllers\RegistrazioneController;
 use App\Modules\Auth\Controllers\ResetPasswordController;
 use App\Modules\Auth\Controllers\TotpController;
@@ -21,6 +22,11 @@ $router->group(['middleware' => [CsrfMiddleware::class]], function ($router) {
     $router->get('/login', [AuthController::class, 'showLogin'])->name('login');
     $router->post('/login', [AuthController::class, 'login'])->name('login.post');
     $router->post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+    // SSO OIDC: pubbliche — il callback arriva dall'IdP senza sessione
+    // (cookie Strict non inviato su navigazione cross-site).
+    $router->get('/auth/oidc/start', [OidcController::class, 'start'])->name('oidc.start');
+    $router->get('/auth/oidc/callback', [OidcController::class, 'callback'])->name('oidc.callback');
 
     // i18n: public language switch (anonymous + authenticated).
     $router->get('/lang/{code}', [LocaleController::class, 'switch'])->name('lang.switch');

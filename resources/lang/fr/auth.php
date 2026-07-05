@@ -17,11 +17,18 @@ return [
         'submitting'           => 'Connexion en cours…',
         'no_account'           => "Vous n'avez pas de compte ?",
         'register'             => "S'inscrire",
+        'sso_button'           => 'Se connecter avec SSO',
+        'sso_or'               => 'ou',
+        'sso_only_hint'        => "L'accès s'effectue via le système d'authentification de votre organisation.",
+        'sso_redirecting'      => 'Connexion en cours…',
+        'sso_redirect_link'    => "Continuer si vous n'êtes pas redirigé",
     ],
 
     'errors' => [
         'too_many_attempts'   => 'Trop de tentatives de connexion. Réessayez dans quelques minutes.',
         'invalid_credentials' => 'Identifiants invalides. Tentatives restantes : :remaining.',
+        'sso_failed'          => 'Connexion SSO échouée. Réessayez ou contactez un administrateur.',
+        'sso_denied'          => 'Connexion SSO non autorisée pour ce compte. Contactez un administrateur.',
     ],
 
     'profile' => [

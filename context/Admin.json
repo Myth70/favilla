@@ -1,6 +1,6 @@
 {
     "module": "Admin",
-    "generated_at": "2026-07-04T09:48:34+02:00",
+    "generated_at": "2026-07-05T23:05:01+02:00",
     "routes": [
         {
             "method": "GET",
@@ -942,6 +942,18 @@
             "uri": "/admin/settings/system/toggle",
             "name": "admin.settings.system.toggle",
             "controller": "SettingsController@toggleSystemSetting",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:admin.settings.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/settings/sso/test",
+            "name": "admin.settings.sso.test",
+            "controller": "SettingsController@testOidc",
             "middleware": [
                 "AuthMiddleware",
                 "CsrfMiddleware",

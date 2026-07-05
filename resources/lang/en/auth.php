@@ -17,11 +17,18 @@ return [
         'submitting'           => 'Signing in…',
         'no_account'           => "Don't have an account?",
         'register'             => 'Sign up',
+        'sso_button'           => 'Sign in with SSO',
+        'sso_or'               => 'or',
+        'sso_only_hint'        => "Access is handled by your organisation's authentication system.",
+        'sso_redirecting'      => 'Signing you in…',
+        'sso_redirect_link'    => 'Continue if you are not redirected',
     ],
 
     'errors' => [
         'too_many_attempts'   => 'Too many login attempts. Try again in a few minutes.',
         'invalid_credentials' => 'Invalid credentials. Attempts remaining: :remaining.',
+        'sso_failed'          => 'SSO sign-in failed. Try again or contact an administrator.',
+        'sso_denied'          => 'SSO sign-in is not allowed for this account. Contact an administrator.',
     ],
 
     'profile' => [

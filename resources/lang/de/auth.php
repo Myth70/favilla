@@ -17,11 +17,18 @@ return [
         'submitting'           => 'Anmeldung läuft…',
         'no_account'           => 'Sie haben noch kein Konto?',
         'register'             => 'Registrieren',
+        'sso_button'           => 'Mit SSO anmelden',
+        'sso_or'               => 'oder',
+        'sso_only_hint'        => 'Die Anmeldung erfolgt über das Authentifizierungssystem Ihrer Organisation.',
+        'sso_redirecting'      => 'Anmeldung läuft…',
+        'sso_redirect_link'    => 'Weiter, falls Sie nicht weitergeleitet werden',
     ],
 
     'errors' => [
         'too_many_attempts'   => 'Zu viele Anmeldeversuche. Versuchen Sie es in einigen Minuten erneut.',
         'invalid_credentials' => 'Ungültige Anmeldedaten. Verbleibende Versuche: :remaining.',
+        'sso_failed'          => 'SSO-Anmeldung fehlgeschlagen. Versuchen Sie es erneut oder kontaktieren Sie einen Administrator.',
+        'sso_denied'          => 'SSO-Anmeldung ist für dieses Konto nicht erlaubt. Kontaktieren Sie einen Administrator.',
     ],
 
     'profile' => [

@@ -66,11 +66,23 @@ class AuthController extends Controller
         $error = $_SESSION['_login_error'] ?? null;
         unset($_SESSION['_login_error']);
 
+        // SSO OIDC: bottone e modalità "solo SSO". ?local=1 è il break-glass
+        // che rimostra il form password (visibilità, non access control: il
+        // POST /login resta protetto da rate-limit, TOTP e policy password).
+        $ssoEnabled    = app(\App\Modules\Auth\Services\OidcService::class)->isEnabled();
+        $ssoOnly       = $ssoEnabled && (bool) setting('sso_only', false);
+        $showLocalForm = !$ssoOnly || isset($_GET['local']);
+        $ssoLabel      = trim((string) setting('sso_oidc_button_label', ''));
+
         $this->render('Auth/Views/login', [
-            'layout'     => 'auth',
-            'authPage'   => true,
-            'error'      => $error,
-            'pageTitle'  => 'Accesso',
+            'layout'         => 'auth',
+            'authPage'       => true,
+            'error'          => $error,
+            'pageTitle'      => 'Accesso',
+            'ssoEnabled'     => $ssoEnabled,
+            'ssoOnly'        => $ssoOnly,
+            'showLocalForm'  => $showLocalForm,
+            'ssoButtonLabel' => $ssoLabel !== '' ? $ssoLabel : t('auth.login.sso_button'),
         ]);
     }
 

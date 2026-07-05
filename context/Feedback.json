@@ -1,6 +1,6 @@
 {
     "module": "Feedback",
-    "generated_at": "2026-07-04T09:48:34+02:00",
+    "generated_at": "2026-07-05T23:05:01+02:00",
     "routes": [
         {
             "method": "GET",
@@ -233,7 +233,7 @@
             ],
             "indexes": [
                 {
-                    "name": "fk_segnalazioni_assegnato",
+                    "name": "fk_feedback_assegnato",
                     "columns": [
                         "assegnata_a"
                     ],
@@ -241,7 +241,7 @@
                     "type": "BTREE"
                 },
                 {
-                    "name": "fk_segnalazioni_creatore",
+                    "name": "fk_feedback_creatore",
                     "columns": [
                         "created_by"
                     ],
@@ -249,7 +249,7 @@
                     "type": "BTREE"
                 },
                 {
-                    "name": "idx_segnalazioni_created",
+                    "name": "idx_feedback_created",
                     "columns": [
                         "created_at"
                     ],
@@ -257,7 +257,7 @@
                     "type": "BTREE"
                 },
                 {
-                    "name": "idx_segnalazioni_modulo",
+                    "name": "idx_feedback_modulo",
                     "columns": [
                         "modulo"
                     ],
@@ -265,7 +265,7 @@
                     "type": "BTREE"
                 },
                 {
-                    "name": "idx_segnalazioni_stato",
+                    "name": "idx_feedback_stato",
                     "columns": [
                         "stato",
                         "deleted_at"
@@ -274,7 +274,7 @@
                     "type": "BTREE"
                 },
                 {
-                    "name": "idx_segnalazioni_tipo",
+                    "name": "idx_feedback_tipo",
                     "columns": [
                         "tipo",
                         "deleted_at"
@@ -301,14 +301,14 @@
             ],
             "fk": [
                 {
-                    "constraint": "fk_segnalazioni_assegnato",
+                    "constraint": "fk_feedback_assegnato",
                     "column": "assegnata_a",
                     "references": "users.id",
                     "on_delete": "SET NULL",
                     "on_update": "RESTRICT"
                 },
                 {
-                    "constraint": "fk_segnalazioni_creatore",
+                    "constraint": "fk_feedback_creatore",
                     "column": "created_by",
                     "references": "users.id",
                     "on_delete": "SET NULL",

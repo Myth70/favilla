@@ -25,6 +25,14 @@ $view->start('content');
         </div>
     <?php endif; ?>
 
+    <?php if (!empty($ssoEnabled)): ?>
+        <?php $view->include('Auth/Views/partials/sso-button', ['ssoButtonLabel' => $ssoButtonLabel, 'showLocalForm' => $showLocalForm]) ?>
+        <?php if (empty($showLocalForm)): ?>
+            <p class="text-center small text-muted mt-3 mb-0"><?= e(t('auth.login.sso_only_hint')) ?></p>
+        <?php endif; ?>
+    <?php endif; ?>
+
+    <?php if (!empty($showLocalForm)): ?>
     <form method="POST" action="<?= e(route('login.post')) ?>" id="login-form" novalidate>
         <?= csrf_field() ?>
 
@@ -79,9 +87,10 @@ $view->start('content');
             <i class="fa-solid fa-right-to-bracket me-2"></i><?= e(t('auth.login.submit')) ?>
         </button>
     </form>
+    <?php endif; ?>
 </div>
 
-<?php if (!is_single_user()): ?>
+<?php if (!is_single_user() && empty($ssoOnly)): ?>
 <p class="text-center mt-4 auth-footer-meta">
     <?= e(t('auth.login.no_account')) ?>
     <a href="<?= e(route('registrazione')) ?>" class="auth-footer-ext-link"><?= e(t('auth.login.register')) ?></a>

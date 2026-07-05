@@ -212,6 +212,7 @@ $router->group([
         $r->post('/settings', [SettingsController::class, 'update'])->name('admin.settings.update');
         $r->post('/settings/system', [SettingsController::class, 'updateSystem'])->name('admin.settings.system.update');
         $r->post('/settings/system/toggle', [SettingsController::class, 'toggleSystemSetting'])->name('admin.settings.system.toggle');
+        $r->post('/settings/sso/test', [SettingsController::class, 'testOidc'])->name('admin.settings.sso.test');
     });
 
     // ---------------------------------------------------------------

@@ -218,6 +218,7 @@ $renderGroups = array_diff_key($groups, ['system' => true]);
                     'general'  => ['label' => t('admin.settings.group_general'),  'icon' => 'fa-sliders'],
                     'mail'     => ['label' => t('admin.settings.group_mail'),     'icon' => 'fa-envelope'],
                     'security' => ['label' => t('admin.settings.group_security'), 'icon' => 'fa-shield-halved'],
+                    'sso'      => ['label' => t('admin.settings.group_sso'),      'icon' => 'fa-key'],
                 ];
                 ?>
 
@@ -270,6 +271,22 @@ $renderGroups = array_diff_key($groups, ['system' => true]);
                                            id="setting-<?= e($setting['key']) ?>"
                                            value="<?= e($setting['value'] ?? '') ?>"
                                            autocomplete="off">
+                                <?php elseif ($setting['key'] === 'sso_oidc_client_secret'): ?>
+                                    <input type="password" class="form-control"
+                                           name="<?= e($setting['key']) ?>"
+                                           id="setting-<?= e($setting['key']) ?>"
+                                           value=""
+                                           placeholder="<?= !empty($oidcSecretSet) ? '••••••••' : '' ?>"
+                                           autocomplete="new-password">
+                                    <div class="form-text"><?= e(t('admin.settings.sso_secret_help')) ?></div>
+                                <?php elseif ($setting['key'] === 'sso_oidc_jit_default_role'): ?>
+                                    <select class="form-select" name="<?= e($setting['key']) ?>" id="setting-<?= e($setting['key']) ?>">
+                                        <?php foreach (($jitRoles ?? []) as $role): ?>
+                                        <option value="<?= e($role['slug']) ?>" <?= $setting['value'] === $role['slug'] ? 'selected' : '' ?>>
+                                            <?= e($role['name']) ?>
+                                        </option>
+                                        <?php endforeach; ?>
+                                    </select>
                                 <?php elseif ($setting['type'] === 'int'): ?>
                                     <input type="number" class="form-control"
                                            name="<?= e($setting['key']) ?>"
@@ -285,8 +302,43 @@ $renderGroups = array_diff_key($groups, ['system' => true]);
                             <div class="col-md-3">
                                 <small class="text-muted adm-key-hint"><?= e($setting['key']) ?></small>
                             </div>
+                            <?php if ($setting['key'] === 'sso_only'): ?>
+                            <div class="col-md-6 offset-md-3">
+                                <div class="form-text text-warning-emphasis">
+                                    <i class="fa-solid fa-triangle-exclamation me-1"></i><?= e(t('admin.settings.sso_only_warning')) ?>
+                                </div>
+                            </div>
+                            <?php endif; ?>
                         </div>
                         <?php endforeach; ?>
+
+                        <?php if ($groupKey === 'sso'): ?>
+                        <hr>
+                        <div class="row mb-3 align-items-center">
+                            <label class="col-md-3 col-form-label adm-label" for="sso-redirect-uri">
+                                <?= e(t('admin.settings.sso_redirect_uri_label')) ?>
+                            </label>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="sso-redirect-uri" readonly
+                                           value="<?= e($oidcRedirectUri ?? '') ?>">
+                                    <button type="button" class="btn btn-outline-secondary" id="sso-copy-uri"
+                                            data-bs-toggle="tooltip" title="<?= e(t('admin.settings.sso_copy_uri')) ?>">
+                                        <i class="fa-solid fa-copy"></i>
+                                    </button>
+                                </div>
+                                <div class="form-text"><?= e(t('admin.settings.sso_redirect_uri_help')) ?></div>
+                            </div>
+                            <div class="col-md-3">
+                                <button type="button" class="btn btn-outline-primary btn-sm"
+                                        hx-post="<?= e(route('admin.settings.sso.test')) ?>"
+                                        hx-include="#setting-sso_oidc_issuer"
+                                        hx-swap="none">
+                                    <i class="fa-solid fa-plug-circle-check me-1"></i><?= e(t('admin.settings.sso_test_button')) ?>
+                                </button>
+                            </div>
+                        </div>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <?php endforeach; ?>
@@ -364,6 +416,19 @@ $renderGroups = array_diff_key($groups, ['system' => true]);
         }
         if (e.key === 'Escape' && document.activeElement === inp) { inp.value = ''; filter(); inp.blur(); }
     });
+
+    // SSO: copia redirect URI negli appunti
+    var ssoCopy = document.getElementById('sso-copy-uri');
+    var ssoUri  = document.getElementById('sso-redirect-uri');
+    if (ssoCopy && ssoUri && navigator.clipboard) {
+        ssoCopy.addEventListener('click', function () {
+            navigator.clipboard.writeText(ssoUri.value).then(function () {
+                var icon = ssoCopy.querySelector('i');
+                icon.className = 'fa-solid fa-check';
+                setTimeout(function () { icon.className = 'fa-solid fa-copy'; }, 1500);
+            });
+        });
+    }
 })();
 </script>
 
