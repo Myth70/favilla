@@ -60,6 +60,7 @@ php favilla make:module ModuleName
 php favilla make:migration ModuleName migrationName
 php favilla help:export                # dumpa la KB Help Online in database/help/<modulo>.json
 php favilla help:import [--module=X] [--force]   # importa la KB Help Online da database/help/*.json
+php favilla demo:seed [--force] [--enable-modules]   # carica i dati demo "Aurora Studio" (seeds in database/seeds/demo/)
 
 # Static analysis (PHPStan level 6 + baseline)
 php vendor/bin/phpstan analyse -c phpstan.neon    # or: composer stan

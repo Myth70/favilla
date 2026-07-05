@@ -8,6 +8,22 @@ Favilla is pre-1.0; until 1.0, minor versions may include breaking changes.
 
 ## [Unreleased]
 
+### Added
+- **Loadable demo dataset** ("Aurora Studio"): sample tasks, calendar events,
+  contacts, files, notifications and — when the modules are enabled — projects
+  with Gantt/timesheet, documents mid-approval-workflow with real protocol
+  numbers, team chats and blog posts, with real downloadable files (checksums
+  verified). Loaded from the setup wizard (checkbox at the edition step), via
+  `php favilla demo:seed [--force] [--enable-modules]`, or on Docker first
+  boot with `DEMO_DATA=true` / `quickstart --demo`. Seeds are idempotent
+  (fixed high IDs + INSERT IGNORE) and dates are relative, so the demo never
+  goes stale.
+
+### Changed
+- `database/seeds/test_users.sql` now uses explicit user IDs (3-12) and
+  `INSERT IGNORE`: reloadable, and the hardcoded role mappings can no longer
+  drift from AUTO_INCREMENT.
+
 ## [2.0.3] — 2026-07-05
 
 Install-friction release: prebuilt Docker image, one-command quickstart,

@@ -33,6 +33,13 @@ if [ "${AUTO_MIGRATE:-false}" = "true" ]; then
     if [ "${table_count}" -eq 0 ]; then
         echo "Favilla: empty database → loading schema + seeds (migrate --fresh)."
         php database/migrate.php --fresh
+        # Demo content (opt-in via DEMO_DATA=true): only on first boot of an
+        # empty database, never injected into an existing one. Enables the
+        # optional modules too — the point is the full showcase.
+        if [ "${DEMO_DATA:-false}" = "true" ]; then
+            echo "Favilla: loading demo data (DEMO_DATA=true)."
+            php favilla demo:seed --enable-modules
+        fi
     else
         echo "Favilla: existing database → applying pending migrations."
         php database/migrate.php

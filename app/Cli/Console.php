@@ -34,6 +34,7 @@ class Console
         'documenti:cleanup-orphans'       => Commands\DocumentiCleanupOrphansCommand::class,
         'help:export'                     => Commands\HelpExportCommand::class,
         'help:import'                     => Commands\HelpImportCommand::class,
+        'demo:seed'                       => Commands\DemoSeedCommand::class,
     ];
 
     public function run(array $argv): int

@@ -10,6 +10,8 @@
 #   bash quickstart.sh          # start, then finish setup in the web installer
 #   bash quickstart.sh --auto   # hands-off boot: schema + seed load on an
 #                               # empty DB, login admin / Admin123!
+#   bash quickstart.sh --demo   # like --auto, plus demo content (sample
+#                               # projects, documents, chats, test users)
 #
 set -euo pipefail
 
@@ -17,9 +19,11 @@ COMPOSE_URL="https://raw.githubusercontent.com/Myth70/favilla/main/docker-compos
 APP_PORT="${APP_PORT:-8080}"
 
 AUTO=false
+DEMO=false
 for arg in "$@"; do
     case "$arg" in
         --auto) AUTO=true ;;
+        --demo) AUTO=true; DEMO=true ;;
         -h|--help)
             grep '^#' "$0" | sed 's/^# \{0,1\}//'
             exit 0
@@ -92,6 +96,9 @@ fi
 if $AUTO; then
     export AUTO_MIGRATE=true
 fi
+if $DEMO; then
+    export DEMO_DATA=true
+fi
 
 echo "Pulling the image and starting containers..."
 docker compose up -d
@@ -103,6 +110,9 @@ if $AUTO; then
     echo
     echo "  Hands-off boot: schema and seed data load on an empty database."
     echo "  Login: admin / Admin123!  — CHANGE THIS PASSWORD at first login."
+    if $DEMO; then
+        echo "  Demo content loads too (sample projects, documents, chats)."
+    fi
 else
     echo
     echo "  Open the URL in your browser to finish setup (web installer)."

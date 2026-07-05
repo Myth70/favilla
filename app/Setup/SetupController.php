@@ -168,6 +168,7 @@ class SetupController
                     $edition = config('editions.default', 'developer');
                 }
                 $this->saveState('edition', compact('edition'));
+                $this->saveState('demo', ['load' => isset($_POST['demo_data'])]);
                 $this->redirect(5);
 
                 // no break
@@ -265,7 +266,7 @@ class SetupController
             1 => ['checks'  => SetupValidator::checkRequirements()],
             2 => ['db'      => $this->loadState('db')],
             3 => ['app'     => $this->loadState('app')],
-            4 => ['edition' => $this->loadState('edition')],
+            4 => ['edition' => $this->loadState('edition'), 'demo' => $this->loadState('demo')],
             5 => ['admin'   => $this->loadState('admin')],
             6 => $this->runSetupComplete(),
             default => [],
@@ -429,6 +430,19 @@ class SetupController
                 $log[] = '✓ Ruolo Administrator assegnato';
             } else {
                 throw new \RuntimeException('Ruolo "admin" non trovato dopo il seed. Contatta il supporto.');
+            }
+
+            // 5b. Dati dimostrativi, se richiesti al passo 4. Un errore qui non
+            // deve bloccare l'installazione: log di avviso e si prosegue.
+            if (!empty($this->loadState('demo')['load'])) {
+                try {
+                    $summary = (new DemoSeeder($pdo, BASE_PATH))->run();
+                    $loaded  = count(array_filter($summary['sections'], static fn (string $s): bool => $s === 'ok'));
+                    $log[]   = "✓ Dati dimostrativi caricati ({$loaded} sezioni, {$summary['files_copied']} file)";
+                } catch (\Throwable $demoError) {
+                    $log[] = '⚠ Dati dimostrativi non caricati: ' . $demoError->getMessage()
+                        . ' (riprova con: php favilla demo:seed)';
+                }
             }
 
             // 6. Crea marker setup_complete

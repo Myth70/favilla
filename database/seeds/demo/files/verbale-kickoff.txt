@@ -1,0 +1,11 @@
+VERBALE KICKOFF - GESTIONALE INTERNO
+====================================
+
+Presenti: tutto il team.
+
+Decisioni:
+- Stack: PHP + HTMX, database MariaDB.
+- Milestone 1 (anagrafiche) entro 3 settimane.
+- Demo interna ogni venerdi.
+
+Prossimi passi: Luca prepara il backlog, Michele l'ambiente di sviluppo.

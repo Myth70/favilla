@@ -7,8 +7,10 @@
 # Usage:
 #   powershell -ExecutionPolicy Bypass -File quickstart.ps1          # web installer
 #   powershell -ExecutionPolicy Bypass -File quickstart.ps1 -Auto   # hands-off boot
+#   powershell -ExecutionPolicy Bypass -File quickstart.ps1 -Demo   # -Auto + demo content
 #
-param([switch]$Auto)
+param([switch]$Auto, [switch]$Demo)
+if ($Demo) { $Auto = $true }
 
 $ErrorActionPreference = 'Stop'
 $composeUrl = 'https://raw.githubusercontent.com/Myth70/favilla/main/docker-compose.yml'
@@ -71,6 +73,7 @@ DB_ROOT_PASS=$dbRootPass
 
 # -- Start ----------------------------------------------------------------------
 if ($Auto) { $env:AUTO_MIGRATE = 'true' }
+if ($Demo) { $env:DEMO_DATA = 'true' }
 
 Write-Host 'Pulling the image and starting containers...'
 docker compose up -d
@@ -83,6 +86,7 @@ Write-Host ''
 if ($Auto) {
     Write-Host '  Hands-off boot: schema and seed data load on an empty database.'
     Write-Host '  Login: admin / Admin123!  - CHANGE THIS PASSWORD at first login.'
+    if ($Demo) { Write-Host '  Demo content loads too (sample projects, documents, chats).' }
 } else {
     Write-Host '  Open the URL in your browser to finish setup (web installer).'
 }

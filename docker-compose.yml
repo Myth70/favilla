@@ -37,6 +37,10 @@ services:
       # Set to true for a hands-off first boot (loads schema + seeds on an
       # empty DB). Leave unset to use the web installer at first visit.
       AUTO_MIGRATE: "${AUTO_MIGRATE:-false}"
+      # With AUTO_MIGRATE, set to true to also load the demo dataset (sample
+      # projects, documents, chats + 10 weak-password test users) on first
+      # boot of an EMPTY database. Evaluation environments only.
+      DEMO_DATA: "${DEMO_DATA:-false}"
     ports:
       - "${APP_PORT:-8080}:80"
     volumes:

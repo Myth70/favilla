@@ -1,8 +1,10 @@
 <?php
 /** @var array $edition */
+/** @var array $demo */
 /** @var string[] $errors */
 $defaultEdition = config('editions.default', 'developer');
 $selected = $edition['edition'] ?? $defaultEdition;
+$demoChecked = !empty($demo['load']);
 
 $options = [
     'personal'  => [
@@ -43,6 +45,21 @@ $options = [
         <div class="hint"><?= htmlspecialchars($opt['desc']) ?></div>
     </div>
     <?php endforeach; ?>
+
+    <hr>
+
+    <div class="form-group">
+        <label>
+            <input type="checkbox" name="demo_data" value="1" <?= $demoChecked ? 'checked' : '' ?>>
+            Carica dati dimostrativi
+        </label>
+        <div class="hint">
+            Popola l'installazione con contenuti di esempio (attività, calendario,
+            contatti, documenti, progetti…) e <strong>10 utenti di prova con
+            password deboli e prevedibili</strong> — solo per ambienti di
+            valutazione, non per installazioni di produzione esposte.
+        </div>
+    </div>
 
     <div class="btn-row">
         <button type="submit" class="btn btn-primary">Avanti →</button>

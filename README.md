@@ -138,7 +138,7 @@ starts the stack (app + MariaDB + scheduler):
 ```bash
 mkdir favilla && cd favilla
 curl -LO https://raw.githubusercontent.com/Myth70/favilla/main/quickstart.sh
-bash quickstart.sh        # add --auto for a hands-off first boot
+bash quickstart.sh        # --auto: hands-off first boot · --demo: also load sample data
 # app on http://localhost:8080 — the setup wizard finishes the install
 ```
 
@@ -191,6 +191,21 @@ credentials to the public internet.
 
 > `database/seeds/test_users.sql` is an **optional development-only** seed with
 > deliberately weak, predictable credentials. Never load it in production.
+
+## Demo data
+
+Want to evaluate Favilla with content in it instead of an empty install? Load
+the demo dataset — a fictional agency with projects (Gantt, timesheets),
+documents mid-approval-workflow, team chats, tasks, calendar, contacts and
+blog posts, plus real downloadable files:
+
+- **Setup wizard**: tick *"Carica dati dimostrativi"* at the edition step;
+- **CLI**: `php favilla demo:seed` on an installed instance;
+- **Docker**: `bash quickstart.sh --demo` (or `DEMO_DATA=true` with
+  `AUTO_MIGRATE=true`) on first boot.
+
+The dataset includes the 10 weak-password test users above — evaluation
+environments only.
 
 ## Upgrading
 
