@@ -1,4 +1,4 @@
-# Favilla
+<img width="288" height="50" alt="Immagine 2026-07-06 195127" src="https://github.com/user-attachments/assets/b94b45b8-66c9-47cf-b005-b3021fa07294" />
 
 [![CI](https://github.com/Myth70/favilla/actions/workflows/ci.yml/badge.svg)](https://github.com/Myth70/favilla/actions/workflows/ci.yml)
 [![License: AGPL-3.0-or-later](https://img.shields.io/badge/license-AGPL--3.0--or--later-blue)](LICENSE)
