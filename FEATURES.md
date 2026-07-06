@@ -30,7 +30,7 @@ Personal dashboard and entry point.
 - Global search from the header (Ctrl+K), scoped by permissions.
 - Application changelog: in-app "what's new" per version.
 
-## Tasks (*Attività*)
+## Tasks
 
 Personal and operational to-dos.
 
@@ -54,7 +54,7 @@ Personal and shared scheduling.
 - Integration with Tasks and Contacts (deadlines and anniversaries appear
   automatically).
 
-## Contacts (*Contatti*)
+## Contacts
 
 Address book with light-CRM traits.
 
@@ -78,7 +78,7 @@ Central file management.
 - Multiple selection and bulk actions; trash with restore.
 - Reusable file picker embedded by other modules.
 
-## Projects (*Progetti*)
+## Projects
 
 Structured project management.
 
@@ -93,7 +93,7 @@ Structured project management.
 - "My assigned tasks" across all projects.
 - Admin trash with restore.
 
-## Messages (*Teams*)
+## Messages/Teams
 
 Internal team messaging.
 
@@ -106,7 +106,7 @@ Internal team messaging.
 - Group info panel; admin console for conversations.
 - Automatic cleanup of old messages (retention).
 
-## Documents (*Documenti*)
+## Documents
 
 Managed documents with a formal lifecycle.
 
@@ -122,7 +122,7 @@ Managed documents with a formal lifecycle.
   expiry processing, integrity scans).
 - Search, filters, preview and download.
 
-## Communications (*Blog*)
+## Communications/Blog
 
 Internal news and announcements.
 
@@ -182,7 +182,7 @@ In-app issue reporting.
 - Technical export, including a **"Copy for LLM"** format for pasting a
   complete bug report into an AI assistant.
 
-## Account & Sign-in (*Auth*)
+## Account & Sign-in
 
 - Login with rate limiting and lockout on repeated failures.
 - **Single Sign-On (OIDC)**: authorization code + PKCE against any standard
@@ -200,7 +200,7 @@ In-app issue reporting.
   color, page style, font, header background.
 - Per-user language switcher (it/en/fr/de/es).
 
-## Administration (*Admin*)
+## Administration
 
 The back office. Highlights of its ~120 documented capabilities:
 
