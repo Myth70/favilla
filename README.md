@@ -61,9 +61,9 @@ read, audit and extend end-to-end — no build step, no SPA, no magic.
 | Module | What you get |
 |---|---|
 | **Home** | Personal widget dashboard with per-user layout |
-| **Tasks** (*Attività*) | Personal & operational tasks, kanban board, due-date reminders |
+| **Tasks** | Personal & operational tasks, kanban board, due-date reminders |
 | **Calendar** | Personal and shared events, reminders, ICS export |
-| **Contacts** (*Contatti*) | Address book with map view, CSV import, role-based sharing, follow-up reminders |
+| **Contacts** | Address book with map view, CSV import, role-based sharing, follow-up reminders |
 | **Files** | Uploads with sharing, previews and SHA-256 checksums |
 | **Progetti** | Projects with milestones, kanban & Gantt views, task dependencies, timesheet and budget control |
 | **Teams** | Team messaging: 1:1 and group chats, mentions, reactions, presence |
