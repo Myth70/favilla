@@ -1,8 +1,6 @@
 <div align="center">
 
-<img src="public/assets/images/logo.svg" width="96" alt="Favilla logo">
-
-# Favilla
+<img width="288" height="50" alt="Favilla" src="https://github.com/user-attachments/assets/b94b45b8-66c9-47cf-b005-b3021fa07294" />
 
 **The self-hosted workspace that runs your company — and stays yours.**
 
@@ -101,13 +99,13 @@ automated tests**, **PHPStan level 6** and **PSR-12** enforced in CI, and a
 | Module | What you get |
 |---|---|
 | **Home** | Personal widget dashboard with per-user layout |
-| **Tasks** (*Attività*) | Personal & operational tasks, kanban board, due-date reminders |
+| **Tasks** | Personal & operational tasks, kanban board, due-date reminders |
 | **Calendar** | Personal and shared events, reminders, ICS export |
-| **Contacts** (*Contatti*) | Address book with map view, CSV import, role-based sharing, follow-up reminders |
+| **Contacts** | Address book with map view, CSV import, role-based sharing, follow-up reminders |
 | **Files** | Uploads with sharing, previews and SHA-256 checksums |
-| **Projects** (*Progetti*) | Milestones, kanban & Gantt views, task dependencies, timesheets and budget control |
+| **Projects** | Milestones, kanban & Gantt views, task dependencies, timesheets and budget control |
 | **Teams** | Team messaging: 1:1 and group chats, mentions, reactions, presence |
-| **Documents** (*Documenti*) | Managed documents: versioning, approval workflow, protocol numbers, expiry and integrity checks |
+| **Documents** | Managed documents: versioning, approval workflow, protocol numbers, expiry and integrity checks |
 | **Blog** | Internal news with scheduled publishing, role-based visibility and moderated comments |
 | **Reports** | GrapesJS template designer, PDF/Excel generation, document models |
 | **Notifications** | Multi-channel template-driven notification center |
@@ -301,6 +299,8 @@ Favilla is licensed under the **GNU Affero General Public License v3.0 or later
 (AGPL-3.0-or-later)**. See [`LICENSE`](LICENSE) for the full text. In short: if
 you run a modified version of Favilla as a network service, you must make your
 modified source available to its users.
+
+<img width="300" height="100" alt="mobile-title" src="https://github.com/user-attachments/assets/ceeff067-98e1-4f7c-bb19-9585e501c275" />
 
 ---
 
