@@ -1,53 +1,93 @@
+<div align="center">
+
+<img src="public/assets/images/logo.svg" width="96" alt="Favilla logo">
+
 # Favilla
 
+**The self-hosted workspace that runs your company — and stays yours.**
+
+Projects · Documents · Team chat · Tasks · Calendar · Contacts · Files · Reports
+
 [![CI](https://github.com/Myth70/favilla/actions/workflows/ci.yml/badge.svg)](https://github.com/Myth70/favilla/actions/workflows/ci.yml)
+[![Latest release](https://img.shields.io/github/v/release/Myth70/favilla)](../../releases)
 [![License: AGPL-3.0-or-later](https://img.shields.io/badge/license-AGPL--3.0--or--later-blue)](LICENSE)
 [![PHP 8.2+](https://img.shields.io/badge/PHP-8.2%2B-777BB4?logo=php&logoColor=white)](composer.json)
 
-**Favilla** is a complete, self-hosted workspace and company intranet: projects,
-tasks, calendar, contacts, documents, files, reports, notifications and a full
-security & compliance suite — in five languages, from one install, on your own
-server. Your data stays yours, there is no per-seat pricing, and nothing phones
-home.
+</div>
 
-It runs on a custom PHP 8.2 micro-framework (no Laravel, no Symfony) with
-MariaDB, Bootstrap and HTMX: a classic server-rendered application you can
-read, audit and extend end-to-end — no build step, no SPA, no magic.
+**Favilla** — Italian for *spark* — is a complete workspace and company
+intranet you host yourself: projects with Gantt, timesheets and budgets,
+documents with approval workflows, team messaging, kanban tasks, shared
+calendars, contacts, files, print-ready reports, multi-channel notifications
+and a full security & compliance suite. Eighteen modules, five languages, one
+install, on your own server — no per-seat pricing, no telemetry, nothing
+phones home, and the AGPL keeps it that way.
 
-> Code and docs are in **English**; the end-user interface ships in **five
-> languages** — Italian (the canonical source), English, French, German and
-> Spanish — with a per-user language switcher.
+On the map of tools you already know, Favilla sits where a project tracker, a
+document-management system and a team messenger overlap — an operational
+intranet in the Basecamp tradition, not an office suite. It complements
+Nextcloud rather than replacing it: Favilla doesn't sync files, it runs your
+projects, documents and processes.
 
 ![Favilla dashboard](docs/screenshots/dashboard.png)
 
-## Highlights
+## What makes it different
 
-- **A dashboard that's actually yours** — every module contributes live
-  widgets (17 providers: today's agenda, open tasks, project status, backup
-  health, latest posts… even local weather); each user picks, hides and
-  reorders their own.
-- **Drag-and-drop report designer** — build print-ready PDF and Excel templates
-  in the browser (GrapesJS) with smart data components, reusable styles and
-  server-side sanitization. Reports are first-class citizens, not an
-  afterthought.
-- **Contextual help everywhere** — a help panel available on every page, backed
-  by a searchable multilingual Q&A knowledge base with synonyms and admin
-  analytics on what users search for and don't find.
-- **A real security suite** — **SSO (OIDC)** with PKCE, account linking and
-  optional JIT provisioning, TOTP two-factor auth, security dashboard with
-  incident detection (brute force, CSRF), full audit log, data-retention
-  policies, AES-256-GCM encrypted backups with in-app restore, session
-  hardening, login rate limiting, password policy.
-- **Notifications, template-driven** — one dispatcher, three channels (in-app,
-  email, Telegram), per-user preferences, queued delivery with retry/backoff.
-  Modules publish events; admins control the wording and look from the UI.
-- **Fast to move around in** — global search across all modules, a right-click
-  radial quick menu, HTMX partial updates everywhere, light & dark themes.
+- **Build reports like you build slides.** A drag-and-drop designer
+  (GrapesJS) for print-ready PDF and Excel templates, right in the browser:
+  smart data components, reusable styles, server-side sanitization. Reports
+  are first-class citizens, not an afterthought.
+- **Help that ships with the product.** Every page has a contextual help
+  panel backed by a built-in knowledge base — 340+ Q&As, each in all five
+  languages, with synonym-aware search and admin analytics on what users look
+  for and don't find. Fewer "how do I…?" tickets from day one.
+- **A security suite you'd expect from paid software.** SSO (OIDC) with PKCE,
+  account linking and optional JIT provisioning; TOTP two-factor auth; a
+  security dashboard with incident detection (brute force, CSRF); full audit
+  log; data-retention policies; AES-256-GCM encrypted backups with in-app
+  restore; session hardening, login rate limiting, password policy.
+- **Five languages out of the box.** Italian (the canonical source), English,
+  French, German and Spanish, with a per-user switcher — and not just the UI:
+  notifications and the help knowledge base are translated too. (Code and
+  docs are in English.)
+- **One codebase, three editions.** Personal, Team and Developer are the same
+  product wearing different clothes: start alone, grow into a company
+  intranet without reinstalling anything. See [Editions](#editions).
+- **AI-assistant-ready.** The repo ships [`CLAUDE.md`](CLAUDE.md),
+  machine-readable module inventories (`project_context.json`, `context/`)
+  and written architecture contracts (`docs/contracts/`), so coding agents
+  and new contributors navigate it the same way. Much of Favilla was built
+  pairing with AI agents — the workflow is first-class, not incidental.
+
+And the fundamentals are all there:
+
+- **A dashboard that's actually yours** — 17 live widget providers (today's
+  agenda, open tasks, project status, backup health… even local weather);
+  each user picks, hides and reorders their own.
+- **Template-driven notifications** — one dispatcher, three channels (in-app,
+  email, Telegram), per-user preferences, queued delivery with retry/backoff;
+  admins control the wording and look from the UI.
+- **Fast to move around in** — global search across all modules, a
+  right-click radial quick menu, HTMX partial updates everywhere, light &
+  dark themes.
 - **Operations built in** — a cron-equivalent scheduler with admin UI, health
   checks with history and export, log rotation, and a project CLI
   (`php favilla`) for automation.
-- **Engineered, not just written** — 1,600+ automated tests, PHPStan level 6,
-  PSR-12 enforced in CI, a 100-table schema installed by a guided setup wizard.
+
+## Boring tech, built to last
+
+Favilla makes two deliberately unfashionable choices:
+
+1. **Server-rendered PHP 8.2 + HTMX.** No SPA, no build step, no
+   `node_modules`. It deploys on anything from XAMPP to Docker Compose and
+   runs happily on a Raspberry Pi.
+2. **A custom micro-framework — no Laravel, no Symfony.** A classic MVC
+   application you can read, audit and extend end-to-end: controllers,
+   services, repositories, views, no magic.
+
+Choices like these only hold up with discipline behind them: **1,700+
+automated tests**, **PHPStan level 6** and **PSR-12** enforced in CI, and a
+**100+ table schema** installed by a guided setup wizard.
 
 ## Screenshots
 
@@ -65,9 +105,9 @@ read, audit and extend end-to-end — no build step, no SPA, no magic.
 | **Calendar** | Personal and shared events, reminders, ICS export |
 | **Contacts** (*Contatti*) | Address book with map view, CSV import, role-based sharing, follow-up reminders |
 | **Files** | Uploads with sharing, previews and SHA-256 checksums |
-| **Progetti** | Projects with milestones, kanban & Gantt views, task dependencies, timesheet and budget control |
+| **Projects** (*Progetti*) | Milestones, kanban & Gantt views, task dependencies, timesheets and budget control |
 | **Teams** | Team messaging: 1:1 and group chats, mentions, reactions, presence |
-| **Documenti** | Managed documents: versioning, approval workflow, protocol numbers, expiry and integrity checks |
+| **Documents** (*Documenti*) | Managed documents: versioning, approval workflow, protocol numbers, expiry and integrity checks |
 | **Blog** | Internal news with scheduled publishing, role-based visibility and moderated comments |
 | **Reports** | GrapesJS template designer, PDF/Excel generation, document models |
 | **Notifications** | Multi-channel template-driven notification center |
@@ -84,31 +124,41 @@ The complete capability list, module by module, is in
 
 ## Editions
 
-Favilla ships from a single codebase in three editions, chosen during the setup
-wizard (or later from Admin → Configurazione):
+One product that grows with you. Favilla ships from a single codebase in
+three editions, chosen during the setup wizard (or changed later from Admin →
+Configurazione):
 
-| | **Developer** | **Personal** | **Team** |
+- **Personal** — a single-user workspace. Registration is off and every
+  multi-user surface (roles, sharing, the admin area) is tucked away under a
+  discreet Settings corner. It feels like a personal app; it's still all of
+  Favilla underneath.
+- **Team** — the multi-user company intranet: role-based permissions, open
+  registration with admin approval, and Projects, Teams, Documents and Blog
+  enabled by default.
+- **Developer** — for working on Favilla itself: the full repository,
+  including the contributor and AI-assistant docs (`CLAUDE.md`,
+  `docs/contracts/`, `context/`).
+
+| | **Personal** | **Team** | **Developer** |
 |---|---|---|---|
-| Intended for | Contributing to Favilla itself | Single-user personal workspace | Multi-user company intranet |
-| Multi-user / RBAC UI | Visible | Hidden (sharing controls, admin area tucked under a "Settings" corner) | Visible |
-| Registration page | Open | Disabled (single account) | Open |
-| Progetti, Teams, Documenti, Blog | Installable from Admin → Moduli | Installable from Admin → Moduli | **Enabled by default** |
-| Dev/LLM aids (`CLAUDE.md`, `docs/contracts/`, `context/`) | Included | Not included | Not included |
+| Intended for | Single-user personal workspace | Multi-user company intranet | Contributing to Favilla itself |
+| Multi-user / RBAC UI | Hidden | Visible | Visible |
+| Registration page | Disabled (single account) | Open | Open |
+| Projects, Teams, Documents, Blog | Installable from Admin → Moduli | **Enabled by default** | Installable from Admin → Moduli |
+| Dev & AI-assistant docs | Not included | Not included | Included |
 
-The scheduler and all core modules run in every edition — Personal only hides
-multi-user surfaces from the UI, it never disables functionality that other
-features (like reminders) depend on.
-
-**Upgrading Personal or Developer to Team**: enable the four optional modules
-from **Admin → Moduli** (they ship with every edition's codebase, just
-disabled by default outside Team) and switch the edition in **Admin →
-Configurazione**. No reinstall or migration is required — hidden ≠ disabled.
+An edition changes what the UI shows — never what the code can do. **Hidden ≠
+disabled**: the scheduler and all core modules run in every edition, so
+nothing that other features (like reminders) depend on ever goes away. When a
+Personal install stops being just you, enable the four team modules from
+**Admin → Moduli** and switch the edition in **Admin → Configurazione** — no
+reinstall, no migration, no export/import.
 
 Release zips for all three editions are published on the
-[Releases](../../releases) page, built by [`tools/build-editions.php`](tools/build-editions.php)
-from a git tag. The Developer zip is the full repository (including the
-contributor-only docs above); Personal and Team are a cleaned `git archive`
-with `app/Config/editions.php`'s default pre-set to the matching edition.
+[Releases](../../releases) page, built from a git tag by
+[`tools/build-editions.php`](tools/build-editions.php): Developer is the full
+repository; Personal and Team are a cleaned archive with the default edition
+pre-set and `vendor/` bundled, so they don't even need Composer.
 
 ## Tech stack
 
@@ -196,9 +246,9 @@ credentials to the public internet.
 ## Demo data
 
 Want to evaluate Favilla with content in it instead of an empty install? Load
-the demo dataset — a fictional agency with projects (Gantt, timesheets),
-documents mid-approval-workflow, team chats, tasks, calendar, contacts and
-blog posts, plus real downloadable files:
+the demo dataset — a fictional creative agency (*Aurora Studio*) with projects
+(Gantt, timesheets), documents mid-approval-workflow, team chats, tasks,
+calendar, contacts and blog posts, plus real downloadable files:
 
 - **Setup wizard**: tick *"Carica dati dimostrativi"* at the edition step;
 - **CLI**: `php favilla demo:seed` on an installed instance;
@@ -251,3 +301,9 @@ Favilla is licensed under the **GNU Affero General Public License v3.0 or later
 (AGPL-3.0-or-later)**. See [`LICENSE`](LICENSE) for the full text. In short: if
 you run a modified version of Favilla as a network service, you must make your
 modified source available to its users.
+
+---
+
+<div align="center">
+<sub>Made in Italy 🇮🇹</sub>
+</div>
