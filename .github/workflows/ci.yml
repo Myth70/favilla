@@ -105,6 +105,32 @@ jobs:
       - name: Test suite with coverage
         run: vendor/bin/phpunit --coverage-clover coverage.xml --coverage-text
 
+      - name: Enforce minimum coverage threshold
+        # Regression floor, not a target: fails the build if line coverage drops
+        # below this percentage. Deliberately conservative starting point — raise
+        # it to match the real baseline once it has been observed from a few runs
+        # of this job (see the "Line coverage" figure printed below).
+        env:
+          MIN_COVERAGE: '45'
+        run: |
+          php -r '
+            $xml = simplexml_load_file("coverage.xml");
+            if ($xml === false) {
+                fwrite(STDERR, "Could not read coverage.xml\n");
+                exit(1);
+            }
+            $metrics = $xml->project->metrics;
+            $total = (int) $metrics["statements"];
+            $covered = (int) $metrics["coveredstatements"];
+            $pct = $total > 0 ? ($covered / $total) * 100 : 0;
+            $min = (float) getenv("MIN_COVERAGE");
+            printf("Line coverage: %.2f%% (min required: %.2f%%)\n", $pct, $min);
+            if ($pct < $min) {
+                fwrite(STDERR, "Coverage dropped below the minimum threshold.\n");
+                exit(1);
+            }
+          '
+
       - name: Upload coverage report
         uses: actions/upload-artifact@v4
         with:
