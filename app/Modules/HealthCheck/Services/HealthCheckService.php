@@ -15,10 +15,12 @@ use App\Modules\HealthCheck\Checks\HealthCheck;
 use App\Modules\HealthCheck\Checks\KeyRotationCheck;
 use App\Modules\HealthCheck\Checks\LogManagementCheck;
 use App\Modules\HealthCheck\Checks\ModulesCheck;
+use App\Modules\HealthCheck\Checks\NotificationQueueCheck;
 use App\Modules\HealthCheck\Checks\PasswordPolicyCheck;
 use App\Modules\HealthCheck\Checks\PerformanceCheck;
 use App\Modules\HealthCheck\Checks\PhpCheck;
 use App\Modules\HealthCheck\Checks\PhpHardeningCheck;
+use App\Modules\HealthCheck\Checks\SchedulerCheck;
 use App\Modules\HealthCheck\Checks\SecurityCheck;
 use App\Modules\HealthCheck\Checks\SecurityIncidentsCheck;
 use App\Modules\HealthCheck\Checks\SeparationOfDutiesCheck;
@@ -60,6 +62,8 @@ class HealthCheckService
             new SecurityCheck(),
             new PhpHardeningCheck(),
             new PerformanceCheck(),
+            new SchedulerCheck(),
+            new NotificationQueueCheck(),
             new PasswordPolicyCheck(),
             new SecurityIncidentsCheck(),
             new LogManagementCheck(),

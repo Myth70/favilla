@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Cli\Commands;
 
+use App\Cli\Support\CliBootstrap;
 use App\Modules\HealthCheck\Services\HealthCheckService;
 
 /**
@@ -30,6 +31,11 @@ class HealthCheckCommand
         $dotenv->safeLoad();
 
         require_once $basePath . '/bootstrap/app.php';
+
+        // Application::boot() non registra Router/ModuleLoader (lo fa solo
+        // handleRequest(), mai invocato in CLI): senza questo, notifyOnFailures()
+        // va in crash su route('healthcheck.index') non appena c'è un check 'fail'.
+        CliBootstrap::boot();
 
         $quiet = in_array('--quiet', $args, true);
 

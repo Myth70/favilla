@@ -1,7 +1,7 @@
 {
     "name": "HealthCheck",
     "icon": "fa-solid fa-heart-pulse",
-    "version": "3.0.0",
+    "version": "3.1.0",
     "description": "Stato di salute dell'installazione (PHP, database, filesystem, sicurezza ISO 27001, prestazioni). Check rapidi sul dashboard e scansione approfondita (DNS email, esposizione .env, vulnerabilità dipendenze), CLI 'health:check' per CI/deploy, storico run, export CSV, notifiche admin.",
     "database": "shared",
     "tables": ["healthcheck_runs"],
@@ -31,8 +31,9 @@
             }
         }
     ],
-    "dependencies": ["Notifications"],
+    "dependencies": ["Notifications", "Scheduler"],
     "changelog": {
+        "3.1.0": "Nuovi check operativi: vivacità dello Scheduler (job abilitati in ritardo oltre il proprio intervallo — rileva un loop scheduler fermo) e backlog della coda notifiche (elementi pending e anzianità del più vecchio)",
         "3.0.0": "Refactor: god class spezzata in check per dominio (App\\Modules\\HealthCheck\\Checks), layering allineato (SoD/incidenti/file via servizi proprietari, query diagnostiche in SystemDiagnosticsRepository), separazione fast/deep, comando CLI health:check, composer audit rianimato, suite di test ampliata",
         "2.0.0": "Nuovi check (disco, MariaDB, connessioni, HTTPS, estensioni consigliate), HTMX refresh, storico run, export CSV, notifiche admin, test unitari",
         "1.0.0": "Versione iniziale"

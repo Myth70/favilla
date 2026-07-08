@@ -75,7 +75,16 @@ services:
       - storage:/var/www/html/storage
       - uploads:/var/www/html/public/uploads
     # One cron-equivalent loop: the master scheduler runs every due job.
-    command: ["bash", "-c", "while true; do php favilla scheduler:run || true; sleep 60; done"]
+    # The heartbeat file is touched every iteration (regardless of whether any
+    # job was due) so the healthcheck below can detect a stalled/crashed loop
+    # even when no job's own interval would have surfaced it for a while.
+    command: ["bash", "-c", "while true; do php favilla scheduler:run || true; touch storage/tmp/scheduler.heartbeat || true; sleep 60; done"]
+    healthcheck:
+      test: ["CMD-SHELL", "find storage/tmp/scheduler.heartbeat -mmin -3 2>/dev/null | grep -q ."]
+      interval: 60s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
 
   db:
     image: mariadb:10.11

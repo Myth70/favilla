@@ -209,6 +209,35 @@ class NotificationQueueRepository extends BaseRepository
         return $val !== false ? (int) $val : null;
     }
 
+    /**
+     * Riepilogo backlog per il monitoraggio operativo: conteggio pending ed
+     * età (in minuti) dell'elemento pending più vecchio ancora disponibile.
+     *
+     * @return array{pending:int, oldest_pending_minutes:?int}
+     */
+    public function getBacklogSummary(): array
+    {
+        $stmt = $this->pdo->query(
+            "SELECT COUNT(*) AS pending, MIN(available_at) AS oldest_available_at
+             FROM notification_queue
+             WHERE status = 'pending'"
+        );
+        $row = $stmt->fetch(PDO::FETCH_ASSOC) ?: ['pending' => 0, 'oldest_available_at' => null];
+
+        $oldestMinutes = null;
+        if (!empty($row['oldest_available_at'])) {
+            $ts = strtotime((string) $row['oldest_available_at']);
+            if ($ts !== false) {
+                $oldestMinutes = max(0, (int) floor((time() - $ts) / 60));
+            }
+        }
+
+        return [
+            'pending'                => (int) $row['pending'],
+            'oldest_pending_minutes' => $oldestMinutes,
+        ];
+    }
+
     private function findJobByQueueId(int $queueId): ?array
     {
         $stmt = $this->pdo->prepare(
