@@ -11,6 +11,10 @@ Projects · Documents · Team chat · Tasks · Calendar · Contacts · Files · 
 [![License: AGPL-3.0-or-later](https://img.shields.io/badge/license-AGPL--3.0--or--later-blue)](LICENSE)
 [![PHP 8.2+](https://img.shields.io/badge/PHP-8.2%2B-777BB4?logo=php&logoColor=white)](composer.json)
 
+🌐 **English** · [Italiano](README.it.md) · [Français](README.fr.md) · [Deutsch](README.de.md) · [Español](README.es.md)
+
+**[What's different](#what-makes-it-different) · [Modules](#modules) · [Editions](#editions) · [Quick start](#quick-start) · [Status](#project-status) · [Development](#development) · [Contributing](#contributing)**
+
 </div>
 
 **Favilla** — Italian for *spark* — is a complete workspace and company
@@ -26,6 +30,11 @@ document-management system and a team messenger overlap — an operational
 intranet in the Basecamp tradition, not an office suite. It complements
 Nextcloud rather than replacing it: Favilla doesn't sync files, it runs your
 projects, documents and processes.
+
+**What Favilla is not:** a file-sync or office suite (that's Nextcloud /
+OnlyOffice), a public-facing CMS, a customer-facing helpdesk, or a multi-tenant
+SaaS. It's an internal operational workspace for a single organization, run by
+that organization on its own server.
 
 ![Favilla dashboard](docs/screenshots/dashboard.png)
 
@@ -83,6 +92,7 @@ Favilla makes two deliberately unfashionable choices:
    application you can read, audit and extend end-to-end: controllers,
    services, repositories, views, no magic.
 
+<!-- Keep counts in sync with FEATURES.md. Recompute: tests → `phpunit --list-tests | grep -c '^ - '`; tables → `grep -c 'CREATE TABLE' database/schema.sql`; help Q&As → `grep -rho '"question"' database/help/*.json | wc -l` ÷ 5. -->
 Choices like these only hold up with discipline behind them: **1,700+
 automated tests**, **PHPStan level 6** and **PSR-12** enforced in CI, and a
 **100+ table schema** installed by a guided setup wizard.
@@ -285,10 +295,24 @@ The repository is **AI-assistant-ready**: [`CLAUDE.md`](CLAUDE.md) plus
 machine-readable module inventories (`project_context.json`, `context/`) let
 coding agents navigate the codebase with full context.
 
+## Project status
+
+Favilla is **pre-1.0** and actively developed. It runs in production, but until
+1.0 minor versions may include breaking changes — read the
+[changelog](CHANGELOG.md) before every upgrade (and see [`UPGRADING.md`](UPGRADING.md)).
+Security fixes land on `main` and the latest release ([`SECURITY.md`](SECURITY.md)).
+
+Recently shipped: SSO (OIDC), a loadable demo dataset, prebuilt multi-arch
+Docker images and a one-command quickstart. On the near horizon: a
+native-speaker review pass on the `fr`/`de` translations, and LDAP as a second
+sign-in backend alongside OIDC.
+
 ## Contributing
 
 Contributions are welcome — see [`CONTRIBUTING.md`](CONTRIBUTING.md) for the
-dev-environment setup, the non-negotiable conventions and the PR workflow.
+dev-environment setup, the non-negotiable conventions and the PR workflow. By
+participating you agree to the [Code of Conduct](CODE_OF_CONDUCT.md); notable
+changes are tracked in the [changelog](CHANGELOG.md).
 
 ## Security
 

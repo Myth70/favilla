@@ -4,15 +4,18 @@ Every capability listed here is also documented in the **in-app contextual
 help** (the `?` panel), in all five UI languages. This page is the complete
 reference; the [README](README.md) has the short version.
 
+> **Naming.** Two module directories on disk use Italian identifiers —
+> `Progetti` (Projects) and `Documenti` (Documents); the others match their
+> English names. This page and the README use the English display names.
+
 **Modules:**
-[Home](#home) · [Tasks](#tasks-attività) · [Calendar](#calendar) ·
-[Contacts](#contacts-contatti) · [Files](#files) · [Projects](#projects-progetti) ·
-[Messages](#messages-teams) · [Documents](#documents-documenti) ·
-[Communications](#communications-blog) · [Reports](#reports) ·
-[Notifications](#notifications) · [Help Online](#help-online) ·
-[Feedback](#feedback) · [Account & Sign-in](#account--sign-in-auth) ·
-[Administration](#administration-admin) · [Backup](#backup) ·
-[Health Check](#health-check) · [Scheduler](#scheduler) ·
+[Home](#home) · [Tasks](#tasks) · [Calendar](#calendar) ·
+[Contacts](#contacts) · [Files](#files) · [Projects](#projects) ·
+[Teams](#teams) · [Documents](#documents) · [Blog](#blog) ·
+[Reports](#reports) · [Notifications](#notifications) ·
+[Help Online](#help-online) · [Feedback](#feedback) ·
+[Account & Sign-in](#account--sign-in) · [Administration](#administration) ·
+[Backup](#backup) · [Health Check](#health-check) · [Scheduler](#scheduler) ·
 [Cross-module](#cross-module) · [Platform](#platform)
 
 ---
@@ -93,7 +96,7 @@ Structured project management.
 - "My assigned tasks" across all projects.
 - Admin trash with restore.
 
-## Messages/Teams
+## Teams
 
 Internal team messaging.
 
@@ -122,7 +125,7 @@ Managed documents with a formal lifecycle.
   expiry processing, integrity scans).
 - Search, filters, preview and download.
 
-## Communications/Blog
+## Blog
 
 Internal news and announcements.
 
@@ -164,7 +167,7 @@ One notification center, many channels.
 Contextual help and knowledge base.
 
 - Floating `?` panel on every page, aware of the current module and route.
-- Searchable Q&A knowledge base — 260+ curated answers in **five languages**.
+- Searchable Q&A knowledge base — 340+ curated answers in **five languages**.
 - Quick questions per context; recommended sections; confidence indicator.
 - Results filtered by the user's permissions.
 - Feedback on answers (helpful / not helpful).
@@ -282,4 +285,5 @@ Cron-equivalent with a UI.
   maintenance).
 - Docker deployment (app + MariaDB + scheduler loop) or classic
   Apache/XAMPP; 100-table schema installed by migrations.
-- 1,600+ automated tests, PHPStan level 6, PSR-12 — all enforced in CI.
+<!-- Keep counts in sync with README. Recompute: tests → `phpunit --list-tests | grep -c '^ - '`; Q&As → `grep -rho '"question"' database/help/*.json | wc -l` ÷ 5; tables → `grep -c 'CREATE TABLE' database/schema.sql`. -->
+- 1,700+ automated tests, PHPStan level 6, PSR-12 — all enforced in CI.

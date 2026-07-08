@@ -121,3 +121,9 @@ First public release under the GNU AGPL-3.0-or-later.
   the cache key against path traversal.
 - TOTP anti-replay degradation is now logged loudly and actionably.
 - Defensive column whitelist in `NotificationEventRepository::hasEventTypeColumn()`.
+
+[Unreleased]: https://github.com/Myth70/favilla/compare/v2.1.0...HEAD
+[2.1.0]: https://github.com/Myth70/favilla/compare/v2.0.4...v2.1.0
+[2.0.4]: https://github.com/Myth70/favilla/compare/v2.0.3...v2.0.4
+[2.0.3]: https://github.com/Myth70/favilla/compare/v2.0.2...v2.0.3
+[2.0.2]: https://github.com/Myth70/favilla/releases/tag/v2.0.2
