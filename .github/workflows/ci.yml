@@ -107,11 +107,12 @@ jobs:
 
       - name: Enforce minimum coverage threshold
         # Regression floor, not a target: fails the build if line coverage drops
-        # below this percentage. Deliberately conservative starting point — raise
-        # it to match the real baseline once it has been observed from a few runs
-        # of this job (see the "Line coverage" figure printed below).
+        # below this percentage. Calibrated from a real measurement (26.50% line
+        # coverage observed on this job on 2026-07-08 — the first blind 45% guess
+        # failed the build), with a ~1.5pp buffer so normal run-to-run variance
+        # doesn't trip it. Raise it over time as coverage improves.
         env:
-          MIN_COVERAGE: '45'
+          MIN_COVERAGE: '25'
         run: |
           php -r '
             $xml = simplexml_load_file("coverage.xml");
