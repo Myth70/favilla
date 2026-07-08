@@ -343,7 +343,22 @@ INSERT IGNORE INTO `changelogs` (`version`, `title`, `notes`, `release_date`, `i
         '- Help Online con assistenza contestuale dentro le schermate',
         '- Knowledge base interrogabile con risposte guidate e argomenti rapidi',
         '- Pannello admin per moduli, alias, query utenti e analisi della copertura'
-    ), '2026-05-20', 1, 1, '2026-05-20 09:00:00', '2026-05-20 09:00:00');
+    ), '2026-05-20', 1, 1, '2026-05-20 09:00:00', '2026-05-20 09:00:00'),
+    ('2.0.3', 'Docker e avvio rapido', CONCAT_WS(CHAR(10),
+        '- Immagine Docker precompilata multi-arch pubblicata su ghcr.io',
+        '- Avvio in un comando (quickstart): genera le chiavi e avvia lo stack senza clonare il repository',
+        '- Zip di release pronte all uso con vendor incluso e guida di aggiornamento'
+    ), '2026-07-05', 1, 1, '2026-07-05 09:00:00', '2026-07-05 09:00:00'),
+    ('2.0.4', 'Dataset dimostrativo', CONCAT_WS(CHAR(10),
+        '- Dataset dimostrativo Aurora Studio con attivita, eventi, contatti, file e notifiche di esempio',
+        '- Progetti, documenti, chat e articoli di esempio quando i moduli opzionali sono attivi',
+        '- Caricamento dal wizard di setup, da CLI o al primo avvio Docker, sempre ripetibile senza duplicati'
+    ), '2026-07-05', 1, 1, '2026-07-05 10:00:00', '2026-07-05 10:00:00'),
+    ('2.1.0', 'Accesso Single Sign-On (OIDC)', CONCAT_WS(CHAR(10),
+        '- Accesso aziendale tramite provider OIDC standard con PKCE, configurabile da Admin - Impostazioni',
+        '- Collegamento automatico degli utenti esistenti tramite email verificata e creazione automatica opzionale dei nuovi account',
+        '- Modalita solo SSO con accesso di emergenza riservato agli amministratori'
+    ), '2026-07-05', 1, 1, '2026-07-05 11:00:00', '2026-07-05 11:00:00');
 
 
 -- ------------------------------------------------------------------
