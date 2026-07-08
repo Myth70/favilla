@@ -156,7 +156,9 @@ Release zips for all three editions are published on the
 [Releases](../../releases) page, built from a git tag by
 [`tools/build-editions.php`](tools/build-editions.php): Developer is the full
 repository; Personal and Team are a cleaned archive with the default edition
-pre-set and `vendor/` bundled, so they don't even need Composer.
+pre-set and `vendor/` bundled, so they don't even need Composer. Full
+technical contract — config, runtime resolution, setup wizard and release
+packaging — in [`docs/contracts/editions.md`](docs/contracts/editions.md).
 
 ## Tech stack
 
