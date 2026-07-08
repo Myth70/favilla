@@ -1,6 +1,6 @@
 <div align="center">
 
-<img width="313" height="234" alt="Senza titolo" src="https://github.com/user-attachments/assets/fc57ecac-ddfb-4c0f-8aaf-c1bff9b947b5" />
+<img width="313" height="234" alt="Favilla" src="https://github.com/user-attachments/assets/fc57ecac-ddfb-4c0f-8aaf-c1bff9b947b5" />
 
 
 **The self-hosted workspace that runs your company — and stays yours.**
