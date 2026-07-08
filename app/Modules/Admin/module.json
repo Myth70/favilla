@@ -13,7 +13,8 @@
         "app_settings",
         "mail_templates",
         "mail_log",
-        "changelog_versions"
+        "changelogs",
+        "changelog_translations"
     ],
     "dependencies": [],
     "changelog": {

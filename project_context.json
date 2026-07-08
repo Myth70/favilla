@@ -1,5 +1,5 @@
 {
-    "generated_at": "2026-07-05T23:05:01+02:00",
+    "generated_at": "2026-07-08T00:53:35+02:00",
     "layout": {
         "index": "project_context.json",
         "detail_dir": "context/",
@@ -614,7 +614,7 @@
             "export_provider": null,
             "counts": {
                 "routes": 102,
-                "tables": 9,
+                "tables": 10,
                 "permissions": 20,
                 "services": 16,
                 "controllers": 16
@@ -628,7 +628,8 @@
                 "app_settings",
                 "mail_templates",
                 "mail_log",
-                "changelog_versions"
+                "changelogs",
+                "changelog_translations"
             ],
             "permissions": [
                 "admin.users.view",
@@ -949,14 +950,15 @@
         },
         {
             "name": "HealthCheck",
-            "version": "3.0.0",
+            "version": "3.1.0",
             "description": "Stato di salute dell'installazione (PHP, database, filesystem, sicurezza ISO 27001, prestazioni). Check rapidi sul dashboard e scansione approfondita (DNS email, esposizione .env, vulnerabilità dipendenze), CLI 'health:check' per CI/deploy, storico run, export CSV, notifiche admin.",
             "core": true,
             "database_mode": "shared",
             "database_suggested_name": null,
             "database_installed": null,
             "dependencies": [
-                "Notifications"
+                "Notifications",
+                "Scheduler"
             ],
             "has_migrations": false,
             "search_provider": null,
@@ -1505,8 +1507,6 @@
     ],
     "core": {
         "tables": [
-            "changelogs",
-            "changelog_translations",
             "data_retention_policies",
             "migrations",
             "module_databases",
