@@ -1,6 +1,6 @@
 <div align="center">
 
-<img width="288" height="50" alt="Favilla" src="https://github.com/user-attachments/assets/b94b45b8-66c9-47cf-b005-b3021fa07294" />
+<img width="313" height="234" alt="Favilla" src="https://github.com/user-attachments/assets/fc57ecac-ddfb-4c0f-8aaf-c1bff9b947b5" />
 
 **L'espace de travail auto-hébergé qui fait tourner votre entreprise — et qui reste le vôtre.**
 
@@ -158,8 +158,8 @@ Favilla est distribué sous **GNU Affero General Public License v3.0 ou ultérie
 comme service réseau, vous devez en fournir le code source modifié à ses
 utilisateurs. Texte complet dans [`LICENSE`](LICENSE).
 
----
-
 <div align="center">
+    <img width="300" height="100" alt="mobile-title" src="https://github.com/user-attachments/assets/ceeff067-98e1-4f7c-bb19-9585e501c275" />
+
 <sub>Made in Italy 🇮🇹</sub>
 </div>
