@@ -1,6 +1,6 @@
 {
     "module": "Admin",
-    "generated_at": "2026-07-08T00:53:35+02:00",
+    "generated_at": "2026-07-09T19:29:52+02:00",
     "routes": [
         {
             "method": "GET",
@@ -726,6 +726,18 @@
             "uri": "/admin/notifications/settings",
             "name": "admin.notifications.settings.update",
             "controller": "AdminNotificationsController@updateSettings",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "SessionSecurityMiddleware",
+                "RoleMiddleware:notifications.admin.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/admin/notifications/settings/webpush/generate",
+            "name": "admin.notifications.webpush.generate",
+            "controller": "AdminNotificationsController@webpushGenerateKeys",
             "middleware": [
                 "AuthMiddleware",
                 "CsrfMiddleware",

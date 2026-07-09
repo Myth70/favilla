@@ -1,8 +1,8 @@
 {
     "name": "Notifications",
     "icon": "fa-solid fa-bell",
-    "version": "2.0.0",
-    "description": "Sistema notifiche con dispatcher multicanale: in-app, email, Telegram, queue, preferenze utente e tracking delivery.",
+    "version": "2.1.0",
+    "description": "Sistema notifiche con dispatcher multicanale: in-app, email, Telegram, Web Push, queue, preferenze utente e tracking delivery.",
     "author": "Favilla",
     "database": "shared",
     "tables": [
@@ -15,7 +15,8 @@
         "notification_deliveries",
         "notification_queue",
         "telegram_bots",
-        "telegram_user_links"
+        "telegram_user_links",
+        "push_subscriptions"
     ],
     "dependencies": [],
     "changelog": {
@@ -26,7 +27,8 @@
         "1.4.0": "Wizard Telegram end-to-end via webhook e prime migrazioni dei produttori a eventi espliciti (Teams, Calendario, Blog)",
         "1.5.0": "Migrazione produttori legacy: Attivita, GDPR, HealthCheck, Contatti, Backup, Admin con eventi espliciti",
         "1.6.0": "UI override per-evento nel profilo, catalogo eventi espliciti in admin, gestione multi-bot Telegram",
-        "1.7.0": "Refactor architetturale: NotificationModuleCatalogService (auto-discovery moduli), NotificationChannelRepository, SQL estratto nei repo, retry coda da admin UI, 25 nuovi unit test"
+        "1.7.0": "Refactor architetturale: NotificationModuleCatalogService (auto-discovery moduli), NotificationChannelRepository, SQL estratto nei repo, retry coda da admin UI, 25 nuovi unit test",
+        "2.1.0": "Canale Web Push (VAPID + subscription per dispositivo), toggle push nelle impostazioni personali, generazione chiavi VAPID dal pannello admin"
     },
     "search_provider": "App\\Modules\\Notifications\\Providers\\NotifSearchProvider",
     "export_provider": "App\\Modules\\Notifications\\Providers\\NotifExportProvider",

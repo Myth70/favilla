@@ -7,6 +7,7 @@ namespace App\Modules\Notifications\Services;
 use App\Modules\Notifications\Repositories\NotificationChannelRepository;
 use App\Modules\Notifications\Repositories\NotificationEventRepository;
 use App\Modules\Notifications\Repositories\NotificationPreferenceRepository;
+use App\Modules\Notifications\Repositories\PushSubscriptionRepository;
 use App\Modules\Notifications\Repositories\TelegramBotRepository;
 use App\Modules\Notifications\Repositories\TelegramUserLinkRepository;
 use App\Services\AuditService;
@@ -21,6 +22,8 @@ class NotificationPreferenceService
     private TelegramLinkService $telegramLinkService;
     private NotificationModuleCatalogService $catalogService;
     private NotificationEventRegistryService $registryService;
+    private PushSubscriptionRepository $pushSubscriptionRepo;
+    private VapidKeyService $vapidKeyService;
 
     public function __construct()
     {
@@ -32,6 +35,8 @@ class NotificationPreferenceService
         $this->telegramLinkService = app(TelegramLinkService::class);
         $this->catalogService = app(NotificationModuleCatalogService::class);
         $this->registryService = app(NotificationEventRegistryService::class);
+        $this->pushSubscriptionRepo = app(PushSubscriptionRepository::class);
+        $this->vapidKeyService = app(VapidKeyService::class);
     }
 
     public function getProfileSettings(int $userId): array
@@ -47,6 +52,8 @@ class NotificationPreferenceService
         }
         $telegramLink = $this->linkRepo->findLinkedByUserId($userId);
         $defaultBot = $this->botRepo->findDefaultEnabled();
+        $vapidConfigured = $this->vapidKeyService->isConfigured();
+        $pushDeviceCount = $this->pushSubscriptionRepo->countForUser($userId);
 
         $items = [];
         foreach ($this->catalogService->getBaselineModules() as $module) {
@@ -77,6 +84,13 @@ class NotificationPreferenceService
                     $note = $defaultBot
                         ? 'Bot non ancora collegato al tuo account. Le consegne Telegram verranno saltate finché non completi il collegamento.'
                         : 'Nessun bot Telegram attivo configurato dagli amministratori.';
+                }
+                if ($channelSlug === 'web_push') {
+                    if (!$vapidConfigured) {
+                        $note = t('notifications.settings.push.note_not_configured');
+                    } elseif ($pushDeviceCount === 0) {
+                        $note = t('notifications.settings.push.note_no_device');
+                    }
                 }
 
                 $channelItems[] = [
@@ -123,6 +137,13 @@ class NotificationPreferenceService
                         $note = $defaultBot
                             ? 'Per ricevere questo evento su Telegram devi completare il collegamento del bot.'
                             : 'Nessun bot Telegram attivo configurato dagli amministratori.';
+                    }
+                    if ($channelSlug === 'web_push') {
+                        if (!$vapidConfigured) {
+                            $note = t('notifications.settings.push.note_not_configured');
+                        } elseif ($pushDeviceCount === 0) {
+                            $note = t('notifications.settings.push.note_no_device');
+                        }
                     }
 
                     $eventChannels[] = [
@@ -176,6 +197,12 @@ class NotificationPreferenceService
                 'deep_link'   => $wizard['deep_link'] ?? null,
                 'pending_token' => $wizard['pending_token'] ?? null,
                 'webhook_url' => $wizard['webhook_url'] ?? null,
+            ],
+            'web_push' => [
+                'available'        => $vapidConfigured,
+                'subscribed'       => $pushDeviceCount > 0,
+                'device_count'     => $pushDeviceCount,
+                'vapid_public_key' => $this->vapidKeyService->publicKey(),
             ],
         ];
     }

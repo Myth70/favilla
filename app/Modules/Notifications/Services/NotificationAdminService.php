@@ -9,6 +9,7 @@ use App\Modules\Notifications\Repositories\NotificationDeliveryRepository;
 use App\Modules\Notifications\Repositories\NotificationDispatchRepository;
 use App\Modules\Notifications\Repositories\NotificationEventRepository;
 use App\Modules\Notifications\Repositories\NotificationQueueRepository;
+use App\Modules\Notifications\Repositories\PushSubscriptionRepository;
 use App\Modules\Notifications\Repositories\TelegramBotRepository;
 use App\Services\AuditService;
 use PDO;
@@ -22,6 +23,8 @@ class NotificationAdminService
     private NotificationQueueRepository $queueRepo;
     private TelegramBotRepository $botRepo;
     private NotificationEventRegistryService $registryService;
+    private PushSubscriptionRepository $pushSubscriptionRepo;
+    private VapidKeyService $vapidKeyService;
 
     public function __construct()
     {
@@ -32,6 +35,8 @@ class NotificationAdminService
         $this->queueRepo = app(NotificationQueueRepository::class);
         $this->botRepo = app(TelegramBotRepository::class);
         $this->registryService = app(NotificationEventRegistryService::class);
+        $this->pushSubscriptionRepo = app(PushSubscriptionRepository::class);
+        $this->vapidKeyService = app(VapidKeyService::class);
     }
 
     public function syncEventRegistry(): void
@@ -81,6 +86,12 @@ class NotificationAdminService
             'defaultBot'          => $this->enrichBot($this->botRepo->findDefault()),
             'bots'                => array_map(fn (array $bot) => $this->enrichBot($bot), $this->botRepo->findAll()),
             'contextVariables'    => $this->buildContextVariableMap($modules),
+            'webPush'             => [
+                'configured' => $this->vapidKeyService->isConfigured(),
+                'public_key' => $this->vapidKeyService->publicKey(),
+                'subject'    => $this->vapidKeyService->subject(),
+                'stats'      => $this->pushSubscriptionRepo->stats(),
+            ],
         ];
     }
 

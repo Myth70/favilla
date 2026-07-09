@@ -145,6 +145,10 @@ INSERT IGNORE INTO `mail_templates` (`id`, `slug`, `name`, `subject`, `body_html
 INSERT IGNORE INTO `notification_channels` (`id`, `slug`, `name`, `description`, `is_enabled`, `sort_order`, `created_at`, `updated_at`) VALUES (1,'in_app','In App','Notifiche nella campanella e nella lista interna',1,10,'2026-03-23 17:49:23','2026-03-23 17:49:23'),(2,'email','Email','Invio tramite il sistema mail configurato',1,20,'2026-03-23 17:49:23','2026-03-23 17:49:23'),(3,'telegram','Telegram','Invio tramite bot Telegram collegato all’utente',1,30,'2026-03-23 17:49:23','2026-03-23 17:49:23');
 
 
+INSERT IGNORE INTO `notification_channels` (`slug`, `name`, `description`, `is_enabled`, `sort_order`) VALUES
+    ('web_push', 'Web Push', 'Notifiche push su browser e app installata (PWA)', 1, 40);
+
+
 -- ------------------------------------------------------------------
 -- 9. Tipi di evento notifiche
 -- ------------------------------------------------------------------
@@ -438,6 +442,18 @@ INSERT IGNORE INTO `app_settings` (`key`, `value`, `type`, `group`, `label`) VAL
     ('sso_oidc_jit_enabled',      '0',                    'bool',   'sso', 'Crea automaticamente i nuovi utenti (JIT)'),
     ('sso_oidc_jit_default_role', 'user',                 'string', 'sso', 'Ruolo di default per utenti JIT'),
     ('sso_only',                  '0',                    'bool',   'sso', 'Solo SSO (nasconde il login con password)');
+
+
+-- ============================================================================
+-- Web Push (group 'notifications'): chiavi VAPID generate dal pannello
+-- Admin → Notifiche. Speculare a app/Modules/Notifications/migrations/
+-- 001_web_push.sql (che copre gli upgrade).
+-- ============================================================================
+
+INSERT IGNORE INTO `app_settings` (`key`, `value`, `type`, `group`, `label`) VALUES
+    ('webpush_vapid_public_key',  '', 'string', 'notifications', 'Chiave pubblica VAPID (Web Push)'),
+    ('webpush_vapid_private_key', '', 'string', 'notifications', 'Chiave privata VAPID (Web Push)'),
+    ('webpush_subject',           '', 'string', 'notifications', 'Subject VAPID (URL o mailto: del gestore)');
 
 
 SET FOREIGN_KEY_CHECKS = 1;

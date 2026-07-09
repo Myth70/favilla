@@ -12,6 +12,17 @@ return [
         'delete'  => 'Delete',
     ],
 
+    'push' => [
+        'unsupported' => 'This browser does not support push notifications.',
+        'ios_hint'    => 'On iPhone/iPad: first install Favilla (Share → Add to Home Screen), then enable notifications from here.',
+        'denied'      => 'Notifications blocked by the browser: unblock them in the site settings.',
+        'active'      => 'Active on this device.',
+        'inactive'    => 'Not active on this device.',
+        'enabling'    => 'Enabling…',
+        'error'       => 'Push error: please retry.',
+        'devices'     => 'Linked devices: {n}',
+    ],
+
     'feedback' => [
         'retry' => [
             'now'             => 'You can try again now.',

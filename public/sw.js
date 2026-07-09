@@ -1,0 +1,108 @@
+/**
+ * Favilla — service worker (shell offline + Web Push).
+ *
+ * Registrato da app.js con l'URL esposto su <body data-sw-url>: lo scope è la
+ * directory di public/, quindi tutti i path qui dentro sono RELATIVI allo
+ * scope (funziona sia sotto /favilla/public/ in dev sia a root in Docker).
+ *
+ * Strategie fetch:
+ *  - navigazioni  → network-first, fallback offline.html
+ *  - GET /assets/ → cache-first con riempimento runtime (URL con ?v= inclusa)
+ *  - tutto il resto → rete (nessuna interferenza con HTMX/API)
+ */
+
+'use strict';
+
+const CACHE_NAME = 'favilla-shell-v1';
+const OFFLINE_URL = 'offline.html';
+const PRECACHE = [
+    OFFLINE_URL,
+    'assets/img/pwa/icon-192.png',
+];
+
+self.addEventListener('install', (event) => {
+    event.waitUntil(
+        caches.open(CACHE_NAME)
+            .then((cache) => cache.addAll(PRECACHE))
+            .then(() => self.skipWaiting())
+    );
+});
+
+self.addEventListener('activate', (event) => {
+    event.waitUntil(
+        caches.keys()
+            .then((keys) => Promise.all(
+                keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))
+            ))
+            .then(() => self.clients.claim())
+    );
+});
+
+self.addEventListener('fetch', (event) => {
+    const request = event.request;
+    if (request.method !== 'GET') {
+        return;
+    }
+
+    if (request.mode === 'navigate') {
+        event.respondWith(
+            fetch(request).catch(() => caches.match(OFFLINE_URL))
+        );
+        return;
+    }
+
+    const url = new URL(request.url);
+    if (url.origin === self.location.origin && url.pathname.includes('/assets/')) {
+        event.respondWith(
+            caches.match(request).then((cached) => {
+                if (cached) {
+                    return cached;
+                }
+                return fetch(request).then((response) => {
+                    if (response.ok && response.type === 'basic') {
+                        const copy = response.clone();
+                        caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
+                    }
+                    return response;
+                });
+            })
+        );
+    }
+});
+
+self.addEventListener('push', (event) => {
+    let data = {};
+    try {
+        data = event.data ? event.data.json() : {};
+    } catch (err) {
+        data = { title: 'Favilla', body: event.data ? event.data.text() : '' };
+    }
+
+    const title = data.title || 'Favilla';
+    const options = {
+        body: data.body || '',
+        icon: 'assets/img/pwa/icon-192.png',
+        badge: 'assets/img/pwa/icon-192.png',
+        tag: data.tag || undefined,
+        data: { url: data.url || '' },
+    };
+
+    event.waitUntil(self.registration.showNotification(title, options));
+});
+
+self.addEventListener('notificationclick', (event) => {
+    event.notification.close();
+    const url = (event.notification.data && event.notification.data.url) || self.registration.scope;
+
+    event.waitUntil((async () => {
+        const windows = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
+        for (const client of windows) {
+            if (client.url === url && 'focus' in client) {
+                return client.focus();
+            }
+        }
+        // Nessuna finestra sull'URL esatto: riusa la prima finestra dell'app se
+        // possibile, altrimenti aprine una nuova.
+        return self.clients.openWindow(url);
+    })());
+});

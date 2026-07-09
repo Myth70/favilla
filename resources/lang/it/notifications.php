@@ -86,6 +86,14 @@ return [
         'per_event_channels' => 'Canali attivi per singolo evento',
         'system_badge' => 'System',
         'save'         => 'Salva preferenze',
+        'push' => [
+            'title'          => 'Notifiche push',
+            'status_loading' => 'Verifica dello stato…',
+            'enable'         => 'Attiva su questo dispositivo',
+            'disable'        => 'Disattiva',
+            'note_not_configured' => 'Canale non ancora configurato dagli amministratori (chiavi VAPID mancanti).',
+            'note_no_device' => 'Nessun dispositivo collegato: attiva le notifiche push dal pulsante in alto.',
+        ],
     ],
 
     'send' => [
@@ -140,7 +148,27 @@ return [
         'bot_configure'   => 'Configura il bot di default',
         'tab_events'      => 'Eventi',
         'tab_bot'         => 'Bot Telegram',
+        'tab_webpush'     => 'Web Push',
         'tab_queue'       => 'Coda e consegne',
+
+        // web push (chiavi VAPID)
+        'webpush' => [
+            'title'              => 'Configurazione Web Push',
+            'status_active'      => 'Attivo',
+            'status_missing'     => 'Da configurare',
+            'intro'              => 'Le notifiche push su browser e PWA richiedono una coppia di chiavi VAPID: la pubblica identifica questa installazione presso i push service, la privata firma ogni invio e non lascia mai il server.',
+            'public_key'         => 'Chiave pubblica VAPID',
+            'subject'            => 'Subject',
+            'generate'           => 'Genera chiavi VAPID',
+            'regenerate'         => 'Rigenera chiavi',
+            'regenerate_confirm' => 'Rigenerare le chiavi VAPID? Tutte le subscription push esistenti smetteranno di funzionare e ogni utente dovrà riattivare le notifiche sui propri dispositivi.',
+            'flash_generated'    => 'Chiavi VAPID generate. Gli utenti possono ora attivare le notifiche push dalle preferenze notifiche.',
+            'flash_already_configured' => 'Le chiavi VAPID sono già presenti: usa «Rigenera chiavi» se vuoi sostituirle.',
+            'devices_title'      => 'Dispositivi collegati',
+            'stat_subscriptions' => 'Subscription attive',
+            'stat_users'         => 'Utenti con push',
+            'requirements_hint'  => 'Il push richiede HTTPS (o localhost in sviluppo). Su iPhone/iPad funziona solo con l\'app installata dalla schermata Home (Safari 16.4+).',
+        ],
         'loading'         => 'Caricamento...',
         'icon_picker_title' => 'Seleziona icona',
         'icon_search_ph'  => 'Cerca icona per nome o classe (es. bell, warning, fa-user)',

@@ -7,6 +7,7 @@ namespace App\Modules\Notifications\Controllers;
 use App\Core\Controller;
 use App\Modules\Notifications\Services\NotificationAdminService;
 use App\Modules\Notifications\Services\NotificationService;
+use App\Modules\Notifications\Services\VapidKeyService;
 use App\Services\AuditService;
 use App\Traits\ControllerHelpers;
 
@@ -37,6 +38,29 @@ class AdminNotificationsController extends Controller
                 ['label' => t('notifications.breadcrumb.dispatcher')],
             ],
         ]));
+    }
+
+    /**
+     * Genera (o rigenera con force=1) la coppia di chiavi VAPID per il Web Push.
+     * La rigenerazione invalida tutte le subscription esistenti: il partial
+     * admin_webpush chiede conferma esplicita prima di inviare force=1.
+     */
+    public function webpushGenerateKeys(): void
+    {
+        $force = (string) ($_POST['force'] ?? '') === '1';
+
+        try {
+            $result = app(VapidKeyService::class)->generate($force);
+            if (!empty($result['generated'])) {
+                flash_success(t('notifications.admin.webpush.flash_generated'));
+            } else {
+                flash_error(t('notifications.admin.webpush.flash_already_configured'));
+            }
+        } catch (\RuntimeException $e) {
+            flash_error($e->getMessage());
+        }
+
+        $this->redirect(route('admin.notifications.settings') . '#pane-webpush');
     }
 
     public function simulateEvent(string $slug): void

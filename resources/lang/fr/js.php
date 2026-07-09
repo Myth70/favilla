@@ -12,6 +12,17 @@ return [
         'delete'  => 'Supprimer',
     ],
 
+    'push' => [
+        'unsupported' => 'Ce navigateur ne prend pas en charge les notifications push.',
+        'ios_hint'    => 'Sur iPhone/iPad : installez d\'abord Favilla (Partager → Sur l\'écran d\'accueil), puis activez les notifications ici.',
+        'denied'      => 'Notifications bloquées par le navigateur : débloquez-les dans les réglages du site.',
+        'active'      => 'Actives sur cet appareil.',
+        'inactive'    => 'Inactives sur cet appareil.',
+        'enabling'    => 'Activation en cours…',
+        'error'       => 'Erreur push : réessayez.',
+        'devices'     => 'Appareils associés : {n}',
+    ],
+
     'feedback' => [
         'retry' => [
             'now'             => 'Vous pouvez réessayer maintenant.',

@@ -1673,3 +1673,23 @@ window.PollingManager = (function () {
 
     return { start: start, stop: stop };
 })();
+
+// ============================================================================
+// PWA — registrazione service worker (shell offline + Web Push)
+// Il layout espone l'URL di sw.js su <body data-sw-url>: il base path
+// (/favilla/public in dev, / in Docker) non viene mai hardcodato qui.
+// ============================================================================
+(function () {
+    'use strict';
+
+    if (!('serviceWorker' in navigator) || !document.body) return;
+
+    var swUrl = document.body.getAttribute('data-sw-url');
+    if (!swUrl) return;
+
+    window.addEventListener('load', function () {
+        navigator.serviceWorker.register(swUrl).catch(function (err) {
+            console.warn('[Favilla] Service worker non registrato:', err);
+        });
+    });
+})();

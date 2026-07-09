@@ -25,6 +25,7 @@ class NotificationQueueProcessorService
         $this->drivers = [
             'email'    => app(EmailChannelDriver::class),
             'telegram' => app(TelegramChannelDriver::class),
+            'web_push' => app(WebPushChannelDriver::class),
         ];
     }
 
