@@ -1,0 +1,29 @@
+{
+    "name": "Webhooks",
+    "core": false,
+    "icon": "fa-solid fa-bolt",
+    "version": "1.0.0",
+    "description": "Webhook in uscita: notifica sistemi esterni (Zapier, n8n, endpoint custom) quando succede un evento, con firma HMAC, retry a backoff via Scheduler e protezione anti-SSRF.",
+    "author": "Favilla",
+    "database": "shared",
+    "tables": [
+        "webhook_endpoints",
+        "webhook_deliveries"
+    ],
+    "dependencies": ["Notifications"],
+    "changelog": {
+        "1.0.0": "Endpoint webhook con eventi sottoscrivibili, fan-out dagli eventi notifiche, consegna firmata HMAC con retry a backoff, anti-SSRF e log delivery"
+    },
+    "navigation": [
+        {
+            "id": "webhooks.index",
+            "label": "Webhook",
+            "icon": "fa-bolt",
+            "route": "webhooks.index",
+            "permission": "webhooks.view",
+            "order": 60,
+            "surfaces": ["sidebar"]
+        }
+    ],
+    "menu": []
+}

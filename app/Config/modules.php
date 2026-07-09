@@ -92,6 +92,12 @@ return [
         'enabled' => true,
         'core'    => true,
     ],
+    [
+        'name'    => 'Webhooks',
+        'enabled' => true,
+        'core'    => false,
+        'permissions_manageable' => true,
+    ],
     // ─── Admin must be LAST ───
     [
         'name'    => 'Scheduler',

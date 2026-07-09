@@ -28,6 +28,11 @@ INSERT IGNORE INTO `permissions` (`id`, `name`, `slug`, `module`, `created_at`, 
     (523,'Accesso modulo Documenti','documenti.access','Documenti','2026-07-03 19:27:00','2026-07-03 19:27:00'),(524,'Visualizza documenti','documenti.view','Documenti','2026-07-03 19:27:00','2026-07-03 19:27:00'),(525,'Crea documenti','documenti.create','Documenti','2026-07-03 19:27:00','2026-07-03 19:27:00'),(526,'Redazione documenti (modifica bozze, carica versioni)','documenti.redazione','Documenti','2026-07-03 19:27:00','2026-07-03 19:27:00'),(527,'Controllo documenti (step 2 workflow)','documenti.controllo','Documenti','2026-07-03 19:27:00','2026-07-03 19:27:00'),(528,'Approvazione documenti (step 3 workflow)','documenti.approvazione','Documenti','2026-07-03 19:27:00','2026-07-03 19:27:00'),(529,'Inbox documenti (workflow in entrata)','documenti.inbox','Documenti','2026-07-03 19:27:00','2026-07-03 19:27:00'),(530,'Elimina propri documenti','documenti.delete','Documenti','2026-07-03 19:27:00','2026-07-03 19:27:00'),(531,'Gestisci categorie documenti','documenti.manage_categorie','Documenti','2026-07-03 19:27:00','2026-07-03 19:27:00'),(532,'Gestisci collegamenti documenti','documenti.manage_collegamenti','Documenti','2026-07-03 19:27:00','2026-07-03 19:27:00'),(533,'Esporta elenchi documenti','documenti.export','Documenti','2026-07-03 19:27:00','2026-07-03 19:27:00'),(534,'Amministra tutti i documenti','documenti.admin','Documenti','2026-07-03 19:27:00','2026-07-03 19:27:00'),
     (535,'Visualizza Blog','blog.view','Blog','2026-07-04 00:11:31','2026-07-04 00:11:31'),(536,'Scrivi articoli Blog','blog.write','Blog','2026-07-04 00:11:31','2026-07-04 00:11:31'),(537,'Amministra Blog','blog.admin','Blog','2026-07-04 00:11:31','2026-07-04 00:11:31'),(538,'Commenta articoli Blog','blog.comment','Blog','2026-07-04 00:11:32','2026-07-04 00:11:32'),(539,'Modera commenti Blog','blog.comment.moderate','Blog','2026-07-04 00:11:32','2026-07-04 00:11:32');
 
+-- Webhooks (modulo Reach & Integrazioni). ID auto: evita collisioni con lo storico.
+INSERT IGNORE INTO `permissions` (`name`, `slug`, `module`) VALUES
+    ('Visualizza Webhook', 'webhooks.view',   'Webhooks'),
+    ('Gestisci Webhook',   'webhooks.manage', 'Webhooks');
+
 
 -- ------------------------------------------------------------------
 -- 3. Assegnazione permessi → ruoli
@@ -178,7 +183,8 @@ INSERT IGNORE INTO `scheduler_jobs` (`slug`, `name`, `command`, `args_json`, `in
     ('retention.run',               'Policy data retention (ISO 27001)',      'retention:run',               NULL,              1440,  1),
     ('reports.cleanup',             'Pulizia report scaduti',                 'reports:cleanup',             NULL,              1440,  1),
     ('session.gc',                  'Garbage collection sessioni DB',         'session:gc',                  NULL,              60,    1),
-    ('ratelimit.cleanup',           'Pulizia entry rate limit scadute',       'ratelimit:cleanup',           NULL,              1440,  1);
+    ('ratelimit.cleanup',           'Pulizia entry rate limit scadute',       'ratelimit:cleanup',           NULL,              1440,  1),
+    ('webhooks.dispatch',           'Consegna webhook in uscita',             'webhooks:dispatch',           '[\"--limit=50\"]', 5,     1);
 
 
 -- ------------------------------------------------------------------
