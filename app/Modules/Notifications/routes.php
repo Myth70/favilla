@@ -3,6 +3,7 @@
 use App\Middleware\AuthMiddleware;
 use App\Middleware\CsrfMiddleware;
 use App\Modules\Notifications\Controllers\NotificationsController;
+use App\Modules\Notifications\Controllers\PushController;
 use App\Modules\Notifications\Controllers\TelegramWebhookController;
 
 $router->post('/notifications/telegram/webhook/{secret}', [TelegramWebhookController::class, 'webhook'])
@@ -55,6 +56,12 @@ $router->group([
 
     $r->post('/settings/telegram/disconnect', [NotificationsController::class, 'disconnectTelegram'])
       ->name('notifications.settings.telegram.disconnect');
+
+    $r->post('/settings/push/subscribe', [PushController::class, 'subscribe'])
+      ->name('notifications.settings.push.subscribe');
+
+    $r->post('/settings/push/unsubscribe', [PushController::class, 'unsubscribe'])
+      ->name('notifications.settings.push.unsubscribe');
 
     $r->post('/{id}/read', [NotificationsController::class, 'markRead'])
       ->name('notifications.read');

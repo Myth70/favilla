@@ -82,6 +82,14 @@ return [
         'per_event_channels' => 'Active channels per single event',
         'system_badge' => 'System',
         'save'         => 'Save preferences',
+        'push' => [
+            'title'          => 'Push notifications',
+            'status_loading' => 'Checking status…',
+            'enable'         => 'Enable on this device',
+            'disable'        => 'Disable',
+            'note_not_configured' => 'Channel not yet configured by the administrators (missing VAPID keys).',
+            'note_no_device' => 'No device linked: enable push notifications from the button above.',
+        ],
     ],
 
     'send' => [
@@ -136,7 +144,27 @@ return [
         'bot_configure'   => 'Configure the default bot',
         'tab_events'      => 'Events',
         'tab_bot'         => 'Telegram bot',
+        'tab_webpush'     => 'Web Push',
         'tab_queue'       => 'Queue and deliveries',
+
+        // web push (VAPID keys)
+        'webpush' => [
+            'title'              => 'Web Push configuration',
+            'status_active'      => 'Active',
+            'status_missing'     => 'To configure',
+            'intro'              => 'Browser and PWA push notifications require a VAPID key pair: the public key identifies this installation to the push services, the private key signs every delivery and never leaves the server.',
+            'public_key'         => 'VAPID public key',
+            'subject'            => 'Subject',
+            'generate'           => 'Generate VAPID keys',
+            'regenerate'         => 'Regenerate keys',
+            'regenerate_confirm' => 'Regenerate the VAPID keys? Every existing push subscription will stop working and each user will have to re-enable notifications on their devices.',
+            'flash_generated'    => 'VAPID keys generated. Users can now enable push notifications from their notification preferences.',
+            'flash_already_configured' => 'VAPID keys already exist: use "Regenerate keys" to replace them.',
+            'devices_title'      => 'Linked devices',
+            'stat_subscriptions' => 'Active subscriptions',
+            'stat_users'         => 'Users with push',
+            'requirements_hint'  => 'Push requires HTTPS (or localhost in development). On iPhone/iPad it only works with the app installed from the Home Screen (Safari 16.4+).',
+        ],
         'loading'         => 'Loading...',
         'icon_picker_title' => 'Select icon',
         'icon_search_ph'  => 'Search icon by name or class (e.g. bell, warning, fa-user)',

@@ -176,6 +176,7 @@ $router->group([
     $r->group(['middleware' => [RoleMiddleware::withPermission('notifications.admin.manage')]], function ($r) {
         $r->get('/notifications/settings', [AdminNotificationsController::class, 'settings'])->name('admin.notifications.settings');
         $r->post('/notifications/settings', [AdminNotificationsController::class, 'updateSettings'])->name('admin.notifications.settings.update');
+        $r->post('/notifications/settings/webpush/generate', [AdminNotificationsController::class, 'webpushGenerateKeys'])->name('admin.notifications.webpush.generate');
         $r->get('/notifications/settings/events/{slug}/edit', [AdminNotificationsController::class, 'editEvent'])->name('admin.notifications.settings.events.edit');
         $r->post('/notifications/settings/events/{slug}', [AdminNotificationsController::class, 'saveEventSettings'])->name('admin.notifications.settings.events.update');
         $r->post('/notifications/settings/events/{slug}/simulate', [AdminNotificationsController::class, 'simulateEvent'])->name('admin.notifications.settings.events.simulate');

@@ -22,6 +22,7 @@
         "dompdf/dompdf": "^2.0",
         "ezyang/htmlpurifier": "^4.18",
         "firebase/php-jwt": "^7.1",
+        "minishlink/web-push": "^10.1",
         "monolog/monolog": "^3.0",
         "phpmailer/phpmailer": "^7.0",
         "phpoffice/phpspreadsheet": "^5.6.1",

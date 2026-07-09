@@ -82,6 +82,14 @@ return [
         'per_event_channels' => 'Canales activos por evento',
         'system_badge' => 'Sistema',
         'save'         => 'Guardar preferencias',
+        'push' => [
+            'title'          => 'Notificaciones push',
+            'status_loading' => 'Comprobando el estado…',
+            'enable'         => 'Activar en este dispositivo',
+            'disable'        => 'Desactivar',
+            'note_not_configured' => 'Canal aún no configurado por los administradores (faltan las claves VAPID).',
+            'note_no_device' => 'Ningún dispositivo vinculado: activa las notificaciones push desde el botón de arriba.',
+        ],
     ],
 
     'send' => [
@@ -136,7 +144,27 @@ return [
         'bot_configure'   => 'Configurar el bot predeterminado',
         'tab_events'      => 'Eventos',
         'tab_bot'         => 'Bot de Telegram',
+        'tab_webpush'     => 'Web Push',
         'tab_queue'       => 'Cola y entregas',
+
+        // web push (claves VAPID)
+        'webpush' => [
+            'title'              => 'Configuración de Web Push',
+            'status_active'      => 'Activo',
+            'status_missing'     => 'Por configurar',
+            'intro'              => 'Las notificaciones push en navegador y PWA requieren un par de claves VAPID: la pública identifica esta instalación ante los servicios push, la privada firma cada envío y nunca sale del servidor.',
+            'public_key'         => 'Clave pública VAPID',
+            'subject'            => 'Subject',
+            'generate'           => 'Generar claves VAPID',
+            'regenerate'         => 'Regenerar claves',
+            'regenerate_confirm' => '¿Regenerar las claves VAPID? Todas las subscripciones push existentes dejarán de funcionar y cada usuario tendrá que volver a activar las notificaciones en sus dispositivos.',
+            'flash_generated'    => 'Claves VAPID generadas. Los usuarios ya pueden activar las notificaciones push desde sus preferencias de notificaciones.',
+            'flash_already_configured' => 'Las claves VAPID ya existen: usa «Regenerar claves» para reemplazarlas.',
+            'devices_title'      => 'Dispositivos vinculados',
+            'stat_subscriptions' => 'Subscripciones activas',
+            'stat_users'         => 'Usuarios con push',
+            'requirements_hint'  => 'El push requiere HTTPS (o localhost en desarrollo). En iPhone/iPad solo funciona con la app instalada desde la pantalla de inicio (Safari 16.4+).',
+        ],
         'loading'         => 'Cargando...',
         'icon_picker_title' => 'Seleccionar icono',
         'icon_search_ph'  => 'Buscar icono por nombre o clase (p. ej. bell, warning, fa-user)',

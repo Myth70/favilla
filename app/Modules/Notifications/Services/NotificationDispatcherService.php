@@ -39,6 +39,7 @@ class NotificationDispatcherService
             'in_app'   => app(InAppChannelDriver::class),
             'email'    => app(EmailChannelDriver::class),
             'telegram' => app(TelegramChannelDriver::class),
+            'web_push' => app(WebPushChannelDriver::class),
         ];
     }
 

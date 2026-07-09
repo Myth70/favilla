@@ -113,6 +113,11 @@ foreach ($colorOptions as $colorValue => $colorLabel) {
             </button>
         </li>
         <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#pane-webpush" type="button" role="tab">
+                <i class="fa-solid fa-tower-broadcast me-1"></i><?= e(t('notifications.admin.tab_webpush')) ?>
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
             <button class="nav-link" data-bs-toggle="tab" data-bs-target="#pane-queue" type="button" role="tab">
                 <i class="fa-solid fa-wave-square me-1"></i><?= e(t('notifications.admin.tab_queue')) ?>
             </button>
@@ -125,6 +130,9 @@ foreach ($colorOptions as $colorValue => $colorLabel) {
         </div>
         <div class="tab-pane fade" id="pane-bot" role="tabpanel">
             <?php $view->include('Notifications/Views/partials/admin_telegram', get_defined_vars()); ?>
+        </div>
+        <div class="tab-pane fade" id="pane-webpush" role="tabpanel">
+            <?php $view->include('Notifications/Views/partials/admin_webpush', get_defined_vars()); ?>
         </div>
         <div class="tab-pane fade" id="pane-queue" role="tabpanel">
             <?php $view->include('Notifications/Views/partials/admin_queue', get_defined_vars()); ?>

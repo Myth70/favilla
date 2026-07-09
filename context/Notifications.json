@@ -1,6 +1,6 @@
 {
     "module": "Notifications",
-    "generated_at": "2026-07-08T00:53:35+02:00",
+    "generated_at": "2026-07-09T19:29:52+02:00",
     "routes": [
         {
             "method": "POST",
@@ -104,6 +104,26 @@
             "uri": "/notifications/settings/telegram/disconnect",
             "name": "notifications.settings.telegram.disconnect",
             "controller": "NotificationsController@disconnectTelegram",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/notifications/settings/push/subscribe",
+            "name": "notifications.settings.push.subscribe",
+            "controller": "PushController@subscribe",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/notifications/settings/push/unsubscribe",
+            "name": "notifications.settings.push.unsubscribe",
+            "controller": "PushController@unsubscribe",
             "middleware": [
                 "AuthMiddleware",
                 "CsrfMiddleware"
@@ -1372,6 +1392,108 @@
                     "on_update": "RESTRICT"
                 }
             ]
+        },
+        {
+            "name": "push_subscriptions",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "endpoint",
+                    "type": "text",
+                    "nullable": false
+                },
+                {
+                    "name": "endpoint_hash",
+                    "type": "char(64)",
+                    "nullable": false
+                },
+                {
+                    "name": "p256dh",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "auth",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "content_encoding",
+                    "type": "varchar(32)",
+                    "nullable": false,
+                    "default": "'aes128gcm'"
+                },
+                {
+                    "name": "user_agent",
+                    "type": "varchar(255)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "last_used_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_push_subscriptions_user",
+                    "columns": [
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "uq_push_subscriptions_endpoint",
+                    "columns": [
+                        "endpoint_hash"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_push_subscriptions_user",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
         }
     ],
     "permissions": [
@@ -1407,12 +1529,17 @@
         "App\\Modules\\Notifications\\Services\\NotificationPreferenceService",
         "App\\Modules\\Notifications\\Services\\NotificationQueueProcessorService",
         "App\\Modules\\Notifications\\Services\\NotificationService",
+        "App\\Modules\\Notifications\\Services\\OpensslEcKeyFactory",
         "App\\Modules\\Notifications\\Services\\TelegramChannelDriver",
-        "App\\Modules\\Notifications\\Services\\TelegramLinkService"
+        "App\\Modules\\Notifications\\Services\\TelegramLinkService",
+        "App\\Modules\\Notifications\\Services\\VapidKeyService",
+        "App\\Modules\\Notifications\\Services\\WebPushChannelDriver",
+        "App\\Modules\\Notifications\\Services\\WebPushSender"
     ],
     "controllers": [
         "App\\Modules\\Notifications\\Controllers\\AdminNotificationsController",
         "App\\Modules\\Notifications\\Controllers\\NotificationsController",
+        "App\\Modules\\Notifications\\Controllers\\PushController",
         "App\\Modules\\Notifications\\Controllers\\TelegramWebhookController"
     ]
 }

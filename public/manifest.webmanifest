@@ -1,0 +1,31 @@
+{
+    "name": "Favilla",
+    "short_name": "Favilla",
+    "description": "Self-hosted workspace: tasks, calendario, contatti, documenti e notifiche.",
+    "start_url": "./",
+    "scope": "./",
+    "display": "standalone",
+    "orientation": "any",
+    "background_color": "#fff7ed",
+    "theme_color": "#f97316",
+    "icons": [
+        {
+            "src": "assets/img/pwa/icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "assets/img/pwa/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        },
+        {
+            "src": "assets/img/pwa/icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}

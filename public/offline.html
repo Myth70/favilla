@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Favilla — Offline</title>
+<!-- Pagina di fallback del service worker: statica e completamente
+     self-contained (nessun asset esterno, deve funzionare senza rete). -->
+<style>
+    :root {
+        --bg: #fff7ed;
+        --card: #ffffff;
+        --text: #1e293b;
+        --muted: #64748b;
+        --accent: #f97316;
+        --border: #e2e8f0;
+    }
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #e2e8f0;
+            --muted: #94a3b8;
+            --border: #334155;
+        }
+    }
+    * { box-sizing: border-box; }
+    body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+        padding: 24px;
+    }
+    .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 40px 36px;
+        max-width: 420px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, .08);
+    }
+    .flame { width: 72px; height: 72px; margin: 0 auto 18px; display: block; }
+    h1 { font-size: 1.3rem; margin: 0 0 8px; }
+    p { margin: 0 0 20px; color: var(--muted); font-size: .95rem; line-height: 1.55; }
+    button {
+        background: var(--accent);
+        color: #fff;
+        border: 0;
+        border-radius: 8px;
+        padding: 10px 22px;
+        font-size: .95rem;
+        font-weight: 600;
+        cursor: pointer;
+    }
+    button:hover { filter: brightness(1.08); }
+</style>
+</head>
+<body>
+<div class="card">
+    <svg class="flame" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M16 2 C13 7 5 10 5 18 C5 24.8 9.8 29.5 16 30 C22.2 29.5 27 24.8 27 18 C27 10 19 7 16 2Z" fill="#f97316"/>
+        <path d="M16 9 C14 13 10 16 10 20 C10 23.9 12.7 27 16 27 C19.3 27 22 23.9 22 20 C22 16 18 13 16 9Z" fill="#ea580c"/>
+        <path d="M16 15 C15 17 13 19 14 22 C14.7 24 16 25 16 25 C16 25 17.3 24 18 22 C19 19 17 17 16 15Z" fill="#fbbf24"/>
+    </svg>
+    <h1>Sei offline</h1>
+    <p>Nessuna connessione disponibile. Favilla tornerà operativa appena la rete sarà raggiungibile.<br>
+       <span lang="en">You are offline — Favilla will be back as soon as the network returns.</span></p>
+    <button onclick="location.reload()">Riprova</button>
+</div>
+</body>
+</html>

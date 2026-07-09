@@ -24,6 +24,16 @@
 </FilesMatch>
 
 # ============================================================
+# PWA MIME types (Apache non mappa .webmanifest di default)
+# ============================================================
+<IfModule mod_mime.c>
+    AddType application/manifest+json .webmanifest
+</IfModule>
+
+# Il service worker deve poter controllare l'intero scope: nessun vincolo extra
+# necessario finché sw.js è servito dalla root di public/ (come qui).
+
+# ============================================================
 # Browser caching for static assets (versioned via ?v= query string)
 # ============================================================
 <IfModule mod_headers.c>

@@ -1,6 +1,7 @@
 <?php
 $view->layout('main');
 $view->pushStyle('css/nt-settings.css');
+$view->pushScript('js/nt-push.js');
 $view->start('content');
 ?>
 
@@ -47,6 +48,31 @@ $view->include('partials/pf-hero-module', [
                     <i class="fa-brands fa-telegram me-1"></i><?= e(t('notifications.settings.connect')) ?>
                 </a>
             <?php endif; ?>
+        </div>
+    </div>
+    <?php endif; ?>
+
+    <?php $pushSettings = $notificationSettings['web_push'] ?? []; ?>
+    <?php if (!empty($pushSettings['available']) && !empty($pushSettings['vapid_public_key'])): ?>
+    <div class="nts-tg-bar mb-3 <?= !empty($pushSettings['subscribed']) ? 'nts-tg-bar--linked' : '' ?>"
+         id="nts-push"
+         data-vapid-key="<?= e((string) $pushSettings['vapid_public_key']) ?>"
+         data-subscribe-url="<?= e(route('notifications.settings.push.subscribe')) ?>"
+         data-unsubscribe-url="<?= e(route('notifications.settings.push.unsubscribe')) ?>"
+         data-device-count="<?= (int) ($pushSettings['device_count'] ?? 0) ?>">
+        <div class="d-flex align-items-center gap-2">
+            <i class="fa-solid fa-tower-broadcast fa-lg nts-tg-icon"></i>
+            <span class="nts-tg-label"><?= e(t('notifications.settings.push.title')) ?></span>
+            <span class="small text-secondary" id="nts-push-status"><?= e(t('notifications.settings.push.status_loading')) ?></span>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+            <span class="badge text-bg-secondary d-none" id="nts-push-devices"></span>
+            <button type="button" class="btn btn-sm btn-primary d-none" id="nts-push-enable">
+                <i class="fa-solid fa-bell me-1"></i><?= e(t('notifications.settings.push.enable')) ?>
+            </button>
+            <button type="button" class="btn btn-sm btn-outline-danger d-none" id="nts-push-disable">
+                <i class="fa-solid fa-bell-slash me-1"></i><?= e(t('notifications.settings.push.disable')) ?>
+            </button>
         </div>
     </div>
     <?php endif; ?>

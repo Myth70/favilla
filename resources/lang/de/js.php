@@ -12,6 +12,17 @@ return [
         'delete'  => 'Löschen',
     ],
 
+    'push' => [
+        'unsupported' => 'Dieser Browser unterstützt keine Push-Benachrichtigungen.',
+        'ios_hint'    => 'Auf iPhone/iPad: Installiere zuerst Favilla (Teilen → Zum Home-Bildschirm), dann aktiviere die Benachrichtigungen hier.',
+        'denied'      => 'Benachrichtigungen vom Browser blockiert: Gib sie in den Website-Einstellungen frei.',
+        'active'      => 'Auf diesem Gerät aktiv.',
+        'inactive'    => 'Auf diesem Gerät nicht aktiv.',
+        'enabling'    => 'Wird aktiviert…',
+        'error'       => 'Push-Fehler: Bitte erneut versuchen.',
+        'devices'     => 'Verknüpfte Geräte: {n}',
+    ],
+
     'feedback' => [
         'retry' => [
             'now'             => 'Sie können es jetzt erneut versuchen.',

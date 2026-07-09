@@ -39,6 +39,10 @@ $currentSidebarStyle  = in_array($currentSidebarStyle ?? '', $allowedSidebarStyl
     <?php $publicUrl = rtrim(config('app.url'), '/') . rtrim(config('app.base_path'), '/'); ?>
     <link rel="icon" type="image/svg+xml" href="<?= e($publicUrl) ?>/favicon.svg">
     <link rel="alternate icon" type="image/x-icon" href="<?= e($publicUrl) ?>/favicon.ico">
+    <!-- PWA: manifest + icona iOS + theme color (il SW viene registrato da app.js via data-sw-url sul body) -->
+    <link rel="manifest" href="<?= e($publicUrl) ?>/manifest.webmanifest">
+    <link rel="apple-touch-icon" href="<?= e($publicUrl) ?>/assets/img/pwa/apple-touch-icon-180.png">
+    <meta name="theme-color" content="#f97316">
 
     <!-- Bootstrap 5 -->
     <link rel="stylesheet" href="<?= e(asset('css/bootstrap.min.css')) ?>">
@@ -76,7 +80,8 @@ $currentSidebarStyle  = in_array($currentSidebarStyle ?? '', $allowedSidebarStyl
       data-color-url="<?= e(route('preferences.color')) ?>"
       data-skin-url="<?= e(route('preferences.skin')) ?>"
       data-font-url="<?= e(route('preferences.font')) ?>"
-      data-sidebar-style-url="<?= e(route('preferences.sidebar_style')) ?>">
+      data-sidebar-style-url="<?= e(route('preferences.sidebar_style')) ?>"
+      data-sw-url="<?= e($publicUrl) ?>/sw.js">
     <?php if (isModuleEnabled('Feedback') && !empty($user)): ?>
     <!-- Segnalazioni: early error collector (cattura errori JS precoci, prima di app.js) -->
     <script nonce="<?= e(csp_nonce()) ?>">

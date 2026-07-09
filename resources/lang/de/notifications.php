@@ -82,6 +82,14 @@ return [
         'per_event_channels' => 'Aktive Kanäle pro Ereignis',
         'system_badge' => 'System',
         'save'         => 'Einstellungen speichern',
+        'push' => [
+            'title'          => 'Push-Benachrichtigungen',
+            'status_loading' => 'Status wird geprüft…',
+            'enable'         => 'Auf diesem Gerät aktivieren',
+            'disable'        => 'Deaktivieren',
+            'note_not_configured' => 'Kanal noch nicht von den Administratoren konfiguriert (VAPID-Schlüssel fehlen).',
+            'note_no_device' => 'Kein Gerät verknüpft: Aktiviere Push-Benachrichtigungen über die Schaltfläche oben.',
+        ],
     ],
 
     'send' => [
@@ -136,7 +144,27 @@ return [
         'bot_configure'   => 'Standard-Bot konfigurieren',
         'tab_events'      => 'Ereignisse',
         'tab_bot'         => 'Telegram-Bot',
+        'tab_webpush'     => 'Web Push',
         'tab_queue'       => 'Warteschlange und Zustellungen',
+
+        // web push (VAPID-Schlüssel)
+        'webpush' => [
+            'title'              => 'Web-Push-Konfiguration',
+            'status_active'      => 'Aktiv',
+            'status_missing'     => 'Zu konfigurieren',
+            'intro'              => 'Push-Benachrichtigungen für Browser und PWA erfordern ein VAPID-Schlüsselpaar: Der öffentliche Schlüssel identifiziert diese Installation bei den Push-Diensten, der private Schlüssel signiert jede Zustellung und verlässt den Server nie.',
+            'public_key'         => 'Öffentlicher VAPID-Schlüssel',
+            'subject'            => 'Subject',
+            'generate'           => 'VAPID-Schlüssel generieren',
+            'regenerate'         => 'Schlüssel neu generieren',
+            'regenerate_confirm' => 'VAPID-Schlüssel neu generieren? Alle bestehenden Push-Subscriptions funktionieren nicht mehr und jeder Benutzer muss die Benachrichtigungen auf seinen Geräten erneut aktivieren.',
+            'flash_generated'    => 'VAPID-Schlüssel generiert. Benutzer können Push-Benachrichtigungen jetzt in ihren Benachrichtigungseinstellungen aktivieren.',
+            'flash_already_configured' => 'VAPID-Schlüssel sind bereits vorhanden: Verwende „Schlüssel neu generieren", um sie zu ersetzen.',
+            'devices_title'      => 'Verknüpfte Geräte',
+            'stat_subscriptions' => 'Aktive Subscriptions',
+            'stat_users'         => 'Benutzer mit Push',
+            'requirements_hint'  => 'Push erfordert HTTPS (oder localhost in der Entwicklung). Auf iPhone/iPad funktioniert es nur mit der vom Home-Bildschirm installierten App (Safari 16.4+).',
+        ],
         'loading'         => 'Wird geladen...',
         'icon_picker_title' => 'Symbol auswählen',
         'icon_search_ph'  => 'Symbol nach Name oder Klasse suchen (z. B. bell, warning, fa-user)',
