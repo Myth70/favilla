@@ -89,6 +89,15 @@ class CleanupCommand
             $dryRun
         );
 
+        $totalDeleted += $this->cleanTable(
+            $pdo,
+            'personal_access_tokens',
+            '(revoked_at IS NOT NULL AND revoked_at < ?) OR (expires_at IS NOT NULL AND expires_at < ?)',
+            [$cutoff, $cutoff],
+            'Token API revocati/scaduti',
+            $dryRun
+        );
+
         echo "\n";
         if ($dryRun) {
             echo "[DRY-RUN] Verrebbero eliminati {$totalDeleted} record totali.\n";

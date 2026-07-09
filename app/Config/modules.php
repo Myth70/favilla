@@ -87,6 +87,11 @@ return [
         'core'    => true,
         'permissions_manageable' => true,
     ],
+    [
+        'name'    => 'Api',
+        'enabled' => true,
+        'core'    => true,
+    ],
     // ─── Admin must be LAST ───
     [
         'name'    => 'Scheduler',

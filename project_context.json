@@ -1,5 +1,5 @@
 {
-    "generated_at": "2026-07-09T19:29:52+02:00",
+    "generated_at": "2026-07-09T19:52:04+02:00",
     "layout": {
         "index": "project_context.json",
         "detail_dir": "context/",
@@ -694,6 +694,39 @@
             "detail": "context/Admin.json"
         },
         {
+            "name": "Api",
+            "version": "1.0.0",
+            "description": "API pubblica REST v1 con autenticazione a Personal Access Token, envelope JSON, rate limiting per token e gestione self-service dei token.",
+            "core": true,
+            "database_mode": "shared",
+            "database_suggested_name": null,
+            "database_installed": null,
+            "dependencies": [],
+            "has_migrations": true,
+            "search_provider": null,
+            "export_provider": null,
+            "counts": {
+                "routes": 5,
+                "tables": 1,
+                "permissions": 0,
+                "services": 1,
+                "controllers": 3
+            },
+            "tables": [
+                "personal_access_tokens"
+            ],
+            "permissions": [],
+            "controllers": [
+                "MeApiController",
+                "OpenApiController",
+                "TokensController"
+            ],
+            "services": [
+                "ApiTokenService"
+            ],
+            "detail": "context/Api.json"
+        },
+        {
             "name": "Auth",
             "version": "2.1.0",
             "description": "Autenticazione, sessioni, recupero password, profilo utente e SSO OIDC",
@@ -832,7 +865,7 @@
             "search_provider": "App\\Modules\\Contacts\\Providers\\ContactsSearchProvider",
             "export_provider": "App\\Modules\\Contacts\\Providers\\ContactsExportProvider",
             "counts": {
-                "routes": 34,
+                "routes": 36,
                 "tables": 4,
                 "permissions": 6,
                 "services": 5,
@@ -1246,7 +1279,7 @@
             "search_provider": "App\\Modules\\Tasks\\Providers\\TasksSearchProvider",
             "export_provider": "App\\Modules\\Tasks\\Providers\\TasksExportProvider",
             "counts": {
-                "routes": 18,
+                "routes": 23,
                 "tables": 4,
                 "permissions": 4,
                 "services": 1,

@@ -1,0 +1,248 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Favilla API",
+        "version": "1.0.0",
+        "description": "API pubblica REST v1 di Favilla. Autenticazione via Personal Access Token (header Authorization: Bearer <token>). Gli scope del token sono un sottoinsieme dei permessi dell'utente. Rate limit per token (default 120 richieste/minuto), header X-RateLimit-*."
+    },
+    "servers": [
+        { "url": "/api/v1", "description": "Base path relativo all'installazione" }
+    ],
+    "security": [
+        { "bearerAuth": [] }
+    ],
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "description": "Personal Access Token generato da Profilo → Token API."
+            }
+        },
+        "schemas": {
+            "Error": {
+                "type": "object",
+                "properties": {
+                    "error": {
+                        "type": "object",
+                        "properties": {
+                            "code": { "type": "string" },
+                            "message": { "type": "string" },
+                            "details": { "type": "object", "additionalProperties": true }
+                        },
+                        "required": ["code", "message"]
+                    }
+                }
+            },
+            "Meta": {
+                "type": "object",
+                "properties": {
+                    "page": { "type": "integer" },
+                    "per_page": { "type": "integer" },
+                    "total": { "type": "integer" }
+                }
+            },
+            "Task": {
+                "type": "object",
+                "properties": {
+                    "id": { "type": "integer" },
+                    "title": { "type": "string" },
+                    "description": { "type": ["string", "null"] },
+                    "status": { "type": "string", "enum": ["backlog", "todo", "in_progress", "review", "done"] },
+                    "priority": { "type": "string", "enum": ["low", "medium", "high", "urgent"] },
+                    "due_date": { "type": ["string", "null"], "format": "date" },
+                    "completed_at": { "type": ["string", "null"] },
+                    "created_at": { "type": ["string", "null"] },
+                    "updated_at": { "type": ["string", "null"] }
+                }
+            },
+            "Contact": {
+                "type": "object",
+                "properties": {
+                    "id": { "type": "integer" },
+                    "nome": { "type": "string" },
+                    "cognome": { "type": ["string", "null"] },
+                    "email": { "type": ["string", "null"] },
+                    "telefono": { "type": ["string", "null"] },
+                    "azienda": { "type": ["string", "null"] }
+                }
+            }
+        },
+        "responses": {
+            "Unauthorized": {
+                "description": "Token mancante, non valido, scaduto o revocato.",
+                "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } }
+            },
+            "Forbidden": {
+                "description": "Permesso o scope insufficiente.",
+                "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } }
+            },
+            "NotFound": {
+                "description": "Risorsa non trovata.",
+                "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } }
+            },
+            "RateLimited": {
+                "description": "Troppe richieste.",
+                "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } }
+            }
+        }
+    },
+    "paths": {
+        "/me": {
+            "get": {
+                "summary": "Identità del token corrente",
+                "operationId": "getMe",
+                "responses": {
+                    "200": {
+                        "description": "Utente autenticato e scope del token.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": { "type": "integer" },
+                                                "name": { "type": "string" },
+                                                "email": { "type": "string" },
+                                                "roles": { "type": "array", "items": { "type": "string" } },
+                                                "scopes": { "type": ["array", "null"], "items": { "type": "string" } }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": { "$ref": "#/components/responses/Unauthorized" }
+                }
+            }
+        },
+        "/tasks": {
+            "get": {
+                "summary": "Elenco attività",
+                "operationId": "listTasks",
+                "parameters": [
+                    { "name": "page", "in": "query", "schema": { "type": "integer", "minimum": 1 } },
+                    { "name": "q", "in": "query", "schema": { "type": "string" } },
+                    { "name": "status", "in": "query", "schema": { "type": "string" } }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lista paginata di attività.",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": { "type": "array", "items": { "$ref": "#/components/schemas/Task" } },
+                                        "meta": { "$ref": "#/components/schemas/Meta" }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "401": { "$ref": "#/components/responses/Unauthorized" },
+                    "403": { "$ref": "#/components/responses/Forbidden" },
+                    "429": { "$ref": "#/components/responses/RateLimited" }
+                }
+            },
+            "post": {
+                "summary": "Crea attività",
+                "operationId": "createTask",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": ["title"],
+                                "properties": {
+                                    "title": { "type": "string" },
+                                    "description": { "type": "string" },
+                                    "status": { "type": "string" },
+                                    "priority": { "type": "string" },
+                                    "due_date": { "type": "string", "format": "date" }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Attività creata.",
+                        "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "$ref": "#/components/schemas/Task" } } } } }
+                    },
+                    "422": {
+                        "description": "Validazione fallita.",
+                        "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } }
+                    }
+                }
+            }
+        },
+        "/tasks/{id}": {
+            "parameters": [
+                { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+            ],
+            "get": {
+                "summary": "Dettaglio attività",
+                "operationId": "getTask",
+                "responses": {
+                    "200": { "description": "Attività.", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "$ref": "#/components/schemas/Task" } } } } } },
+                    "404": { "$ref": "#/components/responses/NotFound" }
+                }
+            },
+            "put": {
+                "summary": "Aggiorna attività",
+                "operationId": "updateTask",
+                "requestBody": {
+                    "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Task" } } }
+                },
+                "responses": {
+                    "200": { "description": "Attività aggiornata.", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "$ref": "#/components/schemas/Task" } } } } } },
+                    "404": { "$ref": "#/components/responses/NotFound" }
+                }
+            },
+            "delete": {
+                "summary": "Elimina attività",
+                "operationId": "deleteTask",
+                "responses": {
+                    "200": { "description": "Attività eliminata." },
+                    "404": { "$ref": "#/components/responses/NotFound" }
+                }
+            }
+        },
+        "/contacts": {
+            "get": {
+                "summary": "Elenco contatti",
+                "operationId": "listContacts",
+                "parameters": [
+                    { "name": "page", "in": "query", "schema": { "type": "integer", "minimum": 1 } },
+                    { "name": "q", "in": "query", "schema": { "type": "string" } }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lista paginata di contatti.",
+                        "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "type": "array", "items": { "$ref": "#/components/schemas/Contact" } }, "meta": { "$ref": "#/components/schemas/Meta" } } } } }
+                    },
+                    "401": { "$ref": "#/components/responses/Unauthorized" },
+                    "403": { "$ref": "#/components/responses/Forbidden" }
+                }
+            }
+        },
+        "/contacts/{id}": {
+            "parameters": [
+                { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+            ],
+            "get": {
+                "summary": "Dettaglio contatto",
+                "operationId": "getContact",
+                "responses": {
+                    "200": { "description": "Contatto.", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "$ref": "#/components/schemas/Contact" } } } } } },
+                    "404": { "$ref": "#/components/responses/NotFound" }
+                }
+            }
+        }
+    }
+}

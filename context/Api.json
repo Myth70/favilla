@@ -1,0 +1,162 @@
+{
+    "module": "Api",
+    "generated_at": "2026-07-09T19:52:04+02:00",
+    "routes": [
+        {
+            "method": "GET",
+            "uri": "/api/v1/openapi.json",
+            "name": "api.openapi",
+            "controller": "OpenApiController@spec",
+            "middleware": []
+        },
+        {
+            "method": "GET",
+            "uri": "/api/v1/me",
+            "name": "api.me",
+            "controller": "MeApiController@show",
+            "middleware": [
+                "ApiTokenMiddleware",
+                "ApiRateLimitMiddleware"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/profile/api-tokens/",
+            "name": "api.tokens.index",
+            "controller": "TokensController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/profile/api-tokens/",
+            "name": "api.tokens.store",
+            "controller": "TokensController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/profile/api-tokens/{id}/revoke",
+            "name": "api.tokens.revoke",
+            "controller": "TokensController@revoke",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware"
+            ]
+        }
+    ],
+    "tables": [
+        {
+            "name": "personal_access_tokens",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "user_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "name",
+                    "type": "varchar(120)",
+                    "nullable": false
+                },
+                {
+                    "name": "token_hash",
+                    "type": "char(64)",
+                    "nullable": false
+                },
+                {
+                    "name": "scopes",
+                    "type": "longtext",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "last_used_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "expires_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "revoked_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_personal_access_tokens_user",
+                    "columns": [
+                        "user_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "uq_personal_access_tokens_hash",
+                    "columns": [
+                        "token_hash"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_personal_access_tokens_user",
+                    "column": "user_id",
+                    "references": "users.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        }
+    ],
+    "permissions": [],
+    "services": [
+        "App\\Modules\\Api\\Services\\ApiTokenService"
+    ],
+    "controllers": [
+        "App\\Modules\\Api\\Controllers\\MeApiController",
+        "App\\Modules\\Api\\Controllers\\OpenApiController",
+        "App\\Modules\\Api\\Controllers\\TokensController"
+    ]
+}
