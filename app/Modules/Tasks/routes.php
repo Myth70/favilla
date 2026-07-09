@@ -3,7 +3,22 @@
 use App\Middleware\AuthMiddleware;
 use App\Middleware\CsrfMiddleware;
 use App\Middleware\RoleMiddleware;
+use App\Modules\Api\Middleware\ApiRateLimitMiddleware;
+use App\Modules\Api\Middleware\ApiTokenMiddleware;
+use App\Modules\Tasks\Controllers\Api\TasksApiController;
 use App\Modules\Tasks\Controllers\TasksController;
+
+// ── API v1 — token-based, stateless (riusa TasksService). Static prima di {id}.
+$router->group([
+    'prefix'     => 'api/v1/tasks',
+    'middleware' => [ApiTokenMiddleware::class, ApiRateLimitMiddleware::class],
+], function ($r) {
+    $r->get('/', [TasksApiController::class, 'index'])->name('api.tasks.index');
+    $r->post('/', [TasksApiController::class, 'store'])->name('api.tasks.store');
+    $r->get('/{id}', [TasksApiController::class, 'show'])->name('api.tasks.show');
+    $r->put('/{id}', [TasksApiController::class, 'update'])->name('api.tasks.update');
+    $r->delete('/{id}', [TasksApiController::class, 'destroy'])->name('api.tasks.destroy');
+});
 
 $router->group([
     'prefix'     => 'tasks',

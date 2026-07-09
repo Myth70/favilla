@@ -7,17 +7,25 @@ use App\Core\ModuleLoader;
 use App\Core\Router;
 use App\Middleware\AuthMiddleware;
 use App\Middleware\CsrfMiddleware;
+use App\Modules\Api\Middleware\ApiTokenMiddleware;
 use PHPUnit\Framework\TestCase;
 
 /**
  * Authorization audit over the REAL route table.
  *
  * Loads every module's routes (plus the app-level routes) and asserts that each
- * state-changing route (POST/PUT/DELETE) is protected by CsrfMiddleware and
- * AuthMiddleware — except for a small, explicitly documented allowlist of public
- * / pre-authentication endpoints.
+ * state-changing route (POST/PUT/DELETE) is protected by an authentication
+ * mechanism and CSRF — except for a small, explicitly documented allowlist of
+ * public / pre-authentication endpoints.
  *
- * This is a regression guard: adding a mutating route without CSRF/auth (and
+ * Two authentication mechanisms are accepted:
+ *  - Session (cookie) auth: AuthMiddleware + CsrfMiddleware. CSRF is mandatory
+ *    because the session rides on a cookie the browser attaches automatically.
+ *  - Token (Bearer) auth: ApiTokenMiddleware, used by the stateless `api/v1`
+ *    surface. These carry NO cookie, so they are structurally immune to CSRF and
+ *    do not (must not) use CsrfMiddleware.
+ *
+ * This is a regression guard: adding a mutating route without any auth (and
  * without consciously documenting it here) will fail the build.
  */
 class RouteAuthzAuditTest extends TestCase
@@ -82,6 +90,11 @@ class RouteAuthzAuditTest extends TestCase
             if (in_array($name, self::CSRF_EXEMPT, true)) {
                 continue;
             }
+            // Token-authenticated (Bearer) routes carry no cookie → immune to
+            // CSRF by construction, and must not use CsrfMiddleware.
+            if ($this->hasMiddleware($route, ApiTokenMiddleware::class)) {
+                continue;
+            }
             if (!$this->hasMiddleware($route, CsrfMiddleware::class)) {
                 $offenders[] = $route['method'] . ' ' . $route['uri'] . ' (' . $name . ')';
             }
@@ -98,9 +111,13 @@ class RouteAuthzAuditTest extends TestCase
             if (in_array($name, self::AUTH_EXEMPT, true)) {
                 continue;
             }
-            if (!$this->hasMiddleware($route, AuthMiddleware::class)) {
-                $offenders[] = $route['method'] . ' ' . $route['uri'] . ' (' . $name . ')';
+            // Either session auth (AuthMiddleware) or token auth (ApiTokenMiddleware)
+            // satisfies the "must be authenticated" requirement.
+            if ($this->hasMiddleware($route, AuthMiddleware::class)
+                || $this->hasMiddleware($route, ApiTokenMiddleware::class)) {
+                continue;
             }
+            $offenders[] = $route['method'] . ' ' . $route['uri'] . ' (' . $name . ')';
         }
 
         $this->assertSame([], $offenders, "Mutating routes missing auth (and not documented as public):\n" . implode("\n", $offenders));

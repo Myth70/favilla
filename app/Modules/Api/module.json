@@ -1,0 +1,17 @@
+{
+    "name": "Api",
+    "core": true,
+    "icon": "fa-solid fa-plug",
+    "version": "1.0.0",
+    "description": "API pubblica REST v1 con autenticazione a Personal Access Token, envelope JSON, rate limiting per token e gestione self-service dei token.",
+    "author": "Favilla",
+    "database": "shared",
+    "tables": [
+        "personal_access_tokens"
+    ],
+    "dependencies": [],
+    "changelog": {
+        "1.0.0": "API v1 a token: middleware Bearer + rate limit, envelope, /me e /openapi.json, UI token nel profilo, endpoint pilota Attività e Contatti"
+    },
+    "menu": []
+}

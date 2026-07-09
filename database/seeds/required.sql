@@ -456,4 +456,14 @@ INSERT IGNORE INTO `app_settings` (`key`, `value`, `type`, `group`, `label`) VAL
     ('webpush_subject',           '', 'string', 'notifications', 'Subject VAPID (URL o mailto: del gestore)');
 
 
+-- ============================================================================
+-- API pubblica (group 'api'): kill-switch e limiti di default. Speculare a
+-- app/Modules/Api/migrations/001_personal_access_tokens.sql (upgrade).
+-- ============================================================================
+
+INSERT IGNORE INTO `app_settings` (`key`, `value`, `type`, `group`, `label`) VALUES
+    ('api_enabled',              '1',   'bool', 'api', 'Abilita API pubblica (REST v1)'),
+    ('api_rate_limit_per_minute','120', 'int',  'api', 'Limite richieste API per minuto per token');
+
+
 SET FOREIGN_KEY_CHECKS = 1;

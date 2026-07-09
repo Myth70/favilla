@@ -3,6 +3,9 @@
 use App\Middleware\AuthMiddleware;
 use App\Middleware\CsrfMiddleware;
 use App\Middleware\RoleMiddleware;
+use App\Modules\Api\Middleware\ApiRateLimitMiddleware;
+use App\Modules\Api\Middleware\ApiTokenMiddleware;
+use App\Modules\Contacts\Controllers\Api\ContactsApiController;
 use App\Modules\Contacts\Controllers\CategoriesController;
 use App\Modules\Contacts\Controllers\ContactsController;
 use App\Modules\Contacts\Controllers\FileImportController;
@@ -10,6 +13,15 @@ use App\Modules\Contacts\Controllers\ImportController;
 use App\Modules\Contacts\Controllers\RecurrencesController;
 use App\Modules\Contacts\Controllers\ReminderController;
 use App\Modules\Contacts\Controllers\SharingController;
+
+// ── API v1 — sola lettura nel roll-out pilota (riusa ContactsService).
+$router->group([
+    'prefix'     => 'api/v1/contacts',
+    'middleware' => [ApiTokenMiddleware::class, ApiRateLimitMiddleware::class],
+], function ($r) {
+    $r->get('/', [ContactsApiController::class, 'index'])->name('api.contacts.index');
+    $r->get('/{id}', [ContactsApiController::class, 'show'])->name('api.contacts.show');
+});
 
 $router->group([
     'prefix'     => 'contacts',

@@ -423,6 +423,22 @@ $uploadsBase .= '/uploads';
                         </div>
                     </section>
 
+                    <!-- Token API (modulo Api) -->
+                    <?php if (isModuleEnabled('Api')): ?>
+                    <section class="pf-prefs-section">
+                        <header class="pf-prefs-subhead">
+                            <i class="fa-solid fa-plug"></i>
+                            <span><?= e(t('api.tokens.title')) ?></span>
+                        </header>
+                        <p class="text-muted small mb-3"><?= e(t('api.tokens.subtitle')) ?></p>
+                        <div class="d-grid d-sm-flex justify-content-sm-start">
+                            <a href="<?= e(route('api.tokens.index')) ?>" class="btn btn-outline-primary">
+                                <i class="fa-solid fa-plug me-1"></i><?= e(t('api.tokens.manage_cta')) ?>
+                            </a>
+                        </div>
+                    </section>
+                    <?php endif; ?>
+
                     <!-- Cronologia e dispositivi: 3 collapsibles consolidati -->
                     <section class="pf-prefs-section">
                         <header class="pf-prefs-subhead">

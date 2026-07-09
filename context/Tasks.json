@@ -1,7 +1,57 @@
 {
     "module": "Tasks",
-    "generated_at": "2026-07-09T19:29:52+02:00",
+    "generated_at": "2026-07-09T19:52:04+02:00",
     "routes": [
+        {
+            "method": "GET",
+            "uri": "/api/v1/tasks/",
+            "name": "api.tasks.index",
+            "controller": "TasksApiController@index",
+            "middleware": [
+                "ApiTokenMiddleware",
+                "ApiRateLimitMiddleware"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/api/v1/tasks/",
+            "name": "api.tasks.store",
+            "controller": "TasksApiController@store",
+            "middleware": [
+                "ApiTokenMiddleware",
+                "ApiRateLimitMiddleware"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/api/v1/tasks/{id}",
+            "name": "api.tasks.show",
+            "controller": "TasksApiController@show",
+            "middleware": [
+                "ApiTokenMiddleware",
+                "ApiRateLimitMiddleware"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/api/v1/tasks/{id}",
+            "name": "api.tasks.update",
+            "controller": "TasksApiController@update",
+            "middleware": [
+                "ApiTokenMiddleware",
+                "ApiRateLimitMiddleware"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/api/v1/tasks/{id}",
+            "name": "api.tasks.destroy",
+            "controller": "TasksApiController@destroy",
+            "middleware": [
+                "ApiTokenMiddleware",
+                "ApiRateLimitMiddleware"
+            ]
+        },
         {
             "method": "GET",
             "uri": "/tasks/",
