@@ -1,5 +1,5 @@
 {
-    "generated_at": "2026-07-09T19:52:04+02:00",
+    "generated_at": "2026-07-09T20:14:02+02:00",
     "layout": {
         "index": "project_context.json",
         "detail_dir": "context/",
@@ -599,6 +599,16 @@
             "slug": "teams.view",
             "name": "Accesso Teams (lettura, presence, mute/hide)",
             "module": "Teams"
+        },
+        {
+            "slug": "webhooks.manage",
+            "name": "Gestisci Webhook",
+            "module": "Webhooks"
+        },
+        {
+            "slug": "webhooks.view",
+            "name": "Visualizza Webhook",
+            "module": "Webhooks"
         }
     ],
     "modules": [
@@ -1544,6 +1554,48 @@
                 "TeamsService"
             ],
             "detail": "context/Teams.json"
+        },
+        {
+            "name": "Webhooks",
+            "version": "1.0.0",
+            "description": "Webhook in uscita: notifica sistemi esterni (Zapier, n8n, endpoint custom) quando succede un evento, con firma HMAC, retry a backoff via Scheduler e protezione anti-SSRF.",
+            "core": false,
+            "database_mode": "shared",
+            "database_suggested_name": null,
+            "database_installed": null,
+            "dependencies": [
+                "Notifications"
+            ],
+            "has_migrations": true,
+            "search_provider": null,
+            "export_provider": null,
+            "counts": {
+                "routes": 9,
+                "tables": 2,
+                "permissions": 2,
+                "services": 6,
+                "controllers": 1
+            },
+            "tables": [
+                "webhook_endpoints",
+                "webhook_deliveries"
+            ],
+            "permissions": [
+                "webhooks.view",
+                "webhooks.manage"
+            ],
+            "controllers": [
+                "WebhooksController"
+            ],
+            "services": [
+                "WebhookDispatchService",
+                "WebhookFanoutService",
+                "WebhookHttpClient",
+                "WebhookSigner",
+                "WebhookUrlValidator",
+                "WebhooksService"
+            ],
+            "detail": "context/Webhooks.json"
         }
     ],
     "core": {

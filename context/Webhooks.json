@@ -1,0 +1,331 @@
+{
+    "module": "Webhooks",
+    "generated_at": "2026-07-09T20:14:02+02:00",
+    "routes": [
+        {
+            "method": "GET",
+            "uri": "/webhooks/",
+            "name": "webhooks.index",
+            "controller": "WebhooksController@index",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:webhooks.view"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/webhooks/create",
+            "name": "webhooks.create",
+            "controller": "WebhooksController@create",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:webhooks.view"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/webhooks/",
+            "name": "webhooks.store",
+            "controller": "WebhooksController@store",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:webhooks.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/webhooks/{id}/test",
+            "name": "webhooks.test",
+            "controller": "WebhooksController@test",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:webhooks.manage"
+            ]
+        },
+        {
+            "method": "POST",
+            "uri": "/webhooks/{id}/secret",
+            "name": "webhooks.secret.regenerate",
+            "controller": "WebhooksController@regenerateSecret",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:webhooks.manage"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/webhooks/{id}/edit",
+            "name": "webhooks.edit",
+            "controller": "WebhooksController@edit",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:webhooks.manage"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/webhooks/{id}",
+            "name": "webhooks.update",
+            "controller": "WebhooksController@update",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:webhooks.manage"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/webhooks/{id}",
+            "name": "webhooks.destroy",
+            "controller": "WebhooksController@destroy",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:webhooks.manage"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/webhooks/{id}/deliveries",
+            "name": "webhooks.deliveries",
+            "controller": "WebhooksController@deliveries",
+            "middleware": [
+                "AuthMiddleware",
+                "CsrfMiddleware",
+                "RoleMiddleware:webhooks.view"
+            ]
+        }
+    ],
+    "tables": [
+        {
+            "name": "webhook_endpoints",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "int(10) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "url",
+                    "type": "varchar(1024)",
+                    "nullable": false
+                },
+                {
+                    "name": "secret",
+                    "type": "varchar(255)",
+                    "nullable": false
+                },
+                {
+                    "name": "event_types",
+                    "type": "longtext",
+                    "nullable": false
+                },
+                {
+                    "name": "description",
+                    "type": "varchar(255)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "is_active",
+                    "type": "tinyint(1)",
+                    "nullable": false,
+                    "default": "1"
+                },
+                {
+                    "name": "created_by",
+                    "type": "int(10) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                },
+                {
+                    "name": "updated_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()",
+                    "extra": "on update current_timestamp()"
+                },
+                {
+                    "name": "deleted_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_webhook_endpoints_active",
+                    "columns": [
+                        "is_active",
+                        "deleted_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_webhook_endpoints_owner",
+                    "columns": [
+                        "created_by"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_webhook_endpoints_user",
+                    "column": "created_by",
+                    "references": "users.id",
+                    "on_delete": "SET NULL",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        },
+        {
+            "name": "webhook_deliveries",
+            "columns": [
+                {
+                    "name": "id",
+                    "type": "bigint(20) unsigned",
+                    "nullable": false,
+                    "extra": "auto_increment"
+                },
+                {
+                    "name": "endpoint_id",
+                    "type": "int(10) unsigned",
+                    "nullable": false
+                },
+                {
+                    "name": "event_type",
+                    "type": "varchar(150)",
+                    "nullable": false
+                },
+                {
+                    "name": "payload",
+                    "type": "longtext",
+                    "nullable": false
+                },
+                {
+                    "name": "status",
+                    "type": "enum('pending','sent','failed')",
+                    "nullable": false,
+                    "default": "'pending'"
+                },
+                {
+                    "name": "attempts",
+                    "type": "tinyint(3) unsigned",
+                    "nullable": false,
+                    "default": "0"
+                },
+                {
+                    "name": "response_code",
+                    "type": "smallint(5) unsigned",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "last_error",
+                    "type": "varchar(255)",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "next_retry_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "delivered_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "created_at",
+                    "type": "timestamp",
+                    "nullable": false,
+                    "default": "current_timestamp()"
+                }
+            ],
+            "indexes": [
+                {
+                    "name": "idx_webhook_deliveries_dispatch",
+                    "columns": [
+                        "status",
+                        "next_retry_at"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "idx_webhook_deliveries_endpoint",
+                    "columns": [
+                        "endpoint_id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                },
+                {
+                    "name": "PRIMARY",
+                    "columns": [
+                        "id"
+                    ],
+                    "unique": false,
+                    "type": "BTREE"
+                }
+            ],
+            "fk": [
+                {
+                    "constraint": "fk_webhook_deliveries_endpoint",
+                    "column": "endpoint_id",
+                    "references": "webhook_endpoints.id",
+                    "on_delete": "CASCADE",
+                    "on_update": "RESTRICT"
+                }
+            ]
+        }
+    ],
+    "permissions": [
+        {
+            "slug": "webhooks.manage",
+            "name": "Gestisci Webhook"
+        },
+        {
+            "slug": "webhooks.view",
+            "name": "Visualizza Webhook"
+        }
+    ],
+    "services": [
+        "App\\Modules\\Webhooks\\Services\\WebhookDispatchService",
+        "App\\Modules\\Webhooks\\Services\\WebhookFanoutService",
+        "App\\Modules\\Webhooks\\Services\\WebhookHttpClient",
+        "App\\Modules\\Webhooks\\Services\\WebhookSigner",
+        "App\\Modules\\Webhooks\\Services\\WebhookUrlValidator",
+        "App\\Modules\\Webhooks\\Services\\WebhooksService"
+    ],
+    "controllers": [
+        "App\\Modules\\Webhooks\\Controllers\\WebhooksController"
+    ]
+}

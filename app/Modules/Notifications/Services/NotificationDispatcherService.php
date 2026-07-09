@@ -223,11 +223,36 @@ class NotificationDispatcherService
 
         $this->dispatchRepo->refreshStatus($dispatchId);
 
+        $this->fanOutToWebhooks($eventSlug, $sourceModule, $message);
+
         return [
             'dispatch_id' => $dispatchId,
             'legacy_notification_ids' => $legacyNotificationIds,
             'delivery_ids' => $deliveryIds,
         ];
+    }
+
+    /**
+     * Fan-out opzionale verso il modulo Webhooks: ogni evento che alimenta le
+     * notifiche può notificare anche endpoint esterni. Best-effort e disaccoppiato
+     * — se il modulo è assente/disabilitato o l'accodamento fallisce, il flusso
+     * notifiche non ne risente.
+     *
+     * @param array<string, mixed> $message
+     */
+    private function fanOutToWebhooks(string $eventSlug, string $sourceModule, array $message): void
+    {
+        if (!class_exists(\App\Modules\Webhooks\Services\WebhookFanoutService::class)
+            || !isModuleEnabled('Webhooks')) {
+            return;
+        }
+
+        try {
+            app(\App\Modules\Webhooks\Services\WebhookFanoutService::class)
+                ->enqueueForEvent($eventSlug, $sourceModule, $message);
+        } catch (\Throwable $e) {
+            app_log('error', 'Webhook fan-out fallito per evento ' . $eventSlug . ': ' . $e->getMessage());
+        }
     }
 
     private function buildDeliveryPayload(int $dispatchId, int $userId, array $binding, array $message): array

@@ -98,6 +98,15 @@ class CleanupCommand
             $dryRun
         );
 
+        $totalDeleted += $this->cleanTable(
+            $pdo,
+            'webhook_deliveries',
+            "status IN ('sent','failed') AND created_at < ?",
+            [$cutoff],
+            'Consegne webhook completate',
+            $dryRun
+        );
+
         echo "\n";
         if ($dryRun) {
             echo "[DRY-RUN] Verrebbero eliminati {$totalDeleted} record totali.\n";

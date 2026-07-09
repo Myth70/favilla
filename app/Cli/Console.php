@@ -26,6 +26,7 @@ class Console
         'reports:cleanup'              => Commands\ReportsCleanupCommand::class,
         'session:gc'                   => Commands\SessionGcCommand::class,
         'ratelimit:cleanup'            => Commands\RateLimitCleanupCommand::class,
+        'webhooks:dispatch'            => Commands\WebhooksDispatchCommand::class,
         'health:check'                 => Commands\HealthCheckCommand::class,
         'blog:publish-scheduled'       => Commands\BlogPublishScheduledCommand::class,
         'documenti:send-expiry-reminders' => Commands\DocumentiSendExpiryRemindersCommand::class,
@@ -91,6 +92,7 @@ class Console
         echo "  reports:cleanup                     Elimina report scaduti dal disco (ISO 27001)\n\n";
         echo "  session:gc [--lifetime=7200]         Pulisce sessioni DB scadute\n\n";
         echo "  ratelimit:cleanup [--dry-run]        Pulisce entry rate_limits e login_attempts scadute\n\n";
+        echo "  webhooks:dispatch [--limit=50]       Consegna i webhook in coda con retry a backoff\n\n";
         echo "  health:check [--quiet]               Esegue tutti i controlli di salute (exit 1 se falliti)\n\n";
         echo "  blog:publish-scheduled               Pubblica articoli Blog con publish_at scaduto\n\n";
         echo "  documenti:send-expiry-reminders     Invia reminder scadenza multi-stadio documenti\n\n";
