@@ -18,6 +18,9 @@ use App\Modules\Api\Support\ApiRequestContext;
  */
 abstract class ApiController extends Controller
 {
+    /** @var array<string, mixed>|null Body parsato una sola volta (per-richiesta). */
+    private ?array $inputCache = null;
+
     protected function context(): ApiRequestContext
     {
         return app(ApiRequestContext::class);
@@ -93,21 +96,20 @@ abstract class ApiController extends Controller
      */
     protected function input(): array
     {
-        static $cache = null;
-        if ($cache !== null) {
-            return $cache;
+        if ($this->inputCache !== null) {
+            return $this->inputCache;
         }
 
         $contentType = strtolower((string) ($_SERVER['CONTENT_TYPE'] ?? ''));
         if (str_contains($contentType, 'application/json')) {
             $raw = file_get_contents('php://input');
             $decoded = $raw !== false && $raw !== '' ? json_decode($raw, true) : null;
-            $cache = is_array($decoded) ? $decoded : [];
+            $this->inputCache = is_array($decoded) ? $decoded : [];
         } else {
-            $cache = $_POST;
+            $this->inputCache = $_POST;
         }
 
-        return $cache;
+        return $this->inputCache;
     }
 
     /**

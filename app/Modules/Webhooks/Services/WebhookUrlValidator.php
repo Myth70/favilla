@@ -8,8 +8,18 @@ namespace App\Modules\Webhooks\Services;
  * Difesa anti-SSRF per gli URL di destinazione dei webhook (definiti dagli
  * utenti). Consente solo https (http ammesso per il solo host locale in
  * sviluppo), vieta credenziali in URL e risolve il DNS bloccando IP privati,
- * loopback e link-local. La risoluzione va rifatta a ogni invio reale (il
- * dispatcher chiama resolveAndAssertPublic()) per mitigare il DNS rebinding.
+ * loopback e link-local.
+ *
+ * Difesa in profondità (nessun singolo controllo è sufficiente da solo):
+ *  - il dispatcher richiama resolveAndAssertPublic() a OGNI invio, non solo
+ *    alla creazione dell'endpoint;
+ *  - WebhookHttpClient NON segue i redirect (un 3xx verso un IP interno non
+ *    viene inseguito).
+ * Rischio residuo noto: tra questa risoluzione DNS e la connessione reale il
+ * wrapper HTTP ri-risolve l'host in modo indipendente — una finestra TOCTOU di
+ * DNS rebinding resta teoricamente aperta (richiede DNS autoritativo ostile a
+ * TTL bassissimo). Chiuderla del tutto richiederebbe il pinning dell'IP
+ * risolto, che però romperebbe SNI/verifica certificato su HTTPS.
  */
 class WebhookUrlValidator
 {

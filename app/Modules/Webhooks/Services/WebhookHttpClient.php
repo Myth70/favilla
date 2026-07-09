@@ -26,11 +26,18 @@ class WebhookHttpClient
 
         $context = stream_context_create([
             'http' => [
-                'method'        => 'POST',
-                'header'        => implode("\r\n", $headerLines),
-                'content'       => $body,
-                'timeout'       => self::TIMEOUT,
-                'ignore_errors' => true, // leggi il body anche su 4xx/5xx
+                'method'         => 'POST',
+                'header'         => implode("\r\n", $headerLines),
+                'content'        => $body,
+                'timeout'        => self::TIMEOUT,
+                'ignore_errors'  => true, // leggi il body anche su 4xx/5xx
+                // Anti-SSRF: NON seguire i redirect. Un endpoint validato potrebbe
+                // rispondere 3xx verso un IP interno/metadata cloud, aggirando la
+                // validazione fatta sull'URL originale. Un 3xx diventa così una
+                // consegna non-2xx (retry poi failed), mai una richiesta seguita.
+                'follow_location' => 0,
+                'max_redirects'   => 0,
+                'protocol_version' => 1.1,
             ],
             'ssl' => [
                 'verify_peer'      => true,
