@@ -1,8 +1,9 @@
 # Upgrading Favilla
 
-How to move an existing installation to a newer release. Favilla is pre-1.0:
-**minor versions may include breaking changes**, so always read the
-[CHANGELOG](CHANGELOG.md) entry for the target version before you start.
+How to move an existing installation to a newer release. Favilla follows
+Semantic Versioning — within the 2.x line, minor and patch releases are
+backward-compatible — but always skim the [CHANGELOG](CHANGELOG.md) entry for
+the target version before you start.
 
 Database migrations are tracked in a `migrations` table and are **idempotent**:
 running `php database/migrate.php` on an existing database applies only what is
