@@ -66,3 +66,18 @@ Auto-discovered admin panel — use this instead of hardcoding links in shared a
 
 ## 11. Shared services (`app/Services/`)
 `NotificationService` (template-first notifications) · `FileUploadService` (uploads) · `EncryptionService` (AES-256-GCM) · `AuditService` (audit log) · `MailService`/`MailerService` (email) · `SettingsService` (DB-backed settings) · `PasswordPolicyService` · `SecurityIncidentService` · `TotpService` (MFA) · `ModulePdoFactory` (independent-DB connections) · `CalendarService` · `CsvExportService` · `AuthService` · `UserService`.
+
+## 12. Public REST API (token auth)
+Expose a module through the API as a **thin JSON serializer over its existing Service** — never a parallel data path. Developer guide: [`docs/api/README.md`](../api/README.md); endpoint catalog: [`docs/api/openapi.json`](../api/openapi.json).
+- `MUST`: put API controllers in the module under `Controllers/Api/` extending `App\Modules\Api\Http\ApiController`; register them in an `api/v1/…` route group with `middleware: [ApiTokenMiddleware, ApiRateLimitMiddleware]`. **No `CsrfMiddleware`** — the API is stateless Bearer auth, not cookie-based (guarded by `tests/Unit/RouteAuthzAuditTest`).
+- `MUST`: gate every action with `$this->requireScope('perm.slug')`; the effective gate is `min(user permissions, token scopes)`. Emit responses only via the envelope helpers (`ok()`, `paginated()`, `fail()`), never a bare `json()` — so success/`{data,meta}` and error/`{error:{code,message}}` stay consistent (unknown-path 404 / 500 are handled centrally in `ErrorHandler`).
+- `NOTE`: Personal Access Tokens live in the `Api` module (`personal_access_tokens`, SHA-256 at rest, shown once). Scopes are a subset of the caller's permissions and are **mandatory**. Public API + webhooks are plausibly edition-gated (Team/Dev) — see [`editions.md`](editions.md); Web Push ships in all editions.
+
+## 13. Outgoing webhooks
+Favilla notifies external systems (Zapier/n8n/custom) when an event fires. Guide: [`docs/api/README.md#2-outgoing-webhooks`](../api/README.md#2-outgoing-webhooks).
+- `MUST`: do **not** build a parallel event feed — webhooks fan out from the **notification event registry**. Any event a module already publishes via `dispatchEventToUser()/dispatchEventToRole()` (§1) can also be delivered as a webhook; the fan-out is best-effort in `NotificationDispatcherService`, guarded by `isModuleEnabled('Webhooks')` and a try/catch (never breaks notification delivery).
+- `NOTE`: deliveries are drained by the scheduler job `webhooks:dispatch` with exponential backoff and an **atomic per-row claim** (no double-send). Bodies are signed `HMAC-SHA256` with a **bound timestamp** (`X-Favilla-Signature: t=<unix>,v1=<hex>` over `{ts}.{body}`) for anti-replay. Destinations are **HTTPS-only and anti-SSRF** (reserved-range blocking + resolved-IP pinning, no redirect following). Secrets are shown once and excluded from audit logs (`WebhookEndpointRepository::$auditExclude`).
+
+## 14. Web Push channel
+- `NOTE`: `web_push` is the 4th `NotificationChannelDriverInterface` driver, registered in `NotificationQueueProcessorService` alongside `in_app`/`email`/`telegram`. It rides the existing queue, retry, delivery tracking and per-event user preferences — adding push to an event needs **no new wiring**, only the event + the user's channel preference.
+- `MUST`: VAPID keys live in `app_settings` (generate from **Admin → Notifications → Web Push**). **Rotating them invalidates all existing subscriptions** (the server clears `push_subscriptions`; clients re-subscribe). Web Push requires HTTPS (or `localhost`); iOS needs the PWA installed to the Home Screen (Safari 16.4+).

@@ -418,6 +418,75 @@
                     "aliases": []
                 }
             }
+        },
+        {
+            "audience": "user",
+            "route_name": "notifications.settings",
+            "permission_slug": null,
+            "ranking_weight": 22,
+            "sort_order": 10,
+            "locales": {
+                "it": {
+                    "question": "Come attivo le notifiche push sul mio dispositivo?",
+                    "answer_markdown": "## Notifiche push (Web Push)\nLe notifiche push arrivano su telefono e desktop anche quando Favilla non è aperto, come un'app.\n\n### Come si attivano\nDalle **Impostazioni notifiche** premi **Attiva su questo dispositivo** e concedi il permesso quando il browser lo chiede. Da quel momento gli eventi per cui hai abilitato il canale push ti raggiungono sul dispositivo.\n\n### Disattivare\nDallo stesso pulsante puoi disattivarle su quel dispositivo; puoi ripetere l'attivazione su più dispositivi.\n\n### Requisiti\n- serve **HTTPS** (o `localhost` in sviluppo);\n- su **iPhone/iPad** funzionano solo se hai **installato** Favilla nella schermata Home (Safari 16.4+);\n- se il pulsante non appare, gli amministratori non hanno ancora configurato il canale (chiavi VAPID mancanti).\n\n### Nota\nSe un amministratore rigenera le chiavi del server, le attivazioni esistenti decadono e dovrai riattivare le notifiche sui tuoi dispositivi.",
+                    "excerpt": "Notifiche push (Web Push) Le notifiche push arrivano su telefono e desktop anche quando Favilla non è aperto. Dalle Impostazioni notifiche premi Attiva su questo dispositivo e concedi il permesso quando il browser lo chiede.",
+                    "aliases": [
+                        "notifiche push",
+                        "web push",
+                        "attivare notifiche dispositivo",
+                        "push telefono desktop",
+                        "pwa notifiche"
+                    ]
+                },
+                "en": {
+                    "question": "How do I enable push notifications on my device?",
+                    "answer_markdown": "## Push notifications (Web Push)\nPush notifications reach your phone and desktop even when Favilla isn't open, like an app.\n\n### Enabling them\nIn **Notification settings** click **Enable on this device** and grant permission when the browser asks. From then on, events for which you enabled the push channel reach your device.\n\n### Disabling\nThe same button disables them on that device; you can repeat the setup on several devices.\n\n### Requirements\n- needs **HTTPS** (or `localhost` in development);\n- on **iPhone/iPad** they only work if you've **installed** Favilla to the Home Screen (Safari 16.4+);\n- if the button doesn't appear, admins haven't configured the channel yet (VAPID keys missing).\n\n### Note\nIf an admin regenerates the server keys, existing activations lapse and you'll need to re-enable notifications on your devices.",
+                    "excerpt": "Push notifications (Web Push) Push notifications reach your phone and desktop even when Favilla isn't open. In Notification settings click Enable on this device and grant permission when the browser asks.",
+                    "aliases": [
+                        "push notifications",
+                        "web push",
+                        "enable device notifications",
+                        "push phone desktop",
+                        "pwa notifications"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment activer les notifications push sur mon appareil ?",
+                    "answer_markdown": "## Notifications push (Web Push)\nLes notifications push arrivent sur votre téléphone et votre ordinateur même quand Favilla n'est pas ouvert, comme une app.\n\n### Comment les activer\nDans les **Paramètres de notifications**, cliquez sur **Activer sur cet appareil** et accordez l'autorisation quand le navigateur la demande. Dès lors, les événements pour lesquels vous avez activé le canal push vous parviennent sur l'appareil.\n\n### Désactiver\nLe même bouton les désactive sur cet appareil ; vous pouvez répéter l'opération sur plusieurs appareils.\n\n### Prérequis\n- nécessite **HTTPS** (ou `localhost` en développement) ;\n- sur **iPhone/iPad**, elles ne fonctionnent que si vous avez **installé** Favilla sur l'écran d'accueil (Safari 16.4+) ;\n- si le bouton n'apparaît pas, les administrateurs n'ont pas encore configuré le canal (clés VAPID manquantes).\n\n### Remarque\nSi un administrateur régénère les clés du serveur, les activations existantes expirent et vous devrez réactiver les notifications sur vos appareils.",
+                    "excerpt": "Notifications push (Web Push) Les notifications push arrivent sur votre téléphone et votre ordinateur même quand Favilla n'est pas ouvert. Dans les Paramètres de notifications, cliquez sur Activer sur cet appareil.",
+                    "aliases": [
+                        "notifications push",
+                        "web push",
+                        "activer notifications appareil",
+                        "push telephone ordinateur",
+                        "pwa notifications"
+                    ]
+                },
+                "de": {
+                    "question": "Wie aktiviere ich Push-Benachrichtigungen auf meinem Gerät?",
+                    "answer_markdown": "## Push-Benachrichtigungen (Web Push)\nPush-Benachrichtigungen erreichen Handy und Desktop auch dann, wenn Favilla nicht geöffnet ist — wie eine App.\n\n### Aktivieren\nKlicke in den **Benachrichtigungseinstellungen** auf **Auf diesem Gerät aktivieren** und erteile die Berechtigung, wenn der Browser danach fragt. Ab dann erreichen dich Ereignisse, für die du den Push-Kanal aktiviert hast, auf dem Gerät.\n\n### Deaktivieren\nDerselbe Button deaktiviert sie auf diesem Gerät; du kannst die Einrichtung auf mehreren Geräten wiederholen.\n\n### Voraussetzungen\n- benötigt **HTTPS** (oder `localhost` in der Entwicklung);\n- auf **iPhone/iPad** funktionieren sie nur, wenn du Favilla auf dem Home-Bildschirm **installiert** hast (Safari 16.4+);\n- erscheint der Button nicht, haben Admins den Kanal noch nicht konfiguriert (VAPID-Schlüssel fehlen).\n\n### Hinweis\nWenn ein Admin die Server-Schlüssel neu generiert, verfallen bestehende Aktivierungen und du musst die Benachrichtigungen auf deinen Geräten erneut aktivieren.",
+                    "excerpt": "Push-Benachrichtigungen (Web Push) Push-Benachrichtigungen erreichen Handy und Desktop auch dann, wenn Favilla nicht geöffnet ist. Klicke in den Benachrichtigungseinstellungen auf Auf diesem Gerät aktivieren.",
+                    "aliases": [
+                        "push-benachrichtigungen",
+                        "web push",
+                        "geraet benachrichtigungen aktivieren",
+                        "push handy desktop",
+                        "pwa benachrichtigungen"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo activo las notificaciones push en mi dispositivo?",
+                    "answer_markdown": "## Notificaciones push (Web Push)\nLas notificaciones push llegan a tu teléfono y escritorio incluso cuando Favilla no está abierto, como una app.\n\n### Cómo activarlas\nEn los **Ajustes de notificaciones** pulsa **Activar en este dispositivo** y concede el permiso cuando el navegador lo pida. A partir de entonces, los eventos para los que activaste el canal push te llegan al dispositivo.\n\n### Desactivar\nEl mismo botón las desactiva en ese dispositivo; puedes repetir la activación en varios dispositivos.\n\n### Requisitos\n- necesita **HTTPS** (o `localhost` en desarrollo);\n- en **iPhone/iPad** solo funcionan si has **instalado** Favilla en la pantalla de inicio (Safari 16.4+);\n- si el botón no aparece, los administradores aún no han configurado el canal (faltan las claves VAPID).\n\n### Nota\nSi un administrador regenera las claves del servidor, las activaciones existentes caducan y tendrás que volver a activar las notificaciones en tus dispositivos.",
+                    "excerpt": "Notificaciones push (Web Push) Las notificaciones push llegan a tu teléfono y escritorio incluso cuando Favilla no está abierto. En los Ajustes de notificaciones pulsa Activar en este dispositivo.",
+                    "aliases": [
+                        "notificaciones push",
+                        "web push",
+                        "activar notificaciones dispositivo",
+                        "push telefono escritorio",
+                        "pwa notificaciones"
+                    ]
+                }
+            }
         }
     ]
 }

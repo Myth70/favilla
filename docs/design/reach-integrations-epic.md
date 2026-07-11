@@ -1,8 +1,22 @@
 # Epic: Reach & Integrazioni (PWA/Web Push · API pubblica · Webhook)
 
-> **Stato:** proposta di design — non ancora ratificata come contratto.
+> **Stato:** ✅ **implementato** (branch `feature/reach-integrations`) — tutte e tre le slice sono in codice, con hardening di sicurezza successivo. Questo documento resta il *razionale di design*; il contratto operativo vive nei doc qui sotto.
 > **Scopo:** una capacità *trasversale* che aumenta il valore di ogni modulo, senza toccare le superfici framework. Tre slice indipendenti ma sinergici.
+> **Doc collegati:** reference sviluppatori [`docs/api/README.md`](../api/README.md) · spec [`docs/api/openapi.json`](../api/openapi.json) · seam nei contratti [`docs/contracts/integrations.md`](../contracts/integrations.md) §12–14 · guide utente multilingua nel Help Online (`database/help/{api,webhooks,notifications}.json`).
 > **Entry point del repo:** [`CLAUDE.md`](../../CLAUDE.md) · contratti in [`docs/contracts/`](../contracts/).
+
+## Delta implementazione vs design (cosa è cambiato)
+
+Le decisioni aperte (§5) chiuse in implementazione, più le divergenze utili da conoscere:
+
+- **D2 — crypto Web Push:** si usa `minishlink/web-push` per encryption/VAPID **ma** la generazione della chiave EC effimera è incapsulata in `OpensslEcKeyFactory` (la `WebPush`/keygen "bare" della libreria fallisce su Windows/XAMPP senza `openssl.cnf` esplicito). `WebPushSender` orchestra i primitivi a mano invece di usare la classe `WebPush`.
+- **D7 — collocazione API:** creato un **modulo `Api` dedicato** (PAT, middleware, envelope, `/me`, `/openapi.json`) + controller `Api\` **per-modulo** (Tasks, Contacts) che riusano i Service. `ApiTokenMiddleware`/`ApiRateLimitMiddleware` vivono **dentro il modulo `Api`** (non in `app/Middleware/`, off-limits).
+- **D5 — anti-SSRF:** oltre alla blocklist IP privati, l'hardening ha aggiunto **normalizzazione IPv4-mapped IPv6** (fix bypass `::ffff:<hex>`), range riservati estesi (CGNAT, NAT64, multicast…) e **IP-pinning** (cURL `CURLOPT_RESOLVE`) che **chiude la finestra TOCTOU di DNS-rebinding** — nel design era ancora un rischio residuo.
+- **Firma webhook:** non è più `sha256=<hmac(body)>` ma include un **timestamp** anti-replay (`X-Favilla-Signature: t=<unix>,v1=<hmac di {ts}.{body}>` + `X-Favilla-Timestamp`, verifica con finestra di tolleranza).
+- **Scope token:** resi **obbligatori** (una selezione vuota non eredita più tutti i permessi — era un footgun di least-privilege).
+- **Scheduler:** `webhooks:dispatch` seedato in `scheduler_jobs` (ogni 5 min) con **claim atomico per-riga** (stato `processing` + `locked_at`) per evitare il double-send tra run concorrenti.
+- **D1/segreti a riposo:** mantenuti in chiaro come i token Telegram (chiave privata VAPID, secret HMAC) — ma **esclusi dal log di audit** e non più over-fetchati nelle view.
+- **D6 — gating per edizione:** ancora aperto (API/Webhook non gated per edizione allo stato attuale).
 
 ---
 

@@ -22,7 +22,8 @@ This file guides Claude Code (claude.ai/code) in this repository. It is the **al
   - [data.md](docs/contracts/data.md) — schema source of truth, migrations, SQL conventions, Repository contract.
   - [ui.md](docs/contracts/ui.md) — design system, tokens, hero/layout, HTMX list/form, theme runtime.
   - [i18n.md](docs/contracts/i18n.md) — translation engine, `t()`/overlays, lang-file layout, locale resolution + switcher, `lang:check`.
-  - [integrations.md](docs/contracts/integrations.md) — reusable providers (notifications, dashboard, search, export, contacts, calendar, scheduler).
+  - [integrations.md](docs/contracts/integrations.md) — reusable providers (notifications, dashboard, search, export, contacts, calendar, scheduler) + outward integrations (public API token seam, outgoing webhooks, Web Push channel).
+  - **[docs/api/](docs/api/)** — outward-facing integration docs: [README.md](docs/api/README.md) (developer reference: API auth, envelopes, webhook HMAC verification, Web Push) + [openapi.json](docs/api/openapi.json) (OpenAPI 3.1, source of truth for the endpoint catalog).
   - [editions.md](docs/contracts/editions.md) — Developer/Personal/Team profiles, `edition()` resolution, setup wizard + Admin settings, release zip packaging (`tools/build-editions.php`).
   - [building-a-module.md](docs/contracts/building-a-module.md) — step-by-step workflow + one minimal reference example per layer.
   - [gotchas.md](docs/contracts/gotchas.md) — documented blocking errors + testing portability quirks.

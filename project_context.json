@@ -1,5 +1,5 @@
 {
-    "generated_at": "2026-07-09T20:14:02+02:00",
+    "generated_at": "2026-07-10T19:01:26+02:00",
     "layout": {
         "index": "project_context.json",
         "detail_dir": "context/",
@@ -1131,7 +1131,7 @@
                 "routes": 15,
                 "tables": 11,
                 "permissions": 5,
-                "services": 16,
+                "services": 17,
                 "controllers": 4
             },
             "tables": [
@@ -1172,6 +1172,7 @@
                 "NotificationQueueProcessorService",
                 "NotificationService",
                 "OpensslEcKeyFactory",
+                "PushSubscriptionService",
                 "TelegramChannelDriver",
                 "TelegramLinkService",
                 "VapidKeyService",

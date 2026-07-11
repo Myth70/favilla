@@ -1,6 +1,6 @@
 {
     "module": "Notifications",
-    "generated_at": "2026-07-09T20:14:02+02:00",
+    "generated_at": "2026-07-10T19:01:26+02:00",
     "routes": [
         {
             "method": "POST",
@@ -1530,6 +1530,7 @@
         "App\\Modules\\Notifications\\Services\\NotificationQueueProcessorService",
         "App\\Modules\\Notifications\\Services\\NotificationService",
         "App\\Modules\\Notifications\\Services\\OpensslEcKeyFactory",
+        "App\\Modules\\Notifications\\Services\\PushSubscriptionService",
         "App\\Modules\\Notifications\\Services\\TelegramChannelDriver",
         "App\\Modules\\Notifications\\Services\\TelegramLinkService",
         "App\\Modules\\Notifications\\Services\\VapidKeyService",

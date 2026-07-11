@@ -1,0 +1,225 @@
+{
+    "module_key": "webhooks",
+    "module_name": "Webhook",
+    "label": "Webhook",
+    "description": "Webhook in uscita: notifica sistemi esterni (Zapier, n8n, endpoint custom) quando succede un evento, con firma HMAC, retry a backoff via Scheduler e protezione anti-SSRF.",
+    "audience_default": "user",
+    "locale_default": "it",
+    "route_name": "webhooks.index",
+    "permission_slug": "webhooks.view",
+    "sort_order": 96,
+    "entries": [
+        {
+            "audience": "user",
+            "route_name": "webhooks.index",
+            "permission_slug": "webhooks.view",
+            "ranking_weight": 24,
+            "sort_order": 1,
+            "locales": {
+                "it": {
+                    "question": "Come funzionano i Webhook in uscita?",
+                    "answer_markdown": "## Modulo Webhook\nI Webhook notificano un sistema esterno via HTTP quando in Favilla succede un evento, riusando gli stessi eventi che alimentano le notifiche.\n\n### Come si configura\n- crei un **endpoint** indicando l'URL di destinazione (solo **HTTPS**) e gli **eventi** a cui iscriverlo;\n- alla creazione ricevi un **secret di firma**, mostrato **una sola volta**: serve al destinatario per verificare le consegne;\n- puoi inviare un evento **di prova** e consultare il **registro consegne**.\n\n### Consegna e firma\nA ogni evento sottoscritto parte una `POST` JSON con gli header `X-Favilla-Event`, `X-Favilla-Delivery`, `X-Favilla-Timestamp` e `X-Favilla-Signature` (`t=<unix>,v1=<hmac-sha256>` di `{timestamp}.{corpo}`). Il destinatario ricalcola l'HMAC col secret e rifiuta i timestamp fuori dalla finestra di tolleranza (anti-replay).\n\n### Affidabilità\nLe consegne sono drenate da un job dello Scheduler con **retry a backoff esponenziale**; una risposta `2xx` è un successo, altrimenti si ritenta fino a esaurire i tentativi e poi la consegna è marcata *fallita*.\n\n### Sicurezza\nGli URL verso indirizzi privati, loopback o riservati vengono **bloccati (anti-SSRF)** e i redirect non vengono seguiti; rigenera il secret dal dettaglio dell'endpoint se sospetti sia compromesso.",
+                    "excerpt": "Modulo Webhook I Webhook notificano un sistema esterno via HTTP quando in Favilla succede un evento, riusando gli stessi eventi che alimentano le notifiche. Come si configura crei un endpoint indicando l'URL di destinazione e gli eventi.",
+                    "aliases": [
+                        "webhook",
+                        "webhook in uscita",
+                        "endpoint webhook",
+                        "firma hmac",
+                        "zapier n8n",
+                        "integrazioni esterne"
+                    ]
+                },
+                "en": {
+                    "question": "How do outgoing Webhooks work?",
+                    "answer_markdown": "## Webhooks module\nWebhooks notify an external system over HTTP when an event happens in Favilla, reusing the same events that drive notifications.\n\n### How to set it up\n- create an **endpoint** with the destination URL (**HTTPS** only) and the **events** to subscribe it to;\n- on creation you receive a **signing secret**, shown **only once**: the receiver uses it to verify deliveries;\n- you can send a **test** event and review the **delivery log**.\n\n### Delivery and signature\nFor every subscribed event a JSON `POST` is sent with the headers `X-Favilla-Event`, `X-Favilla-Delivery`, `X-Favilla-Timestamp` and `X-Favilla-Signature` (`t=<unix>,v1=<hmac-sha256>` of `{timestamp}.{body}`). The receiver recomputes the HMAC with the secret and rejects timestamps outside the tolerance window (replay protection).\n\n### Reliability\nDeliveries are drained by a Scheduler job with **exponential backoff retries**; a `2xx` response is a success, otherwise it retries until attempts are exhausted and the delivery is marked *failed*.\n\n### Security\nURLs pointing to private, loopback or reserved addresses are **blocked (anti-SSRF)** and redirects are not followed; regenerate the secret from the endpoint detail if you suspect it is compromised.",
+                    "excerpt": "Webhooks module Webhooks notify an external system over HTTP when an event happens in Favilla, reusing the same events that drive notifications. How to set it up create an endpoint with the destination URL and the events.",
+                    "aliases": [
+                        "webhook",
+                        "outgoing webhooks",
+                        "webhook endpoint",
+                        "hmac signature",
+                        "zapier n8n",
+                        "external integrations"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment fonctionnent les Webhooks sortants ?",
+                    "answer_markdown": "## Module Webhook\nLes Webhooks notifient un système externe via HTTP lorsqu'un événement se produit dans Favilla, en réutilisant les mêmes événements qui alimentent les notifications.\n\n### Comment le configurer\n- créez un **endpoint** avec l'URL de destination (**HTTPS** uniquement) et les **événements** à y abonner ;\n- à la création vous recevez un **secret de signature**, affiché **une seule fois** : le destinataire l'utilise pour vérifier les livraisons ;\n- vous pouvez envoyer un événement **de test** et consulter le **journal des livraisons**.\n\n### Livraison et signature\nPour chaque événement abonné, une requête `POST` JSON est envoyée avec les en-têtes `X-Favilla-Event`, `X-Favilla-Delivery`, `X-Favilla-Timestamp` et `X-Favilla-Signature` (`t=<unix>,v1=<hmac-sha256>` de `{timestamp}.{corps}`). Le destinataire recalcule le HMAC avec le secret et rejette les horodatages hors de la fenêtre de tolérance (protection contre le rejeu).\n\n### Fiabilité\nLes livraisons sont traitées par une tâche du Planificateur avec **réessais à backoff exponentiel** ; une réponse `2xx` est un succès, sinon on réessaie jusqu'à épuisement des tentatives, puis la livraison est marquée *échouée*.\n\n### Sécurité\nLes URL vers des adresses privées, de loopback ou réservées sont **bloquées (anti-SSRF)** et les redirections ne sont pas suivies ; régénérez le secret depuis le détail de l'endpoint si vous le soupçonnez compromis.",
+                    "excerpt": "Module Webhook Les Webhooks notifient un système externe via HTTP lorsqu'un événement se produit dans Favilla, en réutilisant les mêmes événements qui alimentent les notifications. Comment le configurer créez un endpoint.",
+                    "aliases": [
+                        "webhook",
+                        "webhooks sortants",
+                        "endpoint webhook",
+                        "signature hmac",
+                        "zapier n8n",
+                        "integrations externes"
+                    ]
+                },
+                "de": {
+                    "question": "Wie funktionieren ausgehende Webhooks?",
+                    "answer_markdown": "## Webhook-Modul\nWebhooks benachrichtigen ein externes System per HTTP, wenn in Favilla ein Ereignis eintritt, und nutzen dieselben Ereignisse wie die Benachrichtigungen.\n\n### So wird es eingerichtet\n- erstelle einen **Endpunkt** mit der Ziel-URL (nur **HTTPS**) und den **Ereignissen**, die abonniert werden;\n- bei der Erstellung erhältst du ein **Signatur-Secret**, das **nur einmal** angezeigt wird: der Empfänger prüft damit die Zustellungen;\n- du kannst ein **Test**-Ereignis senden und das **Zustellungsprotokoll** einsehen.\n\n### Zustellung und Signatur\nFür jedes abonnierte Ereignis wird ein JSON-`POST` mit den Headern `X-Favilla-Event`, `X-Favilla-Delivery`, `X-Favilla-Timestamp` und `X-Favilla-Signature` (`t=<unix>,v1=<hmac-sha256>` von `{timestamp}.{body}`) gesendet. Der Empfänger berechnet den HMAC mit dem Secret neu und weist Zeitstempel außerhalb des Toleranzfensters ab (Replay-Schutz).\n\n### Zuverlässigkeit\nZustellungen werden von einem Scheduler-Job mit **exponentiellem Backoff-Retry** abgearbeitet; eine `2xx`-Antwort ist ein Erfolg, andernfalls wird bis zum Aufbrauchen der Versuche erneut versucht und die Zustellung als *fehlgeschlagen* markiert.\n\n### Sicherheit\nURLs zu privaten, Loopback- oder reservierten Adressen werden **blockiert (Anti-SSRF)** und Weiterleitungen werden nicht verfolgt; generiere das Secret im Endpunkt-Detail neu, wenn du es für kompromittiert hältst.",
+                    "excerpt": "Webhook-Modul Webhooks benachrichtigen ein externes System per HTTP, wenn in Favilla ein Ereignis eintritt, und nutzen dieselben Ereignisse wie die Benachrichtigungen. So wird es eingerichtet erstelle einen Endpunkt.",
+                    "aliases": [
+                        "webhook",
+                        "ausgehende webhooks",
+                        "webhook-endpunkt",
+                        "hmac-signatur",
+                        "zapier n8n",
+                        "externe integrationen"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo funcionan los Webhooks salientes?",
+                    "answer_markdown": "## Módulo Webhook\nLos Webhooks notifican a un sistema externo por HTTP cuando ocurre un evento en Favilla, reutilizando los mismos eventos que alimentan las notificaciones.\n\n### Cómo se configura\n- crea un **endpoint** con la URL de destino (solo **HTTPS**) y los **eventos** a los que suscribirlo;\n- al crearlo recibes un **secret de firma**, mostrado **solo una vez**: el destinatario lo usa para verificar las entregas;\n- puedes enviar un evento de **prueba** y consultar el **registro de entregas**.\n\n### Entrega y firma\nPor cada evento suscrito se envía un `POST` JSON con las cabeceras `X-Favilla-Event`, `X-Favilla-Delivery`, `X-Favilla-Timestamp` y `X-Favilla-Signature` (`t=<unix>,v1=<hmac-sha256>` de `{timestamp}.{cuerpo}`). El destinatario recalcula el HMAC con el secret y rechaza las marcas de tiempo fuera de la ventana de tolerancia (protección anti-replay).\n\n### Fiabilidad\nLas entregas las procesa una tarea del Programador con **reintentos de backoff exponencial**; una respuesta `2xx` es un éxito, de lo contrario se reintenta hasta agotar los intentos y luego la entrega se marca como *fallida*.\n\n### Seguridad\nLas URL hacia direcciones privadas, loopback o reservadas se **bloquean (anti-SSRF)** y no se siguen las redirecciones; regenera el secret desde el detalle del endpoint si sospechas que está comprometido.",
+                    "excerpt": "Módulo Webhook Los Webhooks notifican a un sistema externo por HTTP cuando ocurre un evento en Favilla, reutilizando los mismos eventos que alimentan las notificaciones. Cómo se configura crea un endpoint.",
+                    "aliases": [
+                        "webhook",
+                        "webhooks salientes",
+                        "endpoint webhook",
+                        "firma hmac",
+                        "zapier n8n",
+                        "integraciones externas"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "webhooks.index",
+            "permission_slug": "webhooks.view",
+            "ranking_weight": 20,
+            "sort_order": 2,
+            "locales": {
+                "it": {
+                    "question": "Come configuro un endpoint webhook?",
+                    "answer_markdown": "## Configurare un endpoint\n\n1. Da **Webhook** premi **Nuovo** e inserisci:\n   - l'**URL di destinazione** (solo **HTTPS**);\n   - gli **eventi** a cui iscriverti (gli stessi eventi che alimentano le notifiche).\n2. Al salvataggio ricevi un **secret di firma**, mostrato **una sola volta**: salvalo nel sistema ricevente, serve a verificare le consegne.\n3. Usa **Invia di prova** per mandare un evento fittizio e controlla l'esito nel **registro consegne**.\n\n### Attivo / disattivo\nPuoi disattivare temporaneamente un endpoint senza eliminarlo: smette di ricevere consegne finché non lo riattivi.\n\n### Secret compromesso\nDal dettaglio dell'endpoint puoi **rigenerare il secret**: quello vecchio smette subito di validare, quindi aggiorna il ricevente.",
+                    "excerpt": "Configurare un endpoint Da Webhook premi Nuovo e inserisci l'URL di destinazione (solo HTTPS) e gli eventi a cui iscriverti. Al salvataggio ricevi un secret di firma, mostrato una sola volta.",
+                    "aliases": [
+                        "configurare webhook",
+                        "nuovo endpoint webhook",
+                        "invio di prova webhook",
+                        "rigenerare secret",
+                        "registro consegne"
+                    ]
+                },
+                "en": {
+                    "question": "How do I configure a webhook endpoint?",
+                    "answer_markdown": "## Configuring an endpoint\n\n1. In **Webhooks** click **New** and enter:\n   - the **destination URL** (**HTTPS** only);\n   - the **events** to subscribe to (the same events that drive notifications).\n2. On save you receive a **signing secret**, shown **only once**: store it in the receiving system — it's used to verify deliveries.\n3. Use **Send test** to fire a dummy event and check the outcome in the **delivery log**.\n\n### Active / inactive\nYou can temporarily deactivate an endpoint without deleting it: it stops receiving deliveries until you re-enable it.\n\n### Compromised secret\nFrom the endpoint detail you can **regenerate the secret**: the old one stops validating immediately, so update the receiver.",
+                    "excerpt": "Configuring an endpoint In Webhooks click New and enter the destination URL (HTTPS only) and the events to subscribe to. On save you receive a signing secret, shown only once.",
+                    "aliases": [
+                        "configure webhook",
+                        "new webhook endpoint",
+                        "webhook test delivery",
+                        "regenerate secret",
+                        "delivery log"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment configurer un endpoint webhook ?",
+                    "answer_markdown": "## Configurer un endpoint\n\n1. Dans **Webhook**, cliquez sur **Nouveau** et saisissez :\n   - l'**URL de destination** (**HTTPS** uniquement) ;\n   - les **événements** à abonner (les mêmes qui alimentent les notifications).\n2. À l'enregistrement, vous recevez un **secret de signature**, affiché **une seule fois** : conservez-le dans le système récepteur, il sert à vérifier les livraisons.\n3. Utilisez **Envoi de test** pour déclencher un événement fictif et vérifiez le résultat dans le **journal des livraisons**.\n\n### Actif / inactif\nVous pouvez désactiver temporairement un endpoint sans le supprimer : il cesse de recevoir des livraisons jusqu'à réactivation.\n\n### Secret compromis\nDepuis le détail de l'endpoint, vous pouvez **régénérer le secret** : l'ancien cesse aussitôt de valider, pensez à mettre à jour le récepteur.",
+                    "excerpt": "Configurer un endpoint Dans Webhook, cliquez sur Nouveau et saisissez l'URL de destination (HTTPS uniquement) et les événements à abonner. À l'enregistrement, vous recevez un secret de signature, affiché une seule fois.",
+                    "aliases": [
+                        "configurer webhook",
+                        "nouvel endpoint webhook",
+                        "envoi de test webhook",
+                        "regenerer secret",
+                        "journal des livraisons"
+                    ]
+                },
+                "de": {
+                    "question": "Wie konfiguriere ich einen Webhook-Endpunkt?",
+                    "answer_markdown": "## Einen Endpunkt konfigurieren\n\n1. Klicke unter **Webhook** auf **Neu** und gib ein:\n   - die **Ziel-URL** (nur **HTTPS**);\n   - die **Ereignisse**, die abonniert werden (dieselben, die Benachrichtigungen auslösen).\n2. Beim Speichern erhältst du ein **Signatur-Secret**, das **nur einmal** angezeigt wird: speichere es im empfangenden System — es prüft die Zustellungen.\n3. Nutze **Test senden**, um ein Dummy-Ereignis auszulösen, und prüfe das Ergebnis im **Zustellungsprotokoll**.\n\n### Aktiv / inaktiv\nDu kannst einen Endpunkt vorübergehend deaktivieren, ohne ihn zu löschen: er erhält keine Zustellungen mehr, bis du ihn wieder aktivierst.\n\n### Kompromittiertes Secret\nIm Endpunkt-Detail kannst du das **Secret neu generieren**: das alte validiert sofort nicht mehr, aktualisiere also den Empfänger.",
+                    "excerpt": "Einen Endpunkt konfigurieren Klicke unter Webhook auf Neu und gib die Ziel-URL (nur HTTPS) und die Ereignisse ein, die abonniert werden. Beim Speichern erhältst du ein Signatur-Secret, das nur einmal angezeigt wird.",
+                    "aliases": [
+                        "webhook konfigurieren",
+                        "neuer webhook-endpunkt",
+                        "webhook test senden",
+                        "secret neu generieren",
+                        "zustellungsprotokoll"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo configuro un endpoint de webhook?",
+                    "answer_markdown": "## Configurar un endpoint\n\n1. En **Webhook** pulsa **Nuevo** e introduce:\n   - la **URL de destino** (solo **HTTPS**);\n   - los **eventos** a los que suscribirte (los mismos que alimentan las notificaciones).\n2. Al guardar recibes un **secret de firma**, mostrado **solo una vez**: guárdalo en el sistema receptor, sirve para verificar las entregas.\n3. Usa **Enviar prueba** para lanzar un evento ficticio y comprueba el resultado en el **registro de entregas**.\n\n### Activo / inactivo\nPuedes desactivar temporalmente un endpoint sin eliminarlo: deja de recibir entregas hasta que lo reactives.\n\n### Secret comprometido\nDesde el detalle del endpoint puedes **regenerar el secret**: el anterior deja de validar de inmediato, así que actualiza el receptor.",
+                    "excerpt": "Configurar un endpoint En Webhook pulsa Nuevo e introduce la URL de destino (solo HTTPS) y los eventos a los que suscribirte. Al guardar recibes un secret de firma, mostrado solo una vez.",
+                    "aliases": [
+                        "configurar webhook",
+                        "nuevo endpoint webhook",
+                        "enviar prueba webhook",
+                        "regenerar secret",
+                        "registro de entregas"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "webhooks.index",
+            "permission_slug": "webhooks.view",
+            "ranking_weight": 16,
+            "sort_order": 3,
+            "locales": {
+                "it": {
+                    "question": "Come verifico la firma di un webhook?",
+                    "answer_markdown": "## Verificare la firma\n\nOgni consegna include gli header `X-Favilla-Timestamp` e `X-Favilla-Signature` nel formato `t=<unix>,v1=<hmac>`. La firma protegge **origine, integrità e freschezza**.\n\n### Passi lato ricevente\n1. leggi il timestamp `t`;\n2. **rifiuta** se `|adesso − t|` supera la tua tolleranza (es. 5 minuti): blocca i replay;\n3. ricalcola `HMAC-SHA256(secret, \"{t}.{corpo grezzo}\")` e confrontalo con `v1` in **tempo costante**.\n\n> Usa il **corpo grezzo** della richiesta, non il JSON ri-serializzato: differenze di spazi o ordine delle chiavi romperebbero il confronto.\n\n### Idempotenza\nL'header `X-Favilla-Delivery` è un id univoco della consegna: usalo per ignorare eventuali ri-consegne dello stesso evento.\n\nEsempi di codice (PHP, Node, Python) sono nella reference sviluppatori `docs/api/README.md`.",
+                    "excerpt": "Verificare la firma Ogni consegna include gli header X-Favilla-Timestamp e X-Favilla-Signature nel formato t unix v1 hmac. Leggi il timestamp, rifiuta se fuori tolleranza, ricalcola HMAC-SHA256 e confronta in tempo costante.",
+                    "aliases": [
+                        "verificare firma webhook",
+                        "hmac sha256 webhook",
+                        "x-favilla-signature",
+                        "anti-replay webhook",
+                        "idempotenza consegna"
+                    ]
+                },
+                "en": {
+                    "question": "How do I verify a webhook signature?",
+                    "answer_markdown": "## Verifying the signature\n\nEvery delivery includes the `X-Favilla-Timestamp` and `X-Favilla-Signature` headers in the form `t=<unix>,v1=<hmac>`. The signature protects **origin, integrity and freshness**.\n\n### Steps on the receiver\n1. read the timestamp `t`;\n2. **reject** if `|now − t|` exceeds your tolerance (e.g. 5 minutes): this blocks replays;\n3. recompute `HMAC-SHA256(secret, \"{t}.{raw body}\")` and compare it with `v1` in **constant time**.\n\n> Use the **raw** request body, not re-serialized JSON: whitespace or key-order differences would break the check.\n\n### Idempotency\nThe `X-Favilla-Delivery` header is a unique delivery id: use it to ignore any re-deliveries of the same event.\n\nCode examples (PHP, Node, Python) are in the developer reference `docs/api/README.md`.",
+                    "excerpt": "Verifying the signature Every delivery includes the X-Favilla-Timestamp and X-Favilla-Signature headers in the form t unix v1 hmac. Read the timestamp, reject if outside tolerance, recompute HMAC-SHA256 and compare in constant time.",
+                    "aliases": [
+                        "verify webhook signature",
+                        "hmac sha256 webhook",
+                        "x-favilla-signature",
+                        "webhook replay protection",
+                        "delivery idempotency"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment vérifier la signature d'un webhook ?",
+                    "answer_markdown": "## Vérifier la signature\n\nChaque livraison inclut les en-têtes `X-Favilla-Timestamp` et `X-Favilla-Signature` au format `t=<unix>,v1=<hmac>`. La signature protège **origine, intégrité et fraîcheur**.\n\n### Étapes côté récepteur\n1. lisez l'horodatage `t` ;\n2. **rejetez** si `|maintenant − t|` dépasse votre tolérance (ex. 5 minutes) : cela bloque les rejeux ;\n3. recalculez `HMAC-SHA256(secret, \"{t}.{corps brut}\")` et comparez avec `v1` en **temps constant**.\n\n> Utilisez le corps **brut** de la requête, pas le JSON re-sérialisé : des différences d'espaces ou d'ordre des clés casseraient la vérification.\n\n### Idempotence\nL'en-tête `X-Favilla-Delivery` est un id unique de livraison : utilisez-le pour ignorer d'éventuelles re-livraisons du même événement.\n\nDes exemples de code (PHP, Node, Python) figurent dans la référence développeurs `docs/api/README.md`.",
+                    "excerpt": "Vérifier la signature Chaque livraison inclut les en-têtes X-Favilla-Timestamp et X-Favilla-Signature au format t unix v1 hmac. Lisez l'horodatage, rejetez si hors tolérance, recalculez HMAC-SHA256 et comparez en temps constant.",
+                    "aliases": [
+                        "verifier signature webhook",
+                        "hmac sha256 webhook",
+                        "x-favilla-signature",
+                        "protection rejeu webhook",
+                        "idempotence livraison"
+                    ]
+                },
+                "de": {
+                    "question": "Wie prüfe ich eine Webhook-Signatur?",
+                    "answer_markdown": "## Die Signatur prüfen\n\nJede Zustellung enthält die Header `X-Favilla-Timestamp` und `X-Favilla-Signature` im Format `t=<unix>,v1=<hmac>`. Die Signatur schützt **Herkunft, Integrität und Aktualität**.\n\n### Schritte beim Empfänger\n1. lies den Zeitstempel `t`;\n2. **weise ab**, wenn `|jetzt − t|` deine Toleranz überschreitet (z. B. 5 Minuten): das blockiert Replays;\n3. berechne `HMAC-SHA256(secret, \"{t}.{roher Body}\")` neu und vergleiche mit `v1` in **konstanter Zeit**.\n\n> Verwende den **rohen** Request-Body, nicht neu serialisiertes JSON: Unterschiede bei Leerzeichen oder Schlüsselreihenfolge würden die Prüfung brechen.\n\n### Idempotenz\nDer Header `X-Favilla-Delivery` ist eine eindeutige Zustellungs-ID: nutze sie, um erneute Zustellungen desselben Ereignisses zu ignorieren.\n\nCodebeispiele (PHP, Node, Python) stehen in der Entwickler-Referenz `docs/api/README.md`.",
+                    "excerpt": "Die Signatur prüfen Jede Zustellung enthält die Header X-Favilla-Timestamp und X-Favilla-Signature im Format t unix v1 hmac. Lies den Zeitstempel, weise ab wenn außerhalb der Toleranz, berechne HMAC-SHA256 neu und vergleiche in konstanter Zeit.",
+                    "aliases": [
+                        "webhook-signatur pruefen",
+                        "hmac sha256 webhook",
+                        "x-favilla-signature",
+                        "webhook replay-schutz",
+                        "zustellungs-idempotenz"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo verifico la firma de un webhook?",
+                    "answer_markdown": "## Verificar la firma\n\nCada entrega incluye las cabeceras `X-Favilla-Timestamp` y `X-Favilla-Signature` con el formato `t=<unix>,v1=<hmac>`. La firma protege **origen, integridad y frescura**.\n\n### Pasos en el receptor\n1. lee la marca de tiempo `t`;\n2. **rechaza** si `|ahora − t|` supera tu tolerancia (p. ej. 5 minutos): esto bloquea los replays;\n3. recalcula `HMAC-SHA256(secret, \"{t}.{cuerpo en bruto}\")` y compáralo con `v1` en **tiempo constante**.\n\n> Usa el cuerpo **en bruto** de la petición, no el JSON re-serializado: diferencias de espacios u orden de claves romperían la verificación.\n\n### Idempotencia\nLa cabecera `X-Favilla-Delivery` es un id único de entrega: úsala para ignorar posibles reenvíos del mismo evento.\n\nHay ejemplos de código (PHP, Node, Python) en la referencia para desarrolladores `docs/api/README.md`.",
+                    "excerpt": "Verificar la firma Cada entrega incluye las cabeceras X-Favilla-Timestamp y X-Favilla-Signature con el formato t unix v1 hmac. Lee la marca de tiempo, rechaza si fuera de tolerancia, recalcula HMAC-SHA256 y compara en tiempo constante.",
+                    "aliases": [
+                        "verificar firma webhook",
+                        "hmac sha256 webhook",
+                        "x-favilla-signature",
+                        "proteccion replay webhook",
+                        "idempotencia entrega"
+                    ]
+                }
+            }
+        }
+    ]
+}

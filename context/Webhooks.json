@@ -1,6 +1,6 @@
 {
     "module": "Webhooks",
-    "generated_at": "2026-07-09T20:14:02+02:00",
+    "generated_at": "2026-07-10T19:01:26+02:00",
     "routes": [
         {
             "method": "GET",
@@ -228,7 +228,7 @@
                 },
                 {
                     "name": "status",
-                    "type": "enum('pending','sent','failed')",
+                    "type": "enum('pending','processing','sent','failed')",
                     "nullable": false,
                     "default": "'pending'"
                 },
@@ -252,6 +252,12 @@
                 },
                 {
                     "name": "next_retry_at",
+                    "type": "timestamp",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "locked_at",
                     "type": "timestamp",
                     "nullable": true,
                     "default": "NULL"

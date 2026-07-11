@@ -13,6 +13,7 @@ reference; the [README](README.md) has the short version.
 [Contacts](#contacts) · [Files](#files) · [Projects](#projects) ·
 [Teams](#teams) · [Documents](#documents) · [Blog](#blog) ·
 [Reports](#reports) · [Notifications](#notifications) ·
+[API & Webhooks](#api--webhooks) ·
 [Help Online](#help-online) · [Feedback](#feedback) ·
 [Account & Sign-in](#account--sign-in) · [Administration](#administration) ·
 [Backup](#backup) · [Health Check](#health-check) · [Scheduler](#scheduler) ·
@@ -156,11 +157,30 @@ One notification center, many channels.
 
 - Template-driven dispatcher: modules publish events; wording, icon and color
   are configured centrally by admins.
-- Channels: in-app, email (SMTP), **Telegram** (per-user account linking).
+- Channels: in-app, email (SMTP), **Telegram** (per-user account linking) and
+  **Web Push** (browser & desktop, per-device opt-in).
+- **Installable PWA**: add Favilla to the home screen; app-shell offline fallback.
 - Header bell with live unread count and dropdown.
 - Per-user preferences per event type and channel.
 - Full notifications page with bulk actions (read all, delete).
-- Queued email/Telegram delivery with retry and backoff.
+- Queued email/Telegram/Web Push delivery with retry and backoff.
+
+## API & Webhooks
+
+Open Favilla to the outside — see the [developer reference](docs/api/README.md)
+and the [OpenAPI spec](docs/api/openapi.json).
+
+- **Public REST API v1**: JSON over the same services the UI uses, under
+  `api/v1`, documented with OpenAPI 3.1.
+- **Personal Access Tokens**: per-user, self-service from the profile; hashed at
+  rest, shown once; **scopes** are a mandatory subset of the user's permissions.
+- Consistent envelope (`{data,meta}` / `{error}`), **per-token rate limiting**
+  with `X-RateLimit-*` headers, and pagination.
+- **Outgoing webhooks**: subscribe an HTTPS endpoint to any notification event;
+  signed `HMAC-SHA256` deliveries with a **timestamp (anti-replay)**, exponential
+  backoff retries via the scheduler, and a delivery log.
+- **Anti-SSRF** on webhook destinations: reserved-range blocking, resolved-IP
+  pinning (no DNS-rebinding window) and no redirect following.
 
 ## Help Online
 
