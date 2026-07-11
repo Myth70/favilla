@@ -119,7 +119,9 @@ automated tests**, **PHPStan level 6** and **PSR-12** enforced in CI, and a
 | **Documents** | Managed documents: versioning, approval workflow, protocol numbers, expiry and integrity checks |
 | **Blog** | Internal news with scheduled publishing, role-based visibility and moderated comments |
 | **Reports** | GrapesJS template designer, PDF/Excel generation, document models |
-| **Notifications** | Multi-channel template-driven notification center |
+| **Notifications** | Multi-channel template-driven notification center (in-app, email, Telegram, **Web Push**) + installable PWA |
+| **Webhooks** | Outgoing webhooks to external systems (Zapier, n8n, custom) with HMAC signing, retries and anti-SSRF |
+| **API** | Public REST API v1 with Personal Access Tokens, scoped permissions and per-token rate limiting |
 | **HelpOnline** | Contextual help + knowledge base with search analytics |
 | **Admin** | Users, roles & fine-grained permissions, impersonation, security area, app settings |
 | **Auth** | Login, SSO (OIDC), registration with admin approval, 2FA, password recovery |
@@ -292,6 +294,9 @@ php favilla context:generate        # regenerate project_context.json
 Architecture, security, data and UI contracts live in
 [`docs/contracts/`](docs/contracts/); start a new module from
 [`docs/contracts/building-a-module.md`](docs/contracts/building-a-module.md).
+Integrating with the public API, webhooks or Web Push? See the
+[developer reference](docs/api/README.md) and the
+[OpenAPI spec](docs/api/openapi.json).
 The repository is **AI-assistant-ready**: [`CLAUDE.md`](CLAUDE.md) plus
 machine-readable module inventories (`project_context.json`, `context/`) let
 coding agents navigate the codebase with full context.

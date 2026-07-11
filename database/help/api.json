@@ -1,0 +1,225 @@
+{
+    "module_key": "api",
+    "module_name": "API",
+    "label": "API",
+    "description": "API pubblica REST v1 con autenticazione a Personal Access Token: envelope JSON coerente, scope legati ai permessi utente, rate limiting per token e gestione self-service dei token dal profilo.",
+    "audience_default": "user",
+    "locale_default": "it",
+    "route_name": "api.tokens.index",
+    "permission_slug": null,
+    "sort_order": 95,
+    "entries": [
+        {
+            "audience": "user",
+            "route_name": "api.tokens.index",
+            "permission_slug": null,
+            "ranking_weight": 24,
+            "sort_order": 1,
+            "locales": {
+                "it": {
+                    "question": "Come funziona l'API pubblica e i token di accesso?",
+                    "answer_markdown": "## API pubblica v1\nL'API REST espone i dati dei moduli in JSON, autenticando le chiamate con un **Personal Access Token** invece della sessione del browser.\n\n### Come si usa\n- crei un token da **Profilo → Token API**, scegliendo nome, scadenza e **scope**;\n- il token in chiaro è mostrato **una sola volta**: copialo subito;\n- lo invii nell'header `Authorization: Bearer <token>` a ogni richiesta.\n\n### Scope e permessi\nGli scope del token sono un sottoinsieme dei **tuoi** permessi: un token non può fare più di quanto puoi fare tu. Devi selezionare almeno uno scope alla creazione.\n\n### Limiti e formato\n- ogni risposta ha un envelope coerente: `{ \"data\": … }` in caso di successo, `{ \"error\": { \"code\", \"message\" } }` in caso di errore;\n- il traffico è soggetto a un **rate limit per token** (header `X-RateLimit-*`);\n- la specifica completa è a `/api/v1/openapi.json`.\n\n### Sicurezza\nA riposo si conserva solo l'hash del token; revoca un token dal profilo se sospetti sia compromesso e l'accesso cessa subito.",
+                    "excerpt": "API pubblica v1 L'API REST espone i dati dei moduli in JSON, autenticando le chiamate con un Personal Access Token invece della sessione del browser. Come si usa crei un token da Profilo, Token API, scegliendo nome, scadenza e scope.",
+                    "aliases": [
+                        "api pubblica",
+                        "token api",
+                        "personal access token",
+                        "bearer token",
+                        "rest api",
+                        "openapi"
+                    ]
+                },
+                "en": {
+                    "question": "How does the public API and access tokens work?",
+                    "answer_markdown": "## Public API v1\nThe REST API exposes module data as JSON, authenticating calls with a **Personal Access Token** instead of the browser session.\n\n### How to use it\n- create a token from **Profile → API tokens**, choosing a name, an expiry and its **scopes**;\n- the plaintext token is shown **only once**: copy it right away;\n- send it in the `Authorization: Bearer <token>` header on every request.\n\n### Scopes and permissions\nA token's scopes are a subset of **your** permissions: a token can never do more than you can. You must select at least one scope when creating it.\n\n### Limits and format\n- every response uses a consistent envelope: `{ \"data\": … }` on success, `{ \"error\": { \"code\", \"message\" } }` on error;\n- traffic is subject to a **per-token rate limit** (`X-RateLimit-*` headers);\n- the full spec lives at `/api/v1/openapi.json`.\n\n### Security\nOnly the token hash is stored at rest; revoke a token from your profile if you suspect it is compromised and access stops immediately.",
+                    "excerpt": "Public API v1 The REST API exposes module data as JSON, authenticating calls with a Personal Access Token instead of the browser session. How to use it create a token from Profile, API tokens, choosing a name, an expiry and its scopes.",
+                    "aliases": [
+                        "public api",
+                        "api tokens",
+                        "personal access token",
+                        "bearer token",
+                        "rest api",
+                        "openapi"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment fonctionnent l'API publique et les jetons d'accès ?",
+                    "answer_markdown": "## API publique v1\nL'API REST expose les données des modules en JSON, en authentifiant les appels avec un **jeton d'accès personnel** au lieu de la session du navigateur.\n\n### Comment l'utiliser\n- créez un jeton depuis **Profil → Jetons API**, en choisissant un nom, une expiration et ses **portées** ;\n- le jeton en clair n'est affiché **qu'une seule fois** : copiez-le immédiatement ;\n- envoyez-le dans l'en-tête `Authorization: Bearer <token>` à chaque requête.\n\n### Portées et permissions\nLes portées d'un jeton sont un sous-ensemble de **vos** permissions : un jeton ne peut jamais faire plus que vous. Vous devez sélectionner au moins une portée à la création.\n\n### Limites et format\n- chaque réponse utilise une enveloppe cohérente : `{ \"data\": … }` en cas de succès, `{ \"error\": { \"code\", \"message\" } }` en cas d'erreur ;\n- le trafic est soumis à une **limite de débit par jeton** (en-têtes `X-RateLimit-*`) ;\n- la spécification complète est à `/api/v1/openapi.json`.\n\n### Sécurité\nSeul le hachage du jeton est conservé ; révoquez un jeton depuis votre profil si vous le soupçonnez compromis et l'accès cesse immédiatement.",
+                    "excerpt": "API publique v1 L'API REST expose les données des modules en JSON, en authentifiant les appels avec un jeton d'accès personnel au lieu de la session du navigateur. Comment l'utiliser créez un jeton depuis Profil, Jetons API.",
+                    "aliases": [
+                        "api publique",
+                        "jetons api",
+                        "jeton d'acces personnel",
+                        "bearer token",
+                        "rest api",
+                        "openapi"
+                    ]
+                },
+                "de": {
+                    "question": "Wie funktionieren die öffentliche API und die Zugriffstoken?",
+                    "answer_markdown": "## Öffentliche API v1\nDie REST-API stellt Moduldaten als JSON bereit und authentifiziert Aufrufe mit einem **Personal Access Token** statt mit der Browser-Sitzung.\n\n### So wird sie verwendet\n- erstelle ein Token unter **Profil → API-Token** und wähle Name, Ablauf und **Scopes**;\n- das Klartext-Token wird **nur einmal** angezeigt: kopiere es sofort;\n- sende es bei jeder Anfrage im Header `Authorization: Bearer <token>`.\n\n### Scopes und Berechtigungen\nDie Scopes eines Tokens sind eine Teilmenge **deiner** Berechtigungen: ein Token kann nie mehr als du. Bei der Erstellung musst du mindestens einen Scope auswählen.\n\n### Limits und Format\n- jede Antwort verwendet eine einheitliche Hülle: `{ \"data\": … }` bei Erfolg, `{ \"error\": { \"code\", \"message\" } }` bei Fehler;\n- der Verkehr unterliegt einem **Token-basierten Rate-Limit** (`X-RateLimit-*`-Header);\n- die vollständige Spezifikation liegt unter `/api/v1/openapi.json`.\n\n### Sicherheit\nAt rest wird nur der Token-Hash gespeichert; widerrufe ein Token in deinem Profil, wenn du es für kompromittiert hältst — der Zugriff endet sofort.",
+                    "excerpt": "Öffentliche API v1 Die REST-API stellt Moduldaten als JSON bereit und authentifiziert Aufrufe mit einem Personal Access Token statt mit der Browser-Sitzung. So wird sie verwendet erstelle ein Token unter Profil, API-Token.",
+                    "aliases": [
+                        "oeffentliche api",
+                        "api-token",
+                        "personal access token",
+                        "bearer token",
+                        "rest api",
+                        "openapi"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo funcionan la API pública y los tokens de acceso?",
+                    "answer_markdown": "## API pública v1\nLa API REST expone los datos de los módulos como JSON, autenticando las llamadas con un **token de acceso personal** en lugar de la sesión del navegador.\n\n### Cómo se usa\n- crea un token desde **Perfil → Tokens API**, eligiendo nombre, caducidad y sus **ámbitos**;\n- el token en claro se muestra **solo una vez**: cópialo enseguida;\n- envíalo en la cabecera `Authorization: Bearer <token>` en cada petición.\n\n### Ámbitos y permisos\nLos ámbitos de un token son un subconjunto de **tus** permisos: un token nunca puede hacer más que tú. Debes seleccionar al menos un ámbito al crearlo.\n\n### Límites y formato\n- cada respuesta usa un envoltorio coherente: `{ \"data\": … }` en caso de éxito, `{ \"error\": { \"code\", \"message\" } }` en caso de error;\n- el tráfico está sujeto a un **límite de tasa por token** (cabeceras `X-RateLimit-*`);\n- la especificación completa está en `/api/v1/openapi.json`.\n\n### Seguridad\nEn reposo solo se guarda el hash del token; revoca un token desde tu perfil si sospechas que está comprometido y el acceso cesa de inmediato.",
+                    "excerpt": "API pública v1 La API REST expone los datos de los módulos como JSON, autenticando las llamadas con un token de acceso personal en lugar de la sesión del navegador. Cómo se usa crea un token desde Perfil, Tokens API.",
+                    "aliases": [
+                        "api publica",
+                        "tokens api",
+                        "token de acceso personal",
+                        "bearer token",
+                        "rest api",
+                        "openapi"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "api.tokens.index",
+            "permission_slug": null,
+            "ranking_weight": 20,
+            "sort_order": 2,
+            "locales": {
+                "it": {
+                    "question": "Come creo e uso un token API?",
+                    "answer_markdown": "## Creare e usare un token\n\n### Creazione\nVai su **Profilo → Token API** e crea un token indicando:\n- un **nome** riconoscibile (es. «App mobile»);\n- una **scadenza** (30/90/365 giorni o nessuna);\n- gli **scope**, cioè i permessi che il token potrà usare. Devi sceglierne **almeno uno** e puoi selezionare solo permessi che possiedi già.\n\nAl salvataggio il token in chiaro è mostrato **una sola volta**: copialo subito, non potrai rivederlo.\n\n### Uso\nInvia il token nell'header di ogni richiesta:\n```\nAuthorization: Bearer favilla_pat_...\n```\n\n### Revoca\nDalla stessa pagina puoi **revocare** un token: chi lo usa perde l'accesso immediatamente. Revoca (e ricrea) un token se sospetti sia stato esposto.",
+                    "excerpt": "Creare e usare un token Creazione Vai su Profilo, Token API e crea un token indicando un nome riconoscibile, una scadenza e gli scope. Al salvataggio il token in chiaro è mostrato una sola volta: copialo subito.",
+                    "aliases": [
+                        "creare token api",
+                        "usare token api",
+                        "bearer authorization",
+                        "revocare token",
+                        "scadenza token"
+                    ]
+                },
+                "en": {
+                    "question": "How do I create and use an API token?",
+                    "answer_markdown": "## Create and use a token\n\n### Creating\nGo to **Profile → API tokens** and create a token with:\n- a recognizable **name** (e.g. \"Mobile app\");\n- an **expiry** (30/90/365 days or never);\n- the **scopes**, i.e. the permissions the token may use. You must pick **at least one**, and only from permissions you already hold.\n\nOn save the plaintext token is shown **only once**: copy it right away, you won't see it again.\n\n### Using it\nSend the token in the header of every request:\n```\nAuthorization: Bearer favilla_pat_...\n```\n\n### Revoking\nFrom the same page you can **revoke** a token: anyone using it loses access immediately. Revoke (and recreate) a token if you suspect it was exposed.",
+                    "excerpt": "Create and use a token Creating Go to Profile, API tokens and create a token with a recognizable name, an expiry and the scopes. On save the plaintext token is shown only once: copy it right away.",
+                    "aliases": [
+                        "create api token",
+                        "use api token",
+                        "bearer authorization",
+                        "revoke token",
+                        "token expiry"
+                    ]
+                },
+                "fr": {
+                    "question": "Comment créer et utiliser un jeton API ?",
+                    "answer_markdown": "## Créer et utiliser un jeton\n\n### Création\nAllez dans **Profil → Jetons API** et créez un jeton avec :\n- un **nom** reconnaissable (ex. « Application mobile ») ;\n- une **expiration** (30/90/365 jours ou aucune) ;\n- les **portées**, c'est-à-dire les permissions que le jeton pourra utiliser. Vous devez en choisir **au moins une**, uniquement parmi les permissions que vous détenez déjà.\n\nÀ l'enregistrement, le jeton en clair est affiché **une seule fois** : copiez-le immédiatement, vous ne le reverrez plus.\n\n### Utilisation\nEnvoyez le jeton dans l'en-tête de chaque requête :\n```\nAuthorization: Bearer favilla_pat_...\n```\n\n### Révocation\nDepuis la même page vous pouvez **révoquer** un jeton : quiconque l'utilise perd l'accès immédiatement. Révoquez (et recréez) un jeton si vous le soupçonnez exposé.",
+                    "excerpt": "Créer et utiliser un jeton Création Allez dans Profil, Jetons API et créez un jeton avec un nom reconnaissable, une expiration et les portées. À l'enregistrement, le jeton en clair est affiché une seule fois.",
+                    "aliases": [
+                        "creer jeton api",
+                        "utiliser jeton api",
+                        "bearer authorization",
+                        "revoquer jeton",
+                        "expiration jeton"
+                    ]
+                },
+                "de": {
+                    "question": "Wie erstelle und verwende ich ein API-Token?",
+                    "answer_markdown": "## Token erstellen und verwenden\n\n### Erstellen\nGehe zu **Profil → API-Token** und erstelle ein Token mit:\n- einem erkennbaren **Namen** (z. B. „Mobile App\");\n- einem **Ablauf** (30/90/365 Tage oder nie);\n- den **Scopes**, also den Berechtigungen, die das Token nutzen darf. Du musst **mindestens eine** wählen, nur aus Berechtigungen, die du bereits hast.\n\nBeim Speichern wird das Klartext-Token **nur einmal** angezeigt: kopiere es sofort, du siehst es nicht wieder.\n\n### Verwenden\nSende das Token im Header jeder Anfrage:\n```\nAuthorization: Bearer favilla_pat_...\n```\n\n### Widerrufen\nAuf derselben Seite kannst du ein Token **widerrufen**: wer es nutzt, verliert sofort den Zugriff. Widerrufe (und erstelle neu) ein Token, wenn du es für offengelegt hältst.",
+                    "excerpt": "Token erstellen und verwenden Erstellen Gehe zu Profil, API-Token und erstelle ein Token mit einem erkennbaren Namen, einem Ablauf und den Scopes. Beim Speichern wird das Klartext-Token nur einmal angezeigt.",
+                    "aliases": [
+                        "api-token erstellen",
+                        "api-token verwenden",
+                        "bearer authorization",
+                        "token widerrufen",
+                        "token ablauf"
+                    ]
+                },
+                "es": {
+                    "question": "¿Cómo creo y uso un token API?",
+                    "answer_markdown": "## Crear y usar un token\n\n### Creación\nVe a **Perfil → Tokens API** y crea un token indicando:\n- un **nombre** reconocible (p. ej. «App móvil»);\n- una **caducidad** (30/90/365 días o ninguna);\n- los **ámbitos**, es decir los permisos que el token podrá usar. Debes elegir **al menos uno**, solo entre permisos que ya posees.\n\nAl guardar, el token en claro se muestra **solo una vez**: cópialo enseguida, no podrás volver a verlo.\n\n### Uso\nEnvía el token en la cabecera de cada petición:\n```\nAuthorization: Bearer favilla_pat_...\n```\n\n### Revocación\nDesde la misma página puedes **revocar** un token: quien lo use pierde el acceso de inmediato. Revoca (y vuelve a crear) un token si sospechas que se ha expuesto.",
+                    "excerpt": "Crear y usar un token Creación Ve a Perfil, Tokens API y crea un token indicando un nombre reconocible, una caducidad y los ámbitos. Al guardar, el token en claro se muestra solo una vez.",
+                    "aliases": [
+                        "crear token api",
+                        "usar token api",
+                        "bearer authorization",
+                        "revocar token",
+                        "caducidad token"
+                    ]
+                }
+            }
+        },
+        {
+            "audience": "user",
+            "route_name": "api.tokens.index",
+            "permission_slug": null,
+            "ranking_weight": 16,
+            "sort_order": 3,
+            "locales": {
+                "it": {
+                    "question": "Quali errori e limiti ha l'API?",
+                    "answer_markdown": "## Errori e limiti dell'API\n\n### Formato degli errori\nOgni errore ha la forma `{ \"error\": { \"code\", \"message\" } }` con lo status HTTP coerente:\n- **401** token mancante, non valido, scaduto o revocato;\n- **403** permesso o scope insufficiente;\n- **404** risorsa inesistente o non visibile a te;\n- **422** dati non validi (dettagli in `details`);\n- **429** troppe richieste (vedi sotto).\n\n### Rate limit\nLe chiamate sono limitate **per token** (default 120/minuto). Ogni risposta include gli header `X-RateLimit-Limit`, `X-RateLimit-Remaining` e `X-RateLimit-Reset`; su **429** l'header `Retry-After` indica tra quanti secondi ritentare.\n\n### Suggerimenti\n- gestisci il `429` con un'attesa e un nuovo tentativo;\n- rispetta gli scope: un `403` significa che al token manca il permesso;\n- la specifica completa degli endpoint è a `/api/v1/openapi.json`.",
+                    "excerpt": "Errori e limiti dell'API Formato degli errori Ogni errore ha la forma error code message con lo status HTTP coerente: 401 token mancante, 403 permesso insufficiente, 404 risorsa inesistente, 422 dati non validi, 429 troppe richieste.",
+                    "aliases": [
+                        "errori api",
+                        "rate limit api",
+                        "429 troppe richieste",
+                        "codici errore api",
+                        "retry-after"
+                    ]
+                },
+                "en": {
+                    "question": "What errors and limits does the API have?",
+                    "answer_markdown": "## API errors and limits\n\n### Error format\nEvery error has the shape `{ \"error\": { \"code\", \"message\" } }` with a matching HTTP status:\n- **401** missing, invalid, expired or revoked token;\n- **403** insufficient permission or scope;\n- **404** resource missing or not visible to you;\n- **422** invalid input (details in `details`);\n- **429** too many requests (see below).\n\n### Rate limit\nCalls are throttled **per token** (default 120/minute). Every response includes the `X-RateLimit-Limit`, `X-RateLimit-Remaining` and `X-RateLimit-Reset` headers; on **429** the `Retry-After` header tells you how many seconds to wait.\n\n### Tips\n- handle `429` by waiting and retrying;\n- respect scopes: a `403` means the token lacks that permission;\n- the full endpoint spec is at `/api/v1/openapi.json`.",
+                    "excerpt": "API errors and limits Error format Every error has the shape error code message with a matching HTTP status: 401 missing token, 403 insufficient permission, 404 resource missing, 422 invalid input, 429 too many requests.",
+                    "aliases": [
+                        "api errors",
+                        "api rate limit",
+                        "429 too many requests",
+                        "api error codes",
+                        "retry-after"
+                    ]
+                },
+                "fr": {
+                    "question": "Quelles erreurs et limites a l'API ?",
+                    "answer_markdown": "## Erreurs et limites de l'API\n\n### Format des erreurs\nChaque erreur a la forme `{ \"error\": { \"code\", \"message\" } }` avec le statut HTTP correspondant :\n- **401** jeton manquant, invalide, expiré ou révoqué ;\n- **403** permission ou portée insuffisante ;\n- **404** ressource inexistante ou non visible pour vous ;\n- **422** données invalides (détails dans `details`) ;\n- **429** trop de requêtes (voir ci-dessous).\n\n### Limite de débit\nLes appels sont limités **par jeton** (par défaut 120/minute). Chaque réponse inclut les en-têtes `X-RateLimit-Limit`, `X-RateLimit-Remaining` et `X-RateLimit-Reset` ; sur **429**, l'en-tête `Retry-After` indique le délai avant de réessayer.\n\n### Conseils\n- gérez le `429` par une attente puis un nouvel essai ;\n- respectez les portées : un `403` signifie que le jeton n'a pas la permission ;\n- la spécification complète des endpoints est à `/api/v1/openapi.json`.",
+                    "excerpt": "Erreurs et limites de l'API Format des erreurs Chaque erreur a la forme error code message avec le statut HTTP correspondant : 401 jeton manquant, 403 permission insuffisante, 404 ressource inexistante, 422 données invalides, 429 trop de requêtes.",
+                    "aliases": [
+                        "erreurs api",
+                        "limite de debit api",
+                        "429 trop de requetes",
+                        "codes erreur api",
+                        "retry-after"
+                    ]
+                },
+                "de": {
+                    "question": "Welche Fehler und Limits hat die API?",
+                    "answer_markdown": "## API-Fehler und -Limits\n\n### Fehlerformat\nJeder Fehler hat die Form `{ \"error\": { \"code\", \"message\" } }` mit passendem HTTP-Status:\n- **401** Token fehlt, ungültig, abgelaufen oder widerrufen;\n- **403** Berechtigung oder Scope unzureichend;\n- **404** Ressource fehlt oder für dich nicht sichtbar;\n- **422** ungültige Eingabe (Details in `details`);\n- **429** zu viele Anfragen (siehe unten).\n\n### Rate-Limit\nAufrufe sind **pro Token** begrenzt (Standard 120/Minute). Jede Antwort enthält die Header `X-RateLimit-Limit`, `X-RateLimit-Remaining` und `X-RateLimit-Reset`; bei **429** gibt der Header `Retry-After` an, nach wie vielen Sekunden erneut zu versuchen ist.\n\n### Tipps\n- behandle `429` mit Warten und erneutem Versuch;\n- beachte Scopes: ein `403` bedeutet, dem Token fehlt die Berechtigung;\n- die vollständige Endpunkt-Spezifikation liegt unter `/api/v1/openapi.json`.",
+                    "excerpt": "API-Fehler und -Limits Fehlerformat Jeder Fehler hat die Form error code message mit passendem HTTP-Status: 401 Token fehlt, 403 Berechtigung unzureichend, 404 Ressource fehlt, 422 ungültige Eingabe, 429 zu viele Anfragen.",
+                    "aliases": [
+                        "api-fehler",
+                        "api rate-limit",
+                        "429 zu viele anfragen",
+                        "api fehlercodes",
+                        "retry-after"
+                    ]
+                },
+                "es": {
+                    "question": "¿Qué errores y límites tiene la API?",
+                    "answer_markdown": "## Errores y límites de la API\n\n### Formato de los errores\nCada error tiene la forma `{ \"error\": { \"code\", \"message\" } }` con el estado HTTP correspondiente:\n- **401** token ausente, no válido, caducado o revocado;\n- **403** permiso o ámbito insuficiente;\n- **404** recurso inexistente o no visible para ti;\n- **422** datos no válidos (detalles en `details`);\n- **429** demasiadas peticiones (ver abajo).\n\n### Límite de tasa\nLas llamadas se limitan **por token** (por defecto 120/minuto). Cada respuesta incluye las cabeceras `X-RateLimit-Limit`, `X-RateLimit-Remaining` y `X-RateLimit-Reset`; en **429** la cabecera `Retry-After` indica cuántos segundos esperar.\n\n### Consejos\n- gestiona el `429` esperando y reintentando;\n- respeta los ámbitos: un `403` significa que al token le falta el permiso;\n- la especificación completa de los endpoints está en `/api/v1/openapi.json`.",
+                    "excerpt": "Errores y límites de la API Formato de los errores Cada error tiene la forma error code message con el estado HTTP correspondiente: 401 token ausente, 403 permiso insuficiente, 404 recurso inexistente, 422 datos no válidos, 429 demasiadas peticiones.",
+                    "aliases": [
+                        "errores api",
+                        "limite de tasa api",
+                        "429 demasiadas peticiones",
+                        "codigos error api",
+                        "retry-after"
+                    ]
+                }
+            }
+        }
+    ]
+}
