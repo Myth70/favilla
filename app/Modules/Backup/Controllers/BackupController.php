@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Modules\Backup\Controllers;
 
 use App\Core\Controller;
+use App\Modules\Backup\Services\BackupEncryptionService;
+use App\Modules\Backup\Services\BackupFilesService;
 use App\Modules\Backup\Services\BackupService;
 use App\Services\AuditService;
 use App\Services\UserService;
@@ -28,10 +30,11 @@ class BackupController extends Controller
      */
     public function index(): void
     {
-        $backups  = $this->service->listBackups();
-        $history  = $this->service->listHistory(50);
-        $excluded = $this->service->getExcludedTables();
-        $running  = $this->service->isBackupRunning();
+        $backups      = $this->service->listBackups();
+        $history      = $this->service->listHistory(50);
+        $excluded     = $this->service->getExcludedTables();
+        $running      = $this->service->isBackupRunning();
+        $filesService = app(BackupFilesService::class);
 
         $this->render('Backup/Views/index', [
             'pageTitle'      => t('backup.title'),
@@ -40,6 +43,8 @@ class BackupController extends Controller
             'maxCount'       => (int) env('BACKUP_MAX_COUNT', 10),
             'excludedTables' => $excluded,
             'isRunning'      => $running,
+            'filesEnabled'   => $filesService->isEnabled(),
+            'fileRoots'      => array_column($filesService->roots(), 'base'),
         ]);
     }
 
@@ -53,7 +58,7 @@ class BackupController extends Controller
         try {
             $result = $this->service->createBackup($user ? (int) $user['id'] : null);
 
-            // Registra nel DB (formato + dettaglio per-database)
+            // Registra nel DB (formato + dettaglio per-database e per-file)
             $format = $this->service->isZipBackup($result['filename']) ? 'zip' : 'sqlgz';
             $this->service->recordHistory(
                 $result['filename'],
@@ -61,7 +66,8 @@ class BackupController extends Controller
                 $result['table_count'],
                 $user ? (int) $user['id'] : null,
                 $format,
-                $result['databases'] ?? null
+                $result['databases'] ?? null,
+                $result['files'] ?? null
             );
 
             AuditService::log('backup_created', 'backup', null, null, [
@@ -71,6 +77,12 @@ class BackupController extends Controller
             ]);
 
             $msg = t('backup.flash.created', ['filename' => $result['filename']]);
+            if (($result['file_count'] ?? 0) > 0) {
+                $msg .= ' ' . t('backup.flash.files_included', [
+                    'count' => $result['file_count'],
+                    'size'  => number_format(($result['files_size'] ?? 0) / 1048576, 1, ',', '.'),
+                ]);
+            }
             if (($result['excluded_count'] ?? 0) > 0) {
                 $msg .= ' ' . t('backup.flash.excluded_count', ['count' => $result['excluded_count']]);
             }
@@ -116,6 +128,22 @@ class BackupController extends Controller
 
         AuditService::log('backup_downloaded', 'backup', null, null, ['filename' => $filename]);
 
+        $contentType = $this->service->isZipBackup($filename) ? 'application/zip' : 'application/gzip';
+
+        // Archivio in chiaro: streaming diretto dal disco, senza caricarlo in
+        // memoria (con i file inclusi un set può pesare svariati GB).
+        if (!app(BackupEncryptionService::class)->isEncryptedFile($path)) {
+            header('Content-Type: ' . $contentType);
+            header('Content-Disposition: attachment; filename="' . $filename . '"');
+            header('Content-Length: ' . (string) filesize($path));
+            header('Cache-Control: no-cache, no-store, must-revalidate');
+
+            readfile($path);
+            exit;
+        }
+
+        // Archivio cifrato: la decifratura è in-memory (dimensione già limitata
+        // dal cap di cifratura).
         try {
             $contents = $this->service->readBackupContents($path);
         } catch (\RuntimeException $e) {
@@ -123,7 +151,6 @@ class BackupController extends Controller
             exit(e(t('backup.flash.read_error', ['error' => $e->getMessage()])));
         }
 
-        $contentType = $this->service->isZipBackup($filename) ? 'application/zip' : 'application/gzip';
         header('Content-Type: ' . $contentType);
         header('Content-Disposition: attachment; filename="' . $filename . '"');
         header('Content-Length: ' . strlen($contents));
@@ -197,9 +224,14 @@ class BackupController extends Controller
                 'filename' => $filename,
                 'pre_restore_backup' => $result['pre_restore_backup'] ?? null,
                 'statements' => $result['statements_executed'] ?? 0,
+                'files_restored' => $result['files_restored'] ?? 0,
             ]);
 
-            flash_success(t('backup.flash.restored', ['filename' => $filename]));
+            $msg = t('backup.flash.restored', ['filename' => $filename]);
+            if (($result['files_restored'] ?? 0) > 0) {
+                $msg .= ' ' . t('backup.flash.restored_files', ['count' => $result['files_restored']]);
+            }
+            flash_success($msg);
             $this->notifyCurrentUser(
                 t('backup.notif.restored_title'),
                 t('backup.notif.restored_body', ['filename' => $filename]),

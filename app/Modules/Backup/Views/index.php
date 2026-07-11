@@ -33,6 +33,12 @@ $backupAction .= '<button type="submit" class="btn btn-primary btn-sm" ' . ($isR
         <i class="fa-solid fa-circle-info mt-1 flex-shrink-0"></i>
         <div>
             <strong><?= e(t('backup.note_label')) ?></strong> <?= t('backup.note_body', ['count' => (int) $maxCount]) ?>
+            <br>
+            <?php if (!empty($filesEnabled)): ?>
+                <i class="fa-solid fa-file-circle-check me-1"></i><?= e(t('backup.note_files_on', ['paths' => implode(', ', $fileRoots ?? [])])) ?>
+            <?php else: ?>
+                <i class="fa-solid fa-file-circle-xmark me-1"></i><?= e(t('backup.note_files_off')) ?>
+            <?php endif; ?>
             <?php if (!empty($excludedTables)): ?>
                 <br><strong><?= e(t('backup.excluded_label')) ?></strong>
                 <?php foreach ($excludedTables as $t): ?>
@@ -71,6 +77,7 @@ $backupAction .= '<button type="submit" class="btn btn-primary btn-sm" ' . ($isR
                             <th><?= e(t('backup.cols.size')) ?></th>
                             <th><?= e(t('backup.cols.tables')) ?></th>
                             <th><?= e(t('backup.cols.database')) ?></th>
+                            <th><?= e(t('backup.cols.files')) ?></th>
                             <th><?= e(t('backup.cols.created_by')) ?></th>
                             <th><?= e(t('backup.cols.date')) ?></th>
                         </tr>
@@ -95,6 +102,17 @@ $backupAction .= '<button type="submit" class="btn btn-primary btn-sm" ' . ($isR
                                         }
                                     }
                                 }
+                                $fileCount = 0;
+                                $fileBytes = 0;
+                                if (!empty($h['files_json'])) {
+                                    $decodedFiles = json_decode((string) $h['files_json'], true);
+                                    if (is_array($decodedFiles)) {
+                                        foreach ($decodedFiles as $fr) {
+                                            $fileCount += (int) ($fr['file_count'] ?? 0);
+                                            $fileBytes += (int) ($fr['total_size'] ?? 0);
+                                        }
+                                    }
+                                }
                             ?>
                             <tr>
                                 <td><code class="small"><?= e($h['filename']) ?></code></td>
@@ -110,6 +128,18 @@ $backupAction .= '<button type="submit" class="btn btn-primary btn-sm" ' . ($isR
                                         <?php if ($hasPartial): ?>
                                             <span class="badge bg-warning text-dark"><i class="fa-solid fa-triangle-exclamation me-1"></i><?= e(t('backup.partial')) ?></span>
                                         <?php endif; ?>
+                                    <?php endif; ?>
+                                </td>
+                                <td>
+                                    <?php if ($fileCount > 0): ?>
+                                        <span class="badge bg-secondary" data-bs-toggle="tooltip" title="<?= e(t('backup.files_tooltip')) ?>">
+                                            <i class="fa-solid fa-file me-1"></i><?= e(t('backup.files_summary', [
+                                                'count' => number_format($fileCount, 0, ',', '.'),
+                                                'size'  => number_format($fileBytes / 1048576, 1, ',', '.'),
+                                            ])) ?>
+                                        </span>
+                                    <?php else: ?>
+                                        <span class="text-muted small"><?= e(t('backup.files_db_only')) ?></span>
                                     <?php endif; ?>
                                 </td>
                                 <td><?= e($h['created_by_name'] ?? '—') ?></td>

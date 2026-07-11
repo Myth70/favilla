@@ -4,9 +4,9 @@
  * Backup module — German.
  */
 return [
-    'title'           => 'Datenbank-Backup',
+    'title'           => 'Backup',
     'hero_title'      => 'Backup',
-    'hero_subtitle'   => 'Vollständiges komprimiertes SQL-Backup mit automatischer Rotation',
+    'hero_subtitle'   => 'Vollständiges Backup von Datenbank und hochgeladenen Dateien, mit automatischer Rotation',
     'restore_keyword' => 'WIEDERHERSTELLEN',
 
     'action' => [
@@ -24,6 +24,8 @@ return [
 
     'note_label'     => 'Hinweis:',
     'note_body'      => 'Backups werden auf dem Server in <code>storage/backups/</code> gespeichert. Laden Sie sie regelmäßig an einen sicheren externen Ort herunter. Die letzten :count Backups werden automatisch aufbewahrt.',
+    'note_files_on'  => 'Das Backup umfasst auch die hochgeladenen Dateien (:paths).',
+    'note_files_off' => 'Nur-Datenbank-Backup: hochgeladene Dateien sind NICHT enthalten (BACKUP_INCLUDE_FILES=false).',
     'excluded_label' => 'Ausgeschlossene Tabellen:',
 
     'available'      => 'Verfügbare Backups',
@@ -38,11 +40,16 @@ return [
         'size'         => 'Größe',
         'tables'       => 'Tabellen',
         'database'     => 'Datenbank',
+        'files'        => 'Benutzerdateien',
         'created_by'   => 'Erstellt von',
         'date'         => 'Datum',
         'filename'     => 'Dateiname',
         'created_date' => 'Erstellungsdatum',
     ],
+
+    'files_summary' => ':count Dateien · :size MB',
+    'files_tooltip' => 'Im Archiv enthaltene hochgeladene Dateien',
+    'files_db_only' => 'Nur DB',
 
     'restore_modal' => [
         'title'               => 'Backup-Wiederherstellung bestätigen',
@@ -54,6 +61,8 @@ return [
 
     'flash' => [
         'created'          => 'Backup erfolgreich erstellt: :filename',
+        'files_included'   => ':count Dateien enthalten (:size MB).',
+        'restored_files'   => 'Außerdem :count Dateien wiederhergestellt.',
         'excluded_count'   => '(:count Tabellen ausgeschlossen)',
         'partial_warning'  => ' — WARNUNG: Eine oder mehrere Moduldatenbanken waren nicht erreichbar und wurden vom Backup ausgeschlossen.',
         'error'            => 'Fehler beim Backup: :error',

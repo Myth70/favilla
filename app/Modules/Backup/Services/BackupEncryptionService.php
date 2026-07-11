@@ -111,8 +111,10 @@ class BackupEncryptionService
             return $data;
         }
 
-        // Se i magic bytes sono gzip (1F 8B), il file non è cifrato.
-        if (strlen($data) >= 2 && ord($data[0]) === 0x1F && ord($data[1]) === 0x8B) {
+        // File in chiaro nonostante la chiave configurata (creati prima della
+        // chiave o con BACKUP_ALLOW_UNENCRYPTED_LARGE): magic gzip (1F 8B) per
+        // i legacy .sql.gz, magic zip (PK\x03\x04) per i set multi-DB.
+        if ($this->hasPlaintextMagic($data)) {
             return $data;
         }
 
@@ -162,5 +164,42 @@ class BackupEncryptionService
         }
 
         return $plaintext;
+    }
+
+    /**
+     * Vero se il file su disco è cifrato (va decifrato in memoria); falso se è
+     * un archivio in chiaro leggibile direttamente in streaming. Permette a
+     * download/ripristino di non caricare in RAM gli archivi non cifrati.
+     */
+    public function isEncryptedFile(string $path): bool
+    {
+        $fp = @fopen($path, 'rb');
+        if (!is_resource($fp)) {
+            return false;
+        }
+        $head = (string) fread($fp, 4);
+        fclose($fp);
+
+        if ($this->hasPlaintextMagic($head)) {
+            return false;
+        }
+        if (str_starts_with($head, self::ENC_HEADER)) {
+            return true;
+        }
+
+        // Nessun magic riconosciuto: legacy CBC (senza header) solo se una
+        // chiave è configurata, altrimenti il file è per forza in chiaro.
+        return !empty(env('BACKUP_ENCRYPTION_KEY', ''));
+    }
+
+    /**
+     * Magic bytes dei formati in chiaro: gzip (1F 8B) o zip (PK\x03\x04).
+     */
+    private function hasPlaintextMagic(string $head): bool
+    {
+        if (strlen($head) >= 2 && ord($head[0]) === 0x1F && ord($head[1]) === 0x8B) {
+            return true;
+        }
+        return strlen($head) >= 4 && substr($head, 0, 4) === "PK\x03\x04";
     }
 }
