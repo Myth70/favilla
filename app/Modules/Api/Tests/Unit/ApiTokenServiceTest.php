@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Api\Tests\Unit;
 
+use App\Modules\Api\Repositories\PersonalAccessTokenRepository;
 use App\Modules\Api\Services\ApiTokenService;
 use App\Repositories\UserRepository;
 use Tests\ModuleTestCase;
@@ -73,11 +74,17 @@ class ApiTokenServiceTest extends ModuleTestCase
         $this->assertSame(['tasks.view'], $result['scopes']);
     }
 
-    public function testCreateWithNoScopesMeansFullUserPermissions(): void
+    public function testCreateRejectsEmptyScopeSelection(): void
     {
-        $result = $this->service->create(1, 'Full', []);
+        // Selezione vuota => niente token onnipotente: deve fallire.
+        $this->expectException(\RuntimeException::class);
+        $this->service->create(1, 'Full', []);
+    }
 
-        $this->assertNull($result['scopes'], 'scopes null = permessi pieni utente');
+    public function testCreateRejectsNullScopes(): void
+    {
+        $this->expectException(\RuntimeException::class);
+        $this->service->create(1, 'Full', null);
     }
 
     public function testCreateRejectsWhenNoRequestedScopeIsGranted(): void
@@ -89,12 +96,12 @@ class ApiTokenServiceTest extends ModuleTestCase
     public function testCreateRejectsEmptyName(): void
     {
         $this->expectException(\RuntimeException::class);
-        $this->service->create(1, '   ', null);
+        $this->service->create(1, '   ', ['tasks.view']);
     }
 
     public function testRevokeHidesTokenFromList(): void
     {
-        $result = $this->service->create(1, 'ToRevoke', null);
+        $result = $this->service->create(1, 'ToRevoke', ['tasks.view']);
         $this->assertCount(1, $this->service->listForUser(1));
 
         $this->assertTrue($this->service->revoke($result['id'], 1));
@@ -103,9 +110,35 @@ class ApiTokenServiceTest extends ModuleTestCase
 
     public function testRevokeOtherUsersTokenFails(): void
     {
-        $result = $this->service->create(1, 'Owned', null);
+        $result = $this->service->create(1, 'Owned', ['tasks.view']);
 
         $this->assertFalse($this->service->revoke($result['id'], 999));
         $this->assertCount(1, $this->service->listForUser(1));
+    }
+
+    public function testFindValidByHashAcceptsActiveTokenAndRejectsExpiredOrRevoked(): void
+    {
+        $repo = new PersonalAccessTokenRepository();
+
+        $valid = $this->insertRow('personal_access_tokens', [
+            'user_id' => 1, 'name' => 'Valid', 'token_hash' => hash('sha256', 'valid'),
+            'expires_at' => date('Y-m-d H:i:s', time() + 3600),
+        ]);
+        $this->insertRow('personal_access_tokens', [
+            'user_id' => 1, 'name' => 'Expired', 'token_hash' => hash('sha256', 'expired'),
+            'expires_at' => date('Y-m-d H:i:s', time() - 3600),
+        ]);
+        $this->insertRow('personal_access_tokens', [
+            'user_id' => 1, 'name' => 'Revoked', 'token_hash' => hash('sha256', 'revoked'),
+            'revoked_at' => date('Y-m-d H:i:s', time() - 60),
+        ]);
+
+        $found = $repo->findValidByHash(hash('sha256', 'valid'));
+        $this->assertNotNull($found);
+        $this->assertSame($valid, (int) $found['id']);
+
+        $this->assertNull($repo->findValidByHash(hash('sha256', 'expired')), 'un token scaduto non è valido');
+        $this->assertNull($repo->findValidByHash(hash('sha256', 'revoked')), 'un token revocato non è valido');
+        $this->assertNull($repo->findValidByHash(hash('sha256', 'nonexistent')));
     }
 }

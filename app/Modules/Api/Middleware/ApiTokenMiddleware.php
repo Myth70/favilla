@@ -24,23 +24,23 @@ class ApiTokenMiddleware implements MiddlewareInterface
     public function handle(callable $next): void
     {
         if (!(bool) setting('api_enabled', true)) {
-            $this->fail(503, 'api_disabled', 'API pubblica disattivata.');
+            $this->fail(503, 'api_disabled', 'The public API is disabled.');
         }
 
         $token = $this->extractBearerToken();
         if ($token === null) {
-            $this->fail(401, 'unauthenticated', 'Token di accesso mancante.');
+            $this->fail(401, 'unauthenticated', 'Missing access token.');
         }
 
         $tokenRepo = app(PersonalAccessTokenRepository::class);
         $record = $tokenRepo->findValidByHash(hash('sha256', $token));
         if ($record === null) {
-            $this->fail(401, 'invalid_token', 'Token non valido, scaduto o revocato.');
+            $this->fail(401, 'invalid_token', 'Invalid, expired or revoked token.');
         }
 
         $user = app(UserRepository::class)->findWithPermissions((int) $record['user_id']);
         if ($user === null || (int) ($user['is_active'] ?? 1) !== 1) {
-            $this->fail(401, 'inactive_account', 'Account non attivo.');
+            $this->fail(401, 'inactive_account', 'Account is not active.');
         }
 
         $scopes = $record['scopes'] !== null ? json_decode((string) $record['scopes'], true) : null;

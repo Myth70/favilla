@@ -30,16 +30,17 @@ class ApiTokenService
     /**
      * Crea un token per l'utente. Gli scope richiesti vengono intersecati con i
      * permessi effettivi dell'utente (non si può creare un token più potente di
-     * chi lo emette). scopes vuoto/null = token con i permessi pieni dell'utente.
+     * chi lo emette). Gli scope sono OBBLIGATORI: una selezione vuota è rifiutata
+     * (evita che un token "senza scope" erediti silenziosamente tutti i permessi).
      *
      * @param string[]|null $requestedScopes
-     * @return array{id:int, plain_token:string, name:string, scopes:string[]|null, expires_at:?string}
+     * @return array{id:int, plain_token:string, name:string, scopes:string[], expires_at:?string}
      */
     public function create(int $userId, string $name, ?array $requestedScopes = null, ?string $expiresAt = null): array
     {
         $name = trim($name);
         if ($name === '') {
-            throw new RuntimeException('Il nome del token è obbligatorio.');
+            throw new RuntimeException(t('api.tokens.error_name_required'));
         }
         if (mb_strlen($name) > 120) {
             $name = mb_substr($name, 0, 120);
@@ -54,7 +55,7 @@ class ApiTokenService
             'user_id'    => $userId,
             'name'       => $name,
             'token_hash' => $hash,
-            'scopes'     => $scopes === null ? null : json_encode(array_values($scopes)),
+            'scopes'     => json_encode(array_values($scopes)),
             'expires_at' => $expiresAt,
         ]);
 
@@ -119,19 +120,22 @@ class ApiTokenService
     }
 
     /**
+     * Interseca gli scope richiesti coi permessi effettivi dell'utente. Gli scope
+     * sono obbligatori: selezione vuota => errore (niente token onnipotente).
+     *
      * @param string[]|null $requestedScopes
-     * @return string[]|null
+     * @return string[]
      */
-    private function resolveScopes(int $userId, ?array $requestedScopes): ?array
+    private function resolveScopes(int $userId, ?array $requestedScopes): array
     {
-        if ($requestedScopes === null || $requestedScopes === []) {
-            // Nessuno scope scelto: il token eredita i permessi pieni dell'utente.
-            return null;
+        $requested = $requestedScopes ?? [];
+        if ($requested === []) {
+            throw new RuntimeException(t('api.tokens.error_scope_required'));
         }
         $available = $this->availableScopesForUser($userId);
-        $granted = array_values(array_intersect($requestedScopes, $available));
+        $granted = array_values(array_intersect($requested, $available));
         if ($granted === []) {
-            throw new RuntimeException('Nessuno degli scope richiesti è concesso all\'utente.');
+            throw new RuntimeException(t('api.tokens.error_scope_denied'));
         }
         return $granted;
     }
@@ -141,8 +145,6 @@ class ApiTokenService
      */
     private function allPermissionSlugs(): array
     {
-        $pdo = app(\PDO::class);
-        $rows = $pdo->query('SELECT slug FROM permissions ORDER BY slug')->fetchAll(\PDO::FETCH_COLUMN);
-        return array_map('strval', $rows);
+        return app(\App\Modules\Admin\Repositories\PermissionRepository::class)->allSlugs();
     }
 }

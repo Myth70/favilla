@@ -38,8 +38,8 @@ class TasksApiController extends ApiController
 
         $items = array_map([$this, 'serialize'], $result['data'] ?? []);
         $total = (int) ($result['total'] ?? count($items));
-        // TasksRepository pagina a 15 elementi fissi.
-        $this->paginated($items, (int) ($result['page'] ?? $page), 15, $total);
+        $perPage = (int) ($result['per_page'] ?? 15);
+        $this->paginated($items, (int) ($result['page'] ?? $page), $perPage, $total);
     }
 
     public function show(string $id): void
@@ -48,7 +48,7 @@ class TasksApiController extends ApiController
 
         $task = $this->tasks->find((int) $id, $this->userId());
         if ($task === null) {
-            $this->fail('not_found', 'Attività non trovata.', 404);
+            $this->fail('not_found', 'Task not found.', 404);
             return;
         }
         $this->ok($this->serialize($task));
@@ -61,7 +61,12 @@ class TasksApiController extends ApiController
         $input = $this->input();
         $title = trim((string) ($input['title'] ?? ''));
         if ($title === '') {
-            $this->fail('validation_failed', 'Il titolo è obbligatorio.', 422, ['title' => ['required']]);
+            $this->fail('validation_failed', 'Validation failed.', 422, ['title' => ['required']]);
+            return;
+        }
+        $invalid = $this->invalidEnums($input);
+        if ($invalid !== []) {
+            $this->fail('validation_failed', 'Validation failed.', 422, $invalid);
             return;
         }
 
@@ -74,15 +79,30 @@ class TasksApiController extends ApiController
     {
         $this->requireScope('tasks.edit');
 
+        // Verifica esistenza/proprietà PRIMA: distingue il 404 dagli errori interni
+        // e non rimanda al client i messaggi di eccezione del Service.
+        $existing = $this->tasks->find((int) $id, $this->userId());
+        if ($existing === null) {
+            $this->fail('not_found', 'Task not found.', 404);
+            return;
+        }
+
+        $input = $this->input();
+        $invalid = $this->invalidEnums($input);
+        if ($invalid !== []) {
+            $this->fail('validation_failed', 'Validation failed.', 422, $invalid);
+            return;
+        }
+
         try {
-            $ok = $this->tasks->update((int) $id, $this->cleanTaskData($this->input(), false), $this->userId());
-        } catch (\RuntimeException $e) {
-            $this->fail('not_found', $e->getMessage(), 404);
+            $ok = $this->tasks->update((int) $id, $this->cleanTaskData($input, false), $this->userId());
+        } catch (\RuntimeException) {
+            $this->fail('update_failed', 'Update failed.', 400);
             return;
         }
 
         if (!$ok) {
-            $this->fail('update_failed', 'Aggiornamento non riuscito.', 400);
+            $this->fail('update_failed', 'Update failed.', 400);
             return;
         }
         $task = $this->tasks->find((int) $id, $this->userId());
@@ -93,26 +113,55 @@ class TasksApiController extends ApiController
     {
         $this->requireScope('tasks.delete');
 
+        if ($this->tasks->find((int) $id, $this->userId()) === null) {
+            $this->fail('not_found', 'Task not found.', 404);
+            return;
+        }
+
         try {
             $this->tasks->delete((int) $id, $this->userId());
-        } catch (\RuntimeException $e) {
-            $this->fail('not_found', $e->getMessage(), 404);
+        } catch (\RuntimeException) {
+            $this->fail('delete_failed', 'Delete failed.', 400);
             return;
         }
         $this->ok(['deleted' => true]);
     }
 
+    private const ALLOWED_STATUS = ['backlog', 'todo', 'in_progress', 'review', 'done'];
+    private const ALLOWED_PRIORITY = ['low', 'medium', 'high', 'urgent'];
+
+    /**
+     * Valida gli enum in ingresso: un valore fuori whitelist è un errore 422,
+     * non va scartato silenziosamente (altrimenti il client crede sia stato
+     * accettato e trova un default).
+     *
+     * @param array<string, mixed> $input
+     * @return array<string, string[]> details per l'envelope (vuoto = ok)
+     */
+    private function invalidEnums(array $input): array
+    {
+        $details = [];
+        if (isset($input['status']) && !in_array($input['status'], self::ALLOWED_STATUS, true)) {
+            $details['status'] = ['invalid'];
+        }
+        if (isset($input['priority']) && !in_array($input['priority'], self::ALLOWED_PRIORITY, true)) {
+            $details['priority'] = ['invalid'];
+        }
+        return $details;
+    }
+
     /**
      * Whitelist dei campi accettati dall'API (evita mass-assignment di colonne
-     * interne come position/completed_at).
+     * interne come position/completed_at). Gli enum sono già validati a monte da
+     * invalidEnums(); qui restano solo i valori consentiti.
      *
      * @param array<string, mixed> $input
      * @return array<string, mixed>
      */
     private function cleanTaskData(array $input, bool $isCreate): array
     {
-        $allowedStatus = ['backlog', 'todo', 'in_progress', 'review', 'done'];
-        $allowedPriority = ['low', 'medium', 'high', 'urgent'];
+        $allowedStatus = self::ALLOWED_STATUS;
+        $allowedPriority = self::ALLOWED_PRIORITY;
         $data = [];
 
         if (array_key_exists('title', $input)) {

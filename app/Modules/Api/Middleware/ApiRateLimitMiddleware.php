@@ -23,8 +23,10 @@ class ApiRateLimitMiddleware implements MiddlewareInterface
     public function handle(callable $next): void
     {
         $context = app(ApiRequestContext::class);
-        $tokenId = $context->tokenId();
-        $key = $tokenId !== null ? "api-token:{$tokenId}" : 'api-ip:' . ClientIp::resolve();
+        // Questo middleware gira sempre DOPO ApiTokenMiddleware, che risponde 401
+        // alle richieste non autenticate: il token è quindi garantito e il bucket
+        // è per-token.
+        $key = 'api-token:' . (int) $context->tokenId();
 
         $max = max(1, (int) setting('api_rate_limit_per_minute', 120));
         $endpoint = 'api/v1';
@@ -35,43 +37,54 @@ class ApiRateLimitMiddleware implements MiddlewareInterface
             $this->cleanup($pdo);
         }
 
+        // Registra QUESTA richiesta prima di contare: evita la finestra di race
+        // COUNT-poi-INSERT in cui due richieste concorrenti passano entrambe
+        // sotto il limite. Il COUNT successivo include già questa riga.
+        $ip = ClientIp::resolve();
+        $insert = $pdo->prepare(
+            'INSERT INTO rate_limits (rate_key, endpoint, ip_address, user_id, created_at)
+             VALUES (?, ?, ?, ?, NOW())'
+        );
+        $insert->execute([$key, $endpoint, $ip, $context->isAuthenticated() ? $context->userId() : null]);
+
         $cutoff = date('Y-m-d H:i:s', time() - self::WINDOW_SECONDS);
         $stmt = $pdo->prepare(
-            'SELECT COUNT(*) FROM rate_limits WHERE rate_key = ? AND endpoint = ? AND created_at > ?'
+            'SELECT COUNT(*) AS c, MIN(created_at) AS oldest
+             FROM rate_limits WHERE rate_key = ? AND endpoint = ? AND created_at > ?'
         );
         $stmt->execute([$key, $endpoint, $cutoff]);
-        $count = (int) $stmt->fetchColumn();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC) ?: ['c' => 0, 'oldest' => null];
+        $count = (int) $row['c'];
+
+        // Reset coerente con la finestra scorrevole: quando la richiesta più
+        // vecchia esce dalla finestra si libera capacità.
+        $oldestTs = $row['oldest'] !== null ? (int) strtotime((string) $row['oldest']) : time();
+        $reset = $oldestTs + self::WINDOW_SECONDS;
+        $retryAfter = max(1, $reset - time());
 
         if (!headers_sent()) {
             header('X-RateLimit-Limit: ' . $max);
-            header('X-RateLimit-Remaining: ' . max(0, $max - $count - 1));
-            header('X-RateLimit-Reset: ' . (time() + self::WINDOW_SECONDS));
+            header('X-RateLimit-Remaining: ' . max(0, $max - $count));
+            header('X-RateLimit-Reset: ' . $reset);
         }
 
-        if ($count >= $max) {
+        if ($count > $max) {
             $body = json_encode([
                 'error' => [
                     'code'        => 'rate_limited',
-                    'message'     => 'Troppe richieste. Riprova tra poco.',
-                    'retry_after' => self::WINDOW_SECONDS,
+                    'message'     => 'Too many requests. Please retry shortly.',
+                    'retry_after' => $retryAfter,
                 ],
             ], JSON_UNESCAPED_UNICODE) ?: '{"error":{"code":"rate_limited"}}';
 
             throw new HttpException(
                 429,
-                ['Retry-After' => (string) self::WINDOW_SECONDS],
+                ['Retry-After' => (string) $retryAfter],
                 $body,
                 'application/json; charset=utf-8',
                 'API rate limit exceeded'
             );
         }
-
-        $ip = ClientIp::resolve();
-        $stmt = $pdo->prepare(
-            'INSERT INTO rate_limits (rate_key, endpoint, ip_address, user_id, created_at)
-             VALUES (?, ?, ?, ?, NOW())'
-        );
-        $stmt->execute([$key, $endpoint, $ip, $context->isAuthenticated() ? $context->userId() : null]);
 
         $next();
     }

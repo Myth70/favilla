@@ -41,7 +41,7 @@ abstract class ApiController extends Controller
     protected function requireScope(string $permission): void
     {
         if (!$this->context()->can($permission)) {
-            $this->fail('forbidden', 'Permesso o scope insufficiente: ' . $permission, 403);
+            $this->fail('forbidden', 'Insufficient permission or scope.', 403);
         }
     }
 
@@ -101,9 +101,15 @@ abstract class ApiController extends Controller
         }
 
         $contentType = strtolower((string) ($_SERVER['CONTENT_TYPE'] ?? ''));
-        if (str_contains($contentType, 'application/json')) {
-            $raw = file_get_contents('php://input');
-            $decoded = $raw !== false && $raw !== '' ? json_decode($raw, true) : null;
+        $raw = file_get_contents('php://input');
+        $raw = $raw !== false ? trim($raw) : '';
+
+        // JSON esplicito (application/json) o inferito dal corpo. L'inferenza
+        // copre PUT/PATCH, dove PHP NON popola $_POST anche per body url-encoded:
+        // senza questo un update via JSON risulterebbe un no-op silenzioso.
+        $looksJson = $raw !== '' && ($raw[0] === '{' || $raw[0] === '[');
+        if (str_contains($contentType, 'application/json') || $looksJson) {
+            $decoded = $raw !== '' ? json_decode($raw, true) : null;
             $this->inputCache = is_array($decoded) ? $decoded : [];
         } else {
             $this->inputCache = $_POST;

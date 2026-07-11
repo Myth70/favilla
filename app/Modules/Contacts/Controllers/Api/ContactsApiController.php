@@ -48,7 +48,7 @@ class ContactsApiController extends ApiController
 
         $contact = $this->contacts->find((int) $id, $this->userId(), $this->context()->roles());
         if ($contact === null) {
-            $this->fail('not_found', 'Contatto non trovato.', 404);
+            $this->fail('not_found', 'Contact not found.', 404);
             return;
         }
         $this->ok($this->serialize($contact));

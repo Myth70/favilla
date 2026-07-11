@@ -26,7 +26,7 @@ class TokensController extends Controller
 
     public function index(): void
     {
-        $userId = (int) ($_SESSION['user_id'] ?? 0);
+        $userId = (int) (auth()['id'] ?? 0);
 
         // Token in chiaro appena creato: mostrato una sola volta poi rimosso.
         $newToken = $_SESSION['_new_api_token'] ?? null;
@@ -46,14 +46,16 @@ class TokensController extends Controller
 
     public function store(): void
     {
-        $userId = (int) ($_SESSION['user_id'] ?? 0);
+        $userId = (int) (auth()['id'] ?? 0);
         $name = trim((string) ($_POST['name'] ?? ''));
         $scopes = $_POST['scopes'] ?? [];
         $scopes = is_array($scopes) ? array_values(array_filter(array_map('strval', $scopes))) : [];
         $expiresAt = $this->resolveExpiry((string) ($_POST['expires'] ?? ''));
 
         try {
-            $result = $this->tokenService->create($userId, $name, $scopes === [] ? null : $scopes, $expiresAt);
+            // Gli scope sono obbligatori: passiamo la selezione così com'è, il
+            // service rifiuta una lista vuota (niente token con permessi pieni).
+            $result = $this->tokenService->create($userId, $name, $scopes, $expiresAt);
             $_SESSION['_new_api_token'] = $result['plain_token'];
             flash_success(t('api.tokens.flash_created'));
         } catch (\RuntimeException $e) {
@@ -65,7 +67,7 @@ class TokensController extends Controller
 
     public function revoke(string $id): void
     {
-        $userId = (int) ($_SESSION['user_id'] ?? 0);
+        $userId = (int) (auth()['id'] ?? 0);
 
         if ($this->tokenService->revoke((int) $id, $userId)) {
             flash_success(t('api.tokens.flash_revoked'));

@@ -12,6 +12,19 @@ class PermissionRepository extends BaseRepository
     protected array $fillable = ['name', 'slug', 'module'];
 
     /**
+     * Tutti gli slug permesso in ordine alfabetico. Usato p.es. dagli scope dei
+     * token API per gli utenti admin (che vedono l'intero catalogo).
+     *
+     * @return string[]
+     */
+    public function allSlugs(): array
+    {
+        $rows = $this->pdo->query('SELECT slug FROM permissions ORDER BY slug')
+            ->fetchAll(\PDO::FETCH_COLUMN);
+        return array_map('strval', $rows);
+    }
+
+    /**
      * Importa le permission dichiarate da un modulo (INSERT IGNORE per idempotenza).
      * Restituisce il numero di nuovi record inseriti.
      */

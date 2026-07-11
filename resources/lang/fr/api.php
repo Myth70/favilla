@@ -24,7 +24,7 @@ return [
         'expiry_90'          => '90 jours',
         'expiry_365'         => '1 an',
         'field_scopes'       => 'Portées',
-        'field_scopes_hint'  => 'Sélectionnez les permissions que le jeton pourra utiliser. Si vous n\'en sélectionnez aucune, le jeton hérite de toutes vos permissions.',
+        'field_scopes_hint'  => 'Sélectionnez les permissions que le jeton pourra utiliser. Vous devez en sélectionner au moins une.',
         'no_scopes'          => 'Aucune permission disponible.',
         'create_submit'      => 'Générer le jeton',
 
@@ -42,5 +42,9 @@ return [
         'flash_created'   => 'Jeton créé avec succès.',
         'flash_revoked'   => 'Jeton révoqué.',
         'flash_not_found' => 'Jeton introuvable.',
+
+        'error_name_required'  => 'Le nom du jeton est obligatoire.',
+        'error_scope_required' => 'Sélectionnez au moins une portée pour le jeton.',
+        'error_scope_denied'   => 'Aucune des portées demandées n\'est accordée à votre utilisateur.',
     ],
 ];
