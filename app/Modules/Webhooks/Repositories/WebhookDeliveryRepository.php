@@ -197,7 +197,7 @@ class WebhookDeliveryRepository extends BaseRepository
     public function statusCounts(): array
     {
         $stmt = $this->pdo->query(
-            "SELECT status, COUNT(*) AS c FROM webhook_deliveries GROUP BY status"
+            'SELECT status, COUNT(*) AS c FROM webhook_deliveries GROUP BY status'
         );
         $counts = ['pending' => 0, 'sent' => 0, 'failed' => 0];
         foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $row) {
