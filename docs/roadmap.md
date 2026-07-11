@@ -16,29 +16,28 @@ Effort: **S** ≈ half a day · **M** ≈ a few days · **L** ≈ 1–2 weeks.
 
 | # | Item | Effort | Value | Notes |
 |---|------|:------:|:-----:|-------|
-| A1 | **Backup completeness** ★ next up | S–M | high | candidate for 2.3.0 |
-| A2 | API v1 breadth | M–L | high | synergy with B2 |
+| A1 | ~~Backup completeness~~ ✅ done | S–M | high | merged in #20 — ships with 2.3.0 |
+| A2 | **API v1 breadth** ★ next up | M–L | high | synergy with B2 |
 | A3 | SSO validation + public demo | M | high | unblocks Show HN |
 | A4 | Full-text search | M | med–high | FEATURES.md wording fix is S |
 | A5 | Import/export round-out | S each | med | — |
 | A6 | Launch calendar | — | med | external dates |
 
-## A1 — Backup completeness ★ next up
+## A1 — Backup completeness ✅ done
 
-The Backup module produces a **database-only** backup (gzipped SQL dumps in a
-zip): user uploads under `public/uploads/` and the Documenti storage are not
-included, so a restore silently loses every uploaded file — versioned,
-integrity-checked documents included. For a groupware this is a data-loss trap
-and a trust problem, and it is cheap to fix.
+> **Done** — merged 2026-07-12 (#20), ships with the next release. Backup sets
+> now bundle `public/uploads/` and the Documenti storage next to the SQL dumps
+> (manifest v2), the in-app restore brings files back without deleting later
+> uploads, and the admin UI shows the archive contents. Opt-out:
+> `BACKUP_INCLUDE_FILES=false`.
 
-- Include `public/uploads/` and the Documenti storage directory in the backup
-  archive (`app/Modules/Backup/Services/BackupService.php`), and cover them in
-  the restore path.
-- Surface what the archive contains (DB + files, sizes) in the Backup admin UI.
-- Off-site targets (S3, rclone, …) are explicitly **out of scope** here — see
-  the exploratory list.
+Original rationale: the Backup module produced a **database-only** backup, so a
+restore silently lost every uploaded file — versioned, integrity-checked
+documents included. For a groupware this was a data-loss trap and a trust
+problem, and it was cheap to fix. Off-site targets (S3, rclone, …) remain
+**out of scope** — see the exploratory list.
 
-## A2 — API v1 breadth
+## A2 — API v1 breadth ★ next up
 
 API v1 today is a pilot: Tasks (CRUD), Contacts (read-only), `/me`. Calendar,
 Files, Progetti, Documenti, Teams, Blog and Notifications have no API surface,
