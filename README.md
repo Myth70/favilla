@@ -242,6 +242,15 @@ Alternatively, load the schema and required seed manually:
 php database/migrate.php
 ```
 
+### Option C — Railway / other PaaS
+
+Deploying to Railway (or a similar Docker-based PaaS)? The committed
+[`railway.json`](railway.json) makes Railway build from
+[`docker/Dockerfile`](docker/Dockerfile) — which compiles the required PHP
+extensions (`gd`, `intl`, `zip`) that the default Nixpacks image lacks. The
+step-by-step recipe (database, environment variables, first-boot migration and
+the port note) is in [`docs/deploy-railway.md`](docs/deploy-railway.md).
+
 ## First login
 
 The required seed creates a default administrator:
