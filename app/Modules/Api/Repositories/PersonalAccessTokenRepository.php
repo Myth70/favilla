@@ -89,18 +89,7 @@ class PersonalAccessTokenRepository extends BaseRepository
         $stmt->execute([$id]);
     }
 
-    /**
-     * Purga i token revocati o scaduti da oltre $days giorni. Usato dal
-     * comando di cleanup periodico. Restituisce il numero di righe rimosse.
-     */
-    public function purgeStale(int $days = 30): int
-    {
-        $stmt = $this->pdo->prepare(
-            'DELETE FROM personal_access_tokens
-             WHERE (revoked_at IS NOT NULL AND revoked_at < DATE_SUB(NOW(), INTERVAL ? DAY))
-                OR (expires_at IS NOT NULL AND expires_at < DATE_SUB(NOW(), INTERVAL ? DAY))'
-        );
-        $stmt->execute([$days, $days]);
-        return $stmt->rowCount();
-    }
+    // Nota: la purga periodica dei token revocati/scaduti è a carico del comando
+    // schedulato `cleanup` (app/Cli/Commands/CleanupCommand.php), unica fonte per
+    // tutte le tabelle a retention.
 }

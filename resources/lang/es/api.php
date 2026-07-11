@@ -24,7 +24,7 @@ return [
         'expiry_90'          => '90 días',
         'expiry_365'         => '1 año',
         'field_scopes'       => 'Ámbitos',
-        'field_scopes_hint'  => 'Selecciona los permisos que el token podrá usar. Si no seleccionas ninguno, el token hereda todos tus permisos.',
+        'field_scopes_hint'  => 'Selecciona los permisos que el token podrá usar. Debes seleccionar al menos uno.',
         'no_scopes'          => 'No hay permisos disponibles.',
         'create_submit'      => 'Generar token',
 
@@ -42,5 +42,9 @@ return [
         'flash_created'   => 'Token creado correctamente.',
         'flash_revoked'   => 'Token revocado.',
         'flash_not_found' => 'Token no encontrado.',
+
+        'error_name_required'  => 'El nombre del token es obligatorio.',
+        'error_scope_required' => 'Selecciona al menos un ámbito para el token.',
+        'error_scope_denied'   => 'Ninguno de los ámbitos solicitados está concedido a tu usuario.',
     ],
 ];

@@ -115,7 +115,8 @@
                             }
                         }
                     },
-                    "401": { "$ref": "#/components/responses/Unauthorized" }
+                    "401": { "$ref": "#/components/responses/Unauthorized" },
+                    "429": { "$ref": "#/components/responses/RateLimited" }
                 }
             }
         },
@@ -174,10 +175,13 @@
                         "description": "Attività creata.",
                         "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "$ref": "#/components/schemas/Task" } } } } }
                     },
+                    "401": { "$ref": "#/components/responses/Unauthorized" },
+                    "403": { "$ref": "#/components/responses/Forbidden" },
                     "422": {
                         "description": "Validazione fallita.",
                         "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } }
-                    }
+                    },
+                    "429": { "$ref": "#/components/responses/RateLimited" }
                 }
             }
         },
@@ -190,7 +194,10 @@
                 "operationId": "getTask",
                 "responses": {
                     "200": { "description": "Attività.", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "$ref": "#/components/schemas/Task" } } } } } },
-                    "404": { "$ref": "#/components/responses/NotFound" }
+                    "401": { "$ref": "#/components/responses/Unauthorized" },
+                    "403": { "$ref": "#/components/responses/Forbidden" },
+                    "404": { "$ref": "#/components/responses/NotFound" },
+                    "429": { "$ref": "#/components/responses/RateLimited" }
                 }
             },
             "put": {
@@ -201,7 +208,14 @@
                 },
                 "responses": {
                     "200": { "description": "Attività aggiornata.", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "$ref": "#/components/schemas/Task" } } } } } },
-                    "404": { "$ref": "#/components/responses/NotFound" }
+                    "401": { "$ref": "#/components/responses/Unauthorized" },
+                    "403": { "$ref": "#/components/responses/Forbidden" },
+                    "404": { "$ref": "#/components/responses/NotFound" },
+                    "422": {
+                        "description": "Validazione fallita.",
+                        "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } }
+                    },
+                    "429": { "$ref": "#/components/responses/RateLimited" }
                 }
             },
             "delete": {
@@ -209,7 +223,10 @@
                 "operationId": "deleteTask",
                 "responses": {
                     "200": { "description": "Attività eliminata." },
-                    "404": { "$ref": "#/components/responses/NotFound" }
+                    "401": { "$ref": "#/components/responses/Unauthorized" },
+                    "403": { "$ref": "#/components/responses/Forbidden" },
+                    "404": { "$ref": "#/components/responses/NotFound" },
+                    "429": { "$ref": "#/components/responses/RateLimited" }
                 }
             }
         },
@@ -227,7 +244,8 @@
                         "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "type": "array", "items": { "$ref": "#/components/schemas/Contact" } }, "meta": { "$ref": "#/components/schemas/Meta" } } } } }
                     },
                     "401": { "$ref": "#/components/responses/Unauthorized" },
-                    "403": { "$ref": "#/components/responses/Forbidden" }
+                    "403": { "$ref": "#/components/responses/Forbidden" },
+                    "429": { "$ref": "#/components/responses/RateLimited" }
                 }
             }
         },
@@ -240,7 +258,27 @@
                 "operationId": "getContact",
                 "responses": {
                     "200": { "description": "Contatto.", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "$ref": "#/components/schemas/Contact" } } } } } },
-                    "404": { "$ref": "#/components/responses/NotFound" }
+                    "401": { "$ref": "#/components/responses/Unauthorized" },
+                    "403": { "$ref": "#/components/responses/Forbidden" },
+                    "404": { "$ref": "#/components/responses/NotFound" },
+                    "429": { "$ref": "#/components/responses/RateLimited" }
+                }
+            }
+        },
+        "/openapi.json": {
+            "get": {
+                "summary": "Specifica OpenAPI di questa API",
+                "operationId": "getOpenApiSpec",
+                "security": [],
+                "responses": {
+                    "200": {
+                        "description": "Documento OpenAPI 3.1.",
+                        "content": { "application/json": { "schema": { "type": "object" } } }
+                    },
+                    "404": {
+                        "description": "Specifica non disponibile.",
+                        "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } }
+                    }
                 }
             }
         }

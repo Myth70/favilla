@@ -82,6 +82,13 @@ class ErrorHandler
             http_response_code(500);
         }
 
+        // API v1 requests get the standard { "error": { code, message } } envelope,
+        // never an HTML page (path-based: works even when middleware never ran).
+        if ($this->isApiRequest()) {
+            $this->renderApiError(500, $this->debug ? $e->getMessage() : '');
+            return;
+        }
+
         // JSON response for API requests (Accept: application/json)
         if ($this->expectsJson()) {
             $this->renderJsonError($e);
@@ -123,6 +130,13 @@ class ErrorHandler
     {
         if (!headers_sent()) {
             http_response_code($code);
+        }
+
+        // API v1 (e.g. 404 on an unknown /api/v1/* path, or a 405) must return the
+        // JSON envelope, not the HTML error page.
+        if ($this->isApiRequest()) {
+            $this->renderApiError($code, $message);
+            return;
         }
 
         $file = $this->basePath . '/app/Views/errors/' . $code . '.php';
@@ -185,6 +199,58 @@ class ErrorHandler
         </div>
         </body></html>
         HTML;
+    }
+
+    /**
+     * True if the current request targets the versioned public API (/api/v1/…).
+     * Path-based so it works even for 404s where no middleware/context ran.
+     */
+    private function isApiRequest(): bool
+    {
+        $path = (string) (parse_url((string) ($_SERVER['REQUEST_URI'] ?? ''), PHP_URL_PATH) ?: '');
+        return (bool) preg_match('#/api/v\d+(/|$)#', $path);
+    }
+
+    /**
+     * Render the API v1 error envelope: { "error": { "code", "message" } }.
+     * Messages stay neutral (English), consistent with the API contract.
+     */
+    private function renderApiError(int $status, string $message = ''): void
+    {
+        if (!headers_sent()) {
+            header('Content-Type: application/json; charset=utf-8');
+        }
+
+        $codes = [
+            400 => 'bad_request',
+            401 => 'unauthorized',
+            403 => 'forbidden',
+            404 => 'not_found',
+            405 => 'method_not_allowed',
+            415 => 'unsupported_media_type',
+            422 => 'validation_failed',
+            429 => 'too_many_requests',
+            500 => 'server_error',
+        ];
+        $defaults = [
+            400 => 'Bad request.',
+            401 => 'Authentication required.',
+            403 => 'Forbidden.',
+            404 => 'Resource not found.',
+            405 => 'Method not allowed.',
+            415 => 'Unsupported media type.',
+            422 => 'Validation failed.',
+            429 => 'Too many requests.',
+            500 => 'Internal server error.',
+        ];
+
+        $payload = ['error' => [
+            'code'    => $codes[$status] ?? 'error',
+            'message' => $message !== '' ? $message : ($defaults[$status] ?? 'Request failed.'),
+        ]];
+
+        echo json_encode($payload, JSON_UNESCAPED_UNICODE);
+        exit;
     }
 
     /**

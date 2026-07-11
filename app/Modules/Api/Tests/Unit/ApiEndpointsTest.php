@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Modules\Api\Tests\Unit;
 
 use App\Modules\Api\Controllers\MeApiController;
+use App\Modules\Api\Controllers\OpenApiController;
 use App\Modules\Api\Support\ApiRequestContext;
 use App\Modules\Tasks\Controllers\Api\TasksApiController;
 use App\Modules\Tasks\Services\TasksService;
@@ -107,5 +108,49 @@ class ApiEndpointsTest extends ControllerTestCase
 
         $this->assertSame(404, $result->jsonStatus());
         $this->assertSame('not_found', $result->jsonPayload()['error']['code']);
+    }
+
+    public function testTasksAreScopedToTokenUserNotClientSuppliedId(): void
+    {
+        // IDOR guard: la proprietà è imposta passando SEMPRE lo userId del token
+        // (7) al Service, mai un id fornito dal client. Un task di un altro utente
+        // non è raggiungibile perché il Service filtra per quello userId.
+        $this->authenticate(['tasks.view']);
+
+        $capturedUserId = null;
+        $tasks = $this->createMock(TasksService::class);
+        $tasks->method('find')->willReturnCallback(
+            function (int $id, int $userId) use (&$capturedUserId) {
+                $capturedUserId = $userId;
+                return null; // il task 5 appartiene a un altro utente
+            }
+        );
+        $this->bindInstance(TasksService::class, $tasks);
+
+        $result = $this->dispatch(TasksApiController::class, 'show', ['5']);
+
+        $this->assertSame(7, $capturedUserId, 'lo userId passato al Service deve essere quello del token');
+        $this->assertSame(404, $result->jsonStatus());
+    }
+
+    public function testInvalidStatusEnumIsRejectedWith422(): void
+    {
+        $this->authenticate(null);
+        $this->bindInstance(TasksService::class, $this->createMock(TasksService::class));
+
+        $result = $this->withPost(['title' => 'Valid', 'status' => 'bogus'])
+            ->dispatch(TasksApiController::class, 'store');
+
+        $this->assertSame(422, $result->jsonStatus());
+        $this->assertArrayHasKey('status', $result->jsonPayload()['error']['details']);
+    }
+
+    public function testOpenApiSpecReturnsJsonDocument(): void
+    {
+        $result = $this->dispatch(OpenApiController::class, 'spec');
+
+        $this->assertTrue($result->isJson());
+        $this->assertSame(200, $result->jsonStatus());
+        $this->assertArrayHasKey('openapi', $result->jsonPayload());
     }
 }

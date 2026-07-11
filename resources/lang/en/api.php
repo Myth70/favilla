@@ -24,7 +24,7 @@ return [
         'expiry_90'          => '90 days',
         'expiry_365'         => '1 year',
         'field_scopes'       => 'Scopes',
-        'field_scopes_hint'  => 'Select the permissions the token may use. If you select none, the token inherits all your permissions.',
+        'field_scopes_hint'  => 'Select the permissions the token may use. You must select at least one.',
         'no_scopes'          => 'No permissions available.',
         'create_submit'      => 'Generate token',
 
@@ -42,5 +42,9 @@ return [
         'flash_created'   => 'Token created successfully.',
         'flash_revoked'   => 'Token revoked.',
         'flash_not_found' => 'Token not found.',
+
+        'error_name_required'  => 'The token name is required.',
+        'error_scope_required' => 'Select at least one scope for the token.',
+        'error_scope_denied'   => 'None of the requested scopes are granted to your user.',
     ],
 ];

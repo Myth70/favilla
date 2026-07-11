@@ -24,7 +24,7 @@ return [
         'expiry_90'          => '90 Tage',
         'expiry_365'         => '1 Jahr',
         'field_scopes'       => 'Scopes',
-        'field_scopes_hint'  => 'Wähle die Berechtigungen, die das Token verwenden darf. Wählst du keine, erbt das Token alle deine Berechtigungen.',
+        'field_scopes_hint'  => 'Wähle die Berechtigungen, die das Token verwenden darf. Du musst mindestens eine auswählen.',
         'no_scopes'          => 'Keine Berechtigungen verfügbar.',
         'create_submit'      => 'Token generieren',
 
@@ -42,5 +42,9 @@ return [
         'flash_created'   => 'Token erfolgreich erstellt.',
         'flash_revoked'   => 'Token widerrufen.',
         'flash_not_found' => 'Token nicht gefunden.',
+
+        'error_name_required'  => 'Der Token-Name ist erforderlich.',
+        'error_scope_required' => 'Wähle mindestens einen Scope für das Token.',
+        'error_scope_denied'   => 'Keiner der angeforderten Scopes ist deinem Benutzer gewährt.',
     ],
 ];
