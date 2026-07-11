@@ -23,7 +23,9 @@ const PRECACHE = [
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME)
-            .then((cache) => cache.addAll(PRECACHE))
+            // Per-item invece di addAll(): se un asset dà 404 non deve far
+            // fallire l'INTERO install (che disattiverebbe l'offline del tutto).
+            .then((cache) => Promise.allSettled(PRECACHE.map((path) => cache.add(path))))
             .then(() => self.skipWaiting())
     );
 });
@@ -92,17 +94,32 @@ self.addEventListener('push', (event) => {
 
 self.addEventListener('notificationclick', (event) => {
     event.notification.close();
-    const url = (event.notification.data && event.notification.data.url) || self.registration.scope;
+    const raw = (event.notification.data && event.notification.data.url) || self.registration.scope;
+    // data.url è un path (es. /favilla/public/...): normalizzalo ad assoluto,
+    // altrimenti il confronto con client.url (sempre assoluto) non combacia mai
+    // e si aprirebbe sempre una nuova finestra.
+    const targetUrl = new URL(raw, self.registration.scope).href;
 
     event.waitUntil((async () => {
         const windows = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
+
+        // 1) Finestra già sull'URL esatto → focus.
         for (const client of windows) {
-            if (client.url === url && 'focus' in client) {
+            if (client.url === targetUrl && 'focus' in client) {
                 return client.focus();
             }
         }
-        // Nessuna finestra sull'URL esatto: riusa la prima finestra dell'app se
-        // possibile, altrimenti aprine una nuova.
-        return self.clients.openWindow(url);
+        // 2) Una qualsiasi finestra dell'app → portala in primo piano e naviga.
+        for (const client of windows) {
+            if ('focus' in client) {
+                await client.focus();
+                if ('navigate' in client) {
+                    return client.navigate(targetUrl).catch(() => undefined);
+                }
+                return undefined;
+            }
+        }
+        // 3) Nessuna finestra aperta → aprine una nuova.
+        return self.clients.openWindow(targetUrl);
     })());
 });

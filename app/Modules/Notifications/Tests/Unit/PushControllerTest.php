@@ -33,9 +33,25 @@ class PushControllerTest extends ControllerTestCase
     {
         return [
             'endpoint' => 'https://push.example/endpoint-abc',
-            'p256dh'   => str_repeat('A', 40),
+            // Lunghezze realistiche: p256dh ≈ 88 char (65 byte), auth ≈ 22 char (16 byte).
+            'p256dh'   => str_repeat('A', 88),
             'auth'     => str_repeat('B', 22),
         ];
+    }
+
+    public function testSubscribeWithTooShortKeysReturns422(): void
+    {
+        $this->actingAs(1);
+        $this->vapid->method('isConfigured')->willReturn(true);
+        $this->subRepo->expects($this->never())->method('upsertForDevice');
+
+        $payload = $this->validPayload();
+        $payload['p256dh'] = str_repeat('A', 20); // troppo corta per una vera chiave EC
+
+        $result = $this->withPost($payload)->dispatch(PushController::class, 'subscribe');
+
+        $this->assertSame(422, $result->jsonStatus());
+        $this->assertSame('invalid_subscription', $result->jsonPayload()['error']);
     }
 
     public function testSubscribeAsGuestReturns401(): void

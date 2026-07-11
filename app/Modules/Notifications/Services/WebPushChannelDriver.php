@@ -32,7 +32,7 @@ class WebPushChannelDriver implements NotificationChannelDriverInterface
             return [
                 'status' => 'skipped',
                 'provider_message_id' => null,
-                'error_message' => 'Chiavi VAPID non configurate (Admin → Notifiche).',
+                'error_message' => t('notifications.webpush_driver.vapid_missing'),
             ];
         }
 
@@ -41,7 +41,7 @@ class WebPushChannelDriver implements NotificationChannelDriverInterface
             return [
                 'status' => 'skipped',
                 'provider_message_id' => null,
-                'error_message' => 'Nessuna subscription push attiva per l\'utente.',
+                'error_message' => t('notifications.webpush_driver.no_subscriptions'),
             ];
         }
 
@@ -50,7 +50,7 @@ class WebPushChannelDriver implements NotificationChannelDriverInterface
             return [
                 'status' => 'failed',
                 'provider_message_id' => null,
-                'error_message' => 'Payload push non serializzabile.',
+                'error_message' => t('notifications.webpush_driver.payload_error'),
             ];
         }
 
@@ -66,7 +66,7 @@ class WebPushChannelDriver implements NotificationChannelDriverInterface
             return [
                 'status' => 'failed',
                 'provider_message_id' => null,
-                'error_message' => 'Invio push fallito: ' . $e->getMessage(),
+                'error_message' => t('notifications.webpush_driver.send_failed', ['error' => $e->getMessage()]),
             ];
         }
 
@@ -102,14 +102,16 @@ class WebPushChannelDriver implements NotificationChannelDriverInterface
             return [
                 'status' => 'skipped',
                 'provider_message_id' => null,
-                'error_message' => 'Tutte le subscription push risultavano scadute e sono state rimosse.',
+                'error_message' => t('notifications.webpush_driver.all_expired'),
             ];
         }
 
         return [
             'status' => 'failed',
             'provider_message_id' => null,
-            'error_message' => 'Invio push fallito su tutti i dispositivi: ' . implode(' | ', array_slice($failures, 0, 3)),
+            'error_message' => t('notifications.webpush_driver.all_failed', [
+                'errors' => implode(' | ', array_slice($failures, 0, 3)),
+            ]),
         ];
     }
 

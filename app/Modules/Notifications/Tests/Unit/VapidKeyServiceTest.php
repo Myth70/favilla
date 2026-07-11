@@ -23,6 +23,16 @@ class VapidKeyServiceTest extends ModuleTestCase
     {
         parent::setUp();
         $this->migrate('CREATE TABLE app_settings (`key` TEXT PRIMARY KEY, `value` TEXT, `type` TEXT, `group` TEXT, `label` TEXT, updated_at TEXT)');
+        // La rigenerazione forzata svuota le subscription push: serve la tabella.
+        $this->migrate('
+            CREATE TABLE push_subscriptions (
+                id INTEGER PRIMARY KEY AUTOINCREMENT, user_id INTEGER NOT NULL,
+                endpoint TEXT NOT NULL, endpoint_hash TEXT NOT NULL, p256dh TEXT NOT NULL,
+                auth TEXT NOT NULL, content_encoding TEXT NOT NULL DEFAULT "aes128gcm",
+                user_agent TEXT NULL, last_used_at TEXT NULL,
+                created_at TEXT DEFAULT CURRENT_TIMESTAMP, updated_at TEXT DEFAULT CURRENT_TIMESTAMP
+            );
+        ');
         $insert = $this->pdo->prepare(
             'INSERT INTO app_settings (`key`, `value`, `type`, `group`, `label`) VALUES (?, "", "string", "notifications", ?)'
         );
@@ -82,6 +92,23 @@ class VapidKeyServiceTest extends ModuleTestCase
 
         $this->assertTrue($second['generated']);
         $this->assertNotSame($first['publicKey'], $second['publicKey']);
+    }
+
+    public function testForceRegenerationPurgesExistingSubscriptions(): void
+    {
+        $this->generateOrSkip();
+
+        // Una subscription creata con la vecchia chiave.
+        $this->insertRow('push_subscriptions', [
+            'user_id' => 1, 'endpoint' => 'https://push.example/x',
+            'endpoint_hash' => hash('sha256', 'https://push.example/x'),
+            'p256dh' => 'p', 'auth' => 'a',
+        ]);
+        $this->assertSame(1, (int) $this->pdo->query('SELECT COUNT(*) FROM push_subscriptions')->fetchColumn());
+
+        // La rigenerazione forzata deve invalidarle (i client si ri-sottoscrivono).
+        $this->service->generate(true);
+        $this->assertSame(0, (int) $this->pdo->query('SELECT COUNT(*) FROM push_subscriptions')->fetchColumn());
     }
 
     /**

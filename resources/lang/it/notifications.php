@@ -164,6 +164,7 @@ return [
             'regenerate_confirm' => 'Rigenerare le chiavi VAPID? Tutte le subscription push esistenti smetteranno di funzionare e ogni utente dovrà riattivare le notifiche sui propri dispositivi.',
             'flash_generated'    => 'Chiavi VAPID generate. Gli utenti possono ora attivare le notifiche push dalle preferenze notifiche.',
             'flash_already_configured' => 'Le chiavi VAPID sono già presenti: usa «Rigenera chiavi» se vuoi sostituirle.',
+            'flash_generate_failed' => 'Impossibile generare le chiavi VAPID: verifica la configurazione OpenSSL del server (i dettagli sono nei log).',
             'devices_title'      => 'Dispositivi collegati',
             'stat_subscriptions' => 'Subscription attive',
             'stat_users'         => 'Utenti con push',
@@ -373,5 +374,15 @@ return [
         'col_type'     => 'Tipo',
         'col_date'     => 'Data',
         'empty'        => 'Nessuna notifica non letta.',
+    ],
+
+    // Messaggi diagnostici del driver Web Push (mostrati nella coda delivery admin).
+    'webpush_driver' => [
+        'vapid_missing'    => 'Chiavi VAPID non configurate (Admin → Notifiche).',
+        'no_subscriptions' => 'Nessuna subscription push attiva per l\'utente.',
+        'payload_error'    => 'Payload push non serializzabile.',
+        'send_failed'      => 'Invio push fallito: :error',
+        'all_expired'      => 'Tutte le subscription push risultavano scadute e sono state rimosse.',
+        'all_failed'       => 'Invio push fallito su tutti i dispositivi: :errors',
     ],
 ];
