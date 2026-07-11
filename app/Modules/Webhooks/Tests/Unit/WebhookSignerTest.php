@@ -16,30 +16,55 @@ class WebhookSignerTest extends TestCase
         $this->signer = new WebhookSigner();
     }
 
-    public function testSignMatchesHmacSha256(): void
+    public function testSignBindsTimestampAndMatchesHmac(): void
     {
         $body = '{"event":"test"}';
         $secret = 'topsecret';
-        $expected = 'sha256=' . hash_hmac('sha256', $body, $secret);
+        $ts = 1_700_000_000;
 
-        $this->assertSame($expected, $this->signer->sign($body, $secret));
+        $expected = 't=' . $ts . ',v1=' . hash_hmac('sha256', $ts . '.' . $body, $secret);
+
+        $this->assertSame($expected, $this->signer->sign($body, $secret, $ts));
     }
 
-    public function testVerifyAcceptsCorrectSignature(): void
+    public function testVerifyAcceptsCorrectSignatureWithinWindow(): void
     {
         $body = '{"a":1}';
         $secret = 's3cr3t';
-        $sig = $this->signer->sign($body, $secret);
+        $ts = 1_700_000_000;
+        $sig = $this->signer->sign($body, $secret, $ts);
 
-        $this->assertTrue($this->signer->verify($body, $secret, $sig));
+        // "adesso" 60s dopo la firma: dentro la finestra di tolleranza.
+        $this->assertTrue($this->signer->verify($body, $secret, $sig, 300, $ts + 60));
     }
 
     public function testVerifyRejectsWrongSecretOrBody(): void
     {
-        $sig = $this->signer->sign('{"a":1}', 'right');
+        $ts = 1_700_000_000;
+        $sig = $this->signer->sign('{"a":1}', 'right', $ts);
 
-        $this->assertFalse($this->signer->verify('{"a":1}', 'wrong', $sig));
-        $this->assertFalse($this->signer->verify('{"a":2}', 'right', $sig));
+        $this->assertFalse($this->signer->verify('{"a":1}', 'wrong', $sig, 300, $ts));
+        $this->assertFalse($this->signer->verify('{"a":2}', 'right', $sig, 300, $ts));
+    }
+
+    public function testVerifyRejectsReplayOutsideWindow(): void
+    {
+        $body = '{"a":1}';
+        $secret = 's3cr3t';
+        $ts = 1_700_000_000;
+        $sig = $this->signer->sign($body, $secret, $ts);
+
+        // Cattura rigiocata 10 minuti dopo, con tolleranza 5 minuti: rifiutata.
+        $this->assertFalse($this->signer->verify($body, $secret, $sig, 300, $ts + 600));
+        // Anche un timestamp troppo nel futuro rispetto a "now" è fuori finestra.
+        $this->assertFalse($this->signer->verify($body, $secret, $sig, 300, $ts - 600));
+    }
+
+    public function testVerifyRejectsMalformedHeader(): void
+    {
+        $this->assertFalse($this->signer->verify('{}', 's', 'sha256=deadbeef'));
+        $this->assertFalse($this->signer->verify('{}', 's', 'garbage'));
+        $this->assertFalse($this->signer->verify('{}', 's', 't=abc,v1=x'));
     }
 
     public function testGeneratedSecretIsHex48(): void

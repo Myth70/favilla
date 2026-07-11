@@ -26,6 +26,11 @@ abstract class BaseRepository
     protected bool $auditable = false;
     /** Entity name for audit logs; defaults to $table if empty. */
     protected string $auditEntity = '';
+    /**
+     * Columns whose values must never reach the audit trail (secrets, tokens…).
+     * Their values are redacted in both the old and new snapshots before logging.
+     */
+    protected array $auditExclude = [];
 
     public function __construct()
     {
@@ -452,7 +457,33 @@ abstract class BaseRepository
             return;
         }
         $entity = $this->auditEntity ?: $this->table;
-        AuditService::log("{$entity}_{$action}", $entity, $entityId, $old, $new);
+        AuditService::log(
+            "{$entity}_{$action}",
+            $entity,
+            $entityId,
+            $this->redactForAudit($old),
+            $this->redactForAudit($new)
+        );
+    }
+
+    /**
+     * Replace the value of every $auditExclude column with a placeholder so
+     * secrets never get persisted into the audit trail.
+     *
+     * @param array<string, mixed>|null $data
+     * @return array<string, mixed>|null
+     */
+    private function redactForAudit(?array $data): ?array
+    {
+        if ($data === null || $this->auditExclude === []) {
+            return $data;
+        }
+        foreach ($this->auditExclude as $column) {
+            if (array_key_exists($column, $data)) {
+                $data[$column] = '***redacted***';
+            }
+        }
+        return $data;
     }
 
     /**

@@ -67,11 +67,21 @@ class WebhookUrlValidatorTest extends TestCase
             ['172.16.3.4'],     // private B
             ['192.168.1.1'],    // private C
             ['169.254.10.1'],   // link-local
+            ['169.254.169.254'], // metadata cloud (link-local)
+            ['100.64.0.1'],     // CGNAT RFC 6598
+            ['198.18.0.1'],     // benchmarking
+            ['192.0.0.1'],      // IETF protocol assignments
+            ['224.0.0.1'],      // multicast
+            ['240.0.0.1'],      // riservato
             ['0.0.0.0'],        // "this host"
             ['::1'],            // IPv6 loopback
             ['fe80::1'],        // IPv6 link-local
             ['fc00::1'],        // IPv6 unique-local
-            ['::ffff:127.0.0.1'], // IPv4-mapped loopback
+            ['ff02::1'],        // IPv6 multicast
+            ['64:ff9b::7f00:1'], // NAT64 che incapsula 127.0.0.1
+            ['::ffff:127.0.0.1'], // IPv4-mapped loopback (forma dotted)
+            ['::ffff:7f00:1'],   // IPv4-mapped loopback (forma esadecimale — bypass storico)
+            ['::ffff:a9fe:a9fe'], // IPv4-mapped 169.254.169.254 (metadata — bypass storico)
             ['not-an-ip'],      // non parsabile
         ];
     }

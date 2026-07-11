@@ -47,7 +47,8 @@ class WebhooksService
      */
     public function find(int $id): ?array
     {
-        $endpoint = $this->endpointRepo->find($id);
+        // findPublic() omits the plaintext secret: this row feeds the views only.
+        $endpoint = $this->endpointRepo->findPublic($id);
         if ($endpoint === null) {
             return null;
         }
@@ -96,6 +97,10 @@ class WebhooksService
 
     public function delete(int $id): bool
     {
+        // Il soft-delete dell'endpoint non fa scattare la CASCADE della FK: le
+        // consegne ancora in coda resterebbero orfane e non consegnabili. Le
+        // chiudiamo esplicitamente prima di eliminare l'endpoint.
+        $this->deliveryRepo->failPendingForEndpoint($id);
         return $this->endpointRepo->delete($id);
     }
 
@@ -121,12 +126,12 @@ class WebhooksService
     {
         $endpoint = $this->endpointRepo->find($id);
         if ($endpoint === null) {
-            throw new RuntimeException('Endpoint non trovato.');
+            throw new RuntimeException(t('webhooks.error.not_found'));
         }
 
-        $ssrfError = $this->urlValidator->resolveAndAssertPublic((string) $endpoint['url']);
-        if ($ssrfError !== null) {
-            throw new RuntimeException($ssrfError);
+        $vetted = $this->urlValidator->resolveVetted((string) $endpoint['url']);
+        if ($vetted['error'] !== null) {
+            throw new RuntimeException($vetted['error']);
         }
 
         $payload = json_encode([
@@ -144,23 +149,25 @@ class WebhooksService
             'status'      => 'pending',
         ]);
 
+        $ts = time();
         $headers = [
-            'X-Favilla-Event'     => 'webhooks.test',
-            'X-Favilla-Delivery'  => (string) $deliveryId,
-            WebhookSigner::HEADER => $this->signer->sign($payload, (string) $endpoint['secret']),
+            'X-Favilla-Event'               => 'webhooks.test',
+            'X-Favilla-Delivery'            => (string) $deliveryId,
+            WebhookSigner::TIMESTAMP_HEADER => (string) $ts,
+            WebhookSigner::HEADER           => $this->signer->sign($payload, (string) $endpoint['secret'], $ts),
         ];
 
-        $result = $this->http->post((string) $endpoint['url'], $payload, $headers);
+        $result = $this->http->post((string) $endpoint['url'], $payload, $headers, $vetted['ips']);
         $status = $result['status'];
 
         if ($status !== null && $status >= 200 && $status < 300) {
             $this->deliveryRepo->markSent($deliveryId, $status);
-            return 'Invio riuscito (HTTP ' . $status . ').';
+            return t('webhooks.test_sent', ['status' => (string) $status]);
         }
 
         $error = $result['error'] ?? ('HTTP ' . ($status ?? '000'));
         $this->deliveryRepo->releaseOrFail($deliveryId, 1, 1, $status, (string) $error, 0);
-        throw new RuntimeException('Invio fallito: ' . $error);
+        throw new RuntimeException(t('webhooks.test_failed', ['error' => (string) $error]));
     }
 
     /**
@@ -184,12 +191,15 @@ class WebhooksService
      */
     private function assertValid(string $url, array $eventTypes): void
     {
-        $error = $this->urlValidator->validate($url);
+        // Validazione completa (formato + risoluzione DNS anti-SSRF) già alla
+        // creazione/modifica: blocca subito URL verso IP interni/riservati invece
+        // di scoprirlo solo al primo dispatch (accumulando consegne fallite).
+        $error = $this->urlValidator->resolveAndAssertPublic($url);
         if ($error !== null) {
             throw new RuntimeException($error);
         }
         if ($eventTypes === []) {
-            throw new RuntimeException('Seleziona almeno un evento a cui iscrivere l\'endpoint.');
+            throw new RuntimeException(t('webhooks.error.no_events'));
         }
     }
 }

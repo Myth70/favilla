@@ -59,4 +59,19 @@ return [
     'flash_secret_regenerated' => 'Secret régénéré.',
     'flash_test_ok'     => 'Livraison de test réussie.',
     'flash_test_failed' => 'Livraison de test échouée :',
+
+    'test_sent'   => 'Livraison de test réussie (HTTP :status).',
+    'test_failed' => 'Échec de la livraison : :error',
+
+    'error' => [
+        'url_missing'        => 'URL manquante ou trop longue.',
+        'url_invalid'        => 'URL invalide.',
+        'url_credentials'    => 'Les identifiants dans l\'URL ne sont pas autorisés.',
+        'https_only'         => 'Seuls les endpoints HTTPS sont autorisés.',
+        'scheme_unsupported' => 'Schéma d\'URL non pris en charge (utilisez https).',
+        'unresolvable'       => 'Impossible de résoudre l\'hôte de destination.',
+        'private_ip'         => 'La destination résout vers une adresse IP privée ou réservée.',
+        'not_found'          => 'Endpoint introuvable.',
+        'no_events'          => 'Sélectionnez au moins un événement pour abonner l\'endpoint.',
+    ],
 ];
