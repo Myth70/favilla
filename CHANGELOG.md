@@ -8,6 +8,34 @@ Favilla is pre-1.0; until 1.0, minor versions may include breaking changes.
 
 ## [Unreleased]
 
+## [2.2.0] — 2026-07-11
+
+### Added
+- **Web Push + installable PWA**: a fourth notification channel delivering push
+  to browsers and desktops (VAPID, per-device opt-in), a `push_subscriptions`
+  store, a service worker with an offline fallback and an installable
+  `manifest.webmanifest`. New dependency: `minishlink/web-push`.
+- **Public REST API v1**: a token-authenticated JSON API under `api/v1`. Personal
+  Access Tokens are managed from the profile (hashed at rest, shown once, with
+  **mandatory scopes** that are a subset of the user's permissions). Consistent
+  `{data,meta}` / `{error}` envelope, per-token rate limiting (`X-RateLimit-*`),
+  and an OpenAPI 3.1 spec at `/api/v1/openapi.json`. Pilot endpoints: `/me`,
+  Tasks (CRUD) and Contacts (read). Developer reference in
+  [`docs/api/README.md`](docs/api/README.md).
+- **Outgoing webhooks**: subscribe an HTTPS endpoint to any notification event.
+  Deliveries are signed with a timestamped `HMAC-SHA256` signature
+  (`X-Favilla-Signature: t=…,v1=…`, anti-replay), retried with exponential
+  backoff by the scheduler (`webhooks:dispatch`), and recorded in a delivery log.
+
+### Security
+- Webhook destinations are guarded against SSRF: reserved-range blocking
+  (including the IPv4-mapped IPv6 `::ffff:` forms, CGNAT, NAT64 and cloud
+  metadata), resolved-IP pinning that closes the DNS-rebinding window, and no
+  redirect following. Signing secrets are excluded from audit logs.
+- API tokens require at least one scope (an empty selection no longer inherits
+  full permissions). Rotating the Web Push VAPID keys invalidates existing
+  subscriptions so clients re-subscribe cleanly.
+
 ## [2.1.0] — 2026-07-05
 
 ### Added

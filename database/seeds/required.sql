@@ -368,7 +368,12 @@ INSERT IGNORE INTO `changelogs` (`version`, `title`, `notes`, `release_date`, `i
         '- Accesso aziendale tramite provider OIDC standard con PKCE, configurabile da Admin - Impostazioni',
         '- Collegamento automatico degli utenti esistenti tramite email verificata e creazione automatica opzionale dei nuovi account',
         '- Modalita solo SSO con accesso di emergenza riservato agli amministratori'
-    ), '2026-07-05', 1, 1, '2026-07-05 11:00:00', '2026-07-05 11:00:00');
+    ), '2026-07-05', 1, 1, '2026-07-05 11:00:00', '2026-07-05 11:00:00'),
+    ('2.2.0', 'Web Push, API pubblica e Webhook', CONCAT_WS(CHAR(10),
+        '- Notifiche Web Push su browser e desktop e app installabile (PWA) con schermata offline',
+        '- API REST pubblica v1 a token personali con scope, envelope JSON e rate limit, documentata in OpenAPI',
+        '- Webhook in uscita verso sistemi esterni con firma HMAC datata, retry automatici e protezione anti-SSRF'
+    ), '2026-07-11', 1, 1, '2026-07-11 09:00:00', '2026-07-11 09:00:00');
 
 
 -- ------------------------------------------------------------------
