@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\Notifications\Services;
 
+use App\Modules\Notifications\Repositories\PushSubscriptionRepository;
 use App\Services\SettingsService;
 use Base64Url\Base64Url;
 
@@ -70,6 +71,13 @@ class VapidKeyService
         SettingsService::set(self::SETTING_PRIVATE_KEY, $privateKey);
         if (trim((string) setting(self::SETTING_SUBJECT, '')) === '') {
             SettingsService::set(self::SETTING_SUBJECT, $this->subject());
+        }
+
+        // La nuova coppia invalida le subscription esistenti: erano create con la
+        // vecchia applicationServerKey e ora fallirebbero (401/403) per sempre.
+        // Le rimuoviamo: i client si ri-sottoscriveranno con la chiave nuova.
+        if ($existing !== null) {
+            app(PushSubscriptionRepository::class)->deleteAll();
         }
 
         return ['publicKey' => $publicKey, 'generated' => true];

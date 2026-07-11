@@ -134,6 +134,20 @@
                 return getRegistration();
             })
             .then(function (registration) {
+                // Se esiste già una subscription (es. creata con una vecchia
+                // applicationServerKey dopo una rotazione delle chiavi VAPID),
+                // disiscrivila prima: subscribe() con una chiave diversa
+                // lancerebbe InvalidStateError.
+                return registration.pushManager.getSubscription().then(function (existing) {
+                    if (!existing) {
+                        return registration;
+                    }
+                    return existing.unsubscribe()
+                        .catch(function () { return null; })
+                        .then(function () { return registration; });
+                });
+            })
+            .then(function (registration) {
                 return registration.pushManager.subscribe({
                     userVisibleOnly: true,
                     applicationServerKey: urlBase64ToUint8Array(vapidKey),

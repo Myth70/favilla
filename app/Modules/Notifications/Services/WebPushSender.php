@@ -79,6 +79,12 @@ class WebPushSender
             try {
                 $results[$hash] = $this->sendOne($subscription, $payloadJson, $vapidPublicKey, $vapidPrivateKey, $subject);
             } catch (\Throwable $e) {
+                // Log lato server: i fallimenti di cifratura/rete non erano visibili
+                // nei log (a differenza del fan-out webhook).
+                app_log('warning', 'Web Push: invio fallito per una subscription', [
+                    'subscription_id' => (int) ($subscription['id'] ?? 0),
+                    'error'           => $e->getMessage(),
+                ]);
                 $results[$hash] = [
                     'success' => false,
                     'status'  => null,
@@ -150,8 +156,22 @@ class WebPushSender
             return ['success' => false, 'status' => null, 'expired' => false, 'error' => $e->getMessage()];
         }
 
-        $status = $response->getStatusCode();
+        return self::classifyStatus($response->getStatusCode());
+    }
 
+    /**
+     * Mappa lo status HTTP del push service nell'esito della consegna.
+     *
+     * Solo 404/410 significano "subscription morta" ⇒ da eliminare. 401/403
+     * indicano un problema di firma/VAPID (es. chiavi ruotate), NON che
+     * l'endpoint sia morto: eliminare su 401/403 cancellerebbe subscription
+     * valide in caso di misconfigurazione. Il caso "chiavi ruotate" è gestito
+     * alla radice svuotando le subscription in VapidKeyService::generate().
+     *
+     * @return array{success: bool, status: int, expired: bool, error: string|null}
+     */
+    public static function classifyStatus(int $status): array
+    {
         return [
             'success' => $status >= 200 && $status < 300,
             'status'  => $status,
@@ -171,7 +191,12 @@ class WebPushSender
         string $vapidPrivateKey,
         string $subject
     ): array {
-        $audience = parse_url($endpoint, PHP_URL_SCHEME) . '://' . parse_url($endpoint, PHP_URL_HOST);
+        $scheme = (string) parse_url($endpoint, PHP_URL_SCHEME);
+        $host = (string) parse_url($endpoint, PHP_URL_HOST);
+        $port = parse_url($endpoint, PHP_URL_PORT);
+        // L'audience del JWT VAPID deve includere la porta se non è quella di
+        // default, altrimenti il push service rifiuta la firma (aud mismatch).
+        $audience = $scheme . '://' . $host . ($port !== null ? ':' . $port : '');
         $cacheKey = $audience . '|' . $encoding->value;
 
         if (!isset($this->vapidHeaderCache[$cacheKey])) {

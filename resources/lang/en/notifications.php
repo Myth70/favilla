@@ -160,6 +160,7 @@ return [
             'regenerate_confirm' => 'Regenerate the VAPID keys? Every existing push subscription will stop working and each user will have to re-enable notifications on their devices.',
             'flash_generated'    => 'VAPID keys generated. Users can now enable push notifications from their notification preferences.',
             'flash_already_configured' => 'VAPID keys already exist: use "Regenerate keys" to replace them.',
+            'flash_generate_failed' => 'Could not generate the VAPID keys: check the server\'s OpenSSL configuration (details are in the logs).',
             'devices_title'      => 'Linked devices',
             'stat_subscriptions' => 'Active subscriptions',
             'stat_users'         => 'Users with push',
@@ -363,5 +364,15 @@ return [
         'col_type'     => 'Type',
         'col_date'     => 'Date',
         'empty'        => 'No unread notifications.',
+    ],
+
+    // Web Push driver diagnostics (shown in the admin delivery queue).
+    'webpush_driver' => [
+        'vapid_missing'    => 'VAPID keys not configured (Admin → Notifications).',
+        'no_subscriptions' => 'No active push subscription for the user.',
+        'payload_error'    => 'Push payload could not be serialized.',
+        'send_failed'      => 'Push delivery failed: :error',
+        'all_expired'      => 'All push subscriptions were expired and have been removed.',
+        'all_failed'       => 'Push delivery failed on every device: :errors',
     ],
 ];

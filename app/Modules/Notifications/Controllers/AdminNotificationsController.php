@@ -57,7 +57,11 @@ class AdminNotificationsController extends Controller
                 flash_error(t('notifications.admin.webpush.flash_already_configured'));
             }
         } catch (\RuntimeException $e) {
-            flash_error($e->getMessage());
+            // Il messaggio dell'eccezione può enumerare percorsi del filesystem
+            // (ricerca di openssl.cnf): logga il dettaglio, mostra un messaggio
+            // generico all'admin.
+            app_log('error', 'Generazione chiavi VAPID fallita', ['error' => $e->getMessage()]);
+            flash_error(t('notifications.admin.webpush.flash_generate_failed'));
         }
 
         $this->redirect(route('admin.notifications.settings') . '#pane-webpush');

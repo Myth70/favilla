@@ -129,6 +129,57 @@ class WebPushChannelDriverTest extends ModuleTestCase
         $this->assertSame('skipped', $result['status']);
     }
 
+    public function testBuildPayloadStripsHtmlTruncatesAndSetsTag(): void
+    {
+        $this->configureVapid(true);
+        $sub = $this->subscription(20, 'https://push.example/p');
+        $this->subRepo->method('activeForUser')->willReturn([$sub]);
+
+        $captured = null;
+        $this->sender->method('send')->willReturnCallback(
+            function ($subs, $payload) use (&$captured, $sub) {
+                $captured = $payload;
+                return [$sub['endpoint_hash'] => ['success' => true, 'status' => 201, 'expired' => false, 'error' => null]];
+            }
+        );
+
+        (new WebPushChannelDriver())->send([
+            'user_id'          => 1,
+            'delivery_id'      => 77,
+            'delivery_subject' => '  Titolo  ',
+            'delivery_body'    => '<p><b>Ciao</b> ' . str_repeat('a', 600) . '</p>',
+            'delivery_link'    => 'https://app.example/z',
+        ]);
+
+        $data = json_decode((string) $captured, true);
+        $this->assertSame('Titolo', $data['title']);
+        $this->assertStringNotContainsString('<', (string) $data['body']);
+        $this->assertLessThanOrEqual(500, mb_strlen((string) $data['body']));
+        $this->assertStringEndsWith('…', (string) $data['body']);
+        $this->assertSame('https://app.example/z', $data['url']);
+        $this->assertSame('favilla-77', $data['tag']);
+    }
+
+    public function testBuildPayloadFallsBackToDefaultTitle(): void
+    {
+        $this->configureVapid(true);
+        $sub = $this->subscription(21, 'https://push.example/q');
+        $this->subRepo->method('activeForUser')->willReturn([$sub]);
+
+        $captured = null;
+        $this->sender->method('send')->willReturnCallback(
+            function ($subs, $payload) use (&$captured, $sub) {
+                $captured = $payload;
+                return [$sub['endpoint_hash'] => ['success' => true, 'status' => 201, 'expired' => false, 'error' => null]];
+            }
+        );
+
+        (new WebPushChannelDriver())->send(['user_id' => 1, 'delivery_id' => 1, 'delivery_body' => 'x']);
+
+        $data = json_decode((string) $captured, true);
+        $this->assertSame('Notifica', $data['title']);
+    }
+
     public function testFailedWhenAllDeliveriesFail(): void
     {
         $this->configureVapid(true);

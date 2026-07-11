@@ -75,7 +75,31 @@ class PushSubscriptionRepository extends BaseRepository
             return (int) $existing['id'];
         }
 
-        return $this->create($data);
+        try {
+            return $this->create($data);
+        } catch (\PDOException $e) {
+            // Corsa: due subscribe concorrenti per lo stesso endpoint. Il vincolo
+            // UNIQUE su endpoint_hash scatta su uno dei due: recuperiamo la riga
+            // appena inserita dall'altra richiesta e la aggiorniamo (idempotente).
+            $again = $this->findBy('endpoint_hash', $hash);
+            if ($again !== null) {
+                $this->update((int) $again['id'], $data);
+                return (int) $again['id'];
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Elimina TUTTE le subscription (hard delete). Usata alla rigenerazione delle
+     * chiavi VAPID: le subscription erano create con la vecchia applicationServerKey
+     * e non sono più valide, i client dovranno ri-sottoscriversi. Ritorna il numero
+     * di righe rimosse.
+     */
+    public function deleteAll(): int
+    {
+        $stmt = $this->pdo->query('DELETE FROM push_subscriptions');
+        return $stmt->rowCount();
     }
 
     /**

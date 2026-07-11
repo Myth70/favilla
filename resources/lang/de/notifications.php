@@ -160,6 +160,7 @@ return [
             'regenerate_confirm' => 'VAPID-Schlüssel neu generieren? Alle bestehenden Push-Subscriptions funktionieren nicht mehr und jeder Benutzer muss die Benachrichtigungen auf seinen Geräten erneut aktivieren.',
             'flash_generated'    => 'VAPID-Schlüssel generiert. Benutzer können Push-Benachrichtigungen jetzt in ihren Benachrichtigungseinstellungen aktivieren.',
             'flash_already_configured' => 'VAPID-Schlüssel sind bereits vorhanden: Verwende „Schlüssel neu generieren", um sie zu ersetzen.',
+            'flash_generate_failed' => 'VAPID-Schlüssel konnten nicht generiert werden: Prüfe die OpenSSL-Konfiguration des Servers (Details in den Logs).',
             'devices_title'      => 'Verknüpfte Geräte',
             'stat_subscriptions' => 'Aktive Subscriptions',
             'stat_users'         => 'Benutzer mit Push',
@@ -363,5 +364,15 @@ return [
         'col_type'     => 'Typ',
         'col_date'     => 'Datum',
         'empty'        => 'Keine ungelesenen Benachrichtigungen.',
+    ],
+
+    // Web-Push-Treiber-Diagnose (in der Admin-Zustellungswarteschlange angezeigt).
+    'webpush_driver' => [
+        'vapid_missing'    => 'VAPID-Schlüssel nicht konfiguriert (Admin → Benachrichtigungen).',
+        'no_subscriptions' => 'Kein aktives Push-Abonnement für den Benutzer.',
+        'payload_error'    => 'Push-Payload konnte nicht serialisiert werden.',
+        'send_failed'      => 'Push-Zustellung fehlgeschlagen: :error',
+        'all_expired'      => 'Alle Push-Abonnements waren abgelaufen und wurden entfernt.',
+        'all_failed'       => 'Push-Zustellung auf allen Geräten fehlgeschlagen: :errors',
     ],
 ];
