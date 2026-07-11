@@ -66,6 +66,11 @@ class SetupController
 
     public function handle(): void
     {
+        // Gate: nessuna operazione (nemmeno il test DB) prima che l'operatore
+        // dimostri accesso al filesystem del server inserendo il token di
+        // installazione. Chiude la finestra pre-install a un attaccante remoto.
+        $this->ensureAuthorized();
+
         // AJAX: test connessione DB
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && ($_POST['action'] ?? '') === 'test_db') {
             $this->handleTestDbJson();
@@ -93,6 +98,89 @@ class SetupController
         }
 
         $this->renderStep($this->currentStep);
+    }
+
+    // ------------------------------------------------------------------
+    // Install-token gate
+    // ------------------------------------------------------------------
+
+    /**
+     * Blocca l'intero wizard finché non viene fornito il token di
+     * installazione salvato in storage/.setup_token (leggibile solo con
+     * accesso al filesystem/console del server). Una volta sbloccato, lo
+     * stato è persistito nello state file (come il resto del wizard) così
+     * da restare affidabile anche su configurazioni con sessioni PHP
+     * inaffidabili (XAMPP/Windows). Neutralizza sia il completamento non
+     * autorizzato del setup sia la primitiva SSRF/port-scan del test DB.
+     */
+    private function ensureAuthorized(): void
+    {
+        if (!empty($this->loadState('gate')['unlocked'])) {
+            return;
+        }
+
+        $token    = $this->installToken();
+        $supplied = trim((string) ($_POST['setup_token'] ?? ''));
+
+        if ($supplied !== '' && hash_equals($token, $supplied)) {
+            $this->saveState('gate', ['unlocked' => true]);
+            $this->redirect(1); // riparte pulito dal passo 1 (never)
+        }
+
+        $this->renderTokenGate($supplied !== '');
+        exit;
+    }
+
+    /**
+     * Restituisce il token di installazione, generandolo al primo accesso.
+     * Il token viene anche scritto nel log PHP per comodità operativa.
+     */
+    private function installToken(): string
+    {
+        $file = BASE_PATH . '/storage/.setup_token';
+
+        if (is_file($file)) {
+            $existing = trim((string) @file_get_contents($file));
+            if ($existing !== '') {
+                return $existing;
+            }
+        }
+
+        $token = bin2hex(random_bytes(16));
+        @file_put_contents($file, $token, LOCK_EX);
+        @chmod($file, 0600);
+        error_log('[Favilla setup] Token di installazione in storage/.setup_token: ' . $token);
+
+        return $token;
+    }
+
+    private function renderTokenGate(bool $wrong): void
+    {
+        http_response_code($wrong ? 403 : 401);
+        $err = $wrong
+            ? '<p style="color:#b00020">Token non valido. Riprova.</p>'
+            : '';
+        echo '<!DOCTYPE html><html lang="it"><head><meta charset="UTF-8">'
+           . '<meta name="viewport" content="width=device-width, initial-scale=1">'
+           . '<title>Setup — Autorizzazione</title>'
+           . '<style>body{font-family:system-ui,sans-serif;display:flex;align-items:center;'
+           . 'justify-content:center;min-height:100vh;background:#f0f2f5;margin:0}'
+           . '.box{background:#fff;border-radius:12px;padding:2rem 2.5rem;max-width:480px;'
+           . 'box-shadow:0 2px 16px rgba(0,0,0,.1)}h1{color:#1e3a5f;margin:0 0 .75rem;font-size:1.3rem}'
+           . 'p{color:#495057;margin:.5rem 0;line-height:1.5}code{background:#f8f9fa;padding:.15rem .4rem;'
+           . 'border-radius:4px;font-size:.9rem}input{width:100%;box-sizing:border-box;padding:.6rem;'
+           . 'margin:.75rem 0;border:1px solid #ced4da;border-radius:8px;font-size:1rem}'
+           . 'button{background:#1e3a5f;color:#fff;border:0;border-radius:8px;padding:.6rem 1.2rem;'
+           . 'font-size:1rem;cursor:pointer}</style></head><body>'
+           . '<div class="box"><h1>🔒 Autorizzazione richiesta</h1>'
+           . '<p>Per motivi di sicurezza, apri sul server il file '
+           . '<code>storage/.setup_token</code> e incolla qui il suo contenuto. '
+           . 'Il token è stato anche scritto nel log PHP.</p>'
+           . $err
+           . '<form method="post" action="setup.php" autocomplete="off">'
+           . '<input type="text" name="setup_token" placeholder="Token di installazione" '
+           . 'autofocus required>'
+           . '<button type="submit">Sblocca il setup</button></form></div></body></html>';
     }
 
     // ------------------------------------------------------------------

@@ -3,7 +3,7 @@
 -- ============================================================================
 -- Generato dal DB reale pulito — 2026-04-16
 -- Fonte di verità unica per: php database/migrate.php --fresh
--- Totale: 63 tabelle
+-- Totale iniziale (2026-04-16): 63 tabelle — vedi conteggio corrente più sotto.
 -- Consolidato aggiornato — 2026-05-01 (integrate migration 025–030 + Contatti + HelpOnline)
 -- Consolidato aggiornato — 2026-07-04 (integrate migration Blog, Documenti,
 --   Progetti, Teams + allineamento a drift non tracciato: user_weather_preferences)

@@ -149,11 +149,17 @@ jobs:
         run: php favilla lang:check --strict
 
   integration-mariadb:
-    name: Integration (MariaDB 10.4)
+    name: Integration (MariaDB ${{ matrix.mariadb }})
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # 10.4 = baseline storica; 10.11 = versione shippata in docker-compose.
+        # Testare entrambe chiude lo skew CI-vs-produzione.
+        mariadb: ['10.4', '10.11']
     services:
       mariadb:
-        image: mariadb:10.4
+        image: mariadb:${{ matrix.mariadb }}
         env:
           MARIADB_ROOT_PASSWORD: root
         ports:

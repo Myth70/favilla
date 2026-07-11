@@ -96,7 +96,7 @@ Favilla toma dos decisiones deliberadamente pasadas de moda:
    clásica que puedes leer, auditar y ampliar de principio a fin: controladores,
    servicios, repositorios, vistas, sin magia.
 
-Decisiones así solo se sostienen con disciplina detrás: **más de 1.700 pruebas
+Decisiones así solo se sostienen con disciplina detrás: **más de 1.800 pruebas
 automatizadas**, **PHPStan nivel 6** y **PSR-12** exigidos en CI, y un **esquema de
 más de 100 tablas** instalado por un asistente guiado.
 

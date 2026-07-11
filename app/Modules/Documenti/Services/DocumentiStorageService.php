@@ -123,6 +123,16 @@ class DocumentiStorageService
             $directory = substr($directory, strlen('documenti/'));
         }
 
+        // Difensivo: `directory` è generato lato server (bucket Y/m), ma neutralizza
+        // comunque eventuali segmenti di traversal in record corrotti/migrati male,
+        // preservando la struttura multi-segmento legittima.
+        $segments  = preg_split('#[/\\\\]+#', $directory) ?: [];
+        $segments  = array_filter(
+            $segments,
+            static fn (string $s): bool => $s !== '' && $s !== '.' && $s !== '..'
+        );
+        $directory = implode('/', $segments);
+
         return self::baseDir() . '/' . $directory . '/' . $stored;
     }
 

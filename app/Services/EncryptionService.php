@@ -255,6 +255,8 @@ class EncryptionService
 
         $tmpPath = $this->resolveTempFilePath();
         if ($tmpPath !== null && file_put_contents($tmpPath, $plaintext) !== false) {
+            // Plaintext di backup: restringi i permessi subito dopo la scrittura.
+            @chmod($tmpPath, 0600);
             return $tmpPath;
         }
         return null;
@@ -285,10 +287,14 @@ class EncryptionService
 
     private function resolveTempFilePath(): ?string
     {
+        // Preferisci le directory di proprietà dell'app (create con permessi
+        // ristretti) al temp di sistema condiviso, che su host multi-tenant è
+        // world-traversable mentre il plaintext di backup vi risiede.
+        $base = defined('BASE_PATH') ? BASE_PATH : dirname(__DIR__, 2);
         $dirs = [
+            $base . '/storage/tmp',
+            $base . '/storage/cache',
             sys_get_temp_dir(),
-            (defined('BASE_PATH') ? BASE_PATH : dirname(__DIR__, 2)) . '/storage/tmp',
-            (defined('BASE_PATH') ? BASE_PATH : dirname(__DIR__, 2)) . '/storage/cache',
         ];
 
         foreach ($dirs as $dir) {
@@ -296,7 +302,7 @@ class EncryptionService
                 continue;
             }
 
-            if (!@is_dir($dir) && !@mkdir($dir, 0777, true)) {
+            if (!@is_dir($dir) && !@mkdir($dir, 0700, true)) {
                 continue;
             }
 

@@ -66,6 +66,74 @@ class NotificationPreferenceRepository extends BaseRepository
         return $bindings;
     }
 
+    /**
+     * Variante batch di resolveChannelBindings(): risolve i binding per un
+     * insieme di utenti con UNA sola query invece di N, eliminando l'N+1 nel
+     * fan-out verso un ruolo. Applica la stessa logica per-utente (default di
+     * modulo + override di evento) su una copia indipendente di $bindings.
+     *
+     * @param int[] $userIds
+     * @param array<int,array<string,mixed>> $bindings
+     * @return array<int,array<int,array<string,mixed>>>  userId => bindings risolti
+     */
+    public function resolveChannelBindingsForUsers(array $userIds, string $moduleSlug, string $eventSlug, array $bindings): array
+    {
+        $userIds = array_values(array_unique(array_filter(
+            array_map('intval', $userIds),
+            static fn (int $id): bool => $id > 0
+        )));
+
+        if (empty($userIds) || empty($bindings)) {
+            return [];
+        }
+
+        $placeholders = implode(', ', array_fill(0, count($userIds), '?'));
+        $stmt = $this->pdo->prepare(
+            "SELECT user_id, channel_slug, event_slug, is_enabled
+             FROM user_notification_preferences
+             WHERE user_id IN ({$placeholders})
+               AND module_slug = ?
+               AND event_slug IN (?, ?)"
+        );
+        $stmt->execute(array_merge($userIds, [$moduleSlug, '', $eventSlug]));
+
+        $moduleDefaultsByUser = [];
+        $eventOverridesByUser = [];
+        foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $row) {
+            $uid = (int) $row['user_id'];
+            if ($row['event_slug'] === '') {
+                $moduleDefaultsByUser[$uid][$row['channel_slug']] = (bool) $row['is_enabled'];
+            } else {
+                $eventOverridesByUser[$uid][$row['channel_slug']] = (bool) $row['is_enabled'];
+            }
+        }
+
+        $result = [];
+        foreach ($userIds as $uid) {
+            $moduleDefaults = $moduleDefaultsByUser[$uid] ?? [];
+            $eventOverrides = $eventOverridesByUser[$uid] ?? [];
+
+            $resolved = [];
+            foreach ($bindings as $binding) {
+                $channel = $binding['channel_slug'];
+                $enabled = (bool) $binding['is_enabled'] && (bool) $binding['channel_active'];
+
+                if (array_key_exists($channel, $moduleDefaults)) {
+                    $enabled = $moduleDefaults[$channel] && (bool) $binding['channel_active'];
+                }
+                if (array_key_exists($channel, $eventOverrides)) {
+                    $enabled = $eventOverrides[$channel] && (bool) $binding['channel_active'];
+                }
+
+                $binding['resolved_enabled'] = $enabled;
+                $resolved[] = $binding;
+            }
+            $result[$uid] = $resolved;
+        }
+
+        return $result;
+    }
+
     public function upsertPreference(int $userId, string $moduleSlug, string $eventSlug, string $channelSlug, bool $isEnabled): void
     {
         $stmt = $this->pdo->prepare(
