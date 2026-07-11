@@ -2,14 +2,13 @@
 
 ## Supported versions
 
-Favilla is pre-1.0. Security fixes land on the `main` branch and the latest
-tagged release. Until 1.0, only the most recent release receives security
-updates.
+Security fixes land on the `main` branch and the latest tagged release. Only the
+most recent release receives security updates.
 
 | Version | Supported |
 | ------- | --------- |
 | latest release / `main` | ✅ |
-| older pre-releases | ❌ |
+| older releases | ❌ |
 
 ## Reporting a vulnerability
 

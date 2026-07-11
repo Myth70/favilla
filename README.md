@@ -303,15 +303,19 @@ coding agents navigate the codebase with full context.
 
 ## Project status
 
-Favilla is **pre-1.0** and actively developed. It runs in production, but until
-1.0 minor versions may include breaking changes — read the
-[changelog](CHANGELOG.md) before every upgrade (and see [`UPGRADING.md`](UPGRADING.md)).
-Security fixes land on `main` and the latest release ([`SECURITY.md`](SECURITY.md)).
+Favilla is **stable and actively developed**, and runs in production. It follows
+[Semantic Versioning](https://semver.org/): within the current **2.x** line,
+minor and patch releases are backward-compatible — a breaking change would bump
+the major version. Still, skim the [changelog](CHANGELOG.md) before upgrading
+(and see [`UPGRADING.md`](UPGRADING.md)). Security fixes land on `main` and the
+latest release ([`SECURITY.md`](SECURITY.md)).
 
-Recently shipped: SSO (OIDC), a loadable demo dataset, prebuilt multi-arch
-Docker images and a one-command quickstart. On the near horizon: a
-native-speaker review pass on the `fr`/`de` translations, and LDAP as a second
-sign-in backend alongside OIDC.
+Recently shipped (**2.2.0**): Web Push notifications with an installable PWA, a
+token-authenticated public **REST API v1**, and outgoing **webhooks** (HMAC-signed,
+anti-SSRF) — see the [developer reference](docs/api/README.md). Earlier: SSO
+(OIDC), a loadable demo dataset, prebuilt multi-arch Docker images and a
+one-command quickstart. On the near horizon: a native-speaker review pass on the
+`fr`/`de` translations, and LDAP as a second sign-in backend alongside OIDC.
 
 ## Contributing
 
