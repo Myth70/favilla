@@ -59,4 +59,19 @@ return [
     'flash_secret_regenerated' => 'Secret neu generiert.',
     'flash_test_ok'     => 'Testzustellung abgeschlossen.',
     'flash_test_failed' => 'Testzustellung fehlgeschlagen:',
+
+    'test_sent'   => 'Testzustellung erfolgreich (HTTP :status).',
+    'test_failed' => 'Zustellung fehlgeschlagen: :error',
+
+    'error' => [
+        'url_missing'        => 'URL fehlt oder ist zu lang.',
+        'url_invalid'        => 'Ungültige URL.',
+        'url_credentials'    => 'Zugangsdaten in der URL sind nicht zulässig.',
+        'https_only'         => 'Nur HTTPS-Endpunkte sind zulässig.',
+        'scheme_unsupported' => 'Nicht unterstütztes URL-Schema (verwende https).',
+        'unresolvable'       => 'Zielhost kann nicht aufgelöst werden.',
+        'private_ip'         => 'Das Ziel wird zu einer privaten oder reservierten IP-Adresse aufgelöst.',
+        'not_found'          => 'Endpunkt nicht gefunden.',
+        'no_events'          => 'Wähle mindestens ein Ereignis, für das der Endpunkt abonniert wird.',
+    ],
 ];

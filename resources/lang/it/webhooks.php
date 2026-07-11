@@ -59,4 +59,19 @@ return [
     'flash_secret_regenerated' => 'Secret rigenerato.',
     'flash_test_ok'     => 'Invio di prova completato.',
     'flash_test_failed' => 'Invio di prova fallito:',
+
+    'test_sent'   => 'Invio riuscito (HTTP :status).',
+    'test_failed' => 'Invio fallito: :error',
+
+    'error' => [
+        'url_missing'        => 'URL mancante o troppo lungo.',
+        'url_invalid'        => 'URL non valido.',
+        'url_credentials'    => 'Le credenziali nell\'URL non sono ammesse.',
+        'https_only'         => 'Sono ammessi solo endpoint HTTPS.',
+        'scheme_unsupported' => 'Schema URL non supportato (usa https).',
+        'unresolvable'       => 'Impossibile risolvere l\'host di destinazione.',
+        'private_ip'         => 'La destinazione risolve a un indirizzo IP privato o riservato.',
+        'not_found'          => 'Endpoint non trovato.',
+        'no_events'          => 'Seleziona almeno un evento a cui iscrivere l\'endpoint.',
+    ],
 ];

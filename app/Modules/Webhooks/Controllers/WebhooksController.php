@@ -108,10 +108,10 @@ class WebhooksController extends Controller
     public function test(string $id): void
     {
         try {
-            $message = $this->service->sendTest((int) $id);
-            flash_success(t('webhooks.flash_test_ok') . ' ' . $message);
+            // sendTest() restituisce un messaggio già localizzato e autoconclusivo.
+            flash_success($this->service->sendTest((int) $id));
         } catch (\RuntimeException $e) {
-            flash_error(t('webhooks.flash_test_failed') . ' ' . $e->getMessage());
+            flash_error($e->getMessage());
         }
         $this->redirect(route('webhooks.index'));
     }

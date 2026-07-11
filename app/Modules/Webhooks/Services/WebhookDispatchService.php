@@ -45,22 +45,29 @@ class WebhookDispatchService
             $attempts = (int) $delivery['attempts'] + 1;
             $url = (string) $delivery['endpoint_url'];
 
-            // Anti-SSRF ricontrollato a ogni invio (mitiga il DNS rebinding).
-            $ssrfError = $this->urlValidator->resolveAndAssertPublic($url);
-            if ($ssrfError !== null) {
-                $this->deliveryRepo->releaseOrFail($id, $attempts, self::MAX_ATTEMPTS, null, 'SSRF: ' . $ssrfError, $this->backoffFor($attempts));
-                $this->tally($stats, $attempts, false);
+            // Anti-SSRF ricontrollato a ogni invio (mitiga il DNS rebinding) e
+            // IP vettati da pinnare nel client HTTP.
+            $vetted = $this->urlValidator->resolveVetted($url);
+            if ($vetted['error'] !== null) {
+                // Un errore pre-connessione (SSRF o risoluzione DNS transitoria)
+                // NON è un fallimento dell'endpoint: rimanda senza consumare il
+                // budget di retry, così un DNS temporaneamente KO non porta a
+                // 'failed' un endpoint legittimo.
+                $this->deliveryRepo->release($id, null, 'SSRF: ' . $vetted['error'], $this->backoffFor($attempts));
+                $stats['released']++;
                 continue;
             }
 
             $body = (string) $delivery['payload'];
+            $ts = time();
             $headers = [
-                'X-Favilla-Event'    => (string) $delivery['event_type'],
-                'X-Favilla-Delivery' => (string) $id,
-                WebhookSigner::HEADER => $this->signer->sign($body, (string) $delivery['endpoint_secret']),
+                'X-Favilla-Event'             => (string) $delivery['event_type'],
+                'X-Favilla-Delivery'          => (string) $id,
+                WebhookSigner::TIMESTAMP_HEADER => (string) $ts,
+                WebhookSigner::HEADER         => $this->signer->sign($body, (string) $delivery['endpoint_secret'], $ts),
             ];
 
-            $result = $this->http->post($url, $body, $headers);
+            $result = $this->http->post($url, $body, $headers, $vetted['ips']);
             $status = $result['status'];
 
             if ($status !== null && $status >= 200 && $status < 300) {

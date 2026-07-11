@@ -41,14 +41,14 @@ class WebhookDispatchServiceTest extends ModuleTestCase
                 event_type TEXT NOT NULL, payload TEXT NOT NULL,
                 status TEXT NOT NULL DEFAULT "pending", attempts INTEGER NOT NULL DEFAULT 0,
                 response_code INTEGER NULL, last_error TEXT NULL, next_retry_at TEXT NULL,
-                delivered_at TEXT NULL, created_at TEXT DEFAULT CURRENT_TIMESTAMP
+                locked_at TEXT NULL, delivered_at TEXT NULL, created_at TEXT DEFAULT CURRENT_TIMESTAMP
             );
         ');
         $this->deliveryRepo = new WebhookDeliveryRepository();
 
-        // URL validator: di default "sicuro" (null = nessun errore SSRF).
+        // URL validator: di default "sicuro" (nessun errore SSRF, IP vettato).
         $this->validator = $this->createMock(WebhookUrlValidator::class);
-        $this->validator->method('resolveAndAssertPublic')->willReturn(null);
+        $this->validator->method('resolveVetted')->willReturn(['error' => null, 'ips' => ['93.184.216.34']]);
         $this->bindInstance(WebhookUrlValidator::class, $this->validator);
 
         $this->http = $this->createMock(WebhookHttpClient::class);
@@ -90,9 +90,16 @@ class WebhookDispatchServiceTest extends ModuleTestCase
         $this->assertSame(200, (int) $row['response_code']);
         $this->assertSame(1, (int) $row['attempts']);
 
-        // Header di firma presente e coerente col secret dell'endpoint.
-        $expected = (new WebhookSigner())->sign('{"event":"tasks.task_overdue"}', 'topsecret');
-        $this->assertSame($expected, $captured[WebhookSigner::HEADER]);
+        // Header di firma presente, con timestamp, verificabile col secret.
+        $this->assertArrayHasKey(WebhookSigner::TIMESTAMP_HEADER, $captured);
+        $this->assertTrue(
+            (new WebhookSigner())->verify(
+                '{"event":"tasks.task_overdue"}',
+                'topsecret',
+                $captured[WebhookSigner::HEADER]
+            ),
+            'La firma inviata deve verificare col secret dell\'endpoint'
+        );
         $this->assertSame('tasks.task_overdue', $captured['X-Favilla-Event']);
     }
 
@@ -128,12 +135,35 @@ class WebhookDispatchServiceTest extends ModuleTestCase
 
         // Validator ora rifiuta: la rete non deve essere toccata.
         $validator = $this->createMock(WebhookUrlValidator::class);
-        $validator->method('resolveAndAssertPublic')->willReturn('IP privato');
+        $validator->method('resolveVetted')->willReturn(['error' => 'IP privato', 'ips' => []]);
         $this->bindInstance(WebhookUrlValidator::class, $validator);
         $this->http->expects($this->never())->method('post');
 
         $stats = (new WebhookDispatchService())->dispatch(10);
 
         $this->assertSame(1, $stats['released']);
+    }
+
+    public function testConcurrentClaimSendsEachDeliveryOnce(): void
+    {
+        $id = $this->seedDelivery();
+
+        // Primo run reclama la consegna: passa a 'processing' (claim atomico).
+        $this->assertCount(1, $this->deliveryRepo->claimDue(10));
+        // Un secondo run concorrente NON deve poterla reclamare di nuovo.
+        $this->assertCount(0, $this->deliveryRepo->claimDue(10));
+
+        $row = $this->deliveryRepo->find($id);
+        $this->assertSame('processing', $row['status']);
+    }
+
+    public function testInactiveEndpointDeliveriesAreNotClaimed(): void
+    {
+        $id = $this->seedDelivery();
+        // Disattiva l'endpoint della consegna.
+        $this->pdo->exec('UPDATE webhook_endpoints SET is_active = 0');
+
+        $this->assertCount(0, $this->deliveryRepo->claimDue(10));
+        $this->assertSame('pending', $this->deliveryRepo->find($id)['status']);
     }
 }
