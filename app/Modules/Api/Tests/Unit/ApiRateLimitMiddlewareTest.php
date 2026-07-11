@@ -87,7 +87,8 @@ class ApiRateLimitMiddlewareTest extends ModuleTestCase
     public function testCountIsPerToken(): void
     {
         $mw = new ApiRateLimitMiddleware();
-        $noop = static function (): void {};
+        $noop = static function (): void {
+        };
 
         // Esaurisce il budget del token 42.
         $mw->handle($noop);
