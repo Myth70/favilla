@@ -251,10 +251,14 @@ The back office. Highlights of its ~120 documented capabilities:
 
 ## Backup
 
-- Encrypted database backups (**AES-256-GCM**) with key from `.env`.
+- **Full backups**: database dumps **plus uploaded files** (`public/uploads/`
+  and the Documents storage) in a single archive; file inclusion can be turned
+  off with `BACKUP_INCLUDE_FILES=false`.
+- Encrypted backups (**AES-256-GCM**) with key from `.env`.
 - Manual backup creation; scheduled backups via Scheduler.
 - Download, delete, rotation policy.
-- **In-app restore** with safety confirmation.
+- **In-app restore** of both data and files, with safety confirmation
+  (files uploaded after the backup are never deleted).
 - Separate permissions for manage / download / restore.
 
 ## Health Check

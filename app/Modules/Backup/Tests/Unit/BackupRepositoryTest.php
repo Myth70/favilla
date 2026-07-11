@@ -25,6 +25,7 @@ class BackupRepositoryTest extends ModuleTestCase
                 size_bytes INTEGER NOT NULL,
                 table_count INTEGER NOT NULL,
                 databases_json TEXT NULL,
+                files_json TEXT NULL,
                 created_by INTEGER NULL,
                 created_at TEXT DEFAULT CURRENT_TIMESTAMP
             );
@@ -80,5 +81,22 @@ class BackupRepositoryTest extends ModuleTestCase
         $items = $this->repo->listHistory(10);
         $this->assertSame('sqlgz', $items[0]['format']);
         $this->assertNull($items[0]['databases_json']);
+        $this->assertNull($items[0]['files_json']);
+    }
+
+    public function testRecordPersistsFilesSummary(): void
+    {
+        $this->repo->record('backup_20260712_090000.zip', 8192, 94, null, 'zip', null, [
+            ['key' => 'public_uploads', 'base' => 'public/uploads', 'file_count' => 12, 'total_size' => 34567],
+            ['key' => 'storage_uploads', 'base' => 'storage/uploads', 'file_count' => 3, 'total_size' => 999],
+        ]);
+
+        $items = $this->repo->listHistory(10);
+        $decoded = json_decode((string) $items[0]['files_json'], true);
+        $this->assertIsArray($decoded);
+        $this->assertCount(2, $decoded);
+        $this->assertSame('public_uploads', $decoded[0]['key']);
+        $this->assertSame(12, $decoded[0]['file_count']);
+        $this->assertSame(999, $decoded[1]['total_size']);
     }
 }

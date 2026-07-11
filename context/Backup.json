@@ -1,6 +1,6 @@
 {
     "module": "Backup",
-    "generated_at": "2026-07-10T19:01:26+02:00",
+    "generated_at": "2026-07-12T00:30:46+02:00",
     "routes": [
         {
             "method": "GET",
@@ -81,7 +81,7 @@
                 },
                 {
                     "name": "size_bytes",
-                    "type": "int(10) unsigned",
+                    "type": "bigint(20) unsigned",
                     "nullable": false,
                     "default": "0"
                 },
@@ -93,6 +93,12 @@
                 },
                 {
                     "name": "databases_json",
+                    "type": "longtext",
+                    "nullable": true,
+                    "default": "NULL"
+                },
+                {
+                    "name": "files_json",
                     "type": "longtext",
                     "nullable": true,
                     "default": "NULL"
@@ -155,6 +161,7 @@
     ],
     "services": [
         "App\\Modules\\Backup\\Services\\BackupEncryptionService",
+        "App\\Modules\\Backup\\Services\\BackupFilesService",
         "App\\Modules\\Backup\\Services\\BackupService"
     ],
     "controllers": [

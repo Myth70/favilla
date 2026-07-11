@@ -31,7 +31,8 @@ class BackupRunCommand
             (int) ($result['table_count'] ?? 0),
             null,
             $format,
-            $result['databases'] ?? null
+            $result['databases'] ?? null,
+            $result['files'] ?? null
         );
 
         echo "\nBackup completato\n";
@@ -39,7 +40,9 @@ class BackupRunCommand
         echo '  File:       ' . ($result['filename'] ?? 'n/a') . "\n";
         echo '  Dimensione: ' . number_format(($result['size'] ?? 0) / 1024 / 1024, 2) . " MB\n";
         echo '  Tabelle:    ' . ($result['table_count'] ?? 0) . "\n";
-        echo '  Database:   ' . count($result['databases'] ?? []) . "\n\n";
+        echo '  Database:   ' . count($result['databases'] ?? []) . "\n";
+        echo '  File utente: ' . ($result['file_count'] ?? 0)
+            . ' (' . number_format(($result['files_size'] ?? 0) / 1024 / 1024, 2) . " MB)\n\n";
 
         if (!empty($result['partial'])) {
             echo "  [ATTENZIONE] Backup parziale: uno o più database di modulo non erano raggiungibili.\n\n";

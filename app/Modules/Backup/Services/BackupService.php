@@ -12,6 +12,9 @@ class BackupService
     private const BACKUP_DIR    = '/storage/backups';
     private const LOCK_FILE     = '.backup.lock';
     private const CHUNK_SIZE    = 1000;
+    // File aggiunti allo zip tra una close() e la successiva: libzip apre le
+    // sorgenti tutte insieme alla close, il lotto tiene basso il numero di fd.
+    private const ZIP_BATCH_SIZE = 400;
 
     /**
      * Crea un backup completo del database in formato SQL compresso gzip.
@@ -109,29 +112,73 @@ class BackupService
                     );
                 }
 
-                $manifest = [
-                    'manifest_version' => 1,
-                    'created_at'       => date('Y-m-d H:i:s'),
-                    'app_version'      => (string) (config('app.version') ?? config('app.name', '')),
-                    'partial'          => $partial,
-                    'excluded_tables'  => $excluded,
-                    'databases'        => $manifestEntries,
-                    'warnings'         => $warnings,
-                ];
-                $manifestJson = json_encode(
-                    $manifest,
-                    JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE
-                );
+                // File utente (uploads + storage Documenti), se abilitati.
+                $filesService = app(BackupFilesService::class);
+                $fileEntries  = [];
+                $fileRoots    = [];
+                if ($filesService->isEnabled()) {
+                    $enumerated  = $filesService->enumerate();
+                    $fileRoots   = $enumerated['roots'];
+                    $fileEntries = $enumerated['files'];
+                    $warnings    = array_merge($warnings, $enumerated['warnings']);
+                }
 
-                $this->packageBackupSet($gzFiles, (string) $manifestJson, $path);
+                // Il manifest è costruito DENTRO il packaging, sui conteggi dei
+                // file effettivamente aggiunti (un upload può sparire tra
+                // enumerazione e scrittura dello zip).
+                $manifestBuilder = function (array $addedPerKey, array $packWarnings) use (
+                    $partial,
+                    $excluded,
+                    $manifestEntries,
+                    &$fileRoots,
+                    &$warnings
+                ): string {
+                    foreach ($fileRoots as &$root) {
+                        $actual = $addedPerKey[$root['key']] ?? ['count' => 0, 'bytes' => 0];
+                        $root['file_count'] = $actual['count'];
+                        $root['total_size'] = $actual['bytes'];
+                    }
+                    unset($root);
+                    $warnings = array_merge($warnings, $packWarnings);
+
+                    $manifest = [
+                        'manifest_version' => 2,
+                        'created_at'       => date('Y-m-d H:i:s'),
+                        'app_version'      => (string) (config('app.version') ?? config('app.name', '')),
+                        'partial'          => $partial,
+                        'excluded_tables'  => $excluded,
+                        'databases'        => $manifestEntries,
+                        'files'            => $fileRoots,
+                        'warnings'         => $warnings,
+                    ];
+
+                    return (string) json_encode(
+                        $manifest,
+                        JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE
+                    );
+                };
+
+                // La copia dei file può essere lunga: riparte il timer.
+                set_time_limit(300);
+                $this->packageBackupSet($gzFiles, $fileEntries, $manifestBuilder, $path);
             } finally {
                 $this->removeDir($tmpDir);
             }
 
             // Cifra l'archivio se BACKUP_ENCRYPTION_KEY è configurata (in-place sui byte dello zip).
-            app(BackupEncryptionService::class)->encryptInPlace($path);
+            // Se la cifratura fallisce (es. archivio oltre il limite in-memory), l'archivio
+            // in chiaro NON deve restare su disco: è esattamente ciò che la policy vieta.
+            try {
+                app(BackupEncryptionService::class)->encryptInPlace($path);
+            } catch (\Throwable $e) {
+                $this->deleteIfExists($path);
+                throw $e;
+            }
 
             $size = filesize($path);
+
+            $fileCount = (int) array_sum(array_column($fileRoots, 'file_count'));
+            $filesSize = (int) array_sum(array_column($fileRoots, 'total_size'));
 
             // Rotazione: elimina vecchi backup (file + record DB)
             $this->rotate();
@@ -150,6 +197,7 @@ class BackupService
                         'table_count'    => $totalTables,
                         'excluded_count' => count($excluded),
                         'database_count' => count($gzFiles),
+                        'file_count'     => $fileCount,
                         'partial'        => $partial,
                     ],
                     $this->buildBackupLink(),
@@ -163,6 +211,9 @@ class BackupService
                 'table_count'    => $totalTables,
                 'excluded_count' => count($excluded),
                 'databases'      => $manifestEntries,
+                'files'          => $fileRoots,
+                'file_count'     => $fileCount,
+                'files_size'     => $filesSize,
                 'partial'        => $partial,
             ];
         } finally {
@@ -274,18 +325,30 @@ class BackupService
     }
 
     /**
-     * Impacchetta i dump per-database e il manifest in un unico archivio .zip.
+     * Impacchetta dump per-database, file utente e manifest in un unico .zip.
+     *
+     * I file vengono aggiunti a lotti con close/reopen periodici: libzip apre
+     * i file sorgente solo alla close(), e con migliaia di addFile in sospeso
+     * si esaurisce il limite di file descriptor del processo.
+     *
+     * Il manifest è prodotto da $manifestBuilder con i conteggi dei file
+     * REALMENTE aggiunti (un upload sparito tra enumerazione e packaging viene
+     * saltato con warning, non deve far fallire il backup).
      *
      * @param array<string,string> $gzFiles innerName => percorso file temporaneo
+     * @param array<array{path: string, entry: string}> $fileEntries
+     * @param callable(array<string,array{count:int,bytes:int}>,string[]):string $manifestBuilder
      */
-    private function packageBackupSet(array $gzFiles, string $manifestJson, string $zipPath): void
-    {
+    private function packageBackupSet(
+        array $gzFiles,
+        array $fileEntries,
+        callable $manifestBuilder,
+        string $zipPath
+    ): void {
         $zip = new \ZipArchive();
         if ($zip->open($zipPath, \ZipArchive::CREATE | \ZipArchive::OVERWRITE) !== true) {
             throw new \RuntimeException('Impossibile creare l\'archivio di backup.');
         }
-
-        $zip->addFromString('manifest.json', $manifestJson);
 
         foreach ($gzFiles as $innerName => $tmpPath) {
             if (!$zip->addFile($tmpPath, $innerName)) {
@@ -295,12 +358,56 @@ class BackupService
             }
         }
 
-        // close() materializza la lettura dei file aggiunti: deve avvenire prima
-        // della pulizia della directory temporanea (gestita dal chiamante).
+        // I dump vanno flushati subito: vivono in una directory temporanea che
+        // il chiamante rimuove appena questo metodo ritorna.
         if (!$zip->close()) {
             $this->deleteIfExists($zipPath);
             throw new \RuntimeException('Chiusura dell\'archivio di backup fallita.');
         }
+
+        $addedPerKey  = [];
+        $packWarnings = [];
+        $pending      = 0;
+
+        $reopen = function () use ($zip, $zipPath): void {
+            if ($zip->open($zipPath, \ZipArchive::CREATE) !== true) {
+                $this->deleteIfExists($zipPath);
+                throw new \RuntimeException('Impossibile riaprire l\'archivio di backup.');
+            }
+        };
+        $flush = function () use ($zip, $zipPath): void {
+            if (!$zip->close()) {
+                $this->deleteIfExists($zipPath);
+                throw new \RuntimeException('Scrittura dei file nell\'archivio di backup fallita.');
+            }
+        };
+
+        $reopen();
+        foreach ($fileEntries as $file) {
+            // Il file può essere sparito dopo l'enumerazione (upload transitori).
+            $size = $this->callSilently(static fn () => filesize($file['path']));
+            if (!is_int($size) || !$zip->addFile($file['path'], $file['entry'])) {
+                $packWarnings[] = "File sparito o illeggibile, escluso dal backup: {$file['path']}";
+                continue;
+            }
+
+            if (preg_match('#^files/([a-z0-9_]+)/#', $file['entry'], $m)) {
+                $key = $m[1];
+                $addedPerKey[$key] ??= ['count' => 0, 'bytes' => 0];
+                $addedPerKey[$key]['count']++;
+                $addedPerKey[$key]['bytes'] += $size;
+            }
+
+            if (++$pending >= self::ZIP_BATCH_SIZE) {
+                $flush();
+                $reopen();
+                $pending = 0;
+                set_time_limit(300);
+            }
+        }
+
+        $zip->addFromString('manifest.json', $manifestBuilder($addedPerKey, $packWarnings));
+        $flush();
     }
 
     /**
@@ -552,10 +659,11 @@ class BackupService
         int $tableCount,
         ?int $createdBy,
         string $format = 'sqlgz',
-        ?array $databases = null
+        ?array $databases = null,
+        ?array $files = null
     ): void {
         $repo = app(BackupRepository::class);
-        $repo->record($filename, $size, $tableCount, $createdBy, $format, $databases);
+        $repo->record($filename, $size, $tableCount, $createdBy, $format, $databases, $files);
     }
 
     /**
@@ -722,6 +830,8 @@ class BackupService
                 'pre_restore_backup'  => $preRestoreBackup,
                 'statements_executed' => $result['statements'],
                 'databases_restored'  => $result['databases'],
+                'files_restored'      => $result['files_restored'],
+                'files_skipped'       => $result['files_skipped'],
             ];
         }
 
@@ -743,29 +853,27 @@ class BackupService
             'pre_restore_backup'  => $preRestoreBackup,
             'statements_executed' => $executed,
             'databases_restored'  => ['main'],
+            'files_restored'      => 0,
+            'files_skipped'       => 0,
         ];
     }
 
     /**
-     * Ripristina un set di backup .zip: legge il manifest e instrada ogni dump
-     * al database corretto (principale o modulo dedicato), verificando il checksum.
+     * Ripristina un set di backup .zip: legge il manifest, instrada ogni dump
+     * al database corretto (principale o modulo dedicato) verificando il
+     * checksum, poi ripristina i file utente eventualmente inclusi (manifest
+     * v2). I file vengono sovrascritti, mai eliminati: quelli caricati dopo il
+     * backup restano su disco come orfani (gestibili dai cleanup dei moduli).
      *
-     * @return array{statements:int, databases:string[]}
+     * @return array{statements:int, databases:string[], files_restored:int, files_skipped:int}
      */
     private function restoreFromZip(string $path): array
     {
-        // readBackupContents decifra se necessario; ZipArchive richiede un file su disco.
-        // Il file temporaneo va scritto DENTRO la dir dei backup: sys_get_temp_dir()
-        // può violare la restrizione open_basedir (es. XAMPP).
-        $zipBytes = $this->readBackupContents($path);
-        $tmpZip   = BASE_PATH . self::BACKUP_DIR . '/.restore_' . bin2hex(random_bytes(6)) . '.zip';
-        if (file_put_contents($tmpZip, $zipBytes) === false) {
-            throw new \RuntimeException('Impossibile preparare l\'archivio per il ripristino.');
-        }
+        [$zipReadPath, $isTemp] = $this->materializeReadableZip($path);
 
         try {
             $zip = new \ZipArchive();
-            if ($zip->open($tmpZip) !== true) {
+            if ($zip->open($zipReadPath) !== true) {
                 throw new \RuntimeException('Archivio di backup illeggibile o corrotto.');
             }
 
@@ -816,16 +924,62 @@ class BackupService
                 $restored[]       = (string) ($entry['key'] ?? $entry['database_name']);
             }
 
-            $zip->close();
-
             if ($restored === []) {
+                $zip->close();
                 throw new \RuntimeException('Nessun database ripristinabile trovato nel set di backup.');
             }
 
-            return ['statements' => $totalStatements, 'databases' => $restored];
+            // Fase file: DOPO i database, così un errore sui dump non lascia
+            // file già sovrascritti con un DB non ripristinato.
+            $filesRestored = 0;
+            $filesSkipped  = 0;
+            $filesService  = app(BackupFilesService::class);
+            if ($filesService->manifestHasFiles($manifest)) {
+                $fileResult    = $filesService->restoreFromZip($zip);
+                $filesRestored = $fileResult['restored'];
+                $filesSkipped  = $fileResult['skipped'];
+                foreach ($fileResult['warnings'] as $warning) {
+                    app_log('warning', '[Backup] Ripristino file: ' . $warning);
+                }
+            }
+
+            $zip->close();
+
+            return [
+                'statements'     => $totalStatements,
+                'databases'      => $restored,
+                'files_restored' => $filesRestored,
+                'files_skipped'  => $filesSkipped,
+            ];
         } finally {
-            $this->callSilently(static fn () => unlink($tmpZip));
+            if ($isTemp) {
+                $this->callSilently(static fn () => unlink($zipReadPath));
+            }
         }
+    }
+
+    /**
+     * Ritorna un percorso zip leggibile da ZipArchive: il file originale se in
+     * chiaro (nessun caricamento in RAM, fondamentale per archivi grandi), o un
+     * temporaneo decifrato se cifrato (dimensione già limitata dal cap di
+     * cifratura in-memory). Il temporaneo va scritto DENTRO la dir dei backup:
+     * sys_get_temp_dir() può violare open_basedir (es. XAMPP).
+     *
+     * @return array{0: string, 1: bool} [percorso, è un temporaneo da eliminare]
+     */
+    private function materializeReadableZip(string $path): array
+    {
+        if (!app(BackupEncryptionService::class)->isEncryptedFile($path)) {
+            return [$path, false];
+        }
+
+        $zipBytes = $this->readBackupContents($path);
+        $tmpZip   = BASE_PATH . self::BACKUP_DIR . '/.restore_' . bin2hex(random_bytes(6)) . '.zip';
+        if (file_put_contents($tmpZip, $zipBytes) === false) {
+            throw new \RuntimeException('Impossibile preparare l\'archivio per il ripristino.');
+        }
+
+        return [$tmpZip, true];
     }
 
     /**

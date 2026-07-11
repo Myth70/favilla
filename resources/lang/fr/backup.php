@@ -4,9 +4,9 @@
  * Backup module — French.
  */
 return [
-    'title'           => 'Sauvegarde de la base de données',
+    'title'           => 'Sauvegarde',
     'hero_title'      => 'Sauvegarde',
-    'hero_subtitle'   => 'Sauvegarde SQL complète compressée, avec rotation automatique',
+    'hero_subtitle'   => 'Sauvegarde complète de la base de données et des fichiers téléversés, avec rotation automatique',
     'restore_keyword' => 'RESTAURER',
 
     'action' => [
@@ -24,6 +24,8 @@ return [
 
     'note_label'     => 'Note :',
     'note_body'      => 'Les sauvegardes sont stockées sur le serveur dans <code>storage/backups/</code>. Téléchargez-les régulièrement vers un emplacement externe sûr. Les :count dernières sauvegardes sont conservées automatiquement.',
+    'note_files_on'  => 'La sauvegarde inclut aussi les fichiers téléversés (:paths).',
+    'note_files_off' => 'Sauvegarde base de données uniquement : les fichiers téléversés ne sont PAS inclus (BACKUP_INCLUDE_FILES=false).',
     'excluded_label' => 'Tables exclues :',
 
     'available'      => 'Sauvegardes disponibles',
@@ -38,11 +40,16 @@ return [
         'size'         => 'Taille',
         'tables'       => 'Tables',
         'database'     => 'Base de données',
+        'files'        => 'Fichiers utilisateur',
         'created_by'   => 'Créé par',
         'date'         => 'Date',
         'filename'     => 'Nom du fichier',
         'created_date' => 'Date de création',
     ],
+
+    'files_summary' => ':count fichiers · :size Mo',
+    'files_tooltip' => "Fichiers téléversés inclus dans l'archive",
+    'files_db_only' => 'BD uniquement',
 
     'restore_modal' => [
         'title'               => 'Confirmer la restauration de la sauvegarde',
@@ -54,6 +61,8 @@ return [
 
     'flash' => [
         'created'          => 'Sauvegarde créée avec succès : :filename',
+        'files_included'   => ':count fichiers inclus (:size Mo).',
+        'restored_files'   => ':count fichiers également restaurés.',
         'excluded_count'   => '(:count tables exclues)',
         'partial_warning'  => ' — ATTENTION : une ou plusieurs bases de données de module étaient inaccessibles et ont été exclues de la sauvegarde.',
         'error'            => 'Erreur lors de la sauvegarde : :error',

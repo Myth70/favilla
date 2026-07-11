@@ -4,9 +4,9 @@
  * Backup module — English.
  */
 return [
-    'title'           => 'Database Backup',
+    'title'           => 'Backup',
     'hero_title'      => 'Backup',
-    'hero_subtitle'   => 'Full compressed SQL backup, with automatic rotation',
+    'hero_subtitle'   => 'Full backup of database and uploaded files, with automatic rotation',
     'restore_keyword' => 'RESTORE',
 
     'action' => [
@@ -24,6 +24,8 @@ return [
 
     'note_label'     => 'Note:',
     'note_body'      => 'Backups are stored on the server in <code>storage/backups/</code>. Download them regularly to a safe external location. The latest :count backups are kept automatically.',
+    'note_files_on'  => 'The backup also includes uploaded files (:paths).',
+    'note_files_off' => 'Database-only backup: uploaded files are NOT included (BACKUP_INCLUDE_FILES=false).',
     'excluded_label' => 'Excluded tables:',
 
     'available'      => 'Available backups',
@@ -38,11 +40,16 @@ return [
         'size'         => 'Size',
         'tables'       => 'Tables',
         'database'     => 'Database',
+        'files'        => 'User files',
         'created_by'   => 'Created by',
         'date'         => 'Date',
         'filename'     => 'File name',
         'created_date' => 'Creation date',
     ],
+
+    'files_summary' => ':count files · :size MB',
+    'files_tooltip' => 'Uploaded files included in the archive',
+    'files_db_only' => 'DB only',
 
     'restore_modal' => [
         'title'               => 'Confirm backup restore',
@@ -54,6 +61,8 @@ return [
 
     'flash' => [
         'created'          => 'Backup created successfully: :filename',
+        'files_included'   => 'Included :count files (:size MB).',
+        'restored_files'   => 'Also restored :count files.',
         'excluded_count'   => '(:count tables excluded)',
         'partial_warning'  => ' — WARNING: one or more module databases were unreachable and were excluded from the backup.',
         'error'            => 'Error during backup: :error',

@@ -4,9 +4,9 @@
  * Backup module — Italian (canonical).
  */
 return [
-    'title'           => 'Backup Database',
+    'title'           => 'Backup',
     'hero_title'      => 'Backup',
-    'hero_subtitle'   => 'Backup SQL completo compresso, con rotazione automatica',
+    'hero_subtitle'   => 'Backup completo di database e file caricati, con rotazione automatica',
     'restore_keyword' => 'RIPRISTINA',
 
     'action' => [
@@ -24,6 +24,8 @@ return [
 
     'note_label'     => 'Nota:',
     'note_body'      => 'I backup sono archiviati sul server in <code>storage/backups/</code>. Scaricali regolarmente in un luogo sicuro esterno. Vengono mantenuti automaticamente gli ultimi :count backup.',
+    'note_files_on'  => 'Il backup include anche i file caricati (:paths).',
+    'note_files_off' => 'Backup solo database: i file caricati NON sono inclusi (BACKUP_INCLUDE_FILES=false).',
     'excluded_label' => 'Tabelle escluse:',
 
     'available'      => 'Backup disponibili',
@@ -38,11 +40,16 @@ return [
         'size'         => 'Dimensione',
         'tables'       => 'Tabelle',
         'database'     => 'Database',
+        'files'        => 'File utente',
         'created_by'   => 'Creato da',
         'date'         => 'Data',
         'filename'     => 'Nome file',
         'created_date' => 'Data creazione',
     ],
+
+    'files_summary' => ':count file · :size MB',
+    'files_tooltip' => 'File caricati inclusi nell\'archivio',
+    'files_db_only' => 'Solo DB',
 
     'restore_modal' => [
         'title'               => 'Conferma ripristino backup',
@@ -54,6 +61,8 @@ return [
 
     'flash' => [
         'created'          => 'Backup creato con successo: :filename',
+        'files_included'   => 'Inclusi :count file (:size MB).',
+        'restored_files'   => 'Ripristinati anche :count file.',
         'excluded_count'   => '(:count tabelle escluse)',
         'partial_warning'  => ' — ATTENZIONE: uno o più database di modulo non erano raggiungibili e sono stati esclusi dal backup.',
         'error'            => 'Errore durante il backup: :error',

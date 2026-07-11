@@ -4,9 +4,9 @@
  * Backup module — Spanish.
  */
 return [
-    'title'           => 'Copia de seguridad de la base de datos',
+    'title'           => 'Copia de seguridad',
     'hero_title'      => 'Copia de seguridad',
-    'hero_subtitle'   => 'Copia SQL completa comprimida, con rotación automática',
+    'hero_subtitle'   => 'Copia completa de la base de datos y de los archivos subidos, con rotación automática',
     'restore_keyword' => 'RESTAURAR',
 
     'action' => [
@@ -24,6 +24,8 @@ return [
 
     'note_label'     => 'Nota:',
     'note_body'      => 'Las copias se almacenan en el servidor en <code>storage/backups/</code>. Descárgalas con regularidad a un lugar externo seguro. Las últimas :count copias se conservan automáticamente.',
+    'note_files_on'  => 'La copia también incluye los archivos subidos (:paths).',
+    'note_files_off' => 'Copia solo de base de datos: los archivos subidos NO están incluidos (BACKUP_INCLUDE_FILES=false).',
     'excluded_label' => 'Tablas excluidas:',
 
     'available'      => 'Copias disponibles',
@@ -38,11 +40,16 @@ return [
         'size'         => 'Tamaño',
         'tables'       => 'Tablas',
         'database'     => 'Base de datos',
+        'files'        => 'Archivos de usuario',
         'created_by'   => 'Creado por',
         'date'         => 'Fecha',
         'filename'     => 'Nombre de archivo',
         'created_date' => 'Fecha de creación',
     ],
+
+    'files_summary' => ':count archivos · :size MB',
+    'files_tooltip' => 'Archivos subidos incluidos en el archivo comprimido',
+    'files_db_only' => 'Solo BD',
 
     'restore_modal' => [
         'title'               => 'Confirmar restauración de la copia',
@@ -54,6 +61,8 @@ return [
 
     'flash' => [
         'created'          => 'Copia creada correctamente: :filename',
+        'files_included'   => 'Se incluyeron :count archivos (:size MB).',
+        'restored_files'   => 'También se restauraron :count archivos.',
         'excluded_count'   => '(:count tablas excluidas)',
         'partial_warning'  => ' — ATENCIÓN: una o más bases de datos de módulo no eran accesibles y se han excluido de la copia.',
         'error'            => 'Error durante la copia: :error',

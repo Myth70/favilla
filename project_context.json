@@ -1,5 +1,5 @@
 {
-    "generated_at": "2026-07-10T19:01:26+02:00",
+    "generated_at": "2026-07-12T00:30:46+02:00",
     "layout": {
         "index": "project_context.json",
         "detail_dir": "context/",
@@ -800,7 +800,7 @@
                 "routes": 5,
                 "tables": 1,
                 "permissions": 3,
-                "services": 2,
+                "services": 3,
                 "controllers": 1
             },
             "tables": [
@@ -816,6 +816,7 @@
             ],
             "services": [
                 "BackupEncryptionService",
+                "BackupFilesService",
                 "BackupService"
             ],
             "detail": "context/Backup.json"

@@ -15,6 +15,7 @@ class BackupRepository extends BaseRepository
      *
      * @param string     $format    'sqlgz' (legacy single-DB) | 'zip' (set multi-DB)
      * @param array|null $databases Dettaglio per-database (serializzato in JSON)
+     * @param array|null $files     Riepilogo file per radice (serializzato in JSON)
      */
     public function record(
         string $filename,
@@ -22,7 +23,8 @@ class BackupRepository extends BaseRepository
         int $tableCount,
         ?int $createdBy,
         string $format = 'sqlgz',
-        ?array $databases = null
+        ?array $databases = null,
+        ?array $files = null
     ): int {
         return $this->create([
             'filename'    => $filename,
@@ -31,6 +33,9 @@ class BackupRepository extends BaseRepository
             'table_count' => $tableCount,
             'databases_json' => $databases !== null
                 ? json_encode($databases, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)
+                : null,
+            'files_json' => $files !== null
+                ? json_encode($files, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)
                 : null,
             'created_by'  => $createdBy,
         ]);

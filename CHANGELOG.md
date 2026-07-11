@@ -9,6 +9,27 @@ any breaking change would bump the major version.
 
 ## [Unreleased]
 
+### Added
+- **Full backups — files included** (roadmap A1): backup archives now bundle
+  uploaded files (`public/uploads/` and the Documents storage) next to the SQL
+  dumps, with a per-root summary in the manifest (v2), the admin UI and the
+  history log. The in-app restore brings files back to the backup's state
+  (files uploaded after the backup are never deleted). Opt out with
+  `BACKUP_INCLUDE_FILES=false`.
+
+### Changed
+- Backup downloads and zip restores now stream unencrypted archives from disk
+  instead of loading them into memory (relevant with multi-GB file backups).
+- `backup_history.size_bytes` widened to `BIGINT` (archives can exceed 4 GB
+  once files are included); new `files_json` column with the per-root summary.
+
+### Fixed
+- A failed backup encryption (e.g. archive over the in-memory cap) no longer
+  leaves the unencrypted archive on disk — exactly what the policy forbids.
+- Plain (unencrypted) `.zip` backup sets are now downloadable and restorable
+  when `BACKUP_ENCRYPTION_KEY` is set: they were mistaken for the legacy CBC
+  format and failed to decrypt.
+
 ## [2.2.0] — 2026-07-11
 
 ### Added

@@ -301,6 +301,65 @@ class BackupServiceTest extends TestCase
     }
 
     // ------------------------------------------------------------------
+    // Archivi in chiaro con chiave configurata — regressione: un set .zip non
+    // cifrato (creato prima della chiave, o con BACKUP_ALLOW_UNENCRYPTED_LARGE)
+    // veniva scambiato per formato legacy CBC e la decifratura falliva,
+    // rendendo il backup non scaricabile né ripristinabile.
+    // ------------------------------------------------------------------
+
+    public function testReadDecryptedReturnsPlainZipUntouchedWhenKeyIsSet(): void
+    {
+        $_ENV['BACKUP_ENCRYPTION_KEY'] = str_repeat('k', 64);
+        putenv('BACKUP_ENCRYPTION_KEY=' . $_ENV['BACKUP_ENCRYPTION_KEY']);
+
+        $path = $this->tmpDir . '/plain_set.zip';
+        $zip  = new \ZipArchive();
+        $zip->open($path, \ZipArchive::CREATE);
+        $zip->addFromString('manifest.json', '{}');
+        $zip->close();
+        $original = (string) file_get_contents($path);
+
+        $this->assertSame($original, (new BackupEncryptionService())->readDecrypted($path));
+
+        unset($_ENV['BACKUP_ENCRYPTION_KEY']);
+    }
+
+    public function testIsEncryptedFileDetection(): void
+    {
+        $enc = new BackupEncryptionService();
+
+        // Zip in chiaro: mai cifrato, con o senza chiave configurata.
+        $zipPath = $this->tmpDir . '/detect.zip';
+        $zip = new \ZipArchive();
+        $zip->open($zipPath, \ZipArchive::CREATE);
+        $zip->addFromString('manifest.json', '{}');
+        $zip->close();
+
+        // Gzip in chiaro.
+        $gzPath = $this->tmpDir . '/detect.sql.gz';
+        file_put_contents($gzPath, gzencode('-- sql', 6));
+
+        unset($_ENV['BACKUP_ENCRYPTION_KEY']);
+        putenv('BACKUP_ENCRYPTION_KEY');
+        $this->assertFalse($enc->isEncryptedFile($zipPath));
+        $this->assertFalse($enc->isEncryptedFile($gzPath));
+
+        $_ENV['BACKUP_ENCRYPTION_KEY'] = str_repeat('k', 64);
+        putenv('BACKUP_ENCRYPTION_KEY=' . $_ENV['BACKUP_ENCRYPTION_KEY']);
+        $this->assertFalse($enc->isEncryptedFile($zipPath));
+        $this->assertFalse($enc->isEncryptedFile($gzPath));
+
+        // File cifrato GCM (header PMT2): riconosciuto come cifrato.
+        $encPath = $this->tmpDir . '/detect_enc.zip';
+        copy($zipPath, $encPath);
+        $enc->encryptInPlace($encPath);
+        $this->assertTrue($enc->isEncryptedFile($encPath));
+
+        unset($_ENV['BACKUP_ENCRYPTION_KEY']);
+        putenv('BACKUP_ENCRYPTION_KEY');
+    }
+
+    // ------------------------------------------------------------------
     // splitSqlStatements — non deve spezzare dentro caratteri multibyte
     // (regressione: \R matcha il byte 0x85/NEL, 4° byte di emoji come 📅)
     // ------------------------------------------------------------------
