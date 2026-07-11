@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Cli;
 
+use App\Cli\Support\CliBootstrap;
+
 class Console
 {
     private array $commands = [
@@ -53,10 +55,22 @@ class Console
             return 1;
         }
 
+        // Garantisce che i fallimenti dei comandi (spesso job cron: scheduler,
+        // backup, retention) finiscano nel log centrale con stack trace, non solo
+        // nel redirect di shell. Cheap: registra il solo logger, nessun DB.
+        CliBootstrap::ensureLogging();
+
         try {
             (new $this->commands[$command]())->handle($args);
             return 0;
         } catch (\Throwable $e) {
+            app_log('error', 'Comando CLI fallito: ' . $command, [
+                'command'   => $command,
+                'exception' => get_class($e),
+                'message'   => $e->getMessage(),
+                'file'      => $e->getFile() . ':' . $e->getLine(),
+                'trace'     => $e->getTraceAsString(),
+            ]);
             echo $e->getMessage() . PHP_EOL;
             return 1;
         }

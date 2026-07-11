@@ -179,7 +179,7 @@ INSERT IGNORE INTO `scheduler_jobs` (`slug`, `name`, `command`, `args_json`, `in
     ('tasks.send_due_reminders', 'Scadenze attività personali',            'tasks:send-due-reminders', NULL,              1440,  1),
     ('cleanup',                     'Pulizia dati stale (sessioni, token, notifiche vecchie)', 'cleanup',    '[\"--days=30\"]',  10080, 1),
     ('backup.run',                  'Backup automatico database',             'backup:run',                  NULL,              1440,  1),
-    ('logs.rotate',                 'Rotazione e pulizia file di log',        'logs:rotate',                 NULL,              10080, 1),
+    ('logs.rotate',                 'Rotazione e pulizia file di log',        'logs:rotate',                 NULL,              1440,  1),
     ('retention.run',               'Policy data retention (ISO 27001)',      'retention:run',               NULL,              1440,  1),
     ('reports.cleanup',             'Pulizia report scaduti',                 'reports:cleanup',             NULL,              1440,  1),
     ('session.gc',                  'Garbage collection sessioni DB',         'session:gc',                  NULL,              60,    1),

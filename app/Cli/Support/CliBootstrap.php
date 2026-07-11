@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Cli\Support;
 
 use App\Core\Container;
+use App\Core\ErrorHandler;
 use App\Core\ModuleLoader;
 use App\Core\Router;
 use PDO;
@@ -24,6 +25,7 @@ final class CliBootstrap
 
         if (
             self::$booted
+            && $container->has(ErrorHandler::class)
             && $container->has(PDO::class)
             && $container->has(ModuleLoader::class)
             && $container->has(Router::class)
@@ -38,10 +40,30 @@ final class CliBootstrap
         $_SERVER['REQUEST_METHOD'] ??= 'GET';
         $_SERVER['REMOTE_ADDR'] ??= '127.0.0.1';
 
+        self::ensureLogging();
         self::registerDatabase($container);
         self::registerRouting($container);
 
         self::$booted = true;
+    }
+
+    /**
+     * Registra l'ErrorHandler nel container così che app_log() instradi verso
+     * Monolog (storage/logs/app.log) anche dai comandi CLI/cron, invece di
+     * degradare a error_log(). NON chiama register(): il rendering HTML/JSON
+     * dell'ErrorHandler è pensato per il web, non per la console. È cheap (nessuna
+     * connessione DB), quindi la Console la invoca per ogni comando.
+     */
+    public static function ensureLogging(): void
+    {
+        $container = Container::getInstance();
+        Container::setInstance($container);
+
+        if ($container->has(ErrorHandler::class)) {
+            return;
+        }
+
+        $container->instance(ErrorHandler::class, new ErrorHandler());
     }
 
     private static function registerDatabase(Container $container): void

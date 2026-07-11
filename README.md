@@ -94,7 +94,7 @@ Favilla makes two deliberately unfashionable choices:
    services, repositories, views, no magic.
 
 <!-- Keep counts in sync with FEATURES.md. Recompute: tests → `phpunit --list-tests | grep -c '^ - '`; tables → `grep -c 'CREATE TABLE' database/schema.sql`; help Q&As → `grep -rho '"question"' database/help/*.json | wc -l` ÷ 5. -->
-Choices like these only hold up with discipline behind them: **1,700+
+Choices like these only hold up with discipline behind them: **1,800+
 automated tests**, **PHPStan level 6** and **PSR-12** enforced in CI, and a
 **100+ table schema** installed by a guided setup wizard.
 

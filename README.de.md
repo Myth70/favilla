@@ -95,7 +95,7 @@ Favilla trifft zwei bewusst unmoderne Entscheidungen:
    MVC-Anwendung, die du von Anfang bis Ende lesen, prüfen und erweitern kannst:
    Controller, Services, Repositories, Views, keine Magie.
 
-Solche Entscheidungen halten nur mit Disziplin dahinter: **über 1.700
+Solche Entscheidungen halten nur mit Disziplin dahinter: **über 1.800
 automatisierte Tests**, **PHPStan Level 6** und **PSR-12**, in der CI erzwungen,
 und ein **Schema mit über 100 Tabellen**, installiert von einem geführten
 Einrichtungsassistenten.

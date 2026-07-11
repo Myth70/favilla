@@ -93,7 +93,7 @@ Favilla fa due scelte deliberatamente fuori moda:
    applicazione MVC che puoi leggere, verificare ed estendere da cima a fondo:
    controller, service, repository, view, nessuna magia.
 
-Scelte così reggono solo con la disciplina dietro: **oltre 1.700 test automatici**,
+Scelte così reggono solo con la disciplina dietro: **oltre 1.800 test automatici**,
 **PHPStan livello 6** e **PSR-12** applicati in CI, e uno **schema di oltre 100
 tabelle** installato da una procedura guidata.
 

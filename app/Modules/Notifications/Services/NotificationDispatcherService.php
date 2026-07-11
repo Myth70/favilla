@@ -144,6 +144,61 @@ class NotificationDispatcherService
         $message['from_user_id'] = $fromUserId;
         $message = $this->resolveEventVisualMessage($eventSlug, $message);
         $userIds = array_values(array_unique(array_filter(array_map('intval', $userIds), static fn (int $id) => $id > 0)));
+
+        // Il fan-out (dispatch + deliveries + accodamento) è atomico: un errore a
+        // metà annulla l'intero blocco invece di lasciare consegne parziali.
+        // Nesting-aware: se il chiamante ha già una transazione aperta (es. la
+        // write che ha innescato la notifica) non ne apre una seconda — MariaDB
+        // non annida le transazioni.
+        $ownsTransaction = !$this->pdo->inTransaction();
+        if ($ownsTransaction) {
+            $this->pdo->beginTransaction();
+        }
+
+        try {
+            $result = $this->writeDeliveries(
+                $eventSlug,
+                $sourceModule,
+                $userIds,
+                $message,
+                $fromUserId,
+                $bypassPreferences,
+                $roleSlug
+            );
+
+            if ($ownsTransaction) {
+                $this->pdo->commit();
+            }
+        } catch (\Throwable $e) {
+            if ($ownsTransaction && $this->pdo->inTransaction()) {
+                $this->pdo->rollBack();
+            }
+            throw $e;
+        }
+
+        // Best-effort e disaccoppiato: fuori dalla transazione notifiche.
+        $this->fanOutToWebhooks($eventSlug, $sourceModule, $message);
+
+        return $result;
+    }
+
+    /**
+     * Scrive dispatch + deliveries + accodamento per l'insieme di utenti.
+     * Eseguito dentro la transazione aperta da dispatchToUsers().
+     *
+     * @param int[] $userIds
+     * @param array{title:string,body:string,type:string,link:?string,icon:?string,context:array<string,mixed>} $message
+     * @return array{dispatch_id:int, legacy_notification_ids:int[], delivery_ids:int[]}
+     */
+    private function writeDeliveries(
+        string $eventSlug,
+        string $sourceModule,
+        array $userIds,
+        array $message,
+        ?int $fromUserId,
+        bool $bypassPreferences,
+        ?string $roleSlug
+    ): array {
         $dispatchId = $this->dispatchRepo->createDispatch([
             'event_slug'         => $eventSlug,
             'source_module'      => $sourceModule,
@@ -176,10 +231,17 @@ class NotificationDispatcherService
         $legacyNotificationIds = [];
         $moduleSlug = $this->normalizeModuleSlug($sourceModule);
 
+        // Prefetch batch delle preferenze: UNA query per tutti i destinatari
+        // invece di una per utente (elimina l'N+1 nel broadcast verso un ruolo).
+        $resolvedByUser = $bypassPreferences
+            ? []
+            : $this->preferenceRepo->resolveChannelBindingsForUsers($userIds, $moduleSlug, $eventSlug, $bindings);
+
         foreach ($userIds as $userId) {
             $resolvedBindings = $bypassPreferences
                 ? $this->forceBindingsEnabled($bindings)
-                : $this->preferenceRepo->resolveChannelBindings($userId, $moduleSlug, $eventSlug, $bindings);
+                : ($resolvedByUser[$userId]
+                    ?? $this->preferenceRepo->resolveChannelBindings($userId, $moduleSlug, $eventSlug, $bindings));
 
             foreach ($resolvedBindings as $binding) {
                 if (empty($binding['is_enabled']) || empty($binding['channel_active'])) {
@@ -222,8 +284,6 @@ class NotificationDispatcherService
         }
 
         $this->dispatchRepo->refreshStatus($dispatchId);
-
-        $this->fanOutToWebhooks($eventSlug, $sourceModule, $message);
 
         return [
             'dispatch_id' => $dispatchId,

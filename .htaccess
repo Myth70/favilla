@@ -27,7 +27,9 @@
     RewriteEngine On
 
     # Sensitive root-level files (setup.php and index.php stay reachable).
-    RewriteRule ^(\.env.*|composer\.(json|lock)|phpunit\.xml|phpstan.*|phpstan-baseline\.neon|favilla|.*\.md|project_context\.json|\.git.*|\.docker.*)$ - [F,L]
+    # `scan.php` is a local i18n dev utility (gitignored, never shipped) — deny it
+    # here so it can't be served if the project root is accidentally web-exposed.
+    RewriteRule ^(\.env.*|composer\.(json|lock)|phpunit\.xml|phpstan.*|phpstan-baseline\.neon|scan\.php|favilla|.*\.md|project_context\.json|\.git.*|\.docker.*)$ - [F,L]
 
     # Non-public directories — never served over HTTP.
     RewriteRule ^(app|bootstrap|database|storage|vendor|tests|docs|context|docker)(/|$) - [F,L]

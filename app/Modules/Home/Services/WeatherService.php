@@ -258,6 +258,10 @@ class WeatherService
 
     private function httpGet(string $url): ?string
     {
+        // Logga solo l'host (open-meteo/nominatim): la URL contiene lat/lon, cioè
+        // dati di posizione che non devono finire nei log.
+        $host = (string) (parse_url($url, PHP_URL_HOST) ?: 'sconosciuto');
+
         if (function_exists('curl_init')) {
             $ch = curl_init($url);
             curl_setopt_array($ch, [
@@ -266,18 +270,44 @@ class WeatherService
                 CURLOPT_CONNECTTIMEOUT => self::HTTP_TIMEOUT,
                 CURLOPT_USERAGENT      => 'Favilla-Dashboard',
             ]);
-            $body = curl_exec($ch);
-            $code = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            $body  = curl_exec($ch);
+            $code  = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            $error = curl_error($ch);
             curl_close($ch);
-            return ($body !== false && $code >= 200 && $code < 300) ? (string) $body : null;
+
+            if ($body !== false && $code >= 200 && $code < 300) {
+                return (string) $body;
+            }
+
+            // Errore di rete diagnosticabile (prima si degradava in silenzio).
+            app_log('warning', 'WeatherService: richiesta HTTP meteo fallita (curl)', [
+                'host'       => $host,
+                'http_code'  => $code,
+                'curl_error' => $error !== '' ? $error : null,
+            ]);
+            return null;
         }
 
         $ctx = stream_context_create(['http' => [
             'timeout' => self::HTTP_TIMEOUT,
             'header'  => "User-Agent: Favilla-Dashboard\r\n",
         ]]);
+
+        // Il '@' resta necessario: l'ErrorHandler converte i warning PHP in
+        // eccezioni, quindi senza soppressione un errore di rete lancerebbe invece
+        // di ritornare null, rompendo il fallback su cache. Il motivo del
+        // fallimento viene comunque recuperato da error_get_last() e loggato.
         $body = @file_get_contents($url, false, $ctx);
-        return $body !== false ? $body : null;
+        if ($body !== false) {
+            return $body;
+        }
+
+        $lastError = error_get_last();
+        app_log('warning', 'WeatherService: richiesta HTTP meteo fallita (stream)', [
+            'host'  => $host,
+            'error' => $lastError['message'] ?? null,
+        ]);
+        return null;
     }
 
     /**

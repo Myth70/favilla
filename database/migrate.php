@@ -378,10 +378,7 @@ function runMigrations(
                     $pdo->exec($stmt);
                 } catch (PDOException $e) {
                     // Idempotency: skip "already exists" / "Duplicate" silently
-                    if (str_contains($e->getMessage(), 'already exists')
-                        || str_contains($e->getMessage(), 'Duplicate')) {
-                        // Silently skip
-                    } else {
+                    if (!isIdempotencyError($e)) {
                         throw $e;
                     }
                 }
@@ -493,6 +490,25 @@ function freshInstall(PDO $pdo, string $basePath): void
     }
     echo "  [OK] Dati obbligatori inseriti.\n";
 
+    // 3b. Registra le migration CORE già cristallizzate in schema.sql come
+    // eseguite, SENZA rieseguirle. schema.sql è la fonte di verità per --fresh e
+    // ne contiene già il DDL; senza questa registrazione un successivo
+    // `migrate.php` le ritroverebbe non-registrate, le rieseguirebbe e ne
+    // inghiottirebbe gli errori "already exists" (drift a due sorgenti).
+    $coreMigrations = glob($basePath . '/database/migrations/*.sql') ?: [];
+    if (!empty($coreMigrations)) {
+        echo "\n=== Registrazione migration core consolidate ===\n";
+        $mark = $pdo->prepare(
+            'INSERT IGNORE INTO migrations (filename, module, batch) VALUES (?, NULL, 0)'
+        );
+        foreach ($coreMigrations as $coreFile) {
+            $filename = basename($coreFile);
+            $mark->execute([$filename]);
+            echo "  [MARK] {$filename} (consolidata in schema.sql)\n";
+        }
+        echo "  [OK] " . count($coreMigrations) . " migration core registrate.\n";
+    }
+
     // 4. Carica la KB Help Online da database/help/*.json (contenuto versionato
     // nel repo, indipendente dai moduli abilitati per l'edizione scelta).
     echo "\n=== Import KB Help Online ===\n";
@@ -564,14 +580,32 @@ function executeSqlFile(PDO $pdo, string $file): int
         try {
             $pdo->exec($stmt);
         } catch (PDOException $e) {
-            if (!str_contains($e->getMessage(), 'already exists')
-                && !str_contains($e->getMessage(), 'Duplicate')) {
+            if (!isIdempotencyError($e)) {
                 echo "    [ERRORE] {$e->getMessage()}\n";
                 $errors++;
             }
         }
     }
     return $errors;
+}
+
+/**
+ * Determina se un errore PDO è un "già esistente / duplicato" idempotente
+ * (tabella/colonna/chiave già presente, entry duplicata) e quindi ignorabile su
+ * riesecuzione di una migration/seed.
+ *
+ * Centralizza in un unico punto la logica di swallow prima duplicata tra
+ * runMigrationsInDir() ed executeSqlFile(). NB: un narrowing per solo-SQLSTATE
+ * NON è affidabile qui, perché il "Duplicate foreign key constraint name" di
+ * MariaDB emette SQLSTATE generico HY000 come molti altri errori reali; il match
+ * sul messaggio resta quindi il discriminante più sicuro.
+ */
+function isIdempotencyError(PDOException $e): bool
+{
+    $message = $e->getMessage();
+
+    return str_contains($message, 'already exists')
+        || str_contains($message, 'Duplicate');
 }
 
 /**

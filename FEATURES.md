@@ -306,4 +306,4 @@ Cron-equivalent with a UI.
 - Docker deployment (app + MariaDB + scheduler loop) or classic
   Apache/XAMPP; 100-table schema installed by migrations.
 <!-- Keep counts in sync with README. Recompute: tests → `phpunit --list-tests | grep -c '^ - '`; Q&As → `grep -rho '"question"' database/help/*.json | wc -l` ÷ 5; tables → `grep -c 'CREATE TABLE' database/schema.sql`. -->
-- 1,700+ automated tests, PHPStan level 6, PSR-12 — all enforced in CI.
+- 1,800+ automated tests, PHPStan level 6, PSR-12 — all enforced in CI.

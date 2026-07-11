@@ -100,7 +100,7 @@ Favilla fait deux choix délibérément démodés :
    MVC classique que vous pouvez lire, auditer et étendre de bout en bout :
    contrôleurs, services, dépôts, vues, aucune magie.
 
-Des choix pareils ne tiennent qu'avec de la discipline derrière : **plus de 1 700
+Des choix pareils ne tiennent qu'avec de la discipline derrière : **plus de 1 800
 tests automatisés**, **PHPStan niveau 6** et **PSR-12** appliqués en CI, et un
 **schéma de plus de 100 tables** installé par un assistant guidé.
 
