@@ -134,6 +134,7 @@ $sidebarPatternClass = $sidebarStyle === 'accent'
     <?php
         // Voci admin quotidiane
         $adminQuickLinks = [
+            ['label' => t('common.admin.catalog'),   'icon' => 'fa-table-cells-large', 'route' => 'admin.index',      'permission' => 'admin.users.view'],
             ['label' => t('common.admin.dashboard'), 'icon' => 'fa-gauge-high',   'route' => 'admin.dashboard',      'permission' => 'admin.users.view'],
             ['label' => t('common.admin.users'),     'icon' => 'fa-users',        'route' => 'admin.users.index',    'permission' => 'admin.users.view'],
             ['label' => t('common.admin.roles'),     'icon' => 'fa-user-tag',     'route' => 'admin.roles.index',    'permission' => 'admin.roles.manage'],

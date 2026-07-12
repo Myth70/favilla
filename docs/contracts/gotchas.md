@@ -26,7 +26,8 @@
 | `app('db')` in a CLI command | string alias not registered in the container | add a Repository method and call it |
 | `isModuleEnabled()` in a CLI command | `ModuleLoader` not resolvable outside the web context | use `class_exists(NameService::class)` as guard |
 | Admin panel missing from the index | `admin_panel` absent in `module.json`, or route not registered | add `admin_panel` to `module.json`; route must exist and module be active |
-| Hardcoded admin panel | links written directly in `AdminIndexService::catalog()` | move links to the `module.json` `admin_panel` (auto-discovered) |
+| Hardcoded admin panel for a **module** | a module's own console links written directly in `AdminIndexService::catalog()` | give the module an `admin_panel` in its `module.json` (auto-discovered — this also makes its row clickable in Admin → Moduli via `ModuleManagementService::resolveAdminLink()`). Only the core **cross-cutting** links that don't belong to any single module (Backup, Scheduler, HealthCheck, Reports, Notifications) stay hardcoded in `catalog()` |
+| Non-core module unreachable after leaving the sidebar | a non-core module (e.g. Webhooks) removed from `sidebar` but without an `admin_panel` | add an `admin_panel` to `module.json`: it is the canonical admin entry point read by Admin → Moduli. Core system tooling instead gets its Moduli link from the `$coreModuleRoutes` map in `Admin/Views/modules/index.php` |
 | JOIN to `users` from an independent-DB module | `users` does not exist in the module DB (e.g. `favilla_documenti`) | enrich via `app(\PDO::class)` on the main DB; never cross-DB JOIN |
 
 ## 2. Post-change workflow (`MUST`)

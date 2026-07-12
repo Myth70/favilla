@@ -121,6 +121,7 @@ return [
     ],
 
     'admin' => [
+        'catalog'         => 'Katalog',
         'dashboard'       => 'Dashboard',
         'users'           => 'Benutzer',
         'roles'           => 'Rollen',
