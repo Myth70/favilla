@@ -158,10 +158,14 @@ class DocumentoService
      * Restituisce lista documenti paginata.
      * Espone sia 'data' (chiave nativa del repository) sia 'items' (alias
      * usato storicamente dalle view: lo manteniamo per compatibilità).
+     *
+     * $can esplicito = permission-checker del chiamante senza sessione (API v1,
+     * che risolve i permessi da ApiRequestContext); null = has_permission().
      */
-    public function listPaginated(array $filters, int $userId): array
+    public function listPaginated(array $filters, int $userId, ?callable $can = null): array
     {
-        $adminMode = has_permission('documenti.admin');
+        $can ??= static fn (string $p): bool => has_permission($p);
+        $adminMode = $can('documenti.admin');
         $filters['current_user_id'] = $userId;
         $result = $this->docRepo->listPaginated($filters, $adminMode);
         $result['items'] = $result['data'] ?? [];
@@ -170,15 +174,20 @@ class DocumentoService
 
     /**
      * Trova un documento con visibilità applicata.
+     *
+     * $can esplicito = permission-checker del chiamante senza sessione (API v1);
+     * null = has_permission() legacy da sessione.
      */
-    public function findVisible(int $docId, int $userId): ?array
+    public function findVisible(int $docId, int $userId, ?callable $can = null): ?array
     {
+        $can ??= static fn (string $p): bool => has_permission($p);
+
         $doc = $this->docRepo->find($docId);
         if (!$doc) {
             return null;
         }
 
-        if (has_permission('documenti.admin')) {
+        if ($can('documenti.admin')) {
             return $doc;
         }
 
@@ -199,7 +208,7 @@ class DocumentoService
         ];
 
         $permNeeded = $stepMap[$doc['stato']] ?? null;
-        if ($permNeeded && has_permission($permNeeded)) {
+        if ($permNeeded && $can($permNeeded)) {
             return $doc;
         }
 

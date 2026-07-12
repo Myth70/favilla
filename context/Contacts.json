@@ -1,6 +1,6 @@
 {
     "module": "Contacts",
-    "generated_at": "2026-07-12T00:30:46+02:00",
+    "generated_at": "2026-07-12T11:11:48+02:00",
     "routes": [
         {
             "method": "GET",
@@ -13,10 +13,40 @@
             ]
         },
         {
+            "method": "POST",
+            "uri": "/api/v1/contacts/",
+            "name": "api.contacts.store",
+            "controller": "ContactsApiController@store",
+            "middleware": [
+                "ApiTokenMiddleware",
+                "ApiRateLimitMiddleware"
+            ]
+        },
+        {
             "method": "GET",
             "uri": "/api/v1/contacts/{id}",
             "name": "api.contacts.show",
             "controller": "ContactsApiController@show",
+            "middleware": [
+                "ApiTokenMiddleware",
+                "ApiRateLimitMiddleware"
+            ]
+        },
+        {
+            "method": "PUT",
+            "uri": "/api/v1/contacts/{id}",
+            "name": "api.contacts.update",
+            "controller": "ContactsApiController@update",
+            "middleware": [
+                "ApiTokenMiddleware",
+                "ApiRateLimitMiddleware"
+            ]
+        },
+        {
+            "method": "DELETE",
+            "uri": "/api/v1/contacts/{id}",
+            "name": "api.contacts.destroy",
+            "controller": "ContactsApiController@destroy",
             "middleware": [
                 "ApiTokenMiddleware",
                 "ApiRateLimitMiddleware"

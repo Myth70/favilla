@@ -233,7 +233,7 @@ class CalendarService
         ];
     }
 
-    public function getEvent(int $id, int $userId): ?array
+    public function getEvent(int $id, int $userId, ?bool $isAdmin = null): ?array
     {
         $event = $this->repo->findWithCreator($id);
         if (!$event) {
@@ -243,7 +243,9 @@ class CalendarService
         // Solo il super-admin vede ogni evento. calendario.edit è un permesso
         // baseline (gestione dei PROPRI eventi), non un "vedi tutto": usarlo qui
         // esporrebbe gli eventi 'personal' altrui a chiunque possa editare i propri.
-        if (is_admin()) {
+        // $isAdmin esplicito = chiamante senza sessione (API v1, che risolve i
+        // ruoli da ApiRequestContext); null = comportamento legacy da sessione.
+        if ($isAdmin ?? is_admin()) {
             return $event;
         }
 

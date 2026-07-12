@@ -10,6 +10,15 @@ any breaking change would bump the major version.
 ## [Unreleased]
 
 ### Added
+- **API v1 breadth** (roadmap A2): the REST API grows from the two-module pilot
+  to five modules. New endpoints: **Contacts write** (`POST/PUT/DELETE
+  /contacts`, partial updates, owned contacts only), **Calendar read**
+  (`/calendar/events` with a `from`/`to` range and recurrences expanded into
+  occurrences, plus single-event detail), **Projects read** (`/projects`, same
+  owner/member scoping as the UI, `progetti.view_all` honored from token
+  scopes) and **Documents read** (`/documents`, metadata only, UI visibility
+  rules driven by token scopes). OpenAPI spec bumped to 1.1.0 — still the
+  single source of truth at `/api/v1/openapi.json`.
 - **Full backups — files included** (roadmap A1): backup archives now bundle
   uploaded files (`public/uploads/` and the Documents storage) next to the SQL
   dumps, with a per-root summary in the manifest (v2), the admin UI and the

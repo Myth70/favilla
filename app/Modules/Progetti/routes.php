@@ -3,9 +3,21 @@
 use App\Middleware\AuthMiddleware;
 use App\Middleware\CsrfMiddleware;
 use App\Middleware\RoleMiddleware;
+use App\Modules\Api\Middleware\ApiRateLimitMiddleware;
+use App\Modules\Api\Middleware\ApiTokenMiddleware;
 use App\Modules\Progetti\Controllers\AdminProgettiController;
+use App\Modules\Progetti\Controllers\Api\ProjectsApiController;
 use App\Modules\Progetti\Controllers\ChecklistController;
 use App\Modules\Progetti\Controllers\ProgettiController;
+
+// ── API v1 — token-based, stateless (riusa ProgettiService). Static prima di {id}.
+$router->group([
+    'prefix'     => 'api/v1/projects',
+    'middleware' => [ApiTokenMiddleware::class, ApiRateLimitMiddleware::class],
+], function ($r) {
+    $r->get('/', [ProjectsApiController::class, 'index'])->name('api.projects.index');
+    $r->get('/{id}', [ProjectsApiController::class, 'show'])->name('api.projects.show');
+});
 
 $router->group([
     'prefix' => 'admin/projects',

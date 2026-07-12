@@ -3,6 +3,8 @@
 use App\Middleware\AuthMiddleware;
 use App\Middleware\CsrfMiddleware;
 use App\Middleware\RoleMiddleware;
+use App\Modules\Api\Middleware\ApiRateLimitMiddleware;
+use App\Modules\Api\Middleware\ApiTokenMiddleware;
 use App\Modules\Documenti\Controllers\Admin\AdminAuditController;
 use App\Modules\Documenti\Controllers\Admin\AdminCategorieController;
 use App\Modules\Documenti\Controllers\Admin\AdminDashboardController;
@@ -11,11 +13,21 @@ use App\Modules\Documenti\Controllers\Admin\AdminHealthController;
 use App\Modules\Documenti\Controllers\Admin\AdminMimeController;
 use App\Modules\Documenti\Controllers\Admin\AdminSequenzeController;
 use App\Modules\Documenti\Controllers\Admin\AdminTrashController;
+use App\Modules\Documenti\Controllers\Api\DocumentsApiController;
 use App\Modules\Documenti\Controllers\ApprovazioniController;
 use App\Modules\Documenti\Controllers\CategorieController;
 use App\Modules\Documenti\Controllers\CollegamentiController;
 use App\Modules\Documenti\Controllers\DocumentiController;
 use App\Modules\Documenti\Controllers\VersioniController;
+
+// ── API v1 — token-based, stateless (riusa DocumentoService). Static prima di {id}.
+$router->group([
+    'prefix'     => 'api/v1/documents',
+    'middleware' => [ApiTokenMiddleware::class, ApiRateLimitMiddleware::class],
+], function ($r) {
+    $r->get('/', [DocumentsApiController::class, 'index'])->name('api.documents.index');
+    $r->get('/{id}', [DocumentsApiController::class, 'show'])->name('api.documents.show');
+});
 
 // ── ADMIN: /admin/documenti (Auth + Csrf + documenti.admin) ───────────────────
 $router->group([

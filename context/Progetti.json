@@ -1,7 +1,27 @@
 {
     "module": "Progetti",
-    "generated_at": "2026-07-12T00:30:46+02:00",
+    "generated_at": "2026-07-12T11:11:48+02:00",
     "routes": [
+        {
+            "method": "GET",
+            "uri": "/api/v1/projects/",
+            "name": "api.projects.index",
+            "controller": "ProjectsApiController@index",
+            "middleware": [
+                "ApiTokenMiddleware",
+                "ApiRateLimitMiddleware"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/api/v1/projects/{id}",
+            "name": "api.projects.show",
+            "controller": "ProjectsApiController@show",
+            "middleware": [
+                "ApiTokenMiddleware",
+                "ApiRateLimitMiddleware"
+            ]
+        },
         {
             "method": "GET",
             "uri": "/admin/projects/",

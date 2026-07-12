@@ -2,8 +2,8 @@
     "openapi": "3.1.0",
     "info": {
         "title": "Favilla API",
-        "version": "1.0.0",
-        "description": "API pubblica REST v1 di Favilla. Autenticazione via Personal Access Token (header Authorization: Bearer <token>). Gli scope del token sono un sottoinsieme dei permessi dell'utente. Rate limit per token (default 120 richieste/minuto), header X-RateLimit-*."
+        "version": "1.1.0",
+        "description": "API pubblica REST v1 di Favilla. Autenticazione via Personal Access Token (header Authorization: Bearer <token>). Gli scope del token sono un sottoinsieme dei permessi dell'utente. Rate limit per token (default 120 richieste/minuto), header X-RateLimit-*. Moduli coperti: Tasks (CRUD), Contacts (CRUD), Calendar (lettura), Projects (lettura), Documents (lettura, metadati). Gli endpoint di Projects e Documents rispondono 404 se il relativo modulo è disabilitato."
     },
     "servers": [
         { "url": "/api/v1", "description": "Base path relativo all'installazione" }
@@ -62,9 +62,128 @@
                     "id": { "type": "integer" },
                     "nome": { "type": "string" },
                     "cognome": { "type": ["string", "null"] },
+                    "azienda": { "type": ["string", "null"] },
+                    "ruolo": { "type": ["string", "null"] },
                     "email": { "type": ["string", "null"] },
                     "telefono": { "type": ["string", "null"] },
-                    "azienda": { "type": ["string", "null"] }
+                    "telefono_alt": { "type": ["string", "null"] },
+                    "indirizzo": { "type": ["string", "null"] },
+                    "sito_web": { "type": ["string", "null"] },
+                    "linkedin": { "type": ["string", "null"] },
+                    "instagram": { "type": ["string", "null"] },
+                    "twitter": { "type": ["string", "null"] },
+                    "facebook": { "type": ["string", "null"] },
+                    "whatsapp": { "type": ["string", "null"] },
+                    "telegram": { "type": ["string", "null"] },
+                    "tags": { "type": ["string", "null"], "description": "Lista separata da virgole." },
+                    "note": { "type": ["string", "null"] },
+                    "created_at": { "type": ["string", "null"] },
+                    "updated_at": { "type": ["string", "null"] }
+                }
+            },
+            "ContactInput": {
+                "type": "object",
+                "description": "Campi scrivibili di un contatto. In PUT l'aggiornamento è parziale: i campi assenti restano invariati. L'avatar non è gestito via API.",
+                "properties": {
+                    "nome": { "type": "string" },
+                    "cognome": { "type": "string" },
+                    "azienda": { "type": "string" },
+                    "ruolo": { "type": "string" },
+                    "email": { "type": "string", "format": "email" },
+                    "telefono": { "type": "string" },
+                    "telefono_alt": { "type": "string" },
+                    "indirizzo": { "type": "string" },
+                    "sito_web": { "type": "string" },
+                    "linkedin": { "type": "string" },
+                    "instagram": { "type": "string" },
+                    "twitter": { "type": "string" },
+                    "facebook": { "type": "string" },
+                    "whatsapp": { "type": "string" },
+                    "telegram": { "type": "string" },
+                    "tags": { "type": "string", "description": "Lista separata da virgole." },
+                    "note": { "type": "string" }
+                }
+            },
+            "CalendarOccurrence": {
+                "type": "object",
+                "description": "Occorrenza nell'intervallo richiesto. Gli eventi ricorrenti sono espansi: le occorrenze virtuali hanno id stringa e recurrence.parent_id punta all'evento master.",
+                "properties": {
+                    "id": { "type": ["integer", "string"] },
+                    "title": { "type": "string" },
+                    "start": { "type": ["string", "null"] },
+                    "end": { "type": ["string", "null"] },
+                    "all_day": { "type": "boolean" },
+                    "color": { "type": ["string", "null"] },
+                    "description": { "type": "string" },
+                    "location": { "type": "string" },
+                    "visibility": { "type": "string", "enum": ["personal", "public", "role"] },
+                    "created_by": { "type": "integer" },
+                    "recurrence": {
+                        "type": "object",
+                        "properties": {
+                            "is_occurrence": { "type": "boolean" },
+                            "parent_id": { "type": "integer" },
+                            "rule": { "type": ["string", "null"] }
+                        }
+                    }
+                }
+            },
+            "CalendarEvent": {
+                "type": "object",
+                "properties": {
+                    "id": { "type": "integer" },
+                    "title": { "type": "string" },
+                    "description": { "type": ["string", "null"] },
+                    "start_datetime": { "type": ["string", "null"] },
+                    "end_datetime": { "type": ["string", "null"] },
+                    "all_day": { "type": "boolean" },
+                    "color": { "type": ["string", "null"] },
+                    "category": { "type": ["string", "null"] },
+                    "location": { "type": ["string", "null"] },
+                    "visibility": { "type": "string", "enum": ["personal", "public", "role"] },
+                    "recurrence_rule": { "type": ["string", "null"] },
+                    "recurrence_end": { "type": ["string", "null"] },
+                    "created_by": { "type": "integer" },
+                    "created_at": { "type": ["string", "null"] },
+                    "updated_at": { "type": ["string", "null"] }
+                }
+            },
+            "Project": {
+                "type": "object",
+                "properties": {
+                    "id": { "type": "integer" },
+                    "name": { "type": "string" },
+                    "code": { "type": ["string", "null"] },
+                    "description": { "type": ["string", "null"] },
+                    "client_name": { "type": ["string", "null"] },
+                    "status": { "type": "string", "enum": ["planning", "active", "on_hold", "completed", "cancelled"] },
+                    "start_date": { "type": ["string", "null"], "format": "date" },
+                    "end_date": { "type": ["string", "null"], "format": "date" },
+                    "estimated_hours": { "type": "number" },
+                    "budget_planned": { "type": "number" },
+                    "progress": { "type": "number", "description": "Percentuale 0-100 (cache ricalcolata dal modulo)." },
+                    "owner_user_id": { "type": "integer" },
+                    "created_at": { "type": ["string", "null"] },
+                    "updated_at": { "type": ["string", "null"] }
+                }
+            },
+            "Document": {
+                "type": "object",
+                "description": "Metadati di un documento. Il download dei binari non è esposto dall'API v1.",
+                "properties": {
+                    "id": { "type": "integer" },
+                    "protocollo": { "type": ["string", "null"] },
+                    "titolo": { "type": "string" },
+                    "descrizione": { "type": ["string", "null"] },
+                    "stato": { "type": ["string", "null"], "enum": ["bozza", "inviato", "in_controllo", "controllato", "in_approvazione", "approvato", "rifiutato", "pubblicato", "scaduto", "archiviato", null] },
+                    "categoria_id": { "type": ["integer", "null"] },
+                    "versione_no": { "type": "integer" },
+                    "tag": { "type": ["string", "null"] },
+                    "pubblicato_il": { "type": ["string", "null"] },
+                    "scade_il": { "type": ["string", "null"] },
+                    "owner_user_id": { "type": "integer" },
+                    "created_at": { "type": ["string", "null"] },
+                    "updated_at": { "type": ["string", "null"] }
                 }
             }
         },
@@ -247,6 +366,36 @@
                     "403": { "$ref": "#/components/responses/Forbidden" },
                     "429": { "$ref": "#/components/responses/RateLimited" }
                 }
+            },
+            "post": {
+                "summary": "Crea contatto",
+                "operationId": "createContact",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "allOf": [
+                                    { "$ref": "#/components/schemas/ContactInput" },
+                                    { "required": ["nome"] }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Contatto creato.",
+                        "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "$ref": "#/components/schemas/Contact" } } } } }
+                    },
+                    "401": { "$ref": "#/components/responses/Unauthorized" },
+                    "403": { "$ref": "#/components/responses/Forbidden" },
+                    "422": {
+                        "description": "Validazione fallita.",
+                        "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } }
+                    },
+                    "429": { "$ref": "#/components/responses/RateLimited" }
+                }
             }
         },
         "/contacts/{id}": {
@@ -258,6 +407,155 @@
                 "operationId": "getContact",
                 "responses": {
                     "200": { "description": "Contatto.", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "$ref": "#/components/schemas/Contact" } } } } } },
+                    "401": { "$ref": "#/components/responses/Unauthorized" },
+                    "403": { "$ref": "#/components/responses/Forbidden" },
+                    "404": { "$ref": "#/components/responses/NotFound" },
+                    "429": { "$ref": "#/components/responses/RateLimited" }
+                }
+            },
+            "put": {
+                "summary": "Aggiorna contatto (parziale; solo contatti di proprietà)",
+                "operationId": "updateContact",
+                "requestBody": {
+                    "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ContactInput" } } }
+                },
+                "responses": {
+                    "200": { "description": "Contatto aggiornato.", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "$ref": "#/components/schemas/Contact" } } } } } },
+                    "401": { "$ref": "#/components/responses/Unauthorized" },
+                    "403": { "$ref": "#/components/responses/Forbidden" },
+                    "404": { "$ref": "#/components/responses/NotFound" },
+                    "422": {
+                        "description": "Validazione fallita.",
+                        "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } }
+                    },
+                    "429": { "$ref": "#/components/responses/RateLimited" }
+                }
+            },
+            "delete": {
+                "summary": "Elimina contatto (solo contatti di proprietà)",
+                "operationId": "deleteContact",
+                "responses": {
+                    "200": { "description": "Contatto eliminato." },
+                    "401": { "$ref": "#/components/responses/Unauthorized" },
+                    "403": { "$ref": "#/components/responses/Forbidden" },
+                    "404": { "$ref": "#/components/responses/NotFound" },
+                    "429": { "$ref": "#/components/responses/RateLimited" }
+                }
+            }
+        },
+        "/calendar/events": {
+            "get": {
+                "summary": "Eventi nell'intervallo (ricorrenze espanse)",
+                "operationId": "listCalendarEvents",
+                "parameters": [
+                    { "name": "from", "in": "query", "schema": { "type": "string", "format": "date" }, "description": "Default: oggi." },
+                    { "name": "to", "in": "query", "schema": { "type": "string", "format": "date" }, "description": "Default: from + 30 giorni. Intervallo massimo 400 giorni." }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Occorrenze nell'intervallo (meta: from, to, total).",
+                        "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "type": "array", "items": { "$ref": "#/components/schemas/CalendarOccurrence" } }, "meta": { "type": "object", "properties": { "from": { "type": "string" }, "to": { "type": "string" }, "total": { "type": "integer" } } } } } } }
+                    },
+                    "401": { "$ref": "#/components/responses/Unauthorized" },
+                    "403": { "$ref": "#/components/responses/Forbidden" },
+                    "422": {
+                        "description": "Intervallo date non valido.",
+                        "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } }
+                    },
+                    "429": { "$ref": "#/components/responses/RateLimited" }
+                }
+            }
+        },
+        "/calendar/events/{id}": {
+            "parameters": [
+                { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" }, "description": "Id dell'evento master (le occorrenze virtuali non sono indirizzabili)." }
+            ],
+            "get": {
+                "summary": "Dettaglio evento",
+                "operationId": "getCalendarEvent",
+                "responses": {
+                    "200": { "description": "Evento.", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "$ref": "#/components/schemas/CalendarEvent" } } } } } },
+                    "401": { "$ref": "#/components/responses/Unauthorized" },
+                    "403": { "$ref": "#/components/responses/Forbidden" },
+                    "404": { "$ref": "#/components/responses/NotFound" },
+                    "429": { "$ref": "#/components/responses/RateLimited" }
+                }
+            }
+        },
+        "/projects": {
+            "get": {
+                "summary": "Elenco progetti (owner/membro; view_all vede tutto)",
+                "operationId": "listProjects",
+                "parameters": [
+                    { "name": "page", "in": "query", "schema": { "type": "integer", "minimum": 1 } },
+                    { "name": "q", "in": "query", "schema": { "type": "string" } },
+                    { "name": "status", "in": "query", "schema": { "type": "string", "enum": ["planning", "active", "on_hold", "completed", "cancelled"] } }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lista paginata di progetti.",
+                        "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "type": "array", "items": { "$ref": "#/components/schemas/Project" } }, "meta": { "$ref": "#/components/schemas/Meta" } } } } }
+                    },
+                    "401": { "$ref": "#/components/responses/Unauthorized" },
+                    "403": { "$ref": "#/components/responses/Forbidden" },
+                    "422": {
+                        "description": "Filtro non valido.",
+                        "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } }
+                    },
+                    "429": { "$ref": "#/components/responses/RateLimited" }
+                }
+            }
+        },
+        "/projects/{id}": {
+            "parameters": [
+                { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+            ],
+            "get": {
+                "summary": "Dettaglio progetto",
+                "operationId": "getProject",
+                "responses": {
+                    "200": { "description": "Progetto.", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "$ref": "#/components/schemas/Project" } } } } } },
+                    "401": { "$ref": "#/components/responses/Unauthorized" },
+                    "403": { "$ref": "#/components/responses/Forbidden" },
+                    "404": { "$ref": "#/components/responses/NotFound" },
+                    "429": { "$ref": "#/components/responses/RateLimited" }
+                }
+            }
+        },
+        "/documents": {
+            "get": {
+                "summary": "Elenco documenti (metadati, visibilità come UI)",
+                "operationId": "listDocuments",
+                "parameters": [
+                    { "name": "page", "in": "query", "schema": { "type": "integer", "minimum": 1 } },
+                    { "name": "q", "in": "query", "schema": { "type": "string" }, "description": "Cerca in titolo e protocollo." },
+                    { "name": "stato", "in": "query", "schema": { "type": "string", "enum": ["bozza", "inviato", "in_controllo", "controllato", "in_approvazione", "approvato", "rifiutato", "pubblicato", "scaduto", "archiviato"] } },
+                    { "name": "categoria_id", "in": "query", "schema": { "type": "integer" } }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lista paginata di documenti.",
+                        "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "type": "array", "items": { "$ref": "#/components/schemas/Document" } }, "meta": { "$ref": "#/components/schemas/Meta" } } } } }
+                    },
+                    "401": { "$ref": "#/components/responses/Unauthorized" },
+                    "403": { "$ref": "#/components/responses/Forbidden" },
+                    "422": {
+                        "description": "Filtro non valido.",
+                        "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Error" } } }
+                    },
+                    "429": { "$ref": "#/components/responses/RateLimited" }
+                }
+            }
+        },
+        "/documents/{id}": {
+            "parameters": [
+                { "name": "id", "in": "path", "required": true, "schema": { "type": "integer" } }
+            ],
+            "get": {
+                "summary": "Dettaglio documento (metadati)",
+                "operationId": "getDocument",
+                "responses": {
+                    "200": { "description": "Documento.", "content": { "application/json": { "schema": { "type": "object", "properties": { "data": { "$ref": "#/components/schemas/Document" } } } } } },
                     "401": { "$ref": "#/components/responses/Unauthorized" },
                     "403": { "$ref": "#/components/responses/Forbidden" },
                     "404": { "$ref": "#/components/responses/NotFound" },

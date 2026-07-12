@@ -14,13 +14,16 @@ use App\Modules\Contacts\Controllers\RecurrencesController;
 use App\Modules\Contacts\Controllers\ReminderController;
 use App\Modules\Contacts\Controllers\SharingController;
 
-// ── API v1 — sola lettura nel roll-out pilota (riusa ContactsService).
+// ── API v1 — lettura + scrittura (riusa ContactsService). Static prima di {id}.
 $router->group([
     'prefix'     => 'api/v1/contacts',
     'middleware' => [ApiTokenMiddleware::class, ApiRateLimitMiddleware::class],
 ], function ($r) {
     $r->get('/', [ContactsApiController::class, 'index'])->name('api.contacts.index');
+    $r->post('/', [ContactsApiController::class, 'store'])->name('api.contacts.store');
     $r->get('/{id}', [ContactsApiController::class, 'show'])->name('api.contacts.show');
+    $r->put('/{id}', [ContactsApiController::class, 'update'])->name('api.contacts.update');
+    $r->delete('/{id}', [ContactsApiController::class, 'destroy'])->name('api.contacts.destroy');
 });
 
 $router->group([
