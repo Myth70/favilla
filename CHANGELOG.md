@@ -10,6 +10,15 @@ any breaking change would bump the major version.
 ## [Unreleased]
 
 ### Added
+- **Demo instance tooling** (roadmap A3): a guarded `php favilla demo:reset`
+  command (wipes uploads, rebuilds the DB and reseeds the demo dataset —
+  refuses to run unless `DEMO_MODE=true`), a `docker-compose.demo.yml` overlay
+  with an hourly reset loop, a demo notice with the sample credentials on the
+  login page, and a deploy guide in `docs/demo-instance.md`.
+- **SSO smoke-test lab**: a throwaway Keycloak with a pre-provisioned realm
+  (`tools/sso-lab/`, client + test users covering verified/unverified e-mail
+  and IdP-disabled accounts) and a step-by-step runbook mapping the
+  security-contract checklist (`docs/sso-smoke-test.md`).
 - **API v1 breadth** (roadmap A2): the REST API grows from the two-module pilot
   to five modules. New endpoints: **Contacts write** (`POST/PUT/DELETE
   /contacts`, partial updates, owned contacts only), **Calendar read**

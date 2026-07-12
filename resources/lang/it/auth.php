@@ -368,4 +368,9 @@ return [
             'notification' => 'notifica',
         ],
     ],
+    'demo' => [
+        'banner_title'       => "Istanza demo.",
+        'banner_body'        => "I dati vengono azzerati automaticamente ogni ora: prova tutto liberamente.",
+        'banner_credentials' => "Accedi con",
+    ],
 ];

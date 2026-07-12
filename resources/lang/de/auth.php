@@ -368,4 +368,9 @@ return [
             'notification' => 'Benachrichtigung',
         ],
     ],
+    'demo' => [
+        'banner_title'       => "Demo-Instanz.",
+        'banner_body'        => "Die Daten werden jede Stunde automatisch zurückgesetzt: Probieren Sie alles frei aus.",
+        'banner_credentials' => "Anmelden mit",
+    ],
 ];

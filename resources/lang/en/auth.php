@@ -368,4 +368,9 @@ return [
             'notification' => 'notification',
         ],
     ],
+    'demo' => [
+        'banner_title'       => "Demo instance.",
+        'banner_body'        => "Data is reset automatically every hour: feel free to try everything.",
+        'banner_credentials' => "Sign in with",
+    ],
 ];

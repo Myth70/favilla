@@ -1,0 +1,53 @@
+# Favilla — overlay ISTANZA DEMO PUBBLICA (vedi docs/demo-instance.md).
+#
+#   docker compose -f docker-compose.yml -f docker-compose.demo.yml up -d
+#
+# Cosa aggiunge rispetto allo stack standard:
+#   - primo avvio hands-off con dataset demo "Aurora Studio" (AUTO_MIGRATE +
+#     DEMO_DATA su database vuoto);
+#   - DEMO_MODE=true: mostra l'avviso demo con le credenziali sulla pagina di
+#     login e SBLOCCA il comando distruttivo `demo:reset`;
+#   - servizio `demo-reset`: ogni ora riporta l'istanza allo stato iniziale
+#     (svuota upload, migrate --fresh, riseed demo).
+#
+# NON usare su installazioni reali: DEMO_MODE arma un comando che cancella
+# tutti i dati e il dataset demo contiene utenti con password deboli.
+
+services:
+  app:
+    environment:
+      AUTO_MIGRATE: "true"
+      DEMO_DATA: "true"
+      DEMO_MODE: "true"
+
+  scheduler:
+    environment:
+      DEMO_MODE: "true"
+
+  demo-reset:
+    image: ghcr.io/myth70/favilla:${FAVILLA_TAG:-latest}
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      APP_ENV: "${APP_ENV:-production}"
+      APP_URL: "${APP_URL:-http://localhost:8080}"
+      APP_KEY: "${APP_KEY:?set APP_KEY in .env}"
+      APP_EDITION: "${APP_EDITION:-}"
+      BACKUP_ENCRYPTION_KEY: "${BACKUP_ENCRYPTION_KEY:?set BACKUP_ENCRYPTION_KEY in .env}"
+      DB_HOST: db
+      DB_PORT: "3306"
+      DB_NAME: "${DB_NAME:-favilla}"
+      DB_USER: "${DB_USER:-favilla}"
+      DB_PASS: "${DB_PASS:?set DB_PASS in .env}"
+      DB_CHARSET: utf8mb4
+      DEMO_MODE: "true"
+      # Secondi tra un reset e l'altro (default: 1 ora).
+      DEMO_RESET_INTERVAL: "${DEMO_RESET_INTERVAL:-3600}"
+    volumes:
+      - storage:/var/www/html/storage
+      - uploads:/var/www/html/public/uploads
+    # Il primo sleep lascia che l'app completi l'AUTO_MIGRATE+seed iniziale;
+    # poi il loop azzera l'istanza a ogni intervallo.
+    command: ["bash", "-c", "sleep \"$${DEMO_RESET_INTERVAL}\"; while true; do php favilla demo:reset || true; sleep \"$${DEMO_RESET_INTERVAL}\"; done"]

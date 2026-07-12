@@ -18,6 +18,15 @@ $view->start('content');
 
     <hr class="auth-divider">
 
+    <?php if (filter_var((string) env('DEMO_MODE', false), FILTER_VALIDATE_BOOL)): ?>
+        <div class="alert alert-info small mb-4" role="note">
+            <i class="fa-solid fa-flask me-1"></i>
+            <strong><?= e(t('auth.demo.banner_title')) ?></strong>
+            <?= e(t('auth.demo.banner_body')) ?>
+            <span class="d-block mt-1"><?= e(t('auth.demo.banner_credentials')) ?> <code>lucamarinelli</code> / <code>lucamarinelli</code></span>
+        </div>
+    <?php endif; ?>
+
     <?php if (!empty($error)): ?>
         <div class="alert-auth-danger mb-4 d-flex align-items-center gap-2">
             <i class="fa-solid fa-circle-exclamation"></i>

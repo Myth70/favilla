@@ -368,4 +368,9 @@ return [
             'notification' => 'notification',
         ],
     ],
+    'demo' => [
+        'banner_title'       => "Instance de démonstration.",
+        'banner_body'        => "Les données sont réinitialisées automatiquement chaque heure : essayez tout librement.",
+        'banner_credentials' => "Connectez-vous avec",
+    ],
 ];

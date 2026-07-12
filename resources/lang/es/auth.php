@@ -368,4 +368,9 @@ return [
             'notification' => 'notificación',
         ],
     ],
+    'demo' => [
+        'banner_title'       => "Instancia de demostración.",
+        'banner_body'        => "Los datos se restablecen automáticamente cada hora: prueba todo con libertad.",
+        'banner_credentials' => "Inicia sesión con",
+    ],
 ];

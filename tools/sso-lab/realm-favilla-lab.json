@@ -1,0 +1,73 @@
+{
+    "realm": "favilla-lab",
+    "enabled": true,
+    "displayName": "Favilla SSO Lab",
+    "registrationAllowed": false,
+    "resetPasswordAllowed": false,
+    "sslRequired": "none",
+    "clients": [
+        {
+            "clientId": "favilla",
+            "name": "Favilla",
+            "enabled": true,
+            "protocol": "openid-connect",
+            "publicClient": false,
+            "secret": "favilla-lab-secret",
+            "standardFlowEnabled": true,
+            "implicitFlowEnabled": false,
+            "directAccessGrantsEnabled": false,
+            "serviceAccountsEnabled": false,
+            "redirectUris": [
+                "http://localhost/auth/oidc/callback",
+                "http://localhost:8080/auth/oidc/callback",
+                "http://localhost:8090/auth/oidc/callback",
+                "http://127.0.0.1/auth/oidc/callback",
+                "http://127.0.0.1:8080/auth/oidc/callback"
+            ],
+            "webOrigins": ["+"],
+            "attributes": {
+                "pkce.code.challenge.method": "S256"
+            },
+            "defaultClientScopes": ["openid", "profile", "email"],
+            "optionalClientScopes": []
+        }
+    ],
+    "users": [
+        {
+            "username": "lucamarinelli",
+            "enabled": true,
+            "email": "lucamarinelli@favilla.test",
+            "emailVerified": true,
+            "firstName": "Luca",
+            "lastName": "Marinelli",
+            "credentials": [{ "type": "password", "value": "lucamarinelli", "temporary": false }]
+        },
+        {
+            "username": "alice",
+            "enabled": true,
+            "email": "alice@favilla-lab.test",
+            "emailVerified": true,
+            "firstName": "Alice",
+            "lastName": "Lab",
+            "credentials": [{ "type": "password", "value": "alice", "temporary": false }]
+        },
+        {
+            "username": "bob-unverified",
+            "enabled": true,
+            "email": "bob@favilla-lab.test",
+            "emailVerified": false,
+            "firstName": "Bob",
+            "lastName": "Unverified",
+            "credentials": [{ "type": "password", "value": "bob", "temporary": false }]
+        },
+        {
+            "username": "dave-disabled",
+            "enabled": false,
+            "email": "dave@favilla-lab.test",
+            "emailVerified": true,
+            "firstName": "Dave",
+            "lastName": "Disabled",
+            "credentials": [{ "type": "password", "value": "dave", "temporary": false }]
+        }
+    ]
+}

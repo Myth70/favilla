@@ -38,6 +38,7 @@ class Console
         'help:export'                     => Commands\HelpExportCommand::class,
         'help:import'                     => Commands\HelpImportCommand::class,
         'demo:seed'                       => Commands\DemoSeedCommand::class,
+        'demo:reset'                      => Commands\DemoResetCommand::class,
     ];
 
     public function run(array $argv): int
@@ -116,5 +117,7 @@ class Console
         echo "                                        Elimina file documenti orfani più vecchi di N ore\n\n";
         echo "  help:export                          Esporta la KB Help Online in database/help/<modulo>.json\n\n";
         echo "  help:import [--module=X] [--force]   Importa la KB Help Online da database/help/*.json\n\n";
+        echo "  demo:seed [--force] [--enable-modules]  Carica i dati demo \"Aurora Studio\"\n\n";
+        echo "  demo:reset                           Azzera l'istanza DEMO (upload + DB + riseed); richiede DEMO_MODE=true\n\n";
     }
 }

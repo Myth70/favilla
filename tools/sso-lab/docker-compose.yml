@@ -1,0 +1,50 @@
+# Favilla SSO Lab — Keycloak usa-e-getta per lo smoke test OIDC
+# (docs/sso-smoke-test.md ha il runbook completo).
+#
+# Avvio:
+#   cd tools/sso-lab && docker compose up -d
+#
+# Il realm `favilla-lab` viene importato al primo avvio con:
+#   - client `favilla` (confidential, secret: favilla-lab-secret, PKCE S256)
+#   - utenti di test (password = username):
+#       lucamarinelli   e-mail verificata, coincide con l'utente demo Favilla
+#       alice           e-mail verificata, NON esiste in Favilla (test JIT)
+#       bob-unverified  e-mail NON verificata (deve essere rifiutato)
+#       dave-disabled   disabilitato lato IdP (Keycloak blocca il login)
+#
+# Issuer da configurare in Favilla (Admin → Configurazione → SSO):
+#   http://localhost:8081/realms/favilla-lab
+#
+# Se ANCHE Favilla gira in Docker (compose principale), localhost non basta:
+# l'issuer deve risolvere sia dal browser sia dal container. Trucco standard:
+#   1. aggiungi `127.0.0.1 keycloak` al file hosts della macchina;
+#   2. avvia il lab sulla stessa network di Favilla:
+#        docker compose -f tools/sso-lab/docker-compose.yml up -d
+#        docker network connect favilla_default favilla-sso-lab-keycloak
+#   3. usa come issuer: http://keycloak:8081/realms/favilla-lab
+#
+# Admin console Keycloak: http://localhost:8081 (admin / admin).
+# SOLO PER TEST LOCALI: credenziali deboli e HTTP in chiaro by design.
+
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:26.0
+    container_name: favilla-sso-lab-keycloak
+    command: ["start-dev", "--http-port=8081", "--import-realm"]
+    environment:
+      # Keycloak >= 26
+      KC_BOOTSTRAP_ADMIN_USERNAME: admin
+      KC_BOOTSTRAP_ADMIN_PASSWORD: admin
+      # Keycloak <= 25 (ignorate dalle versioni nuove)
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./realm-favilla-lab.json:/opt/keycloak/data/import/realm-favilla-lab.json:ro
+    healthcheck:
+      test: ["CMD-SHELL", "exec 3<>/dev/tcp/127.0.0.1/8081 && echo -e 'GET /realms/favilla-lab HTTP/1.0\\r\\n\\r\\n' >&3 && head -1 <&3 | grep -q 200"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+      start_period: 60s
