@@ -14,5 +14,37 @@
         "css": [],
         "js": []
     },
-    "menu": []
+    "menu": [],
+    "admin_panel": {
+        "section": "Governance piattaforma",
+        "groups": [
+            {
+                "title": "Scheduler",
+                "description": "Job pianificati, intervalli, storico esecuzioni ed esecuzione manuale.",
+                "icon": "fa-solid fa-clock",
+                "flows": [
+                    "Esecuzione manuale job",
+                    "Abilita/disabilita job"
+                ],
+                "links": [
+                    {
+                        "label": "Scheduler",
+                        "route": "scheduler.index",
+                        "permission": "scheduler.view",
+                        "description": "Monitoraggio job pianificati e storico esecuzioni.",
+                        "icon": "fa-solid fa-clock",
+                        "keywords": "cron job pianificazioni task"
+                    },
+                    {
+                        "label": "Nuovo job scheduler",
+                        "route": "scheduler.create",
+                        "permission": "scheduler.manage",
+                        "description": "Aggiunge una nuova attivita schedulata.",
+                        "icon": "fa-solid fa-calendar-plus",
+                        "keywords": "crea job scheduler cron"
+                    }
+                ]
+            }
+        ]
+    }
 }

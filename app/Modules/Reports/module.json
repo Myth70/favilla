@@ -31,5 +31,54 @@
             "reports-grapesjs.js"
         ]
     },
-    "uploads_directory": "reports"
+    "uploads_directory": "reports",
+    "admin_panel": {
+        "section": "Sicurezza, privacy e controllo",
+        "groups": [
+            {
+                "title": "Reportistica e documenti",
+                "description": "Template, stili, storico export e binding documentali del modulo Reports.",
+                "icon": "fa-solid fa-file-export",
+                "flows": [
+                    "Preview template",
+                    "Quick export",
+                    "Download storico"
+                ],
+                "links": [
+                    {
+                        "label": "Dashboard report",
+                        "route": "reports.index",
+                        "permission": "reports.view",
+                        "description": "Punto di ingresso alla reportistica applicativa.",
+                        "icon": "fa-solid fa-chart-column",
+                        "keywords": "reports dashboard export"
+                    },
+                    {
+                        "label": "Template report",
+                        "route": "reports.templates.index",
+                        "permission": "reports.view",
+                        "description": "Catalogo template custom e bundled.",
+                        "icon": "fa-solid fa-file-lines",
+                        "keywords": "template report"
+                    },
+                    {
+                        "label": "Nuovo template report",
+                        "route": "reports.templates.new",
+                        "permission": "reports.create",
+                        "description": "Crea un nuovo modello di report dal wizard.",
+                        "icon": "fa-solid fa-file-circle-plus",
+                        "keywords": "crea template report wizard"
+                    },
+                    {
+                        "label": "Storico export",
+                        "route": "reports.history.index",
+                        "permission": "reports.view",
+                        "description": "Storico generazioni e download disponibili.",
+                        "icon": "fa-solid fa-timeline",
+                        "keywords": "history export report"
+                    }
+                ]
+            }
+        ]
+    }
 }

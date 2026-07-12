@@ -401,35 +401,26 @@ class AdminIndexService
                             $this->link('Moduli', 'admin.modules.index', 'admin.modules.manage', 'Gestione stato, export e manutenzione dei moduli.', 'fa-solid fa-puzzle-piece', 'moduli installazione manutenzione'),
                             $this->link('Import moduli', 'admin.modules.import', 'admin.modules.manage', 'Importa un pacchetto modulo nell applicazione.', 'fa-solid fa-file-import', 'installa modulo pacchetto'),
                             $this->link('Configurazione', 'admin.settings.index', 'admin.settings.manage', 'Impostazioni applicative e parametri di sistema.', 'fa-solid fa-sliders', 'config settings app'),
-                            $this->link('Backup database', 'backup.index', 'backup.manage', 'Creazione, elenco e gestione backup disponibili.', 'fa-solid fa-database', 'backup restore database'),
-                            $this->link('Scheduler', 'scheduler.index', 'scheduler.view', 'Monitoraggio job pianificati e storico esecuzioni.', 'fa-solid fa-clock', 'cron job pianificazioni task'),
-                            $this->link('Nuovo job scheduler', 'scheduler.create', 'scheduler.manage', 'Aggiunge una nuova attivita schedulata.', 'fa-solid fa-calendar-plus', 'crea job scheduler cron'),
                         ],
                         [
                             'Export modulo',
                             'Disinstallazione modulo',
                             'Import permessi modulo',
-                            'Esecuzione manuale job',
-                            'Restore backup',
                         ]
                     ),
                     $this->group(
                         'Comunicazioni e versioning',
-                        'Email, dispatcher notifiche e tracciamento delle release interne.',
+                        'Email e tracciamento delle release interne.',
                         'fa-solid fa-envelope-open-text',
                         'Admin',
                         [
                             $this->link('Email', 'admin.mail.index', 'admin.mail.manage', 'Template, test invio e configurazione del canale email.', 'fa-solid fa-envelope', 'mail template smtp'),
                             $this->link('Nuovo template email', 'admin.mail.templates.create', 'admin.mail.manage', 'Crea un template mail riutilizzabile.', 'fa-solid fa-file-circle-plus', 'crea template email'),
                             $this->link('Log email', 'admin.mail.log', 'admin.mail.log', 'Storico invii, esiti e diagnostica canale.', 'fa-solid fa-list', 'storico mail log'),
-                            $this->link('Invio notifiche', 'admin.notifications.send', 'notifications.admin.send', 'Invia una notifica manuale agli utenti.', 'fa-solid fa-paper-plane', 'notifiche manuali messaggi'),
-                            $this->link('Dispatcher notifiche', 'admin.notifications.settings', 'notifications.admin.manage', 'Canali, eventi e template del dispatcher centralizzato.', 'fa-solid fa-bell', 'notification dispatcher eventi telegram'),
                             $this->link('Changelog', 'admin.changelog.index', 'admin.changelog.manage', 'Versioni interne, note di rilascio e storico pubblicazioni.', 'fa-solid fa-code-branch', 'release changelog versioni'),
                             $this->link('Nuova versione', 'admin.changelog.create', 'admin.changelog.manage', 'Registra una nuova release applicativa.', 'fa-solid fa-square-plus', 'crea release changelog'),
                         ],
                         [
-                            'Simulazione eventi notifica',
-                            'Gestione bot notifiche',
                             'Test invio email',
                             'Pubblicazione release',
                         ]
@@ -443,10 +434,11 @@ class AdminIndexService
                 'groups'      => [
                     $this->group(
                         'Sicurezza operativa',
-                        'Incidenti, hardening, chiavi e segregazione dei compiti.',
+                        'Audit, incidenti, hardening, chiavi e segregazione dei compiti.',
                         'fa-solid fa-shield-halved',
                         'Admin',
                         [
+                            $this->link('Audit e log', 'admin.logs.index', 'admin.logs.view', 'Audit trail, tentativi login, sessioni ed errori PHP.', 'fa-solid fa-list-check', 'audit log sessioni errori'),
                             $this->link('Incidenti sicurezza', 'admin.security.incidents', 'admin.security.view', 'Registro incidenti e stato della gestione operativa.', 'fa-solid fa-triangle-exclamation', 'incidenti security'),
                             $this->link('Asset sicurezza', 'admin.security.assets', 'admin.security.view', 'Mappa asset critici e relativo presidio.', 'fa-solid fa-network-wired', 'asset sicurezza inventario'),
                             $this->link('Hardening', 'admin.security.hardening', 'admin.security.view', 'Checklist di rafforzamento e posture di sistema.', 'fa-solid fa-screwdriver-wrench', 'hardening security baseline'),
@@ -458,42 +450,10 @@ class AdminIndexService
                         [
                             'Rotazione log',
                             'Purge log',
+                            'Export log',
                             'Rotazione chiavi registrata',
                             'Vincoli SoD',
                             'Esecuzione retention',
-                        ]
-                    ),
-                    $this->group(
-                        'Monitoraggio e salute',
-                        'Audit applicativo e stato di salute dell installazione.',
-                        'fa-solid fa-heart-pulse',
-                        'HealthCheck',
-                        [
-                            $this->link('Audit e log', 'admin.logs.index', 'admin.logs.view', 'Audit trail, tentativi login, sessioni ed errori PHP.', 'fa-solid fa-list-check', 'audit log sessioni errori'),
-                            $this->link('HealthCheck', 'healthcheck.index', 'healthcheck.view', 'Snapshot dello stato generale di piattaforma e servizi.', 'fa-solid fa-stethoscope', 'health status sistema'),
-                            $this->link('Storico HealthCheck', 'healthcheck.history', 'healthcheck.history', 'Trend e storico dei controlli eseguiti.', 'fa-solid fa-clock-rotate-left', 'storico health check'),
-                        ],
-                        [
-                            'Export log',
-                            'Pulizia audit',
-                            'Export HealthCheck',
-                        ]
-                    ),
-                    $this->group(
-                        'Reportistica e documenti',
-                        'Template, stili, storico export e binding documentali del modulo Reports.',
-                        'fa-solid fa-file-export',
-                        'Reports',
-                        [
-                            $this->link('Dashboard report', 'reports.index', 'reports.view', 'Punto di ingresso alla reportistica applicativa.', 'fa-solid fa-chart-column', 'reports dashboard export'),
-                            $this->link('Template report', 'reports.templates.index', 'reports.view', 'Catalogo template custom e bundled.', 'fa-solid fa-file-lines', 'template report'),
-                            $this->link('Nuovo template report', 'reports.templates.new', 'reports.create', 'Crea un nuovo modello di report dal wizard.', 'fa-solid fa-file-circle-plus', 'crea template report wizard'),
-                            $this->link('Storico export', 'reports.history.index', 'reports.view', 'Storico generazioni e download disponibili.', 'fa-solid fa-timeline', 'history export report'),
-                        ],
-                        [
-                            'Preview template',
-                            'Quick export',
-                            'Download storico',
                         ]
                     ),
                 ],
