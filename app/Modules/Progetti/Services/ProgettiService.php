@@ -104,9 +104,13 @@ class ProgettiService
         $this->repo = app(ProgettiRepository::class);
     }
 
-    public function listForUser(int $userId, array $filters = []): array
+    /**
+     * $viewAll esplicito = chiamante senza sessione (API v1, che risolve i
+     * permessi da ApiRequestContext); null = comportamento legacy da sessione.
+     */
+    public function listForUser(int $userId, array $filters = [], ?bool $viewAll = null): array
     {
-        return $this->repo->listForUser($userId, $this->canViewAll(), $filters);
+        return $this->repo->listForUser($userId, $viewAll ?? $this->canViewAll(), $filters);
     }
 
     public function create(array $data, int $userId, ?string $userName = null): int
@@ -167,9 +171,12 @@ class ProgettiService
         return $this->repo->delete($projectId);
     }
 
-    public function findForUser(int $projectId, int $userId): ?array
+    /**
+     * $viewAll esplicito = chiamante senza sessione (API v1); null = da sessione.
+     */
+    public function findForUser(int $projectId, int $userId, ?bool $viewAll = null): ?array
     {
-        return $this->repo->findForUser($projectId, $userId, $this->canViewAll());
+        return $this->repo->findForUser($projectId, $userId, $viewAll ?? $this->canViewAll());
     }
 
     public function getDashboardKpi(int $projectId): array

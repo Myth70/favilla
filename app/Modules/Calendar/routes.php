@@ -3,7 +3,19 @@
 use App\Middleware\AuthMiddleware;
 use App\Middleware\CsrfMiddleware;
 use App\Middleware\RoleMiddleware;
+use App\Modules\Api\Middleware\ApiRateLimitMiddleware;
+use App\Modules\Api\Middleware\ApiTokenMiddleware;
+use App\Modules\Calendar\Controllers\Api\CalendarApiController;
 use App\Modules\Calendar\Controllers\CalendarController;
+
+// ── API v1 — token-based, stateless (riusa CalendarService). Static prima di {id}.
+$router->group([
+    'prefix'     => 'api/v1/calendar',
+    'middleware' => [ApiTokenMiddleware::class, ApiRateLimitMiddleware::class],
+], function ($r) {
+    $r->get('/events', [CalendarApiController::class, 'index'])->name('api.calendar.events.index');
+    $r->get('/events/{id}', [CalendarApiController::class, 'show'])->name('api.calendar.events.show');
+});
 
 $router->group([
     'prefix'     => 'calendar',

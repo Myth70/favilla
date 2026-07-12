@@ -1,5 +1,5 @@
 {
-    "generated_at": "2026-07-12T00:30:46+02:00",
+    "generated_at": "2026-07-12T11:11:48+02:00",
     "layout": {
         "index": "project_context.json",
         "detail_dir": "context/",
@@ -836,7 +836,7 @@
             "search_provider": "App\\Modules\\Calendar\\Providers\\CalendarSearchProvider",
             "export_provider": "App\\Modules\\Calendar\\Providers\\CalendarExportProvider",
             "counts": {
-                "routes": 12,
+                "routes": 14,
                 "tables": 1,
                 "permissions": 4,
                 "services": 3,
@@ -876,7 +876,7 @@
             "search_provider": "App\\Modules\\Contacts\\Providers\\ContactsSearchProvider",
             "export_provider": "App\\Modules\\Contacts\\Providers\\ContactsExportProvider",
             "counts": {
-                "routes": 36,
+                "routes": 39,
                 "tables": 4,
                 "permissions": 6,
                 "services": 5,
@@ -1390,7 +1390,7 @@
             "search_provider": "App\\Modules\\Documenti\\Providers\\DocumentiSearchProvider",
             "export_provider": "App\\Modules\\Documenti\\Providers\\DocumentiExportProvider",
             "counts": {
-                "routes": 48,
+                "routes": 50,
                 "tables": 7,
                 "permissions": 12,
                 "services": 13,
@@ -1458,7 +1458,7 @@
             "search_provider": "App\\Modules\\Progetti\\Providers\\ProgettiSearchProvider",
             "export_provider": "App\\Modules\\Progetti\\Providers\\ProgettiExportProvider",
             "counts": {
-                "routes": 49,
+                "routes": 51,
                 "tables": 10,
                 "permissions": 9,
                 "services": 3,

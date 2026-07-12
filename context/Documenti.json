@@ -1,7 +1,27 @@
 {
     "module": "Documenti",
-    "generated_at": "2026-07-12T00:30:46+02:00",
+    "generated_at": "2026-07-12T11:11:48+02:00",
     "routes": [
+        {
+            "method": "GET",
+            "uri": "/api/v1/documents/",
+            "name": "api.documents.index",
+            "controller": "DocumentsApiController@index",
+            "middleware": [
+                "ApiTokenMiddleware",
+                "ApiRateLimitMiddleware"
+            ]
+        },
+        {
+            "method": "GET",
+            "uri": "/api/v1/documents/{id}",
+            "name": "api.documents.show",
+            "controller": "DocumentsApiController@show",
+            "middleware": [
+                "ApiTokenMiddleware",
+                "ApiRateLimitMiddleware"
+            ]
+        },
         {
             "method": "GET",
             "uri": "/admin/documenti/",

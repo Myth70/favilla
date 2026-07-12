@@ -148,8 +148,17 @@ unauthenticated). Current surface:
 | `GET  {base}/tasks/{id}`     | `tasks.view`     |                                |
 | `PUT  {base}/tasks/{id}`     | `tasks.edit`     |                                |
 | `DELETE {base}/tasks/{id}`   | `tasks.delete`   |                                |
-| `GET  {base}/contacts`       | `contacts.view`  | Read-only pilot; role-based sharing applies |
+| `GET  {base}/contacts`       | `contacts.view`  | Role-based sharing applies     |
+| `POST {base}/contacts`       | `contacts.create`| `nome` required; avatar not handled via API |
 | `GET  {base}/contacts/{id}`  | `contacts.view`  |                                |
+| `PUT  {base}/contacts/{id}`  | `contacts.edit`  | Partial update; owned contacts only |
+| `DELETE {base}/contacts/{id}`| `contacts.delete`| Owned contacts only            |
+| `GET  {base}/calendar/events`| `calendar.view`  | `from`/`to` range (default 30 days, max 400); recurrences expanded |
+| `GET  {base}/calendar/events/{id}` | `calendar.view` | Master events only (not virtual occurrences) |
+| `GET  {base}/projects`       | `progetti.view`  | Owner/member scope; `progetti.view_all` sees everything. 404 if the module is disabled |
+| `GET  {base}/projects/{id}`  | `progetti.view`  |                                |
+| `GET  {base}/documents`      | `documenti.view` | Metadata only (no binary download); UI visibility rules. 404 if the module is disabled |
+| `GET  {base}/documents/{id}` | `documenti.view` |                                |
 | `GET  {base}/openapi.json`   | none (public)    | The spec itself                |
 
 **Examples**
