@@ -40,13 +40,5 @@
         }
     ],
     "dependencies": ["Notifications"],
-    "menu": [
-        {
-            "label": "Backup",
-            "icon": "fa-database",
-            "route": "backup.index",
-            "permission": "backup.manage",
-            "order": 89
-        }
-    ]
+    "menu": []
 }

@@ -14,16 +14,31 @@
     "changelog": {
         "1.0.0": "Endpoint webhook con eventi sottoscrivibili, fan-out dagli eventi notifiche, consegna firmata HMAC con retry a backoff, anti-SSRF e log delivery"
     },
-    "navigation": [
-        {
-            "id": "webhooks.index",
-            "label": "Webhook",
-            "icon": "fa-bolt",
-            "route": "webhooks.index",
-            "permission": "webhooks.view",
-            "order": 60,
-            "surfaces": ["sidebar"]
-        }
-    ],
-    "menu": []
+    "navigation": [],
+    "menu": [],
+    "admin_panel": {
+        "section": "Governance piattaforma",
+        "groups": [
+            {
+                "title": "Webhook e integrazioni in uscita",
+                "description": "Endpoint webhook verso sistemi esterni: eventi sottoscritti, firma HMAC, retry a backoff e log delle consegne.",
+                "icon": "fa-solid fa-bolt",
+                "flows": [
+                    "Test endpoint",
+                    "Rigenera secret HMAC",
+                    "Log consegne"
+                ],
+                "links": [
+                    {
+                        "label": "Webhook",
+                        "route": "webhooks.index",
+                        "permission": "webhooks.view",
+                        "description": "Endpoint webhook in uscita, eventi sottoscritti e stato delle consegne.",
+                        "icon": "fa-solid fa-bolt",
+                        "keywords": "webhook integrazioni zapier n8n hmac endpoint consegne"
+                    }
+                ]
+            }
+        ]
+    }
 }

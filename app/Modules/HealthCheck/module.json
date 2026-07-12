@@ -38,14 +38,5 @@
         "2.0.0": "Nuovi check (disco, MariaDB, connessioni, HTTPS, estensioni consigliate), HTMX refresh, storico run, export CSV, notifiche admin, test unitari",
         "1.0.0": "Versione iniziale"
     },
-    "menu": [
-        {
-            "label": "Health Check",
-            "icon": "fa-heart-pulse",
-            "route": "healthcheck.index",
-            "permission": "healthcheck.view",
-            "order": 88,
-            "children": []
-        }
-    ]
+    "menu": []
 }
