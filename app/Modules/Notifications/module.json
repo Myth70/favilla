@@ -84,5 +84,38 @@
             }
         }
     ],
-    "menu": []
+    "menu": [],
+    "admin_panel": {
+        "section": "Governance piattaforma",
+        "groups": [
+            {
+                "title": "Dispatcher notifiche",
+                "description": "Canali, eventi, template del dispatcher centralizzato e invii manuali.",
+                "icon": "fa-solid fa-bell",
+                "flows": [
+                    "Simulazione eventi notifica",
+                    "Gestione bot notifiche",
+                    "Retry coda notifiche"
+                ],
+                "links": [
+                    {
+                        "label": "Dispatcher notifiche",
+                        "route": "admin.notifications.settings",
+                        "permission": "notifications.admin.manage",
+                        "description": "Canali, eventi e template del dispatcher centralizzato.",
+                        "icon": "fa-solid fa-bell",
+                        "keywords": "notification dispatcher eventi telegram"
+                    },
+                    {
+                        "label": "Invio notifiche",
+                        "route": "admin.notifications.send",
+                        "permission": "notifications.admin.send",
+                        "description": "Invia una notifica manuale agli utenti.",
+                        "icon": "fa-solid fa-paper-plane",
+                        "keywords": "notifiche manuali messaggi"
+                    }
+                ]
+            }
+        ]
+    }
 }

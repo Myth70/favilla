@@ -38,5 +38,37 @@
         "2.0.0": "Nuovi check (disco, MariaDB, connessioni, HTTPS, estensioni consigliate), HTMX refresh, storico run, export CSV, notifiche admin, test unitari",
         "1.0.0": "Versione iniziale"
     },
-    "menu": []
+    "menu": [],
+    "admin_panel": {
+        "section": "Sicurezza, privacy e controllo",
+        "groups": [
+            {
+                "title": "Monitoraggio e salute",
+                "description": "Stato di salute dell'installazione e storico dei controlli eseguiti.",
+                "icon": "fa-solid fa-heart-pulse",
+                "flows": [
+                    "Scansione approfondita",
+                    "Export HealthCheck"
+                ],
+                "links": [
+                    {
+                        "label": "HealthCheck",
+                        "route": "healthcheck.index",
+                        "permission": "healthcheck.view",
+                        "description": "Snapshot dello stato generale di piattaforma e servizi.",
+                        "icon": "fa-solid fa-stethoscope",
+                        "keywords": "health status sistema"
+                    },
+                    {
+                        "label": "Storico HealthCheck",
+                        "route": "healthcheck.history",
+                        "permission": "healthcheck.history",
+                        "description": "Trend e storico dei controlli eseguiti.",
+                        "icon": "fa-solid fa-clock-rotate-left",
+                        "keywords": "storico health check"
+                    }
+                ]
+            }
+        ]
+    }
 }

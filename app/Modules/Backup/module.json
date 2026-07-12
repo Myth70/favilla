@@ -40,5 +40,30 @@
         }
     ],
     "dependencies": ["Notifications"],
-    "menu": []
+    "menu": [],
+    "admin_panel": {
+        "section": "Governance piattaforma",
+        "groups": [
+            {
+                "title": "Backup",
+                "description": "Backup del database e dei file caricati: creazione, elenco, download e restore.",
+                "icon": "fa-solid fa-database",
+                "flows": [
+                    "Creazione backup",
+                    "Restore backup",
+                    "Download backup"
+                ],
+                "links": [
+                    {
+                        "label": "Backup database",
+                        "route": "backup.index",
+                        "permission": "backup.manage",
+                        "description": "Creazione, elenco e gestione backup disponibili.",
+                        "icon": "fa-solid fa-database",
+                        "keywords": "backup restore database"
+                    }
+                ]
+            }
+        ]
+    }
 }
