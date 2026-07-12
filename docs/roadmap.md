@@ -17,8 +17,8 @@ Effort: **S** ≈ half a day · **M** ≈ a few days · **L** ≈ 1–2 weeks.
 | # | Item | Effort | Value | Notes |
 |---|------|:------:|:-----:|-------|
 | A1 | ~~Backup completeness~~ ✅ done | S–M | high | merged in #20 — ships with 2.3.0 |
-| A2 | **API v1 breadth** ★ next up | M–L | high | synergy with B2 |
-| A3 | SSO validation + public demo | M | high | unblocks Show HN |
+| A2 | ~~API v1 breadth~~ ✅ done | M–L | high | merged in #21 — ships with 2.3.0 |
+| A3 | **SSO validation + public demo** ★ next up | M | high | unblocks Show HN |
 | A4 | Full-text search | M | med–high | FEATURES.md wording fix is S |
 | A5 | Import/export round-out | S each | med | — |
 | A6 | Launch calendar | — | med | external dates |
@@ -37,21 +37,22 @@ documents included. For a groupware this was a data-loss trap and a trust
 problem, and it was cheap to fix. Off-site targets (S3, rclone, …) remain
 **out of scope** — see the exploratory list.
 
-## A2 — API v1 breadth ★ next up
+## A2 — API v1 breadth ✅ done
 
-API v1 today is a pilot: Tasks (CRUD), Contacts (read-only), `/me`. Calendar,
-Files, Progetti, Documenti, Teams, Blog and Notifications have no API surface,
-which caps integrations and automation — the top reason technical self-hosters
-pick a platform.
+> **Done** — merged 2026-07-12 (#21), ships with the next release. The API
+> grew from the two-module pilot to five: Contacts write (partial updates,
+> owned contacts only), Calendar read (from/to range, recurrences expanded),
+> Projects read and Documents read (metadata, UI visibility rules) — all
+> gated by token scopes via session-free seams in the domain services.
+> OpenAPI 1.1.0 remains the single source of truth.
 
-- Next endpoints by value: Calendar (read), Progetti (read), Contacts (write),
-  Documenti (read); iterate from there.
-- Per-module scopes and the same envelope/middleware as the pilot;
-  `docs/api/openapi.json` stays the single source of truth for the catalog.
-- Soft synergy with **B2** (Request/Response abstraction): once a module's
-  controllers are migrated, its API endpoints get cheaper to add and test.
+Original rationale: API v1 was a pilot (Tasks CRUD, Contacts read-only, `/me`);
+everything else had no API surface, which capped integrations and automation —
+the top reason technical self-hosters pick a platform. Remaining candidates for
+a future iteration: Files, Teams, Blog, Notifications endpoints; write access
+for Calendar/Projects/Documents. Soft synergy with **B2** still applies.
 
-## A3 — SSO validation + public demo instance
+## A3 — SSO validation + public demo instance ★ next up
 
 SSO OIDC v1 shipped in 2.1.0 but has never been smoke-tested against a real
 IdP. The checklist lives in [security.md §6](contracts/security.md).
