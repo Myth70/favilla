@@ -20,7 +20,7 @@ intranet d'entreprise que vous hébergez vous-même : projets avec Gantt, feuill
 temps et budgets, documents avec circuits de validation, messagerie d'équipe,
 tâches kanban, agendas partagés, contacts, fichiers, rapports prêts à imprimer,
 notifications multicanal et une suite complète de sécurité et de conformité.
-Dix-huit modules, cinq langues, une seule installation, sur votre propre serveur —
+Vingt modules, cinq langues, une seule installation, sur votre propre serveur —
 pas de tarification par utilisateur, pas de télémétrie, rien qui « téléphone à la
 maison », et la licence AGPL garantit qu'il en reste ainsi.
 

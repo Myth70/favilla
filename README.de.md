@@ -20,7 +20,7 @@ Firmen-Intranet, das du selbst hostest: Projekte mit Gantt, Zeiterfassung und
 Budgets, Dokumente mit Freigabe-Workflows, Team-Messaging, Kanban-Aufgaben,
 geteilte Kalender, Kontakte, Dateien, druckfertige Berichte,
 Multi-Channel-Benachrichtigungen und eine vollständige Sicherheits- und
-Compliance-Suite. Achtzehn Module, fünf Sprachen, eine Installation, auf deinem
+Compliance-Suite. Zwanzig Module, fünf Sprachen, eine Installation, auf deinem
 eigenen Server — keine Preise pro Platz, keine Telemetrie, nichts „telefoniert nach
 Hause", und die AGPL sorgt dafür, dass das so bleibt.
 

@@ -19,7 +19,7 @@ Progetti · Documenti · Chat di team · Attività · Calendario · Contatti · 
 ospiti tu stesso: progetti con Gantt, timesheet e budget, documenti con flussi di
 approvazione, messaggistica di team, attività kanban, calendari condivisi,
 contatti, file, report pronti per la stampa, notifiche multi-canale e una suite
-completa di sicurezza e compliance. Diciotto moduli, cinque lingue, un'unica
+completa di sicurezza e compliance. Venti moduli, cinque lingue, un'unica
 installazione, sul tuo server — nessun prezzo per postazione, nessuna telemetria,
 niente che "telefona a casa", e la licenza AGPL fa in modo che resti così.
 

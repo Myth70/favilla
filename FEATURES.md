@@ -44,7 +44,7 @@ Personal and operational to-dos.
 - Checklists inside tasks; tags for classification.
 - Due dates with alerts and reminder notifications (scheduler-driven).
 - Two-way integration with the Calendar.
-- Filters and full-text search.
+- Filters and search.
 
 ## Calendar
 
@@ -68,7 +68,7 @@ Address book with light-CRM traits.
 - Recurrences and follow-up reminders (birthdays, anniversaries, check-ins).
 - CSV import plus import from other modules' data.
 - Role-based sharing of your own contacts.
-- Filters and full-text search.
+- Filters and search.
 
 ## Files
 
@@ -284,7 +284,7 @@ Cron-equivalent with a UI.
 ## Cross-module
 
 - Global search across all modules (12 search providers), permission-scoped.
-- Dashboard widgets (17 providers) and export providers (10 modules) via
+- Dashboard widgets (17 providers) and export providers (11 modules) via
   shared contracts.
 - Guided flows: task deadline → notification; contact → calendar anniversary;
   file → report attachment; record → generated document.
@@ -308,6 +308,6 @@ Cron-equivalent with a UI.
   scaffolding, i18n checks, help KB import/export, queue processing,
   maintenance).
 - Docker deployment (app + MariaDB + scheduler loop) or classic
-  Apache/XAMPP; 100-table schema installed by migrations.
+  Apache/XAMPP; 100+ table schema installed by migrations.
 <!-- Keep counts in sync with README. Recompute: tests → `phpunit --list-tests | grep -c '^ - '`; Q&As → `grep -rho '"question"' database/help/*.json | wc -l` ÷ 5; tables → `grep -c 'CREATE TABLE' database/schema.sql`. -->
 - 1,800+ automated tests, PHPStan level 6, PSR-12 — all enforced in CI.

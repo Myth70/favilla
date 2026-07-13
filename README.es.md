@@ -20,7 +20,7 @@ intranet corporativa que alojas tú mismo: proyectos con Gantt, partes de horas 
 presupuestos, documentos con flujos de aprobación, mensajería de equipo, tareas
 kanban, calendarios compartidos, contactos, archivos, informes listos para
 imprimir, notificaciones multicanal y una suite completa de seguridad y
-cumplimiento. Dieciocho módulos, cinco idiomas, una sola instalación, en tu propio
+cumplimiento. Veinte módulos, cinco idiomas, una sola instalación, en tu propio
 servidor — sin precios por puesto, sin telemetría, nada que «llame a casa», y la
 licencia AGPL se encarga de que siga así.
 
