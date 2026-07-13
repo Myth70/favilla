@@ -13,11 +13,12 @@
 
 'use strict';
 
-const CACHE_NAME = 'favilla-shell-v1';
+const CACHE_NAME = 'favilla-shell-v2';
 const OFFLINE_URL = 'offline.html';
 const PRECACHE = [
     OFFLINE_URL,
     'assets/img/pwa/icon-192.png',
+    'assets/images/logo.svg',
 ];
 
 self.addEventListener('install', (event) => {

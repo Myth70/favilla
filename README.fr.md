@@ -1,6 +1,6 @@
 <div align="center">
 
-<img width="313" height="234" alt="Favilla" src="https://github.com/user-attachments/assets/fc57ecac-ddfb-4c0f-8aaf-c1bff9b947b5" />
+<img width="500" alt="Favilla" src="docs/logo/favilla_logo.jpg" />
 
 **L'espace de travail auto-hébergé qui fait tourner votre entreprise — et qui reste le vôtre.**
 

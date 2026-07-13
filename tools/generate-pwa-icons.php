@@ -3,151 +3,129 @@
 declare(strict_types=1);
 
 /**
- * Genera le icone PWA rasterizzando la fiamma di public/favicon.svg con GD
- * (niente Imagick su XAMPP): le curve cubiche del SVG sono campionate in
- * poligoni e disegnate con supersampling 4x per l'antialiasing.
+ * Genera favicon.ico e le icone PWA dal master raster del logo:
+ *   docs/logo/favilla-mark-1024.png   (1024x1024, sfondo trasparente)
+ *
+ * Il vettoriale ufficiale è public/favicon.svg (trace del logo originale,
+ * docs/logo/favilla_logo.jpg): i suoi path sono troppo complessi per essere
+ * rasterizzati con GD, quindi il master PNG committato — esportato dallo
+ * stesso SVG — fa da sorgente e qui si fa solo ridimensionamento con GD
+ * (niente Imagick su XAMPP).
  *
  * Output (committati in repo):
- *   public/assets/img/pwa/icon-192.png              trasparente, purpose "any"
- *   public/assets/img/pwa/icon-512.png              trasparente, purpose "any"
- *   public/assets/img/pwa/icon-maskable-512.png     fondo pieno, safe zone maskable
- *   public/assets/img/pwa/apple-touch-icon-180.png  fondo pieno (iOS)
+ *   public/favicon.ico                               16/24/32/48/64/128/256 (PNG-in-ICO)
+ *   public/assets/img/pwa/icon-192.png               trasparente, purpose "any"
+ *   public/assets/img/pwa/icon-512.png               trasparente, purpose "any"
+ *   public/assets/img/pwa/icon-maskable-512.png      fondo pieno, safe zone maskable
+ *   public/assets/img/pwa/apple-touch-icon-180.png   fondo pieno (iOS)
  *
- * Uso: php tools/generate-pwa-icons.php
+ * Uso:
+ *   php tools/generate-pwa-icons.php
+ *   php tools/generate-pwa-icons.php --preview=out.png [--size=512]   # anteprima su fondo bianco
  */
 
-// Path della fiamma copiati da public/favicon.svg (viewBox 0 0 32 32).
-// Ogni path: punto iniziale + lista di curve cubiche [c1x,c1y, c2x,c2y, x,y].
-const FLAME_PATHS = [
-    [
-        'color' => [0xF9, 0x73, 0x16], // #f97316 outer
-        'start' => [16.0, 2.0],
-        'curves' => [
-            [13.0, 7.0, 5.0, 10.0, 5.0, 18.0],
-            [5.0, 24.8, 9.8, 29.5, 16.0, 30.0],
-            [22.2, 29.5, 27.0, 24.8, 27.0, 18.0],
-            [27.0, 10.0, 19.0, 7.0, 16.0, 2.0],
-        ],
-    ],
-    [
-        'color' => [0xEA, 0x58, 0x0C], // #ea580c mid
-        'start' => [16.0, 9.0],
-        'curves' => [
-            [14.0, 13.0, 10.0, 16.0, 10.0, 20.0],
-            [10.0, 23.9, 12.7, 27.0, 16.0, 27.0],
-            [19.3, 27.0, 22.0, 23.9, 22.0, 20.0],
-            [22.0, 16.0, 18.0, 13.0, 16.0, 9.0],
-        ],
-    ],
-    [
-        'color' => [0xFB, 0xBF, 0x24], // #fbbf24 core
-        'start' => [16.0, 15.0],
-        'curves' => [
-            [15.0, 17.0, 13.0, 19.0, 14.0, 22.0],
-            [14.7, 24.0, 16.0, 25.0, 16.0, 25.0],
-            [16.0, 25.0, 17.3, 24.0, 18.0, 22.0],
-            [19.0, 19.0, 17.0, 17.0, 16.0, 15.0],
-        ],
-    ],
-];
+// Colore del cerchio del logo: usato come fondo pieno per maskable/iOS,
+// così il cerchio si fonde con il canvas e la fiamma resta in safe zone.
+const CIRCLE_COLOR = [0x19, 0x33, 0x3A];
 
-const SVG_CENTER = 16.0;   // centro del viewBox
-const SVG_FLAME_HEIGHT = 28.0; // la fiamma copre y 2..30
-const SUPERSAMPLE = 4;
-
-/**
- * @param float[] $p0
- * @return array<int, float[]>
- */
-function sampleCubic(array $p0, float $c1x, float $c1y, float $c2x, float $c2y, float $x, float $y, int $steps = 48): array
+function loadMaster(string $file): \GdImage
 {
-    $points = [];
-    for ($i = 1; $i <= $steps; $i++) {
-        $t = $i / $steps;
-        $mt = 1 - $t;
-        $px = ($mt ** 3) * $p0[0] + 3 * ($mt ** 2) * $t * $c1x + 3 * $mt * ($t ** 2) * $c2x + ($t ** 3) * $x;
-        $py = ($mt ** 3) * $p0[1] + 3 * ($mt ** 2) * $t * $c1y + 3 * $mt * ($t ** 2) * $c2y + ($t ** 3) * $y;
-        $points[] = [$px, $py];
+    $img = imagecreatefrompng($file);
+    if ($img === false) {
+        fwrite(STDERR, "[ERRORE] Master non leggibile: {$file}\n");
+        exit(1);
     }
-    return $points;
-}
-
-/**
- * Disegna la fiamma su un canvas GD già allocato.
- *
- * @param resource|\GdImage $img
- */
-function drawFlame(\GdImage $img, float $scale, float $offsetX, float $offsetY): void
-{
-    foreach (FLAME_PATHS as $path) {
-        $points = [$path['start']];
-        $current = $path['start'];
-        foreach ($path['curves'] as $curve) {
-            $sampled = sampleCubic($current, ...$curve);
-            $points = array_merge($points, $sampled);
-            $current = [$curve[4], $curve[5]];
-        }
-
-        $flat = [];
-        foreach ($points as $p) {
-            $flat[] = $p[0] * $scale + $offsetX;
-            $flat[] = $p[1] * $scale + $offsetY;
-        }
-
-        [$r, $g, $b] = $path['color'];
-        $color = imagecolorallocate($img, $r, $g, $b);
-        imagefilledpolygon($img, $flat, $color);
-    }
+    imagesavealpha($img, true);
+    return $img;
 }
 
 /**
  * @param array{int,int,int}|null $background RGB di sfondo, null = trasparente
  */
-function renderIcon(int $size, float $flameHeightRatio, ?array $background, string $outFile): void
+function renderIcon(\GdImage $master, int $size, float $logoRatio, ?array $background): \GdImage
 {
-    $big = $size * SUPERSAMPLE;
-    $img = imagecreatetruecolor($big, $big);
+    $img = imagecreatetruecolor($size, $size);
     imagealphablending($img, false);
-
     if ($background === null) {
-        $transparent = imagecolorallocatealpha($img, 0, 0, 0, 127);
-        imagefill($img, 0, 0, $transparent);
+        imagefill($img, 0, 0, imagecolorallocatealpha($img, 0, 0, 0, 127));
     } else {
-        [$r, $g, $b] = $background;
-        imagefill($img, 0, 0, imagecolorallocate($img, $r, $g, $b));
+        imagefill($img, 0, 0, imagecolorallocate($img, ...$background));
     }
     imagealphablending($img, true);
 
-    $flameHeightPx = $big * $flameHeightRatio;
-    $scale = $flameHeightPx / SVG_FLAME_HEIGHT;
-    // La fiamma è centrata su (16,16) nel viewBox (x 5..27, y 2..30): lo
-    // stesso offset centra entrambi gli assi.
-    $offset = $big / 2 - SVG_CENTER * $scale;
-    drawFlame($img, $scale, $offset, $offset);
+    $dst = (int) round($size * $logoRatio);
+    $off = intdiv($size - $dst, 2);
+    imagecopyresampled($img, $master, $off, $off, 0, 0, $dst, $dst, imagesx($master), imagesy($master));
 
-    $final = imagecreatetruecolor($size, $size);
-    imagealphablending($final, false);
-    imagesavealpha($final, true);
-    $transparentFinal = imagecolorallocatealpha($final, 0, 0, 0, 127);
-    imagefill($final, 0, 0, $transparentFinal);
-    imagecopyresampled($final, $img, 0, 0, 0, 0, $size, $size, $big, $big);
+    imagealphablending($img, false);
+    imagesavealpha($img, true);
+    return $img;
+}
 
-    imagepng($final, $outFile, 6);
+/**
+ * @param array{int,int,int}|null $background
+ */
+function writePng(\GdImage $master, int $size, float $logoRatio, ?array $background, string $outFile): void
+{
+    $img = renderIcon($master, $size, $logoRatio, $background);
+    imagepng($img, $outFile, 6);
     imagedestroy($img);
-    imagedestroy($final);
-
     echo "  [OK] {$outFile}\n";
 }
 
-$outDir = dirname(__DIR__) . '/public/assets/img/pwa';
+/**
+ * Impacchetta PNG a 32bpp in un contenitore .ico (voci PNG, supportate da Vista+).
+ *
+ * @param int[] $sizes
+ */
+function writeIco(\GdImage $master, array $sizes, string $outFile): void
+{
+    $blobs = [];
+    foreach ($sizes as $size) {
+        $img = renderIcon($master, $size, 1.0, null);
+        ob_start();
+        imagepng($img, null, 9);
+        $blobs[$size] = (string) ob_get_clean();
+        imagedestroy($img);
+    }
+
+    $count = count($blobs);
+    $header = pack('vvv', 0, 1, $count);
+    $entries = '';
+    $data = '';
+    $offset = 6 + 16 * $count;
+    foreach ($blobs as $size => $blob) {
+        $dim = $size >= 256 ? 0 : $size;
+        $entries .= pack('CCCCvvVV', $dim, $dim, 0, 0, 1, 32, strlen($blob), $offset);
+        $offset += strlen($blob);
+        $data .= $blob;
+    }
+
+    file_put_contents($outFile, $header . $entries . $data);
+    echo "  [OK] {$outFile} (" . implode(', ', array_keys($blobs)) . "px)\n";
+}
+
+$root = dirname(__DIR__);
+$master = loadMaster($root . '/docs/logo/favilla-mark-1024.png');
+
+$options = getopt('', ['preview::', 'size::']);
+if (isset($options['preview'])) {
+    $out = is_string($options['preview']) && $options['preview'] !== '' ? $options['preview'] : $root . '/logo-preview.png';
+    $size = isset($options['size']) ? max(16, (int) $options['size']) : 512;
+    writePng($master, $size, 1.0, [0xFF, 0xFF, 0xFF], $out);
+    exit(0);
+}
+
+$outDir = $root . '/public/assets/img/pwa';
 if (!is_dir($outDir) && !mkdir($outDir, 0775, true)) {
     fwrite(STDERR, "[ERRORE] Impossibile creare {$outDir}\n");
     exit(1);
 }
 
-echo "Generazione icone PWA...\n";
-renderIcon(192, 0.90, null, $outDir . '/icon-192.png');
-renderIcon(512, 0.90, null, $outDir . '/icon-512.png');
-renderIcon(512, 0.55, [0xFF, 0xF7, 0xED], $outDir . '/icon-maskable-512.png');
-renderIcon(180, 0.62, [0xFF, 0xF7, 0xED], $outDir . '/apple-touch-icon-180.png');
+echo "Generazione icone PWA + favicon.ico...\n";
+writePng($master, 192, 1.0, null, $outDir . '/icon-192.png');
+writePng($master, 512, 1.0, null, $outDir . '/icon-512.png');
+writePng($master, 512, 0.72, CIRCLE_COLOR, $outDir . '/icon-maskable-512.png');
+writePng($master, 180, 1.0, CIRCLE_COLOR, $outDir . '/apple-touch-icon-180.png');
+writeIco($master, [16, 24, 32, 48, 64, 128, 256], $root . '/public/favicon.ico');
 echo "Completato.\n";

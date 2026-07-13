@@ -42,7 +42,7 @@ $currentSidebarStyle  = in_array($currentSidebarStyle ?? '', $allowedSidebarStyl
     <!-- PWA: manifest + icona iOS + theme color (il SW viene registrato da app.js via data-sw-url sul body) -->
     <link rel="manifest" href="<?= e($publicUrl) ?>/manifest.webmanifest">
     <link rel="apple-touch-icon" href="<?= e($publicUrl) ?>/assets/img/pwa/apple-touch-icon-180.png">
-    <meta name="theme-color" content="#f97316">
+    <meta name="theme-color" content="#19333A">
 
     <!-- Bootstrap 5 -->
     <link rel="stylesheet" href="<?= e(asset('css/bootstrap.min.css')) ?>">

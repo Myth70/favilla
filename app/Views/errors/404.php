@@ -28,11 +28,7 @@
 
             <div class="err-brand">
                 <div class="err-logo" aria-hidden="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" focusable="false">
-                        <path d="M16 2 C13 7 5 10 5 18 C5 24.8 9.8 29.5 16 30 C22.2 29.5 27 24.8 27 18 C27 10 19 7 16 2Z" fill="#f97316"/>
-                        <path d="M16 9 C14 13 10 16 10 20 C10 23.9 12.7 27 16 27 C19.3 27 22 23.9 22 20 C22 16 18 13 16 9Z" fill="#ea580c"/>
-                        <path d="M16 15 C15 17 13 19 14 22 C14.7 24 16 25 16 25 C16 25 17.3 24 18 22 C19 19 17 17 16 15Z" fill="#fbbf24"/>
-                    </svg>
+                    <img src="<?= $errAssetBase ?>/assets/images/logo.svg" width="64" height="64" alt="">
                 </div>
                 <p class="err-brand-name"><?= $errAppName ?></p>
             </div>
