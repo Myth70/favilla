@@ -181,11 +181,12 @@ body::after {
     justify-content: center;
 }
 
+.err-logo img,
 .err-logo svg {
     width: 100%;
     height: 100%;
     display: block;
-    filter: drop-shadow(0 4px 14px rgba(249, 115, 22, 0.4));
+    filter: drop-shadow(0 4px 14px rgba(25, 51, 58, 0.35));
 }
 
 .err-brand-name {

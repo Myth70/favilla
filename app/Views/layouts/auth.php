@@ -24,6 +24,9 @@ if ($authTheme === null) {
     <meta name="color-scheme" content="light dark">
     <meta name="csrf-token" content="<?= csrf_token() ?>">
     <title><?= $pageTitle ?> — <?= $appName ?></title>
+    <?php $publicUrl = rtrim(config('app.url'), '/') . rtrim(config('app.base_path'), '/'); ?>
+    <link rel="icon" type="image/svg+xml" href="<?= e($publicUrl) ?>/favicon.svg">
+    <link rel="alternate icon" type="image/x-icon" href="<?= e($publicUrl) ?>/favicon.ico">
     <!-- Bootstrap 5 -->
     <link rel="stylesheet" href="<?= e(asset('css/bootstrap.min.css')) ?>">
     <!-- Font Awesome 6 -->
