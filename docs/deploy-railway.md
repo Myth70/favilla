@@ -60,7 +60,7 @@ service so they stay in sync:
 Generate an `APP_KEY` locally:
 
 ```bash
-php -r "echo bin2hex(random_bytes(24)), PHP_EOL;"
+php -r "echo bin2hex(random_bytes(32)), PHP_EOL;"
 ```
 
 > **`TRUSTED_PROXIES`**: the app is behind Railway's reverse proxy, so `X-Forwarded-*`

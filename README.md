@@ -22,7 +22,7 @@ Projects · Documents · Team chat · Tasks · Calendar · Contacts · Files · 
 intranet you host yourself: projects with Gantt, timesheets and budgets,
 documents with approval workflows, team messaging, kanban tasks, shared
 calendars, contacts, files, print-ready reports, multi-channel notifications
-and a full security & compliance suite. Eighteen modules, five languages, one
+and a full security & compliance suite. Twenty modules, five languages, one
 install, on your own server — no per-seat pricing, no telemetry, nothing
 phones home, and the AGPL keeps it that way.
 
