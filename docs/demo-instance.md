@@ -42,12 +42,49 @@ Credenziali mostrate ai visitatori: `lucamarinelli` / `lucamarinelli`
 `database/seeds/test_users.sql`). L'utente admin creato dal setup NON va
 comunicato.
 
+## 2b. Installazione nativa (senza Docker)
+
+Il tooling demo è PHP puro: funziona anche su un LAMP classico già a posto
+(Apache con DocumentRoot su `public/`, TLS, redirect HTTP→HTTPS, dotfile
+negati, PHP 8.2+). Dalla root del progetto sul server:
+
+```bash
+# 1. Porta il codice a una versione che include il tooling demo
+#    (>= 2.3.0, o il branch feature/a3-sso-demo finché non è rilasciato):
+git fetch origin && git checkout <ref>
+composer install --no-dev
+php database/migrate.php
+
+# 2. In .env:
+#    APP_URL=https://demo.example.org
+#    DEMO_MODE=true
+
+# 3. Primo caricamento del dataset (equivale a un reset completo):
+php favilla demo:reset
+
+# 4. Cron dell'utente che possiede i file (es. www-data):
+#    * * * * *  cd /percorso/favilla && php favilla scheduler:run >> storage/logs/cron-scheduler.log 2>&1
+#    0 * * * *  cd /percorso/favilla && php favilla demo:reset    >> storage/logs/demo-reset.log    2>&1
+```
+
+Il cron dello scheduler serve comunque (reminder, coda notifiche, retention);
+quello orario è l'equivalente del sidecar `demo-reset` dello stack Docker.
+Per il noindex senza toccare il repo, aggiungi nel vhost Apache:
+
+```apache
+Header always set X-Robots-Tag "noindex, nofollow"
+```
+
 ## 3. Reset manuale
+
+Stack Docker:
 
 ```bash
 docker compose -f docker-compose.yml -f docker-compose.demo.yml \
   exec -T app php favilla demo:reset
 ```
+
+Installazione nativa: `php favilla demo:reset` dalla root del progetto.
 
 Il comando si rifiuta di girare senza `DEMO_MODE=true` nell'ambiente: è la
 guardia che protegge le installazioni reali.
