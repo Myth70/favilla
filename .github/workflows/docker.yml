@@ -36,7 +36,7 @@ jobs:
 
       # QEMU emulates arm64 so buildx can cross-compile both platforms.
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@v4
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
