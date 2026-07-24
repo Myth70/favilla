@@ -84,6 +84,7 @@ class MessageController extends Controller
             'conversationId'   => $convId,
             'hasOlderMessages' => $result['hasOlderMessages'],
             'othersMaxReadAt'  => $result['othersMaxReadAt'],
+            'reactionsMap'     => $result['reactionsMap'] ?? [],
         ]);
     }
 

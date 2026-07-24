@@ -140,6 +140,24 @@ tuya, activa los cuatro módulos de equipo desde **Admin → Módulos** y cambia
 edición en **Admin → Configuración** — sin reinstalación, sin migración, sin
 exportar/importar.
 
+## Estado del proyecto
+
+**Desde la 2.4.0 Favilla está completa y congelada.** Está en producción y se
+mantiene, pero ya no crece: los veinte módulos, las 105 tablas y la API REST v1
+que tienes hoy son la superficie definitiva.
+
+Es una decisión, no un abandono. Los proyectos self-hosted mueren de alcance, no
+de errores: la lista de funcionalidades acaba superando a la persona que la
+mantiene. Congelar mientras todo funciona y está cubierto por los tests es lo que
+mantiene el software fiable — y aburridas las actualizaciones.
+
+**Lo que continúa:** actualizaciones de seguridad y de dependencias, correcciones
+de comportamientos que no hacen lo que dicen, finalización de los cinco idiomas.
+**Lo que no:** nuevos módulos, tablas, rutas, permisos o funcionalidades. Si los
+necesitas, haz un fork — el sistema de módulos está hecho para eso.
+
+Política completa en **[STABILITY.md](STABILITY.md)**.
+
 ## Instalación y documentación completa
 
 La instalación con Docker o XAMPP, los requisitos, la actualización, la lista

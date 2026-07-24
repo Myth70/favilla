@@ -26,9 +26,10 @@ public/index.php → bootstrap/app.php → Application::boot() → ModuleLoader
 | Controller | HTTP, input, sanitization, form validation, flash, redirect, render | call a Repository, hold complex business logic |
 | Service | business logic, domain rules, side-effects, orchestration, typed exceptions | read `$_GET`/`$_POST`, render/redirect |
 | Repository | SQL, data access, lifecycle hooks, whitelisting | business logic, HTTP knowledge |
-| View | rendering, escaping, layout, partials, HTMX fragments | build queries, mutate, print unescaped output |
+| View | rendering, escaping, layout, partials, HTMX fragments | resolve or call a Repository, build queries, mutate, print unescaped output |
 
-- `MUST`: never `Controller → Repository` directly. Resolve app dependencies via `app(ClassName::class)`.
+- `MUST`: never `Controller → Repository` directly, and never `View → Repository`. Resolve app dependencies via `app(ClassName::class)`.
+- `MUST`: a view receives everything it renders as data. Batching a query to avoid an N+1 is a **service** concern — doing it inside the view, where it is easy to reach for `app(SomeRepository::class)`, is how the rule gets broken in practice. Pass the prepared map down instead; see `TeamsService::buildReactionsMap()` for the shape.
 
 ## 4. Off-limits framework surfaces
 Module work **extends** the framework, it does not modify it. Do not open these for writing during feature work:

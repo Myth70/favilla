@@ -2,6 +2,7 @@
     "name": "Home",
     "icon": "fa-solid fa-house",
     "version": "2.0.0",
+    "stability": "stable",
     "description": "Dashboard principale, ricerca globale e preferenze utente (tema, sidebar, colore)",
     "database": "shared",
     "tables": [

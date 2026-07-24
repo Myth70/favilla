@@ -2,6 +2,7 @@
     "name": "Admin",
     "icon": "fa-solid fa-gear",
     "version": "2.0.0",
+    "stability": "stable",
     "description": "Pannello di amministrazione: utenti, ruoli, permessi, moduli, impostazioni, email, log e changelog",
     "database": "shared",
     "tables": [

@@ -140,6 +140,24 @@ aktiviere die vier Team-Module über **Admin → Module** und wechsle die Editio
 unter **Admin → Konfiguration** — keine Neuinstallation, keine Migration, kein
 Export/Import.
 
+## Projektstatus
+
+**Seit 2.4.0 ist Favilla fertig und eingefroren.** Sie läuft produktiv und wird
+weiter gepflegt, wächst aber nicht mehr: Die zwanzig Module, die 105 Tabellen und
+die REST-API v1 von heute sind der endgültige Umfang.
+
+Das ist eine Entscheidung, kein Rückzug. Self-hosted-Projekte sterben am Umfang,
+nicht an Fehlern: Die Funktionsliste wächst der einen Person über den Kopf, die
+sie pflegt. Einzufrieren, solange alles funktioniert und durch Tests abgedeckt
+ist, hält die Software verlässlich — und die Updates langweilig.
+
+**Was weitergeht:** Sicherheitsupdates und Abhängigkeits-Bumps, Korrekturen an
+Verhalten, das nicht hält was es verspricht, Vervollständigung der fünf Sprachen.
+**Was nicht:** neue Module, Tabellen, Routen, Berechtigungen oder Funktionen.
+Wer sie braucht, forkt — genau dafür ist das Modulsystem gebaut.
+
+Vollständige Richtlinie in **[STABILITY.md](STABILITY.md)**.
+
 ## Installation und vollständige Dokumentation
 
 Die Installation mit Docker oder XAMPP, die Voraussetzungen, das Upgrade, die

@@ -46,6 +46,26 @@ abstract class DatabaseIntegrationTestCase extends TestCase
         return (string) (getenv('DB_TEST_NAME') ?: ($_ENV['DB_TEST_NAME'] ?? 'favilla_ci_test'));
     }
 
+    /**
+     * Server coordinates for the throwaway test database.
+     *
+     * @return array{host:string,port:string,user:string,pass:string}
+     */
+    protected static function connectionParams(): array
+    {
+        $pass = getenv('DB_PASS');
+        if ($pass === false) {
+            $pass = (string) ($_ENV['DB_PASS'] ?? '');
+        }
+
+        return [
+            'host' => (string) (getenv('DB_HOST') ?: ($_ENV['DB_HOST'] ?? '127.0.0.1')),
+            'port' => (string) (getenv('DB_PORT') ?: ($_ENV['DB_PORT'] ?? '3306')),
+            'user' => (string) (getenv('DB_USER') ?: ($_ENV['DB_USER'] ?? 'root')),
+            'pass' => (string) $pass,
+        ];
+    }
+
     public static function setUpBeforeClass(): void
     {
         $enabled = (getenv('RUN_DB_INTEGRATION') ?: ($_ENV['RUN_DB_INTEGRATION'] ?? '')) === '1';
@@ -54,13 +74,7 @@ abstract class DatabaseIntegrationTestCase extends TestCase
             return;
         }
 
-        $host = (string) (getenv('DB_HOST') ?: ($_ENV['DB_HOST'] ?? '127.0.0.1'));
-        $port = (string) (getenv('DB_PORT') ?: ($_ENV['DB_PORT'] ?? '3306'));
-        $user = (string) (getenv('DB_USER') ?: ($_ENV['DB_USER'] ?? 'root'));
-        $pass = getenv('DB_PASS');
-        if ($pass === false) {
-            $pass = (string) ($_ENV['DB_PASS'] ?? '');
-        }
+        ['host' => $host, 'port' => $port, 'user' => $user, 'pass' => $pass] = self::connectionParams();
         $db = self::testDbName();
 
         try {

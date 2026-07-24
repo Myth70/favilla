@@ -61,6 +61,30 @@ class GreetingUser
     }
 }
 
+// Dipendenza non risolvibile ma dichiarata nullable: prima veniva assorbita
+// iniettando null, ora deve fallire come qualsiasi altro errore di wiring.
+class NullableGreetingUser
+{
+    public ?Greeter $greeter;
+
+    public function __construct(?Greeter $greeter)
+    {
+        $this->greeter = $greeter;
+    }
+}
+
+// Dipendenza non risolvibile con default dichiarato: il default e' una scelta
+// esplicita di chi ha scritto il costruttore, quindi va onorata.
+class DefaultingGreetingUser
+{
+    public ?Greeter $greeter;
+
+    public function __construct(?Greeter $greeter = null)
+    {
+        $this->greeter = $greeter;
+    }
+}
+
 class ContainerTest extends TestCase
 {
     private Container $container;
@@ -195,12 +219,31 @@ class ContainerTest extends TestCase
         $this->assertSame('Ciao!', $user->greeter->greet());
     }
 
-    public function testNullableInterfaceResolvesToNull(): void
+    public function testUnresolvableNonNullableDependencyThrows(): void
     {
-        // GreetingUser requires Greeter but it's not bound
-        // If we had a nullable parameter, it should resolve to null
-        // Test that unresolvable non-nullable throws properly
+        // GreetingUser richiede Greeter, che non e' bindato.
         $this->expectException(RuntimeException::class);
         $this->container->make(GreetingUser::class);
+    }
+
+    /**
+     * Un parametro nullable non e' un permesso a fallire in silenzio: se il tipo
+     * non e' risolvibile si tratta di un errore di wiring, e va segnalato dove
+     * accade invece di diventare un null che esplode altrove.
+     */
+    public function testUnresolvableNullableDependencyThrowsInsteadOfInjectingNull(): void
+    {
+        $this->expectException(RuntimeException::class);
+        $this->expectExceptionMessageMatches('/cannot resolve parameter \[\$greeter\]/');
+
+        $this->container->make(NullableGreetingUser::class);
+    }
+
+    public function testUnresolvableDependencyWithDeclaredDefaultUsesTheDefault(): void
+    {
+        $user = $this->container->make(DefaultingGreetingUser::class);
+
+        $this->assertInstanceOf(DefaultingGreetingUser::class, $user);
+        $this->assertNull($user->greeter);
     }
 }

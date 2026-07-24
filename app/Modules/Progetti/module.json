@@ -2,6 +2,7 @@
     "name": "Progetti",
     "icon": "fa-solid fa-diagram-project",
     "version": "2.0.0",
+    "stability": "stable",
     "description": "Gestione progetti per PMI con milestone, task, gantt, timesheet e controllo budget",
     "author": "Prometeo",
     "framework_min": "1.0",

@@ -382,7 +382,12 @@ INSERT IGNORE INTO `changelogs` (`version`, `title`, `notes`, `release_date`, `i
     ('2.3.1', 'Aggiornamenti di sicurezza delle dipendenze', CONCAT_WS(CHAR(10),
         '- Librerie di terze parti aggiornate per chiudere alcune vulnerabilita note (generazione PDF, fogli di calcolo, client HTTP)',
         '- Rimossa una libreria JavaScript inclusa nel pacchetto ma mai utilizzata'
-    ), '2026-07-24', 1, 1, '2026-07-24 09:30:00', '2026-07-24 09:30:00');
+    ), '2026-07-24', 1, 1, '2026-07-24 09:30:00', '2026-07-24 09:30:00'),
+    ('2.4.0', 'Favilla e completa: funzionalita congelate', CONCAT_WS(CHAR(10),
+        '- Favilla raggiunge la sua forma definitiva: venti moduli, il database e le API restano quelli che trovi oggi. Continuano aggiornamenti di sicurezza, correzioni e traduzioni',
+        '- Corretto un disallineamento tra gli orari scritti dall applicazione e quelli scritti dal database, visibile soprattutto sulle installazioni Docker',
+        '- Migliorata la solidita interna: errori di configurazione segnalati subito invece di manifestarsi piu tardi in modo confuso'
+    ), '2026-07-25', 1, 1, '2026-07-25 09:00:00', '2026-07-25 09:00:00');
 
 
 -- ------------------------------------------------------------------

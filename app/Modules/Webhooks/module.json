@@ -3,6 +3,7 @@
     "core": false,
     "icon": "fa-solid fa-bolt",
     "version": "1.0.0",
+    "stability": "stable",
     "description": "Webhook in uscita: notifica sistemi esterni (Zapier, n8n, endpoint custom) quando succede un evento, con firma HMAC, retry a backoff via Scheduler e protezione anti-SSRF.",
     "author": "Favilla",
     "database": "shared",

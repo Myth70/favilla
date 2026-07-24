@@ -52,11 +52,15 @@ class ModulePdoFactory
             $name
         );
 
-        self::$connections[$envPrefix] = new PDO($dsn, $user, $pass, [
+        // Share the main connection's options so an independent module database
+        // gets the same sql_mode and session time_zone as the shared one.
+        $options = config('database')['options'] ?? [
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::ATTR_EMULATE_PREPARES   => false,
-        ]);
+        ];
+
+        self::$connections[$envPrefix] = new PDO($dsn, $user, $pass, $options);
 
         return self::$connections[$envPrefix];
     }

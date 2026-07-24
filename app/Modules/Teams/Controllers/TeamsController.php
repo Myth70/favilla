@@ -80,6 +80,8 @@ class TeamsController extends Controller
                 'othersMaxReadAt'    => $data['othersMaxReadAt'],
                 'pinnedCount'        => $data['pinnedCount'] ?? 0,
                 'groupHeaderInfo'    => $data['groupHeaderInfo'] ?? [],
+                'reactionsMap'       => $data['reactionsMap'] ?? [],
+                'readByMap'          => $data['readByMap'] ?? [],
             ]);
             return;
         }
@@ -97,6 +99,8 @@ class TeamsController extends Controller
             'othersMaxReadAt'    => $data['othersMaxReadAt'],
             'pinnedCount'        => $data['pinnedCount'] ?? 0,
             'groupHeaderInfo'    => $data['groupHeaderInfo'] ?? [],
+            'reactionsMap'       => $data['reactionsMap'] ?? [],
+            'readByMap'          => $data['readByMap'] ?? [],
             'activeId'           => $convId,
             'showHidden'         => false,
         ]);

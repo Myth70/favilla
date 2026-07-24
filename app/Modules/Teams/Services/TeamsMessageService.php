@@ -123,11 +123,17 @@ class TeamsMessageService
 
         $messages = $this->messageRepo->getOlderThan($conversationId, $beforeId, 30);
 
+        $messageIds   = array_map(static fn (array $m): int => (int) $m['id'], $messages);
+        $reactionsMap = !empty($messageIds)
+            ? $this->messageRepo->getReactionsForMessages($messageIds)
+            : [];
+
         return [
             'conversation' => $conversation,
             'messages' => $messages,
             'hasOlderMessages' => !empty($messages) ? $this->messageRepo->hasOlderMessages($conversationId, (int) $messages[0]['id']) : false,
             'othersMaxReadAt' => $this->conversationRepo->getOthersMaxReadAt($conversationId, $userId),
+            'reactionsMap' => $reactionsMap,
         ];
     }
 

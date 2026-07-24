@@ -10,7 +10,8 @@ Quick pointers
 
 Important conventions (read before editing)
 
-- Layering: Controller → Service → Repository → View. Do not call Repositories from Controllers. See [CLAUDE.md](CLAUDE.md) and [docs/contracts/architecture.md](docs/contracts/architecture.md).
+- **FROZEN (v2.4.0): no new modules, tables, routes, permissions, API endpoints or features.** Only security fixes, bug fixes and translations are in scope. Read [STABILITY.md](STABILITY.md) before proposing work that grows the surface — `database/schema.sql` is locked by `tests/Unit/SchemaFreezeTest.php`.
+- Layering: Controller → Service → Repository → View. Do not call Repositories from Controllers — or from Views. See [CLAUDE.md](CLAUDE.md) and [docs/contracts/architecture.md](docs/contracts/architecture.md).
 - Do not modify framework surfaces (`app/Core/`, `app/Middleware/`, `app/Security/`, shared `app/Services/`, layouts/partials, `bootstrap/app.php`); extend inside your module instead. Full list in [CLAUDE.md](CLAUDE.md).
 - i18n: Always use `t()` for user-facing copy; Italian (`it`) is the canonical source. See [docs/contracts/i18n.md](docs/contracts/i18n.md) and [resources/lang/](resources/lang/).
 - Security: Use `csrf_field()` on mutating forms, escape output with `e()`, and use prepared statements. See [docs/contracts/security.md](docs/contracts/security.md).

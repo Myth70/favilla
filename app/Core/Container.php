@@ -155,18 +155,20 @@ class Container
                     if (str_contains($e->getMessage(), 'circular dependency')) {
                         throw $e;
                     }
-                    // If the type is not resolvable and the parameter has a default, use it.
-                    // Il fallback resta, ma va loggato: una dipendenza obbligatoria
-                    // mal configurata diventerebbe un null che esplode lontano dalla causa.
+                    // Una dipendenza non risolvibile e' un errore di wiring, non una
+                    // condizione da assorbire: iniettare null qui spostava soltanto
+                    // l'esplosione lontano dalla causa, dove il null arriva a un
+                    // metodo che non se lo aspetta. Si fallisce subito, con la catena.
+                    // Il default dichiarato resta invece una scelta esplicita di chi
+                    // ha scritto il costruttore, quindi si onora.
                     if ($param->isDefaultValueAvailable()) {
                         app_log('error', "Container: [{$typeName}] non risolvibile per [\${$param->getName()}] in [{$concrete}], uso il default. Causa: " . $e->getMessage());
                         $dependencies[] = $param->getDefaultValue();
-                    } elseif ($type->allowsNull()) {
-                        app_log('error', "Container: [{$typeName}] non risolvibile per [\${$param->getName()}] in [{$concrete}], inietto null. Causa: " . $e->getMessage());
-                        $dependencies[] = null;
                     } else {
                         throw new RuntimeException(
-                            "Container: cannot resolve parameter [\${$param->getName()}] of type [{$typeName}] in [{$concrete}]."
+                            "Container: cannot resolve parameter [\${$param->getName()}] of type [{$typeName}] in [{$concrete}]. Causa: " . $e->getMessage(),
+                            0,
+                            $e
                         );
                     }
                 }

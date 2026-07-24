@@ -2,6 +2,7 @@
     "name": "Auth",
     "icon": "fa-solid fa-lock",
     "version": "2.1.0",
+    "stability": "stable",
     "description": "Autenticazione, sessioni, recupero password, profilo utente e SSO OIDC",
     "database": "shared",
     "tables": [

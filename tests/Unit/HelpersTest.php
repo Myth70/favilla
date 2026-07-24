@@ -40,6 +40,36 @@ class HelpersTest extends TestCase
         $this->assertSame('', e(null));
     }
 
+    /**
+     * Le view passano abitualmente contatori, id e flag a e(). La firma deve
+     * accettarli davvero, non solo grazie alla coercizione che sparirebbe nel
+     * momento in cui una view dichiarasse strict_types.
+     */
+    public function testEscapesNonStringScalars(): void
+    {
+        $this->assertSame('42', e(42));
+        $this->assertSame('3.5', e(3.5));
+        $this->assertSame('1', e(true));
+        $this->assertSame('', e(false));
+    }
+
+    public function testEscapesStringableObjects(): void
+    {
+        $stringable = new class () implements \Stringable {
+            public function __toString(): string
+            {
+                return '<script>';
+            }
+        };
+
+        $this->assertSame('&lt;script&gt;', e($stringable));
+    }
+
+    public function testNonStringableValueBecomesEmptyStringInsteadOfFatal(): void
+    {
+        $this->assertSame('', e(['a', 'b']));
+    }
+
     public function testEnvReturnsDefaultForMissingKey(): void
     {
         unset($_ENV['THIS_KEY_DOES_NOT_EXIST']);
