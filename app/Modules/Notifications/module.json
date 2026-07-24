@@ -2,6 +2,7 @@
     "name": "Notifications",
     "icon": "fa-solid fa-bell",
     "version": "2.1.0",
+    "stability": "stable",
     "description": "Sistema notifiche con dispatcher multicanale: in-app, email, Telegram, Web Push, queue, preferenze utente e tracking delivery.",
     "author": "Favilla",
     "database": "shared",

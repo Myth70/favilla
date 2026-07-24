@@ -3,6 +3,7 @@
     "core": true,
     "icon": "fa-solid fa-calendar",
     "version": "2.0.0",
+    "stability": "stable",
     "description": "Calendario eventi personali e condivisi per ruolo con viste mensile, settimanale e giornaliera",
     "author": "Favilla",
     "framework_min": "1.0",

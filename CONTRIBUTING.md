@@ -4,6 +4,26 @@ Thanks for your interest in improving Favilla! This guide covers how to set up a
 dev environment, the conventions the codebase enforces, and how to get a change
 merged.
 
+> ## ⛔ Read this first: the project is frozen
+>
+> **As of v2.4.0 Favilla is feature-complete.** Read
+> [`STABILITY.md`](STABILITY.md) before you start writing code — it is short, and
+> it decides whether your change can be merged at all.
+>
+> **Accepted:** security fixes and dependency bumps · fixes for behaviour that
+> doesn't do what it says · translation completions and copy corrections.
+>
+> **Declined, however well implemented:** new modules, database tables, routes,
+> permissions or API endpoints · new features in existing modules · refactors of
+> working code.
+>
+> This is not a judgement on your idea. It is what keeps a project this size
+> maintainable by one person. If you need something we decline, **fork it** — the
+> module system exists precisely so a fork can add its own module without
+> touching the framework, and
+> [`docs/contracts/building-a-module.md`](docs/contracts/building-a-module.md)
+> documents the whole path.
+
 > The code and these docs are in **English**. The end-user interface ships in
 > five languages with **Italian as the canonical source**: new user-facing
 > strings go through `t()` in Italian first, then get their `en`/`fr`/`de`/`es`
@@ -52,24 +72,32 @@ These are enforced in review — see [`CLAUDE.md`](CLAUDE.md) and
 [`docs/contracts/`](docs/contracts/) for the full contracts.
 
 - **Layering:** `Controller → Service → Repository → View`. Never call a
-  Repository from a Controller. Resolve dependencies with `app(ClassName::class)`.
+  Repository from a Controller — or from a View. Resolve dependencies with
+  `app(ClassName::class)`.
 - **Security:** `csrf_field()` in every mutating form; `e()` on all untrusted
   output; prepared statements only; whitelist any user-driven `ORDER BY`. See
   [`SECURITY.md`](SECURITY.md) and [`docs/contracts/security.md`](docs/contracts/security.md).
 - **Routing:** static routes before parametric; a separate permission per action.
-- **New modules** go in the `sidebar` navigation; start from
+- **New modules** are not accepted upstream (see the freeze notice above), but
+  the tooling stays supported for forks: start from
   [`docs/contracts/building-a-module.md`](docs/contracts/building-a-module.md) or
-  `php favilla make:module ModuleName`.
+  `php favilla make:module ModuleName`. Application modules go in the `sidebar`
+  navigation; system/admin tooling goes in the admin catalog instead.
 - **Code style:** PSR-12, `declare(strict_types=1)` on new PHP files.
 
 ## Submitting a change
 
-1. Branch off `main`.
-2. Keep the change focused; add/adjust tests for new behavior.
-3. Before opening a PR, make sure these pass — CI runs all of them and they
+1. Check your change is in scope — see the freeze notice at the top.
+2. Branch off `main`.
+3. Keep the change focused; add/adjust tests for new behavior.
+4. Before opening a PR, make sure these pass — CI runs all of them and they
    are blocking: `composer test`, `composer stan`, `composer cs` and
    `php favilla lang:check`.
-4. Open a PR using the template; describe the change and how you tested it.
+5. Open a PR using the template; describe the change and how you tested it.
+
+If your change touches `database/schema.sql`, `tests/Unit/SchemaFreezeTest.php`
+will fail: the schema is frozen. That failure is the process working, not a
+broken test — see [`STABILITY.md`](STABILITY.md).
 
 ## Reporting security issues
 

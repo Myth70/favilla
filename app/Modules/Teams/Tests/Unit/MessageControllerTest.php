@@ -125,6 +125,31 @@ class MessageControllerTest extends ControllerTestCase
         $this->assertCount(1, $result->renderedData()['messages']);
     }
 
+    /**
+     * Lo scroll infinito verso l'alto renderizza messages_page, che disegna le
+     * reazioni da questa mappa. Costruirla dentro la view faceva sconfinare la
+     * view nel repository; ora arriva dal service e questo test lo tiene fermo.
+     */
+    public function testIndexPassesBatchedReactionsMapToTheView(): void
+    {
+        $first  = $this->insertMessage(1, 'primo');
+        $second = $this->insertMessage(2, 'secondo');
+        $this->insertRow('teams_message_reactions', [
+            'message_id' => $first, 'user_id' => 2, 'emoji' => '👍',
+        ]);
+
+        $data = $this->withGet(['before' => (string) $second])
+            ->dispatch(MessageController::class, 'index', [(string) $this->conv])
+            ->renderedData();
+
+        $this->assertArrayHasKey('reactionsMap', $data);
+        $this->assertArrayHasKey(
+            $first,
+            $data['reactionsMap'],
+            'Le reazioni dei messaggi piu vecchi devono arrivare gia batchate dal service.'
+        );
+    }
+
     public function testStoreCreatesMessageAndRendersBubble(): void
     {
         $result = $this->withPost(['body' => 'Ciao a tutti'])

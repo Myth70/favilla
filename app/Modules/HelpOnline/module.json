@@ -3,6 +3,7 @@
     "core": true,
     "icon": "fa-solid fa-circle-question",
     "version": "2.2.0",
+    "stability": "stable",
     "description": "Help inline contestuale, knowledge base utente (Q/R) e pannello amministrativo per moduli, alias, ricerca e analytics del supporto.",
     "author": "Favilla",
     "database": "shared",

@@ -320,24 +320,37 @@ coding agents navigate the codebase with full context.
 
 ## Project status
 
-Favilla is **stable and actively developed**, and runs in production. It follows
-[Semantic Versioning](https://semver.org/): within the current **2.x** line,
-minor and patch releases are backward-compatible — a breaking change would bump
-the major version. Still, skim the [changelog](CHANGELOG.md) before upgrading
-(and see [`UPGRADING.md`](UPGRADING.md)). Security fixes land on `main` and the
-latest release ([`SECURITY.md`](SECURITY.md)).
+**Favilla is feature-complete and frozen as of 2.4.0.** It runs in production and
+is actively maintained — but it is done growing. The twenty modules, 105 database
+tables and REST API v1 you get today are the final surface. See
+**[`STABILITY.md`](STABILITY.md)** for the full policy.
 
-Recently shipped (**2.3.1**, patching third-party security advisories in
-dompdf/guzzle/phpspreadsheet — on the 2.3.0 feature release): **complete backups**
-that bundle uploaded files and documents next to the SQL dump (restore brings them
-back), a broader **REST API v1** across five modules, and a fully reworked **demo
-dataset** — an international remote team ("Aurora Studio") on a rolling current-year
-timeline, with `demo:reset`/`demo:refresh` for public demos. Earlier (2.2.0): Web Push with an
-installable PWA, the token-authenticated public REST API and outgoing **webhooks**
-(HMAC-signed, anti-SSRF) — see the [developer reference](docs/api/README.md); and
-SSO (OIDC), prebuilt multi-arch Docker images and a one-command quickstart. On the
-near horizon: a native-speaker review pass on the `fr`/`de` translations, and LDAP
-as a second sign-in backend alongside OIDC.
+This is a deliberate choice, not a wind-down. Self-hosted projects usually die of
+scope, not of bugs: the feature list outgrows the one person maintaining it.
+Freezing while everything works and is covered by tests is what keeps the software
+dependable — and keeps your upgrades boring.
+
+**What continues:** security updates and dependency bumps, fixes for behaviour
+that doesn't do what it says, and completion of the five translations.
+**What doesn't:** new modules, tables, routes, permissions, or features. If you
+need those, fork it — the module system is built for exactly that.
+
+Versioning follows [Semantic Versioning](https://semver.org/): within the **2.x**
+line, minor and patch releases are backward-compatible. Because the schema is
+frozen, most future releases require no migration at all. Skim the
+[changelog](CHANGELOG.md) before upgrading (and see [`UPGRADING.md`](UPGRADING.md));
+security fixes land on `main` and the latest release ([`SECURITY.md`](SECURITY.md)).
+
+Shipped in **2.4.0**: the stability declaration itself, plus a small round of
+correctness fixes — a database session pinned to `APP_TIMEZONE` so PHP-written and
+SQL-written timestamps stop disagreeing on Docker, a layering fix in Teams, and
+strict failure on unresolvable dependencies instead of silent nulls. Earlier
+(**2.3.x**): complete backups bundling uploaded files with the SQL dump, a broader
+**REST API v1** across five modules, and a reworked **demo dataset** with
+`demo:reset`/`demo:refresh`. Before that (2.2.0): Web Push with an installable PWA,
+the token-authenticated REST API and outgoing **webhooks** (HMAC-signed, anti-SSRF,
+see the [developer reference](docs/api/README.md)), SSO (OIDC), prebuilt multi-arch
+Docker images and a one-command quickstart.
 
 ## Contributing
 

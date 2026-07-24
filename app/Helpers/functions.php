@@ -12,10 +12,25 @@
 if (!function_exists('e')) {
     /**
      * Escape HTML output to prevent XSS.
+     *
+     * Accetta mixed e non solo ?string: le view passano abitualmente int, float
+     * e bool (contatori, id, flag) e oggi funziona solo perche' nessuna di esse
+     * dichiara strict_types — la prima che lo facesse manderebbe in fatal la
+     * funzione con cui si difende ogni output. Il cast qui rende la firma onesta
+     * su come e() viene davvero chiamata, senza cambiare cosa restituisce.
      */
-    function e(?string $value): string
+    function e(mixed $value): string
     {
-        return htmlspecialchars($value ?? '', ENT_QUOTES, 'UTF-8');
+        if ($value === null || is_scalar($value) || $value instanceof Stringable) {
+            return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
+        }
+
+        // Array e oggetti non stringificabili non hanno una resa sensata: in
+        // produzione si preferisce una stringa vuota a un fatal in mezzo alla
+        // pagina, ma la causa va tracciata.
+        app_log('error', 'e(): valore non stringificabile di tipo ' . get_debug_type($value) . ', reso come stringa vuota.');
+
+        return '';
     }
 }
 

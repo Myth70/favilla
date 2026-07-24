@@ -123,22 +123,10 @@ reset($messages);
         $prevDate    = '';
 $prevUserId  = null;
 $prevMsgTime = null;
-$convRepo    = app(\App\Modules\Teams\Repositories\ConversationRepository::class);
-$msgRepo2    = app(\App\Modules\Teams\Repositories\MessageRepository::class);
-$msgIds      = array_column($messages, 'id');
-$reactionsMap = !empty($msgIds) ? $msgRepo2->getReactionsForMessages($msgIds) : [];
+// reactionsMap e readByMap arrivano gia' batchate da TeamsService::getConversationData().
+$reactionsMap = $reactionsMap ?? [];
+$readByMap    = $readByMap ?? [];
 $canPinMessages = ($conv['my_role'] ?? '') === 'admin' || has_permission('teams.admin');
-// Batch: precalcola "letto da N membri" per i miei messaggi in un'unica
-// query, evitando N+1 di countReadBy nel loop sotto.
-$myCreatedAts = [];
-foreach ($messages as $_m) {
-    if ((int) $_m['user_id'] === $currentUserId) {
-        $myCreatedAts[] = (string) $_m['created_at'];
-    }
-}
-$readByMap = !empty($myCreatedAts)
-    ? $convRepo->countReadByForMessages($conv['id'], $currentUserId, $myCreatedAts)
-    : [];
 foreach ($messages as $msg):
     $msgDate      = date('Y-m-d', strtotime($msg['created_at']));
     $msgTimestamp = strtotime($msg['created_at']);

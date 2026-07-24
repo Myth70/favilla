@@ -9,6 +9,68 @@ any breaking change would bump the major version.
 
 ## [Unreleased]
 
+## [2.4.0] - 2026-07-25
+
+**Favilla is now feature-complete and frozen.** See [`STABILITY.md`](STABILITY.md)
+for the full policy: what is frozen (schema, modules, routes, permissions, API v1),
+what stays open (security, bug fixes, translations) and what is declined.
+
+### Changed
+- **Stability declaration.** Added [`STABILITY.md`](STABILITY.md) and marked all
+  twenty modules `"stability": "stable"` in their `module.json`. The database
+  schema (105 tables) is frozen and locked by `tests/Unit/SchemaFreezeTest.php`,
+  which fails on any change to `database/schema.sql` — a deliberate update to the
+  fingerprint is now required, so schema changes cannot happen by accident.
+- The `Container` no longer injects `null` when a nullable constructor dependency
+  cannot be resolved. An unresolvable type is a wiring error, and it now fails
+  where it happens instead of surfacing as a null far from the cause. A dependency
+  with a declared default still receives that default — that is an explicit choice
+  by whoever wrote the constructor. This branch was previously untested; it is now
+  covered.
+- `e()` accepts `mixed` instead of `?string`. Views routinely pass ints, floats
+  and bools, which worked only because no view declares `strict_types` — the first
+  one to do so would have thrown a `TypeError` inside the function that guards
+  every output. Behaviour for strings and `null` is unchanged.
+
+### Fixed
+- **Timestamps written by PHP and by SQL `NOW()` no longer disagree.** The PDO
+  session is now pinned to `APP_TIMEZONE`, so `BaseRepository::applyTimestamps()`
+  and statements like `SET deleted_at = NOW()` share one clock. Without this, a
+  Docker install — where the official MariaDB image runs UTC while the app defaults
+  to `Europe/Rome` — wrote rows hours apart into the same column. Independent
+  module databases inherit the same session options. Guarded by
+  `tests/Integration/TimestampClockAlignmentIntegrationTest`.
+- Teams no longer resolves repositories from inside its views: the reactions and
+  "read by N" batches moved into `TeamsService`/`TeamsMessageService`, restoring
+  the `Controller → Service → Repository → View` layering. No view in the project
+  calls a repository any more.
+- PHPStan's `tmpDir` is now resolved from the project root rather than the current
+  working directory, which had been creating a nested
+  `storage/tmp/storage/tmp/phpstan-cache` whenever the analysis ran from elsewhere.
+
+### Documentation
+- `CONTRIBUTING.md` opens with the freeze policy, so contributors learn what is
+  in scope before writing code rather than after a PR is declined. The feature
+  request issue template does the same, and points at the bug template (still
+  fixed) and at forking (fully supported) as the two real paths forward.
+- `docs/contracts/architecture.md` states the layering rule for views explicitly:
+  a view resolving a repository is now named as a violation, with the note that
+  batching a query to avoid an N+1 belongs in the service — that is exactly how
+  the rule got broken in Teams.
+- `AGENTS.md` and `CLAUDE.md` carry the freeze as a leading non-negotiable.
+
+### Removed
+- `docs/roadmap.md`. Every item in it is now resolved: A1/A2 shipped in 2.3.0,
+  the layering item (B3) is fixed in this release, and the rest — full-text
+  search, import/export, the router index (B1) and the Progetti split (B4) — is
+  declined by the freeze. The two that were structural debt rather than features
+  are recorded as accepted debt in `STABILITY.md`, with reasons. Keeping a
+  forward-looking roadmap in a frozen project would only mislead.
+- **The planned migration from MariaDB to SQLite (v3.0.0) has been abandoned.**
+  MariaDB remains the only supported engine. The work in progress was reverted;
+  only the timezone fix above, which was never SQLite-specific, was kept. This is
+  recorded here so the decision is not rediscovered and reopened later.
+
 ## [2.3.1] - 2026-07-24
 
 ### Security

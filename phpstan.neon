@@ -3,7 +3,10 @@ includes:
 
 parameters:
     level: 6
-    tmpDir: storage/tmp/phpstan-cache
+    # Assoluto via %rootDir%: relativo, il path veniva risolto rispetto alla cwd
+    # del processo e non alla radice del progetto, creando una cache annidata
+    # (storage/tmp/storage/tmp/phpstan-cache) quando l'analisi partiva altrove.
+    tmpDir: %rootDir%/../../../storage/tmp/phpstan-cache
     paths:
         - app
     excludePaths:

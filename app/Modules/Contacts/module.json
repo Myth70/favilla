@@ -3,6 +3,7 @@
     "core": true,
     "icon": "fa-solid fa-address-book",
     "version": "2.0.0",
+    "stability": "stable",
     "description": "Rubrica contatti privata per utente con ricorrenze, reminder automatici e integrazione calendario",
     "database": "shared",
     "tables": ["contact_categories", "contacts", "contact_recurrences", "contact_shares"],

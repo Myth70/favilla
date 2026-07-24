@@ -2,6 +2,7 @@
     "name": "Blog",
     "icon": "fa-solid fa-newspaper",
     "version": "2.3.0",
+    "stability": "stable",
     "changelog": {
         "1.0.0": "Versione iniziale",
         "1.1.0": "Service layer, PDF export, articoli in evidenza, visibilità per ruolo, tempo lettura, UX professionale",

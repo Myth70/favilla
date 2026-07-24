@@ -3,6 +3,7 @@
     "core": true,
     "icon": "fa-solid fa-bug",
     "version": "1.0.0",
+    "stability": "stable",
     "description": "Segnalazione contestuale di bug e funzionalità: cattura automatica dell'ambiente (URL, modulo, route, errori console, sequenza di azioni, snapshot DOM) + console admin con triage ed export 'Copia per LLM'.",
     "author": "Favilla",
     "database": "shared",

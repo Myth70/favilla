@@ -16,9 +16,8 @@
 $prevDate    = '';
 $prevUserId  = null;
 $prevMsgTime = null;
-$_msgRepo    = app(\App\Modules\Teams\Repositories\MessageRepository::class);
-$_msgIds     = array_column($messages, 'id');
-$_reactionsMap = !empty($_msgIds) ? $_msgRepo->getReactionsForMessages($_msgIds) : [];
+// reactionsMap arriva gia' batchata da TeamsMessageService::getOlderMessages().
+$_reactionsMap = $reactionsMap ?? [];
 foreach ($messages as $msg):
     $msgDate      = date('Y-m-d', strtotime($msg['created_at']));
     $msgTimestamp = strtotime($msg['created_at']);

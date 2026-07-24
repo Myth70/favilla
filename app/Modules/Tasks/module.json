@@ -3,6 +3,7 @@
     "core": true,
     "icon": "fa-solid fa-clipboard-check",
     "version": "2.0.0",
+    "stability": "stable",
     "description": "Gestione attività personali con Kanban board, to-do list, checklist, integrazione calendario e notifiche scadenze",
     "author": "Favilla",
     "framework_min": "1.0",

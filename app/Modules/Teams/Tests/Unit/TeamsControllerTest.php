@@ -171,6 +171,50 @@ class TeamsControllerTest extends ControllerTestCase
         $this->assertCount(1, $result->renderedData()['messages']);
     }
 
+    /**
+     * chat_panel disegna reazioni e spunte "letto da N" da queste due mappe.
+     * Prima venivano costruite dentro la view chiamando i repository; ora
+     * arrivano dal service, e se smettessero di arrivare la chat resterebbe
+     * silenziosamente senza reazioni invece di rompersi in modo visibile.
+     */
+    public function testShowPassesBatchedReactionsAndReadByMapsToTheView(): void
+    {
+        $convId = $this->createDirect();
+        $msgId  = $this->insertRow('teams_messages', [
+            'conversation_id' => $convId, 'user_id' => 2, 'body' => 'Ciao!',
+        ]);
+        $this->insertRow('teams_message_reactions', [
+            'message_id' => $msgId, 'user_id' => 1, 'emoji' => '👍',
+        ]);
+
+        $data = $this->dispatch(TeamsController::class, 'show', [(string) $convId])->renderedData();
+
+        $this->assertArrayHasKey('reactionsMap', $data);
+        $this->assertArrayHasKey('readByMap', $data);
+        $this->assertArrayHasKey(
+            $msgId,
+            $data['reactionsMap'],
+            'Le reazioni del messaggio devono arrivare gia batchate dal service.'
+        );
+    }
+
+    public function testShowPassesTheSameMapsOnTheHtmxPartialBranch(): void
+    {
+        $convId = $this->createDirect();
+        $msgId  = $this->insertRow('teams_messages', [
+            'conversation_id' => $convId, 'user_id' => 2, 'body' => 'Ciao!',
+        ]);
+        $this->insertRow('teams_message_reactions', [
+            'message_id' => $msgId, 'user_id' => 1, 'emoji' => '🎉',
+        ]);
+
+        $result = $this->asHtmx()->dispatch(TeamsController::class, 'show', [(string) $convId]);
+
+        $this->assertSame('Teams/Views/partials/chat_panel', $result->renderedTemplate());
+        $this->assertArrayHasKey($msgId, $result->renderedData()['reactionsMap']);
+        $this->assertArrayHasKey('readByMap', $result->renderedData());
+    }
+
     // ── store / storeDirect ──────────────────────────────────────────────────
 
     public function testStoreCreatesGroupAndRedirects(): void

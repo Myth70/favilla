@@ -2,6 +2,7 @@
     "name": "Reports",
     "icon": "fa-solid fa-chart-bar",
     "version": "2.0.0",
+    "stability": "stable",
     "changelog": {
         "1.0.0": "Versione iniziale",
         "1.1.0": "Document Templates: generazione PDF da singolo record",

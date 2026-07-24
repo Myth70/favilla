@@ -2,6 +2,7 @@
     "name": "Teams",
     "icon": "fa-solid fa-comments",
     "version": "2.0.0",
+    "stability": "stable",
     "changelog": {
         "1.0.0": "Versione iniziale"
     },

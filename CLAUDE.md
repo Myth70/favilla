@@ -4,7 +4,8 @@ This file guides Claude Code (claude.ai/code) in this repository. It is the **al
 
 ## Non-negotiables
 
-- **Layering:** `Controller → Service → Repository → View`. Never call a Repository from a Controller. Resolve app dependencies via `app(ClassName::class)`.
+- **FROZEN (v2.4.0):** the project is feature-complete. **No new modules, tables, routes, permissions or API endpoints** — see [STABILITY.md](STABILITY.md) for what is still accepted (security, bug fixes, translations) and what is declined. `database/schema.sql` is locked by `tests/Unit/SchemaFreezeTest.php`. Read this before proposing any work that grows the surface.
+- **Layering:** `Controller → Service → Repository → View`. Never call a Repository from a Controller — **or from a View**. Resolve app dependencies via `app(ClassName::class)`.
 - **Don't modify framework surfaces** — extend inside your module instead: `app/Core/`, `app/Middleware/`, `app/Security/`, `app/Contracts/`, shared `app/Services/`, `app/Support/`, `app/Traits/ControllerHelpers.php`, `app/Helpers/functions.php`, `app/Repositories/BaseRepository.php`, `app/Views/layouts/`, `app/Views/partials/`, `bootstrap/app.php`, `public/index.php`. `app/Config/` only for core/system modules.
 - **Security:** `csrf_field()` in every mutating form; `e()` on all untrusted output; prepared statements only; whitelist any user-driven `ORDER BY`.
 - **Routing:** static routes (`/create`, `/search`, `/bulk-delete`) before parametric (`/{id}`); separate permission per action.

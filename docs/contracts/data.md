@@ -21,6 +21,9 @@
 | ownership | `created_by INT UNSIGNED NULL REFERENCES users(id) ON DELETE SET NULL` |
 | status | ENUM with a sensible default |
 | table name | snake_case plural |
+| clock | the PDO session runs in `APP_TIMEZONE` (`MYSQL_ATTR_INIT_COMMAND` in `app/Config/database.php`), so SQL `NOW()`/`CURDATE()` and PHP-written timestamps (`BaseRepository::applyTimestamps()`) share one clock |
+
+- `MUST`: any new PDO connection reuses `config('database')['options']`. Building an options array by hand drops the session timezone, and rows written through that connection land hours away from the rest — the official MariaDB image runs UTC while the app defaults to `Europe/Rome`. Guarded by `tests/Integration/TimestampClockAlignmentIntegrationTest`.
 
 ## 4. Repository contract
 - `MUST`: every module Repository extends `BaseRepository` and sets `protected string $table = 'table_name'`.

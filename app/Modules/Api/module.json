@@ -3,6 +3,7 @@
     "core": true,
     "icon": "fa-solid fa-plug",
     "version": "1.0.0",
+    "stability": "stable",
     "description": "API pubblica REST v1 con autenticazione a Personal Access Token, envelope JSON, rate limiting per token e gestione self-service dei token.",
     "author": "Favilla",
     "database": "shared",

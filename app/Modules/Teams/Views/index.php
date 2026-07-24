@@ -105,6 +105,8 @@ $view->pushScript('js/teams.js');
                     'othersMaxReadAt'    => $othersMaxReadAt ?? null,
                     'pinnedCount'        => $pinnedCount ?? 0,
                     'groupHeaderInfo'    => $groupHeaderInfo ?? [],
+                    'reactionsMap'       => $reactionsMap ?? [],
+                    'readByMap'          => $readByMap ?? [],
                 ]); ?>
             <?php else: ?>
                 <div class="tm-empty-state">

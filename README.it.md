@@ -137,6 +137,24 @@ moduli di team da **Admin → Moduli** e cambia edizione in **Admin →
 Configurazione** — nessuna reinstallazione, nessuna migrazione, nessun
 export/import.
 
+## Stato del progetto
+
+**Dalla 2.4.0 Favilla è completa e congelata.** È in produzione ed è mantenuta,
+ma non cresce più: i venti moduli, le 105 tabelle e la REST API v1 che trovi oggi
+sono la superficie definitiva.
+
+È una scelta, non un abbandono. I progetti self-hosted muoiono di scope, non di
+bug: la lista delle funzionalità supera la persona che le mantiene. Congelare
+mentre tutto funziona ed è coperto dai test è ciò che tiene il software
+affidabile — e rende noiosi gli aggiornamenti.
+
+**Continua:** sicurezza e aggiornamenti delle dipendenze, correzioni di
+comportamenti che non fanno quello che dichiarano, completamento delle cinque
+lingue. **Non continua:** nuovi moduli, tabelle, route, permessi o funzionalità.
+Se ti servono, fai un fork — il sistema a moduli è nato per questo.
+
+Policy completa in **[STABILITY.md](STABILITY.md)**.
+
 ## Installazione e documentazione completa
 
 Installazione con Docker o XAMPP, requisiti, aggiornamento, l'elenco completo delle

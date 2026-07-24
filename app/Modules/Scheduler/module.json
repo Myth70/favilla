@@ -2,6 +2,7 @@
     "name": "Scheduler",
     "icon": "fa-solid fa-clock",
     "version": "2.0.0",
+    "stability": "stable",
     "description": "Motore di scheduling per job periodici: notifiche, promemoria, publish, cleanup. Un solo cron entry: php favilla scheduler:run",
     "author": "Favilla",
     "framework_min": "1.0",

@@ -76,7 +76,44 @@ class TeamsService
             'othersMaxReadAt' => $this->conversationRepo->getOthersMaxReadAt($conversationId, $userId),
             'pinnedCount' => $this->messageRepo->countPinnedMessages($conversationId),
             'groupHeaderInfo' => $groupHeaderInfo,
+            'reactionsMap' => $this->buildReactionsMap($messages),
+            'readByMap' => $this->buildReadByMap($conversationId, $userId, $messages),
         ];
+    }
+
+    /**
+     * Reazioni di tutti i messaggi in una query sola.
+     *
+     * @param array<int, array<string, mixed>> $messages
+     * @return array<int, mixed>
+     */
+    private function buildReactionsMap(array $messages): array
+    {
+        $ids = array_map(static fn (array $m): int => (int) $m['id'], $messages);
+
+        return !empty($ids) ? $this->messageRepo->getReactionsForMessages($ids) : [];
+    }
+
+    /**
+     * "Letto da N membri" per i soli messaggi inviati da $userId, in una query
+     * sola: la spunta si calcola per ogni bolla e senza questo batch il render
+     * della conversazione farebbe un N+1 di countReadBy.
+     *
+     * @param array<int, array<string, mixed>> $messages
+     * @return array<string, int>
+     */
+    private function buildReadByMap(int $conversationId, int $userId, array $messages): array
+    {
+        $myCreatedAts = [];
+        foreach ($messages as $message) {
+            if ((int) $message['user_id'] === $userId) {
+                $myCreatedAts[] = (string) $message['created_at'];
+            }
+        }
+
+        return !empty($myCreatedAts)
+            ? $this->conversationRepo->countReadByForMessages($conversationId, $userId, $myCreatedAts)
+            : [];
     }
 
     public function getConversationListData(int $userId, string $search, bool $showHidden, ?int $activeId = null): array

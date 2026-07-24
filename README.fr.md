@@ -144,6 +144,25 @@ seulement la vôtre, activez les quatre modules d'équipe depuis **Admin → Mod
 et changez d'édition dans **Admin → Configuration** — aucune réinstallation, aucune
 migration, aucun export/import.
 
+## État du projet
+
+**Depuis la 2.4.0, Favilla est complète et gelée.** Elle tourne en production et
+reste maintenue, mais elle ne grandit plus : les vingt modules, les 105 tables et
+l'API REST v1 que vous avez aujourd'hui constituent la surface définitive.
+
+C'est un choix, pas un abandon. Les projets auto-hébergés meurent du périmètre,
+pas des bugs : la liste des fonctionnalités finit par dépasser la personne qui la
+maintient. Geler pendant que tout fonctionne et que tout est couvert par les tests,
+c'est ce qui garde le logiciel fiable — et les mises à jour ennuyeuses.
+
+**Ce qui continue :** correctifs de sécurité et mises à jour des dépendances,
+corrections des comportements qui ne font pas ce qu'ils annoncent, achèvement des
+cinq langues. **Ce qui s'arrête :** nouveaux modules, tables, routes, permissions
+ou fonctionnalités. Si vous en avez besoin, forkez — le système de modules est
+fait pour ça.
+
+Politique complète dans **[STABILITY.md](STABILITY.md)**.
+
 ## Installation et documentation complète
 
 L'installation avec Docker ou XAMPP, les prérequis, la mise à niveau, la liste
