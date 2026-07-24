@@ -1,7 +1,10 @@
 # Piano definitivo — Overhaul seed demo "Aurora Studio"
 
-> Stato: approvato (decisioni raccolte 2026-07-24). Ambizione: **Pieno**.
-> Deliverable a carico utente: **10 foto avatar** (vedi §2.4).
+> Stato: **IMPLEMENTATO** (2026-07-24, branch `feature/demo-seed-overhaul`).
+> Verificato dal `DemoSeederIntegrationTest` su MariaDB reale (5 test, 76
+> asserzioni) + suite completa verde (1966 test). Ambizione: **Pieno**.
+> Unico deliverable residuo a carico utente: **10 foto avatar** in
+> `database/seeds/demo/files/avatars/` (vedi §2.4; copia tollerante).
 
 ## 0. Principi & invarianti (da preservare)
 

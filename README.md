@@ -268,16 +268,21 @@ credentials to the public internet.
 ## Demo data
 
 Want to evaluate Favilla with content in it instead of an empty install? Load
-the demo dataset — a fictional creative agency (*Aurora Studio*) with projects
-(Gantt, timesheets), documents mid-approval-workflow, team chats, tasks,
-calendar, contacts and blog posts, plus real downloadable files:
+the demo dataset — a fictional creative agency (*Aurora Studio*) with an
+**international remote team** (10 users, two per locale it/en/fr/de/es, each with
+their own UI language, avatar and personalised dashboard). It ships projects
+(Gantt, timesheets), documents mid-approval-workflow, team chats (English
+groups + native-language DMs), reports, tasks, calendar (recurring events),
+contacts, English blog posts and system data — all on a rolling current-year
+timeline so it never looks stale, plus real downloadable files:
 
 - **Setup wizard**: tick *"Carica dati dimostrativi"* at the edition step;
-- **CLI**: `php favilla demo:seed` on an installed instance;
+- **CLI**: `php favilla demo:seed [--enable-modules]` on an installed instance;
 - **Docker**: `bash quickstart.sh --demo` (or `DEMO_DATA=true` with
   `AUTO_MIGRATE=true`) on first boot.
 
-The dataset includes the 10 weak-password test users above — evaluation
+Reset it any time with `php favilla demo:reset` and reload from scratch. The
+dataset includes 10 weak-password test users (password = username) — evaluation
 environments only.
 
 ## Upgrading

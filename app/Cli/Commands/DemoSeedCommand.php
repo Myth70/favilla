@@ -56,7 +56,8 @@ class DemoSeedCommand
         echo "  Sezioni caricate: {$loaded}\n";
         echo "  Sezioni saltate:  {$skipped}" . ($skipped > 0 ? ' (moduli disabilitati: abilita e rilancia con --force)' : '') . "\n";
         echo "  Asset copiati:    {$summary['files_copied']}\n";
-        echo "\nLogin dimostrativi (password = username, es. lucamarinelli/lucamarinelli):\n";
-        echo "  vedi database/seeds/test_users.sql — SOLO per ambienti di valutazione.\n";
+        echo "\nLogin dimostrativi (password = username, es. giuliaferrari/giuliaferrari):\n";
+        echo "  cast internazionale 'Aurora Studio' — vedi database/seeds/test_users.sql\n";
+        echo "  e database/seeds/demo/NARRATIVE.md — SOLO per ambienti di valutazione.\n";
     }
 }
