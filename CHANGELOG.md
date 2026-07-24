@@ -40,6 +40,13 @@ what stays open (security, bug fixes, translations) and what is declined.
   to `Europe/Rome` — wrote rows hours apart into the same column. Independent
   module databases inherit the same session options. Guarded by
   `tests/Integration/TimestampClockAlignmentIntegrationTest`.
+- The MariaDB integration harness now aligns PHP's clock with `APP_TIMEZONE`, the
+  same thing `Application::boot()` does in production. It never did, which went
+  unnoticed while the session clock was left at the server default: pinning the
+  session (above) without pinning PHP left the suite running on two clocks and
+  failed the scheduler tests on any host whose `php.ini` is not on
+  `APP_TIMEZONE` — a CI runner, typically. The harness now reproduces the
+  production setup rather than the host's.
 - Teams no longer resolves repositories from inside its views: the reactions and
   "read by N" batches moved into `TeamsService`/`TeamsMessageService`, restoring
   the `Controller → Service → Repository → View` layering. No view in the project
