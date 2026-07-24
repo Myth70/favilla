@@ -39,6 +39,7 @@ class Console
         'help:import'                     => Commands\HelpImportCommand::class,
         'demo:seed'                       => Commands\DemoSeedCommand::class,
         'demo:reset'                      => Commands\DemoResetCommand::class,
+        'demo:refresh'                    => Commands\DemoRefreshCommand::class,
     ];
 
     public function run(array $argv): int
