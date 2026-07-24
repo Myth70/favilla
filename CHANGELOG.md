@@ -10,6 +10,20 @@ any breaking change would bump the major version.
 ## [Unreleased]
 
 ### Added
+- **Demo dataset overhaul — international "Aurora Studio"**: the demo cast is now
+  10 users, two per locale (it/en/fr/de/es), each with their own UI language,
+  avatar (`avatar_path`), personalised dashboard (`user_preferences` +
+  `user_widget_preferences`) and personal tasks/calendar/contacts/files. Content
+  spreads across a **rolling current year** (never looks stale) with recurring
+  calendar events; projects gain a 4th (staggered timelines); Teams gains
+  English work groups + native-language DMs and image/PDF attachments; the blog
+  is ~10 English articles (one scheduled, one pinned, cover images). New demo
+  coverage for previously-unseeded modules: **Reports** (templates, style
+  presets, history), **Feedback**, per-user **notification preferences**,
+  **HealthCheck/Backup/Scheduler** minimal data and inert **Webhooks/API** demo
+  entries. Demo-only permission grants let Managers/Users actually use
+  Projects/Documents. New **`php favilla demo:reset`** command wipes the demo
+  data (rows, users, grants, assets) for a clean reload.
 - **API v1 breadth** (roadmap A2): the REST API grows from the two-module pilot
   to five modules. New endpoints: **Contacts write** (`POST/PUT/DELETE
   /contacts`, partial updates, owned contacts only), **Calendar read**

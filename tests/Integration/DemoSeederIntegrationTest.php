@@ -113,4 +113,96 @@ final class DemoSeederIntegrationTest extends DatabaseIntegrationTestCase
 
         $this->assertSame($before, $after, 'Il ricaricamento --force ha duplicato le righe');
     }
+
+    public function testExtendedSectionsLoadWithIntegrityAndUtf8(): void
+    {
+        $this->loadRequiredSeed();
+        $seeder = $this->seeder();
+        $seeder->enableOptionalModules();
+        $seeder->run();
+
+        // Sezioni/moduli nuovi popolati.
+        foreach ([
+            'user_preferences', 'user_widget_preferences', 'report_templates', 'report_history',
+            'feedback', 'user_notification_preferences', 'healthcheck_runs', 'backup_history',
+            'scheduler_jobs', 'webhook_endpoints', 'personal_access_tokens',
+        ] as $table) {
+            $count = (int) self::$pdo->query("SELECT COUNT(*) FROM `{$table}`")->fetchColumn();
+            $this->assertGreaterThan(0, $count, "Tabella {$table} vuota dopo il seed demo");
+        }
+
+        // avatar_path valorizzato per tutti e 10 gli utenti del cast.
+        $withAvatar = (int) self::$pdo->query(
+            'SELECT COUNT(*) FROM users WHERE id BETWEEN 3 AND 12 AND avatar_path IS NOT NULL'
+        )->fetchColumn();
+        $this->assertSame(10, $withAvatar);
+
+        // Nessun orfano FK nelle nuove relazioni delicate.
+        $orphanChecks = [
+            'teams_message_attachments → messages' => 'SELECT COUNT(*) FROM teams_message_attachments a LEFT JOIN teams_messages m ON m.id = a.message_id WHERE m.id IS NULL',
+            'teams_message_mentions → messages'    => 'SELECT COUNT(*) FROM teams_message_mentions x LEFT JOIN teams_messages m ON m.id = x.message_id WHERE m.id IS NULL',
+            'teams_message_reactions → users'      => 'SELECT COUNT(*) FROM teams_message_reactions r LEFT JOIN users u ON u.id = r.user_id WHERE u.id IS NULL',
+            'user_widget_preferences → users'      => 'SELECT COUNT(*) FROM user_widget_preferences w LEFT JOIN users u ON u.id = w.user_id WHERE u.id IS NULL',
+        ];
+        foreach ($orphanChecks as $label => $query) {
+            $this->assertSame(0, (int) self::$pdo->query($query)->fetchColumn(), "Orfani FK: {$label}");
+        }
+
+        // Grant demo: il ruolo Manager (2) ha i permessi Progetti e Documenti.
+        foreach (['progetti.view', 'documenti.controllo'] as $slug) {
+            $has = (int) self::$pdo->query(
+                "SELECT COUNT(*) FROM role_permission rp JOIN permissions p ON p.id = rp.permission_id
+                 WHERE rp.role_id = 2 AND p.slug = '{$slug}'"
+            )->fetchColumn();
+            $this->assertSame(1, $has, "Manager privo del permesso demo {$slug}");
+        }
+
+        // utf8mb4 round-trip: accenti (DE) ed emoji (ES) preservati.
+        $de = (string) self::$pdo->query('SELECT body FROM teams_messages WHERE id = 9026')->fetchColumn();
+        $this->assertStringContainsString('läuft', $de);
+        $es = (string) self::$pdo->query('SELECT body FROM teams_messages WHERE id = 9029')->fetchColumn();
+        $this->assertStringContainsString('🍀', $es);
+
+        // Coerenza size_bytes seedati vs file reali degli asset.
+        $assetDir = BASE_PATH . '/database/seeds/demo/files';
+        $fileSize = (int) self::$pdo->query('SELECT size_bytes FROM files WHERE id = 9001')->fetchColumn();
+        $this->assertSame((int) filesize($assetDir . '/contratto-rossetti.pdf'), $fileSize);
+        $attSize = (int) self::$pdo->query('SELECT size_bytes FROM teams_message_attachments WHERE id = 9002')->fetchColumn();
+        $this->assertSame((int) filesize($assetDir . '/moodboard-campagna.png'), $attSize);
+    }
+
+    public function testResetRemovesAllDemoData(): void
+    {
+        $this->loadRequiredSeed();
+        $seeder = $this->seeder();
+        $seeder->enableOptionalModules();
+        $seeder->run();
+
+        $seeder->reset();
+
+        // Utenti demo rimossi.
+        $this->assertSame(
+            0,
+            (int) self::$pdo->query('SELECT COUNT(*) FROM users WHERE id BETWEEN 3 AND 12')->fetchColumn()
+        );
+
+        // Righe demo (id >= 9000) rimosse dalle tabelle principali.
+        foreach (['tasks', 'calendar_events', 'contacts', 'files', 'projects', 'teams_messages', 'documenti', 'blog_articles', 'report_templates', 'feedback'] as $table) {
+            $this->assertSame(
+                0,
+                (int) self::$pdo->query("SELECT COUNT(*) FROM `{$table}` WHERE id >= 9000")->fetchColumn(),
+                "Righe demo residue in {$table}"
+            );
+        }
+
+        // Guard e grant demo rimossi.
+        $this->assertFalse($seeder->alreadyLoaded());
+        $this->assertSame(
+            0,
+            (int) self::$pdo->query(
+                "SELECT COUNT(*) FROM role_permission rp JOIN permissions p ON p.id = rp.permission_id
+                 WHERE rp.role_id = 2 AND p.slug = 'progetti.view'"
+            )->fetchColumn()
+        );
+    }
 }
