@@ -9,6 +9,22 @@ any breaking change would bump the major version.
 
 ## [Unreleased]
 
+## [2.3.1] - 2026-07-24
+
+### Security
+- Updated third-party dependencies to clear newly published advisories:
+  **`dompdf/dompdf`** 2.0.8 → **3.1.6** (major bump; file-existence oracles, DoS
+  via oversized/BMP images, local file read via SVG data-URI, chroot bypass),
+  **`phpoffice/phpspreadsheet`** 5.8.0 → **5.9.0** (memory exhaustion on
+  crafted XLS/Gnumeric, WEBSERVICE SSRF whitelist bypass) and
+  **`guzzlehttp/guzzle`** 7.13.3 → **7.15.1** (referer/cookie leakage, response
+  cookie DoS, proxy-auth header). The app's PDF engine uses only dompdf's stable
+  API, so the major bump is transparent.
+
+### Removed
+- Dropped the unused bundled `plotly.min.js` — it was never wired up; ApexCharts
+  covers all charting.
+
 ## [2.3.0] - 2026-07-24
 
 ### Added

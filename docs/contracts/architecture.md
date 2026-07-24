@@ -6,7 +6,7 @@
 ## 1. Identity and stack
 - `MUST`: Favilla is a **custom modular monolith** — not Laravel, Symfony, Blade/Twig, no CDN. For new code, do not introduce external-framework conventions.
 - `MUST`: stack PHP ≥ 8.2, MariaDB 10.4, Bootstrap 5.3.3, HTMX 2.0.4, Font Awesome 6.7.2.
-- `NOTE`: stack dependencies — Monolog, PHPMailer, PhpSpreadsheet, dompdf, HTMLPurifier, Dotenv. JS charting in `public/assets/js/vendor/`: ApexCharts (widgets/dashboard) and Plotly.js (advanced analytics) → [`ui.md`](ui.md).
+- `NOTE`: stack dependencies — Monolog, PHPMailer, PhpSpreadsheet, dompdf, HTMLPurifier, Dotenv. JS charting: ApexCharts (`public/assets/js/apexcharts.min.js`, widgets/dashboard/analytics) → [`ui.md`](ui.md).
 
 ## 2. Request lifecycle
 ```

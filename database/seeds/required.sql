@@ -378,7 +378,11 @@ INSERT IGNORE INTO `changelogs` (`version`, `title`, `notes`, `release_date`, `i
         '- Backup completi: gli archivi includono ora i file caricati (upload e documenti) accanto al dump del database, e il ripristino li riporta allo stato del backup',
         '- API REST v1 ampliata a cinque moduli: scrittura Contatti e lettura Calendario, Progetti e Documenti, sempre con gli scope dei token',
         '- Dataset demo "Aurora Studio" rinnovato: team remoto internazionale multilingua con contenuti distribuiti su tutto l anno, piu i comandi di reset e ripristino per demo pubbliche'
-    ), '2026-07-24', 1, 1, '2026-07-24 09:00:00', '2026-07-24 09:00:00');
+    ), '2026-07-24', 1, 1, '2026-07-24 09:00:00', '2026-07-24 09:00:00'),
+    ('2.3.1', 'Aggiornamenti di sicurezza delle dipendenze', CONCAT_WS(CHAR(10),
+        '- Librerie di terze parti aggiornate per chiudere alcune vulnerabilita note (generazione PDF, fogli di calcolo, client HTTP)',
+        '- Rimossa una libreria JavaScript inclusa nel pacchetto ma mai utilizzata'
+    ), '2026-07-24', 1, 1, '2026-07-24 09:30:00', '2026-07-24 09:30:00');
 
 
 -- ------------------------------------------------------------------
