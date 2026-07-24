@@ -9,6 +9,8 @@ any breaking change would bump the major version.
 
 ## [Unreleased]
 
+## [2.3.0] - 2026-07-24
+
 ### Added
 - **Demo dataset overhaul — international "Aurora Studio"**: the demo cast is now
   10 users, two per locale (it/en/fr/de/es), each with their own UI language,

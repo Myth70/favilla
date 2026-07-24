@@ -327,12 +327,16 @@ the major version. Still, skim the [changelog](CHANGELOG.md) before upgrading
 (and see [`UPGRADING.md`](UPGRADING.md)). Security fixes land on `main` and the
 latest release ([`SECURITY.md`](SECURITY.md)).
 
-Recently shipped (**2.2.0**): Web Push notifications with an installable PWA, a
-token-authenticated public **REST API v1**, and outgoing **webhooks** (HMAC-signed,
-anti-SSRF) — see the [developer reference](docs/api/README.md). Earlier: SSO
-(OIDC), a loadable demo dataset, prebuilt multi-arch Docker images and a
-one-command quickstart. On the near horizon: a native-speaker review pass on the
-`fr`/`de` translations, and LDAP as a second sign-in backend alongside OIDC.
+Recently shipped (**2.3.0**): **complete backups** that bundle uploaded files and
+documents next to the SQL dump (restore brings them back), a broader **REST API
+v1** across five modules, and a fully reworked **demo dataset** — an international
+remote team ("Aurora Studio") on a rolling current-year timeline, with
+`demo:reset`/`demo:refresh` for public demos. Earlier (2.2.0): Web Push with an
+installable PWA, the token-authenticated public REST API and outgoing **webhooks**
+(HMAC-signed, anti-SSRF) — see the [developer reference](docs/api/README.md); and
+SSO (OIDC), prebuilt multi-arch Docker images and a one-command quickstart. On the
+near horizon: a native-speaker review pass on the `fr`/`de` translations, and LDAP
+as a second sign-in backend alongside OIDC.
 
 ## Contributing
 

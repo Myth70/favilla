@@ -373,7 +373,12 @@ INSERT IGNORE INTO `changelogs` (`version`, `title`, `notes`, `release_date`, `i
         '- Notifiche Web Push su browser e desktop e app installabile (PWA) con schermata offline',
         '- API REST pubblica v1 a token personali con scope, envelope JSON e rate limit, documentata in OpenAPI',
         '- Webhook in uscita verso sistemi esterni con firma HMAC datata, retry automatici e protezione anti-SSRF'
-    ), '2026-07-11', 1, 1, '2026-07-11 09:00:00', '2026-07-11 09:00:00');
+    ), '2026-07-11', 1, 1, '2026-07-11 09:00:00', '2026-07-11 09:00:00'),
+    ('2.3.0', 'Backup completi, API ampliata e demo internazionale', CONCAT_WS(CHAR(10),
+        '- Backup completi: gli archivi includono ora i file caricati (upload e documenti) accanto al dump del database, e il ripristino li riporta allo stato del backup',
+        '- API REST v1 ampliata a cinque moduli: scrittura Contatti e lettura Calendario, Progetti e Documenti, sempre con gli scope dei token',
+        '- Dataset demo "Aurora Studio" rinnovato: team remoto internazionale multilingua con contenuti distribuiti su tutto l anno, piu i comandi di reset e ripristino per demo pubbliche'
+    ), '2026-07-24', 1, 1, '2026-07-24 09:00:00', '2026-07-24 09:00:00');
 
 
 -- ------------------------------------------------------------------
