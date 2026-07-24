@@ -22,8 +22,11 @@ any breaking change would bump the major version.
   presets, history), **Feedback**, per-user **notification preferences**,
   **HealthCheck/Backup/Scheduler** minimal data and inert **Webhooks/API** demo
   entries. Demo-only permission grants let Managers/Users actually use
-  Projects/Documents. New **`php favilla demo:reset`** command wipes the demo
-  data (rows, users, grants, assets) for a clean reload.
+  Projects/Documents. New **`php favilla demo:reset`** wipes the demo data
+  (rows, users, grants, assets) for a clean reload, and **`php favilla
+  demo:refresh`** restores a whole demo instance to a pristine state
+  (`migrate --fresh` + reseed, uploads included) — for public demos that reset
+  on a schedule via an external cron.
 - **API v1 breadth** (roadmap A2): the REST API grows from the two-module pilot
   to five modules. New endpoints: **Contacts write** (`POST/PUT/DELETE
   /contacts`, partial updates, owned contacts only), **Calendar read**

@@ -63,6 +63,8 @@ php favilla make:migration ModuleName migrationName
 php favilla help:export                # dumpa la KB Help Online in database/help/<modulo>.json
 php favilla help:import [--module=X] [--force]   # importa la KB Help Online da database/help/*.json
 php favilla demo:seed [--force] [--enable-modules]   # carica i dati demo "Aurora Studio" (seeds in database/seeds/demo/)
+php favilla demo:reset [--yes]          # rimuove i dati demo (righe id>=9000, utenti 3-12, grant, asset, guard)
+php favilla demo:refresh [--yes] [--keep-uploads]   # ripristino PRISTINE (migrate --fresh + demo:seed) per demo pubbliche a reset periodico
 
 # Static analysis (PHPStan level 6 + baseline)
 php vendor/bin/phpstan analyse -c phpstan.neon    # or: composer stan

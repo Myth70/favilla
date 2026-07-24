@@ -57,6 +57,11 @@ service so they stay in sync:
 | `AUTO_MIGRATE`   | `true` — on an **empty** DB, load the schema + seeds on first boot; on a populated DB, apply only pending migrations (never destructive). Omit it to use the web installer instead. |
 | `DEMO_DATA`      | `true` (optional) — load the "Aurora Studio" demo dataset on first boot of an empty DB |
 
+> **Public demo that resets on a schedule?** Run `php favilla demo:refresh --yes`
+> from a scheduled job (a Railway cron service, not the in-app scheduler — it
+> drops the DB mid-run) to restore the instance to a pristine state each cycle,
+> wiping any visitor sign-ups and uploads. Point it at the demo's own database.
+
 Generate an `APP_KEY` locally:
 
 ```bash
