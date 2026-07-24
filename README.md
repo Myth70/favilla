@@ -281,9 +281,12 @@ timeline so it never looks stale, plus real downloadable files:
 - **Docker**: `bash quickstart.sh --demo` (or `DEMO_DATA=true` with
   `AUTO_MIGRATE=true`) on first boot.
 
-Reset it any time with `php favilla demo:reset` and reload from scratch. The
-dataset includes 10 weak-password test users (password = username) — evaluation
-environments only.
+Reset it any time with `php favilla demo:reset` and reload from scratch. For a
+**public demo that resets on a schedule**, `php favilla demo:refresh --yes`
+restores the whole instance to a pristine state in one shot (`migrate --fresh` +
+reseed, wiping visitor sign-ups and uploads too) — run it from an external
+cron/Task Scheduler, never the in-app scheduler. The dataset includes 10
+weak-password test users (password = username) — evaluation environments only.
 
 ## Upgrading
 
