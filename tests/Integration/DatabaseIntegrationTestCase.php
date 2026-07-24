@@ -74,6 +74,17 @@ abstract class DatabaseIntegrationTestCase extends TestCase
             return;
         }
 
+        // Allinea l'orologio PHP ad APP_TIMEZONE come fa Application::boot() in
+        // produzione. La connessione applica lo stesso fuso alla sessione SQL
+        // (MYSQL_ATTR_INIT_COMMAND in app/Config/database.php): impostarne solo
+        // uno dei due lascerebbe l'harness con due orologi diversi — che e'
+        // esattamente il bug che quella init command chiude — e i test che
+        // confrontano timestamp scritti da PHP con NOW() fallirebbero per un
+        // disallineamento che in produzione non esiste. Su una macchina il cui
+        // php.ini gira gia' su APP_TIMEZONE la riga non cambia nulla; su un
+        // runner CI (UTC) e' cio' che rende l'harness rappresentativo.
+        date_default_timezone_set(env('APP_TIMEZONE', 'Europe/Rome'));
+
         ['host' => $host, 'port' => $port, 'user' => $user, 'pass' => $pass] = self::connectionParams();
         $db = self::testDbName();
 
