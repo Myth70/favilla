@@ -69,9 +69,8 @@ Module CSS/JS: `MUST` live in `public/assets/{css,js}/`, prefixed classes, JS wr
 ## 7. Charting
 | Library | Path | When |
 |---|---|---|
-| ApexCharts | `public/assets/js/apexcharts.min.js` | dashboard widgets, KPI cards, quick charts |
-| Plotly.js v3.5.1 | `public/assets/js/vendor/plotly.min.js` | advanced analytics (scatter, heatmap, box, complex time series, SVG/PNG export) |
-- `SHOULD`: dashboard `chart` widgets use ApexCharts (matches the `chartId`/`chartType`/`series`/`options` contract); analytics modules use Plotly.
+| ApexCharts | `public/assets/js/apexcharts.min.js` | dashboard widgets, KPI cards, quick charts, analytics |
+- `SHOULD`: dashboard `chart` widgets use ApexCharts (matches the `chartId`/`chartType`/`series`/`options` contract).
 - `MUST`: charts/widgets reread CSS tokens via `window.FavillaTheme.readCssVar()` and rebuild after `favilla:theme-state-changed`.
 
 ## 8. Theme runtime
